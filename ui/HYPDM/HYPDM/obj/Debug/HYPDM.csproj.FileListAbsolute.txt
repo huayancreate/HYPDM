@@ -33,3 +33,6 @@ D:\HYPDM-UI\HYPDM\HYPDM\obj\Debug\HYPDM.parts.ProductRegForm.resources
 D:\HYPDM-UI\HYPDM\HYPDM\obj\Debug\HYPDM.parts.UseMsgForm.resources
 D:\HYPDM-UI\HYPDM\HYPDM\obj\Debug\HYPDM.parts.PartsInfoForm.resources
 D:\HYPDM-UI\HYPDM\HYPDM\obj\Debug\HYPDM.parts.ConnectForm.resources
+D:\My Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\bin\Debug\HYPDM.exe.config
+D:\My Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\obj\Debug\HYPDM.exe
+D:\My Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\obj\Debug\HYPDM.pdb
