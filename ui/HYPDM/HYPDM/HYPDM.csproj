@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F8C41DB3-FE6F-429B-A8B7-239B5D2C5DE2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HYPDM</RootNamespace>
+    <AssemblyName>HYPDM</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="document\FileViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="document\FileViewForm.Designer.cs">
+      <DependentUpon>FileViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="document\GuideRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="document\GuideRegForm.Designer.cs">
+      <DependentUpon>GuideRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="document\PhysicalFileRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="document\PhysicalFileRegForm.Designer.cs">
+      <DependentUpon>PhysicalFileRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="graph\GraphRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="graph\GraphRegForm.Designer.cs">
+      <DependentUpon>GraphRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="graph\InitGraphForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="graph\InitGraphForm.Designer.cs">
+      <DependentUpon>InitGraphForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="graph\PartsRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="graph\PartsRegForm.Designer.cs">
+      <DependentUpon>PartsRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MianForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MianForm.Designer.cs">
+      <DependentUpon>MianForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="parts\ConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parts\ConnectForm.Designer.cs">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="parts\PartsInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parts\PartsInfoForm.Designer.cs">
+      <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="parts\ProductRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parts\ProductRegForm.Designer.cs">
+      <DependentUpon>ProductRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="parts\UseMsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parts\UseMsgForm.Designer.cs">
+      <DependentUpon>UseMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="process\AppointUserFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="process\AppointUserFrom.Designer.cs">
+      <DependentUpon>AppointUserFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="process\SolveFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="process\SolveFrom.Designer.cs">
+      <DependentUpon>SolveFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="process\LogisticApprovalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="process\LogisticApprovalForm.Designer.cs">
+      <DependentUpon>LogisticApprovalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="process\StandardApprovalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="process\StandardApprovalForm.Designer.cs">
+      <DependentUpon>StandardApprovalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="document\FileViewForm.resx">
+      <DependentUpon>FileViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="document\GuideRegForm.resx">
+      <DependentUpon>GuideRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="document\PhysicalFileRegForm.resx">
+      <DependentUpon>PhysicalFileRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="graph\GraphRegForm.resx">
+      <DependentUpon>GraphRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="graph\InitGraphForm.resx">
+      <DependentUpon>InitGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="graph\PartsRegForm.resx">
+      <DependentUpon>PartsRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MianForm.resx">
+      <DependentUpon>MianForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parts\ConnectForm.resx">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parts\PartsInfoForm.resx">
+      <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parts\ProductRegForm.resx">
+      <DependentUpon>ProductRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parts\UseMsgForm.resx">
+      <DependentUpon>UseMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="process\AppointUserFrom.resx">
+      <DependentUpon>AppointUserFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="process\SolveFrom.resx">
+      <DependentUpon>SolveFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="process\LogisticApprovalForm.resx">
+      <DependentUpon>LogisticApprovalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="process\StandardApprovalForm.resx">
+      <DependentUpon>StandardApprovalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\索引.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
