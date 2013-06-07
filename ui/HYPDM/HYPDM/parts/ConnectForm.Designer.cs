@@ -28,24 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("ProEngineer");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("PID图纸");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("焊点图");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("机架图纸");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("平面布置图");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("箱体图纸");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("AutoCAD图纸", new System.Windows.Forms.TreeNode[] {
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("图纸", new System.Windows.Forms.TreeNode[] {
-            treeNode19,
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Class", new System.Windows.Forms.TreeNode[] {
-            treeNode26});
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("ProEngineer");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("PID图纸");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("焊点图");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("机架图纸");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("平面布置图");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("箱体图纸");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("AutoCAD图纸", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("图纸", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Class", new System.Windows.Forms.TreeNode[] {
+            treeNode8});
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -72,6 +73,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.popupMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -79,6 +84,7 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.popupMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -125,40 +131,40 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(5, 3);
             this.treeView1.Name = "treeView1";
-            treeNode19.Name = "节点2";
-            treeNode19.Text = "ProEngineer";
-            treeNode20.Name = "节点4";
-            treeNode20.Text = "PID图纸";
-            treeNode21.Name = "节点5";
-            treeNode21.Text = "焊点图";
-            treeNode22.Name = "节点7";
-            treeNode22.Text = "机架图纸";
-            treeNode23.Name = "节点8";
-            treeNode23.Text = "平面布置图";
-            treeNode24.Name = "节点9";
-            treeNode24.Text = "箱体图纸";
-            treeNode25.Name = "节点3";
-            treeNode25.Text = "AutoCAD图纸";
-            treeNode26.Name = "节点10";
-            treeNode26.Text = "图纸";
-            treeNode27.Name = "节点1";
-            treeNode27.Text = "Class";
+            treeNode1.Name = "节点2";
+            treeNode1.Text = "ProEngineer";
+            treeNode2.Name = "节点4";
+            treeNode2.Text = "PID图纸";
+            treeNode3.Name = "节点5";
+            treeNode3.Text = "焊点图";
+            treeNode4.Name = "节点7";
+            treeNode4.Text = "机架图纸";
+            treeNode5.Name = "节点8";
+            treeNode5.Text = "平面布置图";
+            treeNode6.Name = "节点9";
+            treeNode6.Text = "箱体图纸";
+            treeNode7.Name = "节点3";
+            treeNode7.Text = "AutoCAD图纸";
+            treeNode8.Name = "节点10";
+            treeNode8.Text = "图纸";
+            treeNode9.Name = "节点1";
+            treeNode9.Text = "Class";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode27});
+            treeNode9});
             this.treeView1.Size = new System.Drawing.Size(167, 385);
             this.treeView1.TabIndex = 0;
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -176,6 +182,7 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(527, 308);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Column1
             // 
@@ -323,6 +330,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "选择";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -332,6 +340,33 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "关闭";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // popupMenu
+            // 
+            this.popupMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加ToolStripMenuItem,
+            this.修改ToolStripMenuItem,
+            this.删除ToolStripMenuItem});
+            this.popupMenu.Name = "popupMenu";
+            this.popupMenu.Size = new System.Drawing.Size(95, 70);
+            // 
+            // 添加ToolStripMenuItem
+            // 
+            this.添加ToolStripMenuItem.Name = "添加ToolStripMenuItem";
+            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.添加ToolStripMenuItem.Text = "添加";
+            // 
+            // 修改ToolStripMenuItem
+            // 
+            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.修改ToolStripMenuItem.Text = "修改";
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
             // 
             // ConnectForm
             // 
@@ -354,6 +389,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.popupMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -386,6 +422,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ContextMenuStrip popupMenu;
+        private System.Windows.Forms.ToolStripMenuItem 添加ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
 
     }
 }
