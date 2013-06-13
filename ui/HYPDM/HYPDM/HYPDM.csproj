@@ -44,11 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="document\FileViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="document\FileViewControl.Designer.cs">
+      <DependentUpon>FileViewControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="document\FileViewForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="document\FileViewForm.Designer.cs">
       <DependentUpon>FileViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="document\GuideRegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="document\GuideRegControl.Designer.cs">
+      <DependentUpon>GuideRegControl.cs</DependentUpon>
     </Compile>
     <Compile Include="document\GuideRegForm.cs">
       <SubType>Form</SubType>
@@ -56,11 +68,23 @@
     <Compile Include="document\GuideRegForm.Designer.cs">
       <DependentUpon>GuideRegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="document\PhysicalFileRegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="document\PhysicalFileRegControl.Designer.cs">
+      <DependentUpon>PhysicalFileRegControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="document\PhysicalFileRegForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="document\PhysicalFileRegForm.Designer.cs">
       <DependentUpon>PhysicalFileRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="graph\GraphRegForm.cs">
       <SubType>Form</SubType>
@@ -86,17 +110,35 @@
     <Compile Include="MianForm.Designer.cs">
       <DependentUpon>MianForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="parts\ConnectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="parts\ConnectControl.Designer.cs">
+      <DependentUpon>ConnectControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="parts\ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="parts\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="parts\PartsInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="parts\PartsInfoControl.Designer.cs">
+      <DependentUpon>PartsInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="parts\PartsInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="parts\PartsInfoForm.Designer.cs">
       <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="parts\ProductRegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="parts\ProductRegControl.Designer.cs">
+      <DependentUpon>ProductRegControl.cs</DependentUpon>
     </Compile>
     <Compile Include="parts\ProductRegForm.cs">
       <SubType>Form</SubType>
@@ -136,14 +178,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="document\FileViewControl.resx">
+      <DependentUpon>FileViewControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="document\FileViewForm.resx">
       <DependentUpon>FileViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="document\GuideRegControl.resx">
+      <DependentUpon>GuideRegControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="document\GuideRegForm.resx">
       <DependentUpon>GuideRegForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="document\PhysicalFileRegControl.resx">
+      <DependentUpon>PhysicalFileRegControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="document\PhysicalFileRegForm.resx">
       <DependentUpon>PhysicalFileRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="graph\GraphRegForm.resx">
       <DependentUpon>GraphRegForm.cs</DependentUpon>
@@ -157,11 +211,20 @@
     <EmbeddedResource Include="MianForm.resx">
       <DependentUpon>MianForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="parts\ConnectControl.resx">
+      <DependentUpon>ConnectControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="parts\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="parts\PartsInfoControl.resx">
+      <DependentUpon>PartsInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="parts\PartsInfoForm.resx">
       <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parts\ProductRegControl.resx">
+      <DependentUpon>ProductRegControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="parts\ProductRegForm.resx">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
