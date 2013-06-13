@@ -86,6 +86,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="graph\GraphRegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="graph\GraphRegControl.Designer.cs">
+      <DependentUpon>GraphRegControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="graph\GraphRegForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     <Compile Include="parts\PartsInfoForm.Designer.cs">
       <DependentUpon>PartsInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="parts\ProductInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="parts\ProductInfoControl.Designer.cs">
+      <DependentUpon>ProductInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="parts\ProductRegControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +157,12 @@
     </Compile>
     <Compile Include="parts\ProductRegForm.Designer.cs">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="parts\UseMsgControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="parts\UseMsgControl.Designer.cs">
+      <DependentUpon>UseMsgControl.cs</DependentUpon>
     </Compile>
     <Compile Include="parts\UseMsgForm.cs">
       <SubType>Form</SubType>
@@ -199,6 +217,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="graph\GraphRegControl.resx">
+      <DependentUpon>GraphRegControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="graph\GraphRegForm.resx">
       <DependentUpon>GraphRegForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,11 +244,17 @@
     <EmbeddedResource Include="parts\PartsInfoForm.resx">
       <DependentUpon>PartsInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="parts\ProductInfoControl.resx">
+      <DependentUpon>ProductInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="parts\ProductRegControl.resx">
       <DependentUpon>ProductRegControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="parts\ProductRegForm.resx">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="parts\UseMsgControl.resx">
+      <DependentUpon>UseMsgControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="parts\UseMsgForm.resx">
       <DependentUpon>UseMsgForm.cs</DependentUpon>

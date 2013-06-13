@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace HYPDM.process
+namespace HYPDM.parts
 {
-    public partial class SolveFrom : Form
+    public partial class UseMsgControl : UserControl
     {
-        public SolveFrom()
+        public UseMsgControl()
         {
             InitializeComponent();
         }

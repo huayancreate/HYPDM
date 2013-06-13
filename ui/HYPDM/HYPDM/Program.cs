@@ -17,7 +17,7 @@ namespace HYPDM
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MianForm());
             //Application.Run(new graph.InitGraphForm());
-            Application.Run(new document.FileViewControl());
+            Application.Run(new graph.InitGraphForm());
         }
     }
 }

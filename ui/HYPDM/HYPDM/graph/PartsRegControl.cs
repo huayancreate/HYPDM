@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace HYPDM.process
+namespace HYPDM.graph
 {
-    public partial class StandardApprovalForm : Form
+    public partial class PartsRegControl : UserControl
     {
-        public StandardApprovalForm()
+        public PartsRegControl()
         {
             InitializeComponent();
         }
-
     }
 }
