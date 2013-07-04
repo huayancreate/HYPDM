@@ -1,0 +1,14 @@
+E:\NET项目\HYPDM\HYPDM.Res\bin\Debug\HYPDM.Res.dll
+E:\NET项目\HYPDM\HYPDM.Res\bin\Debug\HYPDM.Res.pdb
+E:\NET项目\HYPDM\bin\HYPDM.Res.dll
+E:\NET项目\HYPDM\bin\HYPDM.Res.pdb
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csprojResolveAssemblyReference.cache
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Banner.resources
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.BottomControl.resources
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.LoginForm.resources
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.MainForm.resources
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.NavigationControl.resources
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Welcome.resources
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csproj.GenerateResource.Cache
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.dll
+E:\NET项目\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.pdb

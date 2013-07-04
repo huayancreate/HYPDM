@@ -1,0 +1,9 @@
+03:17:19:196 09092  connect server, address:127.0.0.1, port:7712.
+03:17:19:196 09092  _CfsChannel::Send connecting or disconnecting
+03:17:19:416 09092  connect server succeeded.
+03:17:19:416 09092  QueryFileInfoReplyEvent id:, name:, date:   0- 0- 0
+04:16:03:018 08328  CfsChannel::Disconnect...............0
+04:16:03:018 08328  CfsChannel::Disconnect...............1
+04:16:03:018 08328  CfsChannel::Disconnect...............2
+04:16:03:018 08328  CfsChannel::Disconnect...............3
+04:16:03:018 08328  CfsChannel::Disconnect...............4

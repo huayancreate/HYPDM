@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD113808-ADBF-4CFA-88B8-AB06DEC82B9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HYPDM.WinUI</RootNamespace>
+    <AssemblyName>HYPDM.WinUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EAS.Data, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a550803c4cd9dbb5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\EAS.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EAS.Explorer, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a550803c4cd9dbb5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\EAS.Explorer.dll</HintPath>
+    </Reference>
+    <Reference Include="EAS.Explorer.Entities, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a550803c4cd9dbb5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\EAS.Explorer.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="EAS.MicroKernel, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a550803c4cd9dbb5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\EAS.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="EAS.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=a550803c4cd9dbb5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\EAS.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Eto.Platform.Windows">
+      <HintPath>C:\Users\wliu\Desktop\EtoForms-1.1.0\Release\Eto.Platform.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\ExpandableGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseUI\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseUI\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseUI\OpenFileDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseUI\OpenFileDialogForm.Designer.cs">
+      <DependentUpon>OpenFileDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\DetectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\DetectionForm.Designer.cs">
+      <DependentUpon>DetectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\FileViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Document\FileViewControl.Designer.cs">
+      <DependentUpon>FileViewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\FileViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\FileViewForm.Designer.cs">
+      <DependentUpon>FileViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\DocListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Document\DocListControl.designer.cs">
+      <DependentUpon>DocListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\DocRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\DocRegForm.Designer.cs">
+      <DependentUpon>DocRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\PhysicalFileRegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Document\PhysicalFileRegControl.designer.cs">
+      <DependentUpon>PhysicalFileRegControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\PhysicalFileRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\PhysicalFileRegForm.Designer.cs">
+      <DependentUpon>PhysicalFileRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graph\GraphRegForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Graph\GraphRegForm.Designer.cs">
+      <DependentUpon>GraphRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graph\InitGraphForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Graph\InitGraphForm.Designer.cs">
+      <DependentUpon>InitGraphForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Graph\PartsRegForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Graph\PartsRegForm.Designer.cs">
+      <DependentUpon>PartsRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\ConnectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parts\ConnectControl.Designer.cs">
+      <DependentUpon>ConnectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\ConnectForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parts\ConnectForm.Designer.cs">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\PartsInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parts\PartsInfoControl.designer.cs">
+      <DependentUpon>PartsInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\PartsInfoForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parts\PartsInfoForm.Designer.cs">
+      <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\ProductRegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parts\ProductRegControl.designer.cs">
+      <DependentUpon>ProductRegControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\ProductRegForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parts\ProductRegForm.Designer.cs">
+      <DependentUpon>ProductRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\UseMsgForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parts\UseMsgForm.Designer.cs">
+      <DependentUpon>UseMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\FTPDownUp.cs" />
+    <Compile Include="Util\Util.cs" />
+    <EmbeddedResource Include="BaseUI\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\DetectionForm.resx">
+      <DependentUpon>DetectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\FileViewControl.resx">
+      <DependentUpon>FileViewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\FileViewForm.resx">
+      <DependentUpon>FileViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\DocListControl.resx">
+      <DependentUpon>DocListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\DocRegForm.resx">
+      <DependentUpon>DocRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\PhysicalFileRegControl.resx">
+      <DependentUpon>PhysicalFileRegControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\PhysicalFileRegForm.resx">
+      <DependentUpon>PhysicalFileRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph\GraphRegForm.resx">
+      <DependentUpon>GraphRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph\InitGraphForm.resx">
+      <DependentUpon>InitGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph\PartsRegForm.resx">
+      <DependentUpon>PartsRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\ConnectControl.resx">
+      <DependentUpon>ConnectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\ConnectForm.resx">
+      <DependentUpon>ConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\PartsInfoControl.resx">
+      <DependentUpon>PartsInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\PartsInfoForm.resx">
+      <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\ProductRegControl.resx">
+      <DependentUpon>ProductRegControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\ProductRegForm.resx">
+      <DependentUpon>ProductRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\UseMsgForm.resx">
+      <DependentUpon>UseMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HYPDM.BLL.Contracts\HYPDM.BLL.Contracts.csproj">
+      <Project>{80350255-d508-4bf1-afd0-ad030beb3941}</Project>
+      <Name>HYPDM.BLL.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HYPDM.Entities\HYPDM.Entities.csproj">
+      <Project>{1ba28815-dca6-43b4-b98c-3a62ddc113f9}</Project>
+      <Name>HYPDM.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newGroupPostIconStrip.PNG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

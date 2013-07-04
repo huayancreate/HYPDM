@@ -1,0 +1,190 @@
+2013-06-18 09:39:07,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 09:39:11,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 09:39:11,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 09:45:01,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 09:45:01,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 09:45:15,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 09:45:15,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 09:45:41,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 09:45:42,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 09:52:36,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 09:52:36,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:02:21,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:02:29,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:02:29,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:04:51,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:05:01,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:05:10,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:05:10,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:07:15,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:07:16,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:07:26,Info - 组件定义:
+	Key=DbProvider,Type=EAS.Data.Access.SqlClientProvider,EAS.Data
+	Key=DataAccessor,Type=EAS.Data.Access.DataAccessor,EAS.Data
+	Key=OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=TSqlLanguage,Type=EAS.Data.Linq.TSqlLanguage,EAS.Data
+	Key=ServiceBridger,Type=EAS.Services.LocalServiceBridger,EAS.MicroKernel
+	Key=EAS.Explorer.Resource,Type=HYPDM.Res.Resources,HYPDM.Res
+	Key=EAS.Services.TimeService,Type=EAS.Services.TimeService,EAS.MicroKernel
+	Key=EAS.Data.ORM.OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=EAS.Data.Caching.CacheService,Type=EAS.Data.Caching.CacheService,EAS.Data
+	Key=EAS.Data.DataService,Type=EAS.Data.DataService,EAS.Data
+	Key=EAS.Explorer.BLL.NavigationService,Type=EAS.Explorer.BLL.NavigationService,EAS.Explorer.BLL.Host
+	Key=EAS.Reporting.ReportService,Type=EAS.Reporting.ReportService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.LogService,Type=EAS.Explorer.BLL.LogService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.InputDictService,Type=EAS.Explorer.BLL.InputDictService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.DesktopService,Type=EAS.Explorer.BLL.DesktopService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.ReportService,Type=EAS.Explorer.BLL.ReportService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.AppSettingService,Type=EAS.Explorer.BLL.AppSettingService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.PackageService,Type=EAS.Explorer.BLL.PackageService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.ACLService,Type=EAS.Explorer.BLL.ACLService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.ReportManageService,Type=EAS.Explorer.BLL.ReportManageService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.ModuleService,Type=EAS.Explorer.BLL.ModuleService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.RoleService,Type=EAS.Explorer.BLL.RoleService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.AccountService,Type=EAS.Explorer.BLL.AccountService,EAS.Explorer.BLL.Host
+	Key=EAS.BPM.BLL.WorkflowService,Type=EAS.BPM.BLL.WorkflowService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.LoginService,Type=EAS.Explorer.BLL.LoginService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.GroupService,Type=EAS.Explorer.BLL.GroupService,EAS.Explorer.BLL.Host
+
+2013-06-18 10:13:03,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:13:07,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:13:07,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:25:46,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:27:19,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:27:19,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:28:42,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:28:42,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:30:38,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:33:40,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:33:45,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:33:45,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:40:42,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:40:42,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:40:43,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:40:44,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:47:47,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:47:48,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 10:52:24,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:52:40,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 10:52:41,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 11:16:22,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 11:16:22,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 11:16:28,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 11:16:33,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 11:16:33,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 11:18:01,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 11:18:02,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 11:18:05,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 11:18:06,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 11:18:10,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 11:18:15,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 11:18:16,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:27:12,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:27:13,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:27:15,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:27:15,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:30:26,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:30:26,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:31:05,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:31:09,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:31:09,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:39:41,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:39:48,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:39:54,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:40:17,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:40:28,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:40:28,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:42:10,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:42:10,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:43:01,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:43:11,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:43:21,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:43:25,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:43:25,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:44:02,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:44:05,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:44:05,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 14:45:37,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:45:41,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 14:45:41,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:13:31,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:16:29,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:16:54,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:16:55,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:17:00,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:17:01,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:18:22,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:18:22,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:18:25,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:18:25,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:24:40,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:24:50,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:24:50,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:26:44,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:26:44,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:26:47,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:26:47,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:27:40,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:27:40,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:34:36,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:34:57,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:34:57,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:38:27,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:38:38,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:38:49,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:38:55,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:38:55,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:38:58,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:38:58,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:39:37,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:39:41,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:39:41,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:44:19,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:44:22,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:44:22,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:46:45,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:46:52,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:46:52,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:49:13,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:49:13,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:56:17,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:56:22,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:56:23,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 15:57:39,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:57:43,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 15:57:44,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:26:58,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:27:00,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:27:00,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:28:54,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:28:59,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:28:59,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:30:11,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:30:15,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:30:15,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:31:13,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:31:15,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:31:15,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:37:33,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:37:33,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:37:35,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:37:35,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:37:53,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:38:02,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:38:08,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:38:17,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:38:24,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:38:24,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:40:19,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:40:21,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:40:21,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:41:45,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:41:48,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:41:48,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:43:58,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:44:00,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:44:00,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
+2013-06-18 16:45:04,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:45:13,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:45:19,Info - BaseDirectory:=E:\NET项目\HYPDM\bin\
+2013-06-18 16:45:19,Info - Location=E:\NET项目\HYPDM\bin\EAS.MicroKernel.dll
