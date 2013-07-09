@@ -5,3 +5,8 @@ E:\NET项目\HYPDM\bin\HYPDM.BLL.Host.pdb
 E:\NET项目\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
 E:\NET项目\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
 E:\NET项目\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.dll
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.pdb
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\ResolveAssemblyReference.cache
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb

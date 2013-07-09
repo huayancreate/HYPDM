@@ -3,3 +3,8 @@ E:\NET项目\HYPDM\bin\HYPDM.Entities.pdb
 E:\NET项目\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
 E:\NET项目\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
 E:\NET项目\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.csprojResolveAssemblyReference.cache
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Entities.dll
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Entities.pdb
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\ResolveAssemblyReference.cache
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb

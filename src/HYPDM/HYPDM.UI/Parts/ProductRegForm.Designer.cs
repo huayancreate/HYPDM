@@ -31,21 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
+            this.txtCreateDate = new System.Windows.Forms.TextBox();
+            this.txtLastUpdateUser = new System.Windows.Forms.TextBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.txtWorkCenter = new System.Windows.Forms.TextBox();
+            this.txtProperty = new System.Windows.Forms.TextBox();
+            this.cmbUnit = new System.Windows.Forms.ComboBox();
+            this.cmbProductNoAttr = new System.Windows.Forms.ComboBox();
+            this.txtTechInstruction = new System.Windows.Forms.TextBox();
+            this.txtTechName = new System.Windows.Forms.TextBox();
+            this.cmbMatertial = new System.Windows.Forms.ComboBox();
+            this.txtSize = new System.Windows.Forms.TextBox();
+            this.txtModelNo = new System.Windows.Forms.TextBox();
+            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.txtProductNo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -62,16 +62,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnRegPart = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tbcContent = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtRemark = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.tabControl2.SuspendLayout();
+            this.tbcContent.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,21 +87,21 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage1.Controls.Add(this.textBox12);
-            this.tabPage1.Controls.Add(this.textBox11);
-            this.tabPage1.Controls.Add(this.textBox10);
-            this.tabPage1.Controls.Add(this.textBox9);
-            this.tabPage1.Controls.Add(this.textBox8);
-            this.tabPage1.Controls.Add(this.textBox7);
-            this.tabPage1.Controls.Add(this.comboBox3);
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.textBox6);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.txtLastUpdateDate);
+            this.tabPage1.Controls.Add(this.txtCreateDate);
+            this.tabPage1.Controls.Add(this.txtLastUpdateUser);
+            this.tabPage1.Controls.Add(this.txtStatus);
+            this.tabPage1.Controls.Add(this.txtWorkCenter);
+            this.tabPage1.Controls.Add(this.txtProperty);
+            this.tabPage1.Controls.Add(this.cmbUnit);
+            this.tabPage1.Controls.Add(this.cmbProductNoAttr);
+            this.tabPage1.Controls.Add(this.txtTechInstruction);
+            this.tabPage1.Controls.Add(this.txtTechName);
+            this.tabPage1.Controls.Add(this.cmbMatertial);
+            this.tabPage1.Controls.Add(this.txtSize);
+            this.tabPage1.Controls.Add(this.txtModelNo);
+            this.tabPage1.Controls.Add(this.txtProductName);
+            this.tabPage1.Controls.Add(this.txtProductNo);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.label13);
@@ -117,120 +117,123 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 21);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(248, 396);
+            this.tabPage1.Size = new System.Drawing.Size(248, 397);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "产品信息";
             // 
-            // textBox12
+            // txtLastUpdateDate
             // 
-            this.textBox12.Location = new System.Drawing.Point(99, 348);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(135, 21);
-            this.textBox12.TabIndex = 29;
+            this.txtLastUpdateDate.Enabled = false;
+            this.txtLastUpdateDate.Location = new System.Drawing.Point(99, 348);
+            this.txtLastUpdateDate.Name = "txtLastUpdateDate";
+            this.txtLastUpdateDate.Size = new System.Drawing.Size(135, 21);
+            this.txtLastUpdateDate.TabIndex = 29;
             // 
-            // textBox11
+            // txtCreateDate
             // 
-            this.textBox11.Location = new System.Drawing.Point(99, 324);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(135, 21);
-            this.textBox11.TabIndex = 28;
+            this.txtCreateDate.Enabled = false;
+            this.txtCreateDate.Location = new System.Drawing.Point(99, 324);
+            this.txtCreateDate.Name = "txtCreateDate";
+            this.txtCreateDate.Size = new System.Drawing.Size(135, 21);
+            this.txtCreateDate.TabIndex = 28;
             // 
-            // textBox10
+            // txtLastUpdateUser
             // 
-            this.textBox10.Location = new System.Drawing.Point(99, 300);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(135, 21);
-            this.textBox10.TabIndex = 27;
+            this.txtLastUpdateUser.Enabled = false;
+            this.txtLastUpdateUser.Location = new System.Drawing.Point(99, 300);
+            this.txtLastUpdateUser.Name = "txtLastUpdateUser";
+            this.txtLastUpdateUser.Size = new System.Drawing.Size(135, 21);
+            this.txtLastUpdateUser.TabIndex = 27;
             // 
-            // textBox9
+            // txtStatus
             // 
-            this.textBox9.Location = new System.Drawing.Point(99, 276);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(135, 21);
-            this.textBox9.TabIndex = 26;
+            this.txtStatus.Location = new System.Drawing.Point(99, 276);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(135, 21);
+            this.txtStatus.TabIndex = 26;
             // 
-            // textBox8
+            // txtWorkCenter
             // 
-            this.textBox8.Location = new System.Drawing.Point(99, 252);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(135, 21);
-            this.textBox8.TabIndex = 25;
+            this.txtWorkCenter.Location = new System.Drawing.Point(99, 252);
+            this.txtWorkCenter.Name = "txtWorkCenter";
+            this.txtWorkCenter.Size = new System.Drawing.Size(135, 21);
+            this.txtWorkCenter.TabIndex = 25;
             // 
-            // textBox7
+            // txtProperty
             // 
-            this.textBox7.Location = new System.Drawing.Point(99, 228);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(135, 21);
-            this.textBox7.TabIndex = 24;
+            this.txtProperty.Location = new System.Drawing.Point(99, 228);
+            this.txtProperty.Name = "txtProperty";
+            this.txtProperty.Size = new System.Drawing.Size(135, 21);
+            this.txtProperty.TabIndex = 24;
             // 
-            // comboBox3
+            // cmbUnit
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(99, 204);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(135, 20);
-            this.comboBox3.TabIndex = 23;
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Location = new System.Drawing.Point(99, 204);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(135, 20);
+            this.cmbUnit.TabIndex = 23;
             // 
-            // comboBox2
+            // cmbProductNoAttr
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(99, 180);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(135, 20);
-            this.comboBox2.TabIndex = 22;
+            this.cmbProductNoAttr.FormattingEnabled = true;
+            this.cmbProductNoAttr.Location = new System.Drawing.Point(99, 180);
+            this.cmbProductNoAttr.Name = "cmbProductNoAttr";
+            this.cmbProductNoAttr.Size = new System.Drawing.Size(135, 20);
+            this.cmbProductNoAttr.TabIndex = 22;
             // 
-            // textBox6
+            // txtTechInstruction
             // 
-            this.textBox6.Location = new System.Drawing.Point(99, 156);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(135, 21);
-            this.textBox6.TabIndex = 21;
+            this.txtTechInstruction.Location = new System.Drawing.Point(99, 156);
+            this.txtTechInstruction.Name = "txtTechInstruction";
+            this.txtTechInstruction.Size = new System.Drawing.Size(135, 21);
+            this.txtTechInstruction.TabIndex = 21;
             // 
-            // textBox5
+            // txtTechName
             // 
-            this.textBox5.Location = new System.Drawing.Point(99, 132);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(135, 21);
-            this.textBox5.TabIndex = 20;
+            this.txtTechName.Location = new System.Drawing.Point(99, 132);
+            this.txtTechName.Name = "txtTechName";
+            this.txtTechName.Size = new System.Drawing.Size(135, 21);
+            this.txtTechName.TabIndex = 20;
             // 
-            // comboBox1
+            // cmbMatertial
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(99, 108);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(135, 20);
-            this.comboBox1.TabIndex = 19;
+            this.cmbMatertial.FormattingEnabled = true;
+            this.cmbMatertial.Location = new System.Drawing.Point(99, 108);
+            this.cmbMatertial.Name = "cmbMatertial";
+            this.cmbMatertial.Size = new System.Drawing.Size(135, 20);
+            this.cmbMatertial.TabIndex = 19;
             // 
-            // textBox4
+            // txtSize
             // 
-            this.textBox4.Location = new System.Drawing.Point(99, 84);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(135, 21);
-            this.textBox4.TabIndex = 18;
+            this.txtSize.Location = new System.Drawing.Point(99, 84);
+            this.txtSize.Name = "txtSize";
+            this.txtSize.Size = new System.Drawing.Size(135, 21);
+            this.txtSize.TabIndex = 6;
             // 
-            // textBox3
+            // txtModelNo
             // 
-            this.textBox3.Location = new System.Drawing.Point(99, 60);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(135, 21);
-            this.textBox3.TabIndex = 17;
+            this.txtModelNo.Location = new System.Drawing.Point(99, 60);
+            this.txtModelNo.Name = "txtModelNo";
+            this.txtModelNo.Size = new System.Drawing.Size(135, 21);
+            this.txtModelNo.TabIndex = 5;
             // 
-            // textBox2
+            // txtProductName
             // 
-            this.textBox2.Location = new System.Drawing.Point(99, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(135, 21);
-            this.textBox2.TabIndex = 16;
+            this.txtProductName.Location = new System.Drawing.Point(99, 36);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(135, 21);
+            this.txtProductName.TabIndex = 4;
             // 
-            // textBox1
+            // txtProductNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(99, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 21);
-            this.textBox1.TabIndex = 15;
+            this.txtProductNo.Location = new System.Drawing.Point(99, 12);
+            this.txtProductNo.Name = "txtProductNo";
+            this.txtProductNo.Size = new System.Drawing.Size(135, 21);
+            this.txtProductNo.TabIndex = 3;
             // 
             // label15
             // 
@@ -370,23 +373,23 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
+            this.btnRegPart,
             this.toolStripButton2,
             this.toolStripButton3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(649, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(641, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // btnRegPart
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.btnRegPart.Image = ((System.Drawing.Image)(resources.GetObject("btnRegPart.Image")));
+            this.btnRegPart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRegPart.Name = "btnRegPart";
+            this.btnRegPart.Size = new System.Drawing.Size(49, 22);
+            this.btnRegPart.Text = "保存";
+            this.btnRegPart.Click += new System.EventHandler(this.btnRegPart_Click);
             // 
             // toolStripButton2
             // 
@@ -406,49 +409,50 @@
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // tabControl2
+            // tbcContent
             // 
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Location = new System.Drawing.Point(268, 28);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(377, 422);
-            this.tabControl2.TabIndex = 2;
+            this.tbcContent.Controls.Add(this.tabPage2);
+            this.tbcContent.Location = new System.Drawing.Point(268, 28);
+            this.tbcContent.Name = "tbcContent";
+            this.tbcContent.SelectedIndex = 0;
+            this.tbcContent.Size = new System.Drawing.Size(377, 422);
+            this.tbcContent.TabIndex = 2;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage2.Controls.Add(this.textBox13);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Controls.Add(this.txtRemark);
+            this.tabPage2.Location = new System.Drawing.Point(4, 21);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(369, 396);
+            this.tabPage2.Size = new System.Drawing.Size(369, 397);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "备注";
             // 
-            // textBox13
+            // txtRemark
             // 
-            this.textBox13.Location = new System.Drawing.Point(6, 12);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(357, 207);
-            this.textBox13.TabIndex = 0;
+            this.txtRemark.Location = new System.Drawing.Point(6, 12);
+            this.txtRemark.Multiline = true;
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(357, 207);
+            this.txtRemark.TabIndex = 0;
             // 
             // ProductRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tabControl2);
+            this.ClientSize = new System.Drawing.Size(641, 423);
+            this.Controls.Add(this.tbcContent);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
             this.Name = "ProductRegForm";
-            this.Size = new System.Drawing.Size(649, 457);
+            this.Text = "产品 注册";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
+            this.tbcContent.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -461,7 +465,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnRegPart;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.Label label9;
@@ -479,23 +483,23 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.ComboBox cmbMatertial;
+        private System.Windows.Forms.TextBox txtSize;
+        private System.Windows.Forms.TextBox txtModelNo;
+        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.TextBox txtProductNo;
+        private System.Windows.Forms.TextBox txtTechInstruction;
+        private System.Windows.Forms.TextBox txtTechName;
+        private System.Windows.Forms.ComboBox cmbUnit;
+        private System.Windows.Forms.ComboBox cmbProductNoAttr;
+        private System.Windows.Forms.TextBox txtLastUpdateDate;
+        private System.Windows.Forms.TextBox txtCreateDate;
+        private System.Windows.Forms.TextBox txtLastUpdateUser;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.TextBox txtWorkCenter;
+        private System.Windows.Forms.TextBox txtProperty;
+        private System.Windows.Forms.TabControl tbcContent;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtRemark;
     }
 }

@@ -221,7 +221,7 @@ namespace HYPDM.Entities
        /// </summary>
        [Column("CREATEUSER","创建日期"),DataSize(128)]
        [DisplayName("创建日期")]
-       public string CREATEUSER
+       public string CREATEDATE
        {
            get;
            set;
@@ -255,6 +255,39 @@ namespace HYPDM.Entities
        [Column("DRAWINGID","图号"),DataSize(128)]
        [DisplayName("图号")]
        public string DRAWINGID
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 产品类型 。
+       /// </summary>
+       [Column("PRODUCTTYPE","产品类型"),DataSize(128)]
+       [DisplayName("产品类型")]
+       public string PRODUCTTYPE
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 描述 。
+       /// </summary>
+       [Column("DESCRIPTION","描述"),DataSize(128)]
+       [DisplayName("描述")]
+       public string DESCRIPTION
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 英文描述 。
+       /// </summary>
+       [Column("ENGDESCRIPTION","英文描述"),DataSize(128)]
+       [DisplayName("英文描述")]
+       public string ENGDESCRIPTION
        {
            get;
            set;

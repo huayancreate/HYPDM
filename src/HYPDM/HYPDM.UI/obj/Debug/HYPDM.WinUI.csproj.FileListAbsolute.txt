@@ -24,3 +24,28 @@ E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Properties.Resources.resources
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.csproj.GenerateResource.Cache
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.dll
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.pdb
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.WinUI.dll.config
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.WinUI.dll
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.WinUI.pdb
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\ResolveAssemblyReference.cache
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.BaseUI.BaseForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.CheckInForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.DetectionForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.DocListControl.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.DocRegForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.graph.GraphRegForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.graph.InitGraphForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.graph.PartsRegForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.parts.ConnectControl.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.parts.ConnectForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.parts.PartsInfoControl.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.parts.PartsInfoForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Parts.ProductListControl.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.parts.ProductRegControl.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.parts.ProductRegForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.parts.UseMsgForm.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Properties.Resources.resources
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\GenerateResource.read.1.tlog
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\GenerateResource.write.1.tlog
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.dll
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.pdb

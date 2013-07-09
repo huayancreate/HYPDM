@@ -98,11 +98,23 @@
     <Compile Include="graph\GraphRegForm.Designer.cs">
       <DependentUpon>GraphRegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="graph\InitGraphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="graph\InitGraphControl.Designer.cs">
+      <DependentUpon>InitGraphControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="graph\InitGraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="graph\InitGraphForm.Designer.cs">
       <DependentUpon>InitGraphForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="graph\PartsRegControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="graph\PartsRegControl.Designer.cs">
+      <DependentUpon>PartsRegControl.cs</DependentUpon>
     </Compile>
     <Compile Include="graph\PartsRegForm.cs">
       <SubType>Form</SubType>
@@ -170,30 +182,6 @@
     <Compile Include="parts\UseMsgForm.Designer.cs">
       <DependentUpon>UseMsgForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="process\AppointUserFrom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="process\AppointUserFrom.Designer.cs">
-      <DependentUpon>AppointUserFrom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="process\SolveFrom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="process\SolveFrom.Designer.cs">
-      <DependentUpon>SolveFrom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="process\LogisticApprovalForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="process\LogisticApprovalForm.Designer.cs">
-      <DependentUpon>LogisticApprovalForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="process\StandardApprovalForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="process\StandardApprovalForm.Designer.cs">
-      <DependentUpon>StandardApprovalForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="document\FileViewControl.resx">
@@ -223,8 +211,14 @@
     <EmbeddedResource Include="graph\GraphRegForm.resx">
       <DependentUpon>GraphRegForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="graph\InitGraphControl.resx">
+      <DependentUpon>InitGraphControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="graph\InitGraphForm.resx">
       <DependentUpon>InitGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="graph\PartsRegControl.resx">
+      <DependentUpon>PartsRegControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="graph\PartsRegForm.resx">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
@@ -258,18 +252,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="parts\UseMsgForm.resx">
       <DependentUpon>UseMsgForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="process\AppointUserFrom.resx">
-      <DependentUpon>AppointUserFrom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="process\SolveFrom.resx">
-      <DependentUpon>SolveFrom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="process\LogisticApprovalForm.resx">
-      <DependentUpon>LogisticApprovalForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="process\StandardApprovalForm.resx">
-      <DependentUpon>StandardApprovalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -51,6 +51,7 @@
     <Compile Include="IMaxCodeService.cs" />
     <Compile Include="IMaxID.cs" />
     <Compile Include="IPhysicalFileService.cs" />
+    <Compile Include="IProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

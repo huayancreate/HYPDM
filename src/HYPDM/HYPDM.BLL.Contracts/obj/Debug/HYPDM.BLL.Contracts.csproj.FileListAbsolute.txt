@@ -5,3 +5,8 @@ E:\NET项目\HYPDM\bin\HYPDM.BLL.Contracts.pdb
 E:\NET项目\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.csprojResolveAssemblyReference.cache
 E:\NET项目\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
 E:\NET项目\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.dll
+D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.pdb
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\ResolveAssemblyReference.cache
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
+D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb

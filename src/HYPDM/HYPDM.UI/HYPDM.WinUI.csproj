@@ -154,6 +154,12 @@
     <Compile Include="Parts\PartsInfoForm.Designer.cs">
       <DependentUpon>PartsInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parts\ProductListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Parts\ProductListControl.Designer.cs">
+      <DependentUpon>ProductListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parts\ProductRegControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,7 +167,7 @@
       <DependentUpon>ProductRegControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Parts\ProductRegForm.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parts\ProductRegForm.Designer.cs">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Parts\PartsInfoForm.resx">
       <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\ProductListControl.resx">
+      <DependentUpon>ProductListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parts\ProductRegControl.resx">
       <DependentUpon>ProductRegControl.cs</DependentUpon>
