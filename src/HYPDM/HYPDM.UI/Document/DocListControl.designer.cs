@@ -57,11 +57,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -222,11 +218,7 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.DocName,
-            this.CustName,
-            this.CustNo,
             this.Remark,
-            this.Column9,
             this.DocStatus,
             this.UpdateUser,
             this.CreateDate,
@@ -274,42 +266,19 @@
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "作业号";
+            this.Column4.DataPropertyName = "DOCTYPE";
+            this.Column4.HeaderText = "文档分类";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            // 
-            // DocName
-            // 
-            this.DocName.DataPropertyName = "DOCNAME";
-            this.DocName.HeaderText = "名称";
-            this.DocName.Name = "DocName";
-            this.DocName.ReadOnly = true;
-            // 
-            // CustName
-            // 
-            this.CustName.DataPropertyName = "CUSTOMERNAME";
-            this.CustName.HeaderText = "客户名称";
-            this.CustName.Name = "CustName";
-            this.CustName.ReadOnly = true;
-            // 
-            // CustNo
-            // 
-            this.CustNo.DataPropertyName = "CUSTOMERPRONO";
-            this.CustNo.HeaderText = "客户项目号";
-            this.CustNo.Name = "CustNo";
-            this.CustNo.ReadOnly = true;
+            this.Column4.Width = 120;
             // 
             // Remark
             // 
+            this.Remark.DataPropertyName = "DESCRIPTION";
             this.Remark.HeaderText = "描述";
             this.Remark.Name = "Remark";
             this.Remark.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "来源";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
+            this.Remark.Width = 120;
             // 
             // DocStatus
             // 
@@ -386,11 +355,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DocName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdateUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;

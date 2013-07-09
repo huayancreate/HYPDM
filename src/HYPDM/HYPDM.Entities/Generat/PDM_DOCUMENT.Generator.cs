@@ -85,28 +85,6 @@ namespace HYPDM.Entities
        }
 
        /// <summary>
-       /// 客户名称 。
-       /// </summary>
-       [Column("CUSTOMERNAME","客户名称"),DataSize(128)]
-       [DisplayName("客户名称")]
-       public string CUSTOMERNAME
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 客户项目号 。
-       /// </summary>
-       [Column("CUSTOMERPRONO","客户项目号"),DataSize(128)]
-       [DisplayName("客户项目号")]
-       public string CUSTOMERPRONO
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
        /// 状态 。
        /// </summary>
        [Column("DOCSTATUS","状态"),DataSize(128)]
@@ -162,17 +140,6 @@ namespace HYPDM.Entities
        }
 
        /// <summary>
-       /// 物理文件 。
-       /// </summary>
-       [Column("PHYSICALFILE","物理文件"),DataSize(128)]
-       [DisplayName("物理文件")]
-       public string PHYSICALFILE
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
        /// 版本 。
        /// </summary>
        [Column("VERSION","版本"),DataSize(18)]
@@ -189,6 +156,17 @@ namespace HYPDM.Entities
        [Column("DOCNO","文档编号"),DataSize(128)]
        [DisplayName("文档编号")]
        public string DOCNO
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 描述 。
+       /// </summary>
+       [Column("DESCRIPTION","描述"),DataSize(128)]
+       [DisplayName("描述")]
+       public string DESCRIPTION
        {
            get;
            set;

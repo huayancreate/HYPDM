@@ -140,10 +140,10 @@ namespace HYPDM.Entities
        }
 
        /// <summary>
-       /// 工艺说明、 。
+       /// 工艺说明 。
        /// </summary>
-       [Column("TECHINSTRUCTION","工艺说明、"),DataSize(128)]
-       [DisplayName("工艺说明、")]
+       [Column("TECHINSTRUCTION","工艺说明"),DataSize(128)]
+       [DisplayName("工艺说明")]
        public string TECHINSTRUCTION
        {
            get;
@@ -288,6 +288,17 @@ namespace HYPDM.Entities
        [Column("ENGDESCRIPTION","英文描述"),DataSize(128)]
        [DisplayName("英文描述")]
        public string ENGDESCRIPTION
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 产品编号 。
+       /// </summary>
+       [Column("PRONO","产品编号"),DataSize(128)]
+       [DisplayName("产品编号")]
+       public string PRONO
        {
            get;
            set;

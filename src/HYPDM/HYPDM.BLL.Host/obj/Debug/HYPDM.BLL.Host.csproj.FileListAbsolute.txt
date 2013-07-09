@@ -10,3 +10,8 @@ D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.pdb
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\ResolveAssemblyReference.cache
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.dll
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb

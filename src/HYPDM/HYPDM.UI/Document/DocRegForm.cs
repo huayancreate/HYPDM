@@ -82,13 +82,12 @@ namespace HYPDM.WinUI.Document
                 msg = "数据记录修改成功！";
             }
 
-            document.DOCNAME = txtDocName.Text;
             document.DOCNO = txtDocNo.Text;
             document.DOCSTATUS = "已创建";
-            document.CUSTOMERNAME = txtCustName.Text;
-            document.CUSTOMERPRONO = txtCustNo.Text;
+            document.DESCRIPTION = txtDescription.Text;
             document.REMARK = txtRemark.Text;
             document.VERSION = "";
+            document.DOCTYPE = cobDocType.Text;
             IList<PDM_DOCUMENT> documentList = new List<PDM_DOCUMENT>();
             documentList.Add(document);
             #endregion
@@ -127,14 +126,13 @@ namespace HYPDM.WinUI.Document
                 tbcContent.TabPages.Add(tpFile);
                 tbcContent.TabPages.Add(tpVersion);
                 this.txtDocNo.Text = this.Document.DOCNO;
-                this.txtDocName.Text = this.Document.DOCNAME;
-                this.txtCustNo.Text = this.Document.CUSTOMERPRONO;
-                this.txtCustName.Text = this.Document.CUSTOMERNAME;
+                this.txtDescription.Text = this.Document.DESCRIPTION;
                 this.txtRemark.Text = this.Document.REMARK;
                 this.txtStatus.Text = this.Document.DOCSTATUS;
                 this.txtUpdateDate.Text = this.Document.LASTUPDATEDATE;
                 this.txtUpdateUser.Text = this.Document.LASTUPDATEUSER;
                 this.txtCreateDate.Text = this.Document.CREATEDATE;
+                this.cobDocType.Text = this.Document.DOCTYPE;
                 this.BindData();
             }
         }

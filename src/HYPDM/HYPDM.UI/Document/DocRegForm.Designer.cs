@@ -61,14 +61,13 @@
             this.txtCreateDate = new System.Windows.Forms.TextBox();
             this.txtUpdateDate = new System.Windows.Forms.TextBox();
             this.txtUpdateUser = new System.Windows.Forms.TextBox();
-            this.txtDocName = new System.Windows.Forms.TextBox();
-            this.txtCustName = new System.Windows.Forms.TextBox();
-            this.txtCustNo = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtDocNo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmPhysical = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -87,8 +86,7 @@
             this.Column5 = new AdvancedDataGridView.TreeGridColumn();
             this.Column6 = new AdvancedDataGridView.TreeGridColumn();
             this.imageStrip = new System.Windows.Forms.ImageList(this.components);
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cobDocType = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             this.tbcContent.SuspendLayout();
@@ -340,19 +338,17 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage1.Controls.Add(this.cobDocType);
             this.tabPage1.Controls.Add(this.txtStatus);
             this.tabPage1.Controls.Add(this.txtCreateDate);
             this.tabPage1.Controls.Add(this.txtUpdateDate);
             this.tabPage1.Controls.Add(this.txtUpdateUser);
-            this.tabPage1.Controls.Add(this.txtDocName);
-            this.tabPage1.Controls.Add(this.txtCustName);
-            this.tabPage1.Controls.Add(this.txtCustNo);
+            this.tabPage1.Controls.Add(this.txtDescription);
             this.tabPage1.Controls.Add(this.txtDocNo);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
@@ -366,68 +362,54 @@
             // txtStatus
             // 
             this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(89, 105);
+            this.txtStatus.Location = new System.Drawing.Point(89, 83);
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(114, 21);
+            this.txtStatus.Size = new System.Drawing.Size(128, 21);
             this.txtStatus.TabIndex = 6;
             // 
             // txtCreateDate
             // 
             this.txtCreateDate.Enabled = false;
-            this.txtCreateDate.Location = new System.Drawing.Point(89, 151);
+            this.txtCreateDate.Location = new System.Drawing.Point(89, 129);
             this.txtCreateDate.Name = "txtCreateDate";
-            this.txtCreateDate.Size = new System.Drawing.Size(114, 21);
+            this.txtCreateDate.Size = new System.Drawing.Size(128, 21);
             this.txtCreateDate.TabIndex = 8;
             // 
             // txtUpdateDate
             // 
             this.txtUpdateDate.Enabled = false;
-            this.txtUpdateDate.Location = new System.Drawing.Point(89, 174);
+            this.txtUpdateDate.Location = new System.Drawing.Point(89, 152);
             this.txtUpdateDate.Name = "txtUpdateDate";
-            this.txtUpdateDate.Size = new System.Drawing.Size(114, 21);
+            this.txtUpdateDate.Size = new System.Drawing.Size(128, 21);
             this.txtUpdateDate.TabIndex = 9;
             // 
             // txtUpdateUser
             // 
             this.txtUpdateUser.Enabled = false;
-            this.txtUpdateUser.Location = new System.Drawing.Point(89, 128);
+            this.txtUpdateUser.Location = new System.Drawing.Point(89, 106);
             this.txtUpdateUser.Name = "txtUpdateUser";
-            this.txtUpdateUser.Size = new System.Drawing.Size(114, 21);
+            this.txtUpdateUser.Size = new System.Drawing.Size(128, 21);
             this.txtUpdateUser.TabIndex = 7;
             // 
-            // txtDocName
+            // txtDescription
             // 
-            this.txtDocName.Location = new System.Drawing.Point(89, 36);
-            this.txtDocName.Name = "txtDocName";
-            this.txtDocName.Size = new System.Drawing.Size(114, 21);
-            this.txtDocName.TabIndex = 3;
-            // 
-            // txtCustName
-            // 
-            this.txtCustName.Location = new System.Drawing.Point(89, 59);
-            this.txtCustName.Name = "txtCustName";
-            this.txtCustName.Size = new System.Drawing.Size(114, 21);
-            this.txtCustName.TabIndex = 4;
-            // 
-            // txtCustNo
-            // 
-            this.txtCustNo.Location = new System.Drawing.Point(89, 82);
-            this.txtCustNo.Name = "txtCustNo";
-            this.txtCustNo.Size = new System.Drawing.Size(114, 21);
-            this.txtCustNo.TabIndex = 5;
+            this.txtDescription.Location = new System.Drawing.Point(89, 59);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(128, 21);
+            this.txtDescription.TabIndex = 4;
             // 
             // txtDocNo
             // 
             this.txtDocNo.Location = new System.Drawing.Point(89, 13);
             this.txtDocNo.Name = "txtDocNo";
-            this.txtDocNo.Size = new System.Drawing.Size(114, 21);
+            this.txtDocNo.Size = new System.Drawing.Size(128, 21);
             this.txtDocNo.TabIndex = 2;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(20, 177);
+            this.label8.Location = new System.Drawing.Point(20, 155);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 7;
@@ -437,7 +419,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(20, 154);
+            this.label7.Location = new System.Drawing.Point(20, 132);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 6;
@@ -447,7 +429,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(20, 108);
+            this.label6.Location = new System.Drawing.Point(20, 86);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 5;
@@ -457,11 +439,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(20, 131);
+            this.label5.Location = new System.Drawing.Point(20, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 4;
             this.label5.Text = "修改者";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(20, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "描述";
             // 
             // label2
             // 
@@ -469,9 +461,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(20, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "名称";
+            this.label2.Text = "文档分类";
             // 
             // label1
             // 
@@ -601,25 +593,16 @@
             this.imageStrip.ImageSize = new System.Drawing.Size(16, 16);
             this.imageStrip.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // label4
+            // cobDocType
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(20, 85);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "客户项目号";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(20, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "客户";
+            this.cobDocType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cobDocType.FormattingEnabled = true;
+            this.cobDocType.Items.AddRange(new object[] {
+            "技术文件"});
+            this.cobDocType.Location = new System.Drawing.Point(89, 36);
+            this.cobDocType.Name = "cobDocType";
+            this.cobDocType.Size = new System.Drawing.Size(128, 20);
+            this.cobDocType.TabIndex = 10;
             // 
             // DocRegForm
             // 
@@ -666,9 +649,7 @@
         private System.Windows.Forms.TextBox txtCreateDate;
         private System.Windows.Forms.TextBox txtUpdateDate;
         private System.Windows.Forms.TextBox txtUpdateUser;
-        private System.Windows.Forms.TextBox txtDocName;
-        private System.Windows.Forms.TextBox txtCustName;
-        private System.Windows.Forms.TextBox txtCustNo;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.ToolStrip tsToolbar;
         private System.Windows.Forms.ToolStripSeparator toolStripSplitButton1;
         private System.Windows.Forms.ToolStripButton btnDocAdd;
@@ -709,7 +690,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn PHYSICALID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PARENTID;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cobDocType;
     }
 }

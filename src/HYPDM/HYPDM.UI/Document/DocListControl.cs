@@ -169,8 +169,8 @@ namespace HYPDM.WinUI.Document
             {
                 HYPDM.Entities.PDM_DOCUMENT doc = o.Document;
                 row.Cells["DocName"].Value = doc.DOCNAME.ToString();
-                row.Cells["CustName"].Value = doc.CUSTOMERNAME;
-                row.Cells["CustNo"].Value = doc.CUSTOMERPRONO;
+                //row.Cells["CustName"].Value = doc.CUSTOMERNAME;
+                //row.Cells["CustNo"].Value = doc.CUSTOMERPRONO;
                 //row.Cells["Remark"].Value = doc.REMARK;
             }
         }

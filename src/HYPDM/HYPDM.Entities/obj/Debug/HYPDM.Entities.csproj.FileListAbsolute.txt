@@ -8,3 +8,10 @@ D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Entities.pdb
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\ResolveAssemblyReference.cache
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Entities.dll
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Entities.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\ref\HYPDM.Entities.dll
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\ref\HYPDM.Entities.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.csprojResolveAssemblyReference.cache

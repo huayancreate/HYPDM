@@ -12,3 +12,9 @@ D:\My Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.pdb
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\ResolveAssemblyReference.cache
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.exe
 D:\My Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.exe.config
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.exe
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.csprojResolveAssemblyReference.cache
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.exe
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.pdb
