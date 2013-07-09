@@ -88,23 +88,17 @@
     <Compile Include="BaseUI\OpenFileDialogForm.Designer.cs">
       <DependentUpon>OpenFileDialogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Document\CheckInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\CheckInForm.Designer.cs">
+      <DependentUpon>CheckInForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Document\DetectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Document\DetectionForm.Designer.cs">
       <DependentUpon>DetectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Document\FileViewControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Document\FileViewControl.Designer.cs">
-      <DependentUpon>FileViewControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Document\FileViewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Document\FileViewForm.Designer.cs">
-      <DependentUpon>FileViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Document\DocListControl.cs">
       <SubType>UserControl</SubType>
@@ -117,18 +111,6 @@
     </Compile>
     <Compile Include="Document\DocRegForm.Designer.cs">
       <DependentUpon>DocRegForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Document\PhysicalFileRegControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Document\PhysicalFileRegControl.designer.cs">
-      <DependentUpon>PhysicalFileRegControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Document\PhysicalFileRegForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Document\PhysicalFileRegForm.Designer.cs">
-      <DependentUpon>PhysicalFileRegForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Graph\GraphRegForm.cs">
       <SubType>UserControl</SubType>
@@ -193,30 +175,22 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\FTPDownUp.cs" />
-    <Compile Include="Util\Util.cs" />
+    <Compile Include="Util\Common.cs" />
+    <Compile Include="Util\FTPHelper.cs" />
     <EmbeddedResource Include="BaseUI\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Document\CheckInForm.resx">
+      <DependentUpon>CheckInForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Document\DetectionForm.resx">
       <DependentUpon>DetectionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Document\FileViewControl.resx">
-      <DependentUpon>FileViewControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Document\FileViewForm.resx">
-      <DependentUpon>FileViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\DocListControl.resx">
       <DependentUpon>DocListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\DocRegForm.resx">
       <DependentUpon>DocRegForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Document\PhysicalFileRegControl.resx">
-      <DependentUpon>PhysicalFileRegControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Document\PhysicalFileRegForm.resx">
-      <DependentUpon>PhysicalFileRegForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Graph\GraphRegForm.resx">
       <DependentUpon>GraphRegForm.cs</DependentUpon>
@@ -281,6 +255,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\newGroupPostIconStrip.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -30,5 +30,53 @@ namespace HYPDM.BLL
 
             return p.ToList();
         }
+
+        #region 保存
+
+        public void DocSave(IList<PDM_DOCUMENT> documentList, IList<PDM_PHYSICAL_FILE> physicalList)
+        {
+            this.DataAccessor.TransactionExecute(new TransactionHandler2(this.IniternalSave), documentList, physicalList);
+        }
+
+        public void IniternalSave(IDataAccessor accessor, params object[] parameters)
+        {
+            IList<PDM_DOCUMENT> documentList = parameters[0] as IList<PDM_DOCUMENT>;
+            IList<PDM_PHYSICAL_FILE> physicalList = parameters[1] as IList<PDM_PHYSICAL_FILE>;
+
+            foreach (PDM_DOCUMENT document in documentList)
+            {
+                document.Save();
+            }
+
+            foreach (PDM_PHYSICAL_FILE physical in physicalList)
+            {
+                physical.Save();
+            }
+        }
+        #endregion
+
+        #region 删除
+
+        public void DocDel(IList<PDM_DOCUMENT> documentList, IList<PDM_PHYSICAL_FILE> physicalList)
+        {
+            this.DataAccessor.TransactionExecute(new TransactionHandler2(IniternalDel), documentList, physicalList);
+        }
+
+        public void IniternalDel(IDataAccessor accessor, params object[] parameters)
+        {
+            IList<PDM_DOCUMENT> documentList = parameters[0] as IList<PDM_DOCUMENT>;
+            IList<PDM_PHYSICAL_FILE> physicalList = parameters[1] as IList<PDM_PHYSICAL_FILE>;
+
+            foreach (PDM_DOCUMENT document in documentList)
+            {
+                document.Delete();
+            }
+
+            foreach (PDM_PHYSICAL_FILE physical in physicalList)
+            {
+                physical.Delete();
+            }
+        }
+        #endregion
     }
 }

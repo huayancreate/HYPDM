@@ -36,17 +36,35 @@ namespace HYPDM.BLL
             return dt;
         }
 
-        public PDM_PHYSICAL_FILE GetPhysicalFile(string fileName)
+        public PDM_PHYSICAL_FILE GetPhysicalFile(string id, string fileName)
         {
             DataEntityQuery<PDM_PHYSICAL_FILE> query = DataEntityQuery<PDM_PHYSICAL_FILE>.Create();
-            var p = (from item in query where (fileName == string.Empty || (item.FILENAME == fileName)) select item);
+            var p = (from item in query
+                     where
+                         (fileName == string.Empty || (item.FILENAME == fileName))
+                         && (id == string.Empty || (item.PHYSICALID == id))
+                     select item);
             return p.FirstOrDefault();
         }
 
-        //public bool GetDto(string str)
-        //{
-        //    bool res = (bool)DataAccessor.Query("select * from PDM_PHYSICAL_FILE where " + str);
-        //    return res;
-        //}
+        public PDM_PHYSICAL_FILE GetFileByParent(string parentId)
+        {
+            DataEntityQuery<PDM_PHYSICAL_FILE> query = DataEntityQuery<PDM_PHYSICAL_FILE>.Create();
+            var p = (from item in query
+                     where (parentId == string.Empty || (item.PARENT == parentId))
+                     select item);
+            return p.FirstOrDefault();
+        }
+
+        public IList<PDM_PHYSICAL_FILE> GetFileList(string parentId)
+        {
+            DataEntityQuery<PDM_PHYSICAL_FILE> query = DataEntityQuery<PDM_PHYSICAL_FILE>.Create();
+            var p = (from item in query
+                     where (parentId == string.Empty || (item.PARENT == parentId))
+                     select item);
+
+            IList<PDM_PHYSICAL_FILE> list = new List<PDM_PHYSICAL_FILE>();
+            return p.ToList();
+        }
     }
 }

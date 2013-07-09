@@ -3,5 +3,6 @@ E:\NET项目\HYPDM\HYPDM.Start\bin\Debug\HYPDM.Start.pdb
 E:\NET项目\HYPDM\bin\HYPDM.Start.exe.config
 E:\NET项目\HYPDM\bin\HYPDM.Start.exe
 E:\NET项目\HYPDM\bin\HYPDM.Start.pdb
+E:\NET项目\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.csprojResolveAssemblyReference.cache
 E:\NET项目\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.exe
 E:\NET项目\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.pdb

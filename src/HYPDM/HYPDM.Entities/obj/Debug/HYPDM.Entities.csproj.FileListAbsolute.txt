@@ -1,4 +1,5 @@
-E:\NET项目\HYPDM\ref\HYPDM.Entities.dll
-E:\NET项目\HYPDM\ref\HYPDM.Entities.pdb
+E:\NET项目\HYPDM\bin\HYPDM.Entities.dll
+E:\NET项目\HYPDM\bin\HYPDM.Entities.pdb
 E:\NET项目\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
 E:\NET项目\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
+E:\NET项目\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.csprojResolveAssemblyReference.cache

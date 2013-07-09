@@ -1,9 +1,9 @@
-03:17:19:196 09092  connect server, address:127.0.0.1, port:7712.
-03:17:19:196 09092  _CfsChannel::Send connecting or disconnecting
-03:17:19:416 09092  connect server succeeded.
-03:17:19:416 09092  QueryFileInfoReplyEvent id:, name:, date:   0- 0- 0
-04:16:03:018 08328  CfsChannel::Disconnect...............0
-04:16:03:018 08328  CfsChannel::Disconnect...............1
-04:16:03:018 08328  CfsChannel::Disconnect...............2
-04:16:03:018 08328  CfsChannel::Disconnect...............3
-04:16:03:018 08328  CfsChannel::Disconnect...............4
+07:31:13:536 06052  connect server, address:127.0.0.1, port:7712.
+07:31:13:536 06052  _CfsChannel::Send connecting or disconnecting
+07:31:13:723 06052  connect server succeeded.
+07:31:13:723 06052  QueryFileInfoReplyEvent id:, name:, date:   0- 0- 0
+07:31:21:118 09264  CfsChannel::Disconnect...............0
+07:31:21:118 09264  CfsChannel::Disconnect...............1
+07:31:21:118 09264  CfsChannel::Disconnect...............2
+07:31:21:118 09264  CfsChannel::Disconnect...............3
+07:31:21:118 09264  CfsChannel::Disconnect...............4

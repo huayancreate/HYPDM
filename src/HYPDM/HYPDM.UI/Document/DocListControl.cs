@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 using EAS.Modularization;
 using HYPDM.Entities;
 using EAS.Services;
@@ -112,17 +113,19 @@ namespace HYPDM.WinUI.Document
                 return;
 
             DataGridViewRow row = dgvDocList.Rows[rowIndex];
-
+            IDocumentService _docService = ServiceContainer.GetService<IDocumentService>();
             HYPDM.Entities.PDM_DOCUMENT doc = row.DataBoundItem as HYPDM.Entities.PDM_DOCUMENT;
+            IList<PDM_DOCUMENT> docList = new List<PDM_DOCUMENT>();
+            docList.Add(doc);
+            IList<PDM_PHYSICAL_FILE> fileList = new List<PDM_PHYSICAL_FILE>();
+            fileList = EAS.Services.ServiceContainer.GetService<IPhysicalFileService>().GetList(doc.DOCID);
 
-            if (doc == null)
-            {
-                return;
-            }
+            if (doc == null) return;
 
             if (MessageBox.Show("您确认要删除所选择的文档记录么？\n删除文档记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                doc.Delete();
+                _docService.DocDel(docList, fileList);
+
                 this.dgvDocList.Rows.Remove(row);
             }
         }

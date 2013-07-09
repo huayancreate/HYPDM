@@ -6,12 +6,10 @@ E:\NET项目\HYPDM\bin\HYPDM.WinUI.dll
 E:\NET项目\HYPDM\bin\HYPDM.WinUI.pdb
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.csprojResolveAssemblyReference.cache
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.BaseUI.BaseForm.resources
-E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.document.FileViewControl.resources
-E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.document.FileViewForm.resources
+E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.CheckInForm.resources
+E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.DetectionForm.resources
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.DocListControl.resources
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.DocRegForm.resources
-E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.document.PhysicalFileRegControl.resources
-E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.PhysicalFileRegForm.resources
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.graph.GraphRegForm.resources
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.graph.InitGraphForm.resources
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.graph.PartsRegForm.resources
@@ -26,4 +24,3 @@ E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Properties.Resources.resources
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.csproj.GenerateResource.Cache
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.dll
 E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.pdb
-E:\NET项目\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.DetectionForm.resources

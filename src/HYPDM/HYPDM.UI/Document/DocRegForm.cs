@@ -16,6 +16,8 @@ using EAS.Explorer;
 using AdvancedDataGridView;
 using System.IO;
 using System.Configuration;
+using System.Collections;
+
 
 namespace HYPDM.WinUI.Document
 {
@@ -83,26 +85,32 @@ namespace HYPDM.WinUI.Document
             document.DOCNAME = txtDocName.Text;
             document.DOCNO = txtDocNo.Text;
             document.DOCSTATUS = "已创建";
-            //document.DOCTYPE = "";
-            //document.CREATEDATE = DateTime.Now.ToString();
             document.CUSTOMERNAME = txtCustName.Text;
             document.CUSTOMERPRONO = txtCustNo.Text;
-            //doc.PHYSICALFILE = "";
             document.REMARK = txtRemark.Text;
             document.VERSION = "";
-            document.Save();
+            IList<PDM_DOCUMENT> documentList = new List<PDM_DOCUMENT>();
+            documentList.Add(document);
             #endregion
             #region 物理文件
-            PDM_PHYSICAL_FILE physicalfile = new PDM_PHYSICAL_FILE();
-            physicalfile.PHYSICALID = _physicalService.GetMaxID().ToString();
-            physicalfile.PAPERS = txtDocNo.Text;
-            physicalfile.OPERATEUSER = LoginInfo.LoginID;
-            physicalfile.PARENT = "0";
-            physicalfile.FILEID = document.DOCID;
-            physicalfile.Save();
+            var fileList = _physicalService.GetList(document.DOCID);
+            IList<PDM_PHYSICAL_FILE> physicalList = new List<PDM_PHYSICAL_FILE>();
+            if (fileList.Count <= 0)
+            {
+                PDM_PHYSICAL_FILE physicalfile = new PDM_PHYSICAL_FILE();
+                physicalfile.PHYSICALID = _physicalService.GetMaxID().ToString();
+                physicalfile.PAPERS = txtDocNo.Text;
+                physicalfile.OPERATEUSER = LoginInfo.LoginID;
+                physicalfile.PARENT = "0";
+                physicalfile.FILEID = document.DOCID;
+                physicalList.Add(physicalfile);
+            }
+
+            _docService.DocSave(documentList, physicalList);
             #endregion
             this.closed = 1;
             MessageBox.Show(msg);
+
             this.Document = document;
             this.DialogResult = DialogResult.OK;
         }
@@ -140,17 +148,17 @@ namespace HYPDM.WinUI.Document
             {
                 var path = ofdFile.FileName;
                 var file = ConfigurationManager.AppSettings["file"].ToString();
-                Util.FTPDownUp ftp = FtpInfo();
+                Util.FTPDownUp ftp = Util.Common.FtpInfo();
                 FileInfo fi = new FileInfo(path);
                 var info = "";
                 var result = ftp.FTPUpload(file, "", fi, out info);
                 if (result)
                 {
                     var extension = Path.GetExtension(path);
-                    HYPDM.WinUI.Util.Util u = new HYPDM.WinUI.Util.Util();
+                    HYPDM.WinUI.Util.Common u = new HYPDM.WinUI.Util.Common();
                     var type = u.GetExtensionToType(extension);
                     #region 物理文件
-                    var dto = _physicalService.GetPhysicalFile(type);
+                    var dto = _physicalService.GetPhysicalFile("", type);
                     PDM_PHYSICAL_FILE physicalfileType = new PDM_PHYSICAL_FILE();
                     if (dto == null)
                     {
@@ -158,8 +166,8 @@ namespace HYPDM.WinUI.Document
                         physicalfileType.PAPERS = type;
                         physicalfileType.FILENAME = "";
                         physicalfileType.OPERATEUSER = LoginInfo.LoginID;
-                        if (tvTaskList.Rows.Count > 0)
-                            physicalfileType.PARENT = (string)tvTaskList.Rows[0].Cells["PHYSICALID"].Value;
+                        if (tvFileList.Rows.Count > 0)
+                            physicalfileType.PARENT = (string)tvFileList.Rows[0].Cells["PHYSICALID"].Value;
                         else
                             physicalfileType.PARENT = "0";
                         physicalfileType.FILEID = document.DOCID;
@@ -168,12 +176,11 @@ namespace HYPDM.WinUI.Document
 
                     PDM_PHYSICAL_FILE physicalfile = new PDM_PHYSICAL_FILE();
                     physicalfile.PHYSICALID = _physicalService.GetMaxID().ToString();
-                    //physicalfile.PAPERS = type;
                     physicalfile.FILENAME = ofdFile.SafeFileName;
                     physicalfile.FILETYPE = type;
                     physicalfile.FILEVERSION = "0";
                     physicalfile.DESCRIPTION = "";
-                    physicalfile.FILEPATH = "ftp://" + ftp.ServerAddr + ":" + ftp.ServerAddr + "/" + file + ofdFile.SafeFileName;
+                    physicalfile.FILEPATH = "ftp://" + ftp.ServerAddr + ":" + ftp.ServerPort + "/" + file + ofdFile.SafeFileName;
                     physicalfile.OPERATEUSER = LoginInfo.LoginID;
                     if (dto != null)
                         physicalfile.PARENT = dto.PHYSICALID;
@@ -200,14 +207,14 @@ namespace HYPDM.WinUI.Document
         }
         public void BindTreeListView(TreeGridNode node, string parentId)
         {
-            Font boldFont = new Font(tvTaskList.DefaultCellStyle.Font, FontStyle.Bold);
+            Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
             DataView dv = new DataView(dt);
             dv.RowFilter = "[PARENT]=" + parentId;
             foreach (DataRowView dr in dv)
             {
                 if (parentId == "0")
                 {
-                    node = tvTaskList.Nodes.Add(null, (string)dr["PAPERS"], "", "", "", "", "", (string)dr["PHYSICALID"]);
+                    node = tvFileList.Nodes.Add((string)dr["PAPERS"], "", "", "", "", "", (string)dr["PHYSICALID"]);
                     node.DefaultCellStyle.Font = boldFont;
                     BindChildNode(node, (string)dr["PHYSICALID"]);
                 }
@@ -226,12 +233,12 @@ namespace HYPDM.WinUI.Document
                     if (fileName == "")
                         fileName = papers;
                     if (i == 0)
-                        node = node.Nodes.Add(null, fileName, (string)dv[i]["FILENAME"],
+                        node = node.Nodes.Add(fileName, (string)dv[i]["FILENAME"],
                             (string)dv[i]["DESCRIPTION"], (string)dv[i]["FILEVERSION"],
                             dv[i]["CHECKIN"].ToString(), (string)dv[i]["CHECKOUT"].ToString(),
                             (string)dv[i]["PHYSICALID"]);
                     else
-                        node = node.Parent.Nodes.Add(null, fileName, (string)dv[i]["FILENAME"],
+                        node = node.Parent.Nodes.Add(fileName, (string)dv[i]["FILENAME"],
                             (string)dv[i]["DESCRIPTION"], (string)dv[i]["FILEVERSION"],
                             dv[i]["CHECKIN"].ToString(), dv[i]["CHECKOUT"].ToString(),
                             (string)dv[i]["PHYSICALID"]);
@@ -241,17 +248,42 @@ namespace HYPDM.WinUI.Document
         }
         private void tvTaskList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (tvTaskList.CurrentRow == null) return;
+            if (tvFileList.CurrentRow == null) return;
             if (e.RowIndex != -1)
             {
-                System.Windows.Forms.DataGridViewCheckBoxCell cell = ((System.Windows.Forms.DataGridViewCheckBoxCell)(this.tvTaskList[0, e.RowIndex]));
-                cell.Value = cell.Value == null ? "True" : cell.Value.ToString() == "True" ? "False" : "True";
                 if (e.Button == MouseButtons.Right)
                 {
-                    cell.Value = "True";
                     //弹出操作菜单
                     cmPhysical.Show(MousePosition.X, MousePosition.Y);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 查看文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            int rowIndex = tvFileList.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+            DataGridViewRow row = tvFileList.Rows[rowIndex];
+            var fileName = row.Cells["FileName"].Value.ToString();
+            var temp = System.Environment.GetEnvironmentVariable("TEMP");
+            Util.FTPHelper helper = Util.Common.FtpHepler();
+            var info = "";
+            var tempFilePath = temp + "\\" + fileName;
+            var result = helper.DownloadFile(temp, fileName, out info);
+            if (result)
+            {
+                System.Diagnostics.Process.Start(tempFilePath);
+            }
+            else
+            {
+                MessageBox.Show("文件查看失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -260,27 +292,74 @@ namespace HYPDM.WinUI.Document
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tpiCheckOut_Click(object sender, EventArgs e)
+        private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            SaveFileDialog sfdFile = new SaveFileDialog();
-            if (sfdFile.ShowDialog() == DialogResult.OK)
+            int rowIndex = tvFileList.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+            DataGridViewRow row = tvFileList.Rows[rowIndex];
+            var Id = row.Cells["PHYSICALID"].Value.ToString();
+
+            HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
+            if (physicalfile == null) return;
+            DetectionForm form = new DetectionForm();
+            form.PhysicalFile = physicalfile;
+
+            if (form.ShowDialog() == DialogResult.OK)
             {
+                HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
+                row.Cells["FileName"].Value = file.FILENAME;
             }
-            Util.FTPDownUp ftp = FtpInfo();
-        }
-        /// <summary>
-        /// ftp对象
-        /// </summary>
-        /// <returns></returns>
-        public Util.FTPDownUp FtpInfo()
-        {
-            var serverAddr = ConfigurationManager.AppSettings["serverAddr"].ToString();
-            var serverPort = Convert.ToInt32(ConfigurationManager.AppSettings["serverPort"]);
-            var userName = ConfigurationManager.AppSettings["userName"].ToString();
-            var passWord = ConfigurationManager.AppSettings["passWord"].ToString();
-            Util.FTPDownUp ftp = new Util.FTPDownUp(serverAddr, serverPort, userName, passWord);
-            return ftp;
         }
 
+        /// <summary>
+        /// 检入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCheckIN_Click(object sender, EventArgs e)
+        {
+            int rowIndex = tvFileList.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+            DataGridViewRow row = tvFileList.Rows[rowIndex];
+            var Id = row.Cells["PHYSICALID"].Value.ToString();
+
+            HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
+            if (physicalfile == null) return;
+            CheckInForm form = new CheckInForm();
+            form.PhysicalFile = physicalfile;
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
+                row.Cells["FileName"].Value = file.FILENAME;
+            }
+        }
+
+        /// <summary>
+        /// 删除文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("所选择的文件将被删除，是否确定？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                int rowIndex = tvFileList.CurrentCell.RowIndex;
+
+                if (rowIndex < 0)
+                    return;
+                DataGridViewRow row = tvFileList.Rows[rowIndex];
+                var Id = row.Cells["PHYSICALID"].Value.ToString();
+                var file = _physicalService.GetPhysicalFile(Id, "");
+                file.Delete();
+                MessageBox.Show("所选择的文件已被删除！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        IList<PDM_PHYSICAL_FILE> physicalFileList = new List<PDM_PHYSICAL_FILE>();
     }
 }

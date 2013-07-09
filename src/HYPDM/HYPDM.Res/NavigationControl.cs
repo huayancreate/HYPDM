@@ -14,7 +14,7 @@ using EAS.Explorer.Entities;
 using EAS.Objects;
 using EAS.Explorer;
 
-using HYPDM.WinUI.document;
+using HYPDM.WinUI.Document;
 
 namespace HYPDM.Res
 {

@@ -1018,5 +1018,22 @@
       <Package />
       <LMTime>2013-06-18T10:06:31.823</LMTime>
     </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>A6F9DA33-FC28-445F-ACC2-F1516BA9F5B8</Guid>
+      <Name>产品列表</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.Parts.ProductListControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>产品零部件管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-07-04T10:40:38.233</LMTime>
+    </Module>
   </Items>
 </root>
