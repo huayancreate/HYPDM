@@ -851,23 +851,6 @@
     <Module>
       <Used>false</Used>
       <WorkFlowAddIn>false</WorkFlowAddIn>
-      <Guid>2A728C57-1DB0-47D5-BAB9-61B949312EE7</Guid>
-      <Name>零部件信息</Name>
-      <Assembly>HYPDM.WinUI</Assembly>
-      <Type>HYPDM.WinUI.parts.PartsInfoForm</Type>
-      <Method />
-      <Version>1.0.0.0</Version>
-      <Developer />
-      <Description>零部件及结构管理</Description>
-      <Url />
-      <SortCode>0</SortCode>
-      <Attributes>1</Attributes>
-      <Package />
-      <LMTime>2013-06-09T10:36:39.667</LMTime>
-    </Module>
-    <Module>
-      <Used>false</Used>
-      <WorkFlowAddIn>false</WorkFlowAddIn>
       <Guid>3CB29DCB-E482-4DFD-BA34-D1A57999564A</Guid>
       <Name>创建图纸</Name>
       <Assembly>HYPDM.WinUI</Assembly>
@@ -1004,23 +987,6 @@
     <Module>
       <Used>false</Used>
       <WorkFlowAddIn>false</WorkFlowAddIn>
-      <Guid>CED0FF76-5C3B-4951-8285-A66AA8ADA3BE</Guid>
-      <Name>文档列表</Name>
-      <Assembly>HYPDM.WinUI</Assembly>
-      <Type>HYPDM.WinUI.Document.DocListControl</Type>
-      <Method />
-      <Version>1.0.0.0</Version>
-      <Developer />
-      <Description>文档管理</Description>
-      <Url />
-      <SortCode>0</SortCode>
-      <Attributes>1</Attributes>
-      <Package />
-      <LMTime>2013-06-18T10:06:31.823</LMTime>
-    </Module>
-    <Module>
-      <Used>false</Used>
-      <WorkFlowAddIn>false</WorkFlowAddIn>
       <Guid>A6F9DA33-FC28-445F-ACC2-F1516BA9F5B8</Guid>
       <Name>产品列表</Name>
       <Assembly>HYPDM.WinUI</Assembly>
@@ -1033,7 +999,41 @@
       <SortCode>0</SortCode>
       <Attributes>1</Attributes>
       <Package />
-      <LMTime>2013-07-09T15:38:33.983</LMTime>
+      <LMTime>2013-07-10T11:54:27.387</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>CED0FF76-5C3B-4951-8285-A66AA8ADA3BE</Guid>
+      <Name>文档列表</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.Document.DocListControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>文档管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-07-10T11:37:18.483</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>2A728C57-1DB0-47D5-BAB9-61B949312EE7</Guid>
+      <Name>零部件信息</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.parts.PartsInfoForm</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>零部件及结构管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-07-10T14:18:24.187</LMTime>
     </Module>
   </Items>
 </root>

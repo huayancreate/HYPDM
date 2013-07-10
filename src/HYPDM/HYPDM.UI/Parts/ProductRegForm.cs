@@ -61,6 +61,7 @@ namespace HYPDM.WinUI.parts
         {
             if (this.Product != null)
             {
+                this.txtProductNo.Text = this.Product.PRONO;
                 this.txtProductName.Text = this.Product.PRODUCTNAME;
                 this.txtModelNo.Text = this.Product.MODELNO;
                 this.txtSize.Text = this.Product.SIZE;
@@ -104,7 +105,7 @@ namespace HYPDM.WinUI.parts
                 msg = "数据记录修改成功！";
             }
 
-
+            product.PRONO = txtProductNo.Text;
             product.PRODUCTNAME = txtProductName.Text;
             product.MODELNO = txtModelNo.Text;
             product.SIZE = txtSize.Text;
@@ -124,6 +125,13 @@ namespace HYPDM.WinUI.parts
             MessageBox.Show(msg);
             this.Product = product;
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnAddDoc_Click(object sender, EventArgs e)
+        {
+            ConnectForm connectForm = new ConnectForm();
+            connectForm.StartPosition = FormStartPosition.CenterParent;
+            connectForm.Show();
         }
 
     }

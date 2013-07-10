@@ -1,0 +1,72 @@
+2013-07-10 10:26:37,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 10:26:41,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 10:40:02,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 10:40:05,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 10:43:07,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 10:43:09,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 11:17:04,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 11:17:06,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 14:14:34,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 14:14:39,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 14:20:14,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 14:20:17,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 14:31:18,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 14:31:21,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 14:33:57,Info - 组件定义:
+	Key=DbProvider,Type=EAS.Data.Access.SqlClientProvider,EAS.Data
+	Key=DataAccessor,Type=EAS.Data.Access.DataAccessor,EAS.Data
+	Key=OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=TSqlLanguage,Type=EAS.Data.Linq.TSqlLanguage,EAS.Data
+	Key=ServiceBridger,Type=EAS.Services.LocalServiceBridger,EAS.MicroKernel
+	Key=Logger,Type=EAS.Services.TextLogger,EAS.MicroKernel
+	Key=EAS.Explorer.Resource,Type=HYPDM.Res.Resources,HYPDM.Res
+	Key=EAS.Services.TimeService,Type=EAS.Services.TimeService,EAS.MicroKernel
+	Key=EAS.Data.ORM.OrmAccessor,Type=EAS.Data.ORM.OrmAccessor,EAS.Data
+	Key=EAS.Data.Caching.CacheService,Type=EAS.Data.Caching.CacheService,EAS.Data
+	Key=EAS.Data.DataService,Type=EAS.Data.DataService,EAS.Data
+	Key=EAS.Explorer.BLL.NavigationService,Type=EAS.Explorer.BLL.NavigationService,EAS.Explorer.BLL.Host
+	Key=EAS.Reporting.ReportService,Type=EAS.Reporting.ReportService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.LogService,Type=EAS.Explorer.BLL.LogService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.InputDictService,Type=EAS.Explorer.BLL.InputDictService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.DesktopService,Type=EAS.Explorer.BLL.DesktopService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.ReportService,Type=EAS.Explorer.BLL.ReportService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.AppSettingService,Type=EAS.Explorer.BLL.AppSettingService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.PackageService,Type=EAS.Explorer.BLL.PackageService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.ACLService,Type=EAS.Explorer.BLL.ACLService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.ReportManageService,Type=EAS.Explorer.BLL.ReportManageService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.ModuleService,Type=EAS.Explorer.BLL.ModuleService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.RoleService,Type=EAS.Explorer.BLL.RoleService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.AccountService,Type=EAS.Explorer.BLL.AccountService,EAS.Explorer.BLL.Host
+	Key=EAS.BPM.BLL.WorkflowService,Type=EAS.BPM.BLL.WorkflowService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.LoginService,Type=EAS.Explorer.BLL.LoginService,EAS.Explorer.BLL.Host
+	Key=EAS.Explorer.BLL.GroupService,Type=EAS.Explorer.BLL.GroupService,EAS.Explorer.BLL.Host
+	Key=HYPDM.BLL.BaseServiceObject,Type=HYPDM.BLL.BaseServiceObject,HYPDM.BLL.Host
+	Key=HYPDM.BLL.ProductService,Type=HYPDM.BLL.ProductService,HYPDM.BLL.Host
+	Key=HYPDM.BLL.DocumentService,Type=HYPDM.BLL.DocumentService,HYPDM.BLL.Host
+	Key=HYPDM.BLL.MaxCodeService,Type=HYPDM.BLL.MaxCodeService,HYPDM.BLL.Host
+	Key=HYPDM.BLL.PhysicalFileService,Type=HYPDM.BLL.PhysicalFileService,HYPDM.BLL.Host
+
+2013-07-10 14:41:08,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 14:41:11,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 14:50:07,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 14:50:09,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 14:56:43,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 14:56:46,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 14:58:24,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 14:58:26,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 14:59:40,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 14:59:42,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 15:21:43,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 15:21:46,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 15:26:46,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 15:26:49,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 15:35:24,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 15:35:27,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 15:38:14,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 15:38:16,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 15:41:27,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 15:41:29,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 15:55:18,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 15:55:21,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll
+2013-07-10 17:16:57,Info - BaseDirectory:=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\
+2013-07-10 17:17:00,Info - Location=D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\EAS.MicroKernel.dll

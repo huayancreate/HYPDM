@@ -60,6 +60,8 @@ namespace HYPDM.WinUI.Parts
         {
             ProductRegForm o = new ProductRegForm();
 
+            o.StartPosition = FormStartPosition.CenterParent;
+
             if (o.ShowDialog() == DialogResult.OK)
             {
                 HYPDM.Entities.PDM_PRODUCT pro = o.Product;
@@ -84,15 +86,16 @@ namespace HYPDM.WinUI.Parts
 
             DataGridViewRow row = dgvProList.Rows[rowIndex];
 
-            HYPDM.Entities.PDM_PRODUCT document = row.DataBoundItem as HYPDM.Entities.PDM_PRODUCT;
+            HYPDM.Entities.PDM_PRODUCT product = row.DataBoundItem as HYPDM.Entities.PDM_PRODUCT;
 
-            if (document == null)
+            if (product == null)
             {
                 return;
             }
 
             ProductRegForm o = new ProductRegForm();
-            o.Product = document;
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.Product = product;
 
             if (o.ShowDialog() == DialogResult.OK)
             {
@@ -140,7 +143,7 @@ namespace HYPDM.WinUI.Parts
                 return;
             }
 
-            if (MessageBox.Show("您确认要删除所选择的文档记录么？\n删除文档记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("您确认要删除所选择的产品记录么？\n删除文档记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 pro.Delete();
                 this.dgvProList.Rows.Remove(row);

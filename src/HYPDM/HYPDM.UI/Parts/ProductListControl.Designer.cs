@@ -60,8 +60,8 @@
             this.Property = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WorkCenter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DrawingID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -158,8 +158,8 @@
             this.Property,
             this.WorkCenter,
             this.ProStatus,
-            this.LastUpdateUser,
             this.CreateDate,
+            this.LastUpdateUser,
             this.LastUpdateDate,
             this.Remark,
             this.DrawingID,
@@ -230,7 +230,7 @@
             // 
             // ProductID
             // 
-            this.ProductID.DataPropertyName = "PRODUCTID";
+            this.ProductID.DataPropertyName = "PRONO";
             this.ProductID.HeaderText = "品号";
             this.ProductID.Name = "ProductID";
             this.ProductID.ReadOnly = true;
@@ -326,19 +326,19 @@
             this.ProStatus.Name = "ProStatus";
             this.ProStatus.ReadOnly = true;
             // 
+            // CreateDate
+            // 
+            this.CreateDate.DataPropertyName = "CREATEDATE";
+            this.CreateDate.HeaderText = "创建时间";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            // 
             // LastUpdateUser
             // 
             this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
             this.LastUpdateUser.HeaderText = "修改者";
             this.LastUpdateUser.Name = "LastUpdateUser";
             this.LastUpdateUser.ReadOnly = true;
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.DataPropertyName = "CREATEUSER";
-            this.CreateDate.HeaderText = "创建日期";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
             // 
             // LastUpdateDate
             // 
@@ -418,8 +418,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Property;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkCenter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn DrawingID;

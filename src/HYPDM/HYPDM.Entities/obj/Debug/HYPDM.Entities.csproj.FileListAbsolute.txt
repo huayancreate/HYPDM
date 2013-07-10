@@ -15,3 +15,8 @@ C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.En
 C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\ref\HYPDM.Entities.dll
 C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\ref\HYPDM.Entities.pdb
 C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.csprojResolveAssemblyReference.cache
+D:\我的文档\GitHub\HYPDM\src\HYPDM\ref\HYPDM.Entities.dll
+D:\我的文档\GitHub\HYPDM\src\HYPDM\ref\HYPDM.Entities.pdb
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\ResolveAssemblyReference.cache
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb

@@ -137,7 +137,7 @@
       <DependentUpon>ConnectControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Parts\ConnectForm.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parts\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>

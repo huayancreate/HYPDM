@@ -66,13 +66,30 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.tbcContent = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
+            this.tpDoc = new System.Windows.Forms.TabPage();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.btnAddDoc = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.dgvDoc = new System.Windows.Forms.DataGridView();
+            this.DocNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tbcContent.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpRemark.SuspendLayout();
+            this.tpDoc.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -411,23 +428,24 @@
             // 
             // tbcContent
             // 
-            this.tbcContent.Controls.Add(this.tabPage2);
+            this.tbcContent.Controls.Add(this.tpRemark);
+            this.tbcContent.Controls.Add(this.tpDoc);
             this.tbcContent.Location = new System.Drawing.Point(268, 28);
             this.tbcContent.Name = "tbcContent";
             this.tbcContent.SelectedIndex = 0;
             this.tbcContent.Size = new System.Drawing.Size(377, 422);
             this.tbcContent.TabIndex = 2;
             // 
-            // tabPage2
+            // tpRemark
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage2.Controls.Add(this.txtRemark);
-            this.tabPage2.Location = new System.Drawing.Point(4, 21);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(369, 397);
-            this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "备注";
+            this.tpRemark.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tpRemark.Controls.Add(this.txtRemark);
+            this.tpRemark.Location = new System.Drawing.Point(4, 21);
+            this.tpRemark.Name = "tpRemark";
+            this.tpRemark.Padding = new System.Windows.Forms.Padding(3);
+            this.tpRemark.Size = new System.Drawing.Size(369, 397);
+            this.tpRemark.TabIndex = 0;
+            this.tpRemark.Text = "备注";
             // 
             // txtRemark
             // 
@@ -436,6 +454,124 @@
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(357, 207);
             this.txtRemark.TabIndex = 0;
+            // 
+            // tpDoc
+            // 
+            this.tpDoc.Controls.Add(this.dgvDoc);
+            this.tpDoc.Controls.Add(this.toolStrip2);
+            this.tpDoc.Location = new System.Drawing.Point(4, 21);
+            this.tpDoc.Name = "tpDoc";
+            this.tpDoc.Size = new System.Drawing.Size(369, 397);
+            this.tpDoc.TabIndex = 1;
+            this.tpDoc.Text = "文档";
+            this.tpDoc.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton4,
+            this.toolStripButton5,
+            this.btnAddDoc,
+            this.toolStripButton7});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(369, 25);
+            this.toolStrip2.TabIndex = 0;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "toolStripButton5";
+            // 
+            // btnAddDoc
+            // 
+            this.btnAddDoc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAddDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDoc.Image")));
+            this.btnAddDoc.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddDoc.Name = "btnAddDoc";
+            this.btnAddDoc.Size = new System.Drawing.Size(23, 22);
+            this.btnAddDoc.Text = "新增";
+            this.btnAddDoc.Click += new System.EventHandler(this.btnAddDoc_Click);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton7.Text = "删除";
+            // 
+            // dgvDoc
+            // 
+            this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DocNO,
+            this.DocType,
+            this.Description,
+            this.Status,
+            this.LastUpdateUser,
+            this.LastUpdateDate});
+            this.dgvDoc.Location = new System.Drawing.Point(3, 27);
+            this.dgvDoc.Name = "dgvDoc";
+            this.dgvDoc.RowHeadersVisible = false;
+            this.dgvDoc.RowTemplate.Height = 23;
+            this.dgvDoc.Size = new System.Drawing.Size(363, 342);
+            this.dgvDoc.TabIndex = 1;
+            // 
+            // DocNO
+            // 
+            this.DocNO.HeaderText = "编号";
+            this.DocNO.Name = "DocNO";
+            // 
+            // DocType
+            // 
+            this.DocType.HeaderText = "文档分类";
+            this.DocType.Name = "DocType";
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "描述";
+            this.Description.Name = "Description";
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            // 
+            // LastUpdateUser
+            // 
+            this.LastUpdateUser.HeaderText = "修改者";
+            this.LastUpdateUser.Name = "LastUpdateUser";
+            // 
+            // LastUpdateDate
+            // 
+            this.LastUpdateDate.HeaderText = "创建时间";
+            this.LastUpdateDate.Name = "LastUpdateDate";
             // 
             // ProductRegForm
             // 
@@ -453,8 +589,13 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tbcContent.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tpRemark.ResumeLayout(false);
+            this.tpRemark.PerformLayout();
+            this.tpDoc.ResumeLayout(false);
+            this.tpDoc.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,7 +640,21 @@
         private System.Windows.Forms.TextBox txtWorkCenter;
         private System.Windows.Forms.TextBox txtProperty;
         private System.Windows.Forms.TabControl tbcContent;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpRemark;
         private System.Windows.Forms.TextBox txtRemark;
+        private System.Windows.Forms.TabPage tpDoc;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton btnAddDoc;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.DataGridView dgvDoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateDate;
     }
 }

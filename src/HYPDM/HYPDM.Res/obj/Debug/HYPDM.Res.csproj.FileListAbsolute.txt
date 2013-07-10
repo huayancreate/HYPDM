@@ -37,3 +37,16 @@ C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Wel
 C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csproj.GenerateResource.Cache
 C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.dll
 C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.pdb
+D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Res.dll
+D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Res.pdb
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\ResolveAssemblyReference.cache
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Banner.resources
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.BottomControl.resources
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.LoginForm.resources
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.MainForm.resources
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.NavigationControl.resources
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Welcome.resources
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\GenerateResource.read.1.tlog
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\GenerateResource.write.1.tlog
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.dll
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.pdb
