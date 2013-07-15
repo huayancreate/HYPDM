@@ -43,6 +43,8 @@
     <Reference Include="System.Data.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generat\PDM_PRODUCT_DOCUMENT.Generator.cs" />
+    <Compile Include="PDM_PRODUCT_DOCUMENT.cs" />
     <Compile Include="PDM_VERSION_HISTORY.cs">
       <SubType>Code</SubType>
     </Compile>

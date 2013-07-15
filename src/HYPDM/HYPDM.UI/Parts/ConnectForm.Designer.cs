@@ -1,4 +1,4 @@
-﻿namespace HYPDM.WinUI.parts
+﻿namespace HYPDM.WinUI.Parts
 {
     partial class ConnectForm
     {
@@ -29,12 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("文档");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("文档管理", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tvContent = new System.Windows.Forms.TreeView();
             this.dgvSearchResult = new System.Windows.Forms.DataGridView();
+            this.ChkBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DocID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -44,18 +57,17 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResult)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,11 +114,20 @@
             // 
             this.tvContent.Location = new System.Drawing.Point(5, 3);
             this.tvContent.Name = "tvContent";
+            treeNode1.Name = "doc";
+            treeNode1.Text = "文档";
+            treeNode2.Name = "docMng";
+            treeNode2.Text = "文档管理";
+            this.tvContent.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2});
             this.tvContent.Size = new System.Drawing.Size(167, 385);
             this.tvContent.TabIndex = 0;
             // 
             // dgvSearchResult
             // 
+            this.dgvSearchResult.AllowUserToAddRows = false;
+            this.dgvSearchResult.AllowUserToDeleteRows = false;
+            this.dgvSearchResult.AutoGenerateColumns = false;
             this.dgvSearchResult.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -117,12 +138,86 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSearchResult.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSearchResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearchResult.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ChkBox,
+            this.DocID,
+            this.DocNo,
+            this.DOCTYPE,
+            this.Description,
+            this.DocStatus,
+            this.LastUpdateUser,
+            this.CreateDate,
+            this.LastUpdateDate});
+            this.dgvSearchResult.DataSource = this.docBindingSource;
             this.dgvSearchResult.Location = new System.Drawing.Point(3, 80);
             this.dgvSearchResult.Name = "dgvSearchResult";
             this.dgvSearchResult.RowHeadersVisible = false;
             this.dgvSearchResult.RowTemplate.Height = 23;
+            this.dgvSearchResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSearchResult.Size = new System.Drawing.Size(527, 308);
             this.dgvSearchResult.TabIndex = 6;
+            this.dgvSearchResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchResult_CellClick);
+            // 
+            // ChkBox
+            // 
+            this.ChkBox.HeaderText = "";
+            this.ChkBox.Name = "ChkBox";
+            // 
+            // DocID
+            // 
+            this.DocID.DataPropertyName = "DOCID";
+            this.DocID.HeaderText = "";
+            this.DocID.Name = "DocID";
+            this.DocID.Visible = false;
+            // 
+            // DocNo
+            // 
+            this.DocNo.DataPropertyName = "DOCNO";
+            this.DocNo.HeaderText = "编号";
+            this.DocNo.Name = "DocNo";
+            this.DocNo.ReadOnly = true;
+            // 
+            // DOCTYPE
+            // 
+            this.DOCTYPE.DataPropertyName = "DOCTYPE";
+            this.DOCTYPE.HeaderText = "文档分类";
+            this.DOCTYPE.Name = "DOCTYPE";
+            this.DOCTYPE.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "DESCRIPTION";
+            this.Description.HeaderText = "描述";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // DocStatus
+            // 
+            this.DocStatus.DataPropertyName = "DOCSTATUS";
+            this.DocStatus.HeaderText = "状态";
+            this.DocStatus.Name = "DocStatus";
+            this.DocStatus.ReadOnly = true;
+            // 
+            // LastUpdateUser
+            // 
+            this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
+            this.LastUpdateUser.HeaderText = "修改者";
+            this.LastUpdateUser.Name = "LastUpdateUser";
+            this.LastUpdateUser.ReadOnly = true;
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.DataPropertyName = "CREATEDATE";
+            this.CreateDate.HeaderText = "创建时间";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            // 
+            // LastUpdateDate
+            // 
+            this.LastUpdateDate.DataPropertyName = "LASTUPDATEDATE";
+            this.LastUpdateDate.HeaderText = "修改日期";
+            this.LastUpdateDate.Name = "LastUpdateDate";
+            this.LastUpdateDate.ReadOnly = true;
             // 
             // panel2
             // 
@@ -199,41 +294,43 @@
             this.button4.TabIndex = 0;
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnView
             // 
-            this.button1.Location = new System.Drawing.Point(501, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "查看";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnView.Location = new System.Drawing.Point(501, 399);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(75, 23);
+            this.btnView.TabIndex = 1;
+            this.btnView.Text = "查看";
+            this.btnView.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSelect
             // 
-            this.button2.Location = new System.Drawing.Point(582, 399);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "选择";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSelect.Location = new System.Drawing.Point(582, 399);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 2;
+            this.btnSelect.Text = "选择";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // button3
+            // btnClose
             // 
-            this.button3.Location = new System.Drawing.Point(663, 399);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "关闭";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnClose.Location = new System.Drawing.Point(663, 399);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.Text = "关闭";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // ConnectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 394);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(740, 428);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSelect);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.panel1);
             this.Name = "ConnectForm";
             this.Text = "连接";
@@ -245,9 +342,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -256,9 +353,9 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.TreeView tvContent;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -272,6 +369,15 @@
         private System.Windows.Forms.DataGridView dgvSearchResult;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.BindingSource docBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ChkBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOCTYPE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateDate;
 
     }
 }

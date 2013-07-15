@@ -84,5 +84,19 @@ namespace HYPDM.BLL
             DataEntityQuery<PDM_DOCUMENT> query = DataEntityQuery<PDM_DOCUMENT>.Create();
             return query.Select(c).ToList();
         }
+
+        public IList<PDM_DOCUMENT> GetDocListByID(String docID)
+        {
+            DataEntityQuery<PDM_DOCUMENT> query = DataEntityQuery<PDM_DOCUMENT>.Create();
+
+            var p = (from item in query
+                     where (item.DOCID == docID)
+                     orderby item.CREATEDATE ascending
+                     select item
+                );
+
+            return p.ToList();
+        }
+
     }
 }

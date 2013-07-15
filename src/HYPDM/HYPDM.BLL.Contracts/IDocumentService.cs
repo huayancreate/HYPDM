@@ -14,5 +14,6 @@ namespace HYPDM.BLL
         void DocSave(IList<PDM_DOCUMENT> documentList, IList<PDM_PHYSICAL_FILE> physicalList);
         void DocDel(IList<PDM_DOCUMENT> documentList, IList<PDM_PHYSICAL_FILE> physicalList);
         IList<PDM_DOCUMENT> GetDocList(Condition c);
+        IList<PDM_DOCUMENT> GetDocListByID(String docID);
     }
 }

@@ -9,8 +9,10 @@ using System.ComponentModel;
 using System.Data;
 using AdvancedDataGridView;
 using System.Drawing;
+using System.Collections.Generic;
+using HYPDM.Entities;
 
-namespace HYPDM.WinUI.parts
+namespace HYPDM.WinUI.Parts
 {
     public partial class ProductRegForm : Form
     {
@@ -53,8 +55,12 @@ namespace HYPDM.WinUI.parts
             }
         }
 
+        private IList<HYPDM.Entities.PDM_PRODUCT_DOCUMENT> proDocList;
+        private List<HYPDM.Entities.PDM_DOCUMENT> documentList = new List<HYPDM.Entities.PDM_DOCUMENT>();
+
         private void InitProductInfo()
         {
+
             if (this.Product != null)
             {
                 this.txtProductNo.Text = this.Product.PRONO;
@@ -73,6 +79,22 @@ namespace HYPDM.WinUI.parts
                 this.txtCreateDate.Text = this.Product.CREATEDATE;
                 this.txtLastUpdateDate.Text = this.Product.LASTUPDATEDATE;
                 this.txtRemark.Text = this.Product.REMARK;
+
+                this.proDocList = EAS.Services.ServiceContainer.GetService<IProductDocumentService>().GetProDocList(this.Product.PRODUCTID);
+                foreach (PDM_PRODUCT_DOCUMENT proDoc in proDocList)
+                {
+                    String docID = proDoc.DOCUMENTID;
+                    IList<HYPDM.Entities.PDM_DOCUMENT> docList =
+                        EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocListByID(docID);
+                    if (docList.Count > 0)
+                    {
+                        documentList.Add(docList[0]);
+                    }
+
+                }
+                this.docBindingSource.DataSource = null;
+                this.docBindingSource.DataSource = documentList;
+
             }
         }
 
@@ -128,7 +150,24 @@ namespace HYPDM.WinUI.parts
             productID = this.Product.PRODUCTID;
             ConnectForm connectForm = new ConnectForm();
             connectForm.StartPosition = FormStartPosition.CenterParent;
-            connectForm.ShowDialog();
+            if (connectForm.ShowDialog() == DialogResult.OK)
+            {
+                documentList.Clear();
+                this.proDocList = EAS.Services.ServiceContainer.GetService<IProductDocumentService>().GetProDocList(this.Product.PRODUCTID);
+                foreach (PDM_PRODUCT_DOCUMENT proDoc in proDocList)
+                {
+                    String docID = proDoc.DOCUMENTID;
+                    IList<HYPDM.Entities.PDM_DOCUMENT> docList =
+                        EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocListByID(docID);
+                    if (docList.Count > 0)
+                    {
+                        documentList.Add(docList[0]);
+                    }
+
+                }
+                this.docBindingSource.DataSource = null;
+                this.docBindingSource.DataSource = documentList;
+            }
         }
 
     }

@@ -52,6 +52,7 @@
     <Compile Include="DocumentService.cs" />
     <Compile Include="MaxCodeService.cs" />
     <Compile Include="PhysicalFileService.cs" />
+    <Compile Include="ProductDocumentService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VersionService.cs" />

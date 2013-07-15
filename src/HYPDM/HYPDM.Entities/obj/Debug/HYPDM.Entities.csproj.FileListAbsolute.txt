@@ -20,3 +20,5 @@ D:\我的文档\GitHub\HYPDM\src\HYPDM\ref\HYPDM.Entities.pdb
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\ResolveAssemblyReference.cache
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
+D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Entities.dll
+D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Entities.pdb

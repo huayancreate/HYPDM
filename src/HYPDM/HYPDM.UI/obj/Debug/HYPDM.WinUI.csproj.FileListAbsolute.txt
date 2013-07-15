@@ -98,3 +98,4 @@ D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\GenerateResource.read.
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\GenerateResource.write.1.tlog
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.dll
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.pdb
+D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.Document.SearchForm.resources

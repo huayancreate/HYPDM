@@ -1,4 +1,4 @@
-﻿namespace HYPDM.WinUI.parts
+﻿namespace HYPDM.WinUI.Parts
 {
     partial class ProductRegForm
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -69,12 +70,6 @@
             this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.tpDoc = new System.Windows.Forms.TabPage();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.btnAddDoc = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.dgvDoc = new System.Windows.Forms.DataGridView();
             this.DocNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,14 +77,22 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.btnAddDoc = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tbcContent.SuspendLayout();
             this.tpRemark.SuspendLayout();
             this.tpDoc.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).BeginInit();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -466,6 +469,61 @@
             this.tpDoc.Text = "文档";
             this.tpDoc.UseVisualStyleBackColor = true;
             // 
+            // dgvDoc
+            // 
+            this.dgvDoc.AutoGenerateColumns = false;
+            this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DocNO,
+            this.DocType,
+            this.Description,
+            this.Status,
+            this.LastUpdateUser,
+            this.LastUpdateDate});
+            this.dgvDoc.DataSource = this.docBindingSource;
+            this.dgvDoc.Location = new System.Drawing.Point(3, 27);
+            this.dgvDoc.Name = "dgvDoc";
+            this.dgvDoc.RowHeadersVisible = false;
+            this.dgvDoc.RowTemplate.Height = 23;
+            this.dgvDoc.Size = new System.Drawing.Size(363, 342);
+            this.dgvDoc.TabIndex = 1;
+            // 
+            // DocNO
+            // 
+            this.DocNO.DataPropertyName = "DOCNO";
+            this.DocNO.HeaderText = "编号";
+            this.DocNO.Name = "DocNO";
+            // 
+            // DocType
+            // 
+            this.DocType.DataPropertyName = "DOCTYPE";
+            this.DocType.HeaderText = "文档分类";
+            this.DocType.Name = "DocType";
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "DESCRIPTION";
+            this.Description.HeaderText = "描述";
+            this.Description.Name = "Description";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "DOCSTATUS";
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            // 
+            // LastUpdateUser
+            // 
+            this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
+            this.LastUpdateUser.HeaderText = "修改者";
+            this.LastUpdateUser.Name = "LastUpdateUser";
+            // 
+            // LastUpdateDate
+            // 
+            this.LastUpdateDate.DataPropertyName = "CREATEDATE";
+            this.LastUpdateDate.HeaderText = "创建时间";
+            this.LastUpdateDate.Name = "LastUpdateDate";
+            // 
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -526,53 +584,6 @@
             this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton7.Text = "删除";
             // 
-            // dgvDoc
-            // 
-            this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DocNO,
-            this.DocType,
-            this.Description,
-            this.Status,
-            this.LastUpdateUser,
-            this.LastUpdateDate});
-            this.dgvDoc.Location = new System.Drawing.Point(3, 27);
-            this.dgvDoc.Name = "dgvDoc";
-            this.dgvDoc.RowHeadersVisible = false;
-            this.dgvDoc.RowTemplate.Height = 23;
-            this.dgvDoc.Size = new System.Drawing.Size(363, 342);
-            this.dgvDoc.TabIndex = 1;
-            // 
-            // DocNO
-            // 
-            this.DocNO.HeaderText = "编号";
-            this.DocNO.Name = "DocNO";
-            // 
-            // DocType
-            // 
-            this.DocType.HeaderText = "文档分类";
-            this.DocType.Name = "DocType";
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "描述";
-            this.Description.Name = "Description";
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "状态";
-            this.Status.Name = "Status";
-            // 
-            // LastUpdateUser
-            // 
-            this.LastUpdateUser.HeaderText = "修改者";
-            this.LastUpdateUser.Name = "LastUpdateUser";
-            // 
-            // LastUpdateDate
-            // 
-            this.LastUpdateDate.HeaderText = "创建时间";
-            this.LastUpdateDate.Name = "LastUpdateDate";
-            // 
             // ProductRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -593,9 +604,10 @@
             this.tpRemark.PerformLayout();
             this.tpDoc.ResumeLayout(false);
             this.tpDoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -650,6 +662,7 @@
         private System.Windows.Forms.ToolStripButton btnAddDoc;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.DataGridView dgvDoc;
+        private System.Windows.Forms.BindingSource docBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;

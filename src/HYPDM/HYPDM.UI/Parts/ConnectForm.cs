@@ -9,11 +9,17 @@ using System.Text;
 using System.Windows.Forms;
 using HYPDM.WinUI.BaseUI;
 using HYPDM.BLL;
+using EAS.Services;
+using HYPDM.Entities;
 
-namespace HYPDM.WinUI.parts
+namespace HYPDM.WinUI.Parts
 {
     public partial class ConnectForm : BaseForm
     {
+        public static string productID;
+        IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
+        protected int closed = 0;
+
         public ConnectForm()
         {
             InitializeComponent();
@@ -22,29 +28,20 @@ namespace HYPDM.WinUI.parts
 
         private void Initialize()
         {
-            this.InitTreeView();
-            this.InitDataGridView();
+            productID = ProductRegForm.productID;
             this.InitList();
         }
 
-        private void InitTreeView()
+        protected override void OnClosing(CancelEventArgs e)
         {
-            TreeNode node= new TreeNode("文档管理");
-            //node.Text = "test";
-            this.tvContent.Nodes.Add(node);
-            TreeNode node1 = new TreeNode("文档");
-            node.Nodes.Add(node1);
+            base.OnClosing(e);
+            e.Cancel = this.closed == -1;
+            if (this.closed == -1)
+            {
+                this.closed = 0;
+            }
         }
 
-        private void InitDataGridView()
-        {
-            DataTable dt = new DataTable();
-            DataColumn dc = new DataColumn("编号");
-
-            dt.Columns.Add(new DataColumn("id"));
-            dt.Columns.Add();
-            this.dgvSearchResult.DataSource = dt;
-        }
 
         private IList<HYPDM.Entities.PDM_DOCUMENT> documentList;
         private void InitList()
@@ -61,6 +58,49 @@ namespace HYPDM.WinUI.parts
         {
             this.docBindingSource.DataSource = null;
             this.docBindingSource.DataSource = list;
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            List<PDM_PRODUCT_DOCUMENT> proDocList = new List<PDM_PRODUCT_DOCUMENT>();
+            for (int i = 0; i < this.dgvSearchResult.RowCount; i++)
+            {
+                PDM_PRODUCT_DOCUMENT proDoc = new PDM_PRODUCT_DOCUMENT();
+                if ((bool)dgvSearchResult.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    proDoc.ID = _proDocService.GetMaxID().ToString();
+                    proDoc.PRODUCTID = productID;
+                    proDoc.DOCUMENTID = dgvSearchResult.Rows[i].Cells["DocID"].Value.ToString();
+                    proDocList.Add(proDoc);
+                }
+            }
+            _proDocService.ProDocSave(proDocList);
+            this.closed = 1;
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void dgvSearchResult_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ((bool)dgvSearchResult.Rows[e.RowIndex].Cells[0].EditedFormattedValue == false)
+            {
+                for (int i = 0; i < this.dgvSearchResult.RowCount; i++)
+                {
+                    dgvSearchResult.Rows[i].Cells[0].Value = false;
+                }
+                dgvSearchResult.Rows[e.RowIndex].Cells[0].Value = true;
+
+            }
+            else
+            {
+                dgvSearchResult.Rows[e.RowIndex].Cells[0].Value = false;
+                // dgvSearchResult.Rows[e.RowIndex].Selected = false;
+            }
+            
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
 
     }

@@ -1,4 +1,4 @@
-﻿namespace HYPDM.WinUI.parts
+﻿namespace HYPDM.WinUI.Parts
 {
     partial class UseMsgForm
     {

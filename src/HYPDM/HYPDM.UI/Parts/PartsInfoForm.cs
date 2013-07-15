@@ -7,17 +7,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using HYPDM.WinUI.BaseUI;
 
-namespace HYPDM.WinUI.parts
+namespace HYPDM.WinUI.Parts
 {
-    [Module("2A728C57-1DB0-47D5-BAB9-61B949312EE7", "零部件信息", "零部件及结构管理")]
-    public partial class PartsInfoForm : UserControl
+    public partial class PartsInfoForm : BaseForm
     {
-        [ModuleStart]
-        public void StartEx()
-        {
-
-        }
 
         public PartsInfoForm()
         {

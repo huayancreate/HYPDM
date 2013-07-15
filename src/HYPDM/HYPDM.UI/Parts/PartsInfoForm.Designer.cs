@@ -1,4 +1,4 @@
-﻿namespace HYPDM.WinUI.parts
+﻿namespace HYPDM.WinUI.Parts
 {
     partial class PartsInfoForm
     {
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsInfoForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -113,11 +113,12 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage8.SuspendLayout();
@@ -130,19 +131,20 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.tabControl2);
             this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(834, 465);
+            this.panel1.Size = new System.Drawing.Size(739, 455);
             this.panel1.TabIndex = 0;
             // 
             // tabControl2
@@ -155,7 +157,7 @@
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Controls.Add(this.tabPage9);
-            this.tabControl2.Location = new System.Drawing.Point(293, 35);
+            this.tabControl2.Location = new System.Drawing.Point(244, 33);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(488, 421);
@@ -163,56 +165,56 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 21);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(480, 395);
+            this.tabPage2.Size = new System.Drawing.Size(480, 396);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "ERP属性";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 21);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(480, 395);
+            this.tabPage3.Size = new System.Drawing.Size(480, 396);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "备注";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Location = new System.Drawing.Point(4, 21);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(480, 395);
+            this.tabPage4.Size = new System.Drawing.Size(480, 396);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "文档";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Location = new System.Drawing.Point(4, 21);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(480, 395);
+            this.tabPage5.Size = new System.Drawing.Size(480, 396);
             this.tabPage5.TabIndex = 3;
             this.tabPage5.Text = "变更请求";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // tabPage6
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Location = new System.Drawing.Point(4, 21);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(480, 395);
+            this.tabPage6.Size = new System.Drawing.Size(480, 396);
             this.tabPage6.TabIndex = 4;
             this.tabPage6.Text = "图纸";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage7
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Location = new System.Drawing.Point(4, 21);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(480, 395);
+            this.tabPage7.Size = new System.Drawing.Size(480, 396);
             this.tabPage7.TabIndex = 5;
             this.tabPage7.Text = "工艺路线";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -226,9 +228,9 @@
             this.tabPage8.Controls.Add(this.textBox4);
             this.tabPage8.Controls.Add(this.comboBox5);
             this.tabPage8.Controls.Add(this.toolStrip3);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Location = new System.Drawing.Point(4, 21);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(480, 395);
+            this.tabPage8.Size = new System.Drawing.Size(480, 396);
             this.tabPage8.TabIndex = 6;
             this.tabPage8.Text = "产品结构";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -291,10 +293,10 @@
             this.tabPage10.Controls.Add(this.label17);
             this.tabPage10.Controls.Add(this.textBox5);
             this.tabPage10.Controls.Add(this.label16);
-            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Location = new System.Drawing.Point(4, 21);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(448, 136);
+            this.tabPage10.Size = new System.Drawing.Size(448, 137);
             this.tabPage10.TabIndex = 0;
             this.tabPage10.Text = "使用信息";
             // 
@@ -367,14 +369,14 @@
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -573,9 +575,9 @@
             // 
             // tabPage9
             // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Location = new System.Drawing.Point(4, 21);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(480, 395);
+            this.tabPage9.Size = new System.Drawing.Size(480, 396);
             this.tabPage9.TabIndex = 7;
             this.tabPage9.Text = "版本";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -583,7 +585,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(52, 35);
+            this.tabControl1.Location = new System.Drawing.Point(3, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(235, 421);
@@ -623,10 +625,10 @@
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.toolStrip2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 21);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(227, 395);
+            this.tabPage1.Size = new System.Drawing.Size(227, 396);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             // 
@@ -919,19 +921,25 @@
             this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton7.Text = "toolStripButton7";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.toolStrip1);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(729, 24);
+            this.panel3.TabIndex = 6;
+            // 
             // toolStrip1
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3,
-            this.toolStripSplitButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(52, 7);
+            this.toolStripButton4});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(104, 25);
-            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Size = new System.Drawing.Size(729, 25);
+            this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripButton1
@@ -961,24 +969,23 @@
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // toolStripSplitButton2
+            // toolStripButton4
             // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton2.Image")));
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
             // 
             // PartsInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(739, 455);
             this.Controls.Add(this.panel1);
             this.Name = "PartsInfoForm";
-            this.Size = new System.Drawing.Size(834, 465);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tabControl2.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
@@ -997,6 +1004,8 @@
             this.tabPage1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -1088,11 +1097,12 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
 
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using EAS.Modularization;
 using HYPDM.BLL;
 using EAS.Data.ORM;
-using HYPDM.WinUI.parts;
+using HYPDM.WinUI.Parts;
 
 namespace HYPDM.WinUI.Parts
 {
