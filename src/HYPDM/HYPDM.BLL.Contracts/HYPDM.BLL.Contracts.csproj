@@ -47,11 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IChangeService.cs" />
     <Compile Include="IDocumentService.cs" />
     <Compile Include="IMaxCodeService.cs" />
     <Compile Include="IMaxID.cs" />
     <Compile Include="IPhysicalFileService.cs" />
     <Compile Include="IProductService.cs" />
+    <Compile Include="IVersionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
