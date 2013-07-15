@@ -37,7 +37,7 @@ namespace HYPDM.Entities
    /// 实体对象 PDM_PARTS_TYPE(零件类型)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_PARTS_TYPE","零件类型")]
+   [Table("PDM_PARTS_TYPE","零件类型")]
    partial class PDM_PARTS_TYPE: DataEntity<PDM_PARTS_TYPE>, IDataEntity<PDM_PARTS_TYPE>
    {
        public PDM_PARTS_TYPE()

@@ -25,9 +25,9 @@ namespace HYPDM.Entities
         private DataEntityQuery<PDM_PARTS_TYPE> m_PDM_PARTS_TYPEs;
         private DataEntityQuery<PDM_PRODUCT> m_PDM_PRODUCTs;
         private DataEntityQuery<PDM_PRODUCT_STRUCT> m_PDM_PRODUCT_STRUCTs;
-        private DataEntityQuery<PDM_UNIT> m_PDM_UNITs;
-        private DataEntityQuery<PDM_USER> m_PDM_USERs;
         private DataEntityQuery<PDM_PHYSICAL_FILE> m_PDM_PHYSICAL_FILEs;
+        private DataEntityQuery<PDM_VERSION_HISTORY> m_PDM_VERSION_HISTORYs;
+        private DataEntityQuery<PDM_CHANGE_HISTORY> m_PDM_CHANGE_HISTORYs;
         #endregion
 
         #region 构造函数
@@ -210,36 +210,6 @@ namespace HYPDM.Entities
         }
 
         /// <summary>
-        /// 单位。
-        /// </summary>
-        public DataEntityQuery<PDM_UNIT> PDM_UNITs
-        {
-            get
-            {
-                if (this.m_PDM_UNITs == null)
-                {
-                    this.m_PDM_UNITs = base.CreateQuery<PDM_UNIT>();
-                }
-                return this.m_PDM_UNITs;
-            }
-        }
-
-        /// <summary>
-        /// 用户。
-        /// </summary>
-        public DataEntityQuery<PDM_USER> PDM_USERs
-        {
-            get
-            {
-                if (this.m_PDM_USERs == null)
-                {
-                    this.m_PDM_USERs = base.CreateQuery<PDM_USER>();
-                }
-                return this.m_PDM_USERs;
-            }
-        }
-
-        /// <summary>
         /// 物理文件。
         /// </summary>
         public DataEntityQuery<PDM_PHYSICAL_FILE> PDM_PHYSICAL_FILEs
@@ -251,6 +221,36 @@ namespace HYPDM.Entities
                     this.m_PDM_PHYSICAL_FILEs = base.CreateQuery<PDM_PHYSICAL_FILE>();
                 }
                 return this.m_PDM_PHYSICAL_FILEs;
+            }
+        }
+
+        /// <summary>
+        /// 检入检出记录。
+        /// </summary>
+        public DataEntityQuery<PDM_VERSION_HISTORY> PDM_VERSION_HISTORYs
+        {
+            get
+            {
+                if (this.m_PDM_VERSION_HISTORYs == null)
+                {
+                    this.m_PDM_VERSION_HISTORYs = base.CreateQuery<PDM_VERSION_HISTORY>();
+                }
+                return this.m_PDM_VERSION_HISTORYs;
+            }
+        }
+
+        /// <summary>
+        /// 变更记录。
+        /// </summary>
+        public DataEntityQuery<PDM_CHANGE_HISTORY> PDM_CHANGE_HISTORYs
+        {
+            get
+            {
+                if (this.m_PDM_CHANGE_HISTORYs == null)
+                {
+                    this.m_PDM_CHANGE_HISTORYs = base.CreateQuery<PDM_CHANGE_HISTORY>();
+                }
+                return this.m_PDM_CHANGE_HISTORYs;
             }
         }
 

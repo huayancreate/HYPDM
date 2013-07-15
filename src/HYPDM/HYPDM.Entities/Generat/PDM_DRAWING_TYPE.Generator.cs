@@ -37,7 +37,7 @@ namespace HYPDM.Entities
    /// 实体对象 PDM_DRAWING_TYPE(图纸类型)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_DRAWING_TYPE","图纸类型")]
+   [Table("PDM_DRAWING_TYPE","图纸类型")]
    partial class PDM_DRAWING_TYPE: DataEntity<PDM_DRAWING_TYPE>, IDataEntity<PDM_DRAWING_TYPE>
    {
        public PDM_DRAWING_TYPE()

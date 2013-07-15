@@ -37,7 +37,7 @@ namespace HYPDM.Entities
    /// 实体对象 PDM_DOCUMENT(文档)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_DOCUMENT","文档")]
+   [Table("PDM_DOCUMENT","文档")]
    partial class PDM_DOCUMENT: DataEntity<PDM_DOCUMENT>, IDataEntity<PDM_DOCUMENT>
    {
        public PDM_DOCUMENT()

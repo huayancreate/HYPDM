@@ -37,7 +37,7 @@ namespace HYPDM.Entities
    /// 实体对象 PDM_PRODUCT_STRUCT(产品结构)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_PRODUCT_STRUCT","产品结构")]
+   [Table("PDM_PRODUCT_STRUCT","产品结构")]
    partial class PDM_PRODUCT_STRUCT: DataEntity<PDM_PRODUCT_STRUCT>, IDataEntity<PDM_PRODUCT_STRUCT>
    {
        public PDM_PRODUCT_STRUCT()

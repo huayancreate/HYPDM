@@ -7,9 +7,9 @@ using EAS.Data.ORM;
 namespace HYPDM.Entities
 {
    /// <summary>
-   /// 实体对象 PDM_UNIT(单位)。
+   /// 实体对象 PDM_CHANGE_HISTORY(变更记录)。
    /// </summary>
-   public partial class PDM_UNIT: DataEntity<PDM_UNIT>
+   public partial class PDM_CHANGE_HISTORY: DataEntity<PDM_CHANGE_HISTORY>
    {
    
    }

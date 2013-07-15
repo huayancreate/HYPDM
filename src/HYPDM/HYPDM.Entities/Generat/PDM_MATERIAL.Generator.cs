@@ -37,7 +37,7 @@ namespace HYPDM.Entities
    /// 实体对象 PDM_MATERIAL(材料)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_MATERIAL","材料")]
+   [Table("PDM_MATERIAL","材料")]
    partial class PDM_MATERIAL: DataEntity<PDM_MATERIAL>, IDataEntity<PDM_MATERIAL>
    {
        public PDM_MATERIAL()

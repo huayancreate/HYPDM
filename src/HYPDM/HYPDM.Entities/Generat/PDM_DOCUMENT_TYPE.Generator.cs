@@ -37,7 +37,7 @@ namespace HYPDM.Entities
    /// 实体对象 PDM_DOCUMENT_TYPE(文档类型)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_DOCUMENT_TYPE","文档类型")]
+   [Table("PDM_DOCUMENT_TYPE","文档类型")]
    partial class PDM_DOCUMENT_TYPE: DataEntity<PDM_DOCUMENT_TYPE>, IDataEntity<PDM_DOCUMENT_TYPE>
    {
        public PDM_DOCUMENT_TYPE()

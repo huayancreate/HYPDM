@@ -37,7 +37,7 @@ namespace HYPDM.Entities
    /// 实体对象 PDM_PHYSICAL_FILE(物理文件)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_PHYSICAL_FILE","物理文件")]
+   [Table("PDM_PHYSICAL_FILE","物理文件")]
    partial class PDM_PHYSICAL_FILE: DataEntity<PDM_PHYSICAL_FILE>, IDataEntity<PDM_PHYSICAL_FILE>
    {
        public PDM_PHYSICAL_FILE()
@@ -178,6 +178,17 @@ namespace HYPDM.Entities
        [Column("FILEPATH","文件地址"),DataSize(128)]
        [DisplayName("文件地址")]
        public string FILEPATH
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 文件状态 。
+       /// </summary>
+       [Column("FILESTATUS","文件状态"),DataSize(128)]
+       [DisplayName("文件状态")]
+       public string FILESTATUS
        {
            get;
            set;
