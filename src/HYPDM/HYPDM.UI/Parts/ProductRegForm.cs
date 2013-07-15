@@ -12,19 +12,15 @@ using System.Drawing;
 
 namespace HYPDM.WinUI.parts
 {
-    [Module("76CDF0E3-F75E-42E5-91D9-00EB9CD55AF2", "创建产品", "零部件及结构管理")]
     public partial class ProductRegForm : Form
     {
+        public static string productID;
 
         protected int closed = 0;
         protected bool valueChanged = false;
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         IProductService _proService = ServiceContainer.GetService<IProductService>();
         private HYPDM.Entities.PDM_PRODUCT product;
-        public void StartEx()
-        {
-
-        }
 
         public ProductRegForm()
         {
@@ -129,9 +125,10 @@ namespace HYPDM.WinUI.parts
 
         private void btnAddDoc_Click(object sender, EventArgs e)
         {
+            productID = this.Product.PRODUCTID;
             ConnectForm connectForm = new ConnectForm();
             connectForm.StartPosition = FormStartPosition.CenterParent;
-            connectForm.Show();
+            connectForm.ShowDialog();
         }
 
     }
