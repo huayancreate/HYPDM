@@ -54,8 +54,8 @@
             this.btnMaterial = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCrafts = new System.Windows.Forms.ToolStripMenuItem();
             this.btnProduct = new System.Windows.Forms.ToolStripMenuItem();
-            this.新增ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除关系ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddRelation = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDelRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.tpFile = new System.Windows.Forms.TabPage();
             this.tvFileList = new AdvancedDataGridView.TreeGridView();
             this.Papers = new AdvancedDataGridView.TreeGridColumn();
@@ -273,8 +273,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.新建关联对象ToolStripMenuItem,
-            this.新增ToolStripMenuItem,
-            this.删除关系ToolStripMenuItem});
+            this.btnAddRelation,
+            this.btnDelRelation});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(408, 25);
@@ -312,6 +312,7 @@
             // 
             this.btnHalfProduct.Name = "btnHalfProduct";
             this.btnHalfProduct.Size = new System.Drawing.Size(152, 22);
+            this.btnHalfProduct.Tag = "半成品";
             this.btnHalfProduct.Text = "半成品";
             this.btnHalfProduct.Click += new System.EventHandler(this.btnHalfProduct_Click);
             // 
@@ -319,15 +320,17 @@
             // 
             this.btnMaterial.Name = "btnMaterial";
             this.btnMaterial.Size = new System.Drawing.Size(152, 22);
+            this.btnMaterial.Tag = "原材料";
             this.btnMaterial.Text = "原材料";
-            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
+            this.btnMaterial.Click += new System.EventHandler(this.btnHalfProduct_Click);
             // 
             // btnCrafts
             // 
             this.btnCrafts.Name = "btnCrafts";
             this.btnCrafts.Size = new System.Drawing.Size(152, 22);
+            this.btnCrafts.Tag = "工艺装备";
             this.btnCrafts.Text = "工艺装备";
-            this.btnCrafts.Click += new System.EventHandler(this.btnCrafts_Click);
+            this.btnCrafts.Click += new System.EventHandler(this.btnHalfProduct_Click);
             // 
             // btnProduct
             // 
@@ -335,17 +338,19 @@
             this.btnProduct.Size = new System.Drawing.Size(152, 22);
             this.btnProduct.Text = "产品";
             // 
-            // 新增ToolStripMenuItem
+            // btnAddRelation
             // 
-            this.新增ToolStripMenuItem.Name = "新增ToolStripMenuItem";
-            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.新增ToolStripMenuItem.Text = "新增关联";
+            this.btnAddRelation.Name = "btnAddRelation";
+            this.btnAddRelation.Size = new System.Drawing.Size(68, 21);
+            this.btnAddRelation.Text = "新增关联";
+            this.btnAddRelation.Click += new System.EventHandler(this.btnAddRelation_Click);
             // 
-            // 删除关系ToolStripMenuItem
+            // btnDelRelation
             // 
-            this.删除关系ToolStripMenuItem.Name = "删除关系ToolStripMenuItem";
-            this.删除关系ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.删除关系ToolStripMenuItem.Text = "删除关联";
+            this.btnDelRelation.Name = "btnDelRelation";
+            this.btnDelRelation.Size = new System.Drawing.Size(68, 21);
+            this.btnDelRelation.Text = "删除关联";
+            this.btnDelRelation.Click += new System.EventHandler(this.btnDelRelation_Click);
             // 
             // tpFile
             // 
@@ -931,7 +936,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnMaterial;
         private System.Windows.Forms.ToolStripMenuItem btnCrafts;
         private System.Windows.Forms.ToolStripMenuItem btnProduct;
-        private System.Windows.Forms.ToolStripMenuItem 新增ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除关系ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnAddRelation;
+        private System.Windows.Forms.ToolStripMenuItem btnDelRelation;
     }
 }

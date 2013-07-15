@@ -311,7 +311,7 @@ namespace HYPDM.WinUI.Document
                 physicalfile.Save();
 
                 HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
-                row.Cells["FileName"].Value = file.FILENAME;  
+                row.Cells["FileName"].Value = file.FILENAME;
                 VersionSave("0");
             }
         }
@@ -383,29 +383,38 @@ namespace HYPDM.WinUI.Document
         }
 
         /// <summary>
-        /// 半成品
+        /// 半成品、原材料、工艺装备
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnHalfProduct_Click(object sender, EventArgs e)
         {
-            Parts.pr
+            Parts.ProductRegForm form = new Parts.ProductRegForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
-        /// <summary>
-        /// 原材料
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnMaterial_Click(object sender, EventArgs e)
-        {
 
-        }
         /// <summary>
-        /// 工艺装备
+        /// 新建关联
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCrafts_Click(object sender, EventArgs e)
+        private void btnAddRelation_Click(object sender, EventArgs e)
+        {
+            Parts.ConnectForm form = new Parts.ConnectForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
+        }
+        /// <summary>
+        /// 删除关联
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDelRelation_Click(object sender, EventArgs e)
         {
 
         }
