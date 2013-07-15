@@ -189,6 +189,7 @@
     <Compile Include="Util\FTPDownUp.cs" />
     <Compile Include="Util\Common.cs" />
     <Compile Include="Util\FTPHelper.cs" />
+    <Compile Include="Util\Util.cs" />
     <EmbeddedResource Include="BaseUI\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
