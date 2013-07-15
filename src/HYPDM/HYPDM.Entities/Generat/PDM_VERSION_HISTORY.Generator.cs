@@ -34,17 +34,17 @@ using System.Runtime.Serialization;
 namespace HYPDM.Entities
 {
    /// <summary>
-   /// 实体对象 PDM_USER(用户)。
+   /// 实体对象 PDM_VERSION_HISTORY(检入检出记录)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_USER","用户")]
-   partial class PDM_USER: DataEntity<PDM_USER>, IDataEntity<PDM_USER>
+   [Table("PDM_VERSION_HISTORY","检入检出记录")]
+   partial class PDM_VERSION_HISTORY: DataEntity<PDM_VERSION_HISTORY>, IDataEntity<PDM_VERSION_HISTORY>
    {
-       public PDM_USER()
+       public PDM_VERSION_HISTORY()
        {
        }
        
-       protected PDM_USER(SerializationInfo info, StreamingContext context)
+       protected PDM_VERSION_HISTORY(SerializationInfo info, StreamingContext context)
            : base(info, context)
        {
        }
@@ -52,22 +52,55 @@ namespace HYPDM.Entities
        #region O/R映射成员
 
        /// <summary>
-       /// 用户名称 。
+       /// 主键 。
        /// </summary>
-       [Column("NAME","用户名称"),DataSize(128),PrimaryKey]
-       [DisplayName("用户名称")]
-       public string NAME
+       [Column("ID","主键"),DataSize(128),PrimaryKey]
+       [DisplayName("主键")]
+       public string ID
        {
            get;
            set;
        }
 
        /// <summary>
-       /// 用户密码 。
+       /// 版本状态 。
        /// </summary>
-       [Column("PASSWORD","用户密码"),DataSize(128)]
-       [DisplayName("用户密码")]
-       public string PASSWORD
+       [Column("VERSION_STATUS","版本状态"),DataSize(128)]
+       [DisplayName("版本状态")]
+       public string VERSIONSTATUS
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 操作日期 。
+       /// </summary>
+       [Column("OPERATORDATE","操作日期"),DataSize(128)]
+       [DisplayName("操作日期")]
+       public string OPERATORDATE
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 操作员 。
+       /// </summary>
+       [Column("OPERATORUSER","操作员"),DataSize(128)]
+       [DisplayName("操作员")]
+       public string OPERATORUSER
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 版本号 。
+       /// </summary>
+       [Column("VERSIONNO","版本号"),DataSize(128)]
+       [DisplayName("版本号")]
+       public string VERSIONNO
        {
            get;
            set;
