@@ -20,6 +20,8 @@ namespace HYPDM.WinUI.Document
     {
         public event EventHandler Close;
 
+        public IList<PDM_DOCUMENT> _docList;
+
         public DocListControl()
         {
             InitializeComponent();
@@ -47,6 +49,7 @@ namespace HYPDM.WinUI.Document
             DateTime d0 = DateTime.Now;
             this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
             this.InitList(documentList);
+
         }
         /// <summary>
         /// 将指定的数据源中的记录绑定到列表。
@@ -54,7 +57,8 @@ namespace HYPDM.WinUI.Document
         internal void InitList(IList<HYPDM.Entities.PDM_DOCUMENT> list)
         {
             this.docBindingSource.DataSource = null;
-            this.docBindingSource.DataSource = list;
+            this.dgvDocList.DataSource = list;
+            BindDataFile();
         }
 
         private void btnDocToAdd_Click(object sender, EventArgs e)
@@ -75,13 +79,8 @@ namespace HYPDM.WinUI.Document
 
             if (o.ShowDialog() == DialogResult.OK)
             {
-                HYPDM.Entities.PDM_DOCUMENT doc = o.Document;
-
-                //添加到列表上
-                this.documentList.Insert(0, doc);
-
-                this.docBindingSource.DataSource = null;
-                this.docBindingSource.DataSource = this.documentList;
+                //重新加载列表
+                InitList();
             }
         }
 
@@ -157,10 +156,7 @@ namespace HYPDM.WinUI.Document
 
             HYPDM.Entities.PDM_DOCUMENT document = row.DataBoundItem as HYPDM.Entities.PDM_DOCUMENT;
 
-            if (document == null)
-            {
-                return;
-            }
+            if (document == null) return;
 
             DocRegForm o = new DocRegForm();
             o.Document = document;
@@ -168,10 +164,8 @@ namespace HYPDM.WinUI.Document
             if (o.ShowDialog() == DialogResult.OK)
             {
                 HYPDM.Entities.PDM_DOCUMENT doc = o.Document;
-                row.Cells["DocName"].Value = doc.DOCNAME.ToString();
-                //row.Cells["CustName"].Value = doc.CUSTOMERNAME;
-                //row.Cells["CustNo"].Value = doc.CUSTOMERPRONO;
-                //row.Cells["Remark"].Value = doc.REMARK;
+                row.Cells["DocType"].Value = doc.DOCTYPE.ToString();
+                row.Cells["Description"].Value = doc.DESCRIPTION.ToString();
             }
         }
 
@@ -200,6 +194,31 @@ namespace HYPDM.WinUI.Document
                     //弹出操作菜单
                     cmDocument.Show(MousePosition.X, MousePosition.Y);
                 }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchForm form = new SearchForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                _docList = form._docList;
+                this.LoadDoc();
+            }
+        }
+
+        private void LoadDoc()
+        {
+            this.dgvDocList.DataSource = _docList;
+            BindDataFile();
+        }
+
+        private void BindDataFile()
+        {
+            for (int i = 0; i < dgvDocList.Rows.Count; i++)
+            {
+                var count = ServiceContainer.GetService<IPhysicalFileService>().GetList(dgvDocList.Rows[i].Cells["DocID"].Value.ToString()).Count;
+                dgvDocList.Rows[i].Cells["File"].Value = count > 2 ? "有文件" : "无文件";
             }
         }
     }

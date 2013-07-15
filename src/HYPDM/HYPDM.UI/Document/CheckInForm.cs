@@ -43,11 +43,10 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnSelectPath_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog fbdFile = new FolderBrowserDialog();
             OpenFileDialog ofdFile = new OpenFileDialog();
-            if (fbdFile.ShowDialog() == DialogResult.OK)
+            if (ofdFile.ShowDialog() == DialogResult.OK)
             {
-                txtFilePath.Text = fbdFile.SelectedPath;
+                txtFilePath.Text = ofdFile.FileName;
             }
         }
 
@@ -66,7 +65,7 @@ namespace HYPDM.WinUI.Document
             {
                 Util.FTPHelper helper = Util.Common.FtpHepler();
                 var info = "";
-                var result = helper.UploadFile("", out info);
+                var result = helper.UploadFile(txtFilePath.Text, out info);
                 if (result)
                 {
                     MessageBox.Show("文件检入成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -75,6 +74,7 @@ namespace HYPDM.WinUI.Document
                 {
                     MessageBox.Show("文件检入失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                this.DialogResult = DialogResult.OK;
             }
         }
 

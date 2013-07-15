@@ -69,12 +69,13 @@ namespace HYPDM.WinUI.Document
                 var result = helper.DownloadFile(txtFilePath.Text, txtFileName.Text, out info);
                 if (result)
                 {
-                    MessageBox.Show("文件下载成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("文件检出成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("文件下载失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("文件检出失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                this.DialogResult = DialogResult.OK;
             }
         }
 

@@ -112,6 +112,12 @@
     <Compile Include="Document\DocRegForm.Designer.cs">
       <DependentUpon>DocRegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Document\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Graph\GraphRegForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Document\DocRegForm.resx">
       <DependentUpon>DocRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Graph\GraphRegForm.resx">
       <DependentUpon>GraphRegForm.cs</DependentUpon>

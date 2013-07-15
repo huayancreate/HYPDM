@@ -301,13 +301,18 @@ namespace HYPDM.WinUI.Document
 
             HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
             if (physicalfile == null) return;
+            if (physicalfile.FILESTATUS == "0") { MessageBox.Show("当前文档已被检出，不能再次检出，请等待检出人检入！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
             DetectionForm form = new DetectionForm();
             form.PhysicalFile = physicalfile;
 
             if (form.ShowDialog() == DialogResult.OK)
             {
+                physicalfile.FILESTATUS = "0";
+                physicalfile.Save();
+
                 HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
-                row.Cells["FileName"].Value = file.FILENAME;
+                row.Cells["FileName"].Value = file.FILENAME;  
+                VersionSave("0");
             }
         }
 
@@ -332,8 +337,12 @@ namespace HYPDM.WinUI.Document
 
             if (form.ShowDialog() == DialogResult.OK)
             {
+                physicalfile.FILESTATUS = "1";
+                physicalfile.Save();
+
                 HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
                 row.Cells["FileName"].Value = file.FILENAME;
+                VersionSave("1");
             }
         }
 
@@ -358,6 +367,47 @@ namespace HYPDM.WinUI.Document
             }
         }
 
-        IList<PDM_PHYSICAL_FILE> physicalFileList = new List<PDM_PHYSICAL_FILE>();
+        /// <summary>
+        /// 版本历史记录保存
+        /// </summary>
+        /// <param name="type">0：检出，1：检入</param>
+        private void VersionSave(string type)
+        {
+            PDM_VERSION_HISTORY version = new PDM_VERSION_HISTORY();
+            version.ID = _physicalService.GetMaxID().ToString();
+            version.VERSIONNO = DateTime.Now.ToString("yyyyMMddHHmmss");
+            version.VERSIONSTATUS = type;
+            version.OPERATORUSER = LoginInfo.LoginID;
+            version.OPERATORDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            version.Save();
+        }
+
+        /// <summary>
+        /// 半成品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnHalfProduct_Click(object sender, EventArgs e)
+        {
+            Parts.pr
+        }
+        /// <summary>
+        /// 原材料
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMaterial_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// 工艺装备
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCrafts_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
