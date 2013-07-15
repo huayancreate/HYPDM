@@ -34,17 +34,17 @@ using System.Runtime.Serialization;
 namespace HYPDM.Entities
 {
    /// <summary>
-   /// 实体对象 PDM_UNIT(单位)。
+   /// 实体对象 PDM_CHANGE_HISTORY(变更记录)。
    /// </summary>
    [Serializable()]
-   [Table("dbo.PDM_UNIT","单位")]
-   partial class PDM_UNIT: DataEntity<PDM_UNIT>, IDataEntity<PDM_UNIT>
+   [Table("PDM_CHANGE_HISTORY","变更记录")]
+   partial class PDM_CHANGE_HISTORY: DataEntity<PDM_CHANGE_HISTORY>, IDataEntity<PDM_CHANGE_HISTORY>
    {
-       public PDM_UNIT()
+       public PDM_CHANGE_HISTORY()
        {
        }
        
-       protected PDM_UNIT(SerializationInfo info, StreamingContext context)
+       protected PDM_CHANGE_HISTORY(SerializationInfo info, StreamingContext context)
            : base(info, context)
        {
        }
@@ -52,10 +52,10 @@ namespace HYPDM.Entities
        #region O/R映射成员
 
        /// <summary>
-       /// 单位ID 。
+       /// 主键 。
        /// </summary>
-       [Column("ID","单位ID"),DataSize(64),PrimaryKey]
-       [DisplayName("单位ID")]
+       [Column("ID","主键"),DataSize(128)]
+       [DisplayName("主键")]
        public string ID
        {
            get;
@@ -63,11 +63,66 @@ namespace HYPDM.Entities
        }
 
        /// <summary>
-       /// 单位名称 。
+       /// 变更内容 。
        /// </summary>
-       [Column("NAME","单位名称"),DataSize(128)]
-       [DisplayName("单位名称")]
-       public string NAME
+       [Column("CHANGECONTENT","变更内容"),DataSize(128)]
+       [DisplayName("变更内容")]
+       public string CHANGECONTENT
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 变更原因 。
+       /// </summary>
+       [Column("CHANGECAUSE","变更原因"),DataSize(128)]
+       [DisplayName("变更原因")]
+       public string CHANGECAUSE
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 变更日期 。
+       /// </summary>
+       [Column("CHANGEDATE","变更日期"),DataSize(128)]
+       [DisplayName("变更日期")]
+       public string CHANGEDATE
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 变更类型(文档、图纸等) 。
+       /// </summary>
+       [Column("CHANGETYPE","变更类型(文档、图纸等)"),DataSize(128)]
+       [DisplayName("变更类型(文档、图纸等)")]
+       public string CHANGETYPE
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 变更人 。
+       /// </summary>
+       [Column("CHANGEUSER","变更人"),DataSize(128)]
+       [DisplayName("变更人")]
+       public string CHANGEUSER
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// 文档编号 。
+       /// </summary>
+       [Column("DOCID","文档编号"),DataSize(128)]
+       [DisplayName("文档编号")]
+       public string DOCID
        {
            get;
            set;
