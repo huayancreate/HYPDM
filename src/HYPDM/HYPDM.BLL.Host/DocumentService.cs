@@ -78,5 +78,11 @@ namespace HYPDM.BLL
             }
         }
         #endregion
+
+        public IList<PDM_DOCUMENT> GetDocList(Condition c)
+        {
+            DataEntityQuery<PDM_DOCUMENT> query = DataEntityQuery<PDM_DOCUMENT>.Create();
+            return query.Select(c).ToList();
+        }
     }
 }
