@@ -38,15 +38,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tvContent = new System.Windows.Forms.TreeView();
             this.dgvSearchResult = new System.Windows.Forms.DataGridView();
-            this.ChkBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DocID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
@@ -60,6 +51,15 @@
             this.btnView = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ChkBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DocID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -157,67 +157,6 @@
             this.dgvSearchResult.Size = new System.Drawing.Size(527, 308);
             this.dgvSearchResult.TabIndex = 6;
             this.dgvSearchResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchResult_CellClick);
-            // 
-            // ChkBox
-            // 
-            this.ChkBox.HeaderText = "";
-            this.ChkBox.Name = "ChkBox";
-            // 
-            // DocID
-            // 
-            this.DocID.DataPropertyName = "DOCID";
-            this.DocID.HeaderText = "";
-            this.DocID.Name = "DocID";
-            this.DocID.Visible = false;
-            // 
-            // DocNo
-            // 
-            this.DocNo.DataPropertyName = "DOCNO";
-            this.DocNo.HeaderText = "编号";
-            this.DocNo.Name = "DocNo";
-            this.DocNo.ReadOnly = true;
-            // 
-            // DOCTYPE
-            // 
-            this.DOCTYPE.DataPropertyName = "DOCTYPE";
-            this.DOCTYPE.HeaderText = "文档分类";
-            this.DOCTYPE.Name = "DOCTYPE";
-            this.DOCTYPE.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "DESCRIPTION";
-            this.Description.HeaderText = "描述";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // DocStatus
-            // 
-            this.DocStatus.DataPropertyName = "DOCSTATUS";
-            this.DocStatus.HeaderText = "状态";
-            this.DocStatus.Name = "DocStatus";
-            this.DocStatus.ReadOnly = true;
-            // 
-            // LastUpdateUser
-            // 
-            this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
-            this.LastUpdateUser.HeaderText = "修改者";
-            this.LastUpdateUser.Name = "LastUpdateUser";
-            this.LastUpdateUser.ReadOnly = true;
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.DataPropertyName = "CREATEDATE";
-            this.CreateDate.HeaderText = "创建时间";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
-            // 
-            // LastUpdateDate
-            // 
-            this.LastUpdateDate.DataPropertyName = "LASTUPDATEDATE";
-            this.LastUpdateDate.HeaderText = "修改日期";
-            this.LastUpdateDate.Name = "LastUpdateDate";
-            this.LastUpdateDate.ReadOnly = true;
             // 
             // panel2
             // 
@@ -322,6 +261,75 @@
             this.btnClose.Text = "关闭";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // ChkBox
+            // 
+            this.ChkBox.HeaderText = "";
+            this.ChkBox.Name = "ChkBox";
+            this.ChkBox.Width = 30;
+            // 
+            // DocID
+            // 
+            this.DocID.DataPropertyName = "DOCID";
+            this.DocID.HeaderText = "";
+            this.DocID.Name = "DocID";
+            this.DocID.Visible = false;
+            // 
+            // DocNo
+            // 
+            this.DocNo.DataPropertyName = "DOCNO";
+            this.DocNo.HeaderText = "编号";
+            this.DocNo.Name = "DocNo";
+            this.DocNo.ReadOnly = true;
+            this.DocNo.Width = 80;
+            // 
+            // DOCTYPE
+            // 
+            this.DOCTYPE.DataPropertyName = "DOCTYPE";
+            this.DOCTYPE.HeaderText = "文档分类";
+            this.DOCTYPE.Name = "DOCTYPE";
+            this.DOCTYPE.ReadOnly = true;
+            this.DOCTYPE.Width = 80;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "DESCRIPTION";
+            this.Description.HeaderText = "描述";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 80;
+            // 
+            // DocStatus
+            // 
+            this.DocStatus.DataPropertyName = "DOCSTATUS";
+            this.DocStatus.HeaderText = "状态";
+            this.DocStatus.Name = "DocStatus";
+            this.DocStatus.ReadOnly = true;
+            this.DocStatus.Width = 80;
+            // 
+            // LastUpdateUser
+            // 
+            this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
+            this.LastUpdateUser.HeaderText = "修改者";
+            this.LastUpdateUser.Name = "LastUpdateUser";
+            this.LastUpdateUser.ReadOnly = true;
+            this.LastUpdateUser.Width = 80;
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.DataPropertyName = "CREATEDATE";
+            this.CreateDate.HeaderText = "创建时间";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            this.CreateDate.Width = 80;
+            // 
+            // LastUpdateDate
+            // 
+            this.LastUpdateDate.DataPropertyName = "LASTUPDATEDATE";
+            this.LastUpdateDate.HeaderText = "修改日期";
+            this.LastUpdateDate.Name = "LastUpdateDate";
+            this.LastUpdateDate.ReadOnly = true;
+            this.LastUpdateDate.Width = 80;
             // 
             // ConnectForm
             // 

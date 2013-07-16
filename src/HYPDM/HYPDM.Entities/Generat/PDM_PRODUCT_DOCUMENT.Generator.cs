@@ -86,6 +86,7 @@ namespace HYPDM.Entities
 
         /// <summary>
         /// 是否产品 。
+        /// 1:是产品；0：是零部件
         /// </summary>
         [Column("ISPRODUCT", "是否产品"), DataSize(128)]
         [DisplayName("是否产品")]

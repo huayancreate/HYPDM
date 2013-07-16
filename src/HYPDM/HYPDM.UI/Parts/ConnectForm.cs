@@ -71,6 +71,8 @@ namespace HYPDM.WinUI.Parts
                     proDoc.ID = _proDocService.GetMaxID().ToString();
                     proDoc.PRODUCTID = productID;
                     proDoc.DOCUMENTID = dgvSearchResult.Rows[i].Cells["DocID"].Value.ToString();
+                    // "1":产品;"0":零部件
+                    proDoc.ISPRODUCT = "1";
                     proDocList.Add(proDoc);
                 }
             }

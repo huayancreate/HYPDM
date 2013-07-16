@@ -48,5 +48,47 @@ namespace HYPDM.BLL
             }
         }
         #endregion
+
+        public IList<PDM_PRODUCT_DOCUMENT> getProdocByDocID(String docID)
+        {
+                        DataEntityQuery<PDM_PRODUCT_DOCUMENT> query = DataEntityQuery<PDM_PRODUCT_DOCUMENT>.Create();
+
+            var p = (from item in query
+                     where (item.DOCUMENTID == docID)
+                     select item
+                );
+
+            return p.ToList();
+        }
+
+        #region 删除
+
+        public void delProDoc(IList<PDM_PRODUCT_DOCUMENT> proDocList)
+        {
+            this.DataAccessor.TransactionExecute(new TransactionHandler2(IniternalDel), proDocList);
+        }
+
+        public void IniternalDel(IDataAccessor accessor, params object[] parameters)
+        {
+            IList<PDM_PRODUCT_DOCUMENT> proDocList = parameters[0] as IList<PDM_PRODUCT_DOCUMENT>;
+
+            foreach (PDM_PRODUCT_DOCUMENT proDoc in proDocList)
+            {
+                proDoc.Delete();
+            }
+        }
+        #endregion
+
+        public IList<PDM_PRODUCT_DOCUMENT> getProdocByProID(String proID)
+        {
+            DataEntityQuery<PDM_PRODUCT_DOCUMENT> query = DataEntityQuery<PDM_PRODUCT_DOCUMENT>.Create();
+
+            var p = (from item in query
+                     where (item.PRODUCTID == proID)
+                     select item
+                );
+
+            return p.ToList();
+        }
     }
 }

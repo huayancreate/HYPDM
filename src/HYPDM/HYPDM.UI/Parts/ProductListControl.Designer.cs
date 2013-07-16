@@ -46,26 +46,13 @@
             this.cmDocDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.ProID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SortCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModelNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TechName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TechInstruction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProNoAttr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Property = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkCenter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DrawingID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tsToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proBindingSource)).BeginInit();
@@ -144,26 +131,13 @@
             this.dgvProList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProID,
-            this.ProductID,
-            this.ProName,
+            this.ProNo,
             this.Version,
-            this.SortCode,
+            this.ProName,
+            this.ProType,
             this.ModelNo,
-            this.ProSize,
-            this.Material,
-            this.TechName,
-            this.TechInstruction,
-            this.ProNoAttr,
-            this.Unit,
-            this.Property,
-            this.WorkCenter,
             this.ProStatus,
-            this.CreateDate,
-            this.LastUpdateUser,
-            this.LastUpdateDate,
-            this.Remark,
-            this.DrawingID,
-            this.checkedDataGridViewCheckBoxColumn});
+            this.LastUpdateUser});
             this.dgvProList.DataSource = this.proBindingSource;
             this.dgvProList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProList.Location = new System.Drawing.Point(0, 25);
@@ -195,30 +169,33 @@
             // cmDocAdd
             // 
             this.cmDocAdd.Name = "cmDocAdd";
-            this.cmDocAdd.Size = new System.Drawing.Size(136, 22);
+            this.cmDocAdd.Size = new System.Drawing.Size(152, 22);
             this.cmDocAdd.Text = "记录添加(&A)";
+            this.cmDocAdd.Click += new System.EventHandler(this.cmDocAdd_Click);
             // 
             // cmDocProperty
             // 
             this.cmDocProperty.Name = "cmDocProperty";
-            this.cmDocProperty.Size = new System.Drawing.Size(136, 22);
+            this.cmDocProperty.Size = new System.Drawing.Size(152, 22);
             this.cmDocProperty.Text = "记录属性(&P)";
+            this.cmDocProperty.Click += new System.EventHandler(this.cmDocProperty_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // cmDocDelete
             // 
             this.cmDocDelete.Name = "cmDocDelete";
-            this.cmDocDelete.Size = new System.Drawing.Size(136, 22);
+            this.cmDocDelete.Size = new System.Drawing.Size(152, 22);
             this.cmDocDelete.Text = "记录删除(&D)";
+            this.cmDocDelete.Click += new System.EventHandler(this.cmDocDelete_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // ProID
             // 
@@ -228,19 +205,12 @@
             this.ProID.ReadOnly = true;
             this.ProID.Visible = false;
             // 
-            // ProductID
+            // ProNo
             // 
-            this.ProductID.DataPropertyName = "PRONO";
-            this.ProductID.HeaderText = "品号";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            // 
-            // ProName
-            // 
-            this.ProName.DataPropertyName = "PRODUCTNAME";
-            this.ProName.HeaderText = "产品名称";
-            this.ProName.Name = "ProName";
-            this.ProName.ReadOnly = true;
+            this.ProNo.DataPropertyName = "PRONO";
+            this.ProNo.HeaderText = "编号";
+            this.ProNo.Name = "ProNo";
+            this.ProNo.ReadOnly = true;
             // 
             // Version
             // 
@@ -249,12 +219,19 @@
             this.Version.Name = "Version";
             this.Version.ReadOnly = true;
             // 
-            // SortCode
+            // ProName
             // 
-            this.SortCode.DataPropertyName = "SORTCODE";
-            this.SortCode.HeaderText = "顺序";
-            this.SortCode.Name = "SortCode";
-            this.SortCode.ReadOnly = true;
+            this.ProName.DataPropertyName = "DESCRIPTION";
+            this.ProName.HeaderText = "描述";
+            this.ProName.Name = "ProName";
+            this.ProName.ReadOnly = true;
+            // 
+            // ProType
+            // 
+            this.ProType.DataPropertyName = "PRODUCTTYPE";
+            this.ProType.HeaderText = "产品类型";
+            this.ProType.Name = "ProType";
+            this.ProType.ReadOnly = true;
             // 
             // ModelNo
             // 
@@ -263,62 +240,6 @@
             this.ModelNo.Name = "ModelNo";
             this.ModelNo.ReadOnly = true;
             // 
-            // ProSize
-            // 
-            this.ProSize.DataPropertyName = "SIZE";
-            this.ProSize.HeaderText = "规格/尺寸";
-            this.ProSize.Name = "ProSize";
-            this.ProSize.ReadOnly = true;
-            // 
-            // Material
-            // 
-            this.Material.DataPropertyName = "MATERIAL";
-            this.Material.HeaderText = "材料";
-            this.Material.Name = "Material";
-            this.Material.ReadOnly = true;
-            // 
-            // TechName
-            // 
-            this.TechName.DataPropertyName = "TECHNAME";
-            this.TechName.HeaderText = "工艺名称";
-            this.TechName.Name = "TechName";
-            this.TechName.ReadOnly = true;
-            // 
-            // TechInstruction
-            // 
-            this.TechInstruction.DataPropertyName = "TECHINSTRUCTION";
-            this.TechInstruction.HeaderText = "工艺说明";
-            this.TechInstruction.Name = "TechInstruction";
-            this.TechInstruction.ReadOnly = true;
-            // 
-            // ProNoAttr
-            // 
-            this.ProNoAttr.DataPropertyName = "PRODUCTNOATTR";
-            this.ProNoAttr.HeaderText = "品号属性";
-            this.ProNoAttr.Name = "ProNoAttr";
-            this.ProNoAttr.ReadOnly = true;
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "UNIT";
-            this.Unit.HeaderText = "单位ID";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            // 
-            // Property
-            // 
-            this.Property.DataPropertyName = "PROPERTY";
-            this.Property.HeaderText = "性质";
-            this.Property.Name = "Property";
-            this.Property.ReadOnly = true;
-            // 
-            // WorkCenter
-            // 
-            this.WorkCenter.DataPropertyName = "WORKCENTER";
-            this.WorkCenter.HeaderText = "工作中心";
-            this.WorkCenter.Name = "WorkCenter";
-            this.WorkCenter.ReadOnly = true;
-            // 
             // ProStatus
             // 
             this.ProStatus.DataPropertyName = "PRODUCTSTATUS";
@@ -326,47 +247,12 @@
             this.ProStatus.Name = "ProStatus";
             this.ProStatus.ReadOnly = true;
             // 
-            // CreateDate
-            // 
-            this.CreateDate.DataPropertyName = "CREATEDATE";
-            this.CreateDate.HeaderText = "创建时间";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
-            // 
             // LastUpdateUser
             // 
             this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
             this.LastUpdateUser.HeaderText = "修改者";
             this.LastUpdateUser.Name = "LastUpdateUser";
             this.LastUpdateUser.ReadOnly = true;
-            // 
-            // LastUpdateDate
-            // 
-            this.LastUpdateDate.DataPropertyName = "LASTUPDATEDATE";
-            this.LastUpdateDate.HeaderText = "修改时间";
-            this.LastUpdateDate.Name = "LastUpdateDate";
-            this.LastUpdateDate.ReadOnly = true;
-            // 
-            // Remark
-            // 
-            this.Remark.DataPropertyName = "REMARK";
-            this.Remark.HeaderText = "备注";
-            this.Remark.Name = "Remark";
-            this.Remark.ReadOnly = true;
-            // 
-            // DrawingID
-            // 
-            this.DrawingID.DataPropertyName = "DRAWINGID";
-            this.DrawingID.HeaderText = "图号";
-            this.DrawingID.Name = "DrawingID";
-            this.DrawingID.ReadOnly = true;
-            // 
-            // checkedDataGridViewCheckBoxColumn
-            // 
-            this.checkedDataGridViewCheckBoxColumn.DataPropertyName = "Checked";
-            this.checkedDataGridViewCheckBoxColumn.HeaderText = "选择";
-            this.checkedDataGridViewCheckBoxColumn.Name = "checkedDataGridViewCheckBoxColumn";
-            this.checkedDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // ProductListControl
             // 
@@ -404,25 +290,12 @@
         private System.Windows.Forms.ToolStripMenuItem cmDocDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Version;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SortCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModelNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProSize;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TechName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TechInstruction;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProNoAttr;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Property;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WorkCenter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DrawingID;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn;
     }
 }

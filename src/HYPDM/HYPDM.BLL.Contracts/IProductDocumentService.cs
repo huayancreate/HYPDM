@@ -14,5 +14,14 @@ namespace HYPDM.BLL
         IList<PDM_PRODUCT_DOCUMENT> GetProDocList(String productID);
 
         void ProDocSave(List<PDM_PRODUCT_DOCUMENT> proDocList);
+
+        // 根据文档ID查询数据
+        IList<PDM_PRODUCT_DOCUMENT> getProdocByDocID(String docID);
+
+        // 删除数据关系
+        void delProDoc(IList<PDM_PRODUCT_DOCUMENT> proDocList);
+
+        // 根据产品ID查询数据
+        IList<PDM_PRODUCT_DOCUMENT> getProdocByProID(String proID);
     }
 }

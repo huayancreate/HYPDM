@@ -10,6 +10,8 @@ using EAS.Modularization;
 using HYPDM.BLL;
 using EAS.Data.ORM;
 using HYPDM.WinUI.Parts;
+using EAS.Services;
+using HYPDM.Entities;
 
 namespace HYPDM.WinUI.Parts
 {
@@ -54,6 +56,7 @@ namespace HYPDM.WinUI.Parts
             this.ProAdd();
         }
 
+        /// <summary>
         /// 记录添加。
         /// </summary>
         protected void ProAdd()
@@ -100,17 +103,13 @@ namespace HYPDM.WinUI.Parts
             if (o.ShowDialog() == DialogResult.OK)
             {
                 HYPDM.Entities.PDM_PRODUCT pro = o.Product;
-                row.Cells["ProName"].Value = pro.PRODUCTNAME.ToString();
+                row.Cells["ProNo"].Value = pro.PRONO;
                 row.Cells["Version"].Value = pro.VERSION;
+                row.Cells["Description"].Value = pro.DESCRIPTION;
+                row.Cells["ProType"].Value = pro.PRODUCTTYPE;
                 row.Cells["ModelNo"].Value = pro.MODELNO;
-                row.Cells["ProSize"].Value = pro.SIZE;
-                row.Cells["TechName"].Value = pro.TECHNAME;
-                row.Cells["TechInstruction"].Value = pro.TECHINSTRUCTION;
                 row.Cells["ProStatus"].Value = pro.PRODUCTSTATUS;
-                row.Cells["ProNoAttr"].Value = pro.PRODUCTNOATTR;
-                row.Cells["Property"].Value = pro.PROPERTY;
-                row.Cells["WorkCenter"].Value = pro.WORKCENTER;
-                row.Cells["Remark"].Value = pro.REMARK;
+                row.Cells["LastUpdateUser"].Value = pro.LASTUPDATEUSER;
             }
         }
 
@@ -146,6 +145,10 @@ namespace HYPDM.WinUI.Parts
             if (MessageBox.Show("您确认要删除所选择的产品记录么？\n删除文档记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 pro.Delete();
+                IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
+                IList<PDM_PRODUCT_DOCUMENT> proDocList;
+                proDocList = _proDocService.getProdocByProID(pro.PRODUCTID);
+                _proDocService.delProDoc(proDocList);
                 this.dgvProList.Rows.Remove(row);
             }
         }
@@ -176,6 +179,24 @@ namespace HYPDM.WinUI.Parts
                     cmProduct.Show(MousePosition.X, MousePosition.Y);
                 }
             }
+        }
+        
+        // 记录添加
+        private void cmDocAdd_Click(object sender, EventArgs e)
+        {
+            this.ProAdd();
+        }
+
+        // 记录属性
+        private void cmDocProperty_Click(object sender, EventArgs e)
+        {
+            this.ProProperty();
+        }
+
+        // 记录删除
+        private void cmDocDelete_Click(object sender, EventArgs e)
+        {
+            this.ProDelete();
         }
     }
 }

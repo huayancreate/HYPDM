@@ -30,29 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
-            this.txtCreateDate = new System.Windows.Forms.TextBox();
             this.txtLastUpdateUser = new System.Windows.Forms.TextBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
-            this.txtWorkCenter = new System.Windows.Forms.TextBox();
-            this.txtProperty = new System.Windows.Forms.TextBox();
-            this.cmbUnit = new System.Windows.Forms.ComboBox();
-            this.cmbProductNoAttr = new System.Windows.Forms.ComboBox();
-            this.txtTechInstruction = new System.Windows.Forms.TextBox();
-            this.txtTechName = new System.Windows.Forms.TextBox();
-            this.cmbMatertial = new System.Windows.Forms.ComboBox();
-            this.txtSize = new System.Windows.Forms.TextBox();
-            this.txtModelNo = new System.Windows.Forms.TextBox();
-            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.txtProType = new System.Windows.Forms.TextBox();
+            this.txtEngDescription = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtProductNo = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,25 +51,33 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnRegPart = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.tbcContent = new System.Windows.Forms.TabControl();
             this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.tpDoc = new System.Windows.Forms.TabPage();
             this.dgvDoc = new System.Windows.Forms.DataGridView();
+            this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.btnAddDoc = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.ChkBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DocID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.btnAddDoc = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmDocAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmProDocDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtModelNo = new System.Windows.Forms.TextBox();
+            this.txtCreateDate = new System.Windows.Forms.TextBox();
+            this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -91,8 +85,9 @@
             this.tpRemark.SuspendLayout();
             this.tpDoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).BeginInit();
-            this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).BeginInit();
+            this.toolStrip2.SuspendLayout();
+            this.cmDocument.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -101,7 +96,7 @@
             this.tabControl1.Location = new System.Drawing.Point(6, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(256, 422);
+            this.tabControl1.Size = new System.Drawing.Size(256, 262);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -109,25 +104,13 @@
             this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage1.Controls.Add(this.txtLastUpdateDate);
             this.tabPage1.Controls.Add(this.txtCreateDate);
+            this.tabPage1.Controls.Add(this.txtModelNo);
             this.tabPage1.Controls.Add(this.txtLastUpdateUser);
             this.tabPage1.Controls.Add(this.txtStatus);
-            this.tabPage1.Controls.Add(this.txtWorkCenter);
-            this.tabPage1.Controls.Add(this.txtProperty);
-            this.tabPage1.Controls.Add(this.cmbUnit);
-            this.tabPage1.Controls.Add(this.cmbProductNoAttr);
-            this.tabPage1.Controls.Add(this.txtTechInstruction);
-            this.tabPage1.Controls.Add(this.txtTechName);
-            this.tabPage1.Controls.Add(this.cmbMatertial);
-            this.tabPage1.Controls.Add(this.txtSize);
-            this.tabPage1.Controls.Add(this.txtModelNo);
-            this.tabPage1.Controls.Add(this.txtProductName);
+            this.tabPage1.Controls.Add(this.txtProType);
+            this.tabPage1.Controls.Add(this.txtEngDescription);
+            this.tabPage1.Controls.Add(this.txtDescription);
             this.tabPage1.Controls.Add(this.txtProductNo);
-            this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label7);
@@ -140,113 +123,45 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 21);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(248, 397);
+            this.tabPage1.Size = new System.Drawing.Size(248, 237);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "产品信息";
-            // 
-            // txtLastUpdateDate
-            // 
-            this.txtLastUpdateDate.Enabled = false;
-            this.txtLastUpdateDate.Location = new System.Drawing.Point(99, 348);
-            this.txtLastUpdateDate.Name = "txtLastUpdateDate";
-            this.txtLastUpdateDate.Size = new System.Drawing.Size(135, 21);
-            this.txtLastUpdateDate.TabIndex = 29;
-            // 
-            // txtCreateDate
-            // 
-            this.txtCreateDate.Enabled = false;
-            this.txtCreateDate.Location = new System.Drawing.Point(99, 324);
-            this.txtCreateDate.Name = "txtCreateDate";
-            this.txtCreateDate.Size = new System.Drawing.Size(135, 21);
-            this.txtCreateDate.TabIndex = 28;
             // 
             // txtLastUpdateUser
             // 
             this.txtLastUpdateUser.Enabled = false;
-            this.txtLastUpdateUser.Location = new System.Drawing.Point(99, 300);
+            this.txtLastUpdateUser.Location = new System.Drawing.Point(99, 156);
             this.txtLastUpdateUser.Name = "txtLastUpdateUser";
             this.txtLastUpdateUser.Size = new System.Drawing.Size(135, 21);
-            this.txtLastUpdateUser.TabIndex = 27;
+            this.txtLastUpdateUser.TabIndex = 21;
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(99, 276);
+            this.txtStatus.Location = new System.Drawing.Point(99, 132);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(135, 21);
-            this.txtStatus.TabIndex = 26;
+            this.txtStatus.TabIndex = 20;
             // 
-            // txtWorkCenter
+            // txtProType
             // 
-            this.txtWorkCenter.Location = new System.Drawing.Point(99, 252);
-            this.txtWorkCenter.Name = "txtWorkCenter";
-            this.txtWorkCenter.Size = new System.Drawing.Size(135, 21);
-            this.txtWorkCenter.TabIndex = 25;
+            this.txtProType.Location = new System.Drawing.Point(99, 84);
+            this.txtProType.Name = "txtProType";
+            this.txtProType.Size = new System.Drawing.Size(135, 21);
+            this.txtProType.TabIndex = 6;
             // 
-            // txtProperty
+            // txtEngDescription
             // 
-            this.txtProperty.Location = new System.Drawing.Point(99, 228);
-            this.txtProperty.Name = "txtProperty";
-            this.txtProperty.Size = new System.Drawing.Size(135, 21);
-            this.txtProperty.TabIndex = 24;
+            this.txtEngDescription.Location = new System.Drawing.Point(99, 60);
+            this.txtEngDescription.Name = "txtEngDescription";
+            this.txtEngDescription.Size = new System.Drawing.Size(135, 21);
+            this.txtEngDescription.TabIndex = 5;
             // 
-            // cmbUnit
+            // txtDescription
             // 
-            this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Location = new System.Drawing.Point(99, 204);
-            this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(135, 20);
-            this.cmbUnit.TabIndex = 23;
-            // 
-            // cmbProductNoAttr
-            // 
-            this.cmbProductNoAttr.FormattingEnabled = true;
-            this.cmbProductNoAttr.Location = new System.Drawing.Point(99, 180);
-            this.cmbProductNoAttr.Name = "cmbProductNoAttr";
-            this.cmbProductNoAttr.Size = new System.Drawing.Size(135, 20);
-            this.cmbProductNoAttr.TabIndex = 22;
-            // 
-            // txtTechInstruction
-            // 
-            this.txtTechInstruction.Location = new System.Drawing.Point(99, 156);
-            this.txtTechInstruction.Name = "txtTechInstruction";
-            this.txtTechInstruction.Size = new System.Drawing.Size(135, 21);
-            this.txtTechInstruction.TabIndex = 21;
-            // 
-            // txtTechName
-            // 
-            this.txtTechName.Location = new System.Drawing.Point(99, 132);
-            this.txtTechName.Name = "txtTechName";
-            this.txtTechName.Size = new System.Drawing.Size(135, 21);
-            this.txtTechName.TabIndex = 20;
-            // 
-            // cmbMatertial
-            // 
-            this.cmbMatertial.FormattingEnabled = true;
-            this.cmbMatertial.Location = new System.Drawing.Point(99, 108);
-            this.cmbMatertial.Name = "cmbMatertial";
-            this.cmbMatertial.Size = new System.Drawing.Size(135, 20);
-            this.cmbMatertial.TabIndex = 19;
-            // 
-            // txtSize
-            // 
-            this.txtSize.Location = new System.Drawing.Point(99, 84);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(135, 21);
-            this.txtSize.TabIndex = 6;
-            // 
-            // txtModelNo
-            // 
-            this.txtModelNo.Location = new System.Drawing.Point(99, 60);
-            this.txtModelNo.Name = "txtModelNo";
-            this.txtModelNo.Size = new System.Drawing.Size(135, 21);
-            this.txtModelNo.TabIndex = 5;
-            // 
-            // txtProductName
-            // 
-            this.txtProductName.Location = new System.Drawing.Point(99, 36);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(135, 21);
-            this.txtProductName.TabIndex = 4;
+            this.txtDescription.Location = new System.Drawing.Point(99, 36);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(135, 21);
+            this.txtDescription.TabIndex = 4;
             // 
             // txtProductNo
             // 
@@ -255,68 +170,14 @@
             this.txtProductNo.Size = new System.Drawing.Size(135, 21);
             this.txtProductNo.TabIndex = 3;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(11, 351);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(53, 12);
-            this.label15.TabIndex = 14;
-            this.label15.Text = "修改日期";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(11, 327);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 12);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "创建时间";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(11, 303);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 12);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "修改者";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(11, 279);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 12);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "状态";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(11, 255);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "工作中心";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(11, 231);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(29, 12);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "性质";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(11, 207);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 8;
-            this.label9.Text = "单位";
+            this.label9.Text = "修改时间";
             // 
             // label8
             // 
@@ -325,34 +186,34 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 7;
-            this.label8.Text = "品号属性";
+            this.label8.Text = "创建时间";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(11, 159);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.Size = new System.Drawing.Size(41, 12);
             this.label7.TabIndex = 6;
-            this.label7.Text = "工艺说明";
+            this.label7.Text = "修改者";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 135);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 5;
-            this.label6.Text = "工艺名称";
+            this.label6.Text = "状态";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(11, 111);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 4;
-            this.label5.Text = "材料";
+            this.label5.Text = "产品型号";
             // 
             // label4
             // 
@@ -361,7 +222,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 3;
-            this.label4.Text = "规格尺寸";
+            this.label4.Text = "产品类型";
             // 
             // label3
             // 
@@ -370,16 +231,17 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 2;
-            this.label3.Text = "产品型号";
+            this.label3.Text = "英文描述";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Location = new System.Drawing.Point(11, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "名称";
+            this.label2.Text = "描述";
             // 
             // label1
             // 
@@ -388,14 +250,14 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "品号";
+            this.label1.Text = "编号";
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnRegPart,
             this.toolStripButton2,
-            this.toolStripButton3});
+            this.btnClear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(641, 25);
@@ -420,14 +282,14 @@
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // toolStripButton3
+            // btnClear
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(49, 22);
+            this.btnClear.Text = "清除";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // tbcContent
             // 
@@ -436,7 +298,7 @@
             this.tbcContent.Location = new System.Drawing.Point(268, 28);
             this.tbcContent.Name = "tbcContent";
             this.tbcContent.SelectedIndex = 0;
-            this.tbcContent.Size = new System.Drawing.Size(377, 422);
+            this.tbcContent.Size = new System.Drawing.Size(377, 262);
             this.tbcContent.TabIndex = 2;
             // 
             // tpRemark
@@ -464,16 +326,29 @@
             this.tpDoc.Controls.Add(this.toolStrip2);
             this.tpDoc.Location = new System.Drawing.Point(4, 21);
             this.tpDoc.Name = "tpDoc";
-            this.tpDoc.Size = new System.Drawing.Size(369, 397);
+            this.tpDoc.Size = new System.Drawing.Size(369, 237);
             this.tpDoc.TabIndex = 1;
             this.tpDoc.Text = "文档";
             this.tpDoc.UseVisualStyleBackColor = true;
             // 
             // dgvDoc
             // 
+            this.dgvDoc.AllowUserToAddRows = false;
+            this.dgvDoc.AllowUserToDeleteRows = false;
             this.dgvDoc.AutoGenerateColumns = false;
+            this.dgvDoc.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ChkBox,
+            this.DocID,
             this.DocNO,
             this.DocType,
             this.Description,
@@ -482,47 +357,16 @@
             this.LastUpdateDate});
             this.dgvDoc.DataSource = this.docBindingSource;
             this.dgvDoc.Location = new System.Drawing.Point(3, 27);
+            this.dgvDoc.MultiSelect = false;
             this.dgvDoc.Name = "dgvDoc";
+            this.dgvDoc.ReadOnly = true;
             this.dgvDoc.RowHeadersVisible = false;
             this.dgvDoc.RowTemplate.Height = 23;
+            this.dgvDoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoc.Size = new System.Drawing.Size(363, 342);
             this.dgvDoc.TabIndex = 1;
-            // 
-            // DocNO
-            // 
-            this.DocNO.DataPropertyName = "DOCNO";
-            this.DocNO.HeaderText = "编号";
-            this.DocNO.Name = "DocNO";
-            // 
-            // DocType
-            // 
-            this.DocType.DataPropertyName = "DOCTYPE";
-            this.DocType.HeaderText = "文档分类";
-            this.DocType.Name = "DocType";
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "DESCRIPTION";
-            this.Description.HeaderText = "描述";
-            this.Description.Name = "Description";
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "DOCSTATUS";
-            this.Status.HeaderText = "状态";
-            this.Status.Name = "Status";
-            // 
-            // LastUpdateUser
-            // 
-            this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
-            this.LastUpdateUser.HeaderText = "修改者";
-            this.LastUpdateUser.Name = "LastUpdateUser";
-            // 
-            // LastUpdateDate
-            // 
-            this.LastUpdateDate.DataPropertyName = "CREATEDATE";
-            this.LastUpdateDate.HeaderText = "创建时间";
-            this.LastUpdateDate.Name = "LastUpdateDate";
+            this.dgvDoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoc_CellClick);
+            this.dgvDoc.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDoc_CellMouseDown);
             // 
             // toolStrip2
             // 
@@ -531,7 +375,7 @@
             this.toolStripButton4,
             this.toolStripButton5,
             this.btnAddDoc,
-            this.toolStripButton7});
+            this.btnDelete});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(369, 25);
@@ -567,28 +411,135 @@
             // 
             // btnAddDoc
             // 
-            this.btnAddDoc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnAddDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDoc.Image")));
             this.btnAddDoc.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddDoc.Name = "btnAddDoc";
-            this.btnAddDoc.Size = new System.Drawing.Size(23, 22);
+            this.btnAddDoc.Size = new System.Drawing.Size(49, 22);
             this.btnAddDoc.Text = "新增";
             this.btnAddDoc.Click += new System.EventHandler(this.btnAddDoc_Click);
             // 
-            // toolStripButton7
+            // btnDelete
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "删除";
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(49, 22);
+            this.btnDelete.Text = "删除";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // ChkBox
+            // 
+            this.ChkBox.HeaderText = "";
+            this.ChkBox.Name = "ChkBox";
+            this.ChkBox.ReadOnly = true;
+            this.ChkBox.Width = 30;
+            // 
+            // DocID
+            // 
+            this.DocID.DataPropertyName = "DOCID";
+            this.DocID.HeaderText = "DocID";
+            this.DocID.Name = "DocID";
+            this.DocID.ReadOnly = true;
+            this.DocID.Visible = false;
+            // 
+            // DocNO
+            // 
+            this.DocNO.DataPropertyName = "DOCNO";
+            this.DocNO.HeaderText = "编号";
+            this.DocNO.Name = "DocNO";
+            this.DocNO.ReadOnly = true;
+            this.DocNO.Width = 80;
+            // 
+            // DocType
+            // 
+            this.DocType.DataPropertyName = "DOCTYPE";
+            this.DocType.HeaderText = "文档分类";
+            this.DocType.Name = "DocType";
+            this.DocType.ReadOnly = true;
+            this.DocType.Width = 80;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "DESCRIPTION";
+            this.Description.HeaderText = "描述";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 80;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "DOCSTATUS";
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 80;
+            // 
+            // LastUpdateUser
+            // 
+            this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
+            this.LastUpdateUser.HeaderText = "修改者";
+            this.LastUpdateUser.Name = "LastUpdateUser";
+            this.LastUpdateUser.ReadOnly = true;
+            this.LastUpdateUser.Width = 80;
+            // 
+            // LastUpdateDate
+            // 
+            this.LastUpdateDate.DataPropertyName = "CREATEDATE";
+            this.LastUpdateDate.HeaderText = "创建时间";
+            this.LastUpdateDate.Name = "LastUpdateDate";
+            this.LastUpdateDate.ReadOnly = true;
+            this.LastUpdateDate.Width = 80;
+            // 
+            // cmDocument
+            // 
+            this.cmDocument.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmDocAdd,
+            this.cmProDocDelete});
+            this.cmDocument.Name = "cmDocument";
+            this.cmDocument.Size = new System.Drawing.Size(95, 48);
+            // 
+            // cmDocAdd
+            // 
+            this.cmDocAdd.Name = "cmDocAdd";
+            this.cmDocAdd.Size = new System.Drawing.Size(94, 22);
+            this.cmDocAdd.Text = "新建";
+            this.cmDocAdd.Click += new System.EventHandler(this.cmDocAdd_Click);
+            // 
+            // cmProDocDelete
+            // 
+            this.cmProDocDelete.Name = "cmProDocDelete";
+            this.cmProDocDelete.Size = new System.Drawing.Size(94, 22);
+            this.cmProDocDelete.Text = "删除";
+            this.cmProDocDelete.Click += new System.EventHandler(this.cmProDocDelete_Click);
+            // 
+            // txtModelNo
+            // 
+            this.txtModelNo.Location = new System.Drawing.Point(99, 108);
+            this.txtModelNo.Name = "txtModelNo";
+            this.txtModelNo.Size = new System.Drawing.Size(135, 21);
+            this.txtModelNo.TabIndex = 24;
+            // 
+            // txtCreateDate
+            // 
+            this.txtCreateDate.Enabled = false;
+            this.txtCreateDate.Location = new System.Drawing.Point(99, 180);
+            this.txtCreateDate.Name = "txtCreateDate";
+            this.txtCreateDate.Size = new System.Drawing.Size(135, 21);
+            this.txtCreateDate.TabIndex = 25;
+            // 
+            // txtLastUpdateDate
+            // 
+            this.txtLastUpdateDate.Enabled = false;
+            this.txtLastUpdateDate.Location = new System.Drawing.Point(99, 204);
+            this.txtLastUpdateDate.Name = "txtLastUpdateDate";
+            this.txtLastUpdateDate.Size = new System.Drawing.Size(135, 21);
+            this.txtLastUpdateDate.TabIndex = 26;
             // 
             // ProductRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 423);
+            this.ClientSize = new System.Drawing.Size(641, 294);
             this.Controls.Add(this.tbcContent);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
@@ -605,9 +556,10 @@
             this.tpDoc.ResumeLayout(false);
             this.tpDoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).EndInit();
+            this.cmDocument.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -620,7 +572,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnRegPart;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton btnClear;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -630,27 +582,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cmbMatertial;
-        private System.Windows.Forms.TextBox txtSize;
-        private System.Windows.Forms.TextBox txtModelNo;
-        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.TextBox txtProType;
+        private System.Windows.Forms.TextBox txtEngDescription;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtProductNo;
-        private System.Windows.Forms.TextBox txtTechInstruction;
-        private System.Windows.Forms.TextBox txtTechName;
-        private System.Windows.Forms.ComboBox cmbUnit;
-        private System.Windows.Forms.ComboBox cmbProductNoAttr;
-        private System.Windows.Forms.TextBox txtLastUpdateDate;
-        private System.Windows.Forms.TextBox txtCreateDate;
         private System.Windows.Forms.TextBox txtLastUpdateUser;
         private System.Windows.Forms.TextBox txtStatus;
-        private System.Windows.Forms.TextBox txtWorkCenter;
-        private System.Windows.Forms.TextBox txtProperty;
         private System.Windows.Forms.TabControl tbcContent;
         private System.Windows.Forms.TabPage tpRemark;
         private System.Windows.Forms.TextBox txtRemark;
@@ -660,14 +597,22 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton btnAddDoc;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.DataGridView dgvDoc;
         private System.Windows.Forms.BindingSource docBindingSource;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ChkBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateDate;
+        private System.Windows.Forms.ContextMenuStrip cmDocument;
+        private System.Windows.Forms.ToolStripMenuItem cmDocAdd;
+        private System.Windows.Forms.ToolStripMenuItem cmProDocDelete;
+        private System.Windows.Forms.TextBox txtModelNo;
+        private System.Windows.Forms.TextBox txtLastUpdateDate;
+        private System.Windows.Forms.TextBox txtCreateDate;
     }
 }
