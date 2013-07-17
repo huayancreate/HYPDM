@@ -33,244 +33,245 @@ using System.Runtime.Serialization;
 
 namespace HYPDM.Entities
 {
-   /// <summary>
-   /// 实体对象 PDM_PARTS(零部件)。
-   /// </summary>
-   [Serializable()]
-   [Table("PDM_PARTS","零部件")]
-   partial class PDM_PARTS: DataEntity<PDM_PARTS>, IDataEntity<PDM_PARTS>
-   {
-       public PDM_PARTS()
-       {
-       }
-       
-       protected PDM_PARTS(SerializationInfo info, StreamingContext context)
-           : base(info, context)
-       {
-       }
-       
-       #region O/R映射成员
+    /// <summary>
+    /// 实体对象 PDM_PARTS(零部件)。
+    /// </summary>
+    [Serializable()]
+    [Table("PDM_PARTS", "零部件")]
+    partial class PDM_PARTS : DataEntity<PDM_PARTS>, IDataEntity<PDM_PARTS>
+    {
+        public PDM_PARTS()
+        {
+        }
 
-       /// <summary>
-       /// 零件编号 。
-       /// </summary>
-       [Column("PARTSID","零件编号"),DataSize(128),PrimaryKey]
-       [DisplayName("零件编号")]
-       public string PARTSID
-       {
-           get;
-           set;
-       }
+        protected PDM_PARTS(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
 
-       /// <summary>
-       /// 零件名称 。
-       /// </summary>
-       [Column("PARTSNAME","零件名称"),DataSize(128)]
-       [DisplayName("零件名称")]
-       public string PARTSNAME
-       {
-           get;
-           set;
-       }
+        #region O/R映射成员
 
-       /// <summary>
-       /// 单件净重 。
-       /// </summary>
-       [Column("SINGLENETWEIGHT","单件净重"),DataSize(53)]
-       [DisplayName("单件净重")]
-       public float SINGLENETWEIGHT
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 零件ID 。
+        /// </summary>
+        [Column("PARTSID", "零件ID"), DataSize(128), PrimaryKey]
+        [DisplayName("零件ID")]
+        public string PARTSID
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 零部件类型 。
-       /// </summary>
-       [Column("PARTSTYPE","零部件类型"),DataSize(64)]
-       [DisplayName("零部件类型")]
-       public string PARTSTYPE
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 单件净重 。
+        /// </summary>
+        [Column("SINGLENETWEIGHT", "单件净重"), DataSize(53)]
+        [DisplayName("单件净重")]
+        public string SINGLENETWEIGHT
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 工厂 。
-       /// </summary>
-       [Column("FACTORY","工厂"),DataSize(128)]
-       [DisplayName("工厂")]
-       public string FACTORY
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 零部件类型 。
+        /// </summary>
+        [Column("PARTSTYPE", "零部件类型"), DataSize(64)]
+        [DisplayName("零部件类型")]
+        public string PARTSTYPE
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 材料ID 。
-       /// </summary>
-       [Column("MATERIAL","材料ID"),DataSize(64)]
-       [DisplayName("材料ID")]
-       public string MATERIAL
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 原材料ID 。
+        /// </summary>
+        [Column("MATERIAL", "原材料ID"), DataSize(64)]
+        [DisplayName("原材料ID")]
+        public string MATERIAL
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 图号 。
-       /// </summary>
-       [Column("DRAWINGID","图号"),DataSize(128)]
-       [DisplayName("图号")]
-       public string DRAWINGID
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 图号 。
+        /// </summary>
+        [Column("DRAWINGID", "图号"), DataSize(128)]
+        [DisplayName("图号")]
+        public string DRAWINGID
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 架次/轧制规格 。
-       /// </summary>
-       [Column("ROLLINGSPECIFICTION","架次/轧制规格"),DataSize(128)]
-       [DisplayName("架次/轧制规格")]
-       public string ROLLINGSPECIFICTION
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 状态 。
+        /// </summary>
+        [Column("STATUS", "状态"), DataSize(128)]
+        [DisplayName("状态")]
+        public string STATUS
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 库存单位 。
-       /// </summary>
-       [Column("KEEPINGUNIT","库存单位"),DataSize(64)]
-       [DisplayName("库存单位")]
-       public string KEEPINGUNIT
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 修改者 。
+        /// </summary>
+        [Column("LASTUPDATEUSER", "修改者"), DataSize(128)]
+        [DisplayName("修改者")]
+        public string LASTUPDATEUSER
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 工艺路线品号 。
-       /// </summary>
-       [Column("TECHROUTENO","工艺路线品号"),DataSize(128)]
-       [DisplayName("工艺路线品号")]
-       public string TECHROUTENO
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 创建时间 。
+        /// </summary>
+        [Column("CREATEDATE", "创建时间"), DataSize(128)]
+        [DisplayName("创建时间")]
+        public string CREATEDATE
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 工艺路线编号 。
-       /// </summary>
-       [Column("TECHROUTENUMBER","工艺路线编号"),DataSize(128)]
-       [DisplayName("工艺路线编号")]
-       public string TECHROUTENUMBER
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 修改日期 。
+        /// </summary>
+        [Column("LASTUPDATEDATE", "修改日期"), DataSize(128)]
+        [DisplayName("修改日期")]
+        public string LASTUPDATEDATE
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 状态 。
-       /// </summary>
-       [Column("PARTSSTATUS","状态"),DataSize(128)]
-       [DisplayName("状态")]
-       public string PARTSSTATUS
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 备注 。
+        /// </summary>
+        [Column("REMARK", "备注"), DataSize(128)]
+        [DisplayName("备注")]
+        public string REMARK
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 修改者 。
-       /// </summary>
-       [Column("LASTUPDATEUSER","修改者"),DataSize(128)]
-       [DisplayName("修改者")]
-       public string LASTUPDATEUSER
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 文档ID 。
+        /// </summary>
+        [Column("DOCID", "文档ID"), DataSize(128)]
+        [DisplayName("文档ID")]
+        public string DOCID
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 创建时间 。
-       /// </summary>
-       [Column("CREATEDATE","创建时间"),DataSize(128)]
-       [DisplayName("创建时间")]
-       public string CREATEDATE
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 版本 。
+        /// </summary>
+        [Column("VERSION", "版本"), DataSize(128)]
+        [DisplayName("版本")]
+        public string VERSION
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 修改日期 。
-       /// </summary>
-       [Column("LASTUPDATEDATE","修改日期"),DataSize(128)]
-       [DisplayName("修改日期")]
-       public string LASTUPDATEDATE
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 零部件编号 。
+        /// </summary>
+        [Column("PARTSNO", "零部件编号"), DataSize(128)]
+        [DisplayName("零部件编号")]
+        public string PARTSNO
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 备注 。
-       /// </summary>
-       [Column("REMARK","备注"),DataSize(128)]
-       [DisplayName("备注")]
-       public string REMARK
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 描述 。
+        /// </summary>
+        [Column("DESCRIPTION", "描述"), DataSize(128)]
+        [DisplayName("描述")]
+        public string DESCRIPTION
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// ERP属性 。
-       /// </summary>
-       [Column("ERPATTR","ERP属性"),DataSize(128)]
-       [DisplayName("ERP属性")]
-       public string ERPATTR
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 英文描述 。
+        /// </summary>
+        [Column("ENGDESCRIPTION", "英文描述"), DataSize(128)]
+        [DisplayName("英文描述")]
+        public string ENGDESCRIPTION
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 文档ID 。
-       /// </summary>
-       [Column("DOCID","文档ID"),DataSize(128)]
-       [DisplayName("文档ID")]
-       public string DOCID
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 材质 。
+        /// </summary>
+        [Column("TEXTURE", "材质"), DataSize(128)]
+        [DisplayName("材质")]
+        public string TEXTURE
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 变更请求 。
-       /// </summary>
-       [Column("CHANGEREQUEST","变更请求"),DataSize(128)]
-       [DisplayName("变更请求")]
-       public string CHANGEREQUEST
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 单位ID 。
+        /// </summary>
+        [Column("UNIT", "单位ID"), DataSize(128)]
+        [DisplayName("单位ID")]
+        public string UNIT
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 版本 。
-       /// </summary>
-       [Column("VERSION","版本"),DataSize(53)]
-       [DisplayName("版本")]
-       public float VERSION
-       {
-           get;
-           set;
-       }
-       
-       #endregion
-   }
+        /// <summary>
+        /// 表面处理 。
+        /// </summary>
+        [Column("SURFACETREATMENT", "表面处理"), DataSize(128)]
+        [DisplayName("表面处理")]
+        public string SURFACETREATMENT
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 零部件分类 。
+        /// 0：半成品 1：原材料 2：工艺装备
+        /// </summary>
+        [Column("PARTSCLASSFICATION", "零部件分类"), DataSize(128)]
+        [DisplayName("零部件分类")]
+        public string PARTSCLASSFICATION
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 规格代号 。
+        /// </summary>
+        [Column("SPECIFICATIONCODE", "规格代号"), DataSize(128)]
+        [DisplayName("规格代号")]
+        public string SPECIFICATIONCODE
+        {
+            get;
+            set;
+        }
+
+        #endregion
+    }
 }

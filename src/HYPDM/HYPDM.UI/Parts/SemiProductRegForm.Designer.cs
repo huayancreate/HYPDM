@@ -1,6 +1,6 @@
 ﻿namespace HYPDM.WinUI.Parts
 {
-    partial class PartsInfoForm
+    partial class SemiProductRegForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsInfoForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SemiProductRegForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsBtnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnClear = new System.Windows.Forms.ToolStripButton();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtRemark = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -79,25 +85,21 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEngDescription = new System.Windows.Forms.TextBox();
+            this.cobUnit = new System.Windows.Forms.ComboBox();
+            this.cobPartsType = new System.Windows.Forms.ComboBox();
+            this.cobPartsClassfication = new System.Windows.Forms.ComboBox();
+            this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
+            this.txtCreateDate = new System.Windows.Forms.TextBox();
+            this.txtLastUpdateUser = new System.Windows.Forms.TextBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.txtSingleNetWeight = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtSpecificationCode = new System.Windows.Forms.TextBox();
+            this.txtPartsNo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -112,15 +114,13 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.cobMaterial = new System.Windows.Forms.ComboBox();
+            this.cobTexture = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip4.SuspendLayout();
@@ -131,8 +131,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -144,8 +142,55 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(739, 455);
+            this.panel1.Size = new System.Drawing.Size(739, 449);
             this.panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.toolStrip1);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(729, 24);
+            this.panel3.TabIndex = 6;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsBtnSave,
+            this.toolStripButton2,
+            this.tsBtnClear});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(729, 25);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsBtnSave
+            // 
+            this.tsBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSave.Image")));
+            this.tsBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnSave.Name = "tsBtnSave";
+            this.tsBtnSave.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnSave.Text = "保存";
+            this.tsBtnSave.Click += new System.EventHandler(this.tsBtnSave_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // tsBtnClear
+            // 
+            this.tsBtnClear.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnClear.Image")));
+            this.tsBtnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnClear.Name = "tsBtnClear";
+            this.tsBtnClear.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnClear.Text = "清除";
+            this.tsBtnClear.Click += new System.EventHandler(this.tsBtnClear_Click);
             // 
             // tabControl2
             // 
@@ -160,7 +205,7 @@
             this.tabControl2.Location = new System.Drawing.Point(244, 33);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(488, 421);
+            this.tabControl2.Size = new System.Drawing.Size(488, 409);
             this.tabControl2.TabIndex = 5;
             // 
             // tabPage2
@@ -168,26 +213,35 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 21);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(480, 396);
+            this.tabPage2.Size = new System.Drawing.Size(480, 384);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "ERP属性";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.txtRemark);
             this.tabPage3.Location = new System.Drawing.Point(4, 21);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(480, 396);
+            this.tabPage3.Size = new System.Drawing.Size(480, 384);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "备注";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.Location = new System.Drawing.Point(18, 35);
+            this.txtRemark.Multiline = true;
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(437, 285);
+            this.txtRemark.TabIndex = 0;
             // 
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 21);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(480, 396);
+            this.tabPage4.Size = new System.Drawing.Size(480, 384);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "文档";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -196,7 +250,7 @@
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 21);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(480, 396);
+            this.tabPage5.Size = new System.Drawing.Size(480, 384);
             this.tabPage5.TabIndex = 3;
             this.tabPage5.Text = "变更请求";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -205,7 +259,7 @@
             // 
             this.tabPage6.Location = new System.Drawing.Point(4, 21);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(480, 396);
+            this.tabPage6.Size = new System.Drawing.Size(480, 384);
             this.tabPage6.TabIndex = 4;
             this.tabPage6.Text = "图纸";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -214,7 +268,7 @@
             // 
             this.tabPage7.Location = new System.Drawing.Point(4, 21);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(480, 396);
+            this.tabPage7.Size = new System.Drawing.Size(480, 384);
             this.tabPage7.TabIndex = 5;
             this.tabPage7.Text = "工艺路线";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -230,7 +284,7 @@
             this.tabPage8.Controls.Add(this.toolStrip3);
             this.tabPage8.Location = new System.Drawing.Point(4, 21);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(480, 396);
+            this.tabPage8.Size = new System.Drawing.Size(480, 384);
             this.tabPage8.TabIndex = 6;
             this.tabPage8.Text = "产品结构";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -369,14 +423,14 @@
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -577,7 +631,7 @@
             // 
             this.tabPage9.Location = new System.Drawing.Point(4, 21);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(480, 396);
+            this.tabPage9.Size = new System.Drawing.Size(480, 384);
             this.tabPage9.TabIndex = 7;
             this.tabPage9.Text = "版本";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -588,31 +642,29 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(235, 421);
+            this.tabControl1.Size = new System.Drawing.Size(235, 409);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage1.Controls.Add(this.comboBox4);
-            this.tabPage1.Controls.Add(this.comboBox3);
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.textBox15);
-            this.tabPage1.Controls.Add(this.textBox14);
-            this.tabPage1.Controls.Add(this.textBox13);
-            this.tabPage1.Controls.Add(this.textBox12);
-            this.tabPage1.Controls.Add(this.textBox11);
-            this.tabPage1.Controls.Add(this.textBox10);
-            this.tabPage1.Controls.Add(this.textBox8);
-            this.tabPage1.Controls.Add(this.textBox7);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.cobTexture);
+            this.tabPage1.Controls.Add(this.cobMaterial);
+            this.tabPage1.Controls.Add(this.txtEngDescription);
+            this.tabPage1.Controls.Add(this.cobUnit);
+            this.tabPage1.Controls.Add(this.cobPartsType);
+            this.tabPage1.Controls.Add(this.cobPartsClassfication);
+            this.tabPage1.Controls.Add(this.txtLastUpdateDate);
+            this.tabPage1.Controls.Add(this.txtCreateDate);
+            this.tabPage1.Controls.Add(this.txtLastUpdateUser);
+            this.tabPage1.Controls.Add(this.txtStatus);
+            this.tabPage1.Controls.Add(this.txtSingleNetWeight);
+            this.tabPage1.Controls.Add(this.txtDescription);
+            this.tabPage1.Controls.Add(this.txtSpecificationCode);
+            this.tabPage1.Controls.Add(this.txtPartsNo);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
@@ -628,123 +680,116 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 21);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(227, 396);
+            this.tabPage1.Size = new System.Drawing.Size(227, 384);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             // 
-            // comboBox4
+            // txtEngDescription
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(98, 227);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(114, 20);
-            this.comboBox4.TabIndex = 34;
+            this.txtEngDescription.Location = new System.Drawing.Point(98, 107);
+            this.txtEngDescription.Name = "txtEngDescription";
+            this.txtEngDescription.Size = new System.Drawing.Size(114, 21);
+            this.txtEngDescription.TabIndex = 35;
             // 
-            // comboBox3
+            // cobUnit
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(98, 155);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(114, 20);
-            this.comboBox3.TabIndex = 33;
+            this.cobUnit.FormattingEnabled = true;
+            this.cobUnit.Items.AddRange(new object[] {
+            "件[PC]"});
+            this.cobUnit.Location = new System.Drawing.Point(98, 227);
+            this.cobUnit.Name = "cobUnit";
+            this.cobUnit.Size = new System.Drawing.Size(114, 20);
+            this.cobUnit.TabIndex = 34;
             // 
-            // comboBox2
+            // cobPartsType
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(98, 131);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(114, 20);
-            this.comboBox2.TabIndex = 32;
+            this.cobPartsType.FormattingEnabled = true;
+            this.cobPartsType.Items.AddRange(new object[] {
+            "半成品",
+            "原材料",
+            "工艺装备"});
+            this.cobPartsType.Location = new System.Drawing.Point(98, 155);
+            this.cobPartsType.Name = "cobPartsType";
+            this.cobPartsType.Size = new System.Drawing.Size(114, 20);
+            this.cobPartsType.TabIndex = 33;
             // 
-            // comboBox1
+            // cobPartsClassfication
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(98, 107);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(114, 20);
-            this.comboBox1.TabIndex = 31;
+            this.cobPartsClassfication.FormattingEnabled = true;
+            this.cobPartsClassfication.Items.AddRange(new object[] {
+            "普通件",
+            "标准件",
+            "通用件",
+            "焊接件"});
+            this.cobPartsClassfication.Location = new System.Drawing.Point(98, 131);
+            this.cobPartsClassfication.Name = "cobPartsClassfication";
+            this.cobPartsClassfication.Size = new System.Drawing.Size(114, 20);
+            this.cobPartsClassfication.TabIndex = 32;
             // 
-            // textBox15
+            // txtLastUpdateDate
             // 
-            this.textBox15.Location = new System.Drawing.Point(98, 371);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(114, 21);
-            this.textBox15.TabIndex = 30;
+            this.txtLastUpdateDate.Enabled = false;
+            this.txtLastUpdateDate.Location = new System.Drawing.Point(98, 347);
+            this.txtLastUpdateDate.Name = "txtLastUpdateDate";
+            this.txtLastUpdateDate.Size = new System.Drawing.Size(114, 21);
+            this.txtLastUpdateDate.TabIndex = 30;
             // 
-            // textBox14
+            // txtCreateDate
             // 
-            this.textBox14.Location = new System.Drawing.Point(98, 347);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(114, 21);
-            this.textBox14.TabIndex = 29;
+            this.txtCreateDate.Enabled = false;
+            this.txtCreateDate.Location = new System.Drawing.Point(98, 323);
+            this.txtCreateDate.Name = "txtCreateDate";
+            this.txtCreateDate.Size = new System.Drawing.Size(114, 21);
+            this.txtCreateDate.TabIndex = 29;
             // 
-            // textBox13
+            // txtLastUpdateUser
             // 
-            this.textBox13.Location = new System.Drawing.Point(98, 323);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(114, 21);
-            this.textBox13.TabIndex = 28;
+            this.txtLastUpdateUser.Enabled = false;
+            this.txtLastUpdateUser.Location = new System.Drawing.Point(98, 299);
+            this.txtLastUpdateUser.Name = "txtLastUpdateUser";
+            this.txtLastUpdateUser.Size = new System.Drawing.Size(114, 21);
+            this.txtLastUpdateUser.TabIndex = 28;
             // 
-            // textBox12
+            // txtStatus
             // 
-            this.textBox12.Location = new System.Drawing.Point(98, 299);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(114, 21);
-            this.textBox12.TabIndex = 27;
+            this.txtStatus.Enabled = false;
+            this.txtStatus.Location = new System.Drawing.Point(98, 275);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(114, 21);
+            this.txtStatus.TabIndex = 26;
             // 
-            // textBox11
+            // txtSingleNetWeight
             // 
-            this.textBox11.Location = new System.Drawing.Point(98, 275);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(114, 21);
-            this.textBox11.TabIndex = 26;
+            this.txtSingleNetWeight.Location = new System.Drawing.Point(98, 251);
+            this.txtSingleNetWeight.Name = "txtSingleNetWeight";
+            this.txtSingleNetWeight.Size = new System.Drawing.Size(114, 21);
+            this.txtSingleNetWeight.TabIndex = 25;
             // 
-            // textBox10
+            // txtDescription
             // 
-            this.textBox10.Location = new System.Drawing.Point(98, 251);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(114, 21);
-            this.textBox10.TabIndex = 25;
+            this.txtDescription.Location = new System.Drawing.Point(98, 83);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(114, 21);
+            this.txtDescription.TabIndex = 18;
             // 
-            // textBox8
+            // txtSpecificationCode
             // 
-            this.textBox8.Location = new System.Drawing.Point(98, 203);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(114, 21);
-            this.textBox8.TabIndex = 23;
+            this.txtSpecificationCode.Location = new System.Drawing.Point(98, 59);
+            this.txtSpecificationCode.Name = "txtSpecificationCode";
+            this.txtSpecificationCode.Size = new System.Drawing.Size(114, 21);
+            this.txtSpecificationCode.TabIndex = 17;
             // 
-            // textBox7
+            // txtPartsNo
             // 
-            this.textBox7.Location = new System.Drawing.Point(98, 179);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(114, 21);
-            this.textBox7.TabIndex = 22;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(98, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(114, 21);
-            this.textBox3.TabIndex = 18;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(98, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(114, 21);
-            this.textBox2.TabIndex = 17;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(98, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 21);
-            this.textBox1.TabIndex = 16;
+            this.txtPartsNo.Location = new System.Drawing.Point(98, 35);
+            this.txtPartsNo.Name = "txtPartsNo";
+            this.txtPartsNo.Size = new System.Drawing.Size(114, 21);
+            this.txtPartsNo.TabIndex = 16;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(8, 374);
+            this.label15.Location = new System.Drawing.Point(8, 350);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 12);
             this.label15.TabIndex = 15;
@@ -753,7 +798,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 350);
+            this.label14.Location = new System.Drawing.Point(8, 326);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(53, 12);
             this.label14.TabIndex = 14;
@@ -762,115 +807,107 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 326);
+            this.label13.Location = new System.Drawing.Point(8, 302);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(41, 12);
             this.label13.TabIndex = 13;
-            this.label13.Text = "创建者";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 302);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(29, 12);
-            this.label12.TabIndex = 12;
-            this.label12.Text = "状态";
+            this.label13.Text = "修改者";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(8, 278);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(77, 12);
+            this.label11.Size = new System.Drawing.Size(29, 12);
             this.label11.TabIndex = 11;
-            this.label11.Text = "工艺路线编号";
+            this.label11.Text = "状态";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(8, 254);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 12);
+            this.label10.Size = new System.Drawing.Size(53, 12);
             this.label10.TabIndex = 10;
-            this.label10.Text = "工艺路线品号";
+            this.label10.Text = "单件净重";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label9.Location = new System.Drawing.Point(8, 230);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
+            this.label9.Size = new System.Drawing.Size(29, 12);
             this.label9.TabIndex = 9;
-            this.label9.Text = "库存单位";
+            this.label9.Text = "单位";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(8, 206);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 12);
+            this.label8.Size = new System.Drawing.Size(29, 12);
             this.label8.TabIndex = 8;
-            this.label8.Text = "架次/轧制规格";
+            this.label8.Text = "材质";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label7.Location = new System.Drawing.Point(8, 182);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.Size = new System.Drawing.Size(41, 12);
             this.label7.TabIndex = 7;
-            this.label7.Text = "图号";
+            this.label7.Text = "原材料";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label6.Location = new System.Drawing.Point(8, 158);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 6;
-            this.label6.Text = "材质";
+            this.label6.Text = "零部件分类";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(8, 134);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 12);
+            this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 5;
-            this.label5.Text = "厂家";
+            this.label5.Text = "零部件类型";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(8, 110);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 4;
-            this.label4.Text = "类别";
+            this.label4.Text = "英文描述";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label3.Location = new System.Drawing.Point(8, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 3;
-            this.label3.Text = "单件净重";
+            this.label3.Text = "描述";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(8, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "品名";
+            this.label2.Text = "规格代号";
             // 
             // label1
             // 
@@ -879,15 +916,14 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "品号";
+            this.label1.Text = "编号";
             // 
             // toolStrip2
             // 
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripButton7});
+            this.toolStripButton6});
             this.toolStrip2.Location = new System.Drawing.Point(3, 3);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(221, 25);
@@ -912,81 +948,47 @@
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
-            // toolStripButton7
+            // cobMaterial
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "toolStripButton7";
+            this.cobMaterial.FormattingEnabled = true;
+            this.cobMaterial.Items.AddRange(new object[] {
+            "普通件",
+            "标准件",
+            "通用件",
+            "焊接件"});
+            this.cobMaterial.Location = new System.Drawing.Point(98, 179);
+            this.cobMaterial.Name = "cobMaterial";
+            this.cobMaterial.Size = new System.Drawing.Size(114, 20);
+            this.cobMaterial.TabIndex = 36;
             // 
-            // panel3
+            // cobTexture
             // 
-            this.panel3.Controls.Add(this.toolStrip1);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(729, 24);
-            this.panel3.TabIndex = 6;
+            this.cobTexture.FormattingEnabled = true;
+            this.cobTexture.Items.AddRange(new object[] {
+            "普通件",
+            "标准件",
+            "通用件",
+            "焊接件"});
+            this.cobTexture.Location = new System.Drawing.Point(98, 203);
+            this.cobTexture.Name = "cobTexture";
+            this.cobTexture.Size = new System.Drawing.Size(114, 20);
+            this.cobTexture.TabIndex = 37;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(729, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // PartsInfoForm
+            // SemiProductRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 455);
+            this.ClientSize = new System.Drawing.Size(739, 449);
             this.Controls.Add(this.panel1);
-            this.Name = "PartsInfoForm";
+            this.Name = "SemiProductRegForm";
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1004,10 +1006,6 @@
             this.tabPage1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1063,25 +1061,20 @@
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cobUnit;
+        private System.Windows.Forms.ComboBox cobPartsType;
+        private System.Windows.Forms.ComboBox cobPartsClassfication;
+        private System.Windows.Forms.TextBox txtLastUpdateDate;
+        private System.Windows.Forms.TextBox txtCreateDate;
+        private System.Windows.Forms.TextBox txtLastUpdateUser;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.TextBox txtSingleNetWeight;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtSpecificationCode;
+        private System.Windows.Forms.TextBox txtPartsNo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -1096,13 +1089,15 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton tsBtnSave;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton tsBtnClear;
+        private System.Windows.Forms.TextBox txtEngDescription;
+        private System.Windows.Forms.TextBox txtRemark;
+        private System.Windows.Forms.ComboBox cobTexture;
+        private System.Windows.Forms.ComboBox cobMaterial;
 
     }
 }
