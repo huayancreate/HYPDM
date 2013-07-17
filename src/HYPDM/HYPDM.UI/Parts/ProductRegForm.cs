@@ -62,10 +62,12 @@ namespace HYPDM.WinUI.Parts
 
         private void InitProductInfo()
         {
-
+            // 产品已存在
             if (this.Product != null)
             {
                 this.Text = "产品  " + this.Product.PRONO;
+                // 清除按钮不可用
+                this.btnClear.Enabled = false;
                 this.txtProductNo.Text = this.Product.PRONO;
                 this.txtDescription.Text = this.Product.DESCRIPTION;
                 this.txtEngDescription.Text = this.Product.ENGDESCRIPTION;
@@ -103,6 +105,11 @@ namespace HYPDM.WinUI.Parts
         {
             #region 产品
             HYPDM.Entities.PDM_PRODUCT product;
+            if (txtDescription.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("描述不能为空");
+                return;
+            }
             string msg = "";
             if (this.product == null)
             {
@@ -194,18 +201,21 @@ namespace HYPDM.WinUI.Parts
 
         private void dgvDoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if ((bool)dgvDoc.Rows[e.RowIndex].Cells[0].EditedFormattedValue == false)
+            if (e.RowIndex > -1)
             {
-                for (int i = 0; i < this.dgvDoc.RowCount; i++)
+                if ((bool)dgvDoc.Rows[e.RowIndex].Cells[0].EditedFormattedValue == false)
                 {
-                    dgvDoc.Rows[i].Cells[0].Value = false;
-                }
-                dgvDoc.Rows[e.RowIndex].Cells[0].Value = true;
+                    for (int i = 0; i < this.dgvDoc.RowCount; i++)
+                    {
+                        dgvDoc.Rows[i].Cells[0].Value = false;
+                    }
+                    dgvDoc.Rows[e.RowIndex].Cells[0].Value = true;
 
-            }
-            else
-            {
-                dgvDoc.Rows[e.RowIndex].Cells[0].Value = false;
+                }
+                else
+                {
+                    dgvDoc.Rows[e.RowIndex].Cells[0].Value = false;
+                }
             }
         }
 

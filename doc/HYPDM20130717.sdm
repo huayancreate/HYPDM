@@ -1,0 +1,2231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>HYPDM</Name>
+  <Caption>h</Caption>
+  <Namespace>HYPDM</Namespace>
+  <OutPutFolder>C:\Users\wliu\Desktop\新建文件夹 (6)\新建文件夹 (6)</OutPutFolder>
+  <Language>C#</Language>
+  <DatabaseType>SQL2008</DatabaseType>
+  <DbServer>.\sqlexpress</DbServer>
+  <DbUser>sa</DbUser>
+  <DbPassword>123456</DbPassword>
+  <DbName>drugshop</DbName>
+  <Index>false</Index>
+  <AutoProperty>true</AutoProperty>
+  <ColumnNameUpper>false</ColumnNameUpper>
+  <PropertyFirstUpper>false</PropertyFirstUpper>
+  <ShowDbType>true</ShowDbType>
+  <SwitchDbType>false</SwitchDbType>
+  <GeneratAddIn>false</GeneratAddIn>
+  <IntegratePrint>false</IntegratePrint>
+  <Tables>
+    <Table>
+      <Directory />
+      <ClassName>PDM_DOCUMENT</ClassName>
+      <Caption>文档</Caption>
+      <NameSpace />
+      <MapTable>PDM_DOCUMENT</MapTable>
+      <Columns>
+        <Column>
+          <Name>DOCID</Name>
+          <Type>string</Type>
+          <Caption>文档主键</Caption>
+          <ColumnName>DOCID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DOCNAME</Name>
+          <Type>string</Type>
+          <Caption>文档名称</Caption>
+          <ColumnName>DOCNAME</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DOCTYPE</Name>
+          <Type>string</Type>
+          <Caption>文档类型</Caption>
+          <ColumnName>DOCTYPE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DOCSTATUS</Name>
+          <Type>string</Type>
+          <Caption>状态</Caption>
+          <ColumnName>DOCSTATUS</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>LASTUPDATEUSER</Name>
+          <Type>string</Type>
+          <Caption>修改者</Caption>
+          <ColumnName>LASTUPDATEUSER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CREATEDATE</Name>
+          <Type>string</Type>
+          <Caption>创建日期</Caption>
+          <ColumnName>CREATEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>LASTUPDATEDATE</Name>
+          <Type>string</Type>
+          <Caption>修改时间</Caption>
+          <ColumnName>LASTUPDATEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>REMARK</Name>
+          <Type>string</Type>
+          <Caption>备注</Caption>
+          <ColumnName>REMARK</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>VERSION</Name>
+          <Type>string</Type>
+          <Caption>版本</Caption>
+          <ColumnName>VERSION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>18</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DOCNO</Name>
+          <Type>string</Type>
+          <Caption>文档编号</Caption>
+          <ColumnName>DOCNO</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DESCRIPTION</Name>
+          <Type>string</Type>
+          <Caption>描述</Caption>
+          <ColumnName>DESCRIPTION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_DOCUMENT_TYPE</ClassName>
+      <Caption>文档类型</Caption>
+      <NameSpace />
+      <MapTable>PDM_DOCUMENT_TYPE</MapTable>
+      <Columns>
+        <Column>
+          <Name>ID</Name>
+          <Type>string</Type>
+          <Caption>文档类型ID</Caption>
+          <ColumnName>ID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>64</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>NAME</Name>
+          <Type>string</Type>
+          <Caption>文档类型名称</Caption>
+          <ColumnName>NAME</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_DRAWING</ClassName>
+      <Caption>图纸</Caption>
+      <NameSpace />
+      <MapTable>PDM_DRAWING</MapTable>
+      <Columns>
+        <Column>
+          <Name>DRAWINGID</Name>
+          <Type>string</Type>
+          <Caption>图纸ID</Caption>
+          <ColumnName>DRAWINGID</ColumnName>
+          <DbType>VARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DRAWINGTYPE</Name>
+          <Type>string</Type>
+          <Caption>图纸类型ID</Caption>
+          <ColumnName>DRAWINGTYPE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>64</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>WORKNO</Name>
+          <Type>string</Type>
+          <Caption>工作号</Caption>
+          <ColumnName>WORKNO</ColumnName>
+          <DbType>VARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DRAWINGNAME</Name>
+          <Type>string</Type>
+          <Caption>图纸</Caption>
+          <ColumnName>DRAWINGNAME</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DESCRIPTION</Name>
+          <Type>string</Type>
+          <Caption>描述</Caption>
+          <ColumnName>DESCRIPTION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>SOURCE</Name>
+          <Type>string</Type>
+          <Caption>来源</Caption>
+          <ColumnName>SOURCE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CUSTOMER</Name>
+          <Type>string</Type>
+          <Caption>客户名称</Caption>
+          <ColumnName>CUSTOMER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CUSTUMERPRONO</Name>
+          <Type>string</Type>
+          <Caption>客户项目号</Caption>
+          <ColumnName>CUSTUMERPRONO</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DRAWINGSIZE</Name>
+          <Type>string</Type>
+          <Caption>图幅</Caption>
+          <ColumnName>DRAWINGSIZE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>64</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>STATUS</Name>
+          <Type>string</Type>
+          <Caption>状态</Caption>
+          <ColumnName>STATUS</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>LASTUPDATEUSER</Name>
+          <Type>string</Type>
+          <Caption>修改者</Caption>
+          <ColumnName>LASTUPDATEUSER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CREATEDATE</Name>
+          <Type>string</Type>
+          <Caption>创建时间</Caption>
+          <ColumnName>CREATEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>REMARK</Name>
+          <Type>string</Type>
+          <Caption>备注</Caption>
+          <ColumnName>REMARK</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PHYSICALFILE</Name>
+          <Type>string</Type>
+          <Caption>物理文件</Caption>
+          <ColumnName>PHYSICALFILE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>VERSION</Name>
+          <Type>float</Type>
+          <Caption>版本</Caption>
+          <ColumnName>VERSION</ColumnName>
+          <DbType>FLOAT</DbType>
+          <DefaultValue />
+          <Size>53</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>LASTUPDATEDATE</Name>
+          <Type>string</Type>
+          <Caption>修改日期</Caption>
+          <ColumnName>LASTUPDATEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_DRAWING_TYPE</ClassName>
+      <Caption>图纸类型</Caption>
+      <NameSpace />
+      <MapTable>PDM_DRAWING_TYPE</MapTable>
+      <Columns>
+        <Column>
+          <Name>ID</Name>
+          <Type>string</Type>
+          <Caption>图纸类型ID</Caption>
+          <ColumnName>ID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>64</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>NAME</Name>
+          <Type>string</Type>
+          <Caption>图纸类型名称</Caption>
+          <ColumnName>NAME</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_MATERIAL</ClassName>
+      <Caption>材料</Caption>
+      <NameSpace />
+      <MapTable>PDM_MATERIAL</MapTable>
+      <Columns>
+        <Column>
+          <Name>ID</Name>
+          <Type>string</Type>
+          <Caption>材料ID</Caption>
+          <ColumnName>ID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>NAME</Name>
+          <Type>string</Type>
+          <Caption>材料名称</Caption>
+          <ColumnName>NAME</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_PARTS</ClassName>
+      <Caption>零部件</Caption>
+      <NameSpace />
+      <MapTable>PDM_PARTS</MapTable>
+      <Columns>
+        <Column>
+          <Name>PARTSID</Name>
+          <Type>string</Type>
+          <Caption>零件编号</Caption>
+          <ColumnName>PARTSID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PARTSNAME</Name>
+          <Type>string</Type>
+          <Caption>零件名称</Caption>
+          <ColumnName>PARTSNAME</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>SINGLENETWEIGHT</Name>
+          <Type>float</Type>
+          <Caption>单件净重</Caption>
+          <ColumnName>SINGLENETWEIGHT</ColumnName>
+          <DbType>FLOAT</DbType>
+          <DefaultValue />
+          <Size>53</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PARTSTYPE</Name>
+          <Type>string</Type>
+          <Caption>零部件类型</Caption>
+          <ColumnName>PARTSTYPE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>64</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>FACTORY</Name>
+          <Type>string</Type>
+          <Caption>工厂</Caption>
+          <ColumnName>FACTORY</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>MATERIAL</Name>
+          <Type>string</Type>
+          <Caption>材料ID</Caption>
+          <ColumnName>MATERIAL</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>64</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DRAWINGID</Name>
+          <Type>string</Type>
+          <Caption>图号</Caption>
+          <ColumnName>DRAWINGID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>ROLLINGSPECIFICTION</Name>
+          <Type>string</Type>
+          <Caption>架次/轧制规格</Caption>
+          <ColumnName>ROLLINGSPECIFICTION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>KEEPINGUNIT</Name>
+          <Type>string</Type>
+          <Caption>库存单位</Caption>
+          <ColumnName>KEEPINGUNIT</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>64</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>TECHROUTENO</Name>
+          <Type>string</Type>
+          <Caption>工艺路线品号</Caption>
+          <ColumnName>TECHROUTENO</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>TECHROUTENUMBER</Name>
+          <Type>string</Type>
+          <Caption>工艺路线编号</Caption>
+          <ColumnName>TECHROUTENUMBER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PARTSSTATUS</Name>
+          <Type>string</Type>
+          <Caption>状态</Caption>
+          <ColumnName>PARTSSTATUS</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>LASTUPDATEUSER</Name>
+          <Type>string</Type>
+          <Caption>修改者</Caption>
+          <ColumnName>LASTUPDATEUSER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CREATEDATE</Name>
+          <Type>string</Type>
+          <Caption>创建时间</Caption>
+          <ColumnName>CREATEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>LASTUPDATEDATE</Name>
+          <Type>string</Type>
+          <Caption>修改日期</Caption>
+          <ColumnName>LASTUPDATEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>REMARK</Name>
+          <Type>string</Type>
+          <Caption>备注</Caption>
+          <ColumnName>REMARK</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>ERPATTR</Name>
+          <Type>string</Type>
+          <Caption>ERP属性</Caption>
+          <ColumnName>ERPATTR</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DOCID</Name>
+          <Type>string</Type>
+          <Caption>文档ID</Caption>
+          <ColumnName>DOCID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CHANGEREQUEST</Name>
+          <Type>string</Type>
+          <Caption>变更请求</Caption>
+          <ColumnName>CHANGEREQUEST</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>VERSION</Name>
+          <Type>float</Type>
+          <Caption>版本</Caption>
+          <ColumnName>VERSION</ColumnName>
+          <DbType>FLOAT</DbType>
+          <DefaultValue />
+          <Size>53</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_PARTS_TYPE</ClassName>
+      <Caption>零件类型</Caption>
+      <NameSpace />
+      <MapTable>PDM_PARTS_TYPE</MapTable>
+      <Columns>
+        <Column>
+          <Name>ID</Name>
+          <Type>string</Type>
+          <Caption>零件类型ID</Caption>
+          <ColumnName>ID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>64</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>NAME</Name>
+          <Type>string</Type>
+          <Caption>零件类型名称</Caption>
+          <ColumnName>NAME</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_PRODUCT</ClassName>
+      <Caption>产品</Caption>
+      <NameSpace />
+      <MapTable>PDM_PRODUCT</MapTable>
+      <Columns>
+        <Column>
+          <Name>PRODUCTID</Name>
+          <Type>string</Type>
+          <Caption>品号</Caption>
+          <ColumnName>PRODUCTID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>VERSION</Name>
+          <Type>string</Type>
+          <Caption>版本</Caption>
+          <ColumnName>VERSION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>MODELNO</Name>
+          <Type>string</Type>
+          <Caption>产品型号</Caption>
+          <ColumnName>MODELNO</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PRODUCTSTATUS</Name>
+          <Type>string</Type>
+          <Caption>状态</Caption>
+          <ColumnName>PRODUCTSTATUS</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>LASTUPDATEUSER</Name>
+          <Type>string</Type>
+          <Caption>修改者</Caption>
+          <ColumnName>LASTUPDATEUSER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CREATEDATE</Name>
+          <Type>string</Type>
+          <Caption>创建日期</Caption>
+          <ColumnName>CREATEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>LASTUPDATEDATE</Name>
+          <Type>string</Type>
+          <Caption>修改时间</Caption>
+          <ColumnName>LASTUPDATEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>REMARK</Name>
+          <Type>string</Type>
+          <Caption>备注</Caption>
+          <ColumnName>REMARK</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DRAWINGID</Name>
+          <Type>string</Type>
+          <Caption>图号</Caption>
+          <ColumnName>DRAWINGID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PRODUCTTYPE</Name>
+          <Type>string</Type>
+          <Caption>产品类型</Caption>
+          <ColumnName>PRODUCTTYPE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DESCRIPTION</Name>
+          <Type>string</Type>
+          <Caption>描述</Caption>
+          <ColumnName>DESCRIPTION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>ENGDESCRIPTION</Name>
+          <Type>string</Type>
+          <Caption>英文描述</Caption>
+          <ColumnName>ENGDESCRIPTION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PRONO</Name>
+          <Type>string</Type>
+          <Caption>产品编号</Caption>
+          <ColumnName>PRONO</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_PRODUCT_STRUCT</ClassName>
+      <Caption>产品结构</Caption>
+      <NameSpace />
+      <MapTable>PDM_PRODUCT_STRUCT</MapTable>
+      <Columns>
+        <Column>
+          <Name>PRODUCTID</Name>
+          <Type>string</Type>
+          <Caption>品号</Caption>
+          <ColumnName>PRODUCTID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>ISPRODUCT</Name>
+          <Type>bool</Type>
+          <Caption>是不是产品</Caption>
+          <ColumnName>ISPRODUCT</ColumnName>
+          <DbType>BIT</DbType>
+          <DefaultValue />
+          <Size>1</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PARTSID</Name>
+          <Type>string</Type>
+          <Caption>零部件编号</Caption>
+          <ColumnName>PARTSID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>SORTCODE</Name>
+          <Type>int</Type>
+          <Caption>顺序</Caption>
+          <ColumnName>SORTCODE</ColumnName>
+          <DbType>INT</DbType>
+          <DefaultValue />
+          <Size>10</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>QUANTITY</Name>
+          <Type>int</Type>
+          <Caption>使用数量</Caption>
+          <ColumnName>QUANTITY</ColumnName>
+          <DbType>INT</DbType>
+          <DefaultValue />
+          <Size>10</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>REMARK</Name>
+          <Type>string</Type>
+          <Caption>备注</Caption>
+          <ColumnName>REMARK</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>ID</Name>
+          <Type>string</Type>
+          <Caption>ID</Caption>
+          <ColumnName>ID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_PHYSICAL_FILE</ClassName>
+      <Caption>物理文件</Caption>
+      <NameSpace />
+      <MapTable>PDM_PHYSICAL_FILE</MapTable>
+      <Columns>
+        <Column>
+          <Name>PHYSICALID</Name>
+          <Type>string</Type>
+          <Caption>编号</Caption>
+          <ColumnName>PHYSICALID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>FILENAME</Name>
+          <Type>string</Type>
+          <Caption>文件名称</Caption>
+          <ColumnName>FILENAME</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>FILEVERSION</Name>
+          <Type>string</Type>
+          <Caption>文件版本</Caption>
+          <ColumnName>FILEVERSION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>FILETYPE</Name>
+          <Type>string</Type>
+          <Caption>文件类型</Caption>
+          <ColumnName>FILETYPE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CHECKINDATE</Name>
+          <Type>DateTime</Type>
+          <Caption>检入日期</Caption>
+          <ColumnName>CHECKIN</ColumnName>
+          <DbType>DATETIME</DbType>
+          <DefaultValue />
+          <Size>0</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CHECKOUTDATE</Name>
+          <Type>DateTime</Type>
+          <Caption>检出日期</Caption>
+          <ColumnName>CHECKOUT</ColumnName>
+          <DbType>DATETIME</DbType>
+          <DefaultValue />
+          <Size>0</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DESCRIPTION</Name>
+          <Type>string</Type>
+          <Caption>描述</Caption>
+          <ColumnName>DESCRIPTION</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PARENT</Name>
+          <Type>string</Type>
+          <Caption>父节点</Caption>
+          <ColumnName>PARENT</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>OPERATEUSER</Name>
+          <Type>string</Type>
+          <Caption>操作人</Caption>
+          <ColumnName>OPERATEUSER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>FILEID</Name>
+          <Type>string</Type>
+          <Caption>文件编号</Caption>
+          <ColumnName>FILEID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PAPERS</Name>
+          <Type>string</Type>
+          <Caption>文件</Caption>
+          <ColumnName>PAPERS</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>FILEPATH</Name>
+          <Type>string</Type>
+          <Caption>文件地址</Caption>
+          <ColumnName>FILEPATH</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>FILESTATUS</Name>
+          <Type>string</Type>
+          <Caption>文件状态</Caption>
+          <ColumnName>FILESTATUS</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_VERSION_HISTORY</ClassName>
+      <Caption>检入检出记录</Caption>
+      <NameSpace />
+      <MapTable>PDM_VERSION_HISTORY</MapTable>
+      <Columns>
+        <Column>
+          <Name>ID</Name>
+          <Type>string</Type>
+          <Caption>主键</Caption>
+          <ColumnName>ID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>VERSIONSTATUS</Name>
+          <Type>string</Type>
+          <Caption>版本状态</Caption>
+          <ColumnName>VERSION_STATUS</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>OPERATORDATE</Name>
+          <Type>string</Type>
+          <Caption>操作日期</Caption>
+          <ColumnName>OPERATORDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>OPERATORUSER</Name>
+          <Type>string</Type>
+          <Caption>操作员</Caption>
+          <ColumnName>OPERATORUSER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>VERSIONNO</Name>
+          <Type>string</Type>
+          <Caption>版本号</Caption>
+          <ColumnName>VERSIONNO</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_CHANGE_HISTORY</ClassName>
+      <Caption>变更记录</Caption>
+      <NameSpace />
+      <MapTable>PDM_CHANGE_HISTORY</MapTable>
+      <Columns>
+        <Column>
+          <Name>ID</Name>
+          <Type>string</Type>
+          <Caption>主键</Caption>
+          <ColumnName>ID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CHANGECONTENT</Name>
+          <Type>string</Type>
+          <Caption>变更内容</Caption>
+          <ColumnName>CHANGECONTENT</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CHANGECAUSE</Name>
+          <Type>string</Type>
+          <Caption>变更原因</Caption>
+          <ColumnName>CHANGECAUSE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CHANGEDATE</Name>
+          <Type>string</Type>
+          <Caption>变更日期</Caption>
+          <ColumnName>CHANGEDATE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CHANGETYPE</Name>
+          <Type>string</Type>
+          <Caption>变更类型(文档、图纸等)</Caption>
+          <ColumnName>CHANGETYPE</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>CHANGEUSER</Name>
+          <Type>string</Type>
+          <Caption>变更人</Caption>
+          <ColumnName>CHANGEUSER</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DOCID</Name>
+          <Type>string</Type>
+          <Caption>文档编号</Caption>
+          <ColumnName>DOCID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>false</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+    <Table>
+      <Directory />
+      <ClassName>PDM_PRODUCT_DOCUMENT</ClassName>
+      <Caption>产品文档</Caption>
+      <NameSpace />
+      <MapTable>PDM_PRODUCT_DOCUMENT</MapTable>
+      <Columns>
+        <Column>
+          <Name>ID</Name>
+          <Type>string</Type>
+          <Caption>ID</Caption>
+          <ColumnName>ID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>true</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>PRODUCTID</Name>
+          <Type>string</Type>
+          <Caption>产品ID</Caption>
+          <ColumnName>PRODUCTID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>DOCUMENTID</Name>
+          <Type>string</Type>
+          <Caption>文档ID</Caption>
+          <ColumnName>DOCUMENTID</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+        <Column>
+          <Name>ISPRODUCT</Name>
+          <Type>string</Type>
+          <Caption>ISPRODUCT</Caption>
+          <ColumnName>ISPRODUCT</ColumnName>
+          <DbType>NVARCHAR</DbType>
+          <DefaultValue />
+          <Size>128</Size>
+          <Scale>0</Scale>
+          <PrimaryKey>false</PrimaryKey>
+          <Identity>false</Identity>
+          <RowVersion>false</RowVersion>
+          <NotNull>true</NotNull>
+          <Virtual>false</Virtual>
+          <Visible>true</Visible>
+          <Width>80</Width>
+          <Alignment>Left</Alignment>
+          <Format />
+          <Index>0</Index>
+        </Column>
+      </Columns>
+    </Table>
+  </Tables>
+  <Models>
+    <Model>
+      <Name>主模型</Name>
+      <Buffer />
+    </Model>
+  </Models>
+  <Directorys />
+  <Lists />
+  <Forms />
+  <AutoUI>false</AutoUI>
+  <MetaInteraction>false</MetaInteraction>
+</Project>

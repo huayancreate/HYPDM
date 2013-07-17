@@ -33,277 +33,167 @@ using System.Runtime.Serialization;
 
 namespace HYPDM.Entities
 {
-   /// <summary>
-   /// 实体对象 PDM_PRODUCT(产品)。
-   /// </summary>
-   [Serializable()]
-   [Table("PDM_PRODUCT","产品")]
-   partial class PDM_PRODUCT: DataEntity<PDM_PRODUCT>, IDataEntity<PDM_PRODUCT>
-   {
-       public PDM_PRODUCT()
-       {
-       }
-       
-       protected PDM_PRODUCT(SerializationInfo info, StreamingContext context)
-           : base(info, context)
-       {
-       }
-       
-       #region O/R映射成员
+    /// <summary>
+    /// 实体对象 PDM_PRODUCT(产品)。
+    /// </summary>
+    [Serializable()]
+    [Table("PDM_PRODUCT", "产品")]
+    partial class PDM_PRODUCT : DataEntity<PDM_PRODUCT>, IDataEntity<PDM_PRODUCT>
+    {
+        public PDM_PRODUCT()
+        {
+        }
 
-       /// <summary>
-       /// 品号 。
-       /// </summary>
-       [Column("PRODUCTID","品号"),DataSize(128),PrimaryKey]
-       [DisplayName("品号")]
-       public string PRODUCTID
-       {
-           get;
-           set;
-       }
+        protected PDM_PRODUCT(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
 
-       /// <summary>
-       /// 产品名称 。
-       /// </summary>
-       [Column("PRODUCTNAME","产品名称"),DataSize(128)]
-       [DisplayName("产品名称")]
-       public string PRODUCTNAME
-       {
-           get;
-           set;
-       }
+        #region O/R映射成员
 
-       /// <summary>
-       /// 版本 。
-       /// </summary>
-       [Column("VERSION","版本"),DataSize(128)]
-       [DisplayName("版本")]
-       public string VERSION
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 品号 。
+        /// </summary>
+        [Column("PRODUCTID", "品号"), DataSize(128), PrimaryKey]
+        [DisplayName("品号")]
+        public string PRODUCTID
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 顺序 。
-       /// </summary>
-       [Column("SORTCODE","顺序"),DataSize(10)]
-       [DisplayName("顺序")]
-       public int SORTCODE
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 版本 。
+        /// </summary>
+        [Column("VERSION", "版本"), DataSize(128)]
+        [DisplayName("版本")]
+        public string VERSION
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 产品型号 。
-       /// </summary>
-       [Column("MODELNO","产品型号"),DataSize(128)]
-       [DisplayName("产品型号")]
-       public string MODELNO
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 产品型号 。
+        /// </summary>
+        [Column("MODELNO", "产品型号"), DataSize(128)]
+        [DisplayName("产品型号")]
+        public string MODELNO
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 规格/尺寸 。
-       /// </summary>
-       [Column("SIZE","规格/尺寸"),DataSize(128)]
-       [DisplayName("规格/尺寸")]
-       public string SIZE
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 状态 。
+        /// </summary>
+        [Column("PRODUCTSTATUS", "状态"), DataSize(128)]
+        [DisplayName("状态")]
+        public string PRODUCTSTATUS
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 材料 。
-       /// </summary>
-       [Column("MATERIAL","材料"),DataSize(128)]
-       [DisplayName("材料")]
-       public string MATERIAL
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 修改者 。
+        /// </summary>
+        [Column("LASTUPDATEUSER", "修改者"), DataSize(128)]
+        [DisplayName("修改者")]
+        public string LASTUPDATEUSER
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 工艺名称 。
-       /// </summary>
-       [Column("TECHNAME","工艺名称"),DataSize(128)]
-       [DisplayName("工艺名称")]
-       public string TECHNAME
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 创建日期 。
+        /// </summary>
+        [Column("CREATEDATE", "创建日期"), DataSize(128)]
+        [DisplayName("创建日期")]
+        public string CREATEDATE
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 工艺说明 。
-       /// </summary>
-       [Column("TECHINSTRUCTION","工艺说明"),DataSize(128)]
-       [DisplayName("工艺说明")]
-       public string TECHINSTRUCTION
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 修改时间 。
+        /// </summary>
+        [Column("LASTUPDATEDATE", "修改时间"), DataSize(128)]
+        [DisplayName("修改时间")]
+        public string LASTUPDATEDATE
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 品号属性 。
-       /// </summary>
-       [Column("PRODUCTNOATTR","品号属性"),DataSize(128)]
-       [DisplayName("品号属性")]
-       public string PRODUCTNOATTR
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 备注 。
+        /// </summary>
+        [Column("REMARK", "备注"), DataSize(128)]
+        [DisplayName("备注")]
+        public string REMARK
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 单位ID 。
-       /// </summary>
-       [Column("UNIT","单位ID"),DataSize(64)]
-       [DisplayName("单位ID")]
-       public string UNIT
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 图号 。
+        /// </summary>
+        [Column("DRAWINGID", "图号"), DataSize(128)]
+        [DisplayName("图号")]
+        public string DRAWINGID
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 性质 。
-       /// </summary>
-       [Column("PROPERTY","性质"),DataSize(128)]
-       [DisplayName("性质")]
-       public string PROPERTY
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 产品类型 。
+        /// </summary>
+        [Column("PRODUCTTYPE", "产品类型"), DataSize(128)]
+        [DisplayName("产品类型")]
+        public string PRODUCTTYPE
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 工作中心 。
-       /// </summary>
-       [Column("WORKCENTER","工作中心"),DataSize(128)]
-       [DisplayName("工作中心")]
-       public string WORKCENTER
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 描述 。
+        /// </summary>
+        [Column("DESCRIPTION", "描述"), DataSize(128)]
+        [DisplayName("描述")]
+        public string DESCRIPTION
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 状态 。
-       /// </summary>
-       [Column("PRODUCTSTATUS","状态"),DataSize(128)]
-       [DisplayName("状态")]
-       public string PRODUCTSTATUS
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 英文描述 。
+        /// </summary>
+        [Column("ENGDESCRIPTION", "英文描述"), DataSize(128)]
+        [DisplayName("英文描述")]
+        public string ENGDESCRIPTION
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 修改者 。
-       /// </summary>
-       [Column("LASTUPDATEUSER","修改者"),DataSize(128)]
-       [DisplayName("修改者")]
-       public string LASTUPDATEUSER
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 产品编号 。
+        /// </summary>
+        [Column("PRONO", "产品编号"), DataSize(128)]
+        [DisplayName("产品编号")]
+        public string PRONO
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 创建日期 。
-       /// </summary>
-       [Column("CREATEUSER","创建日期"),DataSize(128)]
-       [DisplayName("创建日期")]
-       public string CREATEDATE
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 修改时间 。
-       /// </summary>
-       [Column("LASTUPDATEDATE","修改时间"),DataSize(128)]
-       [DisplayName("修改时间")]
-       public string LASTUPDATEDATE
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 备注 。
-       /// </summary>
-       [Column("REMARK","备注"),DataSize(128)]
-       [DisplayName("备注")]
-       public string REMARK
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 图号 。
-       /// </summary>
-       [Column("DRAWINGID","图号"),DataSize(128)]
-       [DisplayName("图号")]
-       public string DRAWINGID
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 产品类型 。
-       /// </summary>
-       [Column("PRODUCTTYPE","产品类型"),DataSize(128)]
-       [DisplayName("产品类型")]
-       public string PRODUCTTYPE
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 描述 。
-       /// </summary>
-       [Column("DESCRIPTION","描述"),DataSize(128)]
-       [DisplayName("描述")]
-       public string DESCRIPTION
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 英文描述 。
-       /// </summary>
-       [Column("ENGDESCRIPTION","英文描述"),DataSize(128)]
-       [DisplayName("英文描述")]
-       public string ENGDESCRIPTION
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 产品编号 。
-       /// </summary>
-       [Column("PRONO","产品编号"),DataSize(128)]
-       [DisplayName("产品编号")]
-       public string PRONO
-       {
-           get;
-           set;
-       }
-       
-       #endregion
-   }
+        #endregion
+    }
 }

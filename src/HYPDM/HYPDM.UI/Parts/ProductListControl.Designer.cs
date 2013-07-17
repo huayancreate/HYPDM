@@ -48,7 +48,7 @@
             this.ProID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModelNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -133,7 +133,7 @@
             this.ProID,
             this.ProNo,
             this.Version,
-            this.ProName,
+            this.Description,
             this.ProType,
             this.ModelNo,
             this.ProStatus,
@@ -169,33 +169,33 @@
             // cmDocAdd
             // 
             this.cmDocAdd.Name = "cmDocAdd";
-            this.cmDocAdd.Size = new System.Drawing.Size(152, 22);
+            this.cmDocAdd.Size = new System.Drawing.Size(136, 22);
             this.cmDocAdd.Text = "记录添加(&A)";
             this.cmDocAdd.Click += new System.EventHandler(this.cmDocAdd_Click);
             // 
             // cmDocProperty
             // 
             this.cmDocProperty.Name = "cmDocProperty";
-            this.cmDocProperty.Size = new System.Drawing.Size(152, 22);
+            this.cmDocProperty.Size = new System.Drawing.Size(136, 22);
             this.cmDocProperty.Text = "记录属性(&P)";
             this.cmDocProperty.Click += new System.EventHandler(this.cmDocProperty_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(133, 6);
             // 
             // cmDocDelete
             // 
             this.cmDocDelete.Name = "cmDocDelete";
-            this.cmDocDelete.Size = new System.Drawing.Size(152, 22);
+            this.cmDocDelete.Size = new System.Drawing.Size(136, 22);
             this.cmDocDelete.Text = "记录删除(&D)";
             this.cmDocDelete.Click += new System.EventHandler(this.cmDocDelete_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
             // 
             // ProID
             // 
@@ -219,12 +219,12 @@
             this.Version.Name = "Version";
             this.Version.ReadOnly = true;
             // 
-            // ProName
+            // Description
             // 
-            this.ProName.DataPropertyName = "DESCRIPTION";
-            this.ProName.HeaderText = "描述";
-            this.ProName.Name = "ProName";
-            this.ProName.ReadOnly = true;
+            this.Description.DataPropertyName = "DESCRIPTION";
+            this.Description.HeaderText = "描述";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
             // 
             // ProType
             // 
@@ -292,7 +292,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Version;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModelNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProStatus;
