@@ -11,18 +11,45 @@ using HYPDM.WinUI.BaseUI;
 
 namespace HYPDM.WinUI.Parts
 {
-    [Module("C282CBE9-C4B6-490B-ADAB-7BDDAA42D4CE", "零部件使用信息", "零部件及结构管理")]
     public partial class UseMsgForm : BaseForm
     {
-        [ModuleStart]
-        public void StartEx()
-        {
+        public static String order = "";
+        public static String quantity = "";
+        public static String remark = "";
 
+        public string Order
+        {
+            get { return order; }
+            set { order = value; }
+        }
+
+        public string Quantity
+        {
+            get { return quantity; }
+            set { quantity = value; }
+        }
+
+        public string Remark
+        {
+            get { return remark; }
+            set { remark = value; }
         }
 
         public UseMsgForm()
         {
             InitializeComponent();
+        }
+
+        private void tsBtnSave_Click(object sender, EventArgs e)
+        {
+            if (this.txtQuantity.Text.Trim() == "")
+            {
+                MessageBox.Show("请输入数量");
+                return;
+            }
+            Order = this.txtOrder.Text;
+            Quantity = this.txtQuantity.Text;
+            Remark = this.txtRemark.Text;
         }
     }
 }

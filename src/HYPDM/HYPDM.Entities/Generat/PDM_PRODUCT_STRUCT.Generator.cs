@@ -33,101 +33,112 @@ using System.Runtime.Serialization;
 
 namespace HYPDM.Entities
 {
-   /// <summary>
-   /// 实体对象 PDM_PRODUCT_STRUCT(产品结构)。
-   /// </summary>
-   [Serializable()]
-   [Table("PDM_PRODUCT_STRUCT","产品结构")]
-   partial class PDM_PRODUCT_STRUCT: DataEntity<PDM_PRODUCT_STRUCT>, IDataEntity<PDM_PRODUCT_STRUCT>
-   {
-       public PDM_PRODUCT_STRUCT()
-       {
-       }
-       
-       protected PDM_PRODUCT_STRUCT(SerializationInfo info, StreamingContext context)
-           : base(info, context)
-       {
-       }
-       
-       #region O/R映射成员
+    /// <summary>
+    /// 实体对象 PDM_PRODUCT_STRUCT(产品结构)。
+    /// </summary>
+    [Serializable()]
+    [Table("PDM_PRODUCT_STRUCT", "产品结构")]
+    partial class PDM_PRODUCT_STRUCT : DataEntity<PDM_PRODUCT_STRUCT>, IDataEntity<PDM_PRODUCT_STRUCT>
+    {
+        public PDM_PRODUCT_STRUCT()
+        {
+        }
 
-       /// <summary>
-       /// 品号 。
-       /// </summary>
-       [Column("PRODUCTID","品号"),DataSize(128)]
-       [DisplayName("品号")]
-       public string PRODUCTID
-       {
-           get;
-           set;
-       }
+        protected PDM_PRODUCT_STRUCT(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
 
-       /// <summary>
-       /// 是不是产品 。
-       /// </summary>
-       [Column("ISPRODUCT","是不是产品"),DataSize(1)]
-       [DisplayName("是不是产品")]
-       public bool ISPRODUCT
-       {
-           get;
-           set;
-       }
+        #region O/R映射成员
 
-       /// <summary>
-       /// 零部件编号 。
-       /// </summary>
-       [Column("PARTSID","零部件编号"),DataSize(128)]
-       [DisplayName("零部件编号")]
-       public string PARTSID
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 品号 。
+        /// </summary>
+        [Column("PRODUCTID", "品号"), DataSize(128)]
+        [DisplayName("品号")]
+        public string PRODUCTID
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 顺序 。
-       /// </summary>
-       [Column("SORTCODE","顺序"),DataSize(10)]
-       [DisplayName("顺序")]
-       public int SORTCODE
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 是不是产品 。
+        /// </summary>
+        [Column("ISPRODUCT", "是不是产品"), DataSize(128)]
+        [DisplayName("是不是产品")]
+        public string ISPRODUCT
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 使用数量 。
-       /// </summary>
-       [Column("QUANTITY","使用数量"),DataSize(10)]
-       [DisplayName("使用数量")]
-       public int QUANTITY
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 零部件编号 。
+        /// </summary>
+        [Column("PARTSID", "零部件编号"), DataSize(128)]
+        [DisplayName("零部件编号")]
+        public string PARTSID
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// 备注 。
-       /// </summary>
-       [Column("REMARK","备注"),DataSize(128)]
-       [DisplayName("备注")]
-       public string REMARK
-       {
-           get;
-           set;
-       }
+        /// <summary>
+        /// 顺序 。
+        /// </summary>
+        [Column("SORTCODE", "顺序"), DataSize(128)]
+        [DisplayName("顺序")]
+        public string SORTCODE
+        {
+            get;
+            set;
+        }
 
-       /// <summary>
-       /// ID 。
-       /// </summary>
-       [Column("ID","ID"),DataSize(128),PrimaryKey]
-       [DisplayName("ID")]
-       public string ID
-       {
-           get;
-           set;
-       }
-       
-       #endregion
-   }
+        /// <summary>
+        /// 使用数量 。
+        /// </summary>
+        [Column("QUANTITY", "使用数量"), DataSize(128)]
+        [DisplayName("使用数量")]
+        public string QUANTITY
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 备注 。
+        /// </summary>
+        [Column("REMARK", "备注"), DataSize(128)]
+        [DisplayName("备注")]
+        public string REMARK
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// ID 。
+        /// </summary>
+        [Column("ID", "ID"), DataSize(128), PrimaryKey]
+        [DisplayName("ID")]
+        public string ID
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 零部件分类 。
+        /// </summary>
+        [Column("PARTSCLASSFICATION", "零部件分类"), DataSize(128)]
+        [DisplayName("零部件分类")]
+        public string PARTSCLASSFICATION
+        {
+            get;
+            set;
+        }
+
+        #endregion
+    }
 }

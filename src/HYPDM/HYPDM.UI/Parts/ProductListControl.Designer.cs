@@ -38,13 +38,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.dgvProList = new System.Windows.Forms.DataGridView();
-            this.proBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cmProduct = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmDocAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmDocProperty = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmDocDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.ProID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +46,13 @@
             this.ModelNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmProduct = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmProAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmProProperty = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmProDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proBindingSource)).BeginInit();
@@ -151,52 +151,6 @@
             this.dgvProList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProList_CellDoubleClick);
             this.dgvProList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvProList_CellMouseDown);
             // 
-            // proBindingSource
-            // 
-            this.proBindingSource.DataSource = typeof(HYPDM.Entities.PDM_PRODUCT);
-            // 
-            // cmProduct
-            // 
-            this.cmProduct.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmDocAdd,
-            this.cmDocProperty,
-            this.toolStripSeparator3,
-            this.cmDocDelete,
-            this.toolStripSeparator4});
-            this.cmProduct.Name = "cmGroup";
-            this.cmProduct.Size = new System.Drawing.Size(137, 82);
-            // 
-            // cmDocAdd
-            // 
-            this.cmDocAdd.Name = "cmDocAdd";
-            this.cmDocAdd.Size = new System.Drawing.Size(136, 22);
-            this.cmDocAdd.Text = "记录添加(&A)";
-            this.cmDocAdd.Click += new System.EventHandler(this.cmDocAdd_Click);
-            // 
-            // cmDocProperty
-            // 
-            this.cmDocProperty.Name = "cmDocProperty";
-            this.cmDocProperty.Size = new System.Drawing.Size(136, 22);
-            this.cmDocProperty.Text = "记录属性(&P)";
-            this.cmDocProperty.Click += new System.EventHandler(this.cmDocProperty_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(133, 6);
-            // 
-            // cmDocDelete
-            // 
-            this.cmDocDelete.Name = "cmDocDelete";
-            this.cmDocDelete.Size = new System.Drawing.Size(136, 22);
-            this.cmDocDelete.Text = "记录删除(&D)";
-            this.cmDocDelete.Click += new System.EventHandler(this.cmDocDelete_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
-            // 
             // ProID
             // 
             this.ProID.DataPropertyName = "PRODUCTID";
@@ -254,6 +208,52 @@
             this.LastUpdateUser.Name = "LastUpdateUser";
             this.LastUpdateUser.ReadOnly = true;
             // 
+            // proBindingSource
+            // 
+            this.proBindingSource.DataSource = typeof(HYPDM.Entities.PDM_PRODUCT);
+            // 
+            // cmProduct
+            // 
+            this.cmProduct.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmProAdd,
+            this.cmProProperty,
+            this.toolStripSeparator3,
+            this.cmProDelete,
+            this.toolStripSeparator4});
+            this.cmProduct.Name = "cmGroup";
+            this.cmProduct.Size = new System.Drawing.Size(153, 104);
+            // 
+            // cmProAdd
+            // 
+            this.cmProAdd.Name = "cmProAdd";
+            this.cmProAdd.Size = new System.Drawing.Size(152, 22);
+            this.cmProAdd.Text = "记录添加(&A)";
+            this.cmProAdd.Click += new System.EventHandler(this.cmProAdd_Click);
+            // 
+            // cmProProperty
+            // 
+            this.cmProProperty.Name = "cmProProperty";
+            this.cmProProperty.Size = new System.Drawing.Size(152, 22);
+            this.cmProProperty.Text = "记录属性(&P)";
+            this.cmProProperty.Click += new System.EventHandler(this.cmProProperty_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            // 
+            // cmProDelete
+            // 
+            this.cmProDelete.Name = "cmProDelete";
+            this.cmProDelete.Size = new System.Drawing.Size(152, 22);
+            this.cmProDelete.Text = "记录删除(&D)";
+            this.cmProDelete.Click += new System.EventHandler(this.cmProDelete_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            // 
             // ProductListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -284,10 +284,10 @@
         private System.Windows.Forms.DataGridView dgvProList;
         private System.Windows.Forms.BindingSource proBindingSource;
         private System.Windows.Forms.ContextMenuStrip cmProduct;
-        private System.Windows.Forms.ToolStripMenuItem cmDocAdd;
-        private System.Windows.Forms.ToolStripMenuItem cmDocProperty;
+        private System.Windows.Forms.ToolStripMenuItem cmProAdd;
+        private System.Windows.Forms.ToolStripMenuItem cmProProperty;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem cmDocDelete;
+        private System.Windows.Forms.ToolStripMenuItem cmProDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProNo;

@@ -285,5 +285,22 @@ namespace HYPDM.WinUI.Parts
             this.txtRemark.Text = "";
         }
 
+        private void tsBtnAdd_Click(object sender, EventArgs e)
+        {
+            // 将产品ID传给连接form
+            productID = this.Product.PRODUCTID;
+            ProductStructForm form = new ProductStructForm();
+            form.StartPosition = FormStartPosition.CenterParent;
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                this.reloadPartsList();
+            }
+        }
+
+        private void reloadPartsList()
+        {
+ 
+        }
+
     }
 }

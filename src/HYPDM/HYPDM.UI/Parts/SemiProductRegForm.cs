@@ -12,6 +12,7 @@ using HYPDM.Entities;
 using HYPDM.BLL;
 using EAS.Services;
 using EAS.Explorer;
+using EAS.Data.ORM;
 
 namespace HYPDM.WinUI.Parts
 {
@@ -41,12 +42,13 @@ namespace HYPDM.WinUI.Parts
         {
             if (this.parts != null)
             {
+                // 清除按钮不可用
+                this.tsBtnClear.Enabled = false;
                 this.txtPartsNo.Text = parts.PARTSNO;
                 this.txtSpecificationCode.Text = parts.SPECIFICATIONCODE;
                 this.txtDescription.Text = parts.DESCRIPTION;
                 this.txtEngDescription.Text = parts.ENGDESCRIPTION;
                 this.cobPartsType.Text = parts.PARTSTYPE;
-                this.cobPartsClassfication.Text = parts.PARTSCLASSFICATION;
                 this.cobMaterial.Text = parts.MATERIAL;
                 this.cobTexture.Text = parts.TEXTURE;
                 this.cobUnit.Text = parts.UNIT;
@@ -67,7 +69,6 @@ namespace HYPDM.WinUI.Parts
             this.txtDescription.Text = "";
             this.txtEngDescription.Text = "";
             this.cobPartsType.Text = "";
-            this.cobPartsClassfication.Text = "";
             this.cobMaterial.Text = "";
             this.cobTexture.Text = "";
             this.cobUnit.Text = "";
@@ -91,6 +92,8 @@ namespace HYPDM.WinUI.Parts
                 tempParts.PARTSID = _partsService.GetMaxID().ToString();
                 // 状态
                 tempParts.STATUS = "新建";
+                // 分类为半成品
+                tempParts.PARTSCLASSFICATION = "0";
                 // 创建时间
                 tempParts.CREATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 msg = "数据记录添加成功！";
@@ -109,11 +112,11 @@ namespace HYPDM.WinUI.Parts
             tempParts.DESCRIPTION = txtDescription.Text;
             tempParts.ENGDESCRIPTION = txtEngDescription.Text;
             tempParts.PARTSTYPE = cobPartsType.Text;
-            tempParts.PARTSCLASSFICATION = cobPartsClassfication.Text;
             tempParts.MATERIAL = cobMaterial.Text;
             tempParts.TEXTURE = cobTexture.Text;
             tempParts.UNIT = cobUnit.Text;
             tempParts.SINGLENETWEIGHT = txtSingleNetWeight.Text;
+            tempParts.Save();
             IList<PDM_PARTS> list = new List<PDM_PARTS>();
             list.Add(tempParts);
             MessageBox.Show(msg);

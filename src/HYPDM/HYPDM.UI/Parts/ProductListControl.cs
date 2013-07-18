@@ -142,7 +142,7 @@ namespace HYPDM.WinUI.Parts
                 return;
             }
 
-            if (MessageBox.Show("您确认要删除所选择的产品记录么？\n删除文档记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("您确认要删除所选择的产品记录么？\n删除产品记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 pro.Delete();
                 IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
@@ -181,22 +181,24 @@ namespace HYPDM.WinUI.Parts
             }
         }
         
-        // 记录添加
-        private void cmDocAdd_Click(object sender, EventArgs e)
+       
+
+        // 记录删除
+        private void cmProDelete_Click(object sender, EventArgs e)
         {
-            this.ProAdd();
+            this.ProDelete();
         }
 
         // 记录属性
-        private void cmDocProperty_Click(object sender, EventArgs e)
+        private void cmProProperty_Click(object sender, EventArgs e)
         {
             this.ProProperty();
         }
 
-        // 记录删除
-        private void cmDocDelete_Click(object sender, EventArgs e)
+        // 记录添加
+        private void cmProAdd_Click(object sender, EventArgs e)
         {
-            this.ProDelete();
+            this.ProAdd();
         }
     }
 }

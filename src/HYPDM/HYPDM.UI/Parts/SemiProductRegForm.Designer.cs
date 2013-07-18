@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SemiProductRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -85,10 +85,12 @@
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cobTexture = new System.Windows.Forms.ComboBox();
+            this.cobMaterial = new System.Windows.Forms.ComboBox();
             this.txtEngDescription = new System.Windows.Forms.TextBox();
             this.cobUnit = new System.Windows.Forms.ComboBox();
-            this.cobPartsType = new System.Windows.Forms.ComboBox();
             this.cobPartsClassfication = new System.Windows.Forms.ComboBox();
+            this.cobPartsType = new System.Windows.Forms.ComboBox();
             this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
             this.txtCreateDate = new System.Windows.Forms.TextBox();
             this.txtLastUpdateUser = new System.Windows.Forms.TextBox();
@@ -114,8 +116,6 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.cobMaterial = new System.Windows.Forms.ComboBox();
-            this.cobTexture = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -423,14 +423,14 @@
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -652,8 +652,8 @@
             this.tabPage1.Controls.Add(this.cobMaterial);
             this.tabPage1.Controls.Add(this.txtEngDescription);
             this.tabPage1.Controls.Add(this.cobUnit);
-            this.tabPage1.Controls.Add(this.cobPartsType);
             this.tabPage1.Controls.Add(this.cobPartsClassfication);
+            this.tabPage1.Controls.Add(this.cobPartsType);
             this.tabPage1.Controls.Add(this.txtLastUpdateDate);
             this.tabPage1.Controls.Add(this.txtCreateDate);
             this.tabPage1.Controls.Add(this.txtLastUpdateUser);
@@ -684,6 +684,32 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             // 
+            // cobTexture
+            // 
+            this.cobTexture.FormattingEnabled = true;
+            this.cobTexture.Items.AddRange(new object[] {
+            "普通件",
+            "标准件",
+            "通用件",
+            "焊接件"});
+            this.cobTexture.Location = new System.Drawing.Point(98, 203);
+            this.cobTexture.Name = "cobTexture";
+            this.cobTexture.Size = new System.Drawing.Size(114, 20);
+            this.cobTexture.TabIndex = 37;
+            // 
+            // cobMaterial
+            // 
+            this.cobMaterial.FormattingEnabled = true;
+            this.cobMaterial.Items.AddRange(new object[] {
+            "普通件",
+            "标准件",
+            "通用件",
+            "焊接件"});
+            this.cobMaterial.Location = new System.Drawing.Point(98, 179);
+            this.cobMaterial.Name = "cobMaterial";
+            this.cobMaterial.Size = new System.Drawing.Size(114, 20);
+            this.cobMaterial.TabIndex = 36;
+            // 
             // txtEngDescription
             // 
             this.txtEngDescription.Location = new System.Drawing.Point(98, 107);
@@ -701,30 +727,32 @@
             this.cobUnit.Size = new System.Drawing.Size(114, 20);
             this.cobUnit.TabIndex = 34;
             // 
+            // cobPartsClassfication
+            // 
+            this.cobPartsClassfication.Enabled = false;
+            this.cobPartsClassfication.FormattingEnabled = true;
+            this.cobPartsClassfication.Items.AddRange(new object[] {
+            "半成品",
+            "原材料",
+            "工艺装备"});
+            this.cobPartsClassfication.Location = new System.Drawing.Point(98, 155);
+            this.cobPartsClassfication.Name = "cobPartsClassfication";
+            this.cobPartsClassfication.Size = new System.Drawing.Size(114, 20);
+            this.cobPartsClassfication.TabIndex = 33;
+            this.cobPartsClassfication.Text = "半成品";
+            // 
             // cobPartsType
             // 
             this.cobPartsType.FormattingEnabled = true;
             this.cobPartsType.Items.AddRange(new object[] {
-            "半成品",
-            "原材料",
-            "工艺装备"});
-            this.cobPartsType.Location = new System.Drawing.Point(98, 155);
-            this.cobPartsType.Name = "cobPartsType";
-            this.cobPartsType.Size = new System.Drawing.Size(114, 20);
-            this.cobPartsType.TabIndex = 33;
-            // 
-            // cobPartsClassfication
-            // 
-            this.cobPartsClassfication.FormattingEnabled = true;
-            this.cobPartsClassfication.Items.AddRange(new object[] {
             "普通件",
             "标准件",
             "通用件",
             "焊接件"});
-            this.cobPartsClassfication.Location = new System.Drawing.Point(98, 131);
-            this.cobPartsClassfication.Name = "cobPartsClassfication";
-            this.cobPartsClassfication.Size = new System.Drawing.Size(114, 20);
-            this.cobPartsClassfication.TabIndex = 32;
+            this.cobPartsType.Location = new System.Drawing.Point(98, 131);
+            this.cobPartsType.Name = "cobPartsType";
+            this.cobPartsType.Size = new System.Drawing.Size(114, 20);
+            this.cobPartsType.TabIndex = 32;
             // 
             // txtLastUpdateDate
             // 
@@ -948,32 +976,6 @@
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
-            // cobMaterial
-            // 
-            this.cobMaterial.FormattingEnabled = true;
-            this.cobMaterial.Items.AddRange(new object[] {
-            "普通件",
-            "标准件",
-            "通用件",
-            "焊接件"});
-            this.cobMaterial.Location = new System.Drawing.Point(98, 179);
-            this.cobMaterial.Name = "cobMaterial";
-            this.cobMaterial.Size = new System.Drawing.Size(114, 20);
-            this.cobMaterial.TabIndex = 36;
-            // 
-            // cobTexture
-            // 
-            this.cobTexture.FormattingEnabled = true;
-            this.cobTexture.Items.AddRange(new object[] {
-            "普通件",
-            "标准件",
-            "通用件",
-            "焊接件"});
-            this.cobTexture.Location = new System.Drawing.Point(98, 203);
-            this.cobTexture.Name = "cobTexture";
-            this.cobTexture.Size = new System.Drawing.Size(114, 20);
-            this.cobTexture.TabIndex = 37;
-            // 
             // SemiProductRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1062,8 +1064,8 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox cobUnit;
-        private System.Windows.Forms.ComboBox cobPartsType;
         private System.Windows.Forms.ComboBox cobPartsClassfication;
+        private System.Windows.Forms.ComboBox cobPartsType;
         private System.Windows.Forms.TextBox txtLastUpdateDate;
         private System.Windows.Forms.TextBox txtCreateDate;
         private System.Windows.Forms.TextBox txtLastUpdateUser;

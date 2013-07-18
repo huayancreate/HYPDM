@@ -6,6 +6,7 @@ using EAS.Services;
 using HYPDM.Entities;
 using EAS.Data.Linq;
 using EAS.Data.Access;
+using EAS.Data.ORM;
 
 namespace HYPDM.BLL
 {
@@ -32,9 +33,9 @@ namespace HYPDM.BLL
 
         #region 删除
 
-        public void delProDoc(IList<PDM_PARTS> proDocList)
+        public void delParts(IList<PDM_PARTS> partsList)
         {
-            this.DataAccessor.TransactionExecute(new TransactionHandler2(IniternalDel), proDocList);
+            this.DataAccessor.TransactionExecute(new TransactionHandler2(IniternalDel), partsList);
         }
 
         public void IniternalDel(IDataAccessor accessor, params object[] parameters)
@@ -43,7 +44,7 @@ namespace HYPDM.BLL
 
             foreach (PDM_PARTS parts in partsList)
             {
-                
+                parts.Delete();
             }
         }
         #endregion
