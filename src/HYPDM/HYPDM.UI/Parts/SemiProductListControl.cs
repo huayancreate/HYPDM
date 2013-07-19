@@ -32,7 +32,7 @@ namespace HYPDM.WinUI.Parts
         private void Initialize()
         {
             DateTime t = DateTime.Now;
-            this.partsList = ServiceContainer.GetService<IPartsService>().getListByPartsClass("0");
+            this.partsList = ServiceContainer.GetService<IPartsService>().GetListByPartsClass("0");
             this.partsBindingSource.DataSource = null;
             this.partsBindingSource.DataSource = partsList;
         }

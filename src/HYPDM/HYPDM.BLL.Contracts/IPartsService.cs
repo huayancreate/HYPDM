@@ -10,10 +10,16 @@ namespace HYPDM.BLL
     {
         int GetMaxID();
 
+        // 查找全部零部件
+        IList<PDM_PARTS> GetPartsList();
+
         // 通过分类查找零部件
-        IList<PDM_PARTS> getListByPartsClass(String classfication);
+        IList<PDM_PARTS> GetListByPartsClass(String classfication);
 
         // 删除零部件列表
-        void delParts(IList<PDM_PARTS> partsList);
+        void DelParts(IList<PDM_PARTS> partsList);
+
+        // 根据零部件ID查找零部件
+        IList<PDM_PARTS> GetPartsListByID(String partsID);
     }
 }

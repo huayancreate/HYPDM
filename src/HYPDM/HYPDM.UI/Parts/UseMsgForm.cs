@@ -50,6 +50,7 @@ namespace HYPDM.WinUI.Parts
             Order = this.txtOrder.Text;
             Quantity = this.txtQuantity.Text;
             Remark = this.txtRemark.Text;
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

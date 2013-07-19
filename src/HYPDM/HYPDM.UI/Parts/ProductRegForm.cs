@@ -19,7 +19,7 @@ namespace HYPDM.WinUI.Parts
     {
         public static string productID;
         IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
-
+        IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         protected int closed = 0;
         protected bool valueChanged = false;
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
@@ -59,6 +59,9 @@ namespace HYPDM.WinUI.Parts
 
         private IList<HYPDM.Entities.PDM_PRODUCT_DOCUMENT> proDocList;
         private List<HYPDM.Entities.PDM_DOCUMENT> documentList = new List<HYPDM.Entities.PDM_DOCUMENT>();
+        private IList<HYPDM.Entities.PDM_PRODUCT_STRUCT> proStructList = new List<HYPDM.Entities.PDM_PRODUCT_STRUCT>();
+        private IList<HYPDM.Entities.PDM_PARTS> partsList = new List<HYPDM.Entities.PDM_PARTS>();
+        
 
         private void InitProductInfo()
         {
@@ -93,6 +96,20 @@ namespace HYPDM.WinUI.Parts
                 }
                 this.docBindingSource.DataSource = null;
                 this.docBindingSource.DataSource = documentList;
+
+                this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
+                foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
+                {
+                    String partsID = proStruct.PARTSID;
+                    IList<HYPDM.Entities.PDM_PARTS> parList =
+                        ServiceContainer.GetService<IPartsService>().GetPartsListByID(partsID);
+                    if (parList.Count > 0)
+                    {
+                        partsList.Add(parList[0]);
+                    }
+                }
+                this.partsBindingSource.DataSource = null;
+                this.partsBindingSource.DataSource = partsList;
 
             }
         }
@@ -188,7 +205,7 @@ namespace HYPDM.WinUI.Parts
                 if ((bool)dgvDoc.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
                     String docID = dgvDoc.Rows[i].Cells["DocID"].Value.ToString();
-                    proDocList = _proDocService.getProdocByDocID(docID);
+                    proDocList = _proDocService.getProdocByDocID(this.Product.PRODUCTID, docID);
                     if (proDocList.Count > 0)
                     {
                         _proDocService.delProDoc(proDocList);
@@ -285,6 +302,11 @@ namespace HYPDM.WinUI.Parts
             this.txtRemark.Text = "";
         }
 
+        /// <summary>
+        /// 添加产品结构 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tsBtnAdd_Click(object sender, EventArgs e)
         {
             // 将产品ID传给连接form
@@ -299,7 +321,98 @@ namespace HYPDM.WinUI.Parts
 
         private void reloadPartsList()
         {
- 
+            partsList.Clear();
+            this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
+            foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
+            {
+                String partsID = proStruct.PARTSID;
+                IList<HYPDM.Entities.PDM_PARTS> parList =
+                    ServiceContainer.GetService<IPartsService>().GetPartsListByID(partsID);
+                if (parList.Count > 0)
+                {
+                    partsList.Add(parList[0]);
+                }
+
+            }
+            this.partsBindingSource.DataSource = null;
+            this.partsBindingSource.DataSource = partsList;
+        }
+
+        private void dgvPartsList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                if ((bool)dgvPartsList.Rows[e.RowIndex].Cells[0].EditedFormattedValue == false)
+                {
+                    for (int i = 0; i < this.dgvPartsList.RowCount; i++)
+                    {
+                        dgvPartsList.Rows[i].Cells[0].Value = false;
+                    }
+                    dgvPartsList.Rows[e.RowIndex].Cells[0].Value = true;
+
+                }
+                else
+                {
+                    dgvPartsList.Rows[e.RowIndex].Cells[0].Value = false;
+                }
+            }
+        }
+
+        private void dgvPartsList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    for (int i = 0; i < this.dgvDoc.RowCount; i++)
+                    {
+                        dgvPartsList.Rows[i].Cells[0].Value = false;
+                    }
+                    dgvPartsList.Rows[e.RowIndex].Cells[0].Value = true;
+                    //若行已是选中状态就不再进行设置
+                    if (dgvPartsList.Rows[e.RowIndex].Selected == false)
+                    {
+                        dgvPartsList.ClearSelection();
+                        dgvPartsList.Rows[e.RowIndex].Selected = true;
+                    }
+                    //只选中一行时设置活动单元格
+                    if (dgvPartsList.SelectedRows.Count == 1)
+                    {
+                        dgvPartsList.CurrentCell = dgvPartsList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    }
+                    //弹出操作菜单
+                    cmParts.Show(MousePosition.X, MousePosition.Y);
+                }
+            }
+        }
+
+        private void cmPartsAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmPartDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsBtnDelete_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dgvPartsList.RowCount; i++)
+            {
+                if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    String partsID = dgvPartsList.Rows[i].Cells["PartsID"].Value.ToString();
+                    IList<PDM_PRODUCT_STRUCT> proStructList = 
+                        _proStructService.getProStructListByPartsID(this.Product.PRODUCTID, partsID);
+                    if (proDocList.Count > 0)
+                    {
+                        _proDocService.delProDoc(proDocList);
+                        dgvPartsList.Rows.RemoveAt(i);
+                    }
+                    break;
+                }
+            }
         }
 
     }

@@ -105,5 +105,10 @@ namespace HYPDM.WinUI.Parts
             this.DialogResult = DialogResult.Cancel;
         }
 
+        private void btnView_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

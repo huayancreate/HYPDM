@@ -6,6 +6,7 @@ using EAS.Services;
 using HYPDM.Entities;
 using EAS.Data.Access;
 using EAS.Data.ORM;
+using EAS.Data.Linq;
 
 namespace HYPDM.BLL
 {
@@ -31,6 +32,35 @@ namespace HYPDM.BLL
             {
                 proStruct.Save();
             }
+        }
+
+        /// <summary>
+        /// 根据产品ID获取产品结构
+        /// </summary>
+        /// <param name="productID"></param>
+        /// <returns></returns>
+        public IList<PDM_PRODUCT_STRUCT> GetProStructList(String productID)
+        {
+            DataEntityQuery<PDM_PRODUCT_STRUCT> query = DataEntityQuery<PDM_PRODUCT_STRUCT>.Create();
+
+            var p = (from item in query
+                     where (item.PRODUCTID == productID)
+                     select item
+                );
+
+            return p.ToList();
+        }
+
+        public IList<PDM_PRODUCT_STRUCT> getProStructListByPartsID(String productID, String partsID)
+        {
+            DataEntityQuery<PDM_PRODUCT_STRUCT> query = DataEntityQuery<PDM_PRODUCT_STRUCT>.Create();
+
+            var p = (from item in query
+                     where (item.PRODUCTID == productID) && (item.PARTSID == partsID)
+                     select item
+                );
+
+            return p.ToList();
         }
     }
 }

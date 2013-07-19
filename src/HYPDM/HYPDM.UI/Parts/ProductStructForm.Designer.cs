@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("半成品");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("原材料");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("工艺装备");
@@ -35,22 +37,22 @@
             treeNode1,
             treeNode2,
             treeNode3});
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tvContent = new System.Windows.Forms.TreeView();
+            this.dgvSearchResult = new System.Windows.Forms.DataGridView();
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.dgvSearchResult = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tvContent = new System.Windows.Forms.TreeView();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
@@ -68,10 +70,11 @@
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,22 +86,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(735, 397);
             this.panel1.TabIndex = 0;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 397);
-            this.splitter1.TabIndex = 0;
-            this.splitter1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.tvContent);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(179, 389);
-            this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
@@ -114,66 +101,11 @@
             this.panel3.Size = new System.Drawing.Size(544, 389);
             this.panel3.TabIndex = 2;
             // 
-            // tvContent
-            // 
-            this.tvContent.Location = new System.Drawing.Point(3, 3);
-            this.tvContent.Name = "tvContent";
-            treeNode1.Name = "semiPro";
-            treeNode1.Text = "半成品";
-            treeNode2.Name = "material";
-            treeNode2.Text = "原材料";
-            treeNode3.Name = "techEquip";
-            treeNode3.Text = "工艺装备";
-            treeNode4.Name = "parts";
-            treeNode4.Text = "零部件";
-            this.tvContent.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            this.tvContent.Size = new System.Drawing.Size(167, 375);
-            this.tvContent.TabIndex = 1;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(488, 1);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(32, 23);
-            this.button5.TabIndex = 10;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(292, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 21);
-            this.textBox1.TabIndex = 9;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(173, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(106, 20);
-            this.comboBox2.TabIndex = 8;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(58, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(106, 20);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(9, 1);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 23);
-            this.button4.TabIndex = 6;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // dgvSearchResult
             // 
             this.dgvSearchResult.AllowUserToAddRows = false;
             this.dgvSearchResult.AllowUserToDeleteRows = false;
+            this.dgvSearchResult.AutoGenerateColumns = false;
             this.dgvSearchResult.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -198,6 +130,7 @@
             this.LastUpdateUser,
             this.CreateDate,
             this.LastUpdateDate});
+            this.dgvSearchResult.DataSource = this.partsBindingSource;
             this.dgvSearchResult.Location = new System.Drawing.Point(9, 70);
             this.dgvSearchResult.Name = "dgvSearchResult";
             this.dgvSearchResult.RowHeadersVisible = false;
@@ -242,6 +175,78 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "查询结果(1 - 1)";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(488, 1);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(32, 23);
+            this.button5.TabIndex = 10;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(292, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(180, 21);
+            this.textBox1.TabIndex = 9;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(173, 3);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(106, 20);
+            this.comboBox2.TabIndex = 8;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(58, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(106, 20);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(9, 1);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 23);
+            this.button4.TabIndex = 6;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tvContent);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(179, 389);
+            this.panel2.TabIndex = 1;
+            // 
+            // tvContent
+            // 
+            this.tvContent.Location = new System.Drawing.Point(3, 3);
+            this.tvContent.Name = "tvContent";
+            treeNode1.Name = "semiPro";
+            treeNode1.Text = "半成品";
+            treeNode2.Name = "material";
+            treeNode2.Text = "原材料";
+            treeNode3.Name = "techEquip";
+            treeNode3.Text = "工艺装备";
+            treeNode4.Name = "parts";
+            treeNode4.Text = "零部件";
+            this.tvContent.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4});
+            this.tvContent.Size = new System.Drawing.Size(167, 375);
+            this.tvContent.TabIndex = 1;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 397);
+            this.splitter1.TabIndex = 0;
+            this.splitter1.TabStop = false;
+            // 
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(659, 404);
@@ -281,7 +286,7 @@
             // PartsID
             // 
             this.PartsID.DataPropertyName = "PARTSID";
-            this.PartsID.HeaderText = "ID";
+            this.PartsID.HeaderText = "PartsID";
             this.PartsID.Name = "PartsID";
             this.PartsID.Visible = false;
             // 
@@ -319,7 +324,7 @@
             // 
             // PartsType
             // 
-            this.PartsType.DataPropertyName = "DOCSTATUS";
+            this.PartsType.DataPropertyName = "PARTSTYPE";
             this.PartsType.HeaderText = "零部件类型";
             this.PartsType.Name = "PartsType";
             this.PartsType.ReadOnly = true;
@@ -327,6 +332,7 @@
             // 
             // PartsClassfication
             // 
+            this.PartsClassfication.DataPropertyName = "PARTSCLASSFICATION";
             this.PartsClassfication.HeaderText = "零部件分类";
             this.PartsClassfication.Name = "PartsClassfication";
             // 
@@ -372,12 +378,13 @@
             this.Name = "ProductStructForm";
             this.Text = "ProductStructForm";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -402,6 +409,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSelect;
         private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.BindingSource partsBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ChkParts;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartsID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartsNo;

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
@@ -77,6 +77,10 @@
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.tpDrawing = new System.Windows.Forms.TabPage();
             this.tpProStruct = new System.Windows.Forms.TabPage();
+            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
             this.dgvPartsList = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -85,16 +89,18 @@
             this.cmDocAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmProDocDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.cmParts = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmPartsAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmPartDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.ChkProStruct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PartsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SortCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpecificationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartsDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SingleNetweight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -105,10 +111,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.tpProStruct.SuspendLayout();
+            this.toolStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).BeginInit();
             this.cmDocument.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
-            this.toolStrip3.SuspendLayout();
+            this.cmParts.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -383,14 +390,14 @@
             this.dgvDoc.AllowUserToDeleteRows = false;
             this.dgvDoc.AutoGenerateColumns = false;
             this.dgvDoc.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChkBox,
@@ -409,7 +416,7 @@
             this.dgvDoc.RowHeadersVisible = false;
             this.dgvDoc.RowTemplate.Height = 23;
             this.dgvDoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDoc.Size = new System.Drawing.Size(363, 342);
+            this.dgvDoc.Size = new System.Drawing.Size(363, 229);
             this.dgvDoc.TabIndex = 1;
             this.dgvDoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoc_CellClick);
             this.dgvDoc.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDoc_CellMouseDown);
@@ -559,8 +566,51 @@
             this.tpProStruct.Text = "产品结构";
             this.tpProStruct.UseVisualStyleBackColor = true;
             // 
+            // toolStrip3
+            // 
+            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton3,
+            this.tsBtnAdd,
+            this.tsBtnDelete});
+            this.toolStrip3.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip3.Name = "toolStrip3";
+            this.toolStrip3.Size = new System.Drawing.Size(369, 25);
+            this.toolStrip3.TabIndex = 5;
+            this.toolStrip3.Text = "toolStrip3";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // tsBtnAdd
+            // 
+            this.tsBtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAdd.Image")));
+            this.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnAdd.Name = "tsBtnAdd";
+            this.tsBtnAdd.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnAdd.Text = "增加";
+            this.tsBtnAdd.Click += new System.EventHandler(this.tsBtnAdd_Click);
+            // 
+            // tsBtnDelete
+            // 
+            this.tsBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnDelete.Image")));
+            this.tsBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnDelete.Name = "tsBtnDelete";
+            this.tsBtnDelete.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnDelete.Text = "删除";
+            this.tsBtnDelete.Click += new System.EventHandler(this.tsBtnDelete_Click);
+            // 
             // dgvPartsList
             // 
+            this.dgvPartsList.AllowUserToAddRows = false;
+            this.dgvPartsList.AllowUserToDeleteRows = false;
+            this.dgvPartsList.AutoGenerateColumns = false;
+            this.dgvPartsList.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dgvPartsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPartsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChkProStruct,
@@ -568,13 +618,22 @@
             this.Version,
             this.SortCode,
             this.SpecificationCode,
-            this.PartsDescription});
+            this.PartsDescription,
+            this.Quantity,
+            this.SingleNetweight,
+            this.PartsStatus});
+            this.dgvPartsList.DataSource = this.partsBindingSource;
             this.dgvPartsList.Location = new System.Drawing.Point(3, 57);
+            this.dgvPartsList.MultiSelect = false;
             this.dgvPartsList.Name = "dgvPartsList";
+            this.dgvPartsList.ReadOnly = true;
             this.dgvPartsList.RowHeadersVisible = false;
             this.dgvPartsList.RowTemplate.Height = 23;
+            this.dgvPartsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPartsList.Size = new System.Drawing.Size(363, 199);
             this.dgvPartsList.TabIndex = 4;
+            this.dgvPartsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPartsList_CellClick);
+            this.dgvPartsList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPartsList_CellMouseDown);
             // 
             // button1
             // 
@@ -621,48 +680,33 @@
             this.cmProDocDelete.Text = "删除";
             this.cmProDocDelete.Click += new System.EventHandler(this.cmProDocDelete_Click);
             // 
-            // toolStrip3
+            // cmParts
             // 
-            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton3,
-            this.tsBtnAdd,
-            this.tsBtnDelete});
-            this.toolStrip3.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(369, 25);
-            this.toolStrip3.TabIndex = 5;
-            this.toolStrip3.Text = "toolStrip3";
+            this.cmParts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmPartsAdd,
+            this.cmPartDelete});
+            this.cmParts.Name = "cmParts";
+            this.cmParts.Size = new System.Drawing.Size(95, 48);
             // 
-            // toolStripButton3
+            // cmPartsAdd
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.cmPartsAdd.Name = "cmPartsAdd";
+            this.cmPartsAdd.Size = new System.Drawing.Size(152, 22);
+            this.cmPartsAdd.Text = "新建";
+            this.cmPartsAdd.Click += new System.EventHandler(this.cmPartsAdd_Click);
             // 
-            // tsBtnAdd
+            // cmPartDelete
             // 
-            this.tsBtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAdd.Image")));
-            this.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnAdd.Name = "tsBtnAdd";
-            this.tsBtnAdd.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnAdd.Text = "增加";
-            this.tsBtnAdd.Click += new System.EventHandler(this.tsBtnAdd_Click);
-            // 
-            // tsBtnDelete
-            // 
-            this.tsBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnDelete.Image")));
-            this.tsBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnDelete.Name = "tsBtnDelete";
-            this.tsBtnDelete.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnDelete.Text = "删除";
+            this.cmPartDelete.Name = "cmPartDelete";
+            this.cmPartDelete.Size = new System.Drawing.Size(152, 22);
+            this.cmPartDelete.Text = "删除";
+            this.cmPartDelete.Click += new System.EventHandler(this.cmPartDelete_Click);
             // 
             // ChkProStruct
             // 
             this.ChkProStruct.HeaderText = "";
             this.ChkProStruct.Name = "ChkProStruct";
+            this.ChkProStruct.ReadOnly = true;
             this.ChkProStruct.Width = 30;
             // 
             // PartsNo
@@ -670,6 +714,7 @@
             this.PartsNo.DataPropertyName = "PARTSNO";
             this.PartsNo.HeaderText = "编号";
             this.PartsNo.Name = "PartsNo";
+            this.PartsNo.ReadOnly = true;
             this.PartsNo.Width = 80;
             // 
             // Version
@@ -677,6 +722,7 @@
             this.Version.DataPropertyName = "VERSION";
             this.Version.HeaderText = "版本";
             this.Version.Name = "Version";
+            this.Version.ReadOnly = true;
             this.Version.Width = 80;
             // 
             // SortCode
@@ -684,6 +730,7 @@
             this.SortCode.DataPropertyName = "SORTCODE";
             this.SortCode.HeaderText = "顺序";
             this.SortCode.Name = "SortCode";
+            this.SortCode.ReadOnly = true;
             this.SortCode.Width = 80;
             // 
             // SpecificationCode
@@ -691,6 +738,7 @@
             this.SpecificationCode.DataPropertyName = "SPECIFICATIONCODE";
             this.SpecificationCode.HeaderText = "规格代号";
             this.SpecificationCode.Name = "SpecificationCode";
+            this.SpecificationCode.ReadOnly = true;
             this.SpecificationCode.Width = 80;
             // 
             // PartsDescription
@@ -698,7 +746,27 @@
             this.PartsDescription.DataPropertyName = "DESCRIPTION";
             this.PartsDescription.HeaderText = "描述";
             this.PartsDescription.Name = "PartsDescription";
+            this.PartsDescription.ReadOnly = true;
             this.PartsDescription.Width = 80;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "数量";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // SingleNetweight
+            // 
+            this.SingleNetweight.HeaderText = "单位净重";
+            this.SingleNetweight.Name = "SingleNetweight";
+            this.SingleNetweight.ReadOnly = true;
+            // 
+            // PartsStatus
+            // 
+            this.PartsStatus.DataPropertyName = "STATUS";
+            this.PartsStatus.HeaderText = "状态";
+            this.PartsStatus.Name = "PartsStatus";
+            this.PartsStatus.ReadOnly = true;
             // 
             // ProductRegForm
             // 
@@ -726,11 +794,12 @@
             this.toolStrip2.PerformLayout();
             this.tpProStruct.ResumeLayout(false);
             this.tpProStruct.PerformLayout();
+            this.toolStrip3.ResumeLayout(false);
+            this.toolStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).EndInit();
             this.cmDocument.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
-            this.toolStrip3.ResumeLayout(false);
-            this.toolStrip3.PerformLayout();
+            this.cmParts.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -796,11 +865,17 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton tsBtnAdd;
         private System.Windows.Forms.ToolStripButton tsBtnDelete;
+        private System.Windows.Forms.ContextMenuStrip cmParts;
+        private System.Windows.Forms.ToolStripMenuItem cmPartsAdd;
+        private System.Windows.Forms.ToolStripMenuItem cmPartDelete;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ChkProStruct;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartsNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Version;
         private System.Windows.Forms.DataGridViewTextBoxColumn SortCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpecificationCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartsDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SingleNetweight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsStatus;
     }
 }

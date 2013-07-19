@@ -93,7 +93,7 @@ namespace HYPDM.WinUI.Parts
                 // 状态
                 tempParts.STATUS = "新建";
                 // 分类为半成品
-                tempParts.PARTSCLASSFICATION = "0";
+                tempParts.PARTSCLASSFICATION = "半成品";
                 // 创建时间
                 tempParts.CREATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 msg = "数据记录添加成功！";
@@ -116,6 +116,7 @@ namespace HYPDM.WinUI.Parts
             tempParts.TEXTURE = cobTexture.Text;
             tempParts.UNIT = cobUnit.Text;
             tempParts.SINGLENETWEIGHT = txtSingleNetWeight.Text;
+            tempParts.REMARK = txtRemark.Text;
             tempParts.Save();
             IList<PDM_PARTS> list = new List<PDM_PARTS>();
             list.Add(tempParts);

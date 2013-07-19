@@ -19,7 +19,19 @@ namespace HYPDM.BLL
             return new MaxCodeService().GetMaxCode(new PDM_PARTS().DbTableName);
         }
 
-        public IList<PDM_PARTS> getListByPartsClass(String classfication)
+        public IList<PDM_PARTS> GetPartsList()
+        {
+            DataEntityQuery<PDM_PARTS> query = DataEntityQuery<PDM_PARTS>.Create();
+
+            var p = (from item in query
+                     orderby item.CREATEDATE ascending
+                     select item
+                );
+
+            return p.ToList();
+        }
+
+        public IList<PDM_PARTS> GetListByPartsClass(String classfication)
         {
             DataEntityQuery<PDM_PARTS> query = DataEntityQuery<PDM_PARTS>.Create();
 
@@ -33,7 +45,7 @@ namespace HYPDM.BLL
 
         #region 删除
 
-        public void delParts(IList<PDM_PARTS> partsList)
+        public void DelParts(IList<PDM_PARTS> partsList)
         {
             this.DataAccessor.TransactionExecute(new TransactionHandler2(IniternalDel), partsList);
         }
@@ -48,5 +60,18 @@ namespace HYPDM.BLL
             }
         }
         #endregion
+
+        public IList<PDM_PARTS> GetPartsListByID(String partsID)
+        {
+            DataEntityQuery<PDM_PARTS> query = DataEntityQuery<PDM_PARTS>.Create();
+
+            var p = (from item in query
+                     where (item.PARTSID == partsID)
+                     orderby item.CREATEDATE ascending
+                     select item
+                );
+
+            return p.ToList();
+        }
     }
 }
