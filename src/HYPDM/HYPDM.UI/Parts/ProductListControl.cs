@@ -147,7 +147,7 @@ namespace HYPDM.WinUI.Parts
                 pro.Delete();
                 IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
                 IList<PDM_PRODUCT_DOCUMENT> proDocList;
-                proDocList = _proDocService.getProdocByProID(pro.PRODUCTID);
+                proDocList = _proDocService.getProDocByProID(pro.PRODUCTID);
                 _proDocService.delProDoc(proDocList);
                 this.dgvProList.Rows.Remove(row);
             }

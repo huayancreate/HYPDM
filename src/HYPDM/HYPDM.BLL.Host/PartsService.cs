@@ -73,5 +73,17 @@ namespace HYPDM.BLL
 
             return p.ToList();
         }
+
+        public IList<PDM_PARTS> GetPartsByQuery(String queryCondition)
+        {
+            DataEntityQuery<PDM_PARTS> query = DataEntityQuery<PDM_PARTS>.Create();
+            var  p = (from item in query
+                      where item.PARTSNO.Contains(queryCondition)
+                      orderby item.CREATEDATE ascending
+                      select item
+                 );
+
+            return p.ToList();
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace HYPDM.BLL
         int GetMaxID();
         void ProStructSave(IList<PDM_PRODUCT_STRUCT> proStructList);
         IList<PDM_PRODUCT_STRUCT> GetProStructList(String productID);
-        IList<PDM_PRODUCT_STRUCT> getProStructListByPartsID(String productID, String partsID);
+        IList<PDM_PRODUCT_STRUCT> getProStructListByID(String proStructID);
+        void delProStruct(IList<PDM_PRODUCT_STRUCT> proStructList);
     }
 }

@@ -49,12 +49,12 @@ namespace HYPDM.BLL
         }
         #endregion
 
-        public IList<PDM_PRODUCT_DOCUMENT> getProdocByDocID(String productID, String docID)
+        public IList<PDM_PRODUCT_DOCUMENT> getProDocByID(String proDocID)
         {
                         DataEntityQuery<PDM_PRODUCT_DOCUMENT> query = DataEntityQuery<PDM_PRODUCT_DOCUMENT>.Create();
 
             var p = (from item in query
-                     where (item.PRODUCTID == productID) && (item.DOCUMENTID == docID)
+                     where (item.ID == proDocID)
                      select item
                 );
 
@@ -79,7 +79,7 @@ namespace HYPDM.BLL
         }
         #endregion
 
-        public IList<PDM_PRODUCT_DOCUMENT> getProdocByProID(String proID)
+        public IList<PDM_PRODUCT_DOCUMENT> getProDocByProID(String proID)
         {
             DataEntityQuery<PDM_PRODUCT_DOCUMENT> query = DataEntityQuery<PDM_PRODUCT_DOCUMENT>.Create();
 

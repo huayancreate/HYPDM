@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
@@ -61,6 +61,7 @@
             this.tpDoc = new System.Windows.Forms.TabPage();
             this.dgvDoc = new System.Windows.Forms.DataGridView();
             this.ChkBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ProDocID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,21 +79,13 @@
             this.tpDrawing = new System.Windows.Forms.TabPage();
             this.tpProStruct = new System.Windows.Forms.TabPage();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tsProStruct = new System.Windows.Forms.ToolStripButton();
             this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
             this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
             this.dgvPartsList = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cmDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmDocAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmProDocDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cmParts = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmPartsAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmPartDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.ChkProStruct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ProStructID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SortCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,6 +94,31 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SingleNetweight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartsStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnProStructSearch = new System.Windows.Forms.Button();
+            this.txtQuery = new System.Windows.Forms.TextBox();
+            this.cobQuery = new System.Windows.Forms.ComboBox();
+            this.cmDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmDocAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmProDocDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmParts = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmPartsAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmStruct = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmProStruct = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加下层ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmStructDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.替换为ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.插入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.展开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.发送ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.注册流程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eRPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -113,8 +131,8 @@
             this.tpProStruct.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).BeginInit();
-            this.cmDocument.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
+            this.cmDocument.SuspendLayout();
             this.cmParts.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,6 +206,7 @@
             // 
             // txtStatus
             // 
+            this.txtStatus.Enabled = false;
             this.txtStatus.Location = new System.Drawing.Point(99, 132);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(135, 21);
@@ -390,17 +409,18 @@
             this.dgvDoc.AllowUserToDeleteRows = false;
             this.dgvDoc.AutoGenerateColumns = false;
             this.dgvDoc.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChkBox,
+            this.ProDocID,
             this.DocID,
             this.DocNO,
             this.DocType,
@@ -427,6 +447,14 @@
             this.ChkBox.Name = "ChkBox";
             this.ChkBox.ReadOnly = true;
             this.ChkBox.Width = 30;
+            // 
+            // ProDocID
+            // 
+            this.ProDocID.DataPropertyName = "ID";
+            this.ProDocID.HeaderText = "ProDocID";
+            this.ProDocID.Name = "ProDocID";
+            this.ProDocID.ReadOnly = true;
+            this.ProDocID.Visible = false;
             // 
             // DocID
             // 
@@ -556,9 +584,9 @@
             // 
             this.tpProStruct.Controls.Add(this.toolStrip3);
             this.tpProStruct.Controls.Add(this.dgvPartsList);
-            this.tpProStruct.Controls.Add(this.button1);
-            this.tpProStruct.Controls.Add(this.textBox1);
-            this.tpProStruct.Controls.Add(this.comboBox1);
+            this.tpProStruct.Controls.Add(this.btnProStructSearch);
+            this.tpProStruct.Controls.Add(this.txtQuery);
+            this.tpProStruct.Controls.Add(this.cobQuery);
             this.tpProStruct.Location = new System.Drawing.Point(4, 21);
             this.tpProStruct.Name = "tpProStruct";
             this.tpProStruct.Size = new System.Drawing.Size(369, 259);
@@ -569,7 +597,7 @@
             // toolStrip3
             // 
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton3,
+            this.tsProStruct,
             this.tsBtnAdd,
             this.tsBtnDelete});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
@@ -578,14 +606,14 @@
             this.toolStrip3.TabIndex = 5;
             this.toolStrip3.Text = "toolStrip3";
             // 
-            // toolStripButton3
+            // tsProStruct
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.tsProStruct.Image = ((System.Drawing.Image)(resources.GetObject("tsProStruct.Image")));
+            this.tsProStruct.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsProStruct.Name = "tsProStruct";
+            this.tsProStruct.Size = new System.Drawing.Size(73, 22);
+            this.tsProStruct.Text = "产品结构";
+            this.tsProStruct.Click += new System.EventHandler(this.tsProStruct_Click);
             // 
             // tsBtnAdd
             // 
@@ -614,6 +642,8 @@
             this.dgvPartsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPartsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChkProStruct,
+            this.ProStructID,
+            this.PartsID,
             this.PartsNo,
             this.Version,
             this.SortCode,
@@ -621,7 +651,8 @@
             this.PartsDescription,
             this.Quantity,
             this.SingleNetweight,
-            this.PartsStatus});
+            this.PartsStatus,
+            this.Remark});
             this.dgvPartsList.DataSource = this.partsBindingSource;
             this.dgvPartsList.Location = new System.Drawing.Point(3, 57);
             this.dgvPartsList.MultiSelect = false;
@@ -635,28 +666,123 @@
             this.dgvPartsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPartsList_CellClick);
             this.dgvPartsList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPartsList_CellMouseDown);
             // 
-            // button1
+            // ChkProStruct
             // 
-            this.button1.Location = new System.Drawing.Point(326, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 23);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.ChkProStruct.HeaderText = "";
+            this.ChkProStruct.Name = "ChkProStruct";
+            this.ChkProStruct.ReadOnly = true;
+            this.ChkProStruct.Width = 30;
             // 
-            // textBox1
+            // ProStructID
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 21);
-            this.textBox1.TabIndex = 2;
+            this.ProStructID.DataPropertyName = "ProStructID";
+            this.ProStructID.HeaderText = "ProStructID";
+            this.ProStructID.Name = "ProStructID";
+            this.ProStructID.ReadOnly = true;
+            this.ProStructID.Visible = false;
             // 
-            // comboBox1
+            // PartsID
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 31);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 1;
+            this.PartsID.DataPropertyName = "PartsID";
+            this.PartsID.HeaderText = "PartsID";
+            this.PartsID.Name = "PartsID";
+            this.PartsID.ReadOnly = true;
+            this.PartsID.Visible = false;
+            // 
+            // PartsNo
+            // 
+            this.PartsNo.DataPropertyName = "PartsNo";
+            this.PartsNo.HeaderText = "编号";
+            this.PartsNo.Name = "PartsNo";
+            this.PartsNo.ReadOnly = true;
+            this.PartsNo.Width = 80;
+            // 
+            // Version
+            // 
+            this.Version.DataPropertyName = "Version";
+            this.Version.HeaderText = "版本";
+            this.Version.Name = "Version";
+            this.Version.ReadOnly = true;
+            this.Version.Width = 80;
+            // 
+            // SortCode
+            // 
+            this.SortCode.DataPropertyName = "SortCode";
+            this.SortCode.HeaderText = "顺序";
+            this.SortCode.Name = "SortCode";
+            this.SortCode.ReadOnly = true;
+            this.SortCode.Width = 80;
+            // 
+            // SpecificationCode
+            // 
+            this.SpecificationCode.DataPropertyName = "SPECIFICATIONCODE";
+            this.SpecificationCode.HeaderText = "规格代号";
+            this.SpecificationCode.Name = "SpecificationCode";
+            this.SpecificationCode.ReadOnly = true;
+            this.SpecificationCode.Width = 80;
+            // 
+            // PartsDescription
+            // 
+            this.PartsDescription.DataPropertyName = "DESCRIPTION";
+            this.PartsDescription.HeaderText = "描述";
+            this.PartsDescription.Name = "PartsDescription";
+            this.PartsDescription.ReadOnly = true;
+            this.PartsDescription.Width = 80;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "数量";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // SingleNetweight
+            // 
+            this.SingleNetweight.DataPropertyName = "SingleNetweight";
+            this.SingleNetweight.HeaderText = "单位净重";
+            this.SingleNetweight.Name = "SingleNetweight";
+            this.SingleNetweight.ReadOnly = true;
+            // 
+            // PartsStatus
+            // 
+            this.PartsStatus.DataPropertyName = "STATUS";
+            this.PartsStatus.HeaderText = "状态";
+            this.PartsStatus.Name = "PartsStatus";
+            this.PartsStatus.ReadOnly = true;
+            // 
+            // Remark
+            // 
+            this.Remark.DataPropertyName = "Remark";
+            this.Remark.HeaderText = "备注";
+            this.Remark.Name = "Remark";
+            this.Remark.ReadOnly = true;
+            // 
+            // btnProStructSearch
+            // 
+            this.btnProStructSearch.Location = new System.Drawing.Point(326, 29);
+            this.btnProStructSearch.Name = "btnProStructSearch";
+            this.btnProStructSearch.Size = new System.Drawing.Size(40, 23);
+            this.btnProStructSearch.TabIndex = 3;
+            this.btnProStructSearch.UseVisualStyleBackColor = true;
+            this.btnProStructSearch.Click += new System.EventHandler(this.btnProStructSearch_Click);
+            // 
+            // txtQuery
+            // 
+            this.txtQuery.Location = new System.Drawing.Point(142, 31);
+            this.txtQuery.Name = "txtQuery";
+            this.txtQuery.Size = new System.Drawing.Size(123, 21);
+            this.txtQuery.TabIndex = 2;
+            // 
+            // cobQuery
+            // 
+            this.cobQuery.FormattingEnabled = true;
+            this.cobQuery.Items.AddRange(new object[] {
+            "编号",
+            "描述"});
+            this.cobQuery.Location = new System.Drawing.Point(3, 31);
+            this.cobQuery.Name = "cobQuery";
+            this.cobQuery.Size = new System.Drawing.Size(121, 20);
+            this.cobQuery.TabIndex = 1;
             // 
             // cmDocument
             // 
@@ -684,89 +810,124 @@
             // 
             this.cmParts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmPartsAdd,
-            this.cmPartDelete});
+            this.cmStruct,
+            this.展开ToolStripMenuItem,
+            this.打开ToolStripMenuItem,
+            this.复制ToolStripMenuItem,
+            this.发送ToolStripMenuItem,
+            this.注册流程ToolStripMenuItem,
+            this.对象比较ToolStripMenuItem,
+            this.eRPToolStripMenuItem,
+            this.工艺权限ToolStripMenuItem});
             this.cmParts.Name = "cmParts";
-            this.cmParts.Size = new System.Drawing.Size(95, 48);
+            this.cmParts.Size = new System.Drawing.Size(119, 224);
             // 
             // cmPartsAdd
             // 
             this.cmPartsAdd.Name = "cmPartsAdd";
-            this.cmPartsAdd.Size = new System.Drawing.Size(152, 22);
+            this.cmPartsAdd.ShortcutKeyDisplayString = "";
+            this.cmPartsAdd.Size = new System.Drawing.Size(118, 22);
             this.cmPartsAdd.Text = "新建";
             this.cmPartsAdd.Click += new System.EventHandler(this.cmPartsAdd_Click);
             // 
-            // cmPartDelete
+            // cmStruct
             // 
-            this.cmPartDelete.Name = "cmPartDelete";
-            this.cmPartDelete.Size = new System.Drawing.Size(152, 22);
-            this.cmPartDelete.Text = "删除";
-            this.cmPartDelete.Click += new System.EventHandler(this.cmPartDelete_Click);
+            this.cmStruct.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmProStruct,
+            this.添加下层ToolStripMenuItem,
+            this.cmStructDelete,
+            this.bOMToolStripMenuItem,
+            this.替换为ToolStripMenuItem,
+            this.插入ToolStripMenuItem});
+            this.cmStruct.Name = "cmStruct";
+            this.cmStruct.Size = new System.Drawing.Size(118, 22);
+            this.cmStruct.Text = "结构";
             // 
-            // ChkProStruct
+            // cmProStruct
             // 
-            this.ChkProStruct.HeaderText = "";
-            this.ChkProStruct.Name = "ChkProStruct";
-            this.ChkProStruct.ReadOnly = true;
-            this.ChkProStruct.Width = 30;
+            this.cmProStruct.Name = "cmProStruct";
+            this.cmProStruct.Size = new System.Drawing.Size(152, 22);
+            this.cmProStruct.Text = "产品结构";
+            this.cmProStruct.Click += new System.EventHandler(this.cmProStruct_Click);
             // 
-            // PartsNo
+            // 添加下层ToolStripMenuItem
             // 
-            this.PartsNo.DataPropertyName = "PARTSNO";
-            this.PartsNo.HeaderText = "编号";
-            this.PartsNo.Name = "PartsNo";
-            this.PartsNo.ReadOnly = true;
-            this.PartsNo.Width = 80;
+            this.添加下层ToolStripMenuItem.Name = "添加下层ToolStripMenuItem";
+            this.添加下层ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.添加下层ToolStripMenuItem.Text = "添加下层";
             // 
-            // Version
+            // cmStructDelete
             // 
-            this.Version.DataPropertyName = "VERSION";
-            this.Version.HeaderText = "版本";
-            this.Version.Name = "Version";
-            this.Version.ReadOnly = true;
-            this.Version.Width = 80;
+            this.cmStructDelete.Name = "cmStructDelete";
+            this.cmStructDelete.Size = new System.Drawing.Size(152, 22);
+            this.cmStructDelete.Text = "删除关联";
+            this.cmStructDelete.Click += new System.EventHandler(this.cmStructDelete_Click);
             // 
-            // SortCode
+            // bOMToolStripMenuItem
             // 
-            this.SortCode.DataPropertyName = "SORTCODE";
-            this.SortCode.HeaderText = "顺序";
-            this.SortCode.Name = "SortCode";
-            this.SortCode.ReadOnly = true;
-            this.SortCode.Width = 80;
+            this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bOMToolStripMenuItem.Text = "BOM顺序重排";
             // 
-            // SpecificationCode
+            // 替换为ToolStripMenuItem
             // 
-            this.SpecificationCode.DataPropertyName = "SPECIFICATIONCODE";
-            this.SpecificationCode.HeaderText = "规格代号";
-            this.SpecificationCode.Name = "SpecificationCode";
-            this.SpecificationCode.ReadOnly = true;
-            this.SpecificationCode.Width = 80;
+            this.替换为ToolStripMenuItem.Name = "替换为ToolStripMenuItem";
+            this.替换为ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.替换为ToolStripMenuItem.Text = "替换为";
             // 
-            // PartsDescription
+            // 插入ToolStripMenuItem
             // 
-            this.PartsDescription.DataPropertyName = "DESCRIPTION";
-            this.PartsDescription.HeaderText = "描述";
-            this.PartsDescription.Name = "PartsDescription";
-            this.PartsDescription.ReadOnly = true;
-            this.PartsDescription.Width = 80;
+            this.插入ToolStripMenuItem.Name = "插入ToolStripMenuItem";
+            this.插入ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.插入ToolStripMenuItem.Text = "插入";
             // 
-            // Quantity
+            // 展开ToolStripMenuItem
             // 
-            this.Quantity.HeaderText = "数量";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
+            this.展开ToolStripMenuItem.Name = "展开ToolStripMenuItem";
+            this.展开ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.展开ToolStripMenuItem.Text = "展开";
             // 
-            // SingleNetweight
+            // 打开ToolStripMenuItem
             // 
-            this.SingleNetweight.HeaderText = "单位净重";
-            this.SingleNetweight.Name = "SingleNetweight";
-            this.SingleNetweight.ReadOnly = true;
+            this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
+            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.打开ToolStripMenuItem.Text = "打开";
             // 
-            // PartsStatus
+            // 复制ToolStripMenuItem
             // 
-            this.PartsStatus.DataPropertyName = "STATUS";
-            this.PartsStatus.HeaderText = "状态";
-            this.PartsStatus.Name = "PartsStatus";
-            this.PartsStatus.ReadOnly = true;
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            // 
+            // 发送ToolStripMenuItem
+            // 
+            this.发送ToolStripMenuItem.Name = "发送ToolStripMenuItem";
+            this.发送ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.发送ToolStripMenuItem.Text = "发送";
+            // 
+            // 注册流程ToolStripMenuItem
+            // 
+            this.注册流程ToolStripMenuItem.Name = "注册流程ToolStripMenuItem";
+            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.注册流程ToolStripMenuItem.Text = "注册流程";
+            // 
+            // 对象比较ToolStripMenuItem
+            // 
+            this.对象比较ToolStripMenuItem.Name = "对象比较ToolStripMenuItem";
+            this.对象比较ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.对象比较ToolStripMenuItem.Text = "对象比较";
+            // 
+            // eRPToolStripMenuItem
+            // 
+            this.eRPToolStripMenuItem.Name = "eRPToolStripMenuItem";
+            this.eRPToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.eRPToolStripMenuItem.Text = "ERP集成";
+            // 
+            // 工艺权限ToolStripMenuItem
+            // 
+            this.工艺权限ToolStripMenuItem.Name = "工艺权限ToolStripMenuItem";
+            this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.工艺权限ToolStripMenuItem.Text = "工艺权限";
             // 
             // ProductRegForm
             // 
@@ -797,8 +958,8 @@
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).EndInit();
-            this.cmDocument.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
+            this.cmDocument.ResumeLayout(false);
             this.cmParts.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -840,14 +1001,6 @@
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.DataGridView dgvDoc;
         private System.Windows.Forms.BindingSource docBindingSource;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ChkBox;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DocID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DocNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DocType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateDate;
         private System.Windows.Forms.ContextMenuStrip cmDocument;
         private System.Windows.Forms.ToolStripMenuItem cmDocAdd;
         private System.Windows.Forms.ToolStripMenuItem cmProDocDelete;
@@ -856,19 +1009,35 @@
         private System.Windows.Forms.TextBox txtCreateDate;
         private System.Windows.Forms.TabPage tpDrawing;
         private System.Windows.Forms.TabPage tpProStruct;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cobQuery;
+        private System.Windows.Forms.TextBox txtQuery;
+        private System.Windows.Forms.Button btnProStructSearch;
         private System.Windows.Forms.DataGridView dgvPartsList;
         private System.Windows.Forms.BindingSource partsBindingSource;
         private System.Windows.Forms.ToolStrip toolStrip3;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tsProStruct;
         private System.Windows.Forms.ToolStripButton tsBtnAdd;
         private System.Windows.Forms.ToolStripButton tsBtnDelete;
         private System.Windows.Forms.ContextMenuStrip cmParts;
         private System.Windows.Forms.ToolStripMenuItem cmPartsAdd;
-        private System.Windows.Forms.ToolStripMenuItem cmPartDelete;
+        private System.Windows.Forms.ToolStripMenuItem cmStruct;
+        private System.Windows.Forms.ToolStripMenuItem cmProStruct;
+        private System.Windows.Forms.ToolStripMenuItem 添加下层ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmStructDelete;
+        private System.Windows.Forms.ToolStripMenuItem bOMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 替换为ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 插入ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 展开ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 发送ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 注册流程ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 对象比较ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eRPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 工艺权限ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ChkProStruct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProStructID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartsNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Version;
         private System.Windows.Forms.DataGridViewTextBoxColumn SortCode;
@@ -877,5 +1046,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn SingleNetweight;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartsStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ChkBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProDocID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DocType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateDate;
     }
 }

@@ -13,31 +13,46 @@ namespace HYPDM.WinUI.Parts
 {
     public partial class UseMsgForm : BaseForm
     {
-        public static String order = "";
-        public static String quantity = "";
-        public static String remark = "";
+        private String order;
+        private String quantity;
+        private String remark;
 
         public string Order
         {
             get { return order; }
-            set { order = value; }
+            set { order = value;
+            if (order != null)
+                this.txtOrder.Text = Order;
+            }
         }
 
         public string Quantity
         {
             get { return quantity; }
-            set { quantity = value; }
+            set { quantity = value;
+            if (quantity != null)
+                this.txtQuantity.Text = Quantity;
+            }
         }
 
         public string Remark
         {
             get { return remark; }
-            set { remark = value; }
+            set { remark = value;
+            if (remark != null)
+                this.txtRemark.Text = Remark;
+            }
         }
 
         public UseMsgForm()
         {
             InitializeComponent();
+            this.Initialize();
+        }
+
+        private void Initialize()
+        {
+
         }
 
         private void tsBtnSave_Click(object sender, EventArgs e)

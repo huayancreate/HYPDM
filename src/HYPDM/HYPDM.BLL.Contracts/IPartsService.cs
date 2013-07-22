@@ -21,5 +21,8 @@ namespace HYPDM.BLL
 
         // 根据零部件ID查找零部件
         IList<PDM_PARTS> GetPartsListByID(String partsID);
+
+        // 根据条件查询
+        IList<PDM_PARTS> GetPartsByQuery(String queryCondition);
     }
 }

@@ -20,6 +20,7 @@ namespace HYPDM.WinUI.Parts
         public static string productID;
         IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
+        IPartsService _partsService = ServiceContainer.GetService<IPartsService>();
         protected int closed = 0;
         protected bool valueChanged = false;
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
@@ -60,7 +61,7 @@ namespace HYPDM.WinUI.Parts
         private IList<HYPDM.Entities.PDM_PRODUCT_DOCUMENT> proDocList;
         private List<HYPDM.Entities.PDM_DOCUMENT> documentList = new List<HYPDM.Entities.PDM_DOCUMENT>();
         private IList<HYPDM.Entities.PDM_PRODUCT_STRUCT> proStructList = new List<HYPDM.Entities.PDM_PRODUCT_STRUCT>();
-        private IList<HYPDM.Entities.PDM_PARTS> partsList = new List<HYPDM.Entities.PDM_PARTS>();
+        private IList<HYPDM.Entities.PartsDetail> partsDetailList = new List<HYPDM.Entities.PartsDetail>();
         
 
         private void InitProductInfo()
@@ -103,13 +104,26 @@ namespace HYPDM.WinUI.Parts
                     String partsID = proStruct.PARTSID;
                     IList<HYPDM.Entities.PDM_PARTS> parList =
                         ServiceContainer.GetService<IPartsService>().GetPartsListByID(partsID);
+                    PartsDetail partsDetail = new PartsDetail();
+
                     if (parList.Count > 0)
                     {
-                        partsList.Add(parList[0]);
+                        partsDetail.ProStructID = proStruct.ID;
+                        partsDetail.PartsID = partsID;
+                        partsDetail.PartsNo = parList[0].PARTSNO;
+                        partsDetail.PartsType = parList[0].PARTSTYPE;
+                        partsDetail.Version = parList[0].VERSION;
+                        partsDetail.SpecificationCode = parList[0].SPECIFICATIONCODE;
+                        partsDetail.SingleNetweight = parList[0].SINGLENETWEIGHT;
+                        partsDetail.Description = parList[0].DESCRIPTION;
+                        partsDetail.SortCode = proStruct.SORTCODE;
+                        partsDetail.Quantity = proStruct.QUANTITY;
+                        partsDetail.Remark = proStruct.REMARK;
+                        partsDetailList.Add(partsDetail);
                     }
                 }
                 this.partsBindingSource.DataSource = null;
-                this.partsBindingSource.DataSource = partsList;
+                this.partsBindingSource.DataSource = partsDetailList;
 
             }
         }
@@ -204,8 +218,8 @@ namespace HYPDM.WinUI.Parts
             {
                 if ((bool)dgvDoc.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
-                    String docID = dgvDoc.Rows[i].Cells["DocID"].Value.ToString();
-                    proDocList = _proDocService.getProdocByDocID(this.Product.PRODUCTID, docID);
+                    String ProDocID = dgvDoc.Rows[i].Cells["ProDocID"].Value.ToString();
+                    proDocList = _proDocService.getProDocByID(ProDocID);
                     if (proDocList.Count > 0)
                     {
                         _proDocService.delProDoc(proDocList);
@@ -309,6 +323,11 @@ namespace HYPDM.WinUI.Parts
         /// <param name="e"></param>
         private void tsBtnAdd_Click(object sender, EventArgs e)
         {
+            this.proStructAdd();
+        }
+
+        private void proStructAdd()
+        {
             // 将产品ID传给连接form
             productID = this.Product.PRODUCTID;
             ProductStructForm form = new ProductStructForm();
@@ -321,21 +340,33 @@ namespace HYPDM.WinUI.Parts
 
         private void reloadPartsList()
         {
-            partsList.Clear();
+            partsDetailList.Clear();
             this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
             foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
             {
                 String partsID = proStruct.PARTSID;
                 IList<HYPDM.Entities.PDM_PARTS> parList =
                     ServiceContainer.GetService<IPartsService>().GetPartsListByID(partsID);
+                PartsDetail partsDetail = new PartsDetail();
                 if (parList.Count > 0)
                 {
-                    partsList.Add(parList[0]);
+                    partsDetail.ProStructID = proStruct.ID;
+                    partsDetail.PartsID = partsID;
+                    partsDetail.PartsNo = parList[0].PARTSNO;
+                    partsDetail.PartsType = parList[0].PARTSTYPE;
+                    partsDetail.Version = parList[0].VERSION;
+                    partsDetail.SpecificationCode = parList[0].SPECIFICATIONCODE;
+                    partsDetail.SingleNetweight = parList[0].SINGLENETWEIGHT;
+                    partsDetail.Description = parList[0].DESCRIPTION;
+                    partsDetail.SortCode = proStruct.SORTCODE;
+                    partsDetail.Quantity = proStruct.QUANTITY;
+                    partsDetail.Remark = proStruct.REMARK;
+                    partsDetailList.Add(partsDetail);
                 }
 
             }
             this.partsBindingSource.DataSource = null;
-            this.partsBindingSource.DataSource = partsList;
+            this.partsBindingSource.DataSource = partsDetailList;
         }
 
         private void dgvPartsList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -364,7 +395,7 @@ namespace HYPDM.WinUI.Parts
             {
                 if (e.RowIndex >= 0)
                 {
-                    for (int i = 0; i < this.dgvDoc.RowCount; i++)
+                    for (int i = 0; i < this.dgvPartsList.RowCount; i++)
                     {
                         dgvPartsList.Rows[i].Cells[0].Value = false;
                     }
@@ -388,31 +419,128 @@ namespace HYPDM.WinUI.Parts
 
         private void cmPartsAdd_Click(object sender, EventArgs e)
         {
-
+            this.proStructAdd();
         }
 
-        private void cmPartDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsBtnDelete_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 删除产品结构
+        /// </summary>
+        private void delProStructList()
         {
             for (int i = 0; i < dgvPartsList.RowCount; i++)
             {
                 if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
-                    String partsID = dgvPartsList.Rows[i].Cells["PartsID"].Value.ToString();
-                    IList<PDM_PRODUCT_STRUCT> proStructList = 
-                        _proStructService.getProStructListByPartsID(this.Product.PRODUCTID, partsID);
-                    if (proDocList.Count > 0)
+                    String proStructID = dgvPartsList.Rows[i].Cells["ProStructID"].Value.ToString();
+                    IList<PDM_PRODUCT_STRUCT> proStructList =
+                        _proStructService.getProStructListByID(proStructID);
+                    if (proStructList.Count > 0)
                     {
-                        _proDocService.delProDoc(proDocList);
+                        _proStructService.delProStruct(proStructList);
                         dgvPartsList.Rows.RemoveAt(i);
                     }
                     break;
                 }
             }
+        }
+
+        private void tsBtnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("所选对象的关联信息将被删除，确定吗？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.delProStructList();
+            }
+        }
+
+        private void cmStructDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("所选对象的关联信息将被删除，确定吗？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.delProStructList();
+            }
+        }
+
+        private void tsProStruct_Click(object sender, EventArgs e)
+        {
+            this.ProStruct();
+        }
+
+        private void ProStruct()
+        {
+            IList<PDM_PRODUCT_STRUCT> proStructList = new List<PDM_PRODUCT_STRUCT>();
+            PDM_PRODUCT_STRUCT proStruct = new PDM_PRODUCT_STRUCT();
+            for (int i = 0; i < dgvPartsList.RowCount; i++)
+            {
+                if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    DataGridViewRow row = dgvPartsList.Rows[i];
+                    // 获取产品结构ID
+                    String ID = row.Cells["ProStructID"].Value.ToString();
+                    proStructList = _proStructService.getProStructListByID(ID);
+                    if (proStructList.Count > 0)
+                    {
+                        proStruct = proStructList[0];
+                        UseMsgForm useMsgForm = new UseMsgForm();
+                        useMsgForm.StartPosition = FormStartPosition.CenterParent;
+                        useMsgForm.Order = row.Cells["SortCode"].Value.ToString();
+                        useMsgForm.Quantity = row.Cells["Quantity"].Value.ToString();
+                        useMsgForm.Remark = row.Cells["Remark"].Value.ToString();
+                        if (useMsgForm.ShowDialog() == DialogResult.OK)
+                        {
+                            proStruct.QUANTITY = useMsgForm.Quantity;
+                            proStruct.REMARK = useMsgForm.Remark;
+                            proStruct.Save();
+                            row.Cells["Quantity"].Value = proStruct.QUANTITY;
+                            row.Cells["Remark"].Value = proStruct.REMARK;
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void cmProStruct_Click(object sender, EventArgs e)
+        {
+            this.ProStruct();
+        }
+
+        private void btnProStructSearch_Click(object sender, EventArgs e)
+        {
+            //String cob_Query;
+            String queryCondition = this.txtQuery.Text;
+            IList<PDM_PARTS> partsList = new List<PDM_PARTS>();
+            if (this.cobQuery.SelectedIndex == 0)
+            {
+                partsList = _partsService.GetPartsByQuery(queryCondition);
+            }
+            
+            
+            this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
+            foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
+            {
+                String partsID = proStruct.PARTSID;
+                IList<HYPDM.Entities.PDM_PARTS> parList =
+                    ServiceContainer.GetService<IPartsService>().GetPartsListByID(partsID);
+                PartsDetail partsDetail = new PartsDetail();
+
+                if (parList.Count > 0)
+                {
+                    partsDetail.ProStructID = proStruct.ID;
+                    partsDetail.PartsID = partsID;
+                    partsDetail.PartsNo = parList[0].PARTSNO;
+                    partsDetail.PartsType = parList[0].PARTSTYPE;
+                    partsDetail.Version = parList[0].VERSION;
+                    partsDetail.SpecificationCode = parList[0].SPECIFICATIONCODE;
+                    partsDetail.SingleNetweight = parList[0].SINGLENETWEIGHT;
+                    partsDetail.Description = parList[0].DESCRIPTION;
+                    partsDetail.SortCode = proStruct.SORTCODE;
+                    partsDetail.Quantity = proStruct.QUANTITY;
+                    partsDetail.Remark = proStruct.REMARK;
+                    partsDetailList.Add(partsDetail);
+                }
+            }
+            this.partsBindingSource.DataSource = null;
+            this.partsBindingSource.DataSource = partsDetailList;
         }
 
     }

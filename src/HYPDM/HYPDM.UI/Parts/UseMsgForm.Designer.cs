@@ -116,6 +116,7 @@
             // 
             // txtOrder
             // 
+            this.txtOrder.Enabled = false;
             this.txtOrder.Location = new System.Drawing.Point(84, 12);
             this.txtOrder.Name = "txtOrder";
             this.txtOrder.Size = new System.Drawing.Size(117, 21);
