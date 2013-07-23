@@ -63,6 +63,18 @@ namespace HYPDM.BLL
             return p.ToList();
         }
 
+        public IList<PDM_PRODUCT_STRUCT> getListByPartsID(String productID, String partsID)
+        {
+            DataEntityQuery<PDM_PRODUCT_STRUCT> query = DataEntityQuery<PDM_PRODUCT_STRUCT>.Create();
+
+            var p = (from item in query
+                     where (item.PRODUCTID == productID) && (item.PARTSID == partsID)
+                     select item
+                );
+
+            return p.ToList();
+        }
+
         #region 删除
 
         public void delProStruct(IList<PDM_PRODUCT_STRUCT> proStructList)

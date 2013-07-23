@@ -15,7 +15,8 @@ namespace HYPDM.WinUI.Parts
 {
     public partial class ProductStructForm : BaseForm
     {
-        public static string productID;
+        private string productID;
+        private int rowIndex; 
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         private IList<HYPDM.Entities.PDM_PARTS> partsList;
         public ProductStructForm()
@@ -27,6 +28,7 @@ namespace HYPDM.WinUI.Parts
         private void Initialize()
         {
             productID = ProductRegForm.productID;
+            rowIndex = ProductRegForm.rowIndex;
             this.partsList = EAS.Services.ServiceContainer.GetService<IPartsService>().GetPartsList();
             this.partsBindingSource.DataSource = null;
             this.partsBindingSource.DataSource = partsList;
@@ -35,7 +37,7 @@ namespace HYPDM.WinUI.Parts
         private void btnSelect_Click(object sender, EventArgs e)
         {
 
-            IList<PDM_PRODUCT_STRUCT> proStructList = new List<PDM_PRODUCT_STRUCT>();
+            IList<PDM_PRODUCT_STRUCT> proStructList = _proStructService.GetProStructList(this.productID);
             for (int i = 0; i < this.dgvSearchResult.RowCount; i++)
             {
                 PDM_PRODUCT_STRUCT proStruct = new PDM_PRODUCT_STRUCT();
@@ -45,7 +47,7 @@ namespace HYPDM.WinUI.Parts
                     useMsgForm.StartPosition = FormStartPosition.CenterParent;
                     if (useMsgForm.ShowDialog() == DialogResult.OK)
                     {
-                        proStruct.SORTCODE = useMsgForm.Order;
+                        //proStruct.SORTCODE = rowIndex.ToString();
                         proStruct.QUANTITY = useMsgForm.Quantity;
                         proStruct.REMARK = useMsgForm.Remark;
                         proStruct.ID = _proStructService.GetMaxID().ToString();
@@ -54,7 +56,12 @@ namespace HYPDM.WinUI.Parts
                         // "1":产品;"0":零部件
                         proStruct.ISPRODUCT = "1";
                         proStruct.PARTSCLASSFICATION = dgvSearchResult.Rows[i].Cells["PartsClassfication"].Value.ToString();
-                        proStructList.Add(proStruct);
+                        proStructList.Insert(rowIndex, proStruct);
+                        for (int j = 0; j < proStructList.Count; j++)
+                        {
+                            PDM_PRODUCT_STRUCT proStr = proStructList[j];
+                            proStr.SORTCODE = j.ToString();
+                        }
                         _proStructService.ProStructSave(proStructList);
                         this.DialogResult = DialogResult.OK;
                     }

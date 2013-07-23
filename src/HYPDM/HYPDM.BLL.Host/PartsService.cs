@@ -73,14 +73,35 @@ namespace HYPDM.BLL
 
             return p.ToList();
         }
-
-        public IList<PDM_PARTS> GetPartsByQuery(String queryCondition)
+        /// <summary>
+        /// 根据零部件编号查找零部件信息
+        /// </summary>
+        /// <param name="queryCondition"></param>
+        /// <returns></returns>
+        public IList<PDM_PARTS> GetPartsByPartsNo(String queryCondition)
         {
             DataEntityQuery<PDM_PARTS> query = DataEntityQuery<PDM_PARTS>.Create();
             var  p = (from item in query
                       where item.PARTSNO.Contains(queryCondition)
                       orderby item.CREATEDATE ascending
                       select item
+                 );
+
+            return p.ToList();
+        }
+
+        /// <summary>
+        /// 根据描述查找零部件信息
+        /// </summary>
+        /// <param name="queryCondition"></param>
+        /// <returns></returns>
+        public IList<PDM_PARTS> GetPartsByDescription(String queryCondition)
+        {
+            DataEntityQuery<PDM_PARTS> query = DataEntityQuery<PDM_PARTS>.Create();
+            var p = (from item in query
+                     where item.DESCRIPTION.Contains(queryCondition)
+                     orderby item.CREATEDATE ascending
+                     select item
                  );
 
             return p.ToList();
