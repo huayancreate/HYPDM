@@ -16,7 +16,9 @@ namespace HYPDM.WinUI.Parts
     public partial class ProductStructForm : BaseForm
     {
         private string productID;
-        private int rowIndex; 
+        private int rowIndex;
+        private bool addFlg;
+        private string proStructID;
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         private IList<HYPDM.Entities.PDM_PARTS> partsList;
         public ProductStructForm()
@@ -29,6 +31,7 @@ namespace HYPDM.WinUI.Parts
         {
             productID = ProductRegForm.productID;
             rowIndex = ProductRegForm.rowIndex;
+            proStructID = ProductRegForm.proStructID;
             this.partsList = EAS.Services.ServiceContainer.GetService<IPartsService>().GetPartsList();
             this.partsBindingSource.DataSource = null;
             this.partsBindingSource.DataSource = partsList;
@@ -43,27 +46,41 @@ namespace HYPDM.WinUI.Parts
                 PDM_PRODUCT_STRUCT proStruct = new PDM_PRODUCT_STRUCT();
                 if ((bool)dgvSearchResult.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
-                    UseMsgForm useMsgForm = new UseMsgForm();
-                    useMsgForm.StartPosition = FormStartPosition.CenterParent;
-                    if (useMsgForm.ShowDialog() == DialogResult.OK)
+                    if (ProductRegForm.addFlg)
                     {
-                        //proStruct.SORTCODE = rowIndex.ToString();
-                        proStruct.QUANTITY = useMsgForm.Quantity;
-                        proStruct.REMARK = useMsgForm.Remark;
-                        proStruct.ID = _proStructService.GetMaxID().ToString();
-                        proStruct.PRODUCTID = productID;
-                        proStruct.PARTSID = dgvSearchResult.Rows[i].Cells["PartsID"].Value.ToString();
-                        // "1":产品;"0":零部件
-                        proStruct.ISPRODUCT = "1";
-                        proStruct.PARTSCLASSFICATION = dgvSearchResult.Rows[i].Cells["PartsClassfication"].Value.ToString();
-                        proStructList.Insert(rowIndex, proStruct);
-                        for (int j = 0; j < proStructList.Count; j++)
+                        UseMsgForm useMsgForm = new UseMsgForm();
+                        useMsgForm.StartPosition = FormStartPosition.CenterParent;
+                        if (useMsgForm.ShowDialog() == DialogResult.OK)
                         {
-                            PDM_PRODUCT_STRUCT proStr = proStructList[j];
-                            proStr.SORTCODE = j.ToString();
+                            //proStruct.SORTCODE = rowIndex.ToString();
+                            proStruct.QUANTITY = useMsgForm.Quantity;
+                            proStruct.REMARK = useMsgForm.Remark;
+                            proStruct.ID = _proStructService.GetMaxID().ToString();
+                            proStruct.PRODUCTID = productID;
+                            proStruct.PARTSID = dgvSearchResult.Rows[i].Cells["PartsID"].Value.ToString();
+                            // "1":产品;"0":零部件
+                            proStruct.ISPRODUCT = "1";
+                            proStruct.PARTSCLASSFICATION = dgvSearchResult.Rows[i].Cells["PartsClassfication"].Value.ToString();
+                            proStructList.Insert(rowIndex, proStruct);
+                            for (int j = 0; j < proStructList.Count; j++)
+                            {
+                                PDM_PRODUCT_STRUCT proStr = proStructList[j];
+                                proStr.SORTCODE = j.ToString();
+                            }
+                            _proStructService.ProStructSave(proStructList);
+                            this.DialogResult = DialogResult.OK;
                         }
-                        _proStructService.ProStructSave(proStructList);
-                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        proStructList = _proStructService.getProStructListByID(proStructID);
+                        if (proStructList.Count > 0)
+                        {
+                            proStructList[0].PARTSID = dgvSearchResult.Rows[i].Cells["PartsID"].Value.ToString();
+                            proStructList[0].PARTSCLASSFICATION = dgvSearchResult.Rows[i].Cells["PartsClassfication"].Value.ToString();
+                            _proStructService.ProStructSave(proStructList);
+                            this.DialogResult = DialogResult.OK;
+                        }
                     }
                     break;
                 }
@@ -114,6 +131,26 @@ namespace HYPDM.WinUI.Parts
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void dgvSearchResult_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                if ((bool)dgvSearchResult.Rows[e.RowIndex].Cells[0].EditedFormattedValue == false)
+                {
+                    for (int i = 0; i < this.dgvSearchResult.RowCount; i++)
+                    {
+                        dgvSearchResult.Rows[i].Cells[0].Value = false;
+                    }
+                    dgvSearchResult.Rows[e.RowIndex].Cells[0].Value = true;
+
+                }
+                else
+                {
+                    dgvSearchResult.Rows[e.RowIndex].Cells[0].Value = false;
+                }
+            }
         }
     }
 }

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
@@ -84,6 +84,7 @@
             this.tsProStruct = new System.Windows.Forms.ToolStripButton();
             this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
             this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnInsert = new System.Windows.Forms.ToolStripButton();
             this.dgvPartsList = new System.Windows.Forms.DataGridView();
             this.ChkProStruct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ProStructID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,11 +109,11 @@
             this.cmPartsAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmStruct = new System.Windows.Forms.ToolStripMenuItem();
             this.cmProStruct = new System.Windows.Forms.ToolStripMenuItem();
-            this.添加下层ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmAddNext = new System.Windows.Forms.ToolStripMenuItem();
             this.cmStructDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.替换为ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.插入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CmReplaceWith = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmInsert = new System.Windows.Forms.ToolStripMenuItem();
             this.展开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -332,7 +333,7 @@
             this.btnClear});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(641, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(658, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -372,7 +373,7 @@
             this.tbcContent.Location = new System.Drawing.Point(268, 28);
             this.tbcContent.Name = "tbcContent";
             this.tbcContent.SelectedIndex = 0;
-            this.tbcContent.Size = new System.Drawing.Size(377, 284);
+            this.tbcContent.Size = new System.Drawing.Size(390, 284);
             this.tbcContent.TabIndex = 2;
             // 
             // tpRemark
@@ -382,7 +383,7 @@
             this.tpRemark.Location = new System.Drawing.Point(4, 21);
             this.tpRemark.Name = "tpRemark";
             this.tpRemark.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRemark.Size = new System.Drawing.Size(369, 259);
+            this.tpRemark.Size = new System.Drawing.Size(382, 259);
             this.tpRemark.TabIndex = 0;
             this.tpRemark.Text = "备注";
             // 
@@ -400,7 +401,7 @@
             this.tpDoc.Controls.Add(this.toolStrip2);
             this.tpDoc.Location = new System.Drawing.Point(4, 21);
             this.tpDoc.Name = "tpDoc";
-            this.tpDoc.Size = new System.Drawing.Size(369, 259);
+            this.tpDoc.Size = new System.Drawing.Size(382, 259);
             this.tpDoc.TabIndex = 1;
             this.tpDoc.Text = "文档";
             this.tpDoc.UseVisualStyleBackColor = true;
@@ -411,14 +412,14 @@
             this.dgvDoc.AllowUserToDeleteRows = false;
             this.dgvDoc.AutoGenerateColumns = false;
             this.dgvDoc.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChkBox,
@@ -438,7 +439,7 @@
             this.dgvDoc.RowHeadersVisible = false;
             this.dgvDoc.RowTemplate.Height = 23;
             this.dgvDoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDoc.Size = new System.Drawing.Size(363, 229);
+            this.dgvDoc.Size = new System.Drawing.Size(376, 229);
             this.dgvDoc.TabIndex = 1;
             this.dgvDoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoc_CellClick);
             this.dgvDoc.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDoc_CellMouseDown);
@@ -524,7 +525,7 @@
             this.btnDelete});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(369, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(382, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -577,7 +578,7 @@
             // 
             this.tpDrawing.Location = new System.Drawing.Point(4, 21);
             this.tpDrawing.Name = "tpDrawing";
-            this.tpDrawing.Size = new System.Drawing.Size(369, 259);
+            this.tpDrawing.Size = new System.Drawing.Size(382, 259);
             this.tpDrawing.TabIndex = 2;
             this.tpDrawing.Text = "图纸";
             this.tpDrawing.UseVisualStyleBackColor = true;
@@ -591,7 +592,7 @@
             this.tpProStruct.Controls.Add(this.cobQuery);
             this.tpProStruct.Location = new System.Drawing.Point(4, 21);
             this.tpProStruct.Name = "tpProStruct";
-            this.tpProStruct.Size = new System.Drawing.Size(369, 259);
+            this.tpProStruct.Size = new System.Drawing.Size(382, 259);
             this.tpProStruct.TabIndex = 3;
             this.tpProStruct.Text = "产品结构";
             this.tpProStruct.UseVisualStyleBackColor = true;
@@ -603,10 +604,11 @@
             this.tsBtnFilter,
             this.tsProStruct,
             this.tsBtnAdd,
-            this.tsBtnDelete});
+            this.tsBtnDelete,
+            this.tsBtnInsert});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(369, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(382, 25);
             this.toolStrip3.TabIndex = 5;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -640,8 +642,8 @@
             this.tsBtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAdd.Image")));
             this.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnAdd.Name = "tsBtnAdd";
-            this.tsBtnAdd.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnAdd.Text = "增加";
+            this.tsBtnAdd.Size = new System.Drawing.Size(73, 22);
+            this.tsBtnAdd.Text = "添加下层";
             this.tsBtnAdd.Click += new System.EventHandler(this.tsBtnAdd_Click);
             // 
             // tsBtnDelete
@@ -652,6 +654,15 @@
             this.tsBtnDelete.Size = new System.Drawing.Size(49, 22);
             this.tsBtnDelete.Text = "删除";
             this.tsBtnDelete.Click += new System.EventHandler(this.tsBtnDelete_Click);
+            // 
+            // tsBtnInsert
+            // 
+            this.tsBtnInsert.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnInsert.Image")));
+            this.tsBtnInsert.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnInsert.Name = "tsBtnInsert";
+            this.tsBtnInsert.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnInsert.Text = "插入";
+            this.tsBtnInsert.Click += new System.EventHandler(this.tsBtnInsert_Click);
             // 
             // dgvPartsList
             // 
@@ -681,7 +692,7 @@
             this.dgvPartsList.RowHeadersVisible = false;
             this.dgvPartsList.RowTemplate.Height = 23;
             this.dgvPartsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPartsList.Size = new System.Drawing.Size(363, 199);
+            this.dgvPartsList.Size = new System.Drawing.Size(376, 199);
             this.dgvPartsList.TabIndex = 4;
             this.dgvPartsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPartsList_CellClick);
             this.dgvPartsList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPartsList_CellMouseDown);
@@ -779,7 +790,7 @@
             // 
             // btnProStructSearch
             // 
-            this.btnProStructSearch.Location = new System.Drawing.Point(326, 29);
+            this.btnProStructSearch.Location = new System.Drawing.Point(331, 29);
             this.btnProStructSearch.Name = "btnProStructSearch";
             this.btnProStructSearch.Size = new System.Drawing.Size(40, 23);
             this.btnProStructSearch.TabIndex = 3;
@@ -840,7 +851,7 @@
             this.eRPToolStripMenuItem,
             this.工艺权限ToolStripMenuItem});
             this.cmParts.Name = "cmParts";
-            this.cmParts.Size = new System.Drawing.Size(119, 224);
+            this.cmParts.Size = new System.Drawing.Size(153, 246);
             // 
             // cmPartsAdd
             // 
@@ -848,17 +859,16 @@
             this.cmPartsAdd.ShortcutKeyDisplayString = "";
             this.cmPartsAdd.Size = new System.Drawing.Size(152, 22);
             this.cmPartsAdd.Text = "新建";
-            this.cmPartsAdd.Click += new System.EventHandler(this.cmPartsAdd_Click);
             // 
             // cmStruct
             // 
             this.cmStruct.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmProStruct,
-            this.添加下层ToolStripMenuItem,
+            this.cmAddNext,
             this.cmStructDelete,
             this.bOMToolStripMenuItem,
-            this.替换为ToolStripMenuItem,
-            this.插入ToolStripMenuItem});
+            this.CmReplaceWith,
+            this.cmInsert});
             this.cmStruct.Name = "cmStruct";
             this.cmStruct.Size = new System.Drawing.Size(152, 22);
             this.cmStruct.Text = "结构";
@@ -870,11 +880,12 @@
             this.cmProStruct.Text = "产品结构";
             this.cmProStruct.Click += new System.EventHandler(this.cmProStruct_Click);
             // 
-            // 添加下层ToolStripMenuItem
+            // cmAddNext
             // 
-            this.添加下层ToolStripMenuItem.Name = "添加下层ToolStripMenuItem";
-            this.添加下层ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.添加下层ToolStripMenuItem.Text = "添加下层";
+            this.cmAddNext.Name = "cmAddNext";
+            this.cmAddNext.Size = new System.Drawing.Size(152, 22);
+            this.cmAddNext.Text = "添加下层";
+            this.cmAddNext.Click += new System.EventHandler(this.cmAddNext_Click);
             // 
             // cmStructDelete
             // 
@@ -889,17 +900,19 @@
             this.bOMToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bOMToolStripMenuItem.Text = "BOM顺序重排";
             // 
-            // 替换为ToolStripMenuItem
+            // CmReplaceWith
             // 
-            this.替换为ToolStripMenuItem.Name = "替换为ToolStripMenuItem";
-            this.替换为ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.替换为ToolStripMenuItem.Text = "替换为";
+            this.CmReplaceWith.Name = "CmReplaceWith";
+            this.CmReplaceWith.Size = new System.Drawing.Size(152, 22);
+            this.CmReplaceWith.Text = "替换为";
+            this.CmReplaceWith.Click += new System.EventHandler(this.CmReplaceWith_Click);
             // 
-            // 插入ToolStripMenuItem
+            // cmInsert
             // 
-            this.插入ToolStripMenuItem.Name = "插入ToolStripMenuItem";
-            this.插入ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.插入ToolStripMenuItem.Text = "插入";
+            this.cmInsert.Name = "cmInsert";
+            this.cmInsert.Size = new System.Drawing.Size(152, 22);
+            this.cmInsert.Text = "插入";
+            this.cmInsert.Click += new System.EventHandler(this.cmInsert_Click);
             // 
             // 展开ToolStripMenuItem
             // 
@@ -954,7 +967,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 317);
+            this.ClientSize = new System.Drawing.Size(658, 317);
             this.Controls.Add(this.tbcContent);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControl1);
@@ -1035,19 +1048,15 @@
         private System.Windows.Forms.Button btnProStructSearch;
         private System.Windows.Forms.DataGridView dgvPartsList;
         private System.Windows.Forms.BindingSource partsBindingSource;
-        private System.Windows.Forms.ToolStrip toolStrip3;
-        private System.Windows.Forms.ToolStripButton tsProStruct;
-        private System.Windows.Forms.ToolStripButton tsBtnAdd;
-        private System.Windows.Forms.ToolStripButton tsBtnDelete;
         private System.Windows.Forms.ContextMenuStrip cmParts;
         private System.Windows.Forms.ToolStripMenuItem cmPartsAdd;
         private System.Windows.Forms.ToolStripMenuItem cmStruct;
         private System.Windows.Forms.ToolStripMenuItem cmProStruct;
-        private System.Windows.Forms.ToolStripMenuItem 添加下层ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmAddNext;
         private System.Windows.Forms.ToolStripMenuItem cmStructDelete;
         private System.Windows.Forms.ToolStripMenuItem bOMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 替换为ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 插入ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CmReplaceWith;
+        private System.Windows.Forms.ToolStripMenuItem cmInsert;
         private System.Windows.Forms.ToolStripMenuItem 展开ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cmOpen;
         private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
@@ -1077,7 +1086,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdateDate;
+        private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripButton tsBtnSaveResult;
         private System.Windows.Forms.ToolStripButton tsBtnFilter;
+        private System.Windows.Forms.ToolStripButton tsProStruct;
+        private System.Windows.Forms.ToolStripButton tsBtnAdd;
+        private System.Windows.Forms.ToolStripButton tsBtnDelete;
+        private System.Windows.Forms.ToolStripButton tsBtnInsert;
     }
 }

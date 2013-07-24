@@ -40,6 +40,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvSearchResult = new System.Windows.Forms.DataGridView();
+            this.ChkParts = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PartsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Equip = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SpecificationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsClassfication = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
@@ -56,19 +69,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
-            this.ChkParts = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PartsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Equip = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SpecificationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartsType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartsClassfication = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResult)).BeginInit();
@@ -132,12 +132,112 @@
             this.LastUpdateDate});
             this.dgvSearchResult.DataSource = this.partsBindingSource;
             this.dgvSearchResult.Location = new System.Drawing.Point(9, 70);
+            this.dgvSearchResult.MultiSelect = false;
             this.dgvSearchResult.Name = "dgvSearchResult";
+            this.dgvSearchResult.ReadOnly = true;
             this.dgvSearchResult.RowHeadersVisible = false;
             this.dgvSearchResult.RowTemplate.Height = 23;
             this.dgvSearchResult.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSearchResult.Size = new System.Drawing.Size(527, 308);
             this.dgvSearchResult.TabIndex = 12;
+            this.dgvSearchResult.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchResult_CellClick);
+            // 
+            // ChkParts
+            // 
+            this.ChkParts.HeaderText = "";
+            this.ChkParts.Name = "ChkParts";
+            this.ChkParts.ReadOnly = true;
+            this.ChkParts.Width = 30;
+            // 
+            // PartsID
+            // 
+            this.PartsID.DataPropertyName = "PARTSID";
+            this.PartsID.HeaderText = "PartsID";
+            this.PartsID.Name = "PartsID";
+            this.PartsID.ReadOnly = true;
+            this.PartsID.Visible = false;
+            // 
+            // PartsNo
+            // 
+            this.PartsNo.DataPropertyName = "PARTSNO";
+            this.PartsNo.HeaderText = "编号";
+            this.PartsNo.Name = "PartsNo";
+            this.PartsNo.ReadOnly = true;
+            this.PartsNo.Width = 80;
+            // 
+            // Version
+            // 
+            this.Version.DataPropertyName = "VERSION";
+            this.Version.HeaderText = "版本";
+            this.Version.Name = "Version";
+            this.Version.ReadOnly = true;
+            // 
+            // Equip
+            // 
+            this.Equip.HeaderText = "装配";
+            this.Equip.Name = "Equip";
+            this.Equip.ReadOnly = true;
+            // 
+            // SpecificationCode
+            // 
+            this.SpecificationCode.DataPropertyName = "SPECIFICATIONCODE";
+            this.SpecificationCode.HeaderText = "规格代号";
+            this.SpecificationCode.Name = "SpecificationCode";
+            this.SpecificationCode.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "DESCRIPTION";
+            this.Description.HeaderText = "描述";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 80;
+            // 
+            // PartsType
+            // 
+            this.PartsType.DataPropertyName = "PARTSTYPE";
+            this.PartsType.HeaderText = "零部件类型";
+            this.PartsType.Name = "PartsType";
+            this.PartsType.ReadOnly = true;
+            this.PartsType.Width = 80;
+            // 
+            // PartsClassfication
+            // 
+            this.PartsClassfication.DataPropertyName = "PARTSCLASSFICATION";
+            this.PartsClassfication.HeaderText = "零部件分类";
+            this.PartsClassfication.Name = "PartsClassfication";
+            this.PartsClassfication.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "STATUS";
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // LastUpdateUser
+            // 
+            this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
+            this.LastUpdateUser.HeaderText = "修改者";
+            this.LastUpdateUser.Name = "LastUpdateUser";
+            this.LastUpdateUser.ReadOnly = true;
+            this.LastUpdateUser.Width = 80;
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.DataPropertyName = "CREATEDATE";
+            this.CreateDate.HeaderText = "创建时间";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            this.CreateDate.Width = 80;
+            // 
+            // LastUpdateDate
+            // 
+            this.LastUpdateDate.DataPropertyName = "LASTUPDATEDATE";
+            this.LastUpdateDate.HeaderText = "修改日期";
+            this.LastUpdateDate.Name = "LastUpdateDate";
+            this.LastUpdateDate.ReadOnly = true;
+            this.LastUpdateDate.Width = 80;
             // 
             // panel4
             // 
@@ -276,95 +376,6 @@
             this.btnView.Text = "查看";
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // ChkParts
-            // 
-            this.ChkParts.HeaderText = "";
-            this.ChkParts.Name = "ChkParts";
-            this.ChkParts.Width = 30;
-            // 
-            // PartsID
-            // 
-            this.PartsID.DataPropertyName = "PARTSID";
-            this.PartsID.HeaderText = "PartsID";
-            this.PartsID.Name = "PartsID";
-            this.PartsID.Visible = false;
-            // 
-            // PartsNo
-            // 
-            this.PartsNo.DataPropertyName = "PARTSNO";
-            this.PartsNo.HeaderText = "编号";
-            this.PartsNo.Name = "PartsNo";
-            this.PartsNo.ReadOnly = true;
-            this.PartsNo.Width = 80;
-            // 
-            // Version
-            // 
-            this.Version.DataPropertyName = "VERSION";
-            this.Version.HeaderText = "版本";
-            this.Version.Name = "Version";
-            // 
-            // Equip
-            // 
-            this.Equip.HeaderText = "装配";
-            this.Equip.Name = "Equip";
-            // 
-            // SpecificationCode
-            // 
-            this.SpecificationCode.DataPropertyName = "SPECIFICATIONCODE";
-            this.SpecificationCode.HeaderText = "规格代号";
-            this.SpecificationCode.Name = "SpecificationCode";
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "DESCRIPTION";
-            this.Description.HeaderText = "描述";
-            this.Description.Name = "Description";
-            this.Description.Width = 80;
-            // 
-            // PartsType
-            // 
-            this.PartsType.DataPropertyName = "PARTSTYPE";
-            this.PartsType.HeaderText = "零部件类型";
-            this.PartsType.Name = "PartsType";
-            this.PartsType.ReadOnly = true;
-            this.PartsType.Width = 80;
-            // 
-            // PartsClassfication
-            // 
-            this.PartsClassfication.DataPropertyName = "PARTSCLASSFICATION";
-            this.PartsClassfication.HeaderText = "零部件分类";
-            this.PartsClassfication.Name = "PartsClassfication";
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "STATUS";
-            this.Status.HeaderText = "状态";
-            this.Status.Name = "Status";
-            // 
-            // LastUpdateUser
-            // 
-            this.LastUpdateUser.DataPropertyName = "LASTUPDATEUSER";
-            this.LastUpdateUser.HeaderText = "修改者";
-            this.LastUpdateUser.Name = "LastUpdateUser";
-            this.LastUpdateUser.ReadOnly = true;
-            this.LastUpdateUser.Width = 80;
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.DataPropertyName = "CREATEDATE";
-            this.CreateDate.HeaderText = "创建时间";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
-            this.CreateDate.Width = 80;
-            // 
-            // LastUpdateDate
-            // 
-            this.LastUpdateDate.DataPropertyName = "LASTUPDATEDATE";
-            this.LastUpdateDate.HeaderText = "修改日期";
-            this.LastUpdateDate.Name = "LastUpdateDate";
-            this.LastUpdateDate.ReadOnly = true;
-            this.LastUpdateDate.Width = 80;
             // 
             // ProductStructForm
             // 

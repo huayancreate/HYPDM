@@ -19,6 +19,8 @@ namespace HYPDM.WinUI.Parts
     {
         public static string productID;
         public static int rowIndex;
+        public static bool addFlg;
+        public static string proStructID;
         IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         IPartsService _partsService = ServiceContainer.GetService<IPartsService>();
@@ -106,6 +108,7 @@ namespace HYPDM.WinUI.Parts
 
         private void InitProStructList()
         {
+            this.partsDetailList.Clear();
             this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
             foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
             {
@@ -329,13 +332,20 @@ namespace HYPDM.WinUI.Parts
         }
 
         /// <summary>
-        /// 添加产品结构 
+        /// 添加下层产品结构 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void tsBtnAdd_Click(object sender, EventArgs e)
         {
-            rowIndex = this.partsDetailList.Count;
+            for (int i = 0; i < this.dgvPartsList.RowCount; i++)
+            {
+                if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    rowIndex = i + 1;
+                    break;
+                }
+            }
             this.proStructAdd();
         }
 
@@ -343,6 +353,7 @@ namespace HYPDM.WinUI.Parts
         {
             // 将产品ID传给连接form
             productID = this.Product.PRODUCTID;
+            addFlg = true; ;
             ProductStructForm form = new ProductStructForm();
             form.StartPosition = FormStartPosition.CenterParent;
             if (form.ShowDialog() == DialogResult.OK)
@@ -430,12 +441,6 @@ namespace HYPDM.WinUI.Parts
             }
         }
 
-        private void cmPartsAdd_Click(object sender, EventArgs e)
-        {
-            rowIndex = this.partsDetailList.Count;
-            this.proStructAdd();
-        }
-
         /// <summary>
         /// 删除产品结构
         /// </summary>
@@ -448,19 +453,19 @@ namespace HYPDM.WinUI.Parts
                 {
                     hasSelectedFlg = true;
                     String proStructID = dgvPartsList.Rows[i].Cells["ProStructID"].Value.ToString();
-                    IList<PDM_PRODUCT_STRUCT> proStructList =
+                    IList<PDM_PRODUCT_STRUCT> proStrList =
                         _proStructService.getProStructListByID(proStructID);
-                    if (proStructList.Count > 0)
+                    if (proStrList.Count > 0)
                     {
-                        _proStructService.delProStruct(proStructList);
+                        _proStructService.delProStruct(proStrList);
                         this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
-                        for (int j = 0; j < proStructList.Count; j++)
+                        for (int j = 0; j < this.proStructList.Count; j++)
                         {
                             proStructList[j].SORTCODE = j.ToString();
                         }
-                        _proStructService.ProStructSave(proStructList);
+                        _proStructService.ProStructSave(this.proStructList);
                         InitProStructList();
-                        dgvPartsList.Rows.RemoveAt(i);
+                        //dgvPartsList.Rows.RemoveAt(i);
                     }
                     break;
                 }
@@ -621,6 +626,69 @@ namespace HYPDM.WinUI.Parts
                     row.Cells["SingleNetweight"].Value = parts.SINGLENETWEIGHT;
                     row.Cells["PartsStatus"].Value = parts.STATUS;
                 }
+            }
+        }
+
+        private void cmAddNext_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.dgvPartsList.RowCount; i++)
+            {
+                if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    rowIndex = i + 1;
+                    break;
+                }
+            }
+            this.proStructAdd();
+        }
+
+        private void tsBtnInsert_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.dgvPartsList.RowCount; i++)
+            {
+                if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    rowIndex = i;
+                    break;
+                }
+            }
+            this.proStructAdd();
+        }
+
+        private void cmInsert_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.dgvPartsList.RowCount; i++)
+            {
+                if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    rowIndex = i;
+                    break;
+                }
+            }
+            this.proStructAdd();
+        }
+
+        /// <summary>
+        /// 替换为
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CmReplaceWith_Click(object sender, EventArgs e)
+        {
+            addFlg = false;
+            for (int i = 0; i < this.dgvPartsList.RowCount; i++)
+            {
+                if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    proStructID = dgvPartsList.Rows[i].Cells["ProStructID"].Value.ToString();
+                    break;
+                }
+            }
+            ProductStructForm o = new ProductStructForm();
+            o.StartPosition = FormStartPosition.CenterParent;
+            if(o.ShowDialog() == DialogResult.OK)
+            {
+                this.reloadPartsList();
             }
         }
 

@@ -45,6 +45,7 @@ namespace HYPDM.BLL
 
             var p = (from item in query
                      where (item.PRODUCTID == productID)
+                     orderby item.SORTCODE ascending
                      select item
                 );
 
