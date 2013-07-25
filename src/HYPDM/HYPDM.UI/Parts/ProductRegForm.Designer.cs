@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
@@ -52,9 +52,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnRegPart = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.tbcContent = new System.Windows.Forms.TabControl();
             this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
@@ -69,22 +66,10 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.btnAddDoc = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.tpDrawing = new System.Windows.Forms.TabPage();
             this.tpProStruct = new System.Windows.Forms.TabPage();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.tsBtnSaveResult = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnFilter = new System.Windows.Forms.ToolStripButton();
-            this.tsProStruct = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnInsert = new System.Windows.Forms.ToolStripButton();
             this.dgvPartsList = new System.Windows.Forms.DataGridView();
             this.ChkProStruct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ProStructID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,7 +83,6 @@
             this.SingleNetweight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartsStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnProStructSearch = new System.Windows.Forms.Button();
             this.txtQuery = new System.Windows.Forms.TextBox();
             this.cobQuery = new System.Windows.Forms.ComboBox();
@@ -122,6 +106,22 @@
             this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eRPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.btnAddDoc = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnSaveResult = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnFilter = new System.Windows.Forms.ToolStripButton();
+            this.tsProStruct = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnInsert = new System.Windows.Forms.ToolStripButton();
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnRegPart = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.btnClear = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -129,14 +129,14 @@
             this.tpRemark.SuspendLayout();
             this.tpDoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.tpProStruct.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             this.cmDocument.SuspendLayout();
             this.cmParts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -337,33 +337,6 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnRegPart
-            // 
-            this.btnRegPart.Image = ((System.Drawing.Image)(resources.GetObject("btnRegPart.Image")));
-            this.btnRegPart.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRegPart.Name = "btnRegPart";
-            this.btnRegPart.Size = new System.Drawing.Size(49, 22);
-            this.btnRegPart.Text = "保存";
-            this.btnRegPart.Click += new System.EventHandler(this.btnRegPart_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            // 
-            // btnClear
-            // 
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(49, 22);
-            this.btnClear.Text = "清除";
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // tbcContent
             // 
             this.tbcContent.Controls.Add(this.tpRemark);
@@ -412,14 +385,14 @@
             this.dgvDoc.AllowUserToDeleteRows = false;
             this.dgvDoc.AutoGenerateColumns = false;
             this.dgvDoc.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChkBox,
@@ -529,51 +502,6 @@
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "toolStripButton5";
-            // 
-            // btnAddDoc
-            // 
-            this.btnAddDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDoc.Image")));
-            this.btnAddDoc.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddDoc.Name = "btnAddDoc";
-            this.btnAddDoc.Size = new System.Drawing.Size(49, 22);
-            this.btnAddDoc.Text = "新增";
-            this.btnAddDoc.Click += new System.EventHandler(this.btnAddDoc_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(49, 22);
-            this.btnDelete.Text = "删除";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // tpDrawing
             // 
             this.tpDrawing.Location = new System.Drawing.Point(4, 21);
@@ -611,58 +539,6 @@
             this.toolStrip3.Size = new System.Drawing.Size(382, 25);
             this.toolStrip3.TabIndex = 5;
             this.toolStrip3.Text = "toolStrip3";
-            // 
-            // tsBtnSaveResult
-            // 
-            this.tsBtnSaveResult.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSaveResult.Image")));
-            this.tsBtnSaveResult.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnSaveResult.Name = "tsBtnSaveResult";
-            this.tsBtnSaveResult.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnSaveResult.Text = "保存";
-            // 
-            // tsBtnFilter
-            // 
-            this.tsBtnFilter.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnFilter.Image")));
-            this.tsBtnFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnFilter.Name = "tsBtnFilter";
-            this.tsBtnFilter.Size = new System.Drawing.Size(61, 22);
-            this.tsBtnFilter.Text = "过滤器";
-            // 
-            // tsProStruct
-            // 
-            this.tsProStruct.Image = ((System.Drawing.Image)(resources.GetObject("tsProStruct.Image")));
-            this.tsProStruct.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsProStruct.Name = "tsProStruct";
-            this.tsProStruct.Size = new System.Drawing.Size(73, 22);
-            this.tsProStruct.Text = "产品结构";
-            this.tsProStruct.Click += new System.EventHandler(this.tsProStruct_Click);
-            // 
-            // tsBtnAdd
-            // 
-            this.tsBtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAdd.Image")));
-            this.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnAdd.Name = "tsBtnAdd";
-            this.tsBtnAdd.Size = new System.Drawing.Size(73, 22);
-            this.tsBtnAdd.Text = "添加下层";
-            this.tsBtnAdd.Click += new System.EventHandler(this.tsBtnAdd_Click);
-            // 
-            // tsBtnDelete
-            // 
-            this.tsBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnDelete.Image")));
-            this.tsBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnDelete.Name = "tsBtnDelete";
-            this.tsBtnDelete.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnDelete.Text = "删除";
-            this.tsBtnDelete.Click += new System.EventHandler(this.tsBtnDelete_Click);
-            // 
-            // tsBtnInsert
-            // 
-            this.tsBtnInsert.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnInsert.Image")));
-            this.tsBtnInsert.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnInsert.Name = "tsBtnInsert";
-            this.tsBtnInsert.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnInsert.Text = "插入";
-            this.tsBtnInsert.Click += new System.EventHandler(this.tsBtnInsert_Click);
             // 
             // dgvPartsList
             // 
@@ -851,13 +727,13 @@
             this.eRPToolStripMenuItem,
             this.工艺权限ToolStripMenuItem});
             this.cmParts.Name = "cmParts";
-            this.cmParts.Size = new System.Drawing.Size(153, 246);
+            this.cmParts.Size = new System.Drawing.Size(119, 224);
             // 
             // cmPartsAdd
             // 
             this.cmPartsAdd.Name = "cmPartsAdd";
             this.cmPartsAdd.ShortcutKeyDisplayString = "";
-            this.cmPartsAdd.Size = new System.Drawing.Size(152, 22);
+            this.cmPartsAdd.Size = new System.Drawing.Size(118, 22);
             this.cmPartsAdd.Text = "新建";
             // 
             // cmStruct
@@ -870,7 +746,7 @@
             this.CmReplaceWith,
             this.cmInsert});
             this.cmStruct.Name = "cmStruct";
-            this.cmStruct.Size = new System.Drawing.Size(152, 22);
+            this.cmStruct.Size = new System.Drawing.Size(118, 22);
             this.cmStruct.Text = "结构";
             // 
             // cmProStruct
@@ -917,51 +793,176 @@
             // 展开ToolStripMenuItem
             // 
             this.展开ToolStripMenuItem.Name = "展开ToolStripMenuItem";
-            this.展开ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.展开ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.展开ToolStripMenuItem.Text = "展开";
             // 
             // cmOpen
             // 
             this.cmOpen.Name = "cmOpen";
-            this.cmOpen.Size = new System.Drawing.Size(152, 22);
+            this.cmOpen.Size = new System.Drawing.Size(118, 22);
             this.cmOpen.Text = "打开";
             this.cmOpen.Click += new System.EventHandler(this.cmOpen_Click);
             // 
             // 复制ToolStripMenuItem
             // 
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.复制ToolStripMenuItem.Text = "复制";
             // 
             // 发送ToolStripMenuItem
             // 
             this.发送ToolStripMenuItem.Name = "发送ToolStripMenuItem";
-            this.发送ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.发送ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.发送ToolStripMenuItem.Text = "发送";
             // 
             // 注册流程ToolStripMenuItem
             // 
             this.注册流程ToolStripMenuItem.Name = "注册流程ToolStripMenuItem";
-            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.注册流程ToolStripMenuItem.Text = "注册流程";
             // 
             // 对象比较ToolStripMenuItem
             // 
             this.对象比较ToolStripMenuItem.Name = "对象比较ToolStripMenuItem";
-            this.对象比较ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.对象比较ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.对象比较ToolStripMenuItem.Text = "对象比较";
             // 
             // eRPToolStripMenuItem
             // 
             this.eRPToolStripMenuItem.Name = "eRPToolStripMenuItem";
-            this.eRPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eRPToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.eRPToolStripMenuItem.Text = "ERP集成";
             // 
             // 工艺权限ToolStripMenuItem
             // 
             this.工艺权限ToolStripMenuItem.Name = "工艺权限ToolStripMenuItem";
-            this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.工艺权限ToolStripMenuItem.Text = "工艺权限";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Text = "toolStripButton5";
+            // 
+            // btnAddDoc
+            // 
+            this.btnAddDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDoc.Image")));
+            this.btnAddDoc.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddDoc.Name = "btnAddDoc";
+            this.btnAddDoc.Size = new System.Drawing.Size(49, 22);
+            this.btnAddDoc.Text = "新增";
+            this.btnAddDoc.Click += new System.EventHandler(this.btnAddDoc_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(49, 22);
+            this.btnDelete.Text = "删除";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // tsBtnSaveResult
+            // 
+            this.tsBtnSaveResult.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSaveResult.Image")));
+            this.tsBtnSaveResult.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnSaveResult.Name = "tsBtnSaveResult";
+            this.tsBtnSaveResult.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnSaveResult.Text = "保存";
+            // 
+            // tsBtnFilter
+            // 
+            this.tsBtnFilter.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnFilter.Image")));
+            this.tsBtnFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnFilter.Name = "tsBtnFilter";
+            this.tsBtnFilter.Size = new System.Drawing.Size(61, 22);
+            this.tsBtnFilter.Text = "过滤器";
+            this.tsBtnFilter.Click += new System.EventHandler(this.tsBtnFilter_Click);
+            // 
+            // tsProStruct
+            // 
+            this.tsProStruct.Image = ((System.Drawing.Image)(resources.GetObject("tsProStruct.Image")));
+            this.tsProStruct.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsProStruct.Name = "tsProStruct";
+            this.tsProStruct.Size = new System.Drawing.Size(73, 22);
+            this.tsProStruct.Text = "产品结构";
+            this.tsProStruct.Click += new System.EventHandler(this.tsProStruct_Click);
+            // 
+            // tsBtnAdd
+            // 
+            this.tsBtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAdd.Image")));
+            this.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnAdd.Name = "tsBtnAdd";
+            this.tsBtnAdd.Size = new System.Drawing.Size(73, 22);
+            this.tsBtnAdd.Text = "添加下层";
+            this.tsBtnAdd.Click += new System.EventHandler(this.tsBtnAdd_Click);
+            // 
+            // tsBtnDelete
+            // 
+            this.tsBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnDelete.Image")));
+            this.tsBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnDelete.Name = "tsBtnDelete";
+            this.tsBtnDelete.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnDelete.Text = "删除";
+            this.tsBtnDelete.Click += new System.EventHandler(this.tsBtnDelete_Click);
+            // 
+            // tsBtnInsert
+            // 
+            this.tsBtnInsert.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnInsert.Image")));
+            this.tsBtnInsert.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnInsert.Name = "tsBtnInsert";
+            this.tsBtnInsert.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnInsert.Text = "插入";
+            this.tsBtnInsert.Click += new System.EventHandler(this.tsBtnInsert_Click);
+            // 
+            // btnRegPart
+            // 
+            this.btnRegPart.Image = ((System.Drawing.Image)(resources.GetObject("btnRegPart.Image")));
+            this.btnRegPart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRegPart.Name = "btnRegPart";
+            this.btnRegPart.Size = new System.Drawing.Size(49, 22);
+            this.btnRegPart.Text = "保存";
+            this.btnRegPart.Click += new System.EventHandler(this.btnRegPart_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(49, 22);
+            this.btnClear.Text = "清除";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // ProductRegForm
             // 
@@ -984,7 +985,6 @@
             this.tpDoc.ResumeLayout(false);
             this.tpDoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.tpProStruct.ResumeLayout(false);
@@ -992,9 +992,10 @@
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             this.cmDocument.ResumeLayout(false);
             this.cmParts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

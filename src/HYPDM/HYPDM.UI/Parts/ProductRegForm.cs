@@ -692,6 +692,16 @@ namespace HYPDM.WinUI.Parts
             }
         }
 
+        private void tsBtnFilter_Click(object sender, EventArgs e)
+        {
+            productID = this.Product.PRODUCTID;
+            ConnectionFilterForm o = new ConnectionFilterForm();
+            o.StartPosition = FormStartPosition.CenterParent;
+            if(o.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
 
     }
 }

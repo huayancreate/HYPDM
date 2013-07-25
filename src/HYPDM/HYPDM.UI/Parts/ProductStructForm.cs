@@ -17,7 +17,6 @@ namespace HYPDM.WinUI.Parts
     {
         private string productID;
         private int rowIndex;
-        private bool addFlg;
         private string proStructID;
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         private IList<HYPDM.Entities.PDM_PARTS> partsList;
