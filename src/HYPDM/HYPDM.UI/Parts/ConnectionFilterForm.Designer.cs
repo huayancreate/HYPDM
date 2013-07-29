@@ -441,6 +441,7 @@
             this.dgvFilterList.Size = new System.Drawing.Size(329, 340);
             this.dgvFilterList.TabIndex = 7;
             this.dgvFilterList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFilterList_CellClick);
+            this.dgvFilterList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFilterList_CellMouseDown);
             // 
             // OwnerShip
             // 
@@ -571,6 +572,7 @@
             this.cmSelect.Name = "cmSelect";
             this.cmSelect.Size = new System.Drawing.Size(152, 22);
             this.cmSelect.Text = "选择";
+            this.cmSelect.Click += new System.EventHandler(this.cmSelect_Click);
             // 
             // cmDelete
             // 

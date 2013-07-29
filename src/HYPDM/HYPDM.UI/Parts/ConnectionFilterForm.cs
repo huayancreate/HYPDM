@@ -93,6 +93,10 @@ namespace HYPDM.WinUI.Parts
             {
                 filter.ID = _filterService.GetMaxID().ToString();
             }
+            else 
+            {
+                filter.ID = this.filter.ID;
+            }
             // 所有权
             if (this.radPublic.Checked)
             {
@@ -139,12 +143,18 @@ namespace HYPDM.WinUI.Parts
             this.ViewFilter();
         }
 
+        /// <summary>
+        /// 选择一个过滤器
+        /// </summary>
         private void ViewFilter()
         {
             int rowIndex = dgvFilterList.CurrentCell.RowIndex;
 
             if (rowIndex < 0)
+            {
+                MessageBox.Show("请选择一个过滤器");
                 return;
+            }
 
             DataGridViewRow row = dgvFilterList.Rows[rowIndex];
 
@@ -162,6 +172,7 @@ namespace HYPDM.WinUI.Parts
         private void btnSelect_Click(object sender, EventArgs e)
         {
             this.ViewFilter();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void cmDelete_Click(object sender, EventArgs e)
@@ -176,6 +187,40 @@ namespace HYPDM.WinUI.Parts
             HYPDM.Entities.PDM_FILTER filter = row.DataBoundItem as HYPDM.Entities.PDM_FILTER;
 
             filter.Delete();
+        }
+
+        private void dgvFilterList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    for (int i = 0; i < this.dgvFilterList.RowCount; i++)
+                    {
+                        dgvFilterList.Rows[i].Cells[0].Value = false;
+                    }
+                    dgvFilterList.Rows[e.RowIndex].Cells[0].Value = true;
+                    //若行已是选中状态就不再进行设置
+                    if (dgvFilterList.Rows[e.RowIndex].Selected == false)
+                    {
+                        dgvFilterList.ClearSelection();
+                        dgvFilterList.Rows[e.RowIndex].Selected = true;
+                    }
+                    //只选中一行时设置活动单元格
+                    if (dgvFilterList.SelectedRows.Count == 1)
+                    {
+                        dgvFilterList.CurrentCell = dgvFilterList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    }
+                    //弹出操作菜单
+                    cmFilter.Show(MousePosition.X, MousePosition.Y);
+                }
+            }
+        }
+
+        private void cmSelect_Click(object sender, EventArgs e)
+        {
+            this.ViewFilter();
+            this.DialogResult = DialogResult.OK;
         }
 
     }

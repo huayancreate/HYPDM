@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using HYPDM.Entities;
+using System.Data;
 
 namespace HYPDM.BLL
 {
@@ -18,5 +19,7 @@ namespace HYPDM.BLL
         /// <param name="productID"></param>
         /// <returns></returns>
         IList<PDM_FILTER> getFilterList(String productID);
+
+        //DataTable GetDataTable(string productID);
     }
 }

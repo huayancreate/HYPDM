@@ -7,6 +7,7 @@ using HYPDM.Entities;
 using EAS.Data.ORM;
 using EAS.Data.Access;
 using EAS.Data.Linq;
+using System.Data;
 
 namespace HYPDM.BLL
 {
@@ -54,5 +55,13 @@ namespace HYPDM.BLL
 
             return p.ToList();
         }
+
+
+        //public DataTable GetDataTable(string productID)
+        //{
+        //    var str = "SELECT * FROM PDM_FILTER WHERE OWNERSHIP = 'PUBLIC' || PRODUCTID=" + productID;
+        //    DataTable dt = this.DataAccessor.QueryDataTable(str);
+        //    return dt;
+        //}
     }
 }

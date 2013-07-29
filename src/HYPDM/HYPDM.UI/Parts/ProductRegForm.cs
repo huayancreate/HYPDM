@@ -24,15 +24,20 @@ namespace HYPDM.WinUI.Parts
         IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         IPartsService _partsService = ServiceContainer.GetService<IPartsService>();
+        IFilterService _filterService = ServiceContainer.GetService<IFilterService>();
         protected int closed = 0;
         protected bool valueChanged = false;
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         IProductService _proService = ServiceContainer.GetService<IProductService>();
         private HYPDM.Entities.PDM_PRODUCT product;
+        private Dictionary<int, PDM_FILTER> dic = new Dictionary<int, PDM_FILTER>();
 
         public ProductRegForm()
         {
             InitializeComponent();
+            tbcContent.TabPages.Remove(tpDoc);
+            tbcContent.TabPages.Remove(tpDrawing);
+            tbcContent.TabPages.Remove(tpProStruct);
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -72,6 +77,9 @@ namespace HYPDM.WinUI.Parts
             // 产品已存在
             if (this.Product != null)
             {
+                tbcContent.TabPages.Add(tpDoc);
+                tbcContent.TabPages.Add(tpDrawing);
+                tbcContent.TabPages.Add(tpProStruct);
                 this.Text = "产品  " + this.Product.PRONO;
                 // 清除按钮不可用
                 this.btnClear.Enabled = false;
@@ -101,8 +109,28 @@ namespace HYPDM.WinUI.Parts
                 this.docBindingSource.DataSource = null;
                 this.docBindingSource.DataSource = documentList;
 
+                // 初始化产品结构列表
                 InitProStructList();
+                
+                // 初始化过滤器列表
+                InitFilterList();
+            }
+        }
 
+        private void InitFilterList()
+        {
+            IList<PDM_FILTER> filterList;
+            int index = 0;
+            if (this.product != null)
+            {
+                filterList = _filterService.getFilterList(this.Product.PRODUCTID);
+                foreach (PDM_FILTER filter in filterList)
+                {
+                    tsCobFilter.Items.Add("["+filter.FILTERNAME + "," + filter.OWNERSHIP + "]");
+                    dic.Add(index, filter);
+                    index++;
+                }
+                tsCobFilter.SelectedIndex = 0;
             }
         }
 
@@ -241,7 +269,7 @@ namespace HYPDM.WinUI.Parts
             }
             if(!hasSelectedFlg)
             {
-                MessageBox.Show("请选择一天数据");
+                MessageBox.Show("请选择一条数据");
             }
         }
 
@@ -699,9 +727,43 @@ namespace HYPDM.WinUI.Parts
             o.StartPosition = FormStartPosition.CenterParent;
             if(o.ShowDialog() == DialogResult.OK)
             {
-
+                PDM_FILTER filter = o.Filter;
+                String filterID = filter.ID;
+                this.RelodFilterList(filterID);
             }
         }
 
+        private void RelodFilterList(String filterID)
+        {
+            tsCobFilter.Items.Clear();
+            IList<PDM_FILTER> filterList;
+            int index = 0;
+            bool hasFoundFlg = false;
+            if (this.product != null)
+            {
+                filterList = _filterService.getFilterList(this.Product.PRODUCTID);
+                foreach (PDM_FILTER filter in filterList)
+                {
+                    tsCobFilter.Items.Add("[" + filter.FILTERNAME + "," + filter.OWNERSHIP + "]");
+                    if (!hasFoundFlg)
+                    {
+                        if (filter.ID == filterID)
+                        {
+ 
+                        }
+                    }
+                    if (!hasFoundFlg && (filter.ID == filterID))
+                    {
+                        hasFoundFlg = true;
+                        tsCobFilter.SelectedIndex = index;
+                    }
+                    if (!hasFoundFlg)
+                    {
+                        index++;
+                    }
+                }
+                
+            }
+        }
     }
 }
