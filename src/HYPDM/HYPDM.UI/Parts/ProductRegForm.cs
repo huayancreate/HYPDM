@@ -19,6 +19,7 @@ namespace HYPDM.WinUI.Parts
     {
         public static string productID;
         public static int rowIndex;
+        // 打开连接零部件画面，是为了新增还是替换产品关系。true：新增；false：替换
         public static bool addFlg;
         public static string proStructID;
         IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
@@ -120,9 +121,10 @@ namespace HYPDM.WinUI.Parts
         private void InitFilterList()
         {
             IList<PDM_FILTER> filterList;
-            int index = 0;
+            int index = 1;
             if (this.product != null)
             {
+                tsCobFilter.Items.Add("");
                 filterList = _filterService.getFilterList(this.Product.PRODUCTID);
                 foreach (PDM_FILTER filter in filterList)
                 {
@@ -155,6 +157,9 @@ namespace HYPDM.WinUI.Parts
                     partsDetail.SpecificationCode = parList[0].SPECIFICATIONCODE;
                     partsDetail.SingleNetweight = parList[0].SINGLENETWEIGHT;
                     partsDetail.Description = parList[0].DESCRIPTION;
+                    partsDetail.CreateDate = parList[0].CREATEDATE;
+                    partsDetail.LastUpdateDate = parList[0].LASTUPDATEDATE;
+                    partsDetail.LastUpdateUser = parList[0].LASTUPDATEUSER;
                     partsDetail.SortCode = proStruct.SORTCODE;
                     partsDetail.Quantity = proStruct.QUANTITY;
                     partsDetail.Remark = proStruct.REMARK;
@@ -366,13 +371,27 @@ namespace HYPDM.WinUI.Parts
         /// <param name="e"></param>
         private void tsBtnAdd_Click(object sender, EventArgs e)
         {
+            // 没有产品结构时,新增一条数据
+            if (this.dgvPartsList.RowCount == 0)
+            {
+                rowIndex = 0;
+                this.proStructAdd();
+                return;
+            }
+            bool hasSelectedFlg = false;
             for (int i = 0; i < this.dgvPartsList.RowCount; i++)
             {
                 if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
                     rowIndex = i + 1;
+                    hasSelectedFlg = true;
                     break;
                 }
+            }
+            if (!hasSelectedFlg)
+            {
+                MessageBox.Show("请选择一条数据");
+                return;
             }
             this.proStructAdd();
         }
@@ -410,6 +429,9 @@ namespace HYPDM.WinUI.Parts
                     partsDetail.SpecificationCode = parList[0].SPECIFICATIONCODE;
                     partsDetail.SingleNetweight = parList[0].SINGLENETWEIGHT;
                     partsDetail.Description = parList[0].DESCRIPTION;
+                    partsDetail.CreateDate = parList[0].CREATEDATE;
+                    partsDetail.LastUpdateDate = parList[0].LASTUPDATEDATE;
+                    partsDetail.LastUpdateUser = parList[0].LASTUPDATEUSER;
                     partsDetail.SortCode = proStruct.SORTCODE;
                     partsDetail.Quantity = proStruct.QUANTITY;
                     partsDetail.Remark = proStruct.REMARK;
@@ -472,51 +494,69 @@ namespace HYPDM.WinUI.Parts
         /// <summary>
         /// 删除产品结构
         /// </summary>
-        private void delProStructList()
+        private void delProStructList(String proStructID)
+        {
+            IList<PDM_PRODUCT_STRUCT> proStrList =
+                _proStructService.getProStructListByID(proStructID);
+            if (proStrList.Count > 0)
+            {
+                _proStructService.delProStruct(proStrList);
+                this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
+                for (int j = 0; j < this.proStructList.Count; j++)
+                {
+                    proStructList[j].SORTCODE = j.ToString();
+                }
+                _proStructService.ProStructSave(this.proStructList);
+                InitProStructList();
+            }
+            
+        }
+
+        private void tsBtnDelete_Click(object sender, EventArgs e)
         {
             bool hasSelectedFlg = false;
-            for (int i = 0; i < dgvPartsList.RowCount; i++)
+            String proStructID = "";
+            for (int i = 0; i < dgvPartsList.RowCount;i++ )
             {
                 if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
+                    proStructID = dgvPartsList.Rows[i].Cells["ProStructID"].Value.ToString();
                     hasSelectedFlg = true;
-                    String proStructID = dgvPartsList.Rows[i].Cells["ProStructID"].Value.ToString();
-                    IList<PDM_PRODUCT_STRUCT> proStrList =
-                        _proStructService.getProStructListByID(proStructID);
-                    if (proStrList.Count > 0)
-                    {
-                        _proStructService.delProStruct(proStrList);
-                        this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
-                        for (int j = 0; j < this.proStructList.Count; j++)
-                        {
-                            proStructList[j].SORTCODE = j.ToString();
-                        }
-                        _proStructService.ProStructSave(this.proStructList);
-                        InitProStructList();
-                        //dgvPartsList.Rows.RemoveAt(i);
-                    }
                     break;
                 }
             }
             if (!hasSelectedFlg)
             {
                 MessageBox.Show("请选择一条数据");
+                return;
             }
-        }
-
-        private void tsBtnDelete_Click(object sender, EventArgs e)
-        {
             if (MessageBox.Show("所选对象的关联信息将被删除，确定吗？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                this.delProStructList();
+                this.delProStructList(proStructID);
             }
         }
 
         private void cmStructDelete_Click(object sender, EventArgs e)
         {
+            bool hasSelectedFlg = false;
+            String proStructID = "";
+            for (int i = 0; i < dgvPartsList.RowCount; i++)
+            {
+                if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    proStructID = dgvPartsList.Rows[i].Cells["ProStructID"].Value.ToString();
+                    hasSelectedFlg = true;
+                    break;
+                }
+            }
+            if (!hasSelectedFlg)
+            {
+                MessageBox.Show("请选择一条数据");
+                return;
+            }
             if (MessageBox.Show("所选对象的关联信息将被删除，确定吗？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                this.delProStructList();
+                this.delProStructList(proStructID);
             }
         }
 
@@ -659,39 +699,60 @@ namespace HYPDM.WinUI.Parts
 
         private void cmAddNext_Click(object sender, EventArgs e)
         {
+            bool hasSelectedFlg = false;
             for (int i = 0; i < this.dgvPartsList.RowCount; i++)
             {
                 if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
                     rowIndex = i + 1;
+                    hasSelectedFlg = true;
                     break;
                 }
+            }
+            if (!hasSelectedFlg)
+            {
+                MessageBox.Show("请选择一条数据");
+                return;
             }
             this.proStructAdd();
         }
 
         private void tsBtnInsert_Click(object sender, EventArgs e)
         {
+            bool hasSelectedFlg = false;
             for (int i = 0; i < this.dgvPartsList.RowCount; i++)
             {
                 if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
                     rowIndex = i;
+                    hasSelectedFlg = true;
                     break;
                 }
+            }
+            if (!hasSelectedFlg)
+            {
+                MessageBox.Show("请选择一条数据");
+                return;
             }
             this.proStructAdd();
         }
 
         private void cmInsert_Click(object sender, EventArgs e)
         {
+            bool hasSelectedFlg = false;
             for (int i = 0; i < this.dgvPartsList.RowCount; i++)
             {
                 if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
                     rowIndex = i;
+                    hasSelectedFlg = true;
                     break;
                 }
+            }
+            if (!hasSelectedFlg)
+            {
+                MessageBox.Show("请选择一条数据");
+                return;
             }
             this.proStructAdd();
         }
@@ -704,13 +765,20 @@ namespace HYPDM.WinUI.Parts
         private void CmReplaceWith_Click(object sender, EventArgs e)
         {
             addFlg = false;
+            bool hasSelectedFlg = false;
             for (int i = 0; i < this.dgvPartsList.RowCount; i++)
             {
                 if ((bool)dgvPartsList.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
                     proStructID = dgvPartsList.Rows[i].Cells["ProStructID"].Value.ToString();
+                    hasSelectedFlg = true;
                     break;
                 }
+            }
+            if (!hasSelectedFlg)
+            {
+                MessageBox.Show("请选择一条数据");
+                return;
             }
             ProductStructForm o = new ProductStructForm();
             o.StartPosition = FormStartPosition.CenterParent;
@@ -737,32 +805,100 @@ namespace HYPDM.WinUI.Parts
         {
             tsCobFilter.Items.Clear();
             IList<PDM_FILTER> filterList;
-            int index = 0;
+            int index = 1;
             bool hasFoundFlg = false;
             if (this.product != null)
             {
+                tsCobFilter.Items.Add("");
+                dic.Clear();
                 filterList = _filterService.getFilterList(this.Product.PRODUCTID);
                 foreach (PDM_FILTER filter in filterList)
                 {
                     tsCobFilter.Items.Add("[" + filter.FILTERNAME + "," + filter.OWNERSHIP + "]");
+                    dic.Add(index, filter);
                     if (!hasFoundFlg)
                     {
                         if (filter.ID == filterID)
                         {
- 
+                            hasFoundFlg = true;
+                            tsCobFilter.SelectedIndex = index;
                         }
                     }
-                    if (!hasFoundFlg && (filter.ID == filterID))
-                    {
-                        hasFoundFlg = true;
-                        tsCobFilter.SelectedIndex = index;
-                    }
-                    if (!hasFoundFlg)
-                    {
-                        index++;
-                    }
+                    index++;
                 }
                 
+            }
+        }
+
+        private void getFilteredList(PDM_FILTER filter)
+        {
+            IList<PartsDetail> filteredList = new List<PartsDetail>();
+            // 判定一条数据是否可以被过滤的标志位
+            bool canBeDeleted = false;
+            // 编号过滤
+            if (partsDetailList.Count > 0)
+            {
+                foreach (PartsDetail partsDetail in partsDetailList)
+                {
+                    if (!canBeDeleted && filter.PARTSNO.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !filter.PARTSNO.Equals(partsDetail.PartsNo);
+                    }
+                    if (!canBeDeleted && filter.VERSION.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !filter.VERSION.Equals(partsDetail.Version);
+                    }
+                    if (!canBeDeleted && filter.FROMDATE.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !(DateTime.Parse(partsDetail.CreateDate) >= DateTime.Parse(filter.FROMDATE));
+                    }
+                    if (!canBeDeleted && filter.TODATE.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !(DateTime.Parse(partsDetail.CreateDate) <= DateTime.Parse(filter.TODATE));
+                    }
+                    if (!canBeDeleted && filter.SPECIFICATIONCODE.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !filter.SPECIFICATIONCODE.Equals(partsDetail.SpecificationCode);
+                    }
+                    if (!canBeDeleted && filter.DESCRIPTION.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !filter.DESCRIPTION.Equals(partsDetail.Description);
+                    }
+                    if (!canBeDeleted && filter.SINGLENETWEIGHT.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !filter.SINGLENETWEIGHT.Equals(partsDetail.SingleNetweight);
+                    }
+                    if (!canBeDeleted && filter.SURFACESOLVE.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !filter.SURFACESOLVE.Equals(partsDetail.SurfaceSolve);
+                    }
+                    if (!canBeDeleted && filter.SORTCODE.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !filter.SORTCODE.Equals(partsDetail.SortCode);
+                    }
+                    if (!canBeDeleted && filter.QUANTITY.Trim() != "")
+                    {
+                        canBeDeleted = canBeDeleted || !filter.QUANTITY.Equals(partsDetail.Quantity);
+                    }
+                    if (!canBeDeleted)
+                    {
+                        filteredList.Add(partsDetail);
+                    }
+                }
+            }
+
+            this.partsBindingSource.DataSource = null;
+            this.partsBindingSource.DataSource = filteredList;
+        }
+
+        private void tsCobFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.InitProStructList();
+            int selectedIndex = tsCobFilter.SelectedIndex;
+            if (selectedIndex > 0)
+            {
+                PDM_FILTER filter = dic[selectedIndex];
+                getFilteredList(filter);
             }
         }
     }

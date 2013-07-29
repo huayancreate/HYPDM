@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtLastUpdateDate = new System.Windows.Forms.TextBox();
@@ -81,6 +81,7 @@
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.tsBtnSaveResult = new System.Windows.Forms.ToolStripButton();
             this.tsBtnFilter = new System.Windows.Forms.ToolStripButton();
+            this.tsCobFilter = new System.Windows.Forms.ToolStripComboBox();
             this.tsProStruct = new System.Windows.Forms.ToolStripButton();
             this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
             this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
@@ -122,7 +123,6 @@
             this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eRPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsCobFilter = new System.Windows.Forms.ToolStripComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -384,7 +384,7 @@
             this.tpRemark.Location = new System.Drawing.Point(4, 21);
             this.tpRemark.Name = "tpRemark";
             this.tpRemark.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRemark.Size = new System.Drawing.Size(382, 259);
+            this.tpRemark.Size = new System.Drawing.Size(476, 259);
             this.tpRemark.TabIndex = 0;
             this.tpRemark.Text = "备注";
             // 
@@ -402,7 +402,7 @@
             this.tpDoc.Controls.Add(this.toolStrip2);
             this.tpDoc.Location = new System.Drawing.Point(4, 21);
             this.tpDoc.Name = "tpDoc";
-            this.tpDoc.Size = new System.Drawing.Size(459, 259);
+            this.tpDoc.Size = new System.Drawing.Size(476, 259);
             this.tpDoc.TabIndex = 1;
             this.tpDoc.Text = "文档";
             this.tpDoc.UseVisualStyleBackColor = true;
@@ -413,14 +413,14 @@
             this.dgvDoc.AllowUserToDeleteRows = false;
             this.dgvDoc.AutoGenerateColumns = false;
             this.dgvDoc.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChkBox,
@@ -526,7 +526,7 @@
             this.btnDelete});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(459, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(476, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -579,7 +579,7 @@
             // 
             this.tpDrawing.Location = new System.Drawing.Point(4, 21);
             this.tpDrawing.Name = "tpDrawing";
-            this.tpDrawing.Size = new System.Drawing.Size(459, 259);
+            this.tpDrawing.Size = new System.Drawing.Size(476, 259);
             this.tpDrawing.TabIndex = 2;
             this.tpDrawing.Text = "图纸";
             this.tpDrawing.UseVisualStyleBackColor = true;
@@ -630,6 +630,13 @@
             this.tsBtnFilter.Size = new System.Drawing.Size(61, 22);
             this.tsBtnFilter.Text = "过滤器";
             this.tsBtnFilter.Click += new System.EventHandler(this.tsBtnFilter_Click);
+            // 
+            // tsCobFilter
+            // 
+            this.tsCobFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tsCobFilter.Name = "tsCobFilter";
+            this.tsCobFilter.Size = new System.Drawing.Size(80, 25);
+            this.tsCobFilter.SelectedIndexChanged += new System.EventHandler(this.tsCobFilter_SelectedIndexChanged);
             // 
             // tsProStruct
             // 
@@ -965,12 +972,6 @@
             this.工艺权限ToolStripMenuItem.Name = "工艺权限ToolStripMenuItem";
             this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.工艺权限ToolStripMenuItem.Text = "工艺权限";
-            // 
-            // tsCobFilter
-            // 
-            this.tsCobFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tsCobFilter.Name = "tsCobFilter";
-            this.tsCobFilter.Size = new System.Drawing.Size(80, 20);
             // 
             // ProductRegForm
             // 

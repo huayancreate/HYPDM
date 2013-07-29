@@ -126,6 +126,13 @@ namespace HYPDM.Entities
             get { return lastUpdateDate; }
             set { lastUpdateDate = value; }
         }
-        
+
+        private String surfaceSolve;
+
+        public String SurfaceSolve
+        {
+            get { return surfaceSolve; }
+            set { surfaceSolve = value; }
+        }
     }
 }
