@@ -125,7 +125,7 @@ namespace HYPDM.WinUI.Parts
             if (this.product != null)
             {
                 tsCobFilter.Items.Add("");
-                filterList = _filterService.getFilterList(this.Product.PRODUCTID);
+                filterList = _filterService.getFilterList(this.Product.PRODUCTID ,"1");
                 foreach (PDM_FILTER filter in filterList)
                 {
                     tsCobFilter.Items.Add("["+filter.FILTERNAME + "," + filter.OWNERSHIP + "]");
@@ -139,7 +139,7 @@ namespace HYPDM.WinUI.Parts
         private void InitProStructList()
         {
             this.partsDetailList.Clear();
-            this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
+            this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID , "1");
             foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
             {
                 String partsID = proStruct.PARTSID;
@@ -403,6 +403,8 @@ namespace HYPDM.WinUI.Parts
             addFlg = true; ;
             ProductStructForm form = new ProductStructForm();
             form.StartPosition = FormStartPosition.CenterParent;
+            // 产品-零部件结构
+            form.IsProduct = "1";
             if (form.ShowDialog() == DialogResult.OK)
             {
                 this.reloadPartsList();
@@ -412,7 +414,7 @@ namespace HYPDM.WinUI.Parts
         private void reloadPartsList()
         {
             partsDetailList.Clear();
-            this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
+            this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID , "1");
             foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
             {
                 String partsID = proStruct.PARTSID;
@@ -501,7 +503,7 @@ namespace HYPDM.WinUI.Parts
             if (proStrList.Count > 0)
             {
                 _proStructService.delProStruct(proStrList);
-                this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID);
+                this.proStructList = _proStructService.GetProStructList(this.Product.PRODUCTID, "1");
                 for (int j = 0; j < this.proStructList.Count; j++)
                 {
                     proStructList[j].SORTCODE = j.ToString();
@@ -782,6 +784,7 @@ namespace HYPDM.WinUI.Parts
             }
             ProductStructForm o = new ProductStructForm();
             o.StartPosition = FormStartPosition.CenterParent;
+            o.IsProduct = "1";
             if(o.ShowDialog() == DialogResult.OK)
             {
                 this.reloadPartsList();
@@ -790,8 +793,7 @@ namespace HYPDM.WinUI.Parts
 
         private void tsBtnFilter_Click(object sender, EventArgs e)
         {
-            productID = this.Product.PRODUCTID;
-            ConnectionFilterForm o = new ConnectionFilterForm();
+            ConnectionFilterForm o = new ConnectionFilterForm(this.Product.PRODUCTID, "1");
             o.StartPosition = FormStartPosition.CenterParent;
             if(o.ShowDialog() == DialogResult.OK)
             {
@@ -811,7 +813,7 @@ namespace HYPDM.WinUI.Parts
             {
                 tsCobFilter.Items.Add("");
                 dic.Clear();
-                filterList = _filterService.getFilterList(this.Product.PRODUCTID);
+                filterList = _filterService.getFilterList(this.Product.PRODUCTID , "1");
                 foreach (PDM_FILTER filter in filterList)
                 {
                     tsCobFilter.Items.Add("[" + filter.FILTERNAME + "," + filter.OWNERSHIP + "]");
@@ -830,16 +832,17 @@ namespace HYPDM.WinUI.Parts
             }
         }
 
+        // 获取过滤器过滤后的查找结果
         private void getFilteredList(PDM_FILTER filter)
         {
             IList<PartsDetail> filteredList = new List<PartsDetail>();
-            // 判定一条数据是否可以被过滤的标志位
-            bool canBeDeleted = false;
             // 编号过滤
             if (partsDetailList.Count > 0)
             {
                 foreach (PartsDetail partsDetail in partsDetailList)
                 {
+                    // 判定一条数据是否可以被过滤的标志位
+                    bool canBeDeleted = false;
                     if (!canBeDeleted && filter.PARTSNO.Trim() != "")
                     {
                         canBeDeleted = canBeDeleted || !filter.PARTSNO.Equals(partsDetail.PartsNo);

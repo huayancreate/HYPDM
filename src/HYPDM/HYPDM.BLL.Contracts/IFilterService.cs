@@ -18,7 +18,7 @@ namespace HYPDM.BLL
         /// </summary>
         /// <param name="productID"></param>
         /// <returns></returns>
-        IList<PDM_FILTER> getFilterList(String productID);
+        IList<PDM_FILTER> getFilterList(String productID ,String isProduct);
 
         //DataTable GetDataTable(string productID);
     }

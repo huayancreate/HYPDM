@@ -28,61 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SemiProductRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsBtnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.tsBtnClear = new System.Windows.Forms.ToolStripButton();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tbcContent = new System.Windows.Forms.TabControl();
+            this.tpProcess = new System.Windows.Forms.TabPage();
+            this.tpProductionInfo = new System.Windows.Forms.TabPage();
+            this.txtUpdateDate = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtTechnologist = new System.Windows.Forms.TextBox();
+            this.txtTechRoute = new System.Windows.Forms.TextBox();
+            this.cobVirtualPart = new System.Windows.Forms.ComboBox();
+            this.cobSource = new System.Windows.Forms.ComboBox();
+            this.cobSurfaceSolve = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tpProStruct = new System.Windows.Forms.TabPage();
+            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
+            this.tsBtnSaveResult = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnFilter = new System.Windows.Forms.ToolStripButton();
+            this.tsCobFilter = new System.Windows.Forms.ToolStripComboBox();
+            this.tsBtnProStruct = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnInsert = new System.Windows.Forms.ToolStripButton();
+            this.dgvPartsList = new System.Windows.Forms.DataGridView();
+            this.ChkProStruct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ProStructID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SortCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpecificationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SingleNetweight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartsStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnProStructSearch = new System.Windows.Forms.Button();
+            this.txtQuery = new System.Windows.Forms.TextBox();
+            this.cobQuery = new System.Windows.Forms.ComboBox();
+            this.tpDoc = new System.Windows.Forms.TabPage();
+            this.tpECR = new System.Windows.Forms.TabPage();
+            this.tpDrawing = new System.Windows.Forms.TabPage();
+            this.tpMaterialConsuption = new System.Windows.Forms.TabPage();
+            this.tpVersion = new System.Windows.Forms.TabPage();
+            this.tpHistory = new System.Windows.Forms.TabPage();
+            this.tpCandidate = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cobTexture = new System.Windows.Forms.ComboBox();
@@ -116,28 +121,45 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.cmParts = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmPartsAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmStruct = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmProStruct = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmAddNext = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmStructDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CmReplaceWith = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.展开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.发送ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.注册流程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eRPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.toolStrip4.SuspendLayout();
-            this.tabControl3.SuspendLayout();
-            this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.toolStrip3.SuspendLayout();
+            this.tbcContent.SuspendLayout();
+            this.tpProductionInfo.SuspendLayout();
+            this.toolStrip5.SuspendLayout();
+            this.tpRemark.SuspendLayout();
+            this.tpProStruct.SuspendLayout();
+            this.toolStrip6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.cmParts.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.tabControl2);
+            this.panel1.Controls.Add(this.tbcContent);
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -192,42 +214,185 @@
             this.tsBtnClear.Text = "清除";
             this.tsBtnClear.Click += new System.EventHandler(this.tsBtnClear_Click);
             // 
-            // tabControl2
+            // tbcContent
             // 
-            this.tabControl2.Controls.Add(this.tabPage2);
-            this.tabControl2.Controls.Add(this.tabPage3);
-            this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Controls.Add(this.tabPage8);
-            this.tabControl2.Controls.Add(this.tabPage9);
-            this.tabControl2.Location = new System.Drawing.Point(244, 33);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(488, 409);
-            this.tabControl2.TabIndex = 5;
+            this.tbcContent.Controls.Add(this.tpProcess);
+            this.tbcContent.Controls.Add(this.tpProductionInfo);
+            this.tbcContent.Controls.Add(this.tpRemark);
+            this.tbcContent.Controls.Add(this.tpProStruct);
+            this.tbcContent.Controls.Add(this.tpDoc);
+            this.tbcContent.Controls.Add(this.tpECR);
+            this.tbcContent.Controls.Add(this.tpDrawing);
+            this.tbcContent.Controls.Add(this.tpMaterialConsuption);
+            this.tbcContent.Controls.Add(this.tpVersion);
+            this.tbcContent.Controls.Add(this.tpHistory);
+            this.tbcContent.Controls.Add(this.tpCandidate);
+            this.tbcContent.Location = new System.Drawing.Point(244, 33);
+            this.tbcContent.Name = "tbcContent";
+            this.tbcContent.SelectedIndex = 0;
+            this.tbcContent.Size = new System.Drawing.Size(488, 409);
+            this.tbcContent.TabIndex = 5;
             // 
-            // tabPage2
+            // tpProcess
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 21);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(480, 384);
-            this.tabPage2.TabIndex = 0;
-            this.tabPage2.Text = "ERP属性";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpProcess.Location = new System.Drawing.Point(4, 21);
+            this.tpProcess.Name = "tpProcess";
+            this.tpProcess.Padding = new System.Windows.Forms.Padding(3);
+            this.tpProcess.Size = new System.Drawing.Size(480, 384);
+            this.tpProcess.TabIndex = 0;
+            this.tpProcess.Text = "工序工时表";
+            this.tpProcess.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // tpProductionInfo
             // 
-            this.tabPage3.Controls.Add(this.txtRemark);
-            this.tabPage3.Location = new System.Drawing.Point(4, 21);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(480, 384);
-            this.tabPage3.TabIndex = 1;
-            this.tabPage3.Text = "备注";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tpProductionInfo.Controls.Add(this.txtUpdateDate);
+            this.tpProductionInfo.Controls.Add(this.label24);
+            this.tpProductionInfo.Controls.Add(this.txtTechnologist);
+            this.tpProductionInfo.Controls.Add(this.txtTechRoute);
+            this.tpProductionInfo.Controls.Add(this.cobVirtualPart);
+            this.tpProductionInfo.Controls.Add(this.cobSource);
+            this.tpProductionInfo.Controls.Add(this.cobSurfaceSolve);
+            this.tpProductionInfo.Controls.Add(this.label23);
+            this.tpProductionInfo.Controls.Add(this.label22);
+            this.tpProductionInfo.Controls.Add(this.label21);
+            this.tpProductionInfo.Controls.Add(this.label20);
+            this.tpProductionInfo.Controls.Add(this.label12);
+            this.tpProductionInfo.Controls.Add(this.toolStrip5);
+            this.tpProductionInfo.Location = new System.Drawing.Point(4, 21);
+            this.tpProductionInfo.Name = "tpProductionInfo";
+            this.tpProductionInfo.Size = new System.Drawing.Size(480, 384);
+            this.tpProductionInfo.TabIndex = 10;
+            this.tpProductionInfo.Text = "生产信息";
+            this.tpProductionInfo.UseVisualStyleBackColor = true;
+            // 
+            // txtUpdateDate
+            // 
+            this.txtUpdateDate.Location = new System.Drawing.Point(332, 131);
+            this.txtUpdateDate.Name = "txtUpdateDate";
+            this.txtUpdateDate.Size = new System.Drawing.Size(145, 21);
+            this.txtUpdateDate.TabIndex = 12;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(273, 134);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 12);
+            this.label24.TabIndex = 11;
+            this.label24.Text = "修改日期";
+            // 
+            // txtTechnologist
+            // 
+            this.txtTechnologist.Location = new System.Drawing.Point(111, 131);
+            this.txtTechnologist.Name = "txtTechnologist";
+            this.txtTechnologist.Size = new System.Drawing.Size(156, 21);
+            this.txtTechnologist.TabIndex = 10;
+            // 
+            // txtTechRoute
+            // 
+            this.txtTechRoute.Location = new System.Drawing.Point(111, 107);
+            this.txtTechRoute.Name = "txtTechRoute";
+            this.txtTechRoute.Size = new System.Drawing.Size(366, 21);
+            this.txtTechRoute.TabIndex = 9;
+            // 
+            // cobVirtualPart
+            // 
+            this.cobVirtualPart.FormattingEnabled = true;
+            this.cobVirtualPart.Location = new System.Drawing.Point(111, 83);
+            this.cobVirtualPart.Name = "cobVirtualPart";
+            this.cobVirtualPart.Size = new System.Drawing.Size(156, 20);
+            this.cobVirtualPart.TabIndex = 8;
+            // 
+            // cobSource
+            // 
+            this.cobSource.FormattingEnabled = true;
+            this.cobSource.Location = new System.Drawing.Point(111, 59);
+            this.cobSource.Name = "cobSource";
+            this.cobSource.Size = new System.Drawing.Size(156, 20);
+            this.cobSource.TabIndex = 7;
+            // 
+            // cobSurfaceSolve
+            // 
+            this.cobSurfaceSolve.FormattingEnabled = true;
+            this.cobSurfaceSolve.Location = new System.Drawing.Point(111, 35);
+            this.cobSurfaceSolve.Name = "cobSurfaceSolve";
+            this.cobSurfaceSolve.Size = new System.Drawing.Size(156, 20);
+            this.cobSurfaceSolve.TabIndex = 6;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(12, 134);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(53, 12);
+            this.label23.TabIndex = 5;
+            this.label23.Text = "工艺人员";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(12, 110);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(77, 12);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "分厂工艺路线";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(12, 86);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(41, 12);
+            this.label21.TabIndex = 3;
+            this.label21.Text = "虚拟件";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(12, 62);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(59, 12);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "自制/外购";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 38);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "表面处理";
+            // 
+            // toolStrip5
+            // 
+            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip5.Name = "toolStrip5";
+            this.toolStrip5.Size = new System.Drawing.Size(480, 25);
+            this.toolStrip5.TabIndex = 0;
+            this.toolStrip5.Text = "toolStrip5";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // tpRemark
+            // 
+            this.tpRemark.Controls.Add(this.txtRemark);
+            this.tpRemark.Location = new System.Drawing.Point(4, 21);
+            this.tpRemark.Name = "tpRemark";
+            this.tpRemark.Padding = new System.Windows.Forms.Padding(3);
+            this.tpRemark.Size = new System.Drawing.Size(480, 384);
+            this.tpRemark.TabIndex = 1;
+            this.tpRemark.Text = "备注";
+            this.tpRemark.UseVisualStyleBackColor = true;
             // 
             // txtRemark
             // 
@@ -237,404 +402,309 @@
             this.txtRemark.Size = new System.Drawing.Size(437, 285);
             this.txtRemark.TabIndex = 0;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 21);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(480, 384);
-            this.tabPage4.TabIndex = 2;
-            this.tabPage4.Text = "文档";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 21);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(480, 384);
-            this.tabPage5.TabIndex = 3;
-            this.tabPage5.Text = "变更请求";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 21);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(480, 384);
-            this.tabPage6.TabIndex = 4;
-            this.tabPage6.Text = "图纸";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 21);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(480, 384);
-            this.tabPage7.TabIndex = 5;
-            this.tabPage7.Text = "工艺路线";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.panel2);
-            this.tabPage8.Controls.Add(this.tabControl3);
-            this.tabPage8.Controls.Add(this.dataGridView1);
-            this.tabPage8.Controls.Add(this.button1);
-            this.tabPage8.Controls.Add(this.textBox4);
-            this.tabPage8.Controls.Add(this.comboBox5);
-            this.tabPage8.Controls.Add(this.toolStrip3);
-            this.tabPage8.Location = new System.Drawing.Point(4, 21);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(480, 384);
-            this.tabPage8.TabIndex = 6;
-            this.tabPage8.Text = "产品结构";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.toolStrip4);
-            this.panel2.Location = new System.Drawing.Point(5, 203);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(450, 21);
-            this.panel2.TabIndex = 6;
-            // 
-            // toolStrip4
-            // 
-            this.toolStrip4.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton16,
-            this.toolStripButton17});
-            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(450, 25);
-            this.toolStrip4.TabIndex = 0;
-            this.toolStrip4.Text = "toolStrip4";
-            // 
-            // toolStripButton16
-            // 
-            this.toolStripButton16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton16.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton16.Image")));
-            this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton16.Text = "toolStripButton16";
-            // 
-            // toolStripButton17
-            // 
-            this.toolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton17.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton17.Image")));
-            this.toolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton17.Name = "toolStripButton17";
-            this.toolStripButton17.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton17.Text = "toolStripButton17";
-            // 
-            // tabControl3
-            // 
-            this.tabControl3.Controls.Add(this.tabPage10);
-            this.tabControl3.Location = new System.Drawing.Point(3, 230);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(456, 162);
-            this.tabControl3.TabIndex = 5;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.tabPage10.Controls.Add(this.textBox9);
-            this.tabPage10.Controls.Add(this.textBox6);
-            this.tabPage10.Controls.Add(this.label19);
-            this.tabPage10.Controls.Add(this.comboBox6);
-            this.tabPage10.Controls.Add(this.label18);
-            this.tabPage10.Controls.Add(this.label17);
-            this.tabPage10.Controls.Add(this.textBox5);
-            this.tabPage10.Controls.Add(this.label16);
-            this.tabPage10.Location = new System.Drawing.Point(4, 21);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(448, 137);
-            this.tabPage10.TabIndex = 0;
-            this.tabPage10.Text = "使用信息";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(307, 6);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(138, 21);
-            this.textBox9.TabIndex = 7;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(94, 68);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(138, 49);
-            this.textBox6.TabIndex = 6;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(15, 71);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(29, 12);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "备注";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(94, 37);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(138, 20);
-            this.comboBox6.TabIndex = 4;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 40);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(53, 12);
-            this.label18.TabIndex = 3;
-            this.label18.Text = "材料类型";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(262, 9);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(29, 12);
-            this.label17.TabIndex = 2;
-            this.label17.Text = "数量";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(94, 6);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(138, 21);
-            this.textBox5.TabIndex = 1;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 9);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(29, 12);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "顺序";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 60);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(456, 138);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 30;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "品号";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "顺序";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 80;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "数量";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 80;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "版本";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 80;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "品名";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "工艺路线品号";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 80;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "工艺路线编号";
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 80;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(418, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 23);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(161, 35);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(155, 21);
-            this.textBox4.TabIndex = 2;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(15, 35);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 20);
-            this.comboBox5.TabIndex = 1;
-            // 
-            // toolStrip3
-            // 
-            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton8,
-            this.toolStripButton9,
-            this.toolStripButton10,
-            this.toolStripDropDownButton1,
-            this.toolStripButton11,
-            this.toolStripButton12,
-            this.toolStripSplitButton1,
-            this.toolStripButton13,
-            this.toolStripButton14,
-            this.toolStripButton15});
-            this.toolStrip3.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(480, 25);
-            this.toolStrip3.TabIndex = 0;
-            this.toolStrip3.Text = "toolStrip3";
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "toolStripButton8";
-            // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton9.Text = "toolStripButton9";
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton10.Text = "toolStripButton10";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
-            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
-            // toolStripButton11
-            // 
-            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
-            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton11.Text = "toolStripButton11";
-            // 
-            // toolStripButton12
-            // 
-            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
-            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton12.Name = "toolStripButton12";
-            this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton12.Text = "toolStripButton12";
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
-            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
-            // 
-            // toolStripButton13
-            // 
-            this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton13.Image")));
-            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton13.Name = "toolStripButton13";
-            this.toolStripButton13.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton13.Text = "toolStripButton13";
-            // 
-            // toolStripButton14
-            // 
-            this.toolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton14.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton14.Image")));
-            this.toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton14.Name = "toolStripButton14";
-            this.toolStripButton14.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton14.Text = "toolStripButton14";
-            // 
-            // toolStripButton15
-            // 
-            this.toolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton15.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton15.Image")));
-            this.toolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton15.Name = "toolStripButton15";
-            this.toolStripButton15.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton15.Text = "toolStripButton15";
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 21);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(480, 384);
-            this.tabPage9.TabIndex = 7;
-            this.tabPage9.Text = "版本";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            // tpProStruct
+            // 
+            this.tpProStruct.Controls.Add(this.toolStrip6);
+            this.tpProStruct.Controls.Add(this.dgvPartsList);
+            this.tpProStruct.Controls.Add(this.btnProStructSearch);
+            this.tpProStruct.Controls.Add(this.txtQuery);
+            this.tpProStruct.Controls.Add(this.cobQuery);
+            this.tpProStruct.Location = new System.Drawing.Point(4, 21);
+            this.tpProStruct.Name = "tpProStruct";
+            this.tpProStruct.Size = new System.Drawing.Size(480, 384);
+            this.tpProStruct.TabIndex = 11;
+            this.tpProStruct.Text = "产品结构";
+            this.tpProStruct.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip6
+            // 
+            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsBtnSaveResult,
+            this.tsBtnFilter,
+            this.tsCobFilter,
+            this.tsBtnProStruct,
+            this.tsBtnAdd,
+            this.tsBtnDelete,
+            this.tsBtnInsert});
+            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip6.Name = "toolStrip6";
+            this.toolStrip6.Size = new System.Drawing.Size(480, 25);
+            this.toolStrip6.TabIndex = 5;
+            this.toolStrip6.Text = "toolStrip6";
+            // 
+            // tsBtnSaveResult
+            // 
+            this.tsBtnSaveResult.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSaveResult.Image")));
+            this.tsBtnSaveResult.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnSaveResult.Name = "tsBtnSaveResult";
+            this.tsBtnSaveResult.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnSaveResult.Text = "保存";
+            // 
+            // tsBtnFilter
+            // 
+            this.tsBtnFilter.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnFilter.Image")));
+            this.tsBtnFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnFilter.Name = "tsBtnFilter";
+            this.tsBtnFilter.Size = new System.Drawing.Size(61, 22);
+            this.tsBtnFilter.Text = "过滤器";
+            this.tsBtnFilter.Click += new System.EventHandler(this.tsBtnFilter_Click);
+            // 
+            // tsCobFilter
+            // 
+            this.tsCobFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tsCobFilter.Name = "tsCobFilter";
+            this.tsCobFilter.Size = new System.Drawing.Size(80, 25);
+            this.tsCobFilter.SelectedIndexChanged += new System.EventHandler(this.tsCobFilter_SelectedIndexChanged);
+            // 
+            // tsBtnProStruct
+            // 
+            this.tsBtnProStruct.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnProStruct.Image")));
+            this.tsBtnProStruct.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnProStruct.Name = "tsBtnProStruct";
+            this.tsBtnProStruct.Size = new System.Drawing.Size(73, 22);
+            this.tsBtnProStruct.Text = "产品结构";
+            this.tsBtnProStruct.Click += new System.EventHandler(this.tsBtnProStruct_Click);
+            // 
+            // tsBtnAdd
+            // 
+            this.tsBtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAdd.Image")));
+            this.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnAdd.Name = "tsBtnAdd";
+            this.tsBtnAdd.Size = new System.Drawing.Size(73, 22);
+            this.tsBtnAdd.Text = "添加下层";
+            this.tsBtnAdd.Click += new System.EventHandler(this.tsBtnAdd_Click);
+            // 
+            // tsBtnDelete
+            // 
+            this.tsBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnDelete.Image")));
+            this.tsBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnDelete.Name = "tsBtnDelete";
+            this.tsBtnDelete.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnDelete.Text = "删除";
+            this.tsBtnDelete.Click += new System.EventHandler(this.tsBtnDelete_Click);
+            // 
+            // tsBtnInsert
+            // 
+            this.tsBtnInsert.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnInsert.Image")));
+            this.tsBtnInsert.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnInsert.Name = "tsBtnInsert";
+            this.tsBtnInsert.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnInsert.Text = "插入";
+            this.tsBtnInsert.Click += new System.EventHandler(this.tsBtnInsert_Click);
+            // 
+            // dgvPartsList
+            // 
+            this.dgvPartsList.AllowUserToAddRows = false;
+            this.dgvPartsList.AllowUserToDeleteRows = false;
+            this.dgvPartsList.AutoGenerateColumns = false;
+            this.dgvPartsList.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dgvPartsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPartsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ChkProStruct,
+            this.ProStructID,
+            this.PartsID,
+            this.PartsNo,
+            this.Version,
+            this.SortCode,
+            this.SpecificationCode,
+            this.PartsDescription,
+            this.Quantity,
+            this.SingleNetweight,
+            this.PartsStatus,
+            this.Remark});
+            this.dgvPartsList.DataSource = this.partsBindingSource;
+            this.dgvPartsList.Location = new System.Drawing.Point(3, 57);
+            this.dgvPartsList.MultiSelect = false;
+            this.dgvPartsList.Name = "dgvPartsList";
+            this.dgvPartsList.ReadOnly = true;
+            this.dgvPartsList.RowHeadersVisible = false;
+            this.dgvPartsList.RowTemplate.Height = 23;
+            this.dgvPartsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPartsList.Size = new System.Drawing.Size(470, 324);
+            this.dgvPartsList.TabIndex = 4;
+            this.dgvPartsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPartsList_CellClick);
+            this.dgvPartsList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPartsList_CellMouseDown);
+            // 
+            // ChkProStruct
+            // 
+            this.ChkProStruct.HeaderText = "";
+            this.ChkProStruct.Name = "ChkProStruct";
+            this.ChkProStruct.ReadOnly = true;
+            this.ChkProStruct.Width = 30;
+            // 
+            // ProStructID
+            // 
+            this.ProStructID.DataPropertyName = "ProStructID";
+            this.ProStructID.HeaderText = "ProStructID";
+            this.ProStructID.Name = "ProStructID";
+            this.ProStructID.ReadOnly = true;
+            this.ProStructID.Visible = false;
+            // 
+            // PartsID
+            // 
+            this.PartsID.DataPropertyName = "PartsID";
+            this.PartsID.HeaderText = "PartsID";
+            this.PartsID.Name = "PartsID";
+            this.PartsID.ReadOnly = true;
+            this.PartsID.Visible = false;
+            // 
+            // PartsNo
+            // 
+            this.PartsNo.DataPropertyName = "PartsNo";
+            this.PartsNo.HeaderText = "编号";
+            this.PartsNo.Name = "PartsNo";
+            this.PartsNo.ReadOnly = true;
+            this.PartsNo.Width = 80;
+            // 
+            // Version
+            // 
+            this.Version.DataPropertyName = "Version";
+            this.Version.HeaderText = "版本";
+            this.Version.Name = "Version";
+            this.Version.ReadOnly = true;
+            this.Version.Width = 80;
+            // 
+            // SortCode
+            // 
+            this.SortCode.DataPropertyName = "SortCode";
+            this.SortCode.HeaderText = "顺序";
+            this.SortCode.Name = "SortCode";
+            this.SortCode.ReadOnly = true;
+            this.SortCode.Width = 80;
+            // 
+            // SpecificationCode
+            // 
+            this.SpecificationCode.DataPropertyName = "SPECIFICATIONCODE";
+            this.SpecificationCode.HeaderText = "规格代号";
+            this.SpecificationCode.Name = "SpecificationCode";
+            this.SpecificationCode.ReadOnly = true;
+            this.SpecificationCode.Width = 80;
+            // 
+            // PartsDescription
+            // 
+            this.PartsDescription.DataPropertyName = "DESCRIPTION";
+            this.PartsDescription.HeaderText = "描述";
+            this.PartsDescription.Name = "PartsDescription";
+            this.PartsDescription.ReadOnly = true;
+            this.PartsDescription.Width = 80;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "数量";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // SingleNetweight
+            // 
+            this.SingleNetweight.DataPropertyName = "SingleNetweight";
+            this.SingleNetweight.HeaderText = "单位净重";
+            this.SingleNetweight.Name = "SingleNetweight";
+            this.SingleNetweight.ReadOnly = true;
+            // 
+            // PartsStatus
+            // 
+            this.PartsStatus.DataPropertyName = "STATUS";
+            this.PartsStatus.HeaderText = "状态";
+            this.PartsStatus.Name = "PartsStatus";
+            this.PartsStatus.ReadOnly = true;
+            // 
+            // Remark
+            // 
+            this.Remark.DataPropertyName = "Remark";
+            this.Remark.HeaderText = "备注";
+            this.Remark.Name = "Remark";
+            this.Remark.ReadOnly = true;
+            // 
+            // btnProStructSearch
+            // 
+            this.btnProStructSearch.Location = new System.Drawing.Point(394, 29);
+            this.btnProStructSearch.Name = "btnProStructSearch";
+            this.btnProStructSearch.Size = new System.Drawing.Size(40, 23);
+            this.btnProStructSearch.TabIndex = 3;
+            this.btnProStructSearch.UseVisualStyleBackColor = true;
+            this.btnProStructSearch.Click += new System.EventHandler(this.btnProStructSearch_Click);
+            // 
+            // txtQuery
+            // 
+            this.txtQuery.Location = new System.Drawing.Point(142, 31);
+            this.txtQuery.Name = "txtQuery";
+            this.txtQuery.Size = new System.Drawing.Size(123, 21);
+            this.txtQuery.TabIndex = 2;
+            // 
+            // cobQuery
+            // 
+            this.cobQuery.FormattingEnabled = true;
+            this.cobQuery.Items.AddRange(new object[] {
+            "编号",
+            "描述"});
+            this.cobQuery.Location = new System.Drawing.Point(3, 31);
+            this.cobQuery.Name = "cobQuery";
+            this.cobQuery.Size = new System.Drawing.Size(121, 20);
+            this.cobQuery.TabIndex = 1;
+            // 
+            // tpDoc
+            // 
+            this.tpDoc.Location = new System.Drawing.Point(4, 21);
+            this.tpDoc.Name = "tpDoc";
+            this.tpDoc.Size = new System.Drawing.Size(480, 384);
+            this.tpDoc.TabIndex = 2;
+            this.tpDoc.Text = "文档";
+            this.tpDoc.UseVisualStyleBackColor = true;
+            // 
+            // tpECR
+            // 
+            this.tpECR.Location = new System.Drawing.Point(4, 21);
+            this.tpECR.Name = "tpECR";
+            this.tpECR.Size = new System.Drawing.Size(480, 384);
+            this.tpECR.TabIndex = 3;
+            this.tpECR.Text = "ECR";
+            this.tpECR.UseVisualStyleBackColor = true;
+            // 
+            // tpDrawing
+            // 
+            this.tpDrawing.Location = new System.Drawing.Point(4, 21);
+            this.tpDrawing.Name = "tpDrawing";
+            this.tpDrawing.Size = new System.Drawing.Size(480, 384);
+            this.tpDrawing.TabIndex = 4;
+            this.tpDrawing.Text = "图纸";
+            this.tpDrawing.UseVisualStyleBackColor = true;
+            // 
+            // tpMaterialConsuption
+            // 
+            this.tpMaterialConsuption.Location = new System.Drawing.Point(4, 21);
+            this.tpMaterialConsuption.Name = "tpMaterialConsuption";
+            this.tpMaterialConsuption.Size = new System.Drawing.Size(480, 384);
+            this.tpMaterialConsuption.TabIndex = 5;
+            this.tpMaterialConsuption.Text = "材料定额";
+            this.tpMaterialConsuption.UseVisualStyleBackColor = true;
+            // 
+            // tpVersion
+            // 
+            this.tpVersion.Location = new System.Drawing.Point(4, 21);
+            this.tpVersion.Name = "tpVersion";
+            this.tpVersion.Size = new System.Drawing.Size(480, 384);
+            this.tpVersion.TabIndex = 7;
+            this.tpVersion.Text = "版本";
+            this.tpVersion.UseVisualStyleBackColor = true;
+            // 
+            // tpHistory
+            // 
+            this.tpHistory.Location = new System.Drawing.Point(4, 21);
+            this.tpHistory.Name = "tpHistory";
+            this.tpHistory.Size = new System.Drawing.Size(480, 384);
+            this.tpHistory.TabIndex = 8;
+            this.tpHistory.Text = "派生历史记录";
+            this.tpHistory.UseVisualStyleBackColor = true;
+            // 
+            // tpCandidate
+            // 
+            this.tpCandidate.Location = new System.Drawing.Point(4, 21);
+            this.tpCandidate.Name = "tpCandidate";
+            this.tpCandidate.Size = new System.Drawing.Size(480, 384);
+            this.tpCandidate.TabIndex = 9;
+            this.tpCandidate.Text = "待选项";
+            this.tpCandidate.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -976,6 +1046,132 @@
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
+            // cmParts
+            // 
+            this.cmParts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmPartsAdd,
+            this.cmStruct,
+            this.展开ToolStripMenuItem,
+            this.cmOpen,
+            this.复制ToolStripMenuItem,
+            this.发送ToolStripMenuItem,
+            this.注册流程ToolStripMenuItem,
+            this.对象比较ToolStripMenuItem,
+            this.eRPToolStripMenuItem,
+            this.工艺权限ToolStripMenuItem});
+            this.cmParts.Name = "cmParts";
+            this.cmParts.Size = new System.Drawing.Size(153, 246);
+            // 
+            // cmPartsAdd
+            // 
+            this.cmPartsAdd.Name = "cmPartsAdd";
+            this.cmPartsAdd.ShortcutKeyDisplayString = "";
+            this.cmPartsAdd.Size = new System.Drawing.Size(152, 22);
+            this.cmPartsAdd.Text = "新建";
+            // 
+            // cmStruct
+            // 
+            this.cmStruct.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmProStruct,
+            this.cmAddNext,
+            this.cmStructDelete,
+            this.bOMToolStripMenuItem,
+            this.CmReplaceWith,
+            this.cmInsert});
+            this.cmStruct.Name = "cmStruct";
+            this.cmStruct.Size = new System.Drawing.Size(152, 22);
+            this.cmStruct.Text = "结构";
+            // 
+            // cmProStruct
+            // 
+            this.cmProStruct.Name = "cmProStruct";
+            this.cmProStruct.Size = new System.Drawing.Size(136, 22);
+            this.cmProStruct.Text = "产品结构";
+            this.cmProStruct.Click += new System.EventHandler(this.cmProStruct_Click);
+            // 
+            // cmAddNext
+            // 
+            this.cmAddNext.Name = "cmAddNext";
+            this.cmAddNext.Size = new System.Drawing.Size(136, 22);
+            this.cmAddNext.Text = "添加下层";
+            this.cmAddNext.Click += new System.EventHandler(this.cmAddNext_Click);
+            // 
+            // cmStructDelete
+            // 
+            this.cmStructDelete.Name = "cmStructDelete";
+            this.cmStructDelete.Size = new System.Drawing.Size(136, 22);
+            this.cmStructDelete.Text = "删除关联";
+            this.cmStructDelete.Click += new System.EventHandler(this.cmStructDelete_Click);
+            // 
+            // bOMToolStripMenuItem
+            // 
+            this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.bOMToolStripMenuItem.Text = "BOM顺序重排";
+            // 
+            // CmReplaceWith
+            // 
+            this.CmReplaceWith.Name = "CmReplaceWith";
+            this.CmReplaceWith.Size = new System.Drawing.Size(136, 22);
+            this.CmReplaceWith.Text = "替换为";
+            this.CmReplaceWith.Click += new System.EventHandler(this.CmReplaceWith_Click);
+            // 
+            // cmInsert
+            // 
+            this.cmInsert.Name = "cmInsert";
+            this.cmInsert.Size = new System.Drawing.Size(136, 22);
+            this.cmInsert.Text = "插入";
+            this.cmInsert.Click += new System.EventHandler(this.cmInsert_Click);
+            // 
+            // 展开ToolStripMenuItem
+            // 
+            this.展开ToolStripMenuItem.Name = "展开ToolStripMenuItem";
+            this.展开ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.展开ToolStripMenuItem.Text = "展开";
+            // 
+            // cmOpen
+            // 
+            this.cmOpen.Name = "cmOpen";
+            this.cmOpen.Size = new System.Drawing.Size(152, 22);
+            this.cmOpen.Text = "打开";
+            this.cmOpen.Click += new System.EventHandler(this.cmOpen_Click);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            // 
+            // 发送ToolStripMenuItem
+            // 
+            this.发送ToolStripMenuItem.Name = "发送ToolStripMenuItem";
+            this.发送ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.发送ToolStripMenuItem.Text = "发送";
+            // 
+            // 注册流程ToolStripMenuItem
+            // 
+            this.注册流程ToolStripMenuItem.Name = "注册流程ToolStripMenuItem";
+            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.注册流程ToolStripMenuItem.Text = "注册流程";
+            // 
+            // 对象比较ToolStripMenuItem
+            // 
+            this.对象比较ToolStripMenuItem.Name = "对象比较ToolStripMenuItem";
+            this.对象比较ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.对象比较ToolStripMenuItem.Text = "对象比较";
+            // 
+            // eRPToolStripMenuItem
+            // 
+            this.eRPToolStripMenuItem.Name = "eRPToolStripMenuItem";
+            this.eRPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eRPToolStripMenuItem.Text = "ERP集成";
+            // 
+            // 工艺权限ToolStripMenuItem
+            // 
+            this.工艺权限ToolStripMenuItem.Name = "工艺权限ToolStripMenuItem";
+            this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.工艺权限ToolStripMenuItem.Text = "工艺权限";
+            // 
             // SemiProductRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -983,31 +1179,31 @@
             this.ClientSize = new System.Drawing.Size(739, 449);
             this.Controls.Add(this.panel1);
             this.Name = "SemiProductRegForm";
+            this.Text = "半产品";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
-            this.tabControl3.ResumeLayout(false);
-            this.tabPage10.ResumeLayout(false);
-            this.tabPage10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.toolStrip3.ResumeLayout(false);
-            this.toolStrip3.PerformLayout();
+            this.tbcContent.ResumeLayout(false);
+            this.tpProductionInfo.ResumeLayout(false);
+            this.tpProductionInfo.PerformLayout();
+            this.toolStrip5.ResumeLayout(false);
+            this.toolStrip5.PerformLayout();
+            this.tpRemark.ResumeLayout(false);
+            this.tpRemark.PerformLayout();
+            this.tpProStruct.ResumeLayout(false);
+            this.tpProStruct.PerformLayout();
+            this.toolStrip6.ResumeLayout(false);
+            this.toolStrip6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.cmParts.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1015,52 +1211,14 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ToolStrip toolStrip4;
-        private System.Windows.Forms.ToolStripButton toolStripButton16;
-        private System.Windows.Forms.ToolStripButton toolStripButton17;
-        private System.Windows.Forms.TabControl tabControl3;
-        private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ToolStrip toolStrip3;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
-        private System.Windows.Forms.ToolStripButton toolStripButton10;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton11;
-        private System.Windows.Forms.ToolStripButton toolStripButton12;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton13;
-        private System.Windows.Forms.ToolStripButton toolStripButton14;
-        private System.Windows.Forms.ToolStripButton toolStripButton15;
-        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabControl tbcContent;
+        private System.Windows.Forms.TabPage tpProcess;
+        private System.Windows.Forms.TabPage tpRemark;
+        private System.Windows.Forms.TabPage tpDoc;
+        private System.Windows.Forms.TabPage tpECR;
+        private System.Windows.Forms.TabPage tpDrawing;
+        private System.Windows.Forms.TabPage tpMaterialConsuption;
+        private System.Windows.Forms.TabPage tpVersion;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox cobUnit;
@@ -1100,6 +1258,66 @@
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.ComboBox cobTexture;
         private System.Windows.Forms.ComboBox cobMaterial;
+        private System.Windows.Forms.TabPage tpHistory;
+        private System.Windows.Forms.TabPage tpCandidate;
+        private System.Windows.Forms.TabPage tpProductionInfo;
+        private System.Windows.Forms.ToolStrip toolStrip5;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox cobSurfaceSolve;
+        private System.Windows.Forms.ComboBox cobVirtualPart;
+        private System.Windows.Forms.ComboBox cobSource;
+        private System.Windows.Forms.TextBox txtTechRoute;
+        private System.Windows.Forms.TextBox txtTechnologist;
+        private System.Windows.Forms.TextBox txtUpdateDate;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TabPage tpProStruct;
+        private System.Windows.Forms.ToolStrip toolStrip6;
+        private System.Windows.Forms.ToolStripButton tsBtnSaveResult;
+        private System.Windows.Forms.ToolStripButton tsBtnFilter;
+        private System.Windows.Forms.ToolStripComboBox tsCobFilter;
+        private System.Windows.Forms.ToolStripButton tsBtnProStruct;
+        private System.Windows.Forms.ToolStripButton tsBtnAdd;
+        private System.Windows.Forms.ToolStripButton tsBtnDelete;
+        private System.Windows.Forms.ToolStripButton tsBtnInsert;
+        private System.Windows.Forms.DataGridView dgvPartsList;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ChkProStruct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProStructID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SortCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SpecificationCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SingleNetweight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
+        private System.Windows.Forms.Button btnProStructSearch;
+        private System.Windows.Forms.TextBox txtQuery;
+        private System.Windows.Forms.ComboBox cobQuery;
+        private System.Windows.Forms.BindingSource partsBindingSource;
+        private System.Windows.Forms.ContextMenuStrip cmParts;
+        private System.Windows.Forms.ToolStripMenuItem cmPartsAdd;
+        private System.Windows.Forms.ToolStripMenuItem cmStruct;
+        private System.Windows.Forms.ToolStripMenuItem cmProStruct;
+        private System.Windows.Forms.ToolStripMenuItem cmAddNext;
+        private System.Windows.Forms.ToolStripMenuItem cmStructDelete;
+        private System.Windows.Forms.ToolStripMenuItem bOMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CmReplaceWith;
+        private System.Windows.Forms.ToolStripMenuItem cmInsert;
+        private System.Windows.Forms.ToolStripMenuItem 展开ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmOpen;
+        private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 发送ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 注册流程ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 对象比较ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eRPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 工艺权限ToolStripMenuItem;
 
     }
 }

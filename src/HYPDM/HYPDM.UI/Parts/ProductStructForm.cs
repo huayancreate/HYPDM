@@ -18,6 +18,14 @@ namespace HYPDM.WinUI.Parts
         private string productID;
         private int rowIndex;
         private string proStructID;
+        private String isProduct;
+        private bool addFlg;
+
+        public String IsProduct
+        {
+            get { return isProduct; }
+            set { isProduct = value; }
+        }
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         private IList<HYPDM.Entities.PDM_PARTS> partsList;
         public ProductStructForm()
@@ -28,9 +36,6 @@ namespace HYPDM.WinUI.Parts
 
         private void Initialize()
         {
-            productID = ProductRegForm.productID;
-            rowIndex = ProductRegForm.rowIndex;
-            proStructID = ProductRegForm.proStructID;
             this.partsList = EAS.Services.ServiceContainer.GetService<IPartsService>().GetPartsList();
             this.partsBindingSource.DataSource = null;
             this.partsBindingSource.DataSource = partsList;
@@ -38,14 +43,27 @@ namespace HYPDM.WinUI.Parts
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-
-            IList<PDM_PRODUCT_STRUCT> proStructList = _proStructService.GetProStructList(this.productID);
+            if (this.isProduct == "1")
+            {
+                productID = ProductRegForm.productID;
+                rowIndex = ProductRegForm.rowIndex;
+                proStructID = ProductRegForm.proStructID;
+                addFlg = ProductRegForm.addFlg;
+            }
+            else
+            {
+                productID = SemiProductRegForm.partsID;
+                rowIndex = SemiProductRegForm.rowIndex;
+                proStructID = SemiProductRegForm.proStructID;
+                addFlg = SemiProductRegForm.addFlg;
+            }
+            IList<PDM_PRODUCT_STRUCT> proStructList = _proStructService.GetProStructList(this.productID , this.isProduct);
             for (int i = 0; i < this.dgvSearchResult.RowCount; i++)
             {
                 PDM_PRODUCT_STRUCT proStruct = new PDM_PRODUCT_STRUCT();
                 if ((bool)dgvSearchResult.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
-                    if (ProductRegForm.addFlg)
+                    if (this.addFlg)
                     {
                         UseMsgForm useMsgForm = new UseMsgForm();
                         useMsgForm.StartPosition = FormStartPosition.CenterParent;
@@ -58,7 +76,7 @@ namespace HYPDM.WinUI.Parts
                             proStruct.PRODUCTID = productID;
                             proStruct.PARTSID = dgvSearchResult.Rows[i].Cells["PartsID"].Value.ToString();
                             // "1":产品;"0":零部件
-                            proStruct.ISPRODUCT = "1";
+                            proStruct.ISPRODUCT = this.isProduct;
                             proStruct.PARTSCLASSFICATION = dgvSearchResult.Rows[i].Cells["PartsClassfication"].Value.ToString();
                             proStructList.Insert(rowIndex, proStruct);
                             for (int j = 0; j < proStructList.Count; j++)
@@ -72,7 +90,7 @@ namespace HYPDM.WinUI.Parts
                     }
                     else
                     {
-                        proStructList = _proStructService.getProStructListByID(proStructID);
+                        proStructList = _proStructService.getProStructListByID(this.proStructID);
                         if (proStructList.Count > 0)
                         {
                             proStructList[0].PARTSID = dgvSearchResult.Rows[i].Cells["PartsID"].Value.ToString();

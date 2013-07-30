@@ -44,12 +44,12 @@ namespace HYPDM.BLL
         /// </summary>
         /// <param name="productID"></param>
         /// <returns></returns>
-        public IList<PDM_FILTER> getFilterList(String productID)
+        public IList<PDM_FILTER> getFilterList(String productID, String isProduct)
         {
             DataEntityQuery<PDM_FILTER> query = DataEntityQuery<PDM_FILTER>.Create();
 
             var p = (from item in query
-                     where ((item.OWNERSHIP == "PUBLIC") || (item.PRODUCTID == productID))
+                     where ((item.OWNERSHIP == "PUBLIC") || (item.PRODUCTID == productID)&&(item.ISPRODUCT == isProduct))
                      select item
                 );
 

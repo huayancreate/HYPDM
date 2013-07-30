@@ -35,16 +35,16 @@ namespace HYPDM.BLL
         }
 
         /// <summary>
-        /// 根据产品ID获取产品结构
+        /// 根据产品/半成品ID获取产品结构
         /// </summary>
         /// <param name="productID"></param>
         /// <returns></returns>
-        public IList<PDM_PRODUCT_STRUCT> GetProStructList(String productID)
+        public IList<PDM_PRODUCT_STRUCT> GetProStructList(String productID , String isProduct)
         {
             DataEntityQuery<PDM_PRODUCT_STRUCT> query = DataEntityQuery<PDM_PRODUCT_STRUCT>.Create();
 
             var p = (from item in query
-                     where (item.PRODUCTID == productID)
+                     where ((item.PRODUCTID == productID) &&(item.ISPRODUCT == isProduct))
                      orderby item.SORTCODE ascending
                      select item
                 );

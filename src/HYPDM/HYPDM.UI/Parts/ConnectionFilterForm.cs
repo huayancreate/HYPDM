@@ -15,14 +15,17 @@ namespace HYPDM.WinUI.Parts
 {
     public partial class ConnectionFilterForm : Form
     {
-        private String productID = ProductRegForm.productID;
+        private String productID;
+
+        private String isProduct;
+
         IFilterService _filterService = ServiceContainer.GetService<IFilterService>();
         IList<PDM_FILTER> filterList = new List<PDM_FILTER>();
         PDM_FILTER filter;
-        public ConnectionFilterForm()
+        public ConnectionFilterForm(String productID, String isProduct)
         {
             InitializeComponent();
-            InitialList();
+            InitialList(productID, isProduct);
         }
 
         public HYPDM.Entities.PDM_FILTER Filter
@@ -67,16 +70,18 @@ namespace HYPDM.WinUI.Parts
             }
         }
 
-        private void InitialList()
+        private void InitialList(String productID, String isProduct)
         {
-            filterList = _filterService.getFilterList(productID);
+            this.productID = productID;
+            this.isProduct = isProduct;
+            filterList = _filterService.getFilterList(productID ,isProduct);
             this.filterBindingSource.DataSource = null;
             this.filterBindingSource.DataSource = filterList;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -127,9 +132,13 @@ namespace HYPDM.WinUI.Parts
             filter.SINGLENETWEIGHT = this.txtSingleNetweight.Text;
             filter.SURFACESOLVE = this.cobSurfaceSolve.Text;
             filter.FILTERNAME = this.txtFilterName.Text;
-            filter.PRODUCTID = productID;
+            filter.PRODUCTID = this.productID;
+            filter.ISPRODUCT = this.isProduct;
             filter.Save();
-            this.InitialList();
+            filterList = _filterService.getFilterList(productID, isProduct);
+            this.filterBindingSource.DataSource = null;
+            this.filterBindingSource.DataSource = filterList;
+            MessageBox.Show("保存成功！");
         }
 
 
@@ -177,6 +186,7 @@ namespace HYPDM.WinUI.Parts
 
         private void cmDelete_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("所选过滤器将被删除，确定吗？");
             int rowIndex = dgvFilterList.CurrentCell.RowIndex;
 
             if (rowIndex < 0)
@@ -187,6 +197,10 @@ namespace HYPDM.WinUI.Parts
             HYPDM.Entities.PDM_FILTER filter = row.DataBoundItem as HYPDM.Entities.PDM_FILTER;
 
             filter.Delete();
+            filterList = _filterService.getFilterList(productID, isProduct);
+            this.filterBindingSource.DataSource = null;
+            this.filterBindingSource.DataSource = filterList;
+            MessageBox.Show("删除成功！");
         }
 
         private void dgvFilterList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -195,11 +209,6 @@ namespace HYPDM.WinUI.Parts
             {
                 if (e.RowIndex >= 0)
                 {
-                    for (int i = 0; i < this.dgvFilterList.RowCount; i++)
-                    {
-                        dgvFilterList.Rows[i].Cells[0].Value = false;
-                    }
-                    dgvFilterList.Rows[e.RowIndex].Cells[0].Value = true;
                     //若行已是选中状态就不再进行设置
                     if (dgvFilterList.Rows[e.RowIndex].Selected == false)
                     {
