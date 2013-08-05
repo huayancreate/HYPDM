@@ -142,11 +142,15 @@
     <Compile Include="Parts\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ConnectionFilterForm.cs" />
+    <Compile Include="Parts\ConnectionFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Parts\ConnectionFilterForm.Designer.cs">
       <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\PartsTypeForm.cs" />
+    <Compile Include="Parts\PartsTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Parts\PartsTypeForm.Designer.cs">
       <DependentUpon>PartsTypeForm.cs</DependentUpon>
     </Compile>
@@ -162,15 +166,21 @@
     <Compile Include="Parts\ProductRegForm.Designer.cs">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ProductStructForm.cs" />
+    <Compile Include="Parts\ProductStructForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Parts\ProductStructForm.Designer.cs">
       <DependentUpon>ProductStructForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\SemiProductListControl.cs" />
+    <Compile Include="Parts\SemiProductListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Parts\SemiProductListControl.Designer.cs">
       <DependentUpon>SemiProductListControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\SemiProductRegForm.cs" />
+    <Compile Include="Parts\SemiProductRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Parts\SemiProductRegForm.Designer.cs">
       <DependentUpon>SemiProductRegForm.cs</DependentUpon>
     </Compile>
