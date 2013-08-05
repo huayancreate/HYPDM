@@ -227,6 +227,17 @@ namespace HYPDM.Entities
             set;
         }
 
+        /// <summary>
+        /// 是不是产品 。
+        /// </summary>
+        [Column("ISPRODUCT", "是不是产品"), DataSize(128)]
+        [DisplayName("是不是产品")]
+        public string ISPRODUCT
+        {
+            get;
+            set;
+        }
+
         #endregion
     }
 }
