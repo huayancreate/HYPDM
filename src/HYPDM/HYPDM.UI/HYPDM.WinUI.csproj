@@ -136,29 +136,19 @@
     <Compile Include="Graph\PartsRegForm.Designer.cs">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ConnectControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Parts\ConnectControl.Designer.cs">
-      <DependentUpon>ConnectControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Parts\ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parts\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\PartsInfoControl.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Parts\ConnectionFilterForm.cs" />
+    <Compile Include="Parts\ConnectionFilterForm.Designer.cs">
+      <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\PartsInfoControl.designer.cs">
-      <DependentUpon>PartsInfoControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Parts\PartsInfoForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Parts\PartsInfoForm.Designer.cs">
-      <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    <Compile Include="Parts\PartsTypeForm.cs" />
+    <Compile Include="Parts\PartsTypeForm.Designer.cs">
+      <DependentUpon>PartsTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Parts\ProductListControl.cs">
       <SubType>UserControl</SubType>
@@ -166,17 +156,23 @@
     <Compile Include="Parts\ProductListControl.Designer.cs">
       <DependentUpon>ProductListControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ProductRegControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Parts\ProductRegControl.designer.cs">
-      <DependentUpon>ProductRegControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Parts\ProductRegForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parts\ProductRegForm.Designer.cs">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\ProductStructForm.cs" />
+    <Compile Include="Parts\ProductStructForm.Designer.cs">
+      <DependentUpon>ProductStructForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\SemiProductListControl.cs" />
+    <Compile Include="Parts\SemiProductListControl.Designer.cs">
+      <DependentUpon>SemiProductListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\SemiProductRegForm.cs" />
+    <Compile Include="Parts\SemiProductRegForm.Designer.cs">
+      <DependentUpon>SemiProductRegForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Parts\UseMsgForm.cs">
       <SubType>UserControl</SubType>
@@ -217,26 +213,29 @@
     <EmbeddedResource Include="Graph\PartsRegForm.resx">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\ConnectControl.resx">
-      <DependentUpon>ConnectControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Parts\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\PartsInfoControl.resx">
-      <DependentUpon>PartsInfoControl.cs</DependentUpon>
+    <EmbeddedResource Include="Parts\ConnectionFilterForm.resx">
+      <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\PartsInfoForm.resx">
-      <DependentUpon>PartsInfoForm.cs</DependentUpon>
+    <EmbeddedResource Include="Parts\PartsTypeForm.resx">
+      <DependentUpon>PartsTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parts\ProductListControl.resx">
       <DependentUpon>ProductListControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\ProductRegControl.resx">
-      <DependentUpon>ProductRegControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Parts\ProductRegForm.resx">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\ProductStructForm.resx">
+      <DependentUpon>ProductStructForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\SemiProductListControl.resx">
+      <DependentUpon>SemiProductListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parts\SemiProductRegForm.resx">
+      <DependentUpon>SemiProductRegForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Parts\UseMsgForm.resx">
       <DependentUpon>UseMsgForm.cs</DependentUpon>

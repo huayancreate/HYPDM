@@ -50,10 +50,13 @@
     <Compile Include="BaseServiceObject.cs" />
     <Compile Include="ChangeService.cs" />
     <Compile Include="DocumentService.cs" />
+    <Compile Include="FilterService.cs" />
     <Compile Include="MaxCodeService.cs" />
+    <Compile Include="PartsService.cs" />
     <Compile Include="PhysicalFileService.cs" />
     <Compile Include="ProductDocumentService.cs" />
     <Compile Include="ProductService.cs" />
+    <Compile Include="ProductStructService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VersionService.cs" />
   </ItemGroup>
