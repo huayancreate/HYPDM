@@ -82,6 +82,18 @@
     <Compile Include="BaseUI\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseUI\BaseCheckInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseUI\BaseCheckInForm.Designer.cs">
+      <DependentUpon>BaseCheckInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseUI\BaseDetectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseUI\BaseDetectionForm.Designer.cs">
+      <DependentUpon>BaseDetectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseUI\OpenFileDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,7 +197,7 @@
       <DependentUpon>SemiProductRegForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Parts\UseMsgForm.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Parts\UseMsgForm.Designer.cs">
       <DependentUpon>UseMsgForm.cs</DependentUpon>
