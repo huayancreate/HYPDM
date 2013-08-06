@@ -17,6 +17,7 @@ using AdvancedDataGridView;
 using System.IO;
 using System.Configuration;
 using System.Collections;
+using HYPDM.WinUI.Util;
 
 
 namespace HYPDM.WinUI.Document
@@ -28,6 +29,7 @@ namespace HYPDM.WinUI.Document
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         IPhysicalFileService _physicalService = ServiceContainer.GetService<IPhysicalFileService>();
         IDocumentService _docService = ServiceContainer.GetService<IDocumentService>();
+        Common common = new Common();
 
         public DocRegForm()
         {
@@ -270,19 +272,20 @@ namespace HYPDM.WinUI.Document
                 return;
             DataGridViewRow row = tvFileList.Rows[rowIndex];
             var fileName = row.Cells["FileName"].Value.ToString();
-            var temp = System.Environment.GetEnvironmentVariable("TEMP");
-            Util.FTPHelper helper = Util.Common.FtpHepler();
-            var info = "";
-            var tempFilePath = temp + "\\" + fileName;
-            var result = helper.DownloadFile(temp, fileName, out info);
-            if (result)
-            {
-                System.Diagnostics.Process.Start(tempFilePath);
-            }
-            else
-            {
-                MessageBox.Show("文件查看失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            common.FileView(fileName);
+            //var temp = System.Environment.GetEnvironmentVariable("TEMP");
+            //Util.FTPHelper helper = Util.Common.FtpHepler();
+            //var info = "";
+            //var tempFilePath = temp + "\\" + fileName;
+            //var result = helper.DownloadFile(temp, fileName, out info);
+            //if (result)
+            //{
+            //    System.Diagnostics.Process.Start(tempFilePath);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("文件查看失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         /// <summary>
@@ -298,22 +301,24 @@ namespace HYPDM.WinUI.Document
                 return;
             DataGridViewRow row = tvFileList.Rows[rowIndex];
             var Id = row.Cells["PHYSICALID"].Value.ToString();
+            var fileName = row.Cells["FileName"].Value.ToString();
 
-            HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
-            if (physicalfile == null) return;
-            if (physicalfile.FILESTATUS == "0") { MessageBox.Show("当前文档已被检出，不能再次检出，请等待检出人检入！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
-            DetectionForm form = new DetectionForm();
-            form.PhysicalFile = physicalfile;
+            common.CheckOut(Id, fileName);
+            //HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
+            //if (physicalfile == null) return;
+            //if (physicalfile.FILESTATUS == "0") { MessageBox.Show("当前文档已被检出，不能再次检出，请等待检出人检入！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+            //DetectionForm form = new DetectionForm();
+            //form.PhysicalFile = physicalfile;
 
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                physicalfile.FILESTATUS = "0";
-                physicalfile.Save();
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+            //    physicalfile.FILESTATUS = "0";
+            //    physicalfile.Save();
 
-                HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
-                row.Cells["FileName"].Value = file.FILENAME;
-                VersionSave("0");
-            }
+            //    HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
+            //    row.Cells["FileName"].Value = file.FILENAME;
+            //    VersionSave("0");
+            //}
         }
 
         /// <summary>
@@ -329,21 +334,22 @@ namespace HYPDM.WinUI.Document
                 return;
             DataGridViewRow row = tvFileList.Rows[rowIndex];
             var Id = row.Cells["PHYSICALID"].Value.ToString();
+            var fileName = row.Cells["PHYSICALID"].Value.ToString();
+            common.CheckIn(Id, fileName);
+            //HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
+            //if (physicalfile == null) return;
+            //CheckInForm form = new CheckInForm();
+            //form.PhysicalFile = physicalfile;
 
-            HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
-            if (physicalfile == null) return;
-            CheckInForm form = new CheckInForm();
-            form.PhysicalFile = physicalfile;
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+            //    physicalfile.FILESTATUS = "1";
+            //    physicalfile.Save();
 
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                physicalfile.FILESTATUS = "1";
-                physicalfile.Save();
-
-                HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
-                row.Cells["FileName"].Value = file.FILENAME;
-                VersionSave("1");
-            }
+            //    HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
+            //    row.Cells["FileName"].Value = file.FILENAME;
+            //    VersionSave("1");
+            //}
         }
 
         /// <summary>
@@ -392,7 +398,7 @@ namespace HYPDM.WinUI.Document
             Parts.ProductRegForm form = new Parts.ProductRegForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                
+
             }
         }
 
@@ -406,7 +412,7 @@ namespace HYPDM.WinUI.Document
             Parts.ConnectForm form = new Parts.ConnectForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                
+
             }
         }
         /// <summary>
