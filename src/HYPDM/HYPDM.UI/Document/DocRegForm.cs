@@ -191,6 +191,9 @@ namespace HYPDM.WinUI.Document
                     #endregion
 
                     MessageBox.Show("文件上传成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //重新绑定数据
+                    tvFileList.Nodes.Clear();
+                    BindData();
                 }
                 else
                 {
