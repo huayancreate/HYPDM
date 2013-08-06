@@ -305,13 +305,13 @@
             this.btnMaterial,
             this.btnCrafts});
             this.零部件ToolStripMenuItem.Name = "零部件ToolStripMenuItem";
-            this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.零部件ToolStripMenuItem.Text = "零部件";
             // 
             // btnHalfProduct
             // 
             this.btnHalfProduct.Name = "btnHalfProduct";
-            this.btnHalfProduct.Size = new System.Drawing.Size(152, 22);
+            this.btnHalfProduct.Size = new System.Drawing.Size(124, 22);
             this.btnHalfProduct.Tag = "半成品";
             this.btnHalfProduct.Text = "半成品";
             this.btnHalfProduct.Click += new System.EventHandler(this.btnHalfProduct_Click);
@@ -319,7 +319,7 @@
             // btnMaterial
             // 
             this.btnMaterial.Name = "btnMaterial";
-            this.btnMaterial.Size = new System.Drawing.Size(152, 22);
+            this.btnMaterial.Size = new System.Drawing.Size(124, 22);
             this.btnMaterial.Tag = "原材料";
             this.btnMaterial.Text = "原材料";
             this.btnMaterial.Click += new System.EventHandler(this.btnHalfProduct_Click);
@@ -327,7 +327,7 @@
             // btnCrafts
             // 
             this.btnCrafts.Name = "btnCrafts";
-            this.btnCrafts.Size = new System.Drawing.Size(152, 22);
+            this.btnCrafts.Size = new System.Drawing.Size(124, 22);
             this.btnCrafts.Tag = "工艺装备";
             this.btnCrafts.Text = "工艺装备";
             this.btnCrafts.Click += new System.EventHandler(this.btnHalfProduct_Click);
@@ -335,7 +335,7 @@
             // btnProduct
             // 
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(152, 22);
+            this.btnProduct.Size = new System.Drawing.Size(112, 22);
             this.btnProduct.Text = "产品";
             // 
             // btnAddRelation

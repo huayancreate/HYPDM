@@ -100,18 +100,6 @@
     <Compile Include="BaseUI\OpenFileDialogForm.Designer.cs">
       <DependentUpon>OpenFileDialogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Document\CheckInForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Document\CheckInForm.Designer.cs">
-      <DependentUpon>CheckInForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Document\DetectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Document\DetectionForm.Designer.cs">
-      <DependentUpon>DetectionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Document\DocListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -210,12 +198,6 @@
     <Compile Include="Util\Util.cs" />
     <EmbeddedResource Include="BaseUI\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Document\CheckInForm.resx">
-      <DependentUpon>CheckInForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Document\DetectionForm.resx">
-      <DependentUpon>DetectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\DocListControl.resx">
       <DependentUpon>DocListControl.cs</DependentUpon>

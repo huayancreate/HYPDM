@@ -69,11 +69,13 @@ namespace HYPDM.WinUI.Document
             #region 文件
             HYPDM.Entities.PDM_DOCUMENT document;
             string msg = "";
+            var version = 0;
             if (this.document == null)
             {
                 document = new HYPDM.Entities.PDM_DOCUMENT();
                 document.DOCID = _docService.GetMaxID().ToString();
                 document.CREATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                document.VERSION = version.ToString();
                 msg = "数据记录添加成功！";
             }
             else
@@ -81,6 +83,8 @@ namespace HYPDM.WinUI.Document
                 document = this.Document;
                 document.LASTUPDATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 document.LASTUPDATEUSER = LoginInfo.LoginID;
+                version = Convert.ToInt32(document.VERSION);
+                document.VERSION = (version + 1).ToString();
                 msg = "数据记录修改成功！";
             }
 
@@ -88,7 +92,7 @@ namespace HYPDM.WinUI.Document
             document.DOCSTATUS = "已创建";
             document.DESCRIPTION = txtDescription.Text;
             document.REMARK = txtRemark.Text;
-            document.VERSION = "";
+
             document.DOCTYPE = cobDocType.Text;
             IList<PDM_DOCUMENT> documentList = new List<PDM_DOCUMENT>();
             documentList.Add(document);
