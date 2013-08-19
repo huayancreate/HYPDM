@@ -64,6 +64,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\ExpandableGridView.dll</HintPath>
     </Reference>
+    <Reference Include="FileSockClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\FileSockClient.dll</HintPath>
+    </Reference>
+    <Reference Include="HYPDM.BaseControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\HYPDM.BaseControl.dll</HintPath>
+    </Reference>
+    <Reference Include="HYPDM.BLL.Host, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\HYPDM.BLL.Host.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -82,23 +95,29 @@
     <Compile Include="BaseUI\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseUI\BaseCheckInForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BaseUI\BaseCheckInForm.Designer.cs">
-      <DependentUpon>BaseCheckInForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BaseUI\BaseDetectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BaseUI\BaseDetectionForm.Designer.cs">
-      <DependentUpon>BaseDetectionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="BaseUI\OpenFileDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BaseUI\OpenFileDialogForm.Designer.cs">
       <DependentUpon>OpenFileDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\CheckInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\CheckInForm.Designer.cs">
+      <DependentUpon>CheckInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\AddFileFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\AddFileFrm.Designer.cs">
+      <DependentUpon>AddFileFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\DetectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\DetectionForm.Designer.cs">
+      <DependentUpon>DetectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Document\DocListControl.cs">
       <SubType>UserControl</SubType>
@@ -199,6 +218,15 @@
     <EmbeddedResource Include="BaseUI\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Document\CheckInForm.resx">
+      <DependentUpon>CheckInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\AddFileFrm.resx">
+      <DependentUpon>AddFileFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\DetectionForm.resx">
+      <DependentUpon>DetectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Document\DocListControl.resx">
       <DependentUpon>DocListControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +326,87 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\F2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Find.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Find_0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\G0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\G1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\G2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\In_forder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Max.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Max_All.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Min_All.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\modify_13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W0-Max.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

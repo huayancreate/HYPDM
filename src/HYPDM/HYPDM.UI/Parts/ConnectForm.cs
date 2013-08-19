@@ -11,7 +11,6 @@ using HYPDM.WinUI.BaseUI;
 using HYPDM.BLL;
 using EAS.Services;
 using HYPDM.Entities;
-
 namespace HYPDM.WinUI.Parts
 {
     public partial class ConnectForm : BaseForm
@@ -42,23 +41,24 @@ namespace HYPDM.WinUI.Parts
             }
         }
 
-
+        DataTable dt;
         private IList<HYPDM.Entities.PDM_DOCUMENT> documentList;
         private void InitList()
         {
             DateTime d0 = DateTime.Now;
-          //  this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
-            this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForList();
-            this.InitList(documentList);
+            //this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
+            //this.InitList(documentList);
+            this.dt = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForDatatable();
+            this.InitList(dt);
         }
 
         /// <summary>
         /// 将指定的数据源中的记录绑定到列表。
         /// </summary>
-        internal void InitList(IList<HYPDM.Entities.PDM_DOCUMENT> list)
+        internal void InitList(DataTable dt)
         {
             this.docBindingSource.DataSource = null;
-            this.docBindingSource.DataSource = list;
+            this.docBindingSource.DataSource = dt;
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

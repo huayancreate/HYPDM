@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocListControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmDocDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -51,18 +52,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
-            this.dgvDocList = new System.Windows.Forms.DataGridView();
-            this.DocID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.File = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DocStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdateUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,10 +62,23 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDocList = new HYPDM.BaseControl.DataGridViewExt();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
+            this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REMARK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DocStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LASTUPDATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LASTUPDATEDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmDocument.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripSeparator4
@@ -166,8 +168,9 @@
             this.tsToolbar.Location = new System.Drawing.Point(0, 0);
             this.tsToolbar.Name = "tsToolbar";
             this.tsToolbar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsToolbar.Size = new System.Drawing.Size(840, 25);
+            this.tsToolbar.Size = new System.Drawing.Size(913, 25);
             this.tsToolbar.TabIndex = 3;
+            this.tsToolbar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsToolbar_ItemClicked);
             // 
             // toolStripSplitButton1
             // 
@@ -226,110 +229,6 @@
             this.btnSearch.Size = new System.Drawing.Size(52, 22);
             this.btnSearch.Text = "查询";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // dgvDocList
-            // 
-            this.dgvDocList.AllowUserToAddRows = false;
-            this.dgvDocList.AllowUserToDeleteRows = false;
-            this.dgvDocList.AutoGenerateColumns = false;
-            this.dgvDocList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDocList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DocID,
-            this.Column1,
-            this.Column2,
-            this.File,
-            this.DocType,
-            this.Description,
-            this.DocStatus,
-            this.UpdateUser,
-            this.CreateDate,
-            this.Column5});
-            this.dgvDocList.DataSource = this.docBindingSource;
-            this.dgvDocList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDocList.Location = new System.Drawing.Point(0, 25);
-            this.dgvDocList.MultiSelect = false;
-            this.dgvDocList.Name = "dgvDocList";
-            this.dgvDocList.ReadOnly = true;
-            this.dgvDocList.RowTemplate.Height = 23;
-            this.dgvDocList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDocList.Size = new System.Drawing.Size(840, 466);
-            this.dgvDocList.TabIndex = 4;
-            this.dgvDocList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellDoubleClick);
-            this.dgvDocList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDocList_CellMouseDown);
-            // 
-            // DocID
-            // 
-            this.DocID.DataPropertyName = "DOCID";
-            this.DocID.HeaderText = "DocID";
-            this.DocID.Name = "DocID";
-            this.DocID.ReadOnly = true;
-            this.DocID.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "DOCNO";
-            this.Column1.HeaderText = "编号";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "VERSION";
-            this.Column2.HeaderText = "版本";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // File
-            // 
-            this.File.DataPropertyName = "REMARK";
-            this.File.HeaderText = "文件";
-            this.File.Name = "File";
-            this.File.ReadOnly = true;
-            this.File.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // DocType
-            // 
-            this.DocType.DataPropertyName = "DOCTYPE";
-            this.DocType.HeaderText = "文档分类";
-            this.DocType.Name = "DocType";
-            this.DocType.ReadOnly = true;
-            this.DocType.Width = 120;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "DESCRIPTION";
-            this.Description.HeaderText = "描述";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 120;
-            // 
-            // DocStatus
-            // 
-            this.DocStatus.DataPropertyName = "DOCSTATUS";
-            this.DocStatus.HeaderText = "状态";
-            this.DocStatus.Name = "DocStatus";
-            this.DocStatus.ReadOnly = true;
-            // 
-            // UpdateUser
-            // 
-            this.UpdateUser.DataPropertyName = "LASTUPDATEUSER";
-            this.UpdateUser.HeaderText = "修改者";
-            this.UpdateUser.Name = "UpdateUser";
-            this.UpdateUser.ReadOnly = true;
-            // 
-            // CreateDate
-            // 
-            this.CreateDate.DataPropertyName = "CREATEDATE";
-            this.CreateDate.HeaderText = "创建时间";
-            this.CreateDate.Name = "CreateDate";
-            this.CreateDate.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "LASTUPDATEDATE";
-            this.Column5.HeaderText = "修改时间";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -393,19 +292,166 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "修改时间";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
+            // dgvDocList
+            // 
+            this.dgvDocList.AllowUserToAddRows = false;
+            this.dgvDocList.AllowUserToDeleteRows = false;
+            this.dgvDocList.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgvDocList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvDocList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DOCID,
+            this.DOCNO,
+            this.DOCNAME,
+            this.VERSION,
+            this.REMARK,
+            this.DocType,
+            this.Description,
+            this.DocStatus,
+            this.LASTUPDATEUSER,
+            this.LASTUPDATEDATE,
+            this.CREATEUSER,
+            this.CreateDate});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDocList.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDocList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDocList.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgvDocList.Location = new System.Drawing.Point(0, 25);
+            this.dgvDocList.MultiSelect = false;
+            this.dgvDocList.Name = "dgvDocList";
+            this.dgvDocList.ReadOnly = true;
+            this.dgvDocList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvDocList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvDocList.RowTemplate.Height = 23;
+            this.dgvDocList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDocList.Size = new System.Drawing.Size(913, 381);
+            this.dgvDocList.TabIndex = 7;
+            this.dgvDocList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellContentClick);
+            this.dgvDocList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellDoubleClick);
+            // 
+            // ucPaging1
+            // 
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = false;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 30;
+            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
+            this.ucPaging1.TabIndex = 4;
+            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
+            // 
+            // DOCID
+            // 
+            this.DOCID.DataPropertyName = "DOCID";
+            this.DOCID.Frozen = true;
+            this.DOCID.HeaderText = "DOCID";
+            this.DOCID.Name = "DOCID";
+            this.DOCID.ReadOnly = true;
+            this.DOCID.ToolTipText = "123";
+            this.DOCID.Visible = false;
+            // 
+            // DOCNO
+            // 
+            this.DOCNO.DataPropertyName = "DOCNO";
+            this.DOCNO.HeaderText = "编号";
+            this.DOCNO.Name = "DOCNO";
+            this.DOCNO.ReadOnly = true;
+            // 
+            // DOCNAME
+            // 
+            this.DOCNAME.DataPropertyName = "DOCNAME";
+            this.DOCNAME.HeaderText = "文件名称";
+            this.DOCNAME.Name = "DOCNAME";
+            this.DOCNAME.ReadOnly = true;
+            // 
+            // VERSION
+            // 
+            this.VERSION.DataPropertyName = "VERSION";
+            this.VERSION.HeaderText = "版本";
+            this.VERSION.Name = "VERSION";
+            this.VERSION.ReadOnly = true;
+            // 
+            // REMARK
+            // 
+            this.REMARK.DataPropertyName = "REMARK";
+            this.REMARK.HeaderText = "文件备注";
+            this.REMARK.Name = "REMARK";
+            this.REMARK.ReadOnly = true;
+            this.REMARK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.REMARK.Width = 150;
+            // 
+            // DocType
+            // 
+            this.DocType.DataPropertyName = "DOCTYPE";
+            this.DocType.HeaderText = "文档分类";
+            this.DocType.Name = "DocType";
+            this.DocType.ReadOnly = true;
+            this.DocType.Width = 120;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "DESCRIPTION";
+            this.Description.HeaderText = "描述";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 160;
+            // 
+            // DocStatus
+            // 
+            this.DocStatus.DataPropertyName = "DOCSTATUS";
+            this.DocStatus.HeaderText = "状态";
+            this.DocStatus.Name = "DocStatus";
+            this.DocStatus.ReadOnly = true;
+            // 
+            // LASTUPDATEUSER
+            // 
+            this.LASTUPDATEUSER.DataPropertyName = "LASTUPDATEUSER";
+            this.LASTUPDATEUSER.HeaderText = "修改者";
+            this.LASTUPDATEUSER.Name = "LASTUPDATEUSER";
+            this.LASTUPDATEUSER.ReadOnly = true;
+            // 
+            // LASTUPDATEDATE
+            // 
+            this.LASTUPDATEDATE.DataPropertyName = "LASTUPDATEDATE";
+            this.LASTUPDATEDATE.HeaderText = "修改时间";
+            this.LASTUPDATEDATE.Name = "LASTUPDATEDATE";
+            this.LASTUPDATEDATE.ReadOnly = true;
+            this.LASTUPDATEDATE.Width = 150;
+            // 
+            // CREATEUSER
+            // 
+            this.CREATEUSER.DataPropertyName = "CREATEUSER";
+            this.CREATEUSER.HeaderText = "创建用户";
+            this.CREATEUSER.Name = "CREATEUSER";
+            this.CREATEUSER.ReadOnly = true;
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.DataPropertyName = "CREATEDATE";
+            this.CreateDate.HeaderText = "创建时间";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            this.CreateDate.Width = 150;
+            // 
             // DocListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dgvDocList);
+            this.Controls.Add(this.ucPaging1);
             this.Controls.Add(this.tsToolbar);
             this.Name = "DocListControl";
-            this.Size = new System.Drawing.Size(840, 491);
+            this.Size = new System.Drawing.Size(913, 443);
             this.cmDocument.ResumeLayout(false);
             this.tsToolbar.ResumeLayout(false);
             this.tsToolbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.docBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +479,6 @@
         private System.Windows.Forms.ToolStripButton btnDocDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton btnPrint;
-        private System.Windows.Forms.DataGridView dgvDocList;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -444,18 +489,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DocID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn File;
+        private System.Windows.Forms.ToolStripButton btnSearch;
+        private BaseControl.UcPaging ucPaging1;
+        private BaseControl.DataGridViewExt dgvDocList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOCID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOCNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOCNAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VERSION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REMARK;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UpdateUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LASTUPDATEUSER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LASTUPDATEDATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.ToolStripButton btnSearch;
-        public System.Windows.Forms.BindingSource docBindingSource;
 
     }
 }

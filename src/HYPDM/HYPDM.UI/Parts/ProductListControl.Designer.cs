@@ -37,7 +37,8 @@
             this.btnProDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnPrint = new System.Windows.Forms.ToolStripButton();
-            this.dgvProList = new System.Windows.Forms.DataGridView();
+            //this.dgvProList = new System.Windows.Forms.DataGridView();
+            this.dgvProList = new HYPDM.BaseControl.DataGridViewExt();
             this.ProID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();

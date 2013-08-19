@@ -39,7 +39,8 @@
             treeNode3});
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dgvSearchResult = new System.Windows.Forms.DataGridView();
+          //  this.dgvSearchResult = new System.Windows.Forms.DataGridView();
+            this.dgvSearchResult = new HYPDM.BaseControl.DataGridViewExt();
             this.ChkParts = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PartsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();

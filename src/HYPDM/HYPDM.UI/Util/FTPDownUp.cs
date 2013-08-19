@@ -292,6 +292,7 @@ namespace HYPDM.WinUI.Util
             }
             catch (Exception ex)
             {
+                throw new Exception(ex.Message.ToString());
                 bl = false;
             }
             finally

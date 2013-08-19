@@ -30,6 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SemiProductRegForm));
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmParts = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmPartsAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmStruct = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmProStruct = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmAddNext = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmStructDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CmReplaceWith = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmInsert = new System.Windows.Forms.ToolStripMenuItem();
+            this.展开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.发送ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.注册流程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eRPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -56,18 +74,9 @@
             this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.tpProStruct = new System.Windows.Forms.TabPage();
-            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
-            this.tsBtnSaveResult = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnFilter = new System.Windows.Forms.ToolStripButton();
-            this.tsCobFilter = new System.Windows.Forms.ToolStripComboBox();
-            this.tsBtnProStruct = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnInsert = new System.Windows.Forms.ToolStripButton();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.dgvPartsList = new System.Windows.Forms.DataGridView();
             this.ChkProStruct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ProStructID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartsNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SortCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,10 +86,18 @@
             this.SingleNetweight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartsStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnProStructSearch = new System.Windows.Forms.Button();
             this.txtQuery = new System.Windows.Forms.TextBox();
             this.cobQuery = new System.Windows.Forms.ComboBox();
+            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
+            this.tsBtnSaveResult = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnFilter = new System.Windows.Forms.ToolStripButton();
+            this.tsCobFilter = new System.Windows.Forms.ToolStripComboBox();
+            this.tsBtnProStruct = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnInsert = new System.Windows.Forms.ToolStripButton();
             this.tpDoc = new System.Windows.Forms.TabPage();
             this.tpECR = new System.Windows.Forms.TabPage();
             this.tpDrawing = new System.Windows.Forms.TabPage();
@@ -121,23 +138,8 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.cmParts = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmPartsAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmStruct = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmProStruct = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmAddNext = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmStructDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.bOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CmReplaceWith = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmInsert = new System.Windows.Forms.ToolStripMenuItem();
-            this.展开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.发送ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.注册流程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eRPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
+            this.cmParts.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -146,14 +148,140 @@
             this.toolStrip5.SuspendLayout();
             this.tpRemark.SuspendLayout();
             this.tpProStruct.SuspendLayout();
-            this.toolStrip6.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.toolStrip6.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.cmParts.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // cmParts
+            // 
+            this.cmParts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmPartsAdd,
+            this.cmStruct,
+            this.展开ToolStripMenuItem,
+            this.cmOpen,
+            this.复制ToolStripMenuItem,
+            this.发送ToolStripMenuItem,
+            this.注册流程ToolStripMenuItem,
+            this.对象比较ToolStripMenuItem,
+            this.eRPToolStripMenuItem,
+            this.工艺权限ToolStripMenuItem});
+            this.cmParts.Name = "cmParts";
+            this.cmParts.Size = new System.Drawing.Size(125, 224);
+            // 
+            // cmPartsAdd
+            // 
+            this.cmPartsAdd.Name = "cmPartsAdd";
+            this.cmPartsAdd.ShortcutKeyDisplayString = "";
+            this.cmPartsAdd.Size = new System.Drawing.Size(124, 22);
+            this.cmPartsAdd.Text = "新建";
+            // 
+            // cmStruct
+            // 
+            this.cmStruct.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmProStruct,
+            this.cmAddNext,
+            this.cmStructDelete,
+            this.bOMToolStripMenuItem,
+            this.CmReplaceWith,
+            this.cmInsert});
+            this.cmStruct.Name = "cmStruct";
+            this.cmStruct.Size = new System.Drawing.Size(124, 22);
+            this.cmStruct.Text = "结构";
+            // 
+            // cmProStruct
+            // 
+            this.cmProStruct.Name = "cmProStruct";
+            this.cmProStruct.Size = new System.Drawing.Size(154, 22);
+            this.cmProStruct.Text = "产品结构";
+            this.cmProStruct.Click += new System.EventHandler(this.cmProStruct_Click);
+            // 
+            // cmAddNext
+            // 
+            this.cmAddNext.Name = "cmAddNext";
+            this.cmAddNext.Size = new System.Drawing.Size(154, 22);
+            this.cmAddNext.Text = "添加下层";
+            this.cmAddNext.Click += new System.EventHandler(this.cmAddNext_Click);
+            // 
+            // cmStructDelete
+            // 
+            this.cmStructDelete.Name = "cmStructDelete";
+            this.cmStructDelete.Size = new System.Drawing.Size(154, 22);
+            this.cmStructDelete.Text = "删除关联";
+            this.cmStructDelete.Click += new System.EventHandler(this.cmStructDelete_Click);
+            // 
+            // bOMToolStripMenuItem
+            // 
+            this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
+            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.bOMToolStripMenuItem.Text = "BOM顺序重排";
+            // 
+            // CmReplaceWith
+            // 
+            this.CmReplaceWith.Name = "CmReplaceWith";
+            this.CmReplaceWith.Size = new System.Drawing.Size(154, 22);
+            this.CmReplaceWith.Text = "替换为";
+            this.CmReplaceWith.Click += new System.EventHandler(this.CmReplaceWith_Click);
+            // 
+            // cmInsert
+            // 
+            this.cmInsert.Name = "cmInsert";
+            this.cmInsert.Size = new System.Drawing.Size(154, 22);
+            this.cmInsert.Text = "插入";
+            this.cmInsert.Click += new System.EventHandler(this.cmInsert_Click);
+            // 
+            // 展开ToolStripMenuItem
+            // 
+            this.展开ToolStripMenuItem.Name = "展开ToolStripMenuItem";
+            this.展开ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.展开ToolStripMenuItem.Text = "展开";
+            // 
+            // cmOpen
+            // 
+            this.cmOpen.Name = "cmOpen";
+            this.cmOpen.Size = new System.Drawing.Size(124, 22);
+            this.cmOpen.Text = "打开";
+            this.cmOpen.Click += new System.EventHandler(this.cmOpen_Click);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            // 
+            // 发送ToolStripMenuItem
+            // 
+            this.发送ToolStripMenuItem.Name = "发送ToolStripMenuItem";
+            this.发送ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.发送ToolStripMenuItem.Text = "发送";
+            // 
+            // 注册流程ToolStripMenuItem
+            // 
+            this.注册流程ToolStripMenuItem.Name = "注册流程ToolStripMenuItem";
+            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.注册流程ToolStripMenuItem.Text = "注册流程";
+            // 
+            // 对象比较ToolStripMenuItem
+            // 
+            this.对象比较ToolStripMenuItem.Name = "对象比较ToolStripMenuItem";
+            this.对象比较ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.对象比较ToolStripMenuItem.Text = "对象比较";
+            // 
+            // eRPToolStripMenuItem
+            // 
+            this.eRPToolStripMenuItem.Name = "eRPToolStripMenuItem";
+            this.eRPToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.eRPToolStripMenuItem.Text = "ERP集成";
+            // 
+            // 工艺权限ToolStripMenuItem
+            // 
+            this.工艺权限ToolStripMenuItem.Name = "工艺权限ToolStripMenuItem";
+            this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.工艺权限ToolStripMenuItem.Text = "工艺权限";
             // 
             // panel1
             // 
@@ -164,7 +292,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(739, 449);
+            this.panel1.Size = new System.Drawing.Size(938, 449);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -192,7 +320,7 @@
             this.tsBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSave.Image")));
             this.tsBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnSave.Name = "tsBtnSave";
-            this.tsBtnSave.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnSave.Size = new System.Drawing.Size(52, 22);
             this.tsBtnSave.Text = "保存";
             this.tsBtnSave.Click += new System.EventHandler(this.tsBtnSave_Click);
             // 
@@ -210,7 +338,7 @@
             this.tsBtnClear.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnClear.Image")));
             this.tsBtnClear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnClear.Name = "tsBtnClear";
-            this.tsBtnClear.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnClear.Size = new System.Drawing.Size(52, 22);
             this.tsBtnClear.Text = "清除";
             this.tsBtnClear.Click += new System.EventHandler(this.tsBtnClear_Click);
             // 
@@ -230,15 +358,15 @@
             this.tbcContent.Location = new System.Drawing.Point(244, 33);
             this.tbcContent.Name = "tbcContent";
             this.tbcContent.SelectedIndex = 0;
-            this.tbcContent.Size = new System.Drawing.Size(488, 409);
+            this.tbcContent.Size = new System.Drawing.Size(628, 409);
             this.tbcContent.TabIndex = 5;
             // 
             // tpProcess
             // 
-            this.tpProcess.Location = new System.Drawing.Point(4, 21);
+            this.tpProcess.Location = new System.Drawing.Point(4, 22);
             this.tpProcess.Name = "tpProcess";
             this.tpProcess.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProcess.Size = new System.Drawing.Size(480, 384);
+            this.tpProcess.Size = new System.Drawing.Size(620, 383);
             this.tpProcess.TabIndex = 0;
             this.tpProcess.Text = "工序工时表";
             this.tpProcess.UseVisualStyleBackColor = true;
@@ -258,9 +386,9 @@
             this.tpProductionInfo.Controls.Add(this.label20);
             this.tpProductionInfo.Controls.Add(this.label12);
             this.tpProductionInfo.Controls.Add(this.toolStrip5);
-            this.tpProductionInfo.Location = new System.Drawing.Point(4, 21);
+            this.tpProductionInfo.Location = new System.Drawing.Point(4, 22);
             this.tpProductionInfo.Name = "tpProductionInfo";
-            this.tpProductionInfo.Size = new System.Drawing.Size(480, 384);
+            this.tpProductionInfo.Size = new System.Drawing.Size(620, 383);
             this.tpProductionInfo.TabIndex = 10;
             this.tpProductionInfo.Text = "生产信息";
             this.tpProductionInfo.UseVisualStyleBackColor = true;
@@ -370,7 +498,7 @@
             this.toolStripButton1});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(480, 25);
+            this.toolStrip5.Size = new System.Drawing.Size(620, 25);
             this.toolStrip5.TabIndex = 0;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -386,10 +514,10 @@
             // tpRemark
             // 
             this.tpRemark.Controls.Add(this.txtRemark);
-            this.tpRemark.Location = new System.Drawing.Point(4, 21);
+            this.tpRemark.Location = new System.Drawing.Point(4, 22);
             this.tpRemark.Name = "tpRemark";
             this.tpRemark.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRemark.Size = new System.Drawing.Size(480, 384);
+            this.tpRemark.Size = new System.Drawing.Size(620, 383);
             this.tpRemark.TabIndex = 1;
             this.tpRemark.Text = "备注";
             this.tpRemark.UseVisualStyleBackColor = true;
@@ -404,93 +532,24 @@
             // 
             // tpProStruct
             // 
+            this.tpProStruct.Controls.Add(this.panel4);
+            this.tpProStruct.Controls.Add(this.panel2);
             this.tpProStruct.Controls.Add(this.toolStrip6);
-            this.tpProStruct.Controls.Add(this.dgvPartsList);
-            this.tpProStruct.Controls.Add(this.btnProStructSearch);
-            this.tpProStruct.Controls.Add(this.txtQuery);
-            this.tpProStruct.Controls.Add(this.cobQuery);
-            this.tpProStruct.Location = new System.Drawing.Point(4, 21);
+            this.tpProStruct.Location = new System.Drawing.Point(4, 22);
             this.tpProStruct.Name = "tpProStruct";
-            this.tpProStruct.Size = new System.Drawing.Size(480, 384);
+            this.tpProStruct.Size = new System.Drawing.Size(620, 383);
             this.tpProStruct.TabIndex = 11;
             this.tpProStruct.Text = "产品结构";
             this.tpProStruct.UseVisualStyleBackColor = true;
             // 
-            // toolStrip6
+            // panel4
             // 
-            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsBtnSaveResult,
-            this.tsBtnFilter,
-            this.tsCobFilter,
-            this.tsBtnProStruct,
-            this.tsBtnAdd,
-            this.tsBtnDelete,
-            this.tsBtnInsert});
-            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(480, 25);
-            this.toolStrip6.TabIndex = 5;
-            this.toolStrip6.Text = "toolStrip6";
-            // 
-            // tsBtnSaveResult
-            // 
-            this.tsBtnSaveResult.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSaveResult.Image")));
-            this.tsBtnSaveResult.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnSaveResult.Name = "tsBtnSaveResult";
-            this.tsBtnSaveResult.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnSaveResult.Text = "保存";
-            // 
-            // tsBtnFilter
-            // 
-            this.tsBtnFilter.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnFilter.Image")));
-            this.tsBtnFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnFilter.Name = "tsBtnFilter";
-            this.tsBtnFilter.Size = new System.Drawing.Size(61, 22);
-            this.tsBtnFilter.Text = "过滤器";
-            this.tsBtnFilter.Click += new System.EventHandler(this.tsBtnFilter_Click);
-            // 
-            // tsCobFilter
-            // 
-            this.tsCobFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tsCobFilter.Name = "tsCobFilter";
-            this.tsCobFilter.Size = new System.Drawing.Size(80, 25);
-            this.tsCobFilter.SelectedIndexChanged += new System.EventHandler(this.tsCobFilter_SelectedIndexChanged);
-            // 
-            // tsBtnProStruct
-            // 
-            this.tsBtnProStruct.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnProStruct.Image")));
-            this.tsBtnProStruct.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnProStruct.Name = "tsBtnProStruct";
-            this.tsBtnProStruct.Size = new System.Drawing.Size(73, 22);
-            this.tsBtnProStruct.Text = "产品结构";
-            this.tsBtnProStruct.Click += new System.EventHandler(this.tsBtnProStruct_Click);
-            // 
-            // tsBtnAdd
-            // 
-            this.tsBtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAdd.Image")));
-            this.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnAdd.Name = "tsBtnAdd";
-            this.tsBtnAdd.Size = new System.Drawing.Size(73, 22);
-            this.tsBtnAdd.Text = "添加下层";
-            this.tsBtnAdd.Click += new System.EventHandler(this.tsBtnAdd_Click);
-            // 
-            // tsBtnDelete
-            // 
-            this.tsBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnDelete.Image")));
-            this.tsBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnDelete.Name = "tsBtnDelete";
-            this.tsBtnDelete.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnDelete.Text = "删除";
-            this.tsBtnDelete.Click += new System.EventHandler(this.tsBtnDelete_Click);
-            // 
-            // tsBtnInsert
-            // 
-            this.tsBtnInsert.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnInsert.Image")));
-            this.tsBtnInsert.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnInsert.Name = "tsBtnInsert";
-            this.tsBtnInsert.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnInsert.Text = "插入";
-            this.tsBtnInsert.Click += new System.EventHandler(this.tsBtnInsert_Click);
+            this.panel4.Controls.Add(this.dgvPartsList);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 65);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(620, 318);
+            this.panel4.TabIndex = 7;
             // 
             // dgvPartsList
             // 
@@ -501,8 +560,6 @@
             this.dgvPartsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPartsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ChkProStruct,
-            this.ProStructID,
-            this.PartsID,
             this.PartsNo,
             this.Version,
             this.SortCode,
@@ -513,40 +570,24 @@
             this.PartsStatus,
             this.Remark});
             this.dgvPartsList.DataSource = this.partsBindingSource;
-            this.dgvPartsList.Location = new System.Drawing.Point(3, 57);
+            this.dgvPartsList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPartsList.Location = new System.Drawing.Point(0, 0);
             this.dgvPartsList.MultiSelect = false;
             this.dgvPartsList.Name = "dgvPartsList";
             this.dgvPartsList.ReadOnly = true;
             this.dgvPartsList.RowHeadersVisible = false;
             this.dgvPartsList.RowTemplate.Height = 23;
             this.dgvPartsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPartsList.Size = new System.Drawing.Size(470, 324);
-            this.dgvPartsList.TabIndex = 4;
-            this.dgvPartsList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPartsList_CellClick);
-            this.dgvPartsList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPartsList_CellMouseDown);
+            this.dgvPartsList.Size = new System.Drawing.Size(620, 318);
+            this.dgvPartsList.TabIndex = 5;
             // 
             // ChkProStruct
             // 
-            this.ChkProStruct.HeaderText = "";
+            this.ChkProStruct.DataPropertyName = "ChkProStruct";
+            this.ChkProStruct.HeaderText = "选择";
             this.ChkProStruct.Name = "ChkProStruct";
             this.ChkProStruct.ReadOnly = true;
-            this.ChkProStruct.Width = 30;
-            // 
-            // ProStructID
-            // 
-            this.ProStructID.DataPropertyName = "ProStructID";
-            this.ProStructID.HeaderText = "ProStructID";
-            this.ProStructID.Name = "ProStructID";
-            this.ProStructID.ReadOnly = true;
-            this.ProStructID.Visible = false;
-            // 
-            // PartsID
-            // 
-            this.PartsID.DataPropertyName = "PartsID";
-            this.PartsID.HeaderText = "PartsID";
-            this.PartsID.Name = "PartsID";
-            this.PartsID.ReadOnly = true;
-            this.PartsID.Visible = false;
+            this.ChkProStruct.Width = 50;
             // 
             // PartsNo
             // 
@@ -616,21 +657,33 @@
             this.Remark.Name = "Remark";
             this.Remark.ReadOnly = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnProStructSearch);
+            this.panel2.Controls.Add(this.txtQuery);
+            this.panel2.Controls.Add(this.cobQuery);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(620, 40);
+            this.panel2.TabIndex = 6;
+            // 
             // btnProStructSearch
             // 
-            this.btnProStructSearch.Location = new System.Drawing.Point(394, 29);
+            this.btnProStructSearch.Location = new System.Drawing.Point(291, 10);
             this.btnProStructSearch.Name = "btnProStructSearch";
             this.btnProStructSearch.Size = new System.Drawing.Size(40, 23);
-            this.btnProStructSearch.TabIndex = 3;
+            this.btnProStructSearch.TabIndex = 6;
+            this.btnProStructSearch.Text = "查询";
             this.btnProStructSearch.UseVisualStyleBackColor = true;
             this.btnProStructSearch.Click += new System.EventHandler(this.btnProStructSearch_Click);
             // 
             // txtQuery
             // 
-            this.txtQuery.Location = new System.Drawing.Point(142, 31);
+            this.txtQuery.Location = new System.Drawing.Point(146, 13);
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.Size = new System.Drawing.Size(123, 21);
-            this.txtQuery.TabIndex = 2;
+            this.txtQuery.TabIndex = 5;
             // 
             // cobQuery
             // 
@@ -638,70 +691,146 @@
             this.cobQuery.Items.AddRange(new object[] {
             "编号",
             "描述"});
-            this.cobQuery.Location = new System.Drawing.Point(3, 31);
+            this.cobQuery.Location = new System.Drawing.Point(7, 13);
             this.cobQuery.Name = "cobQuery";
             this.cobQuery.Size = new System.Drawing.Size(121, 20);
-            this.cobQuery.TabIndex = 1;
+            this.cobQuery.TabIndex = 4;
+            // 
+            // toolStrip6
+            // 
+            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsBtnSaveResult,
+            this.tsBtnFilter,
+            this.tsCobFilter,
+            this.tsBtnProStruct,
+            this.tsBtnAdd,
+            this.tsBtnDelete,
+            this.tsBtnInsert});
+            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip6.Name = "toolStrip6";
+            this.toolStrip6.Size = new System.Drawing.Size(620, 25);
+            this.toolStrip6.TabIndex = 5;
+            this.toolStrip6.Text = "toolStrip6";
+            // 
+            // tsBtnSaveResult
+            // 
+            this.tsBtnSaveResult.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSaveResult.Image")));
+            this.tsBtnSaveResult.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnSaveResult.Name = "tsBtnSaveResult";
+            this.tsBtnSaveResult.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnSaveResult.Text = "保存";
+            // 
+            // tsBtnFilter
+            // 
+            this.tsBtnFilter.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnFilter.Image")));
+            this.tsBtnFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnFilter.Name = "tsBtnFilter";
+            this.tsBtnFilter.Size = new System.Drawing.Size(64, 22);
+            this.tsBtnFilter.Text = "过滤器";
+            this.tsBtnFilter.Click += new System.EventHandler(this.tsBtnFilter_Click);
+            // 
+            // tsCobFilter
+            // 
+            this.tsCobFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tsCobFilter.Name = "tsCobFilter";
+            this.tsCobFilter.Size = new System.Drawing.Size(150, 25);
+            this.tsCobFilter.SelectedIndexChanged += new System.EventHandler(this.tsCobFilter_SelectedIndexChanged);
+            // 
+            // tsBtnProStruct
+            // 
+            this.tsBtnProStruct.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnProStruct.Image")));
+            this.tsBtnProStruct.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnProStruct.Name = "tsBtnProStruct";
+            this.tsBtnProStruct.Size = new System.Drawing.Size(76, 22);
+            this.tsBtnProStruct.Text = "产品结构";
+            this.tsBtnProStruct.Click += new System.EventHandler(this.tsBtnProStruct_Click);
+            // 
+            // tsBtnAdd
+            // 
+            this.tsBtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAdd.Image")));
+            this.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnAdd.Name = "tsBtnAdd";
+            this.tsBtnAdd.Size = new System.Drawing.Size(76, 22);
+            this.tsBtnAdd.Text = "添加下层";
+            this.tsBtnAdd.Click += new System.EventHandler(this.tsBtnAdd_Click);
+            // 
+            // tsBtnDelete
+            // 
+            this.tsBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnDelete.Image")));
+            this.tsBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnDelete.Name = "tsBtnDelete";
+            this.tsBtnDelete.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnDelete.Text = "删除";
+            this.tsBtnDelete.Click += new System.EventHandler(this.tsBtnDelete_Click);
+            // 
+            // tsBtnInsert
+            // 
+            this.tsBtnInsert.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnInsert.Image")));
+            this.tsBtnInsert.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnInsert.Name = "tsBtnInsert";
+            this.tsBtnInsert.Size = new System.Drawing.Size(52, 22);
+            this.tsBtnInsert.Text = "插入";
+            this.tsBtnInsert.Click += new System.EventHandler(this.tsBtnInsert_Click);
             // 
             // tpDoc
             // 
-            this.tpDoc.Location = new System.Drawing.Point(4, 21);
+            this.tpDoc.Location = new System.Drawing.Point(4, 22);
             this.tpDoc.Name = "tpDoc";
-            this.tpDoc.Size = new System.Drawing.Size(480, 384);
+            this.tpDoc.Size = new System.Drawing.Size(620, 383);
             this.tpDoc.TabIndex = 2;
             this.tpDoc.Text = "文档";
             this.tpDoc.UseVisualStyleBackColor = true;
             // 
             // tpECR
             // 
-            this.tpECR.Location = new System.Drawing.Point(4, 21);
+            this.tpECR.Location = new System.Drawing.Point(4, 22);
             this.tpECR.Name = "tpECR";
-            this.tpECR.Size = new System.Drawing.Size(480, 384);
+            this.tpECR.Size = new System.Drawing.Size(620, 383);
             this.tpECR.TabIndex = 3;
             this.tpECR.Text = "ECR";
             this.tpECR.UseVisualStyleBackColor = true;
             // 
             // tpDrawing
             // 
-            this.tpDrawing.Location = new System.Drawing.Point(4, 21);
+            this.tpDrawing.Location = new System.Drawing.Point(4, 22);
             this.tpDrawing.Name = "tpDrawing";
-            this.tpDrawing.Size = new System.Drawing.Size(480, 384);
+            this.tpDrawing.Size = new System.Drawing.Size(620, 383);
             this.tpDrawing.TabIndex = 4;
             this.tpDrawing.Text = "图纸";
             this.tpDrawing.UseVisualStyleBackColor = true;
             // 
             // tpMaterialConsuption
             // 
-            this.tpMaterialConsuption.Location = new System.Drawing.Point(4, 21);
+            this.tpMaterialConsuption.Location = new System.Drawing.Point(4, 22);
             this.tpMaterialConsuption.Name = "tpMaterialConsuption";
-            this.tpMaterialConsuption.Size = new System.Drawing.Size(480, 384);
+            this.tpMaterialConsuption.Size = new System.Drawing.Size(620, 383);
             this.tpMaterialConsuption.TabIndex = 5;
             this.tpMaterialConsuption.Text = "材料定额";
             this.tpMaterialConsuption.UseVisualStyleBackColor = true;
             // 
             // tpVersion
             // 
-            this.tpVersion.Location = new System.Drawing.Point(4, 21);
+            this.tpVersion.Location = new System.Drawing.Point(4, 22);
             this.tpVersion.Name = "tpVersion";
-            this.tpVersion.Size = new System.Drawing.Size(480, 384);
+            this.tpVersion.Size = new System.Drawing.Size(620, 383);
             this.tpVersion.TabIndex = 7;
             this.tpVersion.Text = "版本";
             this.tpVersion.UseVisualStyleBackColor = true;
             // 
             // tpHistory
             // 
-            this.tpHistory.Location = new System.Drawing.Point(4, 21);
+            this.tpHistory.Location = new System.Drawing.Point(4, 22);
             this.tpHistory.Name = "tpHistory";
-            this.tpHistory.Size = new System.Drawing.Size(480, 384);
+            this.tpHistory.Size = new System.Drawing.Size(620, 383);
             this.tpHistory.TabIndex = 8;
             this.tpHistory.Text = "派生历史记录";
             this.tpHistory.UseVisualStyleBackColor = true;
             // 
             // tpCandidate
             // 
-            this.tpCandidate.Location = new System.Drawing.Point(4, 21);
+            this.tpCandidate.Location = new System.Drawing.Point(4, 22);
             this.tpCandidate.Name = "tpCandidate";
-            this.tpCandidate.Size = new System.Drawing.Size(480, 384);
+            this.tpCandidate.Size = new System.Drawing.Size(620, 383);
             this.tpCandidate.TabIndex = 9;
             this.tpCandidate.Text = "待选项";
             this.tpCandidate.UseVisualStyleBackColor = true;
@@ -747,10 +876,10 @@
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.toolStrip2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 21);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(227, 384);
+            this.tabPage1.Size = new System.Drawing.Size(227, 383);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "基本信息";
             // 
@@ -1046,140 +1175,16 @@
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
-            // cmParts
-            // 
-            this.cmParts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmPartsAdd,
-            this.cmStruct,
-            this.展开ToolStripMenuItem,
-            this.cmOpen,
-            this.复制ToolStripMenuItem,
-            this.发送ToolStripMenuItem,
-            this.注册流程ToolStripMenuItem,
-            this.对象比较ToolStripMenuItem,
-            this.eRPToolStripMenuItem,
-            this.工艺权限ToolStripMenuItem});
-            this.cmParts.Name = "cmParts";
-            this.cmParts.Size = new System.Drawing.Size(153, 246);
-            // 
-            // cmPartsAdd
-            // 
-            this.cmPartsAdd.Name = "cmPartsAdd";
-            this.cmPartsAdd.ShortcutKeyDisplayString = "";
-            this.cmPartsAdd.Size = new System.Drawing.Size(152, 22);
-            this.cmPartsAdd.Text = "新建";
-            // 
-            // cmStruct
-            // 
-            this.cmStruct.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmProStruct,
-            this.cmAddNext,
-            this.cmStructDelete,
-            this.bOMToolStripMenuItem,
-            this.CmReplaceWith,
-            this.cmInsert});
-            this.cmStruct.Name = "cmStruct";
-            this.cmStruct.Size = new System.Drawing.Size(152, 22);
-            this.cmStruct.Text = "结构";
-            // 
-            // cmProStruct
-            // 
-            this.cmProStruct.Name = "cmProStruct";
-            this.cmProStruct.Size = new System.Drawing.Size(136, 22);
-            this.cmProStruct.Text = "产品结构";
-            this.cmProStruct.Click += new System.EventHandler(this.cmProStruct_Click);
-            // 
-            // cmAddNext
-            // 
-            this.cmAddNext.Name = "cmAddNext";
-            this.cmAddNext.Size = new System.Drawing.Size(136, 22);
-            this.cmAddNext.Text = "添加下层";
-            this.cmAddNext.Click += new System.EventHandler(this.cmAddNext_Click);
-            // 
-            // cmStructDelete
-            // 
-            this.cmStructDelete.Name = "cmStructDelete";
-            this.cmStructDelete.Size = new System.Drawing.Size(136, 22);
-            this.cmStructDelete.Text = "删除关联";
-            this.cmStructDelete.Click += new System.EventHandler(this.cmStructDelete_Click);
-            // 
-            // bOMToolStripMenuItem
-            // 
-            this.bOMToolStripMenuItem.Name = "bOMToolStripMenuItem";
-            this.bOMToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.bOMToolStripMenuItem.Text = "BOM顺序重排";
-            // 
-            // CmReplaceWith
-            // 
-            this.CmReplaceWith.Name = "CmReplaceWith";
-            this.CmReplaceWith.Size = new System.Drawing.Size(136, 22);
-            this.CmReplaceWith.Text = "替换为";
-            this.CmReplaceWith.Click += new System.EventHandler(this.CmReplaceWith_Click);
-            // 
-            // cmInsert
-            // 
-            this.cmInsert.Name = "cmInsert";
-            this.cmInsert.Size = new System.Drawing.Size(136, 22);
-            this.cmInsert.Text = "插入";
-            this.cmInsert.Click += new System.EventHandler(this.cmInsert_Click);
-            // 
-            // 展开ToolStripMenuItem
-            // 
-            this.展开ToolStripMenuItem.Name = "展开ToolStripMenuItem";
-            this.展开ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.展开ToolStripMenuItem.Text = "展开";
-            // 
-            // cmOpen
-            // 
-            this.cmOpen.Name = "cmOpen";
-            this.cmOpen.Size = new System.Drawing.Size(152, 22);
-            this.cmOpen.Text = "打开";
-            this.cmOpen.Click += new System.EventHandler(this.cmOpen_Click);
-            // 
-            // 复制ToolStripMenuItem
-            // 
-            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.复制ToolStripMenuItem.Text = "复制";
-            // 
-            // 发送ToolStripMenuItem
-            // 
-            this.发送ToolStripMenuItem.Name = "发送ToolStripMenuItem";
-            this.发送ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.发送ToolStripMenuItem.Text = "发送";
-            // 
-            // 注册流程ToolStripMenuItem
-            // 
-            this.注册流程ToolStripMenuItem.Name = "注册流程ToolStripMenuItem";
-            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.注册流程ToolStripMenuItem.Text = "注册流程";
-            // 
-            // 对象比较ToolStripMenuItem
-            // 
-            this.对象比较ToolStripMenuItem.Name = "对象比较ToolStripMenuItem";
-            this.对象比较ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.对象比较ToolStripMenuItem.Text = "对象比较";
-            // 
-            // eRPToolStripMenuItem
-            // 
-            this.eRPToolStripMenuItem.Name = "eRPToolStripMenuItem";
-            this.eRPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.eRPToolStripMenuItem.Text = "ERP集成";
-            // 
-            // 工艺权限ToolStripMenuItem
-            // 
-            this.工艺权限ToolStripMenuItem.Name = "工艺权限ToolStripMenuItem";
-            this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.工艺权限ToolStripMenuItem.Text = "工艺权限";
-            // 
             // SemiProductRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 449);
+            this.ClientSize = new System.Drawing.Size(938, 449);
             this.Controls.Add(this.panel1);
             this.Name = "SemiProductRegForm";
             this.Text = "半产品";
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
+            this.cmParts.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1194,16 +1199,17 @@
             this.tpRemark.PerformLayout();
             this.tpProStruct.ResumeLayout(false);
             this.tpProStruct.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.toolStrip6.ResumeLayout(false);
             this.toolStrip6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.cmParts.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1284,22 +1290,8 @@
         private System.Windows.Forms.ToolStripButton tsBtnAdd;
         private System.Windows.Forms.ToolStripButton tsBtnDelete;
         private System.Windows.Forms.ToolStripButton tsBtnInsert;
-        private System.Windows.Forms.DataGridView dgvPartsList;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ChkProStruct;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProStructID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PartsID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartsNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SortCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SpecificationCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartsDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SingleNetweight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PartsStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
-        private System.Windows.Forms.Button btnProStructSearch;
-        private System.Windows.Forms.TextBox txtQuery;
-        private System.Windows.Forms.ComboBox cobQuery;
         private System.Windows.Forms.BindingSource partsBindingSource;
         private System.Windows.Forms.ContextMenuStrip cmParts;
         private System.Windows.Forms.ToolStripMenuItem cmPartsAdd;
@@ -1318,6 +1310,22 @@
         private System.Windows.Forms.ToolStripMenuItem 对象比较ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eRPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 工艺权限ToolStripMenuItem;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnProStructSearch;
+        private System.Windows.Forms.TextBox txtQuery;
+        private System.Windows.Forms.ComboBox cobQuery;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dgvPartsList;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ChkProStruct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SortCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SpecificationCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SingleNetweight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PartsStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
 
     }
 }

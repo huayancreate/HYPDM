@@ -10,8 +10,10 @@ using System.Windows.Forms;
 using EAS.Modularization;
 using HYPDM.Entities;
 using EAS.Services;
-using HYPDM.BLL;
 using EAS.Data.ORM;
+using HYPDM.BLL;
+
+using HYPDM.BaseControl;
 
 namespace HYPDM.WinUI.Document
 {
@@ -22,6 +24,7 @@ namespace HYPDM.WinUI.Document
 
         public IList<PDM_DOCUMENT> _docList;
 
+        DataTable dt;
         public DocListControl()
         {
             InitializeComponent();
@@ -31,10 +34,12 @@ namespace HYPDM.WinUI.Document
         public void StartEx()
         {
             this.Initialize();
+            
         }
 
         private void Initialize()
         {
+            
             this.InitList();
         }
 
@@ -47,21 +52,28 @@ namespace HYPDM.WinUI.Document
         private void InitList()
         {
             DateTime d0 = DateTime.Now;
-         //   this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
-            this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForList();
-            this.InitList(documentList);
+           // this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
+            this.dt = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForDatatable();
+            //this.InitList(documentList);
+            this.InitList(dt);
+            this.ucPaging1.SourceDataGridView = this.dgvDocList;
 
         }
         /// <summary>
         /// 将指定的数据源中的记录绑定到列表。
         /// </summary>
-        internal void InitList(IList<HYPDM.Entities.PDM_DOCUMENT> list)
+        //internal void InitList(IList<HYPDM.Entities.PDM_DOCUMENT> list)
+        //{
+        //    this.docBindingSource.DataSource = null;
+        //    this.dgvDocList.DataSource = list;
+        //    BindDataFile();
+        //}
+        internal void InitList( DataTable dt)
         {
-            this.docBindingSource.DataSource = null;
-            this.dgvDocList.DataSource = list;
+           // this.docBindingSource.DataSource = null;
+            this.dgvDocList.DataSource = dt;
             BindDataFile();
         }
-
         private void btnDocToAdd_Click(object sender, EventArgs e)
         {
             this.DocAdd();
@@ -114,7 +126,25 @@ namespace HYPDM.WinUI.Document
 
             DataGridViewRow row = dgvDocList.Rows[rowIndex];
             IDocumentService _docService = ServiceContainer.GetService<IDocumentService>();
-            HYPDM.Entities.PDM_DOCUMENT doc = row.DataBoundItem as HYPDM.Entities.PDM_DOCUMENT;
+
+           // HYPDM.Entities.PDM_DOCUMENT doc = row.DataBoundItem as HYPDM.Entities.PDM_DOCUMENT;
+
+            HYPDM.Entities.PDM_DOCUMENT doc = new PDM_DOCUMENT();
+            doc.DOCID = row.Cells["DOCID"].Value.ToString();
+            doc.DOCNAME = row.Cells["DOCNAME"].Value.ToString();
+            doc.DOCNO = row.Cells["DOCNO"].Value.ToString();
+            doc.DOCSTATUS = row.Cells["DOCSTATUS"].Value.ToString();
+            doc.DOCTYPE = row.Cells["DOCTYPE"].Value.ToString();
+            doc.REMARK = row.Cells["REMARK"].Value.ToString();
+            doc.VERSION = row.Cells["VERSION"].Value.ToString();
+            doc.LASTUPDATEDATE = row.Cells["LASTUPDATEDATE"].Value.ToString();
+            doc.LASTUPDATEUSER = row.Cells["LASTUPDATEUSER"].Value.ToString();
+            doc.CREATEDATE = row.Cells["CREATEDATE"].Value.ToString();
+            doc.DESCRIPTION = row.Cells["DESCRIPTION"].Value.ToString();
+
+
+
+         
             IList<PDM_DOCUMENT> docList = new List<PDM_DOCUMENT>();
             docList.Add(doc);
             IList<PDM_PHYSICAL_FILE> fileList = new List<PDM_PHYSICAL_FILE>();
@@ -155,16 +185,30 @@ namespace HYPDM.WinUI.Document
 
             DataGridViewRow row = dgvDocList.Rows[rowIndex];
 
-            HYPDM.Entities.PDM_DOCUMENT document = row.DataBoundItem as HYPDM.Entities.PDM_DOCUMENT;
-
+            //HYPDM.Entities.PDM_DOCUMENT document = row.DataBoundItem as HYPDM.Entities.PDM_DOCUMENT;
+            //初始化属性值
+            HYPDM.Entities.PDM_DOCUMENT document = new PDM_DOCUMENT();
+            document.DOCID = row.Cells["DOCID"].Value.ToString();
+            document.DOCNAME = row.Cells["DOCNAME"].Value.ToString();
+            document.DOCNO = row.Cells["DOCNO"].Value.ToString();
+            document.DOCSTATUS = row.Cells["DOCSTATUS"].Value.ToString();
+            document.DOCTYPE = row.Cells["DOCTYPE"].Value.ToString();
+            document.REMARK = row.Cells["REMARK"].Value.ToString();
+            document.VERSION = row.Cells["VERSION"].Value.ToString();
+            document.LASTUPDATEDATE = row.Cells["LASTUPDATEDATE"].Value.ToString();
+            document.LASTUPDATEUSER = row.Cells["LASTUPDATEUSER"].Value.ToString();
+            document.CREATEDATE = row.Cells["CREATEDATE"].Value.ToString();
+            document.DESCRIPTION = row.Cells["DESCRIPTION"].Value.ToString();
+            document.CREATEUSER = row.Cells["CREATEUSER"].Value.ToString();
+           
             if (document == null) return;
 
             DocRegForm o = new DocRegForm();
             o.Document = document;
-
             if (o.ShowDialog() == DialogResult.OK)
             {
                 HYPDM.Entities.PDM_DOCUMENT doc = o.Document;
+                //这个地方需要在加一些字段的更新值
                 row.Cells["DocType"].Value = doc.DOCTYPE.ToString();
                 row.Cells["Description"].Value = doc.DESCRIPTION.ToString();
             }
@@ -219,8 +263,23 @@ namespace HYPDM.WinUI.Document
             for (int i = 0; i < dgvDocList.Rows.Count; i++)
             {
                 var count = ServiceContainer.GetService<IPhysicalFileService>().GetList(dgvDocList.Rows[i].Cells["DocID"].Value.ToString()).Count;
-                dgvDocList.Rows[i].Cells["File"].Value = count > 2 ? "有文件" : "无文件";
+                dgvDocList.Rows[i].Cells["REMARK"].Value = count > 2 ? "有文件" : "无文件";
             }
+        }
+
+        private void dgvDocList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tsToolbar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void ucPaging1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
