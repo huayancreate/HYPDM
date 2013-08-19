@@ -1035,5 +1035,73 @@
       <Package />
       <LMTime>2013-07-10T14:18:24.187</LMTime>
     </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>20EE5B83-2353-40DC-ADD4-29B3B2BA3AF9</Guid>
+      <Name>文档管理主界面</Name>
+      <Assembly>HYDocumentMS</Assembly>
+      <Type>HYDocumentMS.DocumentMainControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>Microsoft</Developer>
+      <Description>文档管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-08-14T14:54:27.893</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>8FCABB5B-DA3F-4F1B-8AE0-6F07A208F6A9</Guid>
+      <Name>testFunction</Name>
+      <Assembly>Function</Assembly>
+      <Type>Function</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>AgileEAS.NET</Developer>
+      <Description />
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>32</Attributes>
+      <Package>00000000-0000-0000-0000-000000000000</Package>
+      <LMTime>2013-08-08T14:42:50.687</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>BC7555A2-2FBE-43BE-9D4A-894ED11D9890</Guid>
+      <Name>产品</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.ProductsAndParts.Products.ProductsListControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>产品管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-08-07T16:43:27.997</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>F8925C0D-72A0-4E8C-988D-E9DD72BA714C</Guid>
+      <Name>半成品</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.Parts.PartsListControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>产品零部件管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-07-17T15:26:54.75</LMTime>
+    </Module>
   </Items>
 </root>
