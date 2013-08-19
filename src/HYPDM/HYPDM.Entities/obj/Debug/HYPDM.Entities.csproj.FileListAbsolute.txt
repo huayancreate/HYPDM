@@ -26,7 +26,17 @@ F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Entities.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Entities.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.Entities.dll
 C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.Entities.pdb
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\bin\HYPDM.Entities.dll
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\bin\HYPDM.Entities.pdb
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.csprojResolveAssemblyReference.cache
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Entities.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Entities.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb

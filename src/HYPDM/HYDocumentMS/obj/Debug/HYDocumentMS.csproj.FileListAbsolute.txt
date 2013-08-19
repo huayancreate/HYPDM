@@ -25,3 +25,15 @@ C:\Users\Administrator\Desktop\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.Propert
 C:\Users\Administrator\Desktop\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.csproj.GenerateResource.Cache
 C:\Users\Administrator\Desktop\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.dll
 C:\Users\Administrator\Desktop\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYDocumentMS.dll.config
+E:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYDocumentMS.XML
+E:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYDocumentMS.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYDocumentMS.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.csprojResolveAssemblyReference.cache
+E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.CreateNewFileFrm.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.CreateNewFolderFrm.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.DocumentMainControl.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.Properties.Resources.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.csproj.GenerateResource.Cache
+E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.pdb

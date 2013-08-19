@@ -30,3 +30,13 @@ C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.BLL.Host.pdb
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\bin\HYPDM.BLL.Host.dll
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\bin\HYPDM.BLL.Host.pdb
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb

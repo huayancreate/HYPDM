@@ -11,5 +11,6 @@ namespace HYPDM.BLL
     {
         int GetMaxID();
         IList<PDM_PRODUCT> GetProductList();
+        IList<PDM_PRODUCT> GetProductList(Condition c);
     }
 }

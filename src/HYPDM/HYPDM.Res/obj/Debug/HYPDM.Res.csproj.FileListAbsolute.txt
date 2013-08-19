@@ -24,3 +24,16 @@ C:\Users\Administrator\Desktop\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Welcome.resou
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csproj.GenerateResource.Cache
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.dll
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Res.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Res.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csprojResolveAssemblyReference.cache
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.AboutForm.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Banner.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.BottomControl.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.LoginForm.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.NavigationControl.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Properties.Resources.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Welcome.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csproj.GenerateResource.Cache
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.pdb

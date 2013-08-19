@@ -19,3 +19,13 @@ C:\Users\Administrator\Desktop\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.Bas
 C:\Users\Administrator\Desktop\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.dll
 C:\Users\Administrator\Desktop\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.pdb
 C:\Users\Administrator\Desktop\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.csprojResolveAssemblyReference.cache
+E:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYPDM.BaseControl.dll.config
+E:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYPDM.BaseControl.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYPDM.BaseControl.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\Bin\.xml
+E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.DataGridViewExt.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.Properties.Resources.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.UcPaging.resources
+E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.csproj.GenerateResource.Cache
+E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.pdb

@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>..\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -80,6 +80,10 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.TreeListView, Version=1.0.4976.19134, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\System.Windows.Forms.TreeListView.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -101,16 +105,25 @@
     <Compile Include="BaseUI\OpenFileDialogForm.Designer.cs">
       <DependentUpon>OpenFileDialogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DefineControl\DateTimePickerExt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DefineControl\Pagination.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefineControl\Pagination.Designer.cs">
+      <DependentUpon>Pagination.cs</DependentUpon>
+    </Compile>
     <Compile Include="Document\CheckInForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Document\CheckInForm.Designer.cs">
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Document\AddFileFrm.cs">
+    <Compile Include="BaseUI\AddFileFrm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Document\AddFileFrm.Designer.cs">
+    <Compile Include="BaseUI\AddFileFrm.Designer.cs">
       <DependentUpon>AddFileFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Document\DetectionForm.cs">
@@ -155,59 +168,137 @@
     <Compile Include="Graph\PartsRegForm.Designer.cs">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ConnectForm.cs">
+    <Compile Include="ProductsAndParts\Parts\ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parts\ConnectForm.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\ConnectForm.Designer.cs">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ConnectionFilterForm.cs">
+    <Compile Include="ProductsAndParts\Parts\ConnectionFilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parts\ConnectionFilterForm.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\ConnectionFilterForm.Designer.cs">
       <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\PartsTypeForm.cs">
+    <Compile Include="ProductsAndParts\Parts\PartsTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parts\PartsTypeForm.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\PartsTypeForm.Designer.cs">
       <DependentUpon>PartsTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ProductListControl.cs">
+    <Compile Include="ProductsAndParts\Parts\ProductListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Parts\ProductListControl.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\ProductListControl.Designer.cs">
       <DependentUpon>ProductListControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ProductRegForm.cs">
+    <Compile Include="ProductsAndParts\Parts\ProductRegForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parts\ProductRegForm.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\ProductRegForm.Designer.cs">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ProductStructForm.cs">
+    <Compile Include="ProductsAndParts\Parts\ProductStructForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parts\ProductStructForm.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\ProductStructForm.Designer.cs">
       <DependentUpon>ProductStructForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\SemiProductListControl.cs">
+    <Compile Include="ProductsAndParts\Parts\SemiProductListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Parts\SemiProductListControl.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\SemiProductListControl.Designer.cs">
       <DependentUpon>SemiProductListControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\SemiProductRegForm.cs">
+    <Compile Include="ProductsAndParts\Parts\SemiProductRegForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parts\SemiProductRegForm.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\SemiProductRegForm.Designer.cs">
       <DependentUpon>SemiProductRegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Parts\UseMsgForm.cs">
+    <Compile Include="ProductsAndParts\Parts\UseMsgForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Parts\UseMsgForm.Designer.cs">
+    <Compile Include="ProductsAndParts\Parts\UseMsgForm.Designer.cs">
       <DependentUpon>UseMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\LookViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\LookViewForm.Designer.cs">
+      <DependentUpon>LookViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsAddForm.Designer.cs">
+      <DependentUpon>ProductsAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsAssChangeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsAssChangeListForm.Designer.cs">
+      <DependentUpon>ProductsAssChangeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsCompForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsCompForm.Designer.cs">
+      <DependentUpon>ProductsCompForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsConfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsConfForm.Designer.cs">
+      <DependentUpon>ProductsConfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsConnectForm.Designer.cs">
+      <DependentUpon>ProductsConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsListControl.Designer.cs">
+      <DependentUpon>ProductsListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsProRecordAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsProRecordAddForm.Designer.cs">
+      <DependentUpon>ProductsProRecordAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsQueryForm.Designer.cs">
+      <DependentUpon>ProductsQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsStructAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsStructAddForm.Designer.cs">
+      <DependentUpon>ProductsStructAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsStructForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsStructForm.Designer.cs">
+      <DependentUpon>ProductsStructForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\QueryChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\QueryChangeForm.Designer.cs">
+      <DependentUpon>QueryChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\QueryStructForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\QueryStructForm.Designer.cs">
+      <DependentUpon>QueryStructForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,10 +309,13 @@
     <EmbeddedResource Include="BaseUI\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DefineControl\Pagination.resx">
+      <DependentUpon>Pagination.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Document\CheckInForm.resx">
       <DependentUpon>CheckInForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Document\AddFileFrm.resx">
+    <EmbeddedResource Include="BaseUI\AddFileFrm.resx">
       <DependentUpon>AddFileFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\DetectionForm.resx">
@@ -245,32 +339,71 @@
     <EmbeddedResource Include="Graph\PartsRegForm.resx">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\ConnectForm.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\ConnectionFilterForm.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\ConnectionFilterForm.resx">
       <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\PartsTypeForm.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\PartsTypeForm.resx">
       <DependentUpon>PartsTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\ProductListControl.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\ProductListControl.resx">
       <DependentUpon>ProductListControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\ProductRegForm.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\ProductRegForm.resx">
       <DependentUpon>ProductRegForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\ProductStructForm.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\ProductStructForm.resx">
       <DependentUpon>ProductStructForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\SemiProductListControl.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\SemiProductListControl.resx">
       <DependentUpon>SemiProductListControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\SemiProductRegForm.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\SemiProductRegForm.resx">
       <DependentUpon>SemiProductRegForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Parts\UseMsgForm.resx">
+    <EmbeddedResource Include="ProductsAndParts\Parts\UseMsgForm.resx">
       <DependentUpon>UseMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\LookViewForm.resx">
+      <DependentUpon>LookViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsAddForm.resx">
+      <DependentUpon>ProductsAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsAssChangeListForm.resx">
+      <DependentUpon>ProductsAssChangeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsCompForm.resx">
+      <DependentUpon>ProductsCompForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsConfForm.resx">
+      <DependentUpon>ProductsConfForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsConnectForm.resx">
+      <DependentUpon>ProductsConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsListControl.resx">
+      <DependentUpon>ProductsListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsProRecordAddForm.resx">
+      <DependentUpon>ProductsProRecordAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsQueryForm.resx">
+      <DependentUpon>ProductsQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsStructAddForm.resx">
+      <DependentUpon>ProductsStructAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsStructForm.resx">
+      <DependentUpon>ProductsStructForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\QueryChangeForm.resx">
+      <DependentUpon>QueryChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\QueryStructForm.resx">
+      <DependentUpon>QueryStructForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -407,6 +540,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\W2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagination_first.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagination_last.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagination_load.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagination_loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagination_next.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagination_prev.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text Document %28plain%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

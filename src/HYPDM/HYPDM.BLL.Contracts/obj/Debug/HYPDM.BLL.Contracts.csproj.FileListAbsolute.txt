@@ -30,3 +30,13 @@ C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.BLL.Contracts.pdb
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
 C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\bin\HYPDM.BLL.Contracts.dll
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\bin\HYPDM.BLL.Contracts.pdb
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.csprojResolveAssemblyReference.cache
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
+E:\VSWorkSpace\VC2012WorkSpace\HyWorkSpace\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.pdb
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.csprojResolveAssemblyReference.cache
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
+E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb

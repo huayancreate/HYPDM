@@ -30,5 +30,9 @@ namespace HYPDM.BLL
 
             return p.ToList();
         }
+        public IList<PDM_PRODUCT> GetProductList(Condition c) {
+            DataEntityQuery<PDM_PRODUCT> query = DataEntityQuery<PDM_PRODUCT>.Create();
+            return query.Select(c).ToList();
+        }
     }
 }
