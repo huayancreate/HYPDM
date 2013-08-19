@@ -47,7 +47,8 @@ namespace HYPDM.WinUI.Document
         private void InitList()
         {
             DateTime d0 = DateTime.Now;
-            this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
+         //   this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
+            this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForList();
             this.InitList(documentList);
 
         }
