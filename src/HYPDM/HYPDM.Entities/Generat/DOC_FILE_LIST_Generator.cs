@@ -145,6 +145,46 @@ namespace HYPDM.Entities
            get;
            set;
        }
+       /// <summary>
+       /// CHECKINFLG 。
+       /// </summary>
+       [Column("CHECKINFLG", "CHECKINFLG"), DataSize(1)]
+       [DisplayName("CHECKINFLG")]
+       public string CHECKINFLG
+       {
+           get;
+           set;
+       }
+       /// <summary>
+       /// CHECKOUTFLG 。
+       /// </summary>
+       [Column("CHECKOUTFLG", "CHECKOUTFLG"), DataSize(1)]
+       [DisplayName("CHECKOUTFLG")]
+       public string CHECKOUTFLG
+       {
+           get;
+           set;
+       }
+       /// <summary>
+       /// CHECKINDATE 。
+       /// </summary>
+       [Column("CHECKINDATE", "CHECKINDATE"), DataSize(50)]
+       [DisplayName("CHECKINDATE")]
+       public string CHECKINDATE
+       {
+           get;
+           set;
+       }
+       /// <summary>
+       /// CHECKOUTDATE 。
+       /// </summary>
+       [Column("CHECKOUTDATE", "CHECKOUTDATE"), DataSize(50)]
+       [DisplayName("CHECKOUTDATE")]
+       public string CHECKOUTDATE
+       {
+           get;
+           set;
+       }
        #endregion
    }
 }

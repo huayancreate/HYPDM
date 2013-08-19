@@ -166,7 +166,8 @@ namespace HYPDM.WinUI.Document
                 this.cobDocType.Text = this.Document.DOCTYPE;
                 this.txtCreateUser.Text = this.Document.CREATEUSER;
                 this.txtVer.Text = this.Document.VERSION;
-                this.BindData();
+                //this.BindData();
+                BindTreeData();
             }
         }
 
@@ -184,33 +185,33 @@ namespace HYPDM.WinUI.Document
                 //fileList
                 //savePath
                 listViewFile = frm.ListViewFile;
-             //   FileSockClient.UpLoadFileSocketClient sock = null;
+                //   FileSockClient.UpLoadFileSocketClient sock = null;
                 DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
                 DOC_FILE_LIST file = new DOC_FILE_LIST();
                 String path = "";
                 foreach (ListViewItem item in listViewFile.Items)
                 {
-                   // MessageBox.Show(item.Text.ToString());
+                    // MessageBox.Show(item.Text.ToString());
 
                     //var path = ofdFile.FileName;
                     path = item.Text.ToString();
-               
-                   // IDocFileListService _fileService = ServiceContainer.GetService<DocFileListService>();
+
+                    // IDocFileListService _fileService = ServiceContainer.GetService<DocFileListService>();
                     try
                     {
-                        FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, @"E:\\PDM文件服务器根目录");
-                       // MessageBox.Show("文件添加成功==文件目录" + @"E:\\PDM文件服务器根目录");
+                        FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, @"D:\\PDM文件服务器根目录");
+                        // MessageBox.Show("文件添加成功==文件目录" + @"E:\\PDM文件服务器根目录");
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("文件添加失败==文件目录" + @"E:\\PDM文件服务器根目录" + "===" + ex.Message.ToString());
+                        MessageBox.Show("文件添加失败==文件目录" + @"D:\\PDM文件服务器根目录" + "===" + ex.Message.ToString());
                     }
                     finally
                     {
                         file.DFL_ID = Guid.NewGuid().ToString();
                         file.DFL_FILE_NAME = path.Substring(path.LastIndexOf(@"\") + 1);
                         file.DFL_FILE_EXTEND = path.Substring(path.LastIndexOf(@".") + 1);
-                        file.DFL_FILE_CHILD_PATH = "00001";
+                        file.DFL_FILE_CHILD_PATH = "001";
                         file.DEL_FLAG = "N";
                         file.DFL_VER_LATEST = "V1.0";
                         file.DOCID = Document.DOCID; //与文档表关联主键
@@ -318,53 +319,53 @@ namespace HYPDM.WinUI.Document
         //    }
         //}
 
-        public void BindData()
-        {
-            IPhysicalFileService service = ServiceContainer.GetService<IPhysicalFileService>();
-            dt = service.GetDataTable(document.DOCID);
-            BindTreeListView(new TreeGridNode(), "0");
-        }
-        public void BindTreeListView(TreeGridNode node, string parentId)
-        {
-            Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
-            DataView dv = new DataView(dt);
-            dv.RowFilter = "[PARENT]=" + parentId;
-            foreach (DataRowView dr in dv)
-            {
-                if (parentId == "0")
-                {
-                    node = tvFileList.Nodes.Add((string)dr["PAPERS"], "", "", "", "", "", (string)dr["PHYSICALID"]);
-                    node.DefaultCellStyle.Font = boldFont;
-                    BindChildNode(node, (string)dr["PHYSICALID"]);
-                }
-            }
-        }
-        public void BindChildNode(TreeGridNode node, string parentId)
-        {
-            if (parentId != "")
-            {
-                DataView dv = new DataView(dt);
-                dv.RowFilter = "[PARENT]=" + parentId;
-                for (int i = 0; i < dv.Count; i++)
-                {
-                    var fileName = (string)dv[i]["FILENAME"];
-                    var papers = (string)dv[i]["PAPERS"];
-                    if (fileName == "")
-                        fileName = papers;
-                    if (i == 0)
-                        node = node.Nodes.Add(fileName, (string)dv[i]["FILENAME"],
-                            (string)dv[i]["DESCRIPTION"], (string)dv[i]["FILEVERSION"],
-                            dv[i]["CHECKIN"].ToString(), (string)dv[i]["CHECKOUT"].ToString(),
-                            (string)dv[i]["PHYSICALID"]);
-                    else
-                        node = node.Parent.Nodes.Add(fileName, (string)dv[i]["FILENAME"],
-                            (string)dv[i]["DESCRIPTION"], (string)dv[i]["FILEVERSION"],
-                            dv[i]["CHECKIN"].ToString(), dv[i]["CHECKOUT"].ToString(),
-                            (string)dv[i]["PHYSICALID"]);
-                    BindChildNode(node, (string)dv[i]["PHYSICALID"]);
-                }
-            }
-        }
+        //public void BindData()
+        //{
+        //    IPhysicalFileService service = ServiceContainer.GetService<IPhysicalFileService>();
+        //    dt = service.GetDataTable(document.DOCID);
+        //    BindTreeListView(new TreeGridNode(), "0");
+        //}
+        //public void BindTreeListView(TreeGridNode node, string parentId)
+        //{
+        //    Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
+        //    DataView dv = new DataView(dt);
+        //    dv.RowFilter = "[PARENT]=" + parentId;
+        //    foreach (DataRowView dr in dv)
+        //    {
+        //        if (parentId == "0")
+        //        {
+        //            node = tvFileList.Nodes.Add((string)dr["PAPERS"], "", "", "", "", "", (string)dr["PHYSICALID"]);
+        //            node.DefaultCellStyle.Font = boldFont;
+        //            BindChildNode(node, (string)dr["PHYSICALID"]);
+        //        }
+        //    }
+        //}
+        //public void BindChildNode(TreeGridNode node, string parentId)
+        //{
+        //    if (parentId != "")
+        //    {
+        //        DataView dv = new DataView(dt);
+        //        dv.RowFilter = "[PARENT]=" + parentId;
+        //        for (int i = 0; i < dv.Count; i++)
+        //        {
+        //            var fileName = (string)dv[i]["FILENAME"];
+        //            var papers = (string)dv[i]["PAPERS"];
+        //            if (fileName == "")
+        //                fileName = papers;
+        //            if (i == 0)
+        //                node = node.Nodes.Add(fileName, (string)dv[i]["FILENAME"],
+        //                    (string)dv[i]["DESCRIPTION"], (string)dv[i]["FILEVERSION"],
+        //                    dv[i]["CHECKIN"].ToString(), (string)dv[i]["CHECKOUT"].ToString(),
+        //                    (string)dv[i]["PHYSICALID"]);
+        //            else
+        //                node = node.Parent.Nodes.Add(fileName, (string)dv[i]["FILENAME"],
+        //                    (string)dv[i]["DESCRIPTION"], (string)dv[i]["FILEVERSION"],
+        //                    dv[i]["CHECKIN"].ToString(), dv[i]["CHECKOUT"].ToString(),
+        //                    (string)dv[i]["PHYSICALID"]);
+        //            BindChildNode(node, (string)dv[i]["PHYSICALID"]);
+        //        }
+        //    }
+        //}
         private void tvTaskList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (tvFileList.CurrentRow == null) return;
@@ -554,5 +555,101 @@ namespace HYPDM.WinUI.Document
                 this.Text = "文档对象-注册";
             }
         }
+
+
+        //20130819
+        TreeGridNode node = null;
+        DataTable dtDocFile = null;
+        private void BindTreeData()
+        {
+            IDocFileListService service = ServiceContainer.GetService<IDocFileListService>();
+            dtDocFile = service.GetDocFileDataTableByDCID(Document.DOCID);
+
+            Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
+            DataView dv = new DataView(dt);
+            node = new TreeGridNode();
+            // dv.RowFilter = "[PARENT]=" + parentId;
+            //foreach (DataRowView dr in dv)
+            //{
+            //    if (parentId == "0")
+            //    {
+            node = tvFileList.Nodes.Add(Document.DOCNO, "", "", "", "", "","");
+            node.DefaultCellStyle.Font = boldFont;
+            // BindChildNode(node, (string)dr["PHYSICALID"]);
+            HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+            foreach (DataRow dr in dtDocFile.Rows)
+            {
+                node.Nodes.Add(dr["DFL_FILE_NAME"].ToString(), file.getDocumentAllPathByPathID(dr["DFL_FILE_CHILD_PATH"].ToString()),
+                      dr["DFL_VER_LATEST"].ToString(),
+                                          dr["CHECKINFLG"].ToString(), dr["CHECKINDATE"].ToString(), dr["CHECKOUTFLG"].ToString(),
+                                          dr["CHECKOUTDATE"].ToString());
+            }
+
+            //    }
+            //}
+        }
+
+
+
+        /// <summary>
+        /// 测试
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tvFileList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.RowIndex > -1)
+           if (e.RowIndex >0) //将第一行去掉，第一行为文档编号
+            {
+               // MessageBox.Show(this.tvFileList.Nodes[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+             //   MessageBox.Show(this.tvFileList.CurrentRow.Cells[1].Value.ToString() + this.tvFileList.CurrentRow.Cells[0].Value.ToString());
+                //MessageBox.Show("列的索引"+e.ColumnIndex.ToString());
+                //MessageBox.Show("行的索引" + e.RowIndex.ToString());
+              //  MessageBox.Show(this.tvFileList.CurrentNode.Cells[1].Value.ToString() + this.tvFileList.CurrentNode.Cells[0].Value.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 文件下载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tspDownLoad_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void tspDownLoad_Click_1(object sender, EventArgs e)
+        {
+
+            TreeGridNode node = null;//当前选择的节点
+            String serverpath = "";
+            if (tvFileList.CurrentRow == null)
+            {
+                MessageBox.Show("请选择需要下载的文件", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                node = new TreeGridNode();
+                node = this.tvFileList.CurrentNode;
+                int index = node.RowIndex;
+                // MessageBox.Show(index.ToString());
+                if (index > 0) //取消第一行
+                {
+                    serverpath = node.Cells[1].Value.ToString() + node.Cells[0].Value.ToString();
+                    MessageBox.Show(serverpath);
+
+                    FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, @"C:\\" + node.Cells[0].Value.ToString());
+
+
+                }
+                else
+                {
+                    MessageBox.Show("请选择需要下载的文件" + "(" + index + ")", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            //  this.tvFileList.CurrentRow
+
+        }
+
     }
 }

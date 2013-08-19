@@ -60,5 +60,19 @@ namespace HYPDM.BLL
             
         }
 
+        public DataTable GetDocFileDataTableByDCID(string dcid)
+        {
+            DataTable dt = null;
+
+
+            StringBuilder stb = new StringBuilder();
+            stb.Append("SELECT DFL_ID,DFL_FILE_NAME,DFL_FILE_EXTEND,DFL_FILE_CHILD_PATH,DFL_VER_LATEST");
+            stb.Append(" ,DEL_FLAG ,CREATEDATE,CREATEUSER,LASTUPDATEUSER,LASTUPDATEDATE,DOCID,CHECKINFLG,CHECKOUTFLG,CHECKINDATE,CHECKOUTDATE FROM DOC_FILE_LIST");
+            stb.Append(" WHERE  DEL_FLAG='N' AND DOCID='" + dcid.Trim() + "'");
+            dt = this.DataAccessor.QueryDataTable(stb.ToString());
+            return dt;
+
+                
+        }
     }
 }

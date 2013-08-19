@@ -68,6 +68,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\FileSockClient.dll</HintPath>
     </Reference>
+    <Reference Include="HYDocumentMS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\HYDocumentMS.dll</HintPath>
+    </Reference>
     <Reference Include="HYPDM.BaseControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\HYPDM.BaseControl.dll</HintPath>
@@ -93,6 +97,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseUI\BaseCheckInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseUI\BaseCheckInForm.Designer.cs">
+      <DependentUpon>BaseCheckInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseUI\BaseDetectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseUI\BaseDetectionForm.Designer.cs">
+      <DependentUpon>BaseDetectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseUI\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -437,22 +453,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\newGroupPostIconStrip.PNG" />
+    <None Include="Resources\Add.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\download.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\file.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\upload.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\view.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete16_16.png" />
@@ -461,13 +471,13 @@
     <None Include="Resources\delete48.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Add.jpg" />
+    <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Cancel.jpg" />
+    <None Include="Resources\edit_add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\delete.jpg" />
+    <None Include="Resources\edit_remove.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Exit.jpg" />
@@ -480,6 +490,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\F2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Find.jpg" />
@@ -518,34 +531,7 @@
     <None Include="Resources\modify_13.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\T0.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\T1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\T2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\user.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\W0.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\W0-Max.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\W1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\W2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\edit_add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\edit_remove.png" />
+    <None Include="Resources\newGroupPostIconStrip.PNG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pagination_first.gif" />
@@ -572,7 +558,37 @@
     <None Include="Resources\search.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\T0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Text Document %28plain%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W0-Max.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
