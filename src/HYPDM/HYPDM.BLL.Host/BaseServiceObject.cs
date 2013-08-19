@@ -8,6 +8,9 @@ namespace HYPDM.BLL
 {
     public class BaseServiceObject : ServiceObject
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public EAS.Data.Access.IDataAccessor DataAccessor
         {
             get

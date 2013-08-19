@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IChangeService.cs" />
+    <Compile Include="IDocFileListService.cs" />
     <Compile Include="IDocumentService.cs" />
     <Compile Include="IFilterService.cs" />
     <Compile Include="IMaxCodeService.cs" />

@@ -20,3 +20,13 @@ D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.pdb
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\ResolveAssemblyReference.cache
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.dll
+F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
+C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.BLL.Host.dll
+C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.BLL.Host.pdb
+C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
+C:\Users\Administrator\Desktop\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb

@@ -171,6 +171,16 @@ namespace HYPDM.Entities
            get;
            set;
        }
+       /// <summary>
+       /// 描述 。
+       /// </summary>
+       [Column("CREATEUSER", "文档创建用户"), DataSize(128)]
+       [DisplayName("文档创建用户")]
+       public string CREATEUSER
+       {
+           get;
+           set;
+       }
        
        #endregion
    }

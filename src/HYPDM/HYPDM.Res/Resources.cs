@@ -50,7 +50,7 @@ namespace HYPDM.Res
         /// <returns></returns>
         public string GetApplicationTitle()
         {
-            return "HYPDM信息管理系统";
+            return "HYPDM-产品数据管理系统";
         }
 
         public object GetMainShell()
@@ -64,8 +64,8 @@ namespace HYPDM.Res
         /// <returns></returns>
         public object GetAboutForm()
         {
-            return null;
-            //return new AboutForm();
+          //  return null;
+          return new AboutForm();
         }
 
         /// <summary>
@@ -83,7 +83,8 @@ namespace HYPDM.Res
         /// <returns></returns>
         public object GetBannerControl()
         {
-            return new Banner();
+           return new Banner();
+          //  return null;
         }
 
         /// <summary>
@@ -131,7 +132,7 @@ namespace HYPDM.Res
         {
             get
             {
-                return true;
+                return false;
             }
         }
     }

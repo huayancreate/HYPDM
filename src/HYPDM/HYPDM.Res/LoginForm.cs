@@ -20,14 +20,13 @@ namespace HYPDM.Res
         public LoginForm()
         {
             InitializeComponent();
-
             this.passed = 0;
             this.loginInfo = null;
 
             this.txtPassword.Text = string.Empty;
 
-            this.Width = 475;
-            this.Height = 310;
+            //this.Width = 475;
+            //this.Height = 310;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -65,8 +64,6 @@ namespace HYPDM.Res
                 this.cmbLoginID.SelectedIndex = 0;
             }
 
-            this.lblLoginID.Enabled = true;
-            this.lblPassword.Enabled = true;
             this.cmbLoginID.Enabled = true;
             this.txtPassword.Enabled = true;
             this.chkSmartLogin.Enabled = true;
@@ -140,8 +137,6 @@ namespace HYPDM.Res
                 this.cmbLoginID.Focus();
             }
 
-            this.lblLoginID.Enabled = false;
-            this.lblPassword.Enabled = false;
             this.cmbLoginID.Enabled = false;
             this.txtPassword.Enabled = false;
             this.chkSmartLogin.Enabled = false;
@@ -161,8 +156,6 @@ namespace HYPDM.Res
                     MessageBox.Show(this, exc.InnerException.Message, "未能通过验证", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                     MessageBox.Show(this, "用户验证过程中出现未知错误，请记录下面的异常信息，并通知您的系统管理员。\n\n" + exc.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.lblLoginID.Enabled = true;
-                this.lblPassword.Enabled = true;
                 this.cmbLoginID.Enabled = true;
                 this.txtPassword.Enabled = true;
                 this.chkSmartLogin.Enabled = true;
@@ -224,6 +217,11 @@ namespace HYPDM.Res
             {
                 this.btnOK.Focus();
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

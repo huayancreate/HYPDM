@@ -7,7 +7,7 @@ using EAS.Data.Linq;
 using EAS.Data.Access;
 using HYPDM.Entities;
 using EAS.Data.ORM;
-
+using System.Data;
 namespace HYPDM.BLL
 {
     [ServiceObject("文档管理服务")]
@@ -19,7 +19,7 @@ namespace HYPDM.BLL
             return new MaxCodeService().GetMaxCode(new PDM_DOCUMENT().DbTableName);
         }
 
-        public IList<PDM_DOCUMENT> GetDocumentList()
+        public IList<PDM_DOCUMENT> GetDocumentListForList()
         {
             DataEntityQuery<PDM_DOCUMENT> query = DataEntityQuery<PDM_DOCUMENT>.Create();
 
@@ -27,9 +27,27 @@ namespace HYPDM.BLL
                      orderby item.CREATEDATE ascending
                      select item
                 );
-
             return p.ToList();
         }
+
+
+        public DataTable  GetDocumentListForDatatable()
+        {
+            DataTable dt = null;
+            string SQLText = "SELECT DOCID,DOCNAME ,DOCTYPE,DOCSTATUS ,LASTUPDATEUSER ,CREATEDATE ,LASTUPDATEDATE,REMARK,VERSION ,DOCNO ,DESCRIPTION,CREATEUSER FROM PDM_DOCUMENT ORDER BY CREATEDATE asc ";
+
+            dt = this.DataAccessor.QueryDataSet(SQLText).Tables[0];
+
+            return dt;
+        }
+
+
+
+
+
+
+
+
 
         #region 保存
 

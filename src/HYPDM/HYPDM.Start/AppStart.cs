@@ -16,6 +16,7 @@ namespace HYPDM.Start
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             EAS.WinClient.Application.Start();
+            
         }
     }
 }

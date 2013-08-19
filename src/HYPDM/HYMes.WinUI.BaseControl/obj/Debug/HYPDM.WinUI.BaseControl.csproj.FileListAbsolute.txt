@@ -1,0 +1,10 @@
+F:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.WinUI.BaseControl.DataGridViewExt.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.WinUI.BaseControl.Properties.Resources.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.WinUI.BaseControl.UcPaging.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.WinUI.BaseControl.csproj.GenerateResource.Cache
+F:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYPDM.WinUI.BaseControl.dll.config
+F:\HYFrameWork\HYPDM\src\HYPDM\Bin\.xml
+F:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYPDM.WinUI.BaseControl.dll
+F:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYPDM.WinUI.BaseControl.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.WinUI.BaseControl.dll
+F:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.WinUI.BaseControl.pdb

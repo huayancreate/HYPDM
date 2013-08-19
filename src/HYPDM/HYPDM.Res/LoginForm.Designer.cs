@@ -41,180 +41,174 @@ namespace HYPDM.Res
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.panelHeader = new System.Windows.Forms.Panel();
-            this.picLogo = new System.Windows.Forms.PictureBox();
-            this.gbLogin = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbOffline = new System.Windows.Forms.CheckBox();
             this.chkSmartLogin = new System.Windows.Forms.CheckBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
             this.cmbLoginID = new System.Windows.Forms.ComboBox();
-            this.lblLoginID = new System.Windows.Forms.Label();
-            this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
-            this.gbLogin.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panelHeader
+            // panel1
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.White;
-            this.panelHeader.Controls.Add(this.picLogo);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(469, 102);
-            this.panelHeader.TabIndex = 2;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.cbOffline);
+            this.panel1.Controls.Add(this.chkSmartLogin);
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnOK);
+            this.panel1.Controls.Add(this.txtPassword);
+            this.panel1.Controls.Add(this.cmbLoginID);
+            this.panel1.Location = new System.Drawing.Point(438, 207);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(401, 153);
+            this.panel1.TabIndex = 4;
             // 
-            // picLogo
+            // pictureBox3
             // 
-            this.picLogo.BackColor = System.Drawing.Color.White;
-            this.picLogo.Image = ((System.Drawing.Image)(resources.GetObject("picLogo.Image")));
-            this.picLogo.Location = new System.Drawing.Point(0, 0);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(470, 100);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picLogo.TabIndex = 0;
-            this.picLogo.TabStop = false;
+            this.pictureBox3.BackgroundImage = global::HYPDM.Res.Properties.Resources.pwd;
+            this.pictureBox3.Location = new System.Drawing.Point(167, 59);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(30, 32);
+            this.pictureBox3.TabIndex = 19;
+            this.pictureBox3.TabStop = false;
             // 
-            // gbLogin
+            // pictureBox2
             // 
-            this.gbLogin.Controls.Add(this.cbOffline);
-            this.gbLogin.Controls.Add(this.chkSmartLogin);
-            this.gbLogin.Controls.Add(this.btnCancel);
-            this.gbLogin.Controls.Add(this.btnOK);
-            this.gbLogin.Controls.Add(this.txtPassword);
-            this.gbLogin.Controls.Add(this.lblPassword);
-            this.gbLogin.Controls.Add(this.cmbLoginID);
-            this.gbLogin.Controls.Add(this.lblLoginID);
-            this.gbLogin.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.gbLogin.Location = new System.Drawing.Point(5, 120);
-            this.gbLogin.Name = "gbLogin";
-            this.gbLogin.Size = new System.Drawing.Size(460, 154);
-            this.gbLogin.TabIndex = 3;
-            this.gbLogin.TabStop = false;
-            this.gbLogin.Text = "用户登录";
+            this.pictureBox2.BackgroundImage = global::HYPDM.Res.Properties.Resources.user;
+            this.pictureBox2.Location = new System.Drawing.Point(166, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 33);
+            this.pictureBox2.TabIndex = 18;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::HYPDM.Res.Properties.Resources.users;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(148, 150);
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
             // 
             // cbOffline
             // 
+            this.cbOffline.BackColor = System.Drawing.Color.Gray;
             this.cbOffline.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbOffline.Location = new System.Drawing.Point(231, 87);
+            this.cbOffline.ForeColor = System.Drawing.Color.Maroon;
+            this.cbOffline.Location = new System.Drawing.Point(147, 126);
             this.cbOffline.Name = "cbOffline";
             this.cbOffline.Size = new System.Drawing.Size(70, 24);
-            this.cbOffline.TabIndex = 5;
+            this.cbOffline.TabIndex = 14;
             this.cbOffline.Text = "离线(&S)";
+            this.cbOffline.UseVisualStyleBackColor = false;
             this.cbOffline.Visible = false;
             // 
             // chkSmartLogin
             // 
+            this.chkSmartLogin.BackColor = System.Drawing.Color.Transparent;
             this.chkSmartLogin.Checked = true;
             this.chkSmartLogin.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSmartLogin.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.chkSmartLogin.Location = new System.Drawing.Point(100, 87);
+            this.chkSmartLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkSmartLogin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.chkSmartLogin.ForeColor = System.Drawing.Color.Yellow;
+            this.chkSmartLogin.Location = new System.Drawing.Point(206, 96);
             this.chkSmartLogin.Name = "chkSmartLogin";
             this.chkSmartLogin.Size = new System.Drawing.Size(110, 24);
-            this.chkSmartLogin.TabIndex = 4;
+            this.chkSmartLogin.TabIndex = 13;
             this.chkSmartLogin.Text = "启用智能登录(&S)";
+            this.chkSmartLogin.UseVisualStyleBackColor = false;
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCancel.Location = new System.Drawing.Point(360, 116);
+            this.btnCancel.Location = new System.Drawing.Point(345, 175);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "取消(&C)";
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
+            this.btnOK.BackColor = System.Drawing.Color.DimGray;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnOK.Location = new System.Drawing.Point(280, 116);
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
+            this.btnOK.Location = new System.Drawing.Point(308, 122);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 7;
-            this.btnOK.Text = "确定(&O)";
+            this.btnOK.Size = new System.Drawing.Size(75, 28);
+            this.btnOK.TabIndex = 15;
+            this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(185, 55);
+            this.txtPassword.BackColor = System.Drawing.Color.Moccasin;
+            this.txtPassword.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtPassword.Location = new System.Drawing.Point(206, 59);
             this.txtPassword.MaxLength = 32;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(250, 21);
-            this.txtPassword.TabIndex = 3;
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
-            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lblPassword.Location = new System.Drawing.Point(100, 59);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(83, 12);
-            this.lblPassword.TabIndex = 2;
-            this.lblPassword.Text = "用户密码(&P)：";
-            this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtPassword.Size = new System.Drawing.Size(177, 24);
+            this.txtPassword.TabIndex = 12;
+            this.txtPassword.Click += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // cmbLoginID
             // 
-            this.cmbLoginID.Location = new System.Drawing.Point(185, 25);
+            this.cmbLoginID.BackColor = System.Drawing.Color.Moccasin;
+            this.cmbLoginID.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cmbLoginID.Location = new System.Drawing.Point(206, 21);
             this.cmbLoginID.Name = "cmbLoginID";
-            this.cmbLoginID.Size = new System.Drawing.Size(250, 20);
-            this.cmbLoginID.TabIndex = 1;
-            // 
-            // lblLoginID
-            // 
-            this.lblLoginID.AutoSize = true;
-            this.lblLoginID.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.lblLoginID.Location = new System.Drawing.Point(100, 29);
-            this.lblLoginID.Name = "lblLoginID";
-            this.lblLoginID.Size = new System.Drawing.Size(83, 12);
-            this.lblLoginID.TabIndex = 0;
-            this.lblLoginID.Text = "用户名称(&N)：";
-            this.lblLoginID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmbLoginID.Size = new System.Drawing.Size(177, 24);
+            this.cmbLoginID.TabIndex = 10;
             // 
             // LoginForm
             // 
-            this.AcceptButton = this.btnOK;
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 14);
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(469, 278);
-            this.Controls.Add(this.panelHeader);
-            this.Controls.Add(this.gbLogin);
+            this.BackgroundImage = global::HYPDM.Res.Properties.Resources.login;
+            this.ClientSize = new System.Drawing.Size(870, 506);
+            this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "系统登录";
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
-            this.gbLogin.ResumeLayout(false);
-            this.gbLogin.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
         #endregion
 
-        private System.Windows.Forms.Panel panelHeader;
-        private System.Windows.Forms.PictureBox picLogo;
-        private System.Windows.Forms.GroupBox gbLogin;
-        private System.Windows.Forms.CheckBox cbOffline;
-        private System.Windows.Forms.CheckBox chkSmartLogin;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.ComboBox cmbLoginID;
-        private System.Windows.Forms.Label lblLoginID;
+        private Panel panel1;
+        private CheckBox cbOffline;
+        private CheckBox chkSmartLogin;
+        private Button btnCancel;
+        private Button btnOK;
+        private TextBox txtPassword;
+        private ComboBox cmbLoginID;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+
     }
 }

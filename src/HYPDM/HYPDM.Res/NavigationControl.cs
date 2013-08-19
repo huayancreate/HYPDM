@@ -228,5 +228,10 @@ namespace HYPDM.Res
                 }
             }
         }
+
+        private void 流程权限ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

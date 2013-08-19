@@ -43,10 +43,14 @@
             // 
             // Tree
             // 
+            this.Tree.BackColor = System.Drawing.Color.LightCyan;
             this.Tree.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tree.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Tree.ImageIndex = 0;
+            this.Tree.ImageList = this.imageTree2;
             this.Tree.Location = new System.Drawing.Point(0, 0);
             this.Tree.Name = "Tree";
+            this.Tree.SelectedImageIndex = 0;
             this.Tree.Size = new System.Drawing.Size(200, 400);
             this.Tree.TabIndex = 1;
             this.Tree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Tree_AfterSelect);
@@ -86,7 +90,7 @@
             this.注册ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNewDoc});
             this.注册ToolStripMenuItem.Name = "注册ToolStripMenuItem";
-            this.注册ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.注册ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.注册ToolStripMenuItem.Text = "注册";
             // 
             // addNewDoc
@@ -99,14 +103,15 @@
             // 权限ToolStripMenuItem
             // 
             this.权限ToolStripMenuItem.Name = "权限ToolStripMenuItem";
-            this.权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.权限ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.权限ToolStripMenuItem.Text = "权限";
             // 
             // 流程权限ToolStripMenuItem
             // 
             this.流程权限ToolStripMenuItem.Name = "流程权限ToolStripMenuItem";
-            this.流程权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.流程权限ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.流程权限ToolStripMenuItem.Text = "流程权限";
+            this.流程权限ToolStripMenuItem.Click += new System.EventHandler(this.流程权限ToolStripMenuItem_Click);
             // 
             // NavigationControl
             // 

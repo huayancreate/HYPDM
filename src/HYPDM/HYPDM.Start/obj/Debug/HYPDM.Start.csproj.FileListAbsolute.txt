@@ -24,3 +24,15 @@ D:\我的文档\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.pdb
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\ResolveAssemblyReference.cache
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.exe
 D:\我的文档\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Start.exe.config
+F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Start.exe
+F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Start.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.exe
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.Start.exe.config
+C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.Start.exe
+C:\Users\Administrator\Desktop\HYPDM\bin\HYPDM.Start.pdb
+C:\Users\Administrator\Desktop\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.exe
+C:\Users\Administrator\Desktop\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.pdb
+C:\Users\Administrator\Desktop\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.csprojResolveAssemblyReference.cache
