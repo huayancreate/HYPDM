@@ -25,7 +25,8 @@ namespace HYPDM.WinUI.Document
         protected int closed = 0;
         protected bool valueChanged = false;
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
-        IPhysicalFileService _physicalService = ServiceContainer.GetService<IPhysicalFileService>();
+        IDocFileListService _docFileListService = ServiceContainer.GetService<DocFileListService>();
+        IPhysicalFileService _physicalService = ServiceContainer.GetService<PhysicalFileService>();
         IDocumentService _docService = ServiceContainer.GetService<IDocumentService>();
 
         public DocRegForm()
@@ -101,20 +102,21 @@ namespace HYPDM.WinUI.Document
             documentList.Add(document);
             #endregion
             #region 物理文件
-            var fileList = _physicalService.GetList(document.DOCID);
-            IList<PDM_PHYSICAL_FILE> physicalList = new List<PDM_PHYSICAL_FILE>();
-            if (fileList.Count <= 0)
-            {
-                PDM_PHYSICAL_FILE physicalfile = new PDM_PHYSICAL_FILE();
-                physicalfile.PHYSICALID = _physicalService.GetMaxID().ToString();
-                physicalfile.PAPERS = txtDocNo.Text;
-                physicalfile.OPERATEUSER = LoginInfo.LoginID;
-                physicalfile.PARENT = "0";
-                physicalfile.FILEID = document.DOCID;
-                physicalList.Add(physicalfile);
-            }
+            //var fileList = _physicalService.GetList(document.DOCID);
+            //IList<PDM_PHYSICAL_FILE> physicalList = new List<PDM_PHYSICAL_FILE>();
+            //if (fileList.Count <= 0)
+            //{
+            //    PDM_PHYSICAL_FILE physicalfile = new PDM_PHYSICAL_FILE();
+            //    physicalfile.PHYSICALID = _physicalService.GetMaxID().ToString();
+            //    physicalfile.PAPERS = txtDocNo.Text;
+            //    physicalfile.OPERATEUSER = LoginInfo.LoginID;
+            //    physicalfile.PARENT = "0";
+            //    physicalfile.FILEID = document.DOCID;
+            //    physicalList.Add(physicalfile);
+            //}
 
-            _docService.DocSave(documentList, physicalList);
+            //_docService.DocSave(documentList, physicalList);
+            _docService.DocSave(documentList);
             #endregion
             this.closed = 1;
             MessageBox.Show(msg);
@@ -171,12 +173,13 @@ namespace HYPDM.WinUI.Document
             }
         }
 
-        private DataTable dt;
+        //private DataTable dt;
 
 
         private void btnRegPhysicalFile_Click(object sender, EventArgs e)
         {
-
+            string savePath = "";
+            string savePathID = "";//保存的目标路径的id
             ListView listViewFile = null;
             AddFileFrm frm = new AddFileFrm();
             if (frm.ShowDialog() == DialogResult.OK)
@@ -185,6 +188,9 @@ namespace HYPDM.WinUI.Document
                 //fileList
                 //savePath
                 listViewFile = frm.ListViewFile;
+                savePath = frm.SaveFilepath; //从弹出窗体返回来的保存路径
+                savePathID = frm.SavePathID;//保存的目标路径的id
+               // MessageBox.Show(savePath);
                 //   FileSockClient.UpLoadFileSocketClient sock = null;
                 DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
                 DOC_FILE_LIST file = new DOC_FILE_LIST();
@@ -199,21 +205,23 @@ namespace HYPDM.WinUI.Document
                     // IDocFileListService _fileService = ServiceContainer.GetService<DocFileListService>();
                     try
                     {
-                        FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, @"D:\\PDM文件服务器根目录");
+                        //FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, @"D:\\PDM文件服务器根目录");
+                        FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path,savePath);
+                        
                         // MessageBox.Show("文件添加成功==文件目录" + @"E:\\PDM文件服务器根目录");
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("文件添加失败==文件目录" + @"D:\\PDM文件服务器根目录" + "===" + ex.Message.ToString());
+                        MessageBox.Show("文件添加失败==文件目录" + savePath + "===" + ex.Message.ToString());
                     }
                     finally
                     {
                         file.DFL_ID = Guid.NewGuid().ToString();
                         file.DFL_FILE_NAME = path.Substring(path.LastIndexOf(@"\") + 1);
                         file.DFL_FILE_EXTEND = path.Substring(path.LastIndexOf(@".") + 1);
-                        file.DFL_FILE_CHILD_PATH = "001";
+                        file.DFL_FILE_CHILD_PATH = savePathID;
                         file.DEL_FLAG = "N";
-                        file.DFL_VER_LATEST = "V1.0";
+                        file.DFL_VER_LATEST ="V"+DateTime.Now.ToString("yyyyMMddHHmmss");
                         file.DOCID = Document.DOCID; //与文档表关联主键
                         file.CREATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         file.CREATEUSER = LoginInfo.LoginID;
@@ -222,6 +230,7 @@ namespace HYPDM.WinUI.Document
                         // query.Save(file);
                         query.Insert(file);
                     }
+                    this.BindTreeData();
                 }
             }
         }
@@ -434,7 +443,7 @@ namespace HYPDM.WinUI.Document
 
                 HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
                 row.Cells["FileName"].Value = file.FILENAME;
-                VersionSave("0");
+               // VersionSave("0");
             }
         }
 
@@ -450,21 +459,31 @@ namespace HYPDM.WinUI.Document
             if (rowIndex < 0)
                 return;
             DataGridViewRow row = tvFileList.Rows[rowIndex];
-            var Id = row.Cells["PHYSICALID"].Value.ToString();
+            String Id = row.Cells["DFL_ID"].Value.ToString();
 
-            HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
-            if (physicalfile == null) return;
-            CheckInForm form = new CheckInForm();
-            form.PhysicalFile = physicalfile;
-
-            if (form.ShowDialog() == DialogResult.OK)
+           // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
+            DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
+            if (docFileEntity == null) return;
+            if (docFileEntity.CHECKOUTFLG == "N")
             {
-                physicalfile.FILESTATUS = "1";
-                physicalfile.Save();
+                MessageBox.Show("文件名【" + docFileEntity .DFL_FILE_NAME+"】"+"\n"+ "不为检出状态，不能进行检入操作!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                CheckInForm form = new CheckInForm();
+                form.DocFileEntity = docFileEntity;
 
-                HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
-                row.Cells["FileName"].Value = file.FILENAME;
-                VersionSave("1");
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    docFileEntity.CHECKINFLG = "Y";
+                    docFileEntity.CHECKINDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    docFileEntity.CHECKOUTFLG = "N";
+                    docFileEntity.DFL_VER_LATEST = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
+                    docFileEntity.Save();
+
+                    VersionSave("1", docFileEntity);
+                }
             }
         }
 
@@ -482,10 +501,21 @@ namespace HYPDM.WinUI.Document
                 if (rowIndex < 0)
                     return;
                 DataGridViewRow row = tvFileList.Rows[rowIndex];
-                var Id = row.Cells["PHYSICALID"].Value.ToString();
-                var file = _physicalService.GetPhysicalFile(Id, "");
-                file.Delete();
-                MessageBox.Show("所选择的文件已被删除！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string dflID = row.Cells["DFL_ID"].Value.ToString();
+                //var file = _physicalService.GetPhysicalFile(Id, "");
+               // IDocFileListService serv = new DocFileListService();
+                if (_docFileListService.delDocFileByDFLID(dflID))
+                {
+                    MessageBox.Show("删除成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    MessageBox.Show("删除失败", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                }
+                this.BindTreeData();
+                //serv.
+                //file.Delete();
+              //  MessageBox.Show("所选择的文件已被删除！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -493,15 +523,17 @@ namespace HYPDM.WinUI.Document
         /// 版本历史记录保存
         /// </summary>
         /// <param name="type">0：检出，1：检入</param>
-        private void VersionSave(string type)
+        private void VersionSave(string type,DOC_FILE_LIST doc)
         {
             PDM_VERSION_HISTORY version = new PDM_VERSION_HISTORY();
-            version.ID = _physicalService.GetMaxID().ToString();
-            version.VERSIONNO = DateTime.Now.ToString("yyyyMMddHHmmss");
+            version.ID = Guid.NewGuid().ToString();
+            version.VERSIONNO = doc.DFL_VER_LATEST;
             version.VERSIONSTATUS = type;
             version.OPERATORUSER = LoginInfo.LoginID;
             version.OPERATORDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            version.Save();
+            version.DFL_ID = doc.DFL_ID;
+            version.FILE_NAME = doc.DFL_FILE_NAME;
+            version.Insert();
         }
 
         /// <summary>
@@ -562,19 +594,22 @@ namespace HYPDM.WinUI.Document
         DataTable dtDocFile = null;
         private void BindTreeData()
         {
+
+            this.tvFileList.Nodes.Clear();
             IDocFileListService service = ServiceContainer.GetService<IDocFileListService>();
             dtDocFile = service.GetDocFileDataTableByDCID(Document.DOCID);
 
             Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
-            DataView dv = new DataView(dt);
+        //    DataView dv = new DataView(dt);
             node = new TreeGridNode();
             // dv.RowFilter = "[PARENT]=" + parentId;
             //foreach (DataRowView dr in dv)
             //{
             //    if (parentId == "0")
             //    {
-            node = tvFileList.Nodes.Add(Document.DOCNO, "", "", "", "", "","");
+            node = tvFileList.Nodes.Add(Document.DOCNO, "", "", "", "", "","","");
             node.DefaultCellStyle.Font = boldFont;
+           
             // BindChildNode(node, (string)dr["PHYSICALID"]);
             HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
             foreach (DataRow dr in dtDocFile.Rows)
@@ -582,8 +617,10 @@ namespace HYPDM.WinUI.Document
                 node.Nodes.Add(dr["DFL_FILE_NAME"].ToString(), file.getDocumentAllPathByPathID(dr["DFL_FILE_CHILD_PATH"].ToString()),
                       dr["DFL_VER_LATEST"].ToString(),
                                           dr["CHECKINFLG"].ToString(), dr["CHECKINDATE"].ToString(), dr["CHECKOUTFLG"].ToString(),
-                                          dr["CHECKOUTDATE"].ToString());
+                                          dr["CHECKOUTDATE"].ToString(), dr["DFL_ID"].ToString());
+                node.Expand();
             }
+            
 
             //    }
             //}
@@ -616,11 +653,19 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void tspDownLoad_Click(object sender, EventArgs e)
         {
+            downLoadFile();
         }
 
-        private void tspDownLoad_Click_1(object sender, EventArgs e)
+        private void btnFileDown_Click(object sender, EventArgs e)
         {
+            downLoadFile();
+        }
 
+        /// <summary>
+        /// 文件下载
+        /// </summary>
+        private void downLoadFile()
+        {
             TreeGridNode node = null;//当前选择的节点
             String serverpath = "";
             if (tvFileList.CurrentRow == null)
@@ -631,24 +676,32 @@ namespace HYPDM.WinUI.Document
             {
                 node = new TreeGridNode();
                 node = this.tvFileList.CurrentNode;
-                int index = node.RowIndex;
-                // MessageBox.Show(index.ToString());
-                if (index > 0) //取消第一行
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.FileName = node.Cells[0].Value.ToString();
+                saveDialog.Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                DialogResult res= saveDialog.ShowDialog();
+                if (DialogResult.OK == res)
                 {
-                    serverpath = node.Cells[1].Value.ToString() + node.Cells[0].Value.ToString();
-                    MessageBox.Show(serverpath);
+                    string clientSaveFileAndPath = saveDialog.FileName.ToString();
+                    //MessageBox.Show(clientSavepath);
+                  
+                    int index = node.RowIndex;
+                    // MessageBox.Show(index.ToString());
+                    if (index > 0) //取消第一行
+                    {
+                        serverpath = node.Cells[1].Value.ToString() + node.Cells[0].Value.ToString();
+                      //  MessageBox.Show(serverpath);
 
-                    FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, @"C:\\" + node.Cells[0].Value.ToString());
-
-
-                }
-                else
-                {
-                    MessageBox.Show("请选择需要下载的文件" + "(" + index + ")", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, @"C:\\" + node.Cells[0].Value.ToString());
+                        FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, clientSaveFileAndPath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("请选择需要下载的文件" + "(" + index + ")", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             //  this.tvFileList.CurrentRow
-
         }
 
     }

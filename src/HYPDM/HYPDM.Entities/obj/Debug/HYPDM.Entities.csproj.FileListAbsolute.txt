@@ -39,3 +39,4 @@ F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Entities.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Entities.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Entities\obj\Debug\HYPDM.Entities.csprojResolveAssemblyReference.cache

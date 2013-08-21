@@ -66,7 +66,7 @@ namespace HYDocumentMS
             dtDirList = getDocFileDir(); //获取文档目录的清单
             // dt.Select("DFD_PARENT_DIR_ID=0");
 
-            DataRow[] rootDir = dtDirList.Select("DFD_PARENT_DIR_ID=0"); //根目录
+            DataRow[] rootDir = dtDirList.Select("DFD_PARENT_DIR_ID='0'"); //根目录
             if (rootDir.Length > 0)
             {
                 foreach (DataRow row in rootDir)

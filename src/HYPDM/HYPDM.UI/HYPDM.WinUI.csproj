@@ -166,6 +166,7 @@
     <Compile Include="Document\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Document\ToolsHelper.cs" />
     <Compile Include="Graph\GraphRegForm.cs">
       <SubType>UserControl</SubType>
     </Compile>

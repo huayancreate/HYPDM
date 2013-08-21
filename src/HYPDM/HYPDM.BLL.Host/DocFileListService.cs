@@ -8,12 +8,14 @@ using EAS.Data.Access;
 using HYPDM.Entities;
 using EAS.Data.ORM;
 using System.Data;
+using EAS.Explorer;
 namespace HYPDM.BLL
 {
     [ServiceObject("文档管理服务")]
     [ServiceBind(typeof(IDocFileListService))]
     public class DocFileListService : BaseServiceObject, IDocFileListService
     {
+        IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         /// <summary>
         /// 返回所有文档清单
         /// </summary>
@@ -25,7 +27,7 @@ namespace HYPDM.BLL
 
             dt = this.DataAccessor.QueryDataTable(SQLText);
 
-          
+
             return dt;
         }
         /// <summary>
@@ -35,7 +37,7 @@ namespace HYPDM.BLL
         /// <returns></returns>
         public DataTable GetDocFileListForDatatable(Boolean bl)
         {
-            string  delFlag = "N";
+            string delFlag = "N";
             if (bl == false)
             {
                 delFlag = "Y";
@@ -45,7 +47,7 @@ namespace HYPDM.BLL
                 delFlag = "N";
             }
             DataTable dt = null;
-            string SQLText = "SELECT * FROM DOC_FILE_LIST ORDER BY WHERE DEL_FLAG='"+delFlag.Trim()+"' CREATEDATE asc ";
+            string SQLText = "SELECT * FROM DOC_FILE_LIST ORDER BY WHERE DEL_FLAG='" + delFlag.Trim() + "' CREATEDATE asc ";
 
             dt = this.DataAccessor.QueryDataTable(SQLText);
 
@@ -57,7 +59,7 @@ namespace HYPDM.BLL
             string SQLText = "SELECT * FROM DOC_FILE_DIR ";
             dt = this.DataAccessor.QueryDataTable(SQLText);
             return dt;
-            
+
         }
 
         public DataTable GetDocFileDataTableByDCID(string dcid)
@@ -71,8 +73,62 @@ namespace HYPDM.BLL
             stb.Append(" WHERE  DEL_FLAG='N' AND DOCID='" + dcid.Trim() + "'");
             dt = this.DataAccessor.QueryDataTable(stb.ToString());
             return dt;
+        }
+        public Boolean delDocFileByDFLID(string dflID)
+        {
+            Boolean result = true;
+            DOC_FILE_LIST file = new DOC_FILE_LIST();
+            DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
 
-                
+            var p = (from item in query
+                     where (item.DFL_ID == dflID) && (item.DEL_FLAG == "N")
+                     select item
+                );
+            file = p.ToList()[0];
+            if (file == null)
+            {
+                result = false;
+                throw new Exception("改记录不存在");
+            }
+            else
+            {
+                file.DEL_FLAG = "Y";
+                file.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                file.LASTUPDATEUSER = LoginInfo.LoginID;
+                try
+                {
+                    file.Update();
+                }
+                catch (Exception ex)
+                {
+                    result = false;
+                    throw new Exception(ex.Message.ToString());
+                }
+                finally
+                {
+
+                }
+            }
+            return result;
+        }
+        public DOC_FILE_LIST GetDocFileEntityByDCID(string dflID)
+        {
+            DOC_FILE_LIST doc = null;
+            DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
+
+            var p = (from item in query
+                          where (item.DEL_FLAG=="N") && (item.DFL_ID==dflID)
+                          select item );
+            IList<DOC_FILE_LIST> list = p.ToList();
+            if (list.Count == 0)
+            {
+
+            }
+            else
+            {
+                doc = list[0];
+            }
+            return doc;
         }
     }
 }

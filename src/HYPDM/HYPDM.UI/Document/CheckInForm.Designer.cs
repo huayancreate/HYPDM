@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnSelectPath = new System.Windows.Forms.Button();
-            this.chkUpload = new System.Windows.Forms.CheckBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnCheckIN = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,19 +47,9 @@
             this.btnSelectPath.UseVisualStyleBackColor = true;
             this.btnSelectPath.Click += new System.EventHandler(this.btnSelectPath_Click);
             // 
-            // chkUpload
-            // 
-            this.chkUpload.AutoSize = true;
-            this.chkUpload.Location = new System.Drawing.Point(152, 83);
-            this.chkUpload.Name = "chkUpload";
-            this.chkUpload.Size = new System.Drawing.Size(48, 16);
-            this.chkUpload.TabIndex = 4;
-            this.chkUpload.Text = "上传";
-            this.chkUpload.UseVisualStyleBackColor = true;
-            // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(317, 122);
+            this.btnClose.Location = new System.Drawing.Point(317, 90);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 6;
@@ -70,7 +59,7 @@
             // 
             // btnCheckIN
             // 
-            this.btnCheckIN.Location = new System.Drawing.Point(236, 122);
+            this.btnCheckIN.Location = new System.Drawing.Point(236, 90);
             this.btnCheckIN.Name = "btnCheckIN";
             this.btnCheckIN.Size = new System.Drawing.Size(75, 23);
             this.btnCheckIN.TabIndex = 5;
@@ -107,6 +96,7 @@
             // 
             this.txtFileName.Location = new System.Drawing.Point(74, 11);
             this.txtFileName.Name = "txtFileName";
+            this.txtFileName.ReadOnly = true;
             this.txtFileName.Size = new System.Drawing.Size(318, 21);
             this.txtFileName.TabIndex = 1;
             // 
@@ -114,9 +104,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 157);
+            this.ClientSize = new System.Drawing.Size(407, 119);
             this.Controls.Add(this.btnSelectPath);
-            this.Controls.Add(this.chkUpload);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnCheckIN);
             this.Controls.Add(this.label2);
@@ -126,6 +115,7 @@
             this.Name = "CheckInForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "检入";
+            this.Load += new System.EventHandler(this.CheckInForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,7 +124,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnSelectPath;
-        private System.Windows.Forms.CheckBox chkUpload;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnCheckIN;
         private System.Windows.Forms.Label label2;

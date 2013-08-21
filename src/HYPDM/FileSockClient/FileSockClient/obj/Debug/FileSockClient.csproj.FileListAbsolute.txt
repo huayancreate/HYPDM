@@ -37,3 +37,4 @@ E:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockC
 E:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.csproj.GenerateResource.Cache
 E:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.XML

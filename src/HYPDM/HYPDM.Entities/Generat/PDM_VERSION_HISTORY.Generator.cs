@@ -105,7 +105,27 @@ namespace HYPDM.Entities
            get;
            set;
        }
-       
+
+       /// <summary>
+       /// 文档ID
+       /// </summary>
+       [Column("DFL_ID", "文档ID"), DataSize(50)]
+       [DisplayName("文档")]
+       public string DFL_ID
+       {
+           get;
+           set;
+       }
+       /// <summary>
+       /// 文件名
+       /// </summary>
+       [Column("FILE_NAME", "文件名"), DataSize(100)]
+       [DisplayName("文档")]
+       public string FILE_NAME
+       {
+           get;
+           set;
+       }
        #endregion
    }
 }

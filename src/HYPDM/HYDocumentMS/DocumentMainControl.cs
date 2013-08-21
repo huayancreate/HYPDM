@@ -111,5 +111,10 @@ namespace HYDocumentMS
                 //MessageBox.Show("你点击的是文件目录并非是文件");
             }
         }
+
+        private void ToolS_Folder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -51,25 +51,45 @@ namespace HYPDM.BLL
 
         #region 保存
 
-        public void DocSave(IList<PDM_DOCUMENT> documentList, IList<PDM_PHYSICAL_FILE> physicalList)
+        //public void DocSave(IList<PDM_DOCUMENT> documentList, IList<PDM_PHYSICAL_FILE> physicalList)
+        //{
+        //    this.DataAccessor.TransactionExecute(new TransactionHandler2(this.IniternalSave), documentList, physicalList);
+        //}
+
+        //public void IniternalSave(IDataAccessor accessor, params object[] parameters)
+        //{
+        //    IList<PDM_DOCUMENT> documentList = parameters[0] as IList<PDM_DOCUMENT>;
+        //    IList<PDM_PHYSICAL_FILE> physicalList = parameters[1] as IList<PDM_PHYSICAL_FILE>;
+
+        //    foreach (PDM_DOCUMENT document in documentList)
+        //    {
+        //        document.Save();
+        //    }
+
+        //    foreach (PDM_PHYSICAL_FILE physical in physicalList)
+        //    {
+        //        physical.Save();
+        //    }
+        //}
+        public void DocSave(IList<PDM_DOCUMENT> documentList)
         {
-            this.DataAccessor.TransactionExecute(new TransactionHandler2(this.IniternalSave), documentList, physicalList);
+            this.DataAccessor.TransactionExecute(new TransactionHandler2(this.IniternalSave), documentList);
         }
 
         public void IniternalSave(IDataAccessor accessor, params object[] parameters)
         {
             IList<PDM_DOCUMENT> documentList = parameters[0] as IList<PDM_DOCUMENT>;
-            IList<PDM_PHYSICAL_FILE> physicalList = parameters[1] as IList<PDM_PHYSICAL_FILE>;
+           // IList<PDM_PHYSICAL_FILE> physicalList = parameters[1] as IList<PDM_PHYSICAL_FILE>;
 
             foreach (PDM_DOCUMENT document in documentList)
             {
                 document.Save();
             }
 
-            foreach (PDM_PHYSICAL_FILE physical in physicalList)
-            {
-                physical.Save();
-            }
+            //foreach (PDM_PHYSICAL_FILE physical in physicalList)
+            //{
+            //    physical.Save();
+            //}
         }
         #endregion
 

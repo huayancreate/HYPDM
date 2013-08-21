@@ -29,7 +29,7 @@ namespace HYPDM.Entities
        /// <summary>
        /// 主键 。
        /// </summary>
-       [Column("DFL_ID","主键"),DataSize(50)]
+       [Column("DFL_ID","主键"),DataSize(50),PrimaryKey]
        [DisplayName("主键")]
        public string DFL_ID
        {

@@ -29,3 +29,4 @@ E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseContr
 E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.csproj.GenerateResource.Cache
 E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYMes.WinUI.BaseControl\obj\Debug\HYPDM.BaseControl.csprojResolveAssemblyReference.cache

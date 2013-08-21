@@ -14,25 +14,23 @@ namespace HYPDM.WinUI.Document
         public CheckInForm()
         {
             InitializeComponent();
+            
         }
+        
+        private HYPDM.Entities.DOC_FILE_LIST docFileEntity;
 
-        private HYPDM.Entities.PDM_PHYSICAL_FILE physicalFile;
-        public HYPDM.Entities.PDM_PHYSICAL_FILE PhysicalFile
+        public HYPDM.Entities.DOC_FILE_LIST DocFileEntity
         {
-            get { return this.physicalFile; }
-            set
-            {
-                this.physicalFile = value;
-                if (value != null)
-                    this.InitPhysicalInfo();
-            }
+            get { return docFileEntity; }
+            set { docFileEntity = value; }
         }
+       
 
         private void InitPhysicalInfo()
         {
-            if (PhysicalFile != null)
+            if (DocFileEntity != null)
             {
-                txtFileName.Text = PhysicalFile.FILENAME;
+                txtFileName.Text = DocFileEntity.DFL_FILE_NAME;
             }
         }
 
@@ -63,9 +61,30 @@ namespace HYPDM.WinUI.Document
             }
             else
             {
-                Util.FTPHelper helper = Util.Common.FtpHepler();
+                Boolean result = true;
+                //Util.FTPHelper helper = Util.Common.FtpHepler();
                 var info = "";
-                var result = helper.UploadFile(txtFilePath.Text, out info);
+                //var result = helper.UploadFile(txtFilePath.Text, out info);
+
+                try{
+                    string filePath = this.txtFilePath.Text.ToString();
+                    int i = filePath.LastIndexOf(@"\");
+                    if (i==-1)
+                    {
+                        i = filePath.LastIndexOf(@"/");
+                    }
+                    filePath = filePath.Substring(0, i) + @"\" + this.txtFileName.Text.ToString();
+                  //  MessageBox.Show(filePath);
+                    string ff=new HYDocumentMS.FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH)+this.txtFileName.Text.ToString();
+                    FileSockClient.CopyOldVerFile hh = new FileSockClient.CopyOldVerFile(ff, "12222.txt");
+               //     FileSockClient.UpLoadFileSocketClient upload = new FileSockClient.UpLoadFileSocketClient(filePath,new HYDocumentMS.FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH), true);
+                }
+                catch(Exception ex)
+                {  
+                    result=false;
+                    MessageBox.Show(ex.Message.ToString());
+                }
+
                 if (result)
                 {
                     MessageBox.Show("文件检入成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -86,6 +105,11 @@ namespace HYPDM.WinUI.Document
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CheckInForm_Load(object sender, EventArgs e)
+        {
+            InitPhysicalInfo();
         }
     }
 }

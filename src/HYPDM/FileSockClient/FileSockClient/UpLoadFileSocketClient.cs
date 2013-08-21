@@ -43,13 +43,21 @@ namespace FileSockClient
         public ArrayList al = new ArrayList();//定义存储文件和文件夹名的数组
         Form frmWait = new FrmWait();
 
+       /// <summary>
+       /// 
+       /// </summary>
         public Form FrmWait
         {
             get { return frmWait; }
             set { frmWait = value; }
         }
-
+       ///
         int downFileServerPort;
+       /// <summary>
+       /// 文件上传构造函数
+       /// </summary>
+       /// <param name="filePathName"></param>
+       /// <param name="srvSavePath"></param>
         public UpLoadFileSocketClient(string filePathName, string srvSavePath)
         {
 
@@ -64,6 +72,37 @@ namespace FileSockClient
             port3 = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port3"].ToString());
             IsXuChuan = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsXuChuan"].ToString());
             IsFuGai = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsFuGai"].ToString());
+            //    BackDay = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["BackDay"].ToString());
+            SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
+            downFileServerPort = int.Parse(System.Configuration.ConfigurationManager.AppSettings["downFileServerPort"].ToString());
+            portFileSavePath = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["portFileSavePath"].ToString());
+            //socketUpLoadFile sock = new socketUpLoadFile();
+            FilePath = filePathName;
+            frmWait.Show();
+
+            Thread th = new Thread(new ThreadStart(startListen)); //启动新线程来运行start
+            th.IsBackground = true;
+            th.Start();
+        }
+       /// <summary>
+       /// 上传文件
+       /// </summary>
+       /// <param name="filePathName">需要上传的文件及路径</param>
+       /// <param name="srvSavePath">将保存的路径</param>
+       /// <param name="blIsFuGai">是否替换文件如果指定目录已经存在此文件的情况下</param>
+        public UpLoadFileSocketClient(string filePathName, string srvSavePath,Boolean blIsFuGai)
+        {
+            TextBox.CheckForIllegalCrossThreadCalls = false;
+            this.ServerSavePath = srvSavePath; //在服务器上的保存路径
+            //  path = System.Configuration.ConfigurationManager.AppSettings["APPEmailXML"].ToString();
+            //strBaseDir = System.Configuration.ConfigurationManager.AppSettings["strBaseDir"].ToString();
+            host = System.Configuration.ConfigurationManager.AppSettings["ServerIP"].ToString();
+            port1 = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port1"].ToString());
+            port2 = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port2"].ToString());
+            port3 = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["port3"].ToString());
+            IsXuChuan = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsXuChuan"].ToString());
+            IsFuGai = blIsFuGai;
+           // IsFuGai = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsFuGai"].ToString());
             //    BackDay = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["BackDay"].ToString());
             SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
             downFileServerPort = int.Parse(System.Configuration.ConfigurationManager.AppSettings["downFileServerPort"].ToString());
@@ -209,18 +248,35 @@ namespace FileSockClient
         /// <param name="host">127.0.0.1</param>
         /// <param name="port">port = 2007</param>
         /// <param name="xuchuan">是否续传</param>
-        public void setxc(string str, string host, int port, bool xuchuan)
+        public void setxc(string str, string host, int port)
         {
-            IPAddress ip = IPAddress.Parse(host);
+            Socket c = null;
+            try
+            {
+                IPAddress ip = IPAddress.Parse(host);
 
-            //port = 2007;
-            IPEndPoint ipe = new IPEndPoint(ip, port);
-            Socket c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            c.Connect(ipe);
-            string Str = str;
-            byte[] bxc = Encoding.ASCII.GetBytes(Str);
-            c.Send(bxc, bxc.Length, 0);
-            c.Close();
+                //port = 2007;
+                IPEndPoint ipe = new IPEndPoint(ip, port);
+                c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                c.Connect(ipe);
+                string Str = str;
+                byte[] bxc = Encoding.ASCII.GetBytes(Str);
+                c.Send(bxc, bxc.Length, 0);
+                //c.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+               // c.Close();
+                c.Dispose();
+                if (frmWait != null)
+                {
+                    frmWait.Close();
+                }
+            }
         }
 
         //传输文件/// <summary>
@@ -251,6 +307,7 @@ namespace FileSockClient
                 //    c.Close();        //关闭Socket
                 //    return;
                 //}
+              //  MessageBox.Show(fileName);
                 FileStream file = File.Open(fileName, FileMode.Open, FileAccess.Read);   //创建文件流
                 //文件字节总长度
                 int fileAllLength = (int)file.Length;
@@ -259,10 +316,10 @@ namespace FileSockClient
 
                 int intLength = 0;
                 #region  续传
-                if (startSet > 0 && startSet < fileAllLength && xuchuan == true)
+                if (startSet > 0 && startSet < fileAllLength && xuchuan == true && IsFuGai==false)
                 {
                     //传输文件是否续传
-                    setxc("xc", host, port3, xuchuan);
+                    setxc("xc", host, port3);
                     file.Seek(long.Parse(startStr), SeekOrigin.Begin); //移动文件流中的当前指针
                     intLength = int.Parse(startStr);
                     while (fileLast > 0)
@@ -274,10 +331,10 @@ namespace FileSockClient
                         fileLast -= count;
                         intLength += count;
                         file.Seek(intLength, SeekOrigin.Begin);
-                        if (fileLast == 0)
-                        {
-                            // c.Send(Encoding.UTF8.GetBytes("end"), Encoding.UTF8.GetBytes("end").Length, 0);
-                        }
+                        //if (fileLast == 0)
+                        //{
+                        //    // c.Send(Encoding.UTF8.GetBytes("end"), Encoding.UTF8.GetBytes("end").Length, 0);
+                        //}
                     }
                 }
                 #endregion
@@ -286,12 +343,12 @@ namespace FileSockClient
                 {
                     if (fileLast == 0 && IsFuGai == false)
                     {
-                        setxc("qx", host, port3, xuchuan);
+                        setxc("qx", host, port3);
                     }
                     else
                     {
                         //传输文件是否续传
-                        setxc("bxc", host, port3, xuchuan);
+                        setxc("bxc", host, port3);
 
                         while (fileLast > 0)
                         {

@@ -39,13 +39,14 @@
             this.fileList = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView_Dir = new System.Windows.Forms.ListView();
             this.lblSavePath = new System.Windows.Forms.Label();
+            this.trvFileDir = new System.Windows.Forms.TreeView();
             this.panel_Title.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_Delete
             // 
             this.panel_Delete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_Delete.BackgroundImage")));
-            this.panel_Delete.Location = new System.Drawing.Point(87, 220);
+            this.panel_Delete.Location = new System.Drawing.Point(237, 303);
             this.panel_Delete.Name = "panel_Delete";
             this.panel_Delete.Size = new System.Drawing.Size(46, 20);
             this.panel_Delete.TabIndex = 11;
@@ -54,7 +55,7 @@
             // panel_Cancel
             // 
             this.panel_Cancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_Cancel.BackgroundImage")));
-            this.panel_Cancel.Location = new System.Drawing.Point(531, 220);
+            this.panel_Cancel.Location = new System.Drawing.Point(522, 303);
             this.panel_Cancel.Name = "panel_Cancel";
             this.panel_Cancel.Size = new System.Drawing.Size(51, 20);
             this.panel_Cancel.TabIndex = 10;
@@ -63,7 +64,7 @@
             // panel_OK
             // 
             this.panel_OK.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_OK.BackgroundImage")));
-            this.panel_OK.Location = new System.Drawing.Point(467, 220);
+            this.panel_OK.Location = new System.Drawing.Point(458, 303);
             this.panel_OK.Name = "panel_OK";
             this.panel_OK.Size = new System.Drawing.Size(46, 20);
             this.panel_OK.TabIndex = 9;
@@ -72,12 +73,11 @@
             // panel_ADD
             // 
             this.panel_ADD.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_ADD.BackgroundImage")));
-            this.panel_ADD.Location = new System.Drawing.Point(35, 220);
+            this.panel_ADD.Location = new System.Drawing.Point(185, 303);
             this.panel_ADD.Name = "panel_ADD";
             this.panel_ADD.Size = new System.Drawing.Size(46, 20);
             this.panel_ADD.TabIndex = 8;
             this.panel_ADD.Click += new System.EventHandler(this.panel_ADD_Click);
-            this.panel_ADD.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_ADD_Paint);
             // 
             // panel_Title
             // 
@@ -87,13 +87,13 @@
             this.panel_Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Title.Location = new System.Drawing.Point(0, 0);
             this.panel_Title.Name = "panel_Title";
-            this.panel_Title.Size = new System.Drawing.Size(608, 24);
+            this.panel_Title.Size = new System.Drawing.Size(662, 24);
             this.panel_Title.TabIndex = 1;
             // 
             // min
             // 
             this.min.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("min.BackgroundImage")));
-            this.min.Location = new System.Drawing.Point(584, 3);
+            this.min.Location = new System.Drawing.Point(611, 3);
             this.min.Name = "min";
             this.min.Size = new System.Drawing.Size(21, 16);
             this.min.TabIndex = 1;
@@ -102,7 +102,7 @@
             // panel_Exit
             // 
             this.panel_Exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_Exit.BackgroundImage")));
-            this.panel_Exit.Location = new System.Drawing.Point(611, 3);
+            this.panel_Exit.Location = new System.Drawing.Point(638, 3);
             this.panel_Exit.Name = "panel_Exit";
             this.panel_Exit.Size = new System.Drawing.Size(21, 16);
             this.panel_Exit.TabIndex = 0;
@@ -121,9 +121,9 @@
             this.listView_Dir.FullRowSelect = true;
             this.listView_Dir.GridLines = true;
             this.listView_Dir.LabelWrap = false;
-            this.listView_Dir.Location = new System.Drawing.Point(12, 50);
+            this.listView_Dir.Location = new System.Drawing.Point(175, 47);
             this.listView_Dir.Name = "listView_Dir";
-            this.listView_Dir.Size = new System.Drawing.Size(593, 160);
+            this.listView_Dir.Size = new System.Drawing.Size(475, 240);
             this.listView_Dir.TabIndex = 12;
             this.listView_Dir.UseCompatibleStateImageBehavior = false;
             this.listView_Dir.View = System.Windows.Forms.View.Details;
@@ -140,13 +140,24 @@
             this.lblSavePath.TabIndex = 13;
             this.lblSavePath.Text = "文件将被保存的路径:";
             // 
+            // trvFileDir
+            // 
+            this.trvFileDir.BackColor = System.Drawing.Color.LightCyan;
+            this.trvFileDir.Location = new System.Drawing.Point(15, 47);
+            this.trvFileDir.Name = "trvFileDir";
+            this.trvFileDir.ShowNodeToolTips = true;
+            this.trvFileDir.Size = new System.Drawing.Size(157, 240);
+            this.trvFileDir.TabIndex = 14;
+            this.trvFileDir.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvFileDir_AfterSelect);
+            // 
             // AddFileFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::HYPDM.WinUI.Properties.Resources.Max_All;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(608, 253);
+            this.ClientSize = new System.Drawing.Size(662, 359);
+            this.Controls.Add(this.trvFileDir);
             this.Controls.Add(this.lblSavePath);
             this.Controls.Add(this.listView_Dir);
             this.Controls.Add(this.panel_Delete);
@@ -176,5 +187,6 @@
         private System.Windows.Forms.ColumnHeader fileList;
         private System.Windows.Forms.ListView listView_Dir;
         private System.Windows.Forms.Label lblSavePath;
+        private System.Windows.Forms.TreeView trvFileDir;
     }
 }
