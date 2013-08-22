@@ -16,23 +16,20 @@ namespace HYPDM.WinUI.Document
         {
             InitializeComponent();
         }
-        private HYPDM.Entities.PDM_PHYSICAL_FILE physicalFile;
-        public HYPDM.Entities.PDM_PHYSICAL_FILE PhysicalFile
+        private HYPDM.Entities.DOC_FILE_LIST docFileEntity;
+
+        public HYPDM.Entities.DOC_FILE_LIST DocFileEntity
         {
-            get { return this.physicalFile; }
-            set
-            {
-                this.physicalFile = value;
-                if (value != null)
-                    this.InitPhysicalInfo();
-            }
-        }
+            get { return docFileEntity; }
+            set { docFileEntity = value; }
+        } 
+     
 
         private void InitPhysicalInfo()
         {
-            if (PhysicalFile != null)
+            if (DocFileEntity != null)
             {
-                txtFileName.Text = PhysicalFile.FILENAME;
+                txtFileName.Text = DocFileEntity.DFL_FILE_NAME;
             }
         }
 
@@ -64,10 +61,17 @@ namespace HYPDM.WinUI.Document
             }
             else
             {
-                Util.FTPHelper helper = Util.Common.FtpHepler();
+                //Util.FTPHelper helper = Util.Common.FtpHepler();
                 var info = "";
-                var result = helper.DownloadFile(txtFilePath.Text, txtFileName.Text, out info);
-                if (result)
+                //var result = helper.DownloadFile(txtFilePath.Text, txtFileName.Text, out info);
+
+               // MessageBox.Show(this.txtFilePath.Text.ToString() + @"\" + this.txtFileName.Text.ToString());
+                ///下载文件并存放到指定的本地文件夹中
+                HYDocumentMS.IFileHelper fileHelper=new HYDocumentMS.FileHelper();
+                string srvFilePath=fileHelper.getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH)+this.txtFileName.Text.ToString();
+                FileSockClient.DownLoadFileSocketClient down = new FileSockClient.DownLoadFileSocketClient(srvFilePath, this.txtFilePath.Text.ToString() +@"\"+ this.txtFileName.Text.ToString());
+
+                if (true)
                 {
                     MessageBox.Show("文件检出成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -82,6 +86,11 @@ namespace HYPDM.WinUI.Document
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void DetectionForm_Load(object sender, EventArgs e)
+        {
+            this.txtFileName.Text = DocFileEntity.DFL_FILE_NAME;
         }
     }
 }

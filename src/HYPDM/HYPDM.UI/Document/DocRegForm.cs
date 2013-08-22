@@ -27,7 +27,7 @@ namespace HYPDM.WinUI.Document
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         IDocFileListService _docFileListService = ServiceContainer.GetService<DocFileListService>();
         IPhysicalFileService _physicalService = ServiceContainer.GetService<PhysicalFileService>();
-        IDocumentService _docService = ServiceContainer.GetService<IDocumentService>();
+        IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
 
         public DocRegForm()
         {
@@ -190,7 +190,7 @@ namespace HYPDM.WinUI.Document
                 listViewFile = frm.ListViewFile;
                 savePath = frm.SaveFilepath; //从弹出窗体返回来的保存路径
                 savePathID = frm.SavePathID;//保存的目标路径的id
-               // MessageBox.Show(savePath);
+                // MessageBox.Show(savePath);
                 //   FileSockClient.UpLoadFileSocketClient sock = null;
                 DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
                 DOC_FILE_LIST file = new DOC_FILE_LIST();
@@ -206,8 +206,8 @@ namespace HYPDM.WinUI.Document
                     try
                     {
                         //FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, @"D:\\PDM文件服务器根目录");
-                        FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path,savePath);
-                        
+                        FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, savePath);
+
                         // MessageBox.Show("文件添加成功==文件目录" + @"E:\\PDM文件服务器根目录");
                     }
                     catch (Exception ex)
@@ -221,7 +221,7 @@ namespace HYPDM.WinUI.Document
                         file.DFL_FILE_EXTEND = path.Substring(path.LastIndexOf(@".") + 1);
                         file.DFL_FILE_CHILD_PATH = savePathID;
                         file.DEL_FLAG = "N";
-                        file.DFL_VER_LATEST ="V"+DateTime.Now.ToString("yyyyMMddHHmmss");
+                        file.DFL_VER_LATEST = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
                         file.DOCID = Document.DOCID; //与文档表关联主键
                         file.CREATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         file.CREATEUSER = LoginInfo.LoginID;
@@ -425,25 +425,50 @@ namespace HYPDM.WinUI.Document
         {
             int rowIndex = tvFileList.CurrentCell.RowIndex;
 
-            if (rowIndex < 0)
-                return;
-            DataGridViewRow row = tvFileList.Rows[rowIndex];
-            var Id = row.Cells["PHYSICALID"].Value.ToString();
 
-            HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
-            if (physicalfile == null) return;
-            if (physicalfile.FILESTATUS == "0") { MessageBox.Show("当前文档已被检出，不能再次检出，请等待检出人检入！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+            if (rowIndex <= 0)
+            {
+                MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            DataGridViewRow row = tvFileList.Rows[rowIndex];
+
+            String Id = row.Cells["DFL_ID"].Value.ToString();
+            DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
+
+            // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
+            if (docFileEntity == null) return;
+            if (docFileEntity.CHECKOUTFLG == "Y")
+            {
+                MessageBox.Show("当前文档已被检出，不能再次检出，请等待检出人检入！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DetectionForm form = new DetectionForm();
-            form.PhysicalFile = physicalfile;
+            form.DocFileEntity = docFileEntity;
 
             if (form.ShowDialog() == DialogResult.OK)
             {
-                physicalfile.FILESTATUS = "0";
-                physicalfile.Save();
+                docFileEntity.CHECKOUTFLG = "Y";
+                docFileEntity.CHECKINFLG = "N";
+                docFileEntity.CHECKOUTDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                docFileEntity.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                docFileEntity.LASTUPDATEUSER = LoginInfo.LoginID;
+                docFileEntity.Save();
 
-                HYPDM.Entities.PDM_PHYSICAL_FILE file = form.PhysicalFile;
-                row.Cells["FileName"].Value = file.FILENAME;
-               // VersionSave("0");
+                try
+                {
+                    VersionSave("0", docFileEntity);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                finally
+                {
+                    MessageBox.Show("文件检出成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -456,17 +481,20 @@ namespace HYPDM.WinUI.Document
         {
             int rowIndex = tvFileList.CurrentCell.RowIndex;
 
-            if (rowIndex < 0)
+            if (rowIndex <= 0)
+            {
+                MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
             DataGridViewRow row = tvFileList.Rows[rowIndex];
             String Id = row.Cells["DFL_ID"].Value.ToString();
 
-           // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
+            // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
             DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
             if (docFileEntity == null) return;
             if (docFileEntity.CHECKOUTFLG == "N")
             {
-                MessageBox.Show("文件名【" + docFileEntity .DFL_FILE_NAME+"】"+"\n"+ "不为检出状态，不能进行检入操作!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("文件名【" + docFileEntity.DFL_FILE_NAME + "】" + "\n" + "不为检出状态，不能进行检入操作!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
@@ -480,6 +508,8 @@ namespace HYPDM.WinUI.Document
                     docFileEntity.CHECKINDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     docFileEntity.CHECKOUTFLG = "N";
                     docFileEntity.DFL_VER_LATEST = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
+                    docFileEntity.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    docFileEntity.LASTUPDATEUSER = LoginInfo.LoginID;
                     docFileEntity.Save();
 
                     VersionSave("1", docFileEntity);
@@ -494,16 +524,21 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnDel_Click(object sender, EventArgs e)
         {
+
+            int rowIndex = tvFileList.CurrentCell.RowIndex;
+
+
+            if (rowIndex <= 0)
+            {
+                MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (MessageBox.Show("所选择的文件将被删除，是否确定？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                int rowIndex = tvFileList.CurrentCell.RowIndex;
-
-                if (rowIndex < 0)
-                    return;
                 DataGridViewRow row = tvFileList.Rows[rowIndex];
                 string dflID = row.Cells["DFL_ID"].Value.ToString();
                 //var file = _physicalService.GetPhysicalFile(Id, "");
-               // IDocFileListService serv = new DocFileListService();
+                // IDocFileListService serv = new DocFileListService();
                 if (_docFileListService.delDocFileByDFLID(dflID))
                 {
                     MessageBox.Show("删除成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -515,7 +550,7 @@ namespace HYPDM.WinUI.Document
                 this.BindTreeData();
                 //serv.
                 //file.Delete();
-              //  MessageBox.Show("所选择的文件已被删除！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //  MessageBox.Show("所选择的文件已被删除！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -523,7 +558,7 @@ namespace HYPDM.WinUI.Document
         /// 版本历史记录保存
         /// </summary>
         /// <param name="type">0：检出，1：检入</param>
-        private void VersionSave(string type,DOC_FILE_LIST doc)
+        private void VersionSave(string type, DOC_FILE_LIST doc)
         {
             PDM_VERSION_HISTORY version = new PDM_VERSION_HISTORY();
             version.ID = Guid.NewGuid().ToString();
@@ -600,16 +635,16 @@ namespace HYPDM.WinUI.Document
             dtDocFile = service.GetDocFileDataTableByDCID(Document.DOCID);
 
             Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
-        //    DataView dv = new DataView(dt);
+            //    DataView dv = new DataView(dt);
             node = new TreeGridNode();
             // dv.RowFilter = "[PARENT]=" + parentId;
             //foreach (DataRowView dr in dv)
             //{
             //    if (parentId == "0")
             //    {
-            node = tvFileList.Nodes.Add(Document.DOCNO, "", "", "", "", "","","");
+            node = tvFileList.Nodes.Add(Document.DOCNO, "", "", "", "", "", "", "");
             node.DefaultCellStyle.Font = boldFont;
-           
+
             // BindChildNode(node, (string)dr["PHYSICALID"]);
             HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
             foreach (DataRow dr in dtDocFile.Rows)
@@ -620,7 +655,7 @@ namespace HYPDM.WinUI.Document
                                           dr["CHECKOUTDATE"].ToString(), dr["DFL_ID"].ToString());
                 node.Expand();
             }
-            
+
 
             //    }
             //}
@@ -636,13 +671,13 @@ namespace HYPDM.WinUI.Document
         private void tvFileList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //if (e.RowIndex > -1)
-           if (e.RowIndex >0) //将第一行去掉，第一行为文档编号
+            if (e.RowIndex > 0) //将第一行去掉，第一行为文档编号
             {
-               // MessageBox.Show(this.tvFileList.Nodes[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-             //   MessageBox.Show(this.tvFileList.CurrentRow.Cells[1].Value.ToString() + this.tvFileList.CurrentRow.Cells[0].Value.ToString());
+                // MessageBox.Show(this.tvFileList.Nodes[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                //   MessageBox.Show(this.tvFileList.CurrentRow.Cells[1].Value.ToString() + this.tvFileList.CurrentRow.Cells[0].Value.ToString());
                 //MessageBox.Show("列的索引"+e.ColumnIndex.ToString());
                 //MessageBox.Show("行的索引" + e.RowIndex.ToString());
-              //  MessageBox.Show(this.tvFileList.CurrentNode.Cells[1].Value.ToString() + this.tvFileList.CurrentNode.Cells[0].Value.ToString());
+                //  MessageBox.Show(this.tvFileList.CurrentNode.Cells[1].Value.ToString() + this.tvFileList.CurrentNode.Cells[0].Value.ToString());
             }
         }
 
@@ -679,18 +714,18 @@ namespace HYPDM.WinUI.Document
                 SaveFileDialog saveDialog = new SaveFileDialog();
                 saveDialog.FileName = node.Cells[0].Value.ToString();
                 saveDialog.Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-                DialogResult res= saveDialog.ShowDialog();
+                DialogResult res = saveDialog.ShowDialog();
                 if (DialogResult.OK == res)
                 {
                     string clientSaveFileAndPath = saveDialog.FileName.ToString();
                     //MessageBox.Show(clientSavepath);
-                  
+
                     int index = node.RowIndex;
                     // MessageBox.Show(index.ToString());
                     if (index > 0) //取消第一行
                     {
                         serverpath = node.Cells[1].Value.ToString() + node.Cells[0].Value.ToString();
-                      //  MessageBox.Show(serverpath);
+                        //  MessageBox.Show(serverpath);
 
                         //FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, @"C:\\" + node.Cells[0].Value.ToString());
                         FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, clientSaveFileAndPath);
@@ -702,6 +737,44 @@ namespace HYPDM.WinUI.Document
                 }
             }
             //  this.tvFileList.CurrentRow
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            int rowIndex = tvFileList.CurrentCell.RowIndex;
+
+
+            if (rowIndex <= 0)
+            {
+                MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            DataGridViewRow row = tvFileList.Rows[rowIndex];
+            String Id = row.Cells["DFL_ID"].Value.ToString();
+            DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
+            if (docFileEntity == null) return;
+
+            docFileEntity.CHECKOUTFLG = "N";
+            docFileEntity.CHECKINFLG = "Y";
+            docFileEntity.LASTUPDATEUSER = LoginInfo.LoginID;
+            docFileEntity.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+            try
+            {
+                docFileEntity.Save();
+                VersionSave("qx", docFileEntity);
+                MessageBox.Show("文件检出取消成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                return;
+            }
+            finally
+            {
+                      
+            }
+
         }
 
     }

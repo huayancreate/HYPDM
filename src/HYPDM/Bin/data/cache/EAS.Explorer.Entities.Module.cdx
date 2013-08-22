@@ -1038,23 +1038,6 @@
     <Module>
       <Used>false</Used>
       <WorkFlowAddIn>false</WorkFlowAddIn>
-      <Guid>20EE5B83-2353-40DC-ADD4-29B3B2BA3AF9</Guid>
-      <Name>文档管理主界面</Name>
-      <Assembly>HYDocumentMS</Assembly>
-      <Type>HYDocumentMS.DocumentMainControl</Type>
-      <Method />
-      <Version>1.0.0.0</Version>
-      <Developer>Microsoft</Developer>
-      <Description>文档管理</Description>
-      <Url />
-      <SortCode>0</SortCode>
-      <Attributes>1</Attributes>
-      <Package />
-      <LMTime>2013-08-14T14:54:27.893</LMTime>
-    </Module>
-    <Module>
-      <Used>false</Used>
-      <WorkFlowAddIn>false</WorkFlowAddIn>
       <Guid>8FCABB5B-DA3F-4F1B-8AE0-6F07A208F6A9</Guid>
       <Name>testFunction</Name>
       <Assembly>Function</Assembly>
@@ -1102,6 +1085,23 @@
       <Attributes>1</Attributes>
       <Package />
       <LMTime>2013-07-17T15:26:54.75</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>20EE5B83-2353-40DC-ADD4-29B3B2BA3AF9</Guid>
+      <Name>文档管理主界面</Name>
+      <Assembly>HYDocumentMS</Assembly>
+      <Type>HYDocumentMS.DocumentMainControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>Microsoft</Developer>
+      <Description>文档管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-08-21T15:07:58.373</LMTime>
     </Module>
   </Items>
 </root>

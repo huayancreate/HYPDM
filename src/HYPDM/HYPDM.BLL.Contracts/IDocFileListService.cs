@@ -29,5 +29,11 @@ namespace HYPDM.BLL
         /// <param name="dflID">文档清单表的主键</param>
         /// <returns></returns>
         DOC_FILE_LIST GetDocFileEntityByDCID(string dflID);
+        /// <summary>
+        /// 返回文件目录清单
+        /// </summary>
+        /// <param name="bl">true标识只返回未删除的目录，false标识只返回已经删除的目录</param>
+        /// <returns>datatable</returns>
+        DataTable GetDocFileDir(Boolean bl);
     }
 }

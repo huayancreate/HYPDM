@@ -40,6 +40,11 @@ namespace FileSockClient
             get { return downFilePath; }
             set { downFilePath = value; }
         }
+       /// <summary>
+       /// 文件下载
+       /// </summary>
+       /// <param name="filepathname">需要下载的文件路径(咋服务器上的路径及文件名称)</param>
+       /// <param name="saveFileToClienPath">文件保存在本地的地址</param>
         public DownLoadFileSocketClient(string filepathname, string saveFileToClienPath)
         {
             
@@ -230,7 +235,7 @@ namespace FileSockClient
                 try
                 {
                     //saveFile();
-                    MessageBox.Show("下载完毕", "下载提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 //   MessageBox.Show("下载完毕", "下载提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {

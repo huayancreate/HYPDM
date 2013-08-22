@@ -43,13 +43,22 @@ namespace HYDocumentMS
         /// 
         /// </summary>
         /// <returns></returns>
-        public DataTable getDocFileDir()
+        public DataTable getDocFileDir(Boolean bl)
+        {
+            DataTable tbDirList = new DataTable();
+            tbDirList = EAS.Services.ServiceContainer.GetService<IDocFileListService>().GetDocFileDir(bl);
+            return tbDirList;
+        }
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <returns></returns>
+        public DataTable getAllDocFileDir()
         {
             DataTable tbDirList = new DataTable();
             tbDirList = EAS.Services.ServiceContainer.GetService<IDocFileListService>().GetDocFileDir();
             return tbDirList;
         }
-
         DataTable dtDirList = null;//获取文档目录的清单
         TreeNode rootNode = null; //treeview的根节点
         DataTable dtDocFileList = null;//文档清单列表
@@ -63,7 +72,7 @@ namespace HYDocumentMS
 
 
 
-            dtDirList = getDocFileDir(); //获取文档目录的清单
+            dtDirList = getDocFileDir(true); //获取文档目录的清单
             // dt.Select("DFD_PARENT_DIR_ID=0");
 
             DataRow[] rootDir = dtDirList.Select("DFD_PARENT_DIR_ID='0'"); //根目录
@@ -157,7 +166,7 @@ namespace HYDocumentMS
         public string getDocumentAllPathByPathID(string pathid)
         {
           list = new List<string>();
-          dtTemp=this.getDocFileDir();
+          dtTemp=this.getDocFileDir(true);
           string strPath = ""; //返回路径
           DataRow[] rows = dtTemp.Select(string.Format("DFD_ID='{0}'", pathid));
           DataRow row = null;

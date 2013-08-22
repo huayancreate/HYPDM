@@ -28,16 +28,22 @@ namespace HYDocumentMS
         /// <param name="treeview"></param>
         /// <param name="dtDocList"></param>
         void getTreeViewByDocFileList(System.Windows.Forms.TreeView treeview, DataTable dtDocFileList);
-        /// <summary>
+      /// <summary>
         /// 获取文件目录清单
-        /// </summary>
-        /// <returns></returns>
-        DataTable getDocFileDir();
+      /// </summary>
+      /// <param name="bl">true标识没有删除,false标识没有删除</param>
+      /// <returns></returns>
+        DataTable getDocFileDir(Boolean bl);
         /// <summary>
         /// 根据传入的路径pathID获取文件的传输路径
         /// </summary>
         /// <param name="pathid"></param>
         /// <returns></returns>
         string getDocumentAllPathByPathID(string pathid);
+        /// <summary>
+        /// 获取文件目录清单，不区别是否删除
+        /// </summary>
+        /// <returns></returns>
+        DataTable getAllDocFileDir();
     }
 }

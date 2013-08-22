@@ -8,16 +8,12 @@ F:\CSharpDemo\FileSockClient\FileSockClient\obj\Debug\FileSockClient.pdb
 F:\CSharpDemo\FileSockClient\FileSockClient\obj\Debug\FileSockClient.FrmSocketClient.resources
 F:\CSharpDemo\FileSockClient\FileSockClient\obj\Debug\FileSockClient.FrmWait.resources
 F:\CSharpDemo\FileSockClient\FileSockClient\obj\Debug\FileSockClient.csprojResolveAssemblyReference.cache
-F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.dll.config
-F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.FrmSocketClient.resources
 F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.FrmWait.resources
 F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.Properties.Resources.resources
 F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.csproj.GenerateResource.Cache
-F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.pdb
-F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\HYPDM\Bin\FileSockClient.dll.config
 C:\Users\Administrator\Desktop\HYPDM\Bin\FileSockClient.dll
 C:\Users\Administrator\Desktop\HYPDM\Bin\FileSockClient.pdb
@@ -38,3 +34,6 @@ E:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockC
 E:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.XML
+F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.dll.config
+F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.dll
+F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.dll

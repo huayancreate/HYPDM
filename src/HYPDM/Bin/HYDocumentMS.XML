@@ -48,6 +48,7 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <!-- 对于成员“M:HYDocumentMS.DocumentMainControl.IniEvent”忽略有格式错误的 XML 注释 -->
         <member name="F:HYDocumentMS.DocumentMainControl.components">
             <summary>
             必需的设计器变量。
@@ -95,10 +96,11 @@
             <param name="treeview"></param>
             <param name="dtDocList"></param>
         </member>
-        <member name="M:HYDocumentMS.IFileHelper.getDocFileDir">
+        <member name="M:HYDocumentMS.IFileHelper.getDocFileDir(System.Boolean)">
             <summary>
             获取文件目录清单
             </summary>
+            <param name="bl">true标识没有删除,false标识没有删除</param>
             <returns></returns>
         </member>
         <member name="M:HYDocumentMS.IFileHelper.getDocumentAllPathByPathID(System.String)">
@@ -106,6 +108,12 @@
             根据传入的路径pathID获取文件的传输路径
             </summary>
             <param name="pathid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.IFileHelper.getAllDocFileDir">
+            <summary>
+            获取文件目录清单，不区别是否删除
+            </summary>
             <returns></returns>
         </member>
         <member name="M:HYDocumentMS.FileHelper.getDocFileList(System.Boolean)">
@@ -121,7 +129,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HYDocumentMS.FileHelper.getDocFileDir">
+        <member name="M:HYDocumentMS.FileHelper.getDocFileDir(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.getAllDocFileDir">
             <summary>
             
             </summary>

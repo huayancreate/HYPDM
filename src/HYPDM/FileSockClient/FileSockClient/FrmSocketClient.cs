@@ -81,6 +81,14 @@ namespace FileSockClient
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string souPath = @"D:\PDM文件服务器根目录\测试\\";
+            string desnPath = @"D:\PDM文件服务器根目录\测1\\";
+            FolderOperSocketClient folder = new FolderOperSocketClient("modify", souPath, desnPath);
+        }
        
     }
 }

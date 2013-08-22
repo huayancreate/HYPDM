@@ -44,6 +44,7 @@
             // 
             this.txtFileName.Location = new System.Drawing.Point(77, 12);
             this.txtFileName.Name = "txtFileName";
+            this.txtFileName.ReadOnly = true;
             this.txtFileName.Size = new System.Drawing.Size(318, 21);
             this.txtFileName.TabIndex = 1;
             // 
@@ -74,7 +75,7 @@
             // 
             // btnDetect
             // 
-            this.btnDetect.Location = new System.Drawing.Point(239, 123);
+            this.btnDetect.Location = new System.Drawing.Point(239, 92);
             this.btnDetect.Name = "btnDetect";
             this.btnDetect.Size = new System.Drawing.Size(75, 23);
             this.btnDetect.TabIndex = 7;
@@ -84,7 +85,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(320, 123);
+            this.btnClose.Location = new System.Drawing.Point(320, 92);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 8;
@@ -95,32 +96,35 @@
             // chkFileTransfer
             // 
             this.chkFileTransfer.AutoSize = true;
-            this.chkFileTransfer.Location = new System.Drawing.Point(77, 84);
+            this.chkFileTransfer.Location = new System.Drawing.Point(6, 98);
             this.chkFileTransfer.Name = "chkFileTransfer";
             this.chkFileTransfer.Size = new System.Drawing.Size(72, 16);
             this.chkFileTransfer.TabIndex = 4;
             this.chkFileTransfer.Text = "文件传输";
             this.chkFileTransfer.UseVisualStyleBackColor = true;
+            this.chkFileTransfer.Visible = false;
             // 
             // chkCheckOut
             // 
             this.chkCheckOut.AutoSize = true;
-            this.chkCheckOut.Location = new System.Drawing.Point(155, 84);
+            this.chkCheckOut.Location = new System.Drawing.Point(84, 98);
             this.chkCheckOut.Name = "chkCheckOut";
             this.chkCheckOut.Size = new System.Drawing.Size(48, 16);
             this.chkCheckOut.TabIndex = 5;
             this.chkCheckOut.Text = "检出";
             this.chkCheckOut.UseVisualStyleBackColor = true;
+            this.chkCheckOut.Visible = false;
             // 
             // chkOpenFile
             // 
             this.chkOpenFile.AutoSize = true;
-            this.chkOpenFile.Location = new System.Drawing.Point(215, 84);
+            this.chkOpenFile.Location = new System.Drawing.Point(144, 98);
             this.chkOpenFile.Name = "chkOpenFile";
             this.chkOpenFile.Size = new System.Drawing.Size(72, 16);
             this.chkOpenFile.TabIndex = 6;
             this.chkOpenFile.Text = "执行应用";
             this.chkOpenFile.UseVisualStyleBackColor = true;
+            this.chkOpenFile.Visible = false;
             // 
             // btnSelectPath
             // 
@@ -136,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 157);
+            this.ClientSize = new System.Drawing.Size(407, 123);
             this.Controls.Add(this.btnSelectPath);
             this.Controls.Add(this.chkOpenFile);
             this.Controls.Add(this.chkCheckOut);
@@ -150,6 +154,7 @@
             this.Name = "DetectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "检出";
+            this.Load += new System.EventHandler(this.DetectionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

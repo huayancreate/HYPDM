@@ -53,6 +53,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\ExpandableGridView.dll</HintPath>
     </Reference>
+    <Reference Include="FileSockClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\FileSockClient.dll</HintPath>
+    </Reference>
     <Reference Include="HYPDM.BaseControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\HYPDM.BaseControl.dll</HintPath>
@@ -60,6 +64,10 @@
     <Reference Include="HYPDM.BLL.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\HYPDM.BLL.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="HYPDM.BLL.Host, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\HYPDM.BLL.Host.dll</HintPath>
     </Reference>
     <Reference Include="HYPDM.Entities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

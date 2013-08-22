@@ -54,10 +54,10 @@ namespace FileSockClient
        ///
         int downFileServerPort;
        /// <summary>
-       /// 文件上传构造函数
+       /// 文件上传
        /// </summary>
-       /// <param name="filePathName"></param>
-       /// <param name="srvSavePath"></param>
+        /// <param name="filePathName">需要上传的文件及路径</param>
+        /// <param name="srvSavePath">将在服务器保存的路径</param>
         public UpLoadFileSocketClient(string filePathName, string srvSavePath)
         {
 
@@ -88,7 +88,7 @@ namespace FileSockClient
        /// 上传文件
        /// </summary>
        /// <param name="filePathName">需要上传的文件及路径</param>
-       /// <param name="srvSavePath">将保存的路径</param>
+       /// <param name="srvSavePath">将在服务器保存的路径</param>
        /// <param name="blIsFuGai">是否替换文件如果指定目录已经存在此文件的情况下</param>
         public UpLoadFileSocketClient(string filePathName, string srvSavePath,Boolean blIsFuGai)
         {
@@ -385,7 +385,7 @@ namespace FileSockClient
                 //    MessageBox.Show("文件上传成功");
                 //}
                 c.Close();        //关闭Socket
-                MessageBox.Show("文件上传成功","上传提示",MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+ // MessageBox.Show("文件上传成功","上传提示",MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
             }
             catch (Exception ex)
             {

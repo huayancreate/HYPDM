@@ -100,18 +100,25 @@ namespace FileSockClient
             try
             {
                 byte[] byteArrrayFilePathAndName = Encoding.UTF8.GetBytes(ServerSavePath);
-                scoketSend(host, PortCopyOldVerFile, byteArrrayFilePathAndName);  //传输文件路径与文件名称
                 byte[] byteArrrayNewFileName = Encoding.UTF8.GetBytes(NewFileName);
+
+                scoketSend(host, PortCopyOldVerFile, byteArrrayFilePathAndName);  //传输文件路径与文件名称
+              
                 scoketSend(host, PortCopyNewFileName, byteArrrayNewFileName);  //传输文件新名称
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message.ToString());
+                //throw new Exception(ex.Message.ToString());
+                MessageBox.Show(ex.Message.ToString());
 
             }
             finally
             {
-
+                if (this.FrmWait != null)
+                {
+                    this.FrmWait.Close();
+                    this.FrmWait.Dispose();
+                }
             }
         }
         private void scoketSend(string host, int port, byte[] bs)

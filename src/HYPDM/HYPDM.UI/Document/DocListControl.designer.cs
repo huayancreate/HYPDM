@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocListControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmDocDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -50,7 +50,6 @@
             this.btnDocProperty = new System.Windows.Forms.ToolStripButton();
             this.btnDocDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,7 +62,6 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDocList = new HYPDM.BaseControl.DataGridViewExt();
-            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +74,7 @@
             this.LASTUPDATEDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.cmDocument.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocList)).BeginInit();
@@ -163,7 +162,6 @@
             this.btnDocProperty,
             this.btnDocDelete,
             this.toolStripSeparator1,
-            this.btnPrint,
             this.btnSearch});
             this.tsToolbar.Location = new System.Drawing.Point(0, 0);
             this.tsToolbar.Name = "tsToolbar";
@@ -183,7 +181,7 @@
             this.btnDocToAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDocToAdd.Name = "btnDocToAdd";
             this.btnDocToAdd.Size = new System.Drawing.Size(76, 22);
-            this.btnDocToAdd.Text = "记录添加";
+            this.btnDocToAdd.Text = "文档添加";
             this.btnDocToAdd.ToolTipText = "添加一个新的基础数据记录。";
             this.btnDocToAdd.Click += new System.EventHandler(this.btnDocToAdd_Click);
             // 
@@ -193,7 +191,7 @@
             this.btnDocProperty.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDocProperty.Name = "btnDocProperty";
             this.btnDocProperty.Size = new System.Drawing.Size(76, 22);
-            this.btnDocProperty.Text = "记录属性";
+            this.btnDocProperty.Text = "文档属性";
             this.btnDocProperty.ToolTipText = "查看或者修改选定的基础数据记录属性。";
             this.btnDocProperty.Click += new System.EventHandler(this.btnDocProperty_Click);
             // 
@@ -211,15 +209,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(52, 22);
-            this.btnPrint.Text = "打印";
-            this.btnPrint.ToolTipText = "打印当前所选择分组的基础编码记录。";
             // 
             // btnSearch
             // 
@@ -312,14 +301,14 @@
             this.LASTUPDATEDATE,
             this.CREATEUSER,
             this.CreateDate});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDocList.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDocList.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDocList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDocList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvDocList.Location = new System.Drawing.Point(0, 25);
@@ -334,17 +323,6 @@
             this.dgvDocList.TabIndex = 7;
             this.dgvDocList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellContentClick);
             this.dgvDocList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellDoubleClick);
-            // 
-            // ucPaging1
-            // 
-            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucPaging1.ExportIsVisiable = false;
-            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
-            this.ucPaging1.Name = "ucPaging1";
-            this.ucPaging1.PageSize = 30;
-            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
-            this.ucPaging1.TabIndex = 4;
-            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
             // 
             // DOCID
             // 
@@ -439,6 +417,17 @@
             this.CreateDate.ReadOnly = true;
             this.CreateDate.Width = 150;
             // 
+            // ucPaging1
+            // 
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = false;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 30;
+            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
+            this.ucPaging1.TabIndex = 4;
+            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
+            // 
             // DocListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -478,7 +467,6 @@
         private System.Windows.Forms.ToolStripButton btnDocProperty;
         private System.Windows.Forms.ToolStripButton btnDocDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton btnPrint;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

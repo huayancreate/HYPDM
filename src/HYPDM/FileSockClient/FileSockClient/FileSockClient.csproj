@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="CopyOldVerFile.cs" />
     <Compile Include="DownLoadFileSocketClient.cs" />
+    <Compile Include="FolderOperSocketClient.cs" />
     <Compile Include="FrmSocketClient.cs">
       <SubType>Form</SubType>
     </Compile>

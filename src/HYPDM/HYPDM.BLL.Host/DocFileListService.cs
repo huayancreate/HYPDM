@@ -47,7 +47,7 @@ namespace HYPDM.BLL
                 delFlag = "N";
             }
             DataTable dt = null;
-            string SQLText = "SELECT * FROM DOC_FILE_LIST ORDER BY WHERE DEL_FLAG='" + delFlag.Trim() + "' CREATEDATE asc ";
+            string SQLText = "SELECT * FROM DOC_FILE_LIST WHERE DEL_FLAG='" + delFlag.Trim() + "' ORDER BY  CREATEDATE asc ";
 
             dt = this.DataAccessor.QueryDataTable(SQLText);
 
@@ -61,7 +61,24 @@ namespace HYPDM.BLL
             return dt;
 
         }
+        public DataTable GetDocFileDir(Boolean bl)
+        {
 
+            string delFlag = "";
+            if (bl == false)
+            {
+                delFlag = "Y";
+            }
+            else
+            {
+                delFlag = "N";
+            }
+            DataTable dt = null;
+            string SQLText = "SELECT * FROM DOC_FILE_DIR  WHERE DEL_FLAG='"+delFlag+"'";
+            dt = this.DataAccessor.QueryDataTable(SQLText);
+            return dt;
+
+        }
         public DataTable GetDocFileDataTableByDCID(string dcid)
         {
             DataTable dt = null;
@@ -117,8 +134,8 @@ namespace HYPDM.BLL
             DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
 
             var p = (from item in query
-                          where (item.DEL_FLAG=="N") && (item.DFL_ID==dflID)
-                          select item );
+                     where (item.DEL_FLAG == "N") && (item.DFL_ID == dflID)
+                     select item);
             IList<DOC_FILE_LIST> list = p.ToList();
             if (list.Count == 0)
             {

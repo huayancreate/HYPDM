@@ -54,6 +54,7 @@
     <Compile Include="BaseServiceObject.cs" />
     <Compile Include="ChangeService.cs" />
     <Compile Include="DocFileListService.cs" />
+    <Compile Include="DocumentDirService.cs" />
     <Compile Include="DocumentService.cs" />
     <Compile Include="FilterService.cs" />
     <Compile Include="MaxCodeService.cs" />

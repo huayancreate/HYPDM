@@ -323,7 +323,7 @@
             this.对象关联ToolStripMenuItem,
             this.文档文件关联ToolStripMenuItem});
             this.contextMenuTree.Name = "contextMenuStrip_Tree";
-            this.contextMenuTree.Size = new System.Drawing.Size(153, 142);
+            this.contextMenuTree.Size = new System.Drawing.Size(149, 120);
             // 
             // ToolS_Folder
             // 
@@ -332,9 +332,8 @@
             this.ToolS_FolderAmend,
             this.ToolS_FolderDelete});
             this.ToolS_Folder.Name = "ToolS_Folder";
-            this.ToolS_Folder.Size = new System.Drawing.Size(152, 22);
+            this.ToolS_Folder.Size = new System.Drawing.Size(148, 22);
             this.ToolS_Folder.Text = "文件夹管理";
-            this.ToolS_Folder.Click += new System.EventHandler(this.ToolS_Folder_Click);
             // 
             // ToolS_FolderAdd
             // 
@@ -350,6 +349,7 @@
             this.ToolS_FolderAmend.Size = new System.Drawing.Size(152, 22);
             this.ToolS_FolderAmend.Tag = "1";
             this.ToolS_FolderAmend.Text = "修改";
+            this.ToolS_FolderAmend.Click += new System.EventHandler(this.ToolS_FolderAmend_Click);
             // 
             // ToolS_FolderDelete
             // 
@@ -357,6 +357,7 @@
             this.ToolS_FolderDelete.Size = new System.Drawing.Size(152, 22);
             this.ToolS_FolderDelete.Tag = "2";
             this.ToolS_FolderDelete.Text = "删除";
+            this.ToolS_FolderDelete.Click += new System.EventHandler(this.ToolS_FolderDelete_Click);
             // 
             // ToolS_Files
             // 
@@ -365,13 +366,13 @@
             this.ToolS_FilesAmend,
             this.ToolS_FilesDelete});
             this.ToolS_Files.Name = "ToolS_Files";
-            this.ToolS_Files.Size = new System.Drawing.Size(152, 22);
+            this.ToolS_Files.Size = new System.Drawing.Size(148, 22);
             this.ToolS_Files.Text = "文件管理";
             // 
             // ToolS_FilesAdd
             // 
             this.ToolS_FilesAdd.Name = "ToolS_FilesAdd";
-            this.ToolS_FilesAdd.Size = new System.Drawing.Size(152, 22);
+            this.ToolS_FilesAdd.Size = new System.Drawing.Size(100, 22);
             this.ToolS_FilesAdd.Tag = "0";
             this.ToolS_FilesAdd.Text = "添加";
             this.ToolS_FilesAdd.Click += new System.EventHandler(this.ToolS_FilesAdd_Click);
@@ -379,26 +380,26 @@
             // ToolS_FilesAmend
             // 
             this.ToolS_FilesAmend.Name = "ToolS_FilesAmend";
-            this.ToolS_FilesAmend.Size = new System.Drawing.Size(152, 22);
+            this.ToolS_FilesAmend.Size = new System.Drawing.Size(100, 22);
             this.ToolS_FilesAmend.Tag = "1";
             this.ToolS_FilesAmend.Text = "修改";
             // 
             // ToolS_FilesDelete
             // 
             this.ToolS_FilesDelete.Name = "ToolS_FilesDelete";
-            this.ToolS_FilesDelete.Size = new System.Drawing.Size(152, 22);
+            this.ToolS_FilesDelete.Size = new System.Drawing.Size(100, 22);
             this.ToolS_FilesDelete.Tag = "2";
             this.ToolS_FilesDelete.Text = "删除";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(145, 6);
             // 
             // 关联操作ToolStripMenuItem
             // 
             this.关联操作ToolStripMenuItem.Name = "关联操作ToolStripMenuItem";
-            this.关联操作ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.关联操作ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.关联操作ToolStripMenuItem.Text = "创建文档对象";
             // 
             // 对象关联ToolStripMenuItem
@@ -409,7 +410,7 @@
             this.半成品ToolStripMenuItem,
             this.物料ToolStripMenuItem});
             this.对象关联ToolStripMenuItem.Name = "对象关联ToolStripMenuItem";
-            this.对象关联ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.对象关联ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.对象关联ToolStripMenuItem.Text = "对象关联";
             // 
             // 零部件ToolStripMenuItem
@@ -439,7 +440,7 @@
             // 文档文件关联ToolStripMenuItem
             // 
             this.文档文件关联ToolStripMenuItem.Name = "文档文件关联ToolStripMenuItem";
-            this.文档文件关联ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.文档文件关联ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.文档文件关联ToolStripMenuItem.Text = "文件关联文档";
             // 
             // panel_Find

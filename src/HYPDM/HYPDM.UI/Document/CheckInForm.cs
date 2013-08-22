@@ -55,6 +55,7 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnCheckIN_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             if (txtFileName.Text.Trim() == string.Empty || txtFilePath.Text.Trim() == string.Empty)
             {
                 MessageBox.Show("文件名或文件路径不能为空！", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -74,14 +75,22 @@ namespace HYPDM.WinUI.Document
                         i = filePath.LastIndexOf(@"/");
                     }
                     filePath = filePath.Substring(0, i) + @"\" + this.txtFileName.Text.ToString();
+
+                    string tempNewFileName = this.txtFileName.Text.ToString();
+                   
+                    tempNewFileName = tempNewFileName.Substring(0, tempNewFileName.LastIndexOf(@".")) + DocFileEntity.DFL_VER_LATEST + tempNewFileName.Substring(tempNewFileName.LastIndexOf(@"."));
+
                   //  MessageBox.Show(filePath);
-                    string ff=new HYDocumentMS.FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH)+this.txtFileName.Text.ToString();
-                    FileSockClient.CopyOldVerFile hh = new FileSockClient.CopyOldVerFile(ff, "12222.txt");
-               //     FileSockClient.UpLoadFileSocketClient upload = new FileSockClient.UpLoadFileSocketClient(filePath,new HYDocumentMS.FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH), true);
+                    string serPathAndFileName=new HYDocumentMS.FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH)+this.txtFileName.Text.ToString();
+                    FileSockClient.CopyOldVerFile hh = new FileSockClient.CopyOldVerFile(serPathAndFileName, tempNewFileName); //复制旧版本数据到Vers目录下
+                    //上传更新文件覆盖旧文件
+                    FileSockClient.UpLoadFileSocketClient upload = new FileSockClient.UpLoadFileSocketClient(filePath,new HYDocumentMS.FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH), true);
+                    
                 }
                 catch(Exception ex)
                 {  
                     result=false;
+                    this.DialogResult = DialogResult.No;
                     MessageBox.Show(ex.Message.ToString());
                 }
 
@@ -91,9 +100,11 @@ namespace HYPDM.WinUI.Document
                 }
                 else
                 {
+                    this.DialogResult = DialogResult.No;
                     MessageBox.Show("文件检入失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
-                this.DialogResult = DialogResult.OK;
+               
             }
         }
 
