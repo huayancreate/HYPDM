@@ -62,6 +62,7 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDocList = new HYPDM.BaseControl.DataGridViewExt();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +75,7 @@
             this.LASTUPDATEDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
+            this.DEL_FLAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmDocument.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocList)).BeginInit();
@@ -305,7 +306,8 @@
             this.LASTUPDATEUSER,
             this.LASTUPDATEDATE,
             this.CREATEUSER,
-            this.CreateDate});
+            this.CreateDate,
+            this.DEL_FLAG});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -328,6 +330,17 @@
             this.dgvDocList.TabIndex = 7;
             this.dgvDocList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellContentClick);
             this.dgvDocList.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellDoubleClick);
+            // 
+            // ucPaging1
+            // 
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = false;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 30;
+            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
+            this.ucPaging1.TabIndex = 4;
+            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
             // 
             // DOCID
             // 
@@ -422,16 +435,13 @@
             this.CreateDate.ReadOnly = true;
             this.CreateDate.Width = 150;
             // 
-            // ucPaging1
+            // DEL_FLAG
             // 
-            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucPaging1.ExportIsVisiable = false;
-            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
-            this.ucPaging1.Name = "ucPaging1";
-            this.ucPaging1.PageSize = 30;
-            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
-            this.ucPaging1.TabIndex = 4;
-            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
+            this.DEL_FLAG.DataPropertyName = "DEL_FLAG";
+            this.DEL_FLAG.HeaderText = "DEL_FLAG";
+            this.DEL_FLAG.Name = "DEL_FLAG";
+            this.DEL_FLAG.ReadOnly = true;
+            this.DEL_FLAG.Visible = false;
             // 
             // DocListControl
             // 
@@ -497,6 +507,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LASTUPDATEDATE;
         private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEL_FLAG;
 
     }
 }

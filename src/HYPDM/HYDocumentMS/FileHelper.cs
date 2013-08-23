@@ -8,6 +8,7 @@ using EAS.Services;
 using EAS.Data.ORM;
 using HYPDM.BLL;
 using System.Windows.Forms;
+
 namespace HYDocumentMS
 {
     /// <summary>
@@ -53,7 +54,7 @@ namespace HYDocumentMS
         /// 
         /// </summary>
         /// <returns></returns>
-        public DataTable getAllDocFileDir()
+        public DataTable getDocFileDir()
         {
             DataTable tbDirList = new DataTable();
             tbDirList = EAS.Services.ServiceContainer.GetService<IDocFileListService>().GetDocFileDir();
@@ -147,6 +148,7 @@ namespace HYDocumentMS
         /// <param name="dtDocList"></param>
         public void getTreeViewByDocFileList(TreeView tv, DataTable dtDocList)
         {
+            this.dtDocFileList = dtDocList;
             dtDirList = getDocFileDir(true); //获取文档目录的清单
             CreatTree(tv.Nodes, "0", dtDirList);
         }
@@ -261,14 +263,58 @@ namespace HYDocumentMS
             }
         }
 
-       public  DataTable getDataTableBySql(String fields, string where, string tableName)
+        public DataTable getDataTableBySql(String fields, string where, string tableName)
         {
             DataTable tb = null;
             StringBuilder stb = new StringBuilder();
-            stb.Append("SELECT "+fields+" FROM "+tableName+" "+where);
+            stb.Append("SELECT " + fields + " FROM " + tableName + " " + where);
             tb = EAS.Services.ServiceContainer.GetService<IDocFileListService>().getDataTableBySql(stb.ToString());
             return tb;
         }
+
+
+
+
+        //    DataTable dtDirList = null;//获取文档目录的清单
+        //TreeNode rootNode = null; //treeview的根节点
+        //DataTable dtDocFileList = null;//文档清单列表
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Nds"></param>
+        /// <param name="parentID"></param>
+        /// <param name="dt"></param>
+        private void CreatTreeDir(TreeNodeCollection Nds, string parentID, DataTable dt)
+        {
+            //DataView dv = new DataView();
+            TreeNode tmpNode;
+            //dv.Table = dt;
+            //dv.RowFilter = "上级单位ID='" + parentID + "'";
+            DataRow[] dv = dt.Select(string.Format("DFD_PARENT_DIR_ID='{0}'", parentID));
+            foreach (DataRow drv in dv)
+            {
+                tmpNode = new TreeNode();
+                tmpNode.Text = drv["DFD_PATH_NAME"].ToString();
+                tmpNode.Tag = drv["DFD_ID"].ToString();
+                tmpNode.ExpandAll();
+                Nds.Add(tmpNode);
+                CreatTreeDir(tmpNode.Nodes, tmpNode.Tag.ToString(), dt);
+            }
+        }
+        public void getTreeViewByPathDir(TreeView treeview)
+        {
+            HYDocumentMS.IFileHelper filehelper = new HYDocumentMS.FileHelper();
+            dtDirList = filehelper.getDocFileDir(true);//获取文档目录的清单
+            CreatTreeDir(treeview.Nodes, "0", dtDirList);
+            treeview.ExpandAll();
+        }
+
+         public string getNewVer(string prefix)
+         {
+            string  str=DateTime.Now.ToString("yyyyMMddHHmmss");
+            return (prefix + str).Trim();
+         }
+      
     }
 
 }

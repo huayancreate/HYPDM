@@ -97,6 +97,7 @@
     <Compile Include="CreateNewFolderFrm.Designer.cs">
       <DependentUpon>CreateNewFolderFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataType.cs" />
     <Compile Include="DocumentMainControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

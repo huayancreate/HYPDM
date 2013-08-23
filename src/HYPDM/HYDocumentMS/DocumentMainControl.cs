@@ -235,8 +235,8 @@ namespace HYDocumentMS
                 else
                 {
                     ViewFileFrm fileView = new ViewFileFrm();
-                    fileView.FileName = "文件名称.txt";
-                    fileView.ViewFilePathAndName = @"D:\swf\Java网络编程精解.swf";
+                    fileView.FileName = "Java网络编程精解.swf";
+                    fileView.ViewFilePath = @"D:\swf\";
                     fileView.ShowDialog();
                 }
 

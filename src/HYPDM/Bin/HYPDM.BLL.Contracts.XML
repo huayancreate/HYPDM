@@ -39,6 +39,13 @@
             <param name="sql">查询语句</param>
             <returns>DataTable</returns>
         </member>
+        <member name="M:HYPDM.BLL.IDocFileListService.GetDocFileListByDCID(System.String)">
+            <summary>
+            根据文档ID找到关联的文件
+            </summary>
+            <param name="dcid"></param>
+            <returns>Ilist</returns>
+        </member>
         <member name="M:HYPDM.BLL.IDocumentDirService.addDocumentDir(HYPDM.Entities.DOC_FILE_DIR)">
             <summary>
             添加文件夹
@@ -86,6 +93,27 @@
             判断要删除的文件是否有子文件夹
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentService.DocDel(System.Collections.Generic.IList{HYPDM.Entities.PDM_DOCUMENT},System.Collections.Generic.IList{HYPDM.Entities.DOC_FILE_LIST})">
+            <summary>
+            
+            </summary>
+            <param name="documentList"></param>
+            <param name="docFileList"></param>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentService.GetDocListByID(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="docID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentService.GetDocumentListForDatatable(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="bl"></param>
             <returns></returns>
         </member>
         <member name="M:HYPDM.BLL.IFilterService.getFilterList(System.String,System.String)">

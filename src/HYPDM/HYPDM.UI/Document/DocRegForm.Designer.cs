@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tsToolbar = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSeparator();
@@ -40,6 +40,13 @@
             this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.tpParts = new System.Windows.Forms.TabPage();
+            this.dgvProductList = new HYPDM.BaseControl.DataGridViewExt();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.新建关联对象ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.产品零部件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,14 +59,6 @@
             this.btnDelRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.tpFile = new System.Windows.Forms.TabPage();
             this.tvFileList = new AdvancedDataGridView.TreeGridView();
-            this.Papers = new AdvancedDataGridView.TreeGridColumn();
-            this.FilePathName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DFL_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsp = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRegPhysicalFile = new System.Windows.Forms.ToolStripButton();
@@ -108,18 +107,20 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvProductList = new HYPDM.BaseControl.DataGridViewExt();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DFL_FILE_NAME = new AdvancedDataGridView.TreeGridColumn();
+            this.FilePathName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DFL_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             this.tbcContent.SuspendLayout();
             this.tpRemark.SuspendLayout();
             this.tpParts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tpFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tvFileList)).BeginInit();
@@ -128,7 +129,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cmPhysical.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -199,11 +199,11 @@
             // 
             // txtRemark
             // 
+            this.txtRemark.BackColor = System.Drawing.Color.White;
             this.txtRemark.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtRemark.Location = new System.Drawing.Point(3, 3);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.ReadOnly = true;
             this.txtRemark.Size = new System.Drawing.Size(628, 325);
             this.txtRemark.TabIndex = 8;
             // 
@@ -217,6 +217,77 @@
             this.tpParts.TabIndex = 3;
             this.tpParts.Text = "产品零部件";
             this.tpParts.UseVisualStyleBackColor = true;
+            // 
+            // dgvProductList
+            // 
+            this.dgvProductList.AllowUserToAddRows = false;
+            this.dgvProductList.AllowUserToDeleteRows = false;
+            this.dgvProductList.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dgvProductList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column17,
+            this.Column18,
+            this.Column19,
+            this.Column20,
+            this.Column21,
+            this.Column22});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductList.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvProductList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProductList.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgvProductList.Location = new System.Drawing.Point(0, 25);
+            this.dgvProductList.MultiSelect = false;
+            this.dgvProductList.Name = "dgvProductList";
+            this.dgvProductList.ReadOnly = true;
+            this.dgvProductList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvProductList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvProductList.RowTemplate.Height = 23;
+            this.dgvProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductList.Size = new System.Drawing.Size(634, 306);
+            this.dgvProductList.TabIndex = 10;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "编号";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "版本";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "描述";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "状态";
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            // 
+            // Column21
+            // 
+            this.Column21.HeaderText = "修改";
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            // 
+            // Column22
+            // 
+            this.Column22.HeaderText = "创建时间";
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
             // 
             // menuStrip1
             // 
@@ -321,7 +392,7 @@
             this.tvFileList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.tvFileList.ColumnHeadersHeight = 20;
             this.tvFileList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Papers,
+            this.DFL_FILE_NAME,
             this.FilePathName,
             this.Column10,
             this.Column11,
@@ -341,62 +412,6 @@
             this.tvFileList.TabIndex = 8;
             this.tvFileList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tvFileList_CellClick);
             this.tvFileList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tvTaskList_CellMouseDown);
-            // 
-            // Papers
-            // 
-            this.Papers.DefaultNodeImage = null;
-            this.Papers.HeaderText = "文件";
-            this.Papers.Name = "Papers";
-            this.Papers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Papers.Width = 230;
-            // 
-            // FilePathName
-            // 
-            this.FilePathName.HeaderText = "文件路径";
-            this.FilePathName.Name = "FilePathName";
-            this.FilePathName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FilePathName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.FilePathName.Width = 240;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "版本";
-            this.Column10.Name = "Column10";
-            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column10.Width = 50;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "检入标识";
-            this.Column11.Name = "Column11";
-            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column11.Width = 80;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "检入日期";
-            this.Column9.Name = "Column9";
-            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "检出标识";
-            this.Column12.Name = "Column12";
-            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column12.Width = 80;
-            // 
-            // Column23
-            // 
-            this.Column23.HeaderText = "检出日期";
-            this.Column23.Name = "Column23";
-            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DFL_ID
-            // 
-            this.DFL_ID.HeaderText = "DFL_ID";
-            this.DFL_ID.Name = "DFL_ID";
-            this.DFL_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DFL_ID.Visible = false;
             // 
             // tsp
             // 
@@ -461,6 +476,7 @@
             // 
             // txtVer
             // 
+            this.txtVer.BackColor = System.Drawing.Color.White;
             this.txtVer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtVer.Location = new System.Drawing.Point(0, 0);
             this.txtVer.Multiline = true;
@@ -806,76 +822,61 @@
             this.Column16.Name = "Column16";
             this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // dgvProductList
+            // DFL_FILE_NAME
             // 
-            this.dgvProductList.AllowUserToAddRows = false;
-            this.dgvProductList.AllowUserToDeleteRows = false;
-            this.dgvProductList.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.dgvProductList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column17,
-            this.Column18,
-            this.Column19,
-            this.Column20,
-            this.Column21,
-            this.Column22});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductList.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProductList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvProductList.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgvProductList.Location = new System.Drawing.Point(0, 25);
-            this.dgvProductList.MultiSelect = false;
-            this.dgvProductList.Name = "dgvProductList";
-            this.dgvProductList.ReadOnly = true;
-            this.dgvProductList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dgvProductList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dgvProductList.RowTemplate.Height = 23;
-            this.dgvProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductList.Size = new System.Drawing.Size(634, 306);
-            this.dgvProductList.TabIndex = 10;
+            this.DFL_FILE_NAME.DefaultNodeImage = null;
+            this.DFL_FILE_NAME.HeaderText = "文件名称";
+            this.DFL_FILE_NAME.Name = "DFL_FILE_NAME";
+            this.DFL_FILE_NAME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DFL_FILE_NAME.Width = 230;
             // 
-            // Column17
+            // FilePathName
             // 
-            this.Column17.HeaderText = "编号";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
+            this.FilePathName.HeaderText = "文件路径";
+            this.FilePathName.Name = "FilePathName";
+            this.FilePathName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FilePathName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FilePathName.Width = 240;
             // 
-            // Column18
+            // Column10
             // 
-            this.Column18.HeaderText = "版本";
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
+            this.Column10.HeaderText = "版本";
+            this.Column10.Name = "Column10";
+            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column10.Width = 50;
             // 
-            // Column19
+            // Column11
             // 
-            this.Column19.HeaderText = "描述";
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
+            this.Column11.HeaderText = "检入标识";
+            this.Column11.Name = "Column11";
+            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column11.Width = 80;
             // 
-            // Column20
+            // Column9
             // 
-            this.Column20.HeaderText = "状态";
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
+            this.Column9.HeaderText = "检入日期";
+            this.Column9.Name = "Column9";
+            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // Column21
+            // Column12
             // 
-            this.Column21.HeaderText = "修改";
-            this.Column21.Name = "Column21";
-            this.Column21.ReadOnly = true;
+            this.Column12.HeaderText = "检出标识";
+            this.Column12.Name = "Column12";
+            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column12.Width = 80;
             // 
-            // Column22
+            // Column23
             // 
-            this.Column22.HeaderText = "创建时间";
-            this.Column22.Name = "Column22";
-            this.Column22.ReadOnly = true;
+            this.Column23.HeaderText = "检出日期";
+            this.Column23.Name = "Column23";
+            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DFL_ID
+            // 
+            this.DFL_ID.HeaderText = "DFL_ID";
+            this.DFL_ID.Name = "DFL_ID";
+            this.DFL_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DFL_ID.Visible = false;
             // 
             // DocRegForm
             // 
@@ -899,6 +900,7 @@
             this.tpRemark.PerformLayout();
             this.tpParts.ResumeLayout(false);
             this.tpParts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tpFile.ResumeLayout(false);
@@ -912,7 +914,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.cmPhysical.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -995,7 +996,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private AdvancedDataGridView.TreeGridColumn Papers;
+        private AdvancedDataGridView.TreeGridColumn DFL_FILE_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePathName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;

@@ -10,7 +10,6 @@ F:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYDocumentMS.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYDocumentMS.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYDocumentMS.XML
-F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.csprojResolveAssemblyReference.cache
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.CreateNewFolderFrm.resources
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.CreateNewFileFrm.resources
 C:\Users\Administrator\Desktop\HYPDM\Bin\HYDocumentMS.dll.config
@@ -40,3 +39,4 @@ E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.ViewFileFrm.resources
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.FileAuth.FileAuthOper.resources
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.FileAuth.UserFileAuthFrm.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.csprojResolveAssemblyReference.cache

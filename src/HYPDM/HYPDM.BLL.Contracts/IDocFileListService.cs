@@ -41,5 +41,11 @@ namespace HYPDM.BLL
         /// <param name="sql">查询语句</param>
         /// <returns>DataTable</returns>
         DataTable getDataTableBySql(String sql);
+        /// <summary>
+        /// 根据文档ID找到关联的文件
+        /// </summary>
+        /// <param name="dcid"></param>
+        /// <returns>Ilist</returns>
+        IList<DOC_FILE_LIST> GetDocFileListByDCID(string dcid);
     }
 }

@@ -12,7 +12,8 @@ using HYPDM.Entities;
 using EAS.Services;
 using EAS.Data.ORM;
 using HYPDM.BLL;
-
+using EAS.Data;
+using EAS.Explorer;
 using HYPDM.BaseControl;
 
 namespace HYPDM.WinUI.Document
@@ -20,6 +21,7 @@ namespace HYPDM.WinUI.Document
     [Module("CED0FF76-5C3B-4951-8285-A66AA8ADA3BE", "文档列表", "文档管理")]
     public partial class DocListControl : UserControl
     {
+        IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         public event EventHandler Close;
 
         public IList<PDM_DOCUMENT> _docList;
@@ -53,7 +55,7 @@ namespace HYPDM.WinUI.Document
         {
             DateTime d0 = DateTime.Now;
            // this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
-            this.dt = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForDatatable();
+            this.dt = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForDatatable(true); ;
             //this.InitList(documentList);
             this.InitList(dt);
             this.ucPaging1.SourceDataGridView = this.dgvDocList;
@@ -125,34 +127,29 @@ namespace HYPDM.WinUI.Document
                 return;
 
             DataGridViewRow row = dgvDocList.Rows[rowIndex];
-            IDocumentService _docService = ServiceContainer.GetService<IDocumentService>();
+            IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
 
            // HYPDM.Entities.PDM_DOCUMENT doc = row.DataBoundItem as HYPDM.Entities.PDM_DOCUMENT;
 
             HYPDM.Entities.PDM_DOCUMENT doc = new PDM_DOCUMENT();
-            doc.DOCID = row.Cells["DOCID"].Value.ToString();
-            doc.DOCNAME = row.Cells["DOCNAME"].Value.ToString();
-            doc.DOCNO = row.Cells["DOCNO"].Value.ToString();
-            doc.DOCSTATUS = row.Cells["DOCSTATUS"].Value.ToString();
-            doc.DOCTYPE = row.Cells["DOCTYPE"].Value.ToString();
-            doc.REMARK = row.Cells["REMARK"].Value.ToString();
-            doc.VERSION = row.Cells["VERSION"].Value.ToString();
-            doc.LASTUPDATEDATE = row.Cells["LASTUPDATEDATE"].Value.ToString();
-            doc.LASTUPDATEUSER = row.Cells["LASTUPDATEUSER"].Value.ToString();
-            doc.CREATEDATE = row.Cells["CREATEDATE"].Value.ToString();
-            doc.DESCRIPTION = row.Cells["DESCRIPTION"].Value.ToString();
+            doc = _docService.GetDocListByID(row.Cells["DOCID"].Value.ToString())[0] ;
+            //doc.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            //doc.LASTUPDATEUSER = LoginInfo.LoginCount.ToString();
+            //doc.DEL_FLAG = "N";
 
-
+          //  doc.Update();
 
          
             IList<PDM_DOCUMENT> docList = new List<PDM_DOCUMENT>();
             docList.Add(doc);
-            IList<PDM_PHYSICAL_FILE> fileList = new List<PDM_PHYSICAL_FILE>();
-            fileList = EAS.Services.ServiceContainer.GetService<IPhysicalFileService>().GetList(doc.DOCID);
+
+           IList<DOC_FILE_LIST> fileList = new List<DOC_FILE_LIST>();
+           fileList = EAS.Services.ServiceContainer.GetService<DocFileListService>().GetDocFileListByDCID(doc.DOCID);
+
 
             if (doc == null) return;
 
-            if (MessageBox.Show("您确认要删除所选择的文档记录么？\n删除文档记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show("您确认要删除所选择的文档记录么？\n删除后与其他对象的关联关系也将被解除。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 _docService.DocDel(docList, fileList);
 
@@ -200,7 +197,7 @@ namespace HYPDM.WinUI.Document
             document.CREATEDATE = row.Cells["CREATEDATE"].Value.ToString();
             document.DESCRIPTION = row.Cells["DESCRIPTION"].Value.ToString();
             document.CREATEUSER = row.Cells["CREATEUSER"].Value.ToString();
-           
+            document.DEL_FLAG = row.Cells["DEL_FLAG"].Value.ToString();
             if (document == null) return;
 
             DocRegForm o = new DocRegForm();

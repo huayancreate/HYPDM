@@ -71,7 +71,7 @@ namespace HYPDM.WinUI.Document
             if (this.document == null)  //新增
             {
                 document = new HYPDM.Entities.PDM_DOCUMENT();
-                document.DOCID = _docService.GetMaxID().ToString();
+                document.DOCID = Guid.NewGuid().ToString();
                 document.CREATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 document.CREATEUSER = LoginInfo.LoginID; //创建用户
                 msg = "数据记录添加成功！";
@@ -80,8 +80,9 @@ namespace HYPDM.WinUI.Document
                 document.DOCSTATUS = "已创建";
                 document.DESCRIPTION = txtDescription.Text;
                 document.REMARK = txtRemark.Text;
-                document.VERSION = "V1.0";
+                document.VERSION = new HYDocumentMS.FileHelper().getNewVer("V");
                 document.DOCTYPE = cobDocType.Text;
+                document.DEL_FLAG = "N";
             }
             else //修改
             {
@@ -221,7 +222,8 @@ namespace HYPDM.WinUI.Document
                         file.DFL_FILE_EXTEND = path.Substring(path.LastIndexOf(@".") + 1);
                         file.DFL_FILE_CHILD_PATH = savePathID;
                         file.DEL_FLAG = "N";
-                        file.DFL_VER_LATEST = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
+                        //file.DFL_VER_LATEST = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
+                        file.DFL_VER_LATEST = new HYDocumentMS.FileHelper().getNewVer("V");
                         file.DOCID = Document.DOCID; //与文档表关联主键
                         file.CREATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         file.CREATEUSER = LoginInfo.LoginID;
@@ -396,11 +398,36 @@ namespace HYPDM.WinUI.Document
         private void btnView_Click(object sender, EventArgs e)
         {
 
-            HYDocumentMS.ViewFileFrm fileView = new HYDocumentMS.ViewFileFrm();
-            fileView.FileName = "文件名称.txt";
-            fileView.ViewFilePathAndName = @"D:\swf\Java网络编程精解.swf";
-            fileView.ShowDialog();
+            int rowIndex = tvFileList.CurrentCell.RowIndex;
 
+
+            if (rowIndex <= 0)
+            {
+                MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+               
+                //  dr["DFL_FILE_NAME"].ToString()
+                DataGridViewRow row = tvFileList.Rows[rowIndex];
+             //   string ff = row.Cells[0].Value.ToString();
+                String fileName = Path.ChangeExtension(row.Cells["DFL_FILE_NAME"].Value.ToString(), "swf");
+                string viewPath = System.Configuration.ConfigurationManager.AppSettings["viewFilePath"].ToString();
+                //if (viewPath.Substring(viewPath.Length - 1) != @"\")
+                //{
+                //    if (viewPath.Substring(viewPath.Length - 1) != @"/")
+                //    {
+                //        viewPath = viewPath + @"\";
+                //    }
+                //}
+                HYDocumentMS.ViewFileFrm fileView = new HYDocumentMS.ViewFileFrm();
+                fileView.FileName = fileName;
+                //fileView.ViewFilePathAndName = @"D:\swf\Java网络编程精解.swf";
+                fileView.ViewFilePath = viewPath;
+                fileView.ShowDialog();
+            }
 
             //int rowIndex = tvFileList.CurrentCell.RowIndex;
 
@@ -495,9 +522,9 @@ namespace HYPDM.WinUI.Document
             }
             DataGridViewRow row = tvFileList.Rows[rowIndex];
             String Id = row.Cells["DFL_ID"].Value.ToString();
-
-            // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
             DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
+            // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
+
             if (docFileEntity == null) return;
             if (docFileEntity.CHECKOUTFLG == "N")
             {
@@ -779,7 +806,7 @@ namespace HYPDM.WinUI.Document
             }
             finally
             {
-                      
+
             }
 
         }

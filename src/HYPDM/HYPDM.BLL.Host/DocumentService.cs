@@ -8,16 +8,18 @@ using EAS.Data.Access;
 using HYPDM.Entities;
 using EAS.Data.ORM;
 using System.Data;
+using EAS.Explorer;
 namespace HYPDM.BLL
 {
     [ServiceObject("文档管理服务")]
     [ServiceBind(typeof(IDocumentService))]
     public class DocumentService : BaseServiceObject, HYPDM.BLL.IDocumentService
     {
-        public int GetMaxID()
-        {
-            return new MaxCodeService().GetMaxCode(new PDM_DOCUMENT().DbTableName);
-        }
+        IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+        //public int GetMaxID()
+        //{
+        //    return new MaxCodeService().GetMaxCode(new PDM_DOCUMENT().DbTableName);
+        //}
 
         public IList<PDM_DOCUMENT> GetDocumentListForList()
         {
@@ -41,7 +43,16 @@ namespace HYPDM.BLL
             return dt;
         }
 
+        public DataTable GetDocumentListForDatatable(Boolean bl)
+        {
+            string delFlag = bl == true ? "N" : "Y";
+            DataTable dt = null;
+            string SQLText = "SELECT DOCID,DOCNAME ,DEL_FLAG,DOCTYPE,DOCSTATUS ,LASTUPDATEUSER ,CREATEDATE ,LASTUPDATEDATE,REMARK,VERSION ,DOCNO ,DESCRIPTION,CREATEUSER FROM PDM_DOCUMENT WHERE DEL_FLAG='" + delFlag + "'" + "ORDER BY CREATEDATE asc ";
 
+            dt = this.DataAccessor.QueryDataSet(SQLText).Tables[0];
+
+            return dt;
+        }
 
 
 
@@ -93,26 +104,35 @@ namespace HYPDM.BLL
         }
         #endregion
 
-        #region 删除
+        #region 
 
-        public void DocDel(IList<PDM_DOCUMENT> documentList, IList<PDM_PHYSICAL_FILE> physicalList)
+        public void DocDel(IList<PDM_DOCUMENT> documentList, IList<DOC_FILE_LIST> docFileList)
         {
-            this.DataAccessor.TransactionExecute(new TransactionHandler2(IniternalDel), documentList, physicalList);
+            this.DataAccessor.TransactionExecute(new TransactionHandler2(IniternalDel), documentList, docFileList);
         }
 
         public void IniternalDel(IDataAccessor accessor, params object[] parameters)
         {
             IList<PDM_DOCUMENT> documentList = parameters[0] as IList<PDM_DOCUMENT>;
-            IList<PDM_PHYSICAL_FILE> physicalList = parameters[1] as IList<PDM_PHYSICAL_FILE>;
+            IList<DOC_FILE_LIST> docFileList = parameters[1] as IList<DOC_FILE_LIST>;
 
             foreach (PDM_DOCUMENT document in documentList)
             {
-                document.Delete();
+
+                document.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                document.LASTUPDATEUSER = LoginInfo.LoginID.ToString();
+                document.DEL_FLAG = "Y";
+                document.Update();
             }
 
-            foreach (PDM_PHYSICAL_FILE physical in physicalList)
+            foreach (DOC_FILE_LIST docfile in docFileList)
             {
-                physical.Delete();
+                docfile.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                docfile.LASTUPDATEUSER = LoginInfo.LoginID.ToString();
+                //docfile.DEL_FLAG = "N";
+                docfile.DOCID = "";
+                docfile.Update();
+            
             }
         }
         #endregion

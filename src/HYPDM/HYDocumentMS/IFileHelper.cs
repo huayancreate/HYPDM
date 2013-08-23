@@ -26,13 +26,13 @@ namespace HYDocumentMS
         /// 获取treeview的目录结构及文件列表
         /// </summary>
         /// <param name="treeview"></param>
-        /// <param name="dtDocList"></param>
+        /// <param name="dtDocFileList"></param>
         void getTreeViewByDocFileList(System.Windows.Forms.TreeView treeview, DataTable dtDocFileList);
-      /// <summary>
+        /// <summary>
         /// 获取文件目录清单
-      /// </summary>
-      /// <param name="bl">true标识没有删除,false标识没有删除</param>
-      /// <returns></returns>
+        /// </summary>
+        /// <param name="bl">true标识没有删除,false标识没有删除</param>
+        /// <returns></returns>
         DataTable getDocFileDir(Boolean bl);
         /// <summary>
         /// 根据传入的路径pathID获取文件的传输路径
@@ -44,7 +44,7 @@ namespace HYDocumentMS
         /// 获取文件目录清单，不区别是否删除
         /// </summary>
         /// <returns></returns>
-        DataTable getAllDocFileDir();
+        DataTable getDocFileDir();
 
         /// <summary>
         /// 给定列名，where条件,及表明返回datatable
@@ -54,6 +54,16 @@ namespace HYDocumentMS
         /// <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
         /// <returns></returns>
         DataTable getDataTableBySql(String fields, string where, string tableName);
-
+        /// <summary>
+        /// 获取treeview的值，用文件夹目录进行填充，不包含文件夹下的文件
+        /// </summary>
+        /// <param name="tv">需要填充数据值的treeview对象</param>
+        void getTreeViewByPathDir(System.Windows.Forms.TreeView treeview);
+        /// <summary>
+        /// 生成新版本号
+        /// </summary>
+        /// <param name="prefix">版本的前缀,后面为yyyyMMddHHmmss</param>
+        /// <returns></returns>
+        string getNewVer(string prefix);
     }
 }

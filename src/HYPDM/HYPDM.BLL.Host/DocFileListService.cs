@@ -91,6 +91,25 @@ namespace HYPDM.BLL
             dt = this.DataAccessor.QueryDataTable(stb.ToString());
             return dt;
         }
+        public IList<DOC_FILE_LIST> GetDocFileListByDCID(string dcid)
+        {
+           // DataTable dt = null;
+
+            DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
+
+            var p = (from item in query
+                     orderby item.CREATEDATE ascending
+                     where (item.DEL_FLAG=="N" && item.DOCID==dcid)
+                     select item
+                );
+            return p.ToList();
+            //StringBuilder stb = new StringBuilder();
+            //stb.Append("SELECT DFL_ID,DFL_FILE_NAME,DFL_FILE_EXTEND,DFL_FILE_CHILD_PATH,DFL_VER_LATEST");
+            //stb.Append(" ,DEL_FLAG ,CREATEDATE,CREATEUSER,LASTUPDATEUSER,LASTUPDATEDATE,DOCID,CHECKINFLG,CHECKOUTFLG,CHECKINDATE,CHECKOUTDATE FROM DOC_FILE_LIST");
+            //stb.Append(" WHERE  DEL_FLAG='N' AND DOCID='" + dcid.Trim() + "'");
+            //dt = this.DataAccessor.QueryDataTable(stb.ToString());
+            //return dt;
+        }
         public Boolean delDocFileByDFLID(string dflID)
         {
             Boolean result = true;

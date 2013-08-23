@@ -15,7 +15,10 @@ namespace HYDocumentMS.FileAuth
     /// </summary>
    [Module("{7C8BF2CA-CD71-4394-BE5D-449099ABDC69}", "文档权限设定", "文档权限设定")]
     public partial class FileAuthOper : UserControl
-    {   
+    {
+
+
+       IFileHelper fileHelper = null;
        /// <summary>
        /// 
        /// </summary>
@@ -30,15 +33,27 @@ namespace HYDocumentMS.FileAuth
         public void StartEx()
         {
 
+            initial();
+            //DataTable
+
             ucPaging1.SourceDataGridView = this.dGVUsers;
+
+        }
+        /// <summary>
+        /// 初始化事件
+        /// </summary>
+        private void initial()
+        { 
 
         }
 
         private void btnSet_Click(object sender, EventArgs e)
         {
+
+
             UserFileAuthFrm frm = new UserFileAuthFrm();
             frm.UserAccount = "PDM";
-            
+            frm.AuthObjectType = DataType.AuthObjectType.SingleUser;
             frm.ShowDialog();
         }
 
@@ -129,7 +144,21 @@ namespace HYDocumentMS.FileAuth
 
         private void ucPaging1_Load(object sender, EventArgs e)
         {
-
+          
         }
+
+        private void btnGroupAuth_Click(object sender, EventArgs e)
+        {
+            UserFileAuthFrm frm = new UserFileAuthFrm();
+            frm.UserRole = "PDM";
+            frm.AuthObjectType = DataType.AuthObjectType.UserRole;
+            frm.ShowDialog();
+        }
+
+        private void FileAuthOper_Load(object sender, EventArgs e)
+        {
+          
+        }
+
     }
 }

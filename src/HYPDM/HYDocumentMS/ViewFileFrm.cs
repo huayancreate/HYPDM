@@ -19,19 +19,21 @@ namespace HYDocumentMS
         /// <summary>
         /// 文件名称
         /// </summary>
-        private string fileName = "没有获取到文件名";
+        private string fileName = "Demo.swf";
 
         /// <summary>
-        /// 需要预览的文件路径及文件名
+        /// 需要预览的文件路径
         /// </summary>
-        private string viewFilePathAndName = @"D:\swf\Demo.swf";
+        private string viewFilePath = @"D:\swf\";
 
-
-        public string ViewFilePathAndName
+        public string ViewFilePath
         {
-            get { return viewFilePathAndName; }
-            set { viewFilePathAndName = value; }
+            get { return viewFilePath; }
+            set { viewFilePath = value; }
         }
+
+
+  
         /// <summary>
         /// 窗体标题前部分内容
         /// </summary>
@@ -58,7 +60,14 @@ namespace HYDocumentMS
         {
             this.CenterToParent();
             this.Text = this.FrmText + this.FileName;
-            this.WBFileView.Navigate(this.ViewFilePathAndName);
+            if (this.ViewFilePath.Substring(this.ViewFilePath.Length - 1) != @"\")
+            {
+                if (this.ViewFilePath.Substring(this.ViewFilePath.Length - 1) != @"/")
+                {
+                    this.ViewFilePath = this.ViewFilePath + @"\";
+                }
+            }
+            this.WBFileView.Navigate(this.ViewFilePath+this.FileName);
         }
     }
 }

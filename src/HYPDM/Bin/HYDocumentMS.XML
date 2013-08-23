@@ -92,6 +92,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:HYDocumentMS.DataType.AuthObjectType">
+            <summary>
+            文件权限设定时候的对象,SingleUser标识对单用户进行设定,UserRole以用户角色为设定对象,Folder以文件夹为对象
+            </summary>
+        </member>
         <member name="T:HYDocumentMS.DocumentMainControl">
             <summary>
             
@@ -132,6 +137,26 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
+        <member name="T:HYDocumentMS.FileAuth.FileAuthOper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.FileAuth.FileAuthOper.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.FileAuth.FileAuthOper.StartEx">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.FileAuth.FileAuthOper.initial">
+            <summary>
+            初始化事件
+            </summary>
+        </member>
         <member name="F:HYDocumentMS.FileAuth.FileAuthOper.components">
             <summary> 
             必需的设计器变量。
@@ -149,9 +174,24 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
+        <member name="T:HYDocumentMS.FileAuth.UserFileAuthFrm">
+            <summary>
+            用户文件权限管理
+            </summary>
+        </member>
         <member name="F:HYDocumentMS.FileAuth.UserFileAuthFrm.userAccount">
             <summary>
             需要设定文件权限的用户登录账号
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.FileAuth.UserFileAuthFrm.userRole">
+            <summary>
+            用户角色Key值
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.FileAuth.UserFileAuthFrm.authObjectType">
+            <summary>
+            需要设定权限的对象类别
             </summary>
         </member>
         <member name="F:HYDocumentMS.FileAuth.UserFileAuthFrm.components">
@@ -199,7 +239,7 @@
             获取treeview的目录结构及文件列表
             </summary>
             <param name="treeview"></param>
-            <param name="dtDocList"></param>
+            <param name="dtDocFileList"></param>
         </member>
         <member name="M:HYDocumentMS.IFileHelper.getDocFileDir(System.Boolean)">
             <summary>
@@ -215,7 +255,7 @@
             <param name="pathid"></param>
             <returns></returns>
         </member>
-        <member name="M:HYDocumentMS.IFileHelper.getAllDocFileDir">
+        <member name="M:HYDocumentMS.IFileHelper.getDocFileDir">
             <summary>
             获取文件目录清单，不区别是否删除
             </summary>
@@ -228,6 +268,19 @@
             <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
             <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
             <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.IFileHelper.getTreeViewByPathDir(System.Windows.Forms.TreeView)">
+            <summary>
+            获取treeview的值，用文件夹目录进行填充，不包含文件夹下的文件
+            </summary>
+            <param name="tv">需要填充数据值的treeview对象</param>
+        </member>
+        <member name="M:HYDocumentMS.IFileHelper.getNewVer(System.String)">
+            <summary>
+            生成新版本号
+            </summary>
+            <param name="prefix">版本的前缀,后面为yyyyMMddHHmmss</param>
             <returns></returns>
         </member>
         <member name="M:HYDocumentMS.FileHelper.getDocFileList(System.Boolean)">
@@ -249,7 +302,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HYDocumentMS.FileHelper.getAllDocFileDir">
+        <member name="M:HYDocumentMS.FileHelper.getDocFileDir">
             <summary>
             
             </summary>
@@ -289,6 +342,14 @@
             </summary>
             <param name="pathParentID"></param>
         </member>
+        <member name="M:HYDocumentMS.FileHelper.CreatTreeDir(System.Windows.Forms.TreeNodeCollection,System.String,System.Data.DataTable)">
+            <summary>
+            
+            </summary>
+            <param name="Nds"></param>
+            <param name="parentID"></param>
+            <param name="dt"></param>
+        </member>
         <member name="M:HYDocumentMS.Program.Main">
             <summary>
             应用程序的主入口点。
@@ -304,9 +365,9 @@
             文件名称
             </summary>
         </member>
-        <member name="F:HYDocumentMS.ViewFileFrm.viewFilePathAndName">
+        <member name="F:HYDocumentMS.ViewFileFrm.viewFilePath">
             <summary>
-            需要预览的文件路径及文件名
+            需要预览的文件路径
             </summary>
         </member>
         <member name="F:HYDocumentMS.ViewFileFrm.components">
