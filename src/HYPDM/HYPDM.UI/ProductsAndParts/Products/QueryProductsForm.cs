@@ -14,8 +14,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 {
     public partial class ProductsQueryForm : Form
     {
-        IProductService _productService = EAS.Services.ServiceContainer.GetService<IProductService>();
-        public IList<PDM_PRODUCT> _productList;
+        IAllProductService m_productService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
+        public DataTable _productList;
         public ProductsQueryForm()
         {
             InitializeComponent();
@@ -26,10 +26,13 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         }
         private void query_Product_Click(object sender, EventArgs e)
         {
-            Condition condition = PDM_PRODUCT.Create().CreateCondition();
+            Condition condition = PDM_ALL_PRODUCT.Create().CreateCondition();
+
+            
             if (!string.IsNullOrEmpty(no_Product.Text))
             {
-                condition.AddElement("PRODUCTID", no_Product.Text, ElementType.Match);
+                
+                condition.AddElement("PRODUCTNO", no_Product.Text, ElementType.Match);
             }
             if (!string.IsNullOrEmpty(version_Product.Text))
             {
@@ -41,23 +44,28 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             }
             if (!string.IsNullOrEmpty(status_Product.Text))
             {
-                condition.AddElement("PRODUCTSTATUS", status_Product.Text);
+                condition.AddElement("STATUS", status_Product.Text);
             }
             if (!string.IsNullOrEmpty(mperson_Product.Text))
             {
-                condition.AddElement("LASTUPDATEUSER", mperson_Product.Text, ElementType.Match);
+                condition.AddElement("MODIFIER", mperson_Product.Text, ElementType.Match);
             }
             if (!string.IsNullOrEmpty(modifyDate_Product.Text))
             {
-                condition.AddElement("LASTUPDATEDATE", modifyDate_Product.Text);
+                condition.AddElement("MODIFYTIME", modifyDate_Product.Text);
             }
-            BindData(condition);
+        
+           // BindData(condition);
+            PDM_ALL_PRODUCT t_product = new PDM_ALL_PRODUCT();
+            t_product.PRODUCTNO = no_Product.Text;
+            t_product.VERSION = version_Product.Text;
+            _productList = m_productService.GetProductList(t_product);
             this.DialogResult = DialogResult.OK;
         }
         public void BindData(Condition c)
         {
-            var list = _productService.GetProductList(c);
-            _productList = list;
+            //DataTable list = m_productService.GetProductList2(c);
+            //_productList = list;
         }
     }
 }
