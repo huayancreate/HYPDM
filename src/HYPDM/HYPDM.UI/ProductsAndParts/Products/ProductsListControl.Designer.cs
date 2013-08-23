@@ -45,26 +45,24 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.conf_Menu_Product = new System.Windows.Forms.ToolStripMenuItem();
             this.dgv_ProductList = new System.Windows.Forms.DataGridView();
-            this.checkedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pRODUCTIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vERSIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mODELNODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRODUCTSTATUSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lASTUPDATEUSERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cREATEDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lASTUPDATEDATEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEMARKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dRAWINGIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRODUCTTYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eNGDESCRIPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRONODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bs_Data_Product = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEMO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ts_Tool_Product.SuspendLayout();
             this.cm_Memu_Product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProductList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bs_Data_Product)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,24 +180,22 @@
             // 
             this.dgv_ProductList.AllowUserToAddRows = false;
             this.dgv_ProductList.AllowUserToDeleteRows = false;
-            this.dgv_ProductList.AutoGenerateColumns = false;
             this.dgv_ProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.checkedDataGridViewCheckBoxColumn,
-            this.pRODUCTIDDataGridViewTextBoxColumn,
-            this.vERSIONDataGridViewTextBoxColumn,
-            this.mODELNODataGridViewTextBoxColumn,
-            this.pRODUCTSTATUSDataGridViewTextBoxColumn,
-            this.lASTUPDATEUSERDataGridViewTextBoxColumn,
-            this.cREATEDATEDataGridViewTextBoxColumn,
-            this.lASTUPDATEDATEDataGridViewTextBoxColumn,
-            this.rEMARKDataGridViewTextBoxColumn,
-            this.dRAWINGIDDataGridViewTextBoxColumn,
-            this.pRODUCTTYPEDataGridViewTextBoxColumn,
-            this.dESCRIPTIONDataGridViewTextBoxColumn,
-            this.eNGDESCRIPTIONDataGridViewTextBoxColumn,
-            this.pRONODataGridViewTextBoxColumn});
-            this.dgv_ProductList.DataSource = this.bs_Data_Product;
+            this.Column8,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column18,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column17,
+            this.Column7,
+            this.Column16,
+            this.Column15,
+            this.Column14,
+            this.MEMO});
             this.dgv_ProductList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_ProductList.Location = new System.Drawing.Point(0, 25);
             this.dgv_ProductList.MultiSelect = false;
@@ -209,139 +205,8 @@
             this.dgv_ProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ProductList.Size = new System.Drawing.Size(833, 373);
             this.dgv_ProductList.TabIndex = 2;
-            this.dgv_ProductList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ProductList_CellContentClick);
             this.dgv_ProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ProductList_CellDoubleClick);
             this.dgv_ProductList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ProductList_CellMouseDown);
-            // 
-            // checkedDataGridViewCheckBoxColumn
-            // 
-            this.checkedDataGridViewCheckBoxColumn.DataPropertyName = "Checked";
-            this.checkedDataGridViewCheckBoxColumn.FillWeight = 116.9476F;
-            this.checkedDataGridViewCheckBoxColumn.HeaderText = "选择";
-            this.checkedDataGridViewCheckBoxColumn.Name = "checkedDataGridViewCheckBoxColumn";
-            this.checkedDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.checkedDataGridViewCheckBoxColumn.Width = 56;
-            // 
-            // pRODUCTIDDataGridViewTextBoxColumn
-            // 
-            this.pRODUCTIDDataGridViewTextBoxColumn.DataPropertyName = "PRODUCTID";
-            this.pRODUCTIDDataGridViewTextBoxColumn.FillWeight = 112.8477F;
-            this.pRODUCTIDDataGridViewTextBoxColumn.HeaderText = "品号";
-            this.pRODUCTIDDataGridViewTextBoxColumn.Name = "pRODUCTIDDataGridViewTextBoxColumn";
-            this.pRODUCTIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pRODUCTIDDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // vERSIONDataGridViewTextBoxColumn
-            // 
-            this.vERSIONDataGridViewTextBoxColumn.DataPropertyName = "VERSION";
-            this.vERSIONDataGridViewTextBoxColumn.FillWeight = 105.7418F;
-            this.vERSIONDataGridViewTextBoxColumn.HeaderText = "版本";
-            this.vERSIONDataGridViewTextBoxColumn.Name = "vERSIONDataGridViewTextBoxColumn";
-            this.vERSIONDataGridViewTextBoxColumn.ReadOnly = true;
-            this.vERSIONDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // mODELNODataGridViewTextBoxColumn
-            // 
-            this.mODELNODataGridViewTextBoxColumn.DataPropertyName = "MODELNO";
-            this.mODELNODataGridViewTextBoxColumn.FillWeight = 103.5497F;
-            this.mODELNODataGridViewTextBoxColumn.HeaderText = "产品型号";
-            this.mODELNODataGridViewTextBoxColumn.Name = "mODELNODataGridViewTextBoxColumn";
-            this.mODELNODataGridViewTextBoxColumn.ReadOnly = true;
-            this.mODELNODataGridViewTextBoxColumn.Width = 57;
-            // 
-            // pRODUCTSTATUSDataGridViewTextBoxColumn
-            // 
-            this.pRODUCTSTATUSDataGridViewTextBoxColumn.DataPropertyName = "PRODUCTSTATUS";
-            this.pRODUCTSTATUSDataGridViewTextBoxColumn.FillWeight = 98.47646F;
-            this.pRODUCTSTATUSDataGridViewTextBoxColumn.HeaderText = "状态";
-            this.pRODUCTSTATUSDataGridViewTextBoxColumn.Name = "pRODUCTSTATUSDataGridViewTextBoxColumn";
-            this.pRODUCTSTATUSDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pRODUCTSTATUSDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // lASTUPDATEUSERDataGridViewTextBoxColumn
-            // 
-            this.lASTUPDATEUSERDataGridViewTextBoxColumn.DataPropertyName = "LASTUPDATEUSER";
-            this.lASTUPDATEUSERDataGridViewTextBoxColumn.FillWeight = 97.86431F;
-            this.lASTUPDATEUSERDataGridViewTextBoxColumn.HeaderText = "修改者";
-            this.lASTUPDATEUSERDataGridViewTextBoxColumn.Name = "lASTUPDATEUSERDataGridViewTextBoxColumn";
-            this.lASTUPDATEUSERDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lASTUPDATEUSERDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // cREATEDATEDataGridViewTextBoxColumn
-            // 
-            this.cREATEDATEDataGridViewTextBoxColumn.DataPropertyName = "CREATEDATE";
-            this.cREATEDATEDataGridViewTextBoxColumn.FillWeight = 94.42243F;
-            this.cREATEDATEDataGridViewTextBoxColumn.HeaderText = "创建日期";
-            this.cREATEDATEDataGridViewTextBoxColumn.Name = "cREATEDATEDataGridViewTextBoxColumn";
-            this.cREATEDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cREATEDATEDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // lASTUPDATEDATEDataGridViewTextBoxColumn
-            // 
-            this.lASTUPDATEDATEDataGridViewTextBoxColumn.DataPropertyName = "LASTUPDATEDATE";
-            this.lASTUPDATEDATEDataGridViewTextBoxColumn.FillWeight = 93.36309F;
-            this.lASTUPDATEDATEDataGridViewTextBoxColumn.HeaderText = "修改时间";
-            this.lASTUPDATEDATEDataGridViewTextBoxColumn.Name = "lASTUPDATEDATEDataGridViewTextBoxColumn";
-            this.lASTUPDATEDATEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lASTUPDATEDATEDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // rEMARKDataGridViewTextBoxColumn
-            // 
-            this.rEMARKDataGridViewTextBoxColumn.DataPropertyName = "REMARK";
-            this.rEMARKDataGridViewTextBoxColumn.FillWeight = 94.70753F;
-            this.rEMARKDataGridViewTextBoxColumn.HeaderText = "备注";
-            this.rEMARKDataGridViewTextBoxColumn.Name = "rEMARKDataGridViewTextBoxColumn";
-            this.rEMARKDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rEMARKDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // dRAWINGIDDataGridViewTextBoxColumn
-            // 
-            this.dRAWINGIDDataGridViewTextBoxColumn.DataPropertyName = "DRAWINGID";
-            this.dRAWINGIDDataGridViewTextBoxColumn.FillWeight = 93.18613F;
-            this.dRAWINGIDDataGridViewTextBoxColumn.HeaderText = "图号";
-            this.dRAWINGIDDataGridViewTextBoxColumn.Name = "dRAWINGIDDataGridViewTextBoxColumn";
-            this.dRAWINGIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dRAWINGIDDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // pRODUCTTYPEDataGridViewTextBoxColumn
-            // 
-            this.pRODUCTTYPEDataGridViewTextBoxColumn.DataPropertyName = "PRODUCTTYPE";
-            this.pRODUCTTYPEDataGridViewTextBoxColumn.FillWeight = 95.6747F;
-            this.pRODUCTTYPEDataGridViewTextBoxColumn.HeaderText = "产品类型";
-            this.pRODUCTTYPEDataGridViewTextBoxColumn.Name = "pRODUCTTYPEDataGridViewTextBoxColumn";
-            this.pRODUCTTYPEDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pRODUCTTYPEDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // dESCRIPTIONDataGridViewTextBoxColumn
-            // 
-            this.dESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "DESCRIPTION";
-            this.dESCRIPTIONDataGridViewTextBoxColumn.FillWeight = 95.20396F;
-            this.dESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "描述";
-            this.dESCRIPTIONDataGridViewTextBoxColumn.Name = "dESCRIPTIONDataGridViewTextBoxColumn";
-            this.dESCRIPTIONDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dESCRIPTIONDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // eNGDESCRIPTIONDataGridViewTextBoxColumn
-            // 
-            this.eNGDESCRIPTIONDataGridViewTextBoxColumn.DataPropertyName = "ENGDESCRIPTION";
-            this.eNGDESCRIPTIONDataGridViewTextBoxColumn.FillWeight = 98.77415F;
-            this.eNGDESCRIPTIONDataGridViewTextBoxColumn.HeaderText = "英文描述";
-            this.eNGDESCRIPTIONDataGridViewTextBoxColumn.Name = "eNGDESCRIPTIONDataGridViewTextBoxColumn";
-            this.eNGDESCRIPTIONDataGridViewTextBoxColumn.ReadOnly = true;
-            this.eNGDESCRIPTIONDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // pRONODataGridViewTextBoxColumn
-            // 
-            this.pRONODataGridViewTextBoxColumn.DataPropertyName = "PRONO";
-            this.pRONODataGridViewTextBoxColumn.FillWeight = 99.24052F;
-            this.pRONODataGridViewTextBoxColumn.HeaderText = "产品编号";
-            this.pRONODataGridViewTextBoxColumn.Name = "pRONODataGridViewTextBoxColumn";
-            this.pRONODataGridViewTextBoxColumn.ReadOnly = true;
-            this.pRONODataGridViewTextBoxColumn.Width = 56;
-            // 
-            // bs_Data_Product
-            // 
-            this.bs_Data_Product.DataSource = typeof(HYPDM.Entities.PDM_PRODUCT);
             // 
             // panel1
             // 
@@ -352,6 +217,104 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(833, 398);
             this.panel1.TabIndex = 4;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "PRODUCTID";
+            this.Column8.HeaderText = "主键";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "PRODUCTNO";
+            this.Column1.HeaderText = "产品编号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "MODELTYPE";
+            this.Column2.HeaderText = "产品型号";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "PRODUCTTYPE";
+            this.Column3.HeaderText = "产品类型";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column18
+            // 
+            this.Column18.DataPropertyName = "PRODUCTLEVEL";
+            this.Column18.HeaderText = "产品等级";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "VERSION";
+            this.Column4.HeaderText = "版本";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "STATUS";
+            this.Column5.HeaderText = "状态";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "CREATER";
+            this.Column6.HeaderText = "创建人";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "MODIFIER";
+            this.Column17.HeaderText = "修改人";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "CREATETIME";
+            this.Column7.HeaderText = "创建时间";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column16
+            // 
+            this.Column16.DataPropertyName = "MODIFYTIME";
+            this.Column16.HeaderText = "修改时间";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.DataPropertyName = "MEMO_ZH";
+            this.Column15.HeaderText = "中文描述";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "MEMO_EN";
+            this.Column14.HeaderText = "英文描述";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // MEMO
+            // 
+            this.MEMO.DataPropertyName = "MEMO";
+            this.MEMO.HeaderText = "备注";
+            this.MEMO.Name = "MEMO";
+            this.MEMO.ReadOnly = true;
             // 
             // ProductsListControl
             // 
@@ -365,7 +328,6 @@
             this.ts_Tool_Product.PerformLayout();
             this.cm_Memu_Product.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProductList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bs_Data_Product)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -383,7 +345,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem conf_Menu_Product;
         private System.Windows.Forms.DataGridView dgv_ProductList;
-        private System.Windows.Forms.BindingSource bs_Data_Product;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRODUCTIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vERSIONDataGridViewTextBoxColumn;
@@ -405,5 +366,19 @@
         private System.Windows.Forms.ToolStripButton print_Product;
         private System.Windows.Forms.ToolStripButton query_Product;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MEMO;
     }
 }

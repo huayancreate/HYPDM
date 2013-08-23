@@ -35,7 +35,7 @@
             // 
             this.memoBox.Location = new System.Drawing.Point(13, 13);
             this.memoBox.Name = "memoBox";
-            this.memoBox.Size = new System.Drawing.Size(450, 301);
+            this.memoBox.Size = new System.Drawing.Size(450, 293);
             this.memoBox.TabIndex = 0;
             this.memoBox.Text = "";
             // 

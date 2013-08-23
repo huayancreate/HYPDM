@@ -18,4 +18,9 @@ namespace HYPDM.WinUI
             //Application.Run(new Form1());
         }
     }
+
+    public class CommonVar
+    {
+        public static string userName;
+    }
 }

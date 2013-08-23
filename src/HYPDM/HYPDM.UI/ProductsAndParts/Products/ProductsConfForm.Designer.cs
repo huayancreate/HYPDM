@@ -30,33 +30,35 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsConfForm));
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer1 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tb_modifyTime = new System.Windows.Forms.TextBox();
+            this.tb_version = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.tb_createTime = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tb_memoEn = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.tb_memoZh = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tb_modifier = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tb_creater = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tb_status = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tb_productType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_modelType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.no_Product = new System.Windows.Forms.TextBox();
+            this.tb_productNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel10 = new System.Windows.Forms.ToolStripLabel();
@@ -67,18 +69,14 @@
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.操作1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.操作2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel8 = new System.Windows.Forms.ToolStripLabel();
+            this.toolBase = new System.Windows.Forms.ToolStrip();
+            this.toolBaseReg = new System.Windows.Forms.ToolStripButton();
+            this.toolBaseEdit = new System.Windows.Forms.ToolStripButton();
+            this.toolBaseClear = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tab_Memo = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbMemo = new System.Windows.Forms.RichTextBox();
             this.tab_ProRecord = new System.Windows.Forms.TabPage();
             this.toolProRecord = new System.Windows.Forms.ToolStrip();
             this.toolProRecordAdd = new System.Windows.Forms.ToolStripButton();
@@ -97,7 +95,7 @@
             this.toolChange = new System.Windows.Forms.ToolStrip();
             this.toolChangeAdd = new System.Windows.Forms.ToolStripButton();
             this.toolChangeDel = new System.Windows.Forms.ToolStripButton();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tab_Doc = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,7 +105,7 @@
             this.toolStripLabel42 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel43 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel44 = new System.Windows.Forms.ToolStripLabel();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tab_Drawing = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -117,7 +115,7 @@
             this.toolStripLabel45 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel46 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel47 = new System.Windows.Forms.ToolStripLabel();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tab_TelTask = new System.Windows.Forms.TabPage();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,7 +124,7 @@
             this.toolStrip6 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel48 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel49 = new System.Windows.Forms.ToolStripLabel();
-            this.tb_productStruct = new System.Windows.Forms.TabPage();
+            this.tab_productStruct = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.list_productTreeStruct = new System.Windows.Forms.TreeListView();
             this.ObjectNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -137,13 +135,8 @@
             this.ObjectMemo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.image_productStruct = new System.Windows.Forms.ImageList(this.components);
             this.toolStruct = new System.Windows.Forms.ToolStrip();
+            this.toolStructAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel14 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel15 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel16 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel17 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripLabel18 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel19 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel20 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel21 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel22 = new System.Windows.Forms.ToolStripLabel();
@@ -159,9 +152,6 @@
             this.toolStripLabel32 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel33 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel30 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel31 = new System.Windows.Forms.ToolStripSplitButton();
-            this.操作1ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.操作2ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLabel28 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel29 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel26 = new System.Windows.Forms.ToolStripLabel();
@@ -205,12 +195,13 @@
             this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eRP集成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStructAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStructDel = new System.Windows.Forms.ToolStripButton();
+            this.toolStructEdit = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.toolBase.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tab_Memo.SuspendLayout();
@@ -221,15 +212,15 @@
             this.tab_Change.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Change)).BeginInit();
             this.toolChange.SuspendLayout();
-            this.tabPage5.SuspendLayout();
+            this.tab_Doc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.toolStrip4.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tab_Drawing.SuspendLayout();
             this.toolStrip5.SuspendLayout();
-            this.tabPage7.SuspendLayout();
+            this.tab_TelTask.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.toolStrip6.SuspendLayout();
-            this.tb_productStruct.SuspendLayout();
+            this.tab_productStruct.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStruct.SuspendLayout();
             this.tab_Version.SuspendLayout();
@@ -260,25 +251,27 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.tb_modifyTime);
+            this.tabPage1.Controls.Add(this.tb_version);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.textBox10);
+            this.tabPage1.Controls.Add(this.tb_createTime);
             this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.textBox9);
+            this.tabPage1.Controls.Add(this.tb_memoEn);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.textBox8);
+            this.tabPage1.Controls.Add(this.tb_memoZh);
             this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.textBox7);
+            this.tabPage1.Controls.Add(this.tb_modifier);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.textBox6);
+            this.tabPage1.Controls.Add(this.tb_creater);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.textBox5);
+            this.tabPage1.Controls.Add(this.tb_status);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.tb_productType);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.textBox3);
+            this.tabPage1.Controls.Add(this.tb_modelType);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.no_Product);
+            this.tabPage1.Controls.Add(this.tb_productNo);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.toolStrip2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -288,171 +281,183 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "产品信息";
             // 
-            // textBox2
+            // label11
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(74, 73);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(147, 21);
-            this.textBox2.TabIndex = 21;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 184);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 12);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "创建者";
+            // 
+            // tb_modifyTime
+            // 
+            this.tb_modifyTime.Enabled = false;
+            this.tb_modifyTime.Location = new System.Drawing.Point(74, 316);
+            this.tb_modifyTime.Name = "tb_modifyTime";
+            this.tb_modifyTime.Size = new System.Drawing.Size(147, 21);
+            this.tb_modifyTime.TabIndex = 22;
+            // 
+            // tb_version
+            // 
+            this.tb_version.Enabled = false;
+            this.tb_version.Location = new System.Drawing.Point(74, 73);
+            this.tb_version.Name = "tb_version";
+            this.tb_version.Size = new System.Drawing.Size(147, 21);
+            this.tb_version.TabIndex = 21;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 76);
+            this.label10.Location = new System.Drawing.Point(15, 76);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 12);
             this.label10.TabIndex = 20;
             this.label10.Text = "版本号";
             // 
-            // textBox10
+            // tb_createTime
             // 
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(74, 289);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(147, 21);
-            this.textBox10.TabIndex = 19;
+            this.tb_createTime.Enabled = false;
+            this.tb_createTime.Location = new System.Drawing.Point(74, 289);
+            this.tb_createTime.Name = "tb_createTime";
+            this.tb_createTime.Size = new System.Drawing.Size(147, 21);
+            this.tb_createTime.TabIndex = 19;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 292);
+            this.label9.Location = new System.Drawing.Point(15, 316);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 18;
             this.label9.Text = "修改日期";
             // 
-            // textBox9
+            // tb_memoEn
             // 
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(74, 262);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(147, 21);
-            this.textBox9.TabIndex = 17;
+            this.tb_memoEn.Location = new System.Drawing.Point(74, 262);
+            this.tb_memoEn.Name = "tb_memoEn";
+            this.tb_memoEn.Size = new System.Drawing.Size(147, 21);
+            this.tb_memoEn.TabIndex = 17;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 265);
+            this.label8.Location = new System.Drawing.Point(15, 289);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 16;
             this.label8.Text = "创建时间";
             // 
-            // textBox8
+            // tb_memoZh
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(74, 235);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(147, 21);
-            this.textBox8.TabIndex = 15;
+            this.tb_memoZh.Location = new System.Drawing.Point(74, 235);
+            this.tb_memoZh.Name = "tb_memoZh";
+            this.tb_memoZh.Size = new System.Drawing.Size(147, 21);
+            this.tb_memoZh.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 238);
+            this.label7.Location = new System.Drawing.Point(15, 217);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 12);
             this.label7.TabIndex = 14;
             this.label7.Text = "修改者";
             // 
-            // textBox7
+            // tb_modifier
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(74, 208);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(147, 21);
-            this.textBox7.TabIndex = 13;
+            this.tb_modifier.Enabled = false;
+            this.tb_modifier.Location = new System.Drawing.Point(74, 208);
+            this.tb_modifier.Name = "tb_modifier";
+            this.tb_modifier.Size = new System.Drawing.Size(147, 21);
+            this.tb_modifier.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 211);
+            this.label6.Location = new System.Drawing.Point(15, 157);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 12;
             this.label6.Text = "状态";
             // 
-            // textBox6
+            // tb_creater
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(74, 181);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(147, 21);
-            this.textBox6.TabIndex = 11;
+            this.tb_creater.Enabled = false;
+            this.tb_creater.Location = new System.Drawing.Point(74, 181);
+            this.tb_creater.Name = "tb_creater";
+            this.tb_creater.Size = new System.Drawing.Size(147, 21);
+            this.tb_creater.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 184);
+            this.label5.Location = new System.Drawing.Point(15, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 10;
             this.label5.Text = "产品型号";
             // 
-            // textBox5
+            // tb_status
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(74, 154);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(147, 21);
-            this.textBox5.TabIndex = 9;
+            this.tb_status.Enabled = false;
+            this.tb_status.Location = new System.Drawing.Point(74, 154);
+            this.tb_status.Name = "tb_status";
+            this.tb_status.Size = new System.Drawing.Size(147, 21);
+            this.tb_status.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 157);
+            this.label4.Location = new System.Drawing.Point(15, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 8;
             this.label4.Text = "产品类型";
             // 
-            // textBox4
+            // tb_productType
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(74, 127);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(147, 21);
-            this.textBox4.TabIndex = 7;
+            this.tb_productType.Location = new System.Drawing.Point(74, 127);
+            this.tb_productType.Name = "tb_productType";
+            this.tb_productType.Size = new System.Drawing.Size(147, 21);
+            this.tb_productType.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 130);
+            this.label3.Location = new System.Drawing.Point(15, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "英文描述";
             // 
-            // textBox3
+            // tb_modelType
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(74, 100);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(147, 21);
-            this.textBox3.TabIndex = 5;
+            this.tb_modelType.Location = new System.Drawing.Point(74, 100);
+            this.tb_modelType.Name = "tb_modelType";
+            this.tb_modelType.Size = new System.Drawing.Size(147, 21);
+            this.tb_modelType.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 103);
+            this.label2.Location = new System.Drawing.Point(15, 238);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 4;
-            this.label2.Text = "描述";
+            this.label2.Text = "中文描述";
             // 
-            // no_Product
+            // tb_productNo
             // 
-            this.no_Product.Enabled = false;
-            this.no_Product.Location = new System.Drawing.Point(74, 41);
-            this.no_Product.Name = "no_Product";
-            this.no_Product.Size = new System.Drawing.Size(147, 21);
-            this.no_Product.TabIndex = 2;
+            this.tb_productNo.Location = new System.Drawing.Point(74, 41);
+            this.tb_productNo.Name = "tb_productNo";
+            this.tb_productNo.Size = new System.Drawing.Size(147, 21);
+            this.tb_productNo.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 45);
+            this.label1.Location = new System.Drawing.Point(15, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 1;
@@ -519,70 +524,48 @@
             this.toolStripLabel9.Size = new System.Drawing.Size(12, 22);
             this.toolStripLabel9.Text = " ";
             // 
-            // toolStripSplitButton1
+            // toolBase
             // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.操作1ToolStripMenuItem,
-            this.操作2ToolStripMenuItem});
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(16, 22);
-            // 
-            // 操作1ToolStripMenuItem
-            // 
-            this.操作1ToolStripMenuItem.Name = "操作1ToolStripMenuItem";
-            this.操作1ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.操作1ToolStripMenuItem.Text = "操作1";
-            // 
-            // 操作2ToolStripMenuItem
-            // 
-            this.操作2ToolStripMenuItem.Name = "操作2ToolStripMenuItem";
-            this.操作2ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.操作2ToolStripMenuItem.Text = "操作2";
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
+            this.toolBase.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolBaseReg,
             this.toolStripLabel2,
             this.toolStripLabel3,
-            this.toolStripLabel4,
+            this.toolBaseEdit,
             this.toolStripLabel5,
-            this.toolStripLabel6,
+            this.toolBaseClear,
             this.toolStripLabel7,
-            this.toolStripLabel8,
-            this.toolStripLabel9,
-            this.toolStripSplitButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(864, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripLabel9});
+            this.toolBase.Location = new System.Drawing.Point(0, 0);
+            this.toolBase.Name = "toolBase";
+            this.toolBase.Size = new System.Drawing.Size(864, 25);
+            this.toolBase.TabIndex = 1;
+            this.toolBase.Text = "toolStrip1";
             // 
-            // toolStripLabel1
+            // toolBaseReg
             // 
-            this.toolStripLabel1.Image = global::HYPDM.WinUI.Properties.Resources.download;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(16, 22);
+            this.toolBaseReg.Image = global::HYPDM.WinUI.Properties.Resources.download;
+            this.toolBaseReg.Name = "toolBaseReg";
+            this.toolBaseReg.Size = new System.Drawing.Size(52, 22);
+            this.toolBaseReg.Text = "新建";
+            this.toolBaseReg.ToolTipText = "新版本";
+            this.toolBaseReg.Click += new System.EventHandler(this.toolBaseReg_Click);
             // 
-            // toolStripLabel4
+            // toolBaseEdit
             // 
-            this.toolStripLabel4.Image = global::HYPDM.WinUI.Properties.Resources.view;
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(16, 22);
+            this.toolBaseEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolBaseEdit.Image")));
+            this.toolBaseEdit.Name = "toolBaseEdit";
+            this.toolBaseEdit.Size = new System.Drawing.Size(52, 22);
+            this.toolBaseEdit.Text = "修改";
+            this.toolBaseEdit.ToolTipText = "修改";
+            this.toolBaseEdit.Click += new System.EventHandler(this.toolBaseEdit_Click);
             // 
-            // toolStripLabel6
+            // toolBaseClear
             // 
-            this.toolStripLabel6.Image = global::HYPDM.WinUI.Properties.Resources.view;
-            this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(16, 22);
-            // 
-            // toolStripLabel8
-            // 
-            this.toolStripLabel8.Image = global::HYPDM.WinUI.Properties.Resources.download;
-            this.toolStripLabel8.Name = "toolStripLabel8";
-            this.toolStripLabel8.Size = new System.Drawing.Size(16, 22);
+            this.toolBaseClear.Image = global::HYPDM.WinUI.Properties.Resources.view;
+            this.toolBaseClear.Name = "toolBaseClear";
+            this.toolBaseClear.Size = new System.Drawing.Size(52, 22);
+            this.toolBaseClear.Text = "清空";
+            this.toolBaseClear.Click += new System.EventHandler(this.toolBaseClear_Click);
             // 
             // groupBox2
             // 
@@ -598,10 +581,10 @@
             this.tabControl.Controls.Add(this.tab_Memo);
             this.tabControl.Controls.Add(this.tab_ProRecord);
             this.tabControl.Controls.Add(this.tab_Change);
-            this.tabControl.Controls.Add(this.tabPage5);
-            this.tabControl.Controls.Add(this.tabPage6);
-            this.tabControl.Controls.Add(this.tabPage7);
-            this.tabControl.Controls.Add(this.tb_productStruct);
+            this.tabControl.Controls.Add(this.tab_Doc);
+            this.tabControl.Controls.Add(this.tab_Drawing);
+            this.tabControl.Controls.Add(this.tab_TelTask);
+            this.tabControl.Controls.Add(this.tab_productStruct);
             this.tabControl.Controls.Add(this.tab_Version);
             this.tabControl.Location = new System.Drawing.Point(1, 10);
             this.tabControl.Name = "tabControl";
@@ -611,7 +594,7 @@
             // 
             // tab_Memo
             // 
-            this.tab_Memo.Controls.Add(this.richTextBox1);
+            this.tab_Memo.Controls.Add(this.rtbMemo);
             this.tab_Memo.Location = new System.Drawing.Point(4, 22);
             this.tab_Memo.Name = "tab_Memo";
             this.tab_Memo.Padding = new System.Windows.Forms.Padding(3);
@@ -620,13 +603,13 @@
             this.tab_Memo.Text = "备注";
             this.tab_Memo.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // rtbMemo
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 6);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(515, 349);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.rtbMemo.Location = new System.Drawing.Point(6, 6);
+            this.rtbMemo.Name = "rtbMemo";
+            this.rtbMemo.Size = new System.Drawing.Size(515, 349);
+            this.rtbMemo.TabIndex = 0;
+            this.rtbMemo.Text = "";
             // 
             // tab_ProRecord
             // 
@@ -794,17 +777,17 @@
             this.toolChangeDel.Text = "删除";
             this.toolChangeDel.Click += new System.EventHandler(this.toolChangeDel_Click);
             // 
-            // tabPage5
+            // tab_Doc
             // 
-            this.tabPage5.Controls.Add(this.dataGridView2);
-            this.tabPage5.Controls.Add(this.toolStrip4);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(527, 358);
-            this.tabPage5.TabIndex = 3;
-            this.tabPage5.Text = "文档";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tab_Doc.Controls.Add(this.dataGridView2);
+            this.tab_Doc.Controls.Add(this.toolStrip4);
+            this.tab_Doc.Location = new System.Drawing.Point(4, 22);
+            this.tab_Doc.Name = "tab_Doc";
+            this.tab_Doc.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Doc.Size = new System.Drawing.Size(527, 358);
+            this.tab_Doc.TabIndex = 3;
+            this.tab_Doc.Text = "文档";
+            this.tab_Doc.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -873,17 +856,17 @@
             this.toolStripLabel44.Size = new System.Drawing.Size(48, 22);
             this.toolStripLabel44.Text = "查看";
             // 
-            // tabPage6
+            // tab_Drawing
             // 
-            this.tabPage6.Controls.Add(this.listView1);
-            this.tabPage6.Controls.Add(this.toolStrip5);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(527, 358);
-            this.tabPage6.TabIndex = 4;
-            this.tabPage6.Text = "图纸";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tab_Drawing.Controls.Add(this.listView1);
+            this.tab_Drawing.Controls.Add(this.toolStrip5);
+            this.tab_Drawing.Location = new System.Drawing.Point(4, 22);
+            this.tab_Drawing.Name = "tab_Drawing";
+            this.tab_Drawing.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_Drawing.Size = new System.Drawing.Size(527, 358);
+            this.tab_Drawing.TabIndex = 4;
+            this.tab_Drawing.Text = "图纸";
+            this.tab_Drawing.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
@@ -893,10 +876,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20});
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12});
             this.listView1.Location = new System.Drawing.Point(7, 32);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(514, 323);
@@ -936,17 +919,17 @@
             this.toolStripLabel47.Size = new System.Drawing.Size(48, 22);
             this.toolStripLabel47.Text = "查看";
             // 
-            // tabPage7
+            // tab_TelTask
             // 
-            this.tabPage7.Controls.Add(this.dataGridView4);
-            this.tabPage7.Controls.Add(this.toolStrip6);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(527, 358);
-            this.tabPage7.TabIndex = 5;
-            this.tabPage7.Text = "技术任务单";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.tab_TelTask.Controls.Add(this.dataGridView4);
+            this.tab_TelTask.Controls.Add(this.toolStrip6);
+            this.tab_TelTask.Location = new System.Drawing.Point(4, 22);
+            this.tab_TelTask.Name = "tab_TelTask";
+            this.tab_TelTask.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_TelTask.Size = new System.Drawing.Size(527, 358);
+            this.tab_TelTask.TabIndex = 5;
+            this.tab_TelTask.Text = "技术任务单";
+            this.tab_TelTask.UseVisualStyleBackColor = true;
             // 
             // dataGridView4
             // 
@@ -995,26 +978,28 @@
             // 
             // toolStripLabel48
             // 
+            this.toolStripLabel48.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
             this.toolStripLabel48.Name = "toolStripLabel48";
-            this.toolStripLabel48.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel48.Size = new System.Drawing.Size(48, 22);
             this.toolStripLabel48.Text = "添加";
             // 
             // toolStripLabel49
             // 
+            this.toolStripLabel49.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
             this.toolStripLabel49.Name = "toolStripLabel49";
-            this.toolStripLabel49.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel49.Size = new System.Drawing.Size(48, 22);
             this.toolStripLabel49.Text = "删除";
             // 
-            // tb_productStruct
+            // tab_productStruct
             // 
-            this.tb_productStruct.Controls.Add(this.panel1);
-            this.tb_productStruct.Location = new System.Drawing.Point(4, 22);
-            this.tb_productStruct.Name = "tb_productStruct";
-            this.tb_productStruct.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_productStruct.Size = new System.Drawing.Size(527, 358);
-            this.tb_productStruct.TabIndex = 6;
-            this.tb_productStruct.Text = "产品结构";
-            this.tb_productStruct.UseVisualStyleBackColor = true;
+            this.tab_productStruct.Controls.Add(this.panel1);
+            this.tab_productStruct.Location = new System.Drawing.Point(4, 22);
+            this.tab_productStruct.Name = "tab_productStruct";
+            this.tab_productStruct.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_productStruct.Size = new System.Drawing.Size(527, 358);
+            this.tab_productStruct.TabIndex = 6;
+            this.tab_productStruct.Text = "产品结构";
+            this.tab_productStruct.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -1043,9 +1028,9 @@
             treeListViewItemCollectionComparer1.SortOrder = System.Windows.Forms.SortOrder.Ascending;
             this.list_productTreeStruct.Comparer = treeListViewItemCollectionComparer1;
             this.list_productTreeStruct.GridLines = true;
-            this.list_productTreeStruct.Location = new System.Drawing.Point(7, 59);
+            this.list_productTreeStruct.Location = new System.Drawing.Point(0, 59);
             this.list_productTreeStruct.Name = "list_productTreeStruct";
-            this.list_productTreeStruct.Size = new System.Drawing.Size(514, 294);
+            this.list_productTreeStruct.Size = new System.Drawing.Size(521, 294);
             this.list_productTreeStruct.SmallImageList = this.image_productStruct;
             this.list_productTreeStruct.TabIndex = 5;
             this.list_productTreeStruct.UseCompatibleStateImageBehavior = false;
@@ -1063,7 +1048,7 @@
             // 
             // ObjectNum
             // 
-            this.ObjectNum.Text = "顺序";
+            this.ObjectNum.Text = "数量";
             this.ObjectNum.Width = 45;
             // 
             // ObjectModel
@@ -1073,7 +1058,7 @@
             // 
             // ObjectSort
             // 
-            this.ObjectSort.Text = "序号";
+            this.ObjectSort.Text = "顺序";
             this.ObjectSort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ObjectSort.Width = 55;
             // 
@@ -1096,12 +1081,8 @@
             this.toolStruct.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStructAdd,
             this.toolStripLabel14,
-            this.toolStripLabel15,
-            this.toolStripLabel16,
-            this.toolStripLabel17,
-            this.toolStripSplitButton2,
-            this.toolStripLabel18,
-            this.toolStripLabel19,
+            this.toolStructDel,
+            this.toolStructEdit,
             this.toolStripLabel20,
             this.toolStripLabel21,
             this.toolStripLabel22,
@@ -1117,7 +1098,6 @@
             this.toolStripLabel32,
             this.toolStripLabel33,
             this.toolStripLabel30,
-            this.toolStripLabel31,
             this.toolStripLabel28,
             this.toolStripLabel29,
             this.toolStripLabel26,
@@ -1130,49 +1110,19 @@
             this.toolStruct.TabIndex = 0;
             this.toolStruct.Text = "toolStrip3";
             // 
+            // toolStructAdd
+            // 
+            this.toolStructAdd.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
+            this.toolStructAdd.Name = "toolStructAdd";
+            this.toolStructAdd.Size = new System.Drawing.Size(23, 22);
+            this.toolStructAdd.ToolTipText = "添加部件";
+            this.toolStructAdd.Click += new System.EventHandler(this.toolStructAdd_Click);
+            // 
             // toolStripLabel14
             // 
             this.toolStripLabel14.Name = "toolStripLabel14";
             this.toolStripLabel14.Size = new System.Drawing.Size(0, 22);
             this.toolStripLabel14.ToolTipText = " ";
-            // 
-            // toolStripLabel15
-            // 
-            this.toolStripLabel15.Name = "toolStripLabel15";
-            this.toolStripLabel15.Size = new System.Drawing.Size(12, 22);
-            this.toolStripLabel15.Text = " ";
-            // 
-            // toolStripLabel16
-            // 
-            this.toolStripLabel16.Image = global::HYPDM.WinUI.Properties.Resources.delete;
-            this.toolStripLabel16.Name = "toolStripLabel16";
-            this.toolStripLabel16.Size = new System.Drawing.Size(16, 22);
-            // 
-            // toolStripLabel17
-            // 
-            this.toolStripLabel17.Name = "toolStripLabel17";
-            this.toolStripLabel17.Size = new System.Drawing.Size(12, 22);
-            this.toolStripLabel17.Text = " ";
-            // 
-            // toolStripSplitButton2
-            // 
-            this.toolStripSplitButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton2.Name = "toolStripSplitButton2";
-            this.toolStripSplitButton2.Size = new System.Drawing.Size(16, 22);
-            this.toolStripSplitButton2.Text = "toolStripSplitButton2";
-            // 
-            // toolStripLabel18
-            // 
-            this.toolStripLabel18.Name = "toolStripLabel18";
-            this.toolStripLabel18.Size = new System.Drawing.Size(12, 22);
-            this.toolStripLabel18.Text = " ";
-            // 
-            // toolStripLabel19
-            // 
-            this.toolStripLabel19.Image = global::HYPDM.WinUI.Properties.Resources.upload;
-            this.toolStripLabel19.Name = "toolStripLabel19";
-            this.toolStripLabel19.Size = new System.Drawing.Size(16, 22);
             // 
             // toolStripLabel20
             // 
@@ -1263,27 +1213,6 @@
             this.toolStripLabel30.Name = "toolStripLabel30";
             this.toolStripLabel30.Size = new System.Drawing.Size(12, 22);
             this.toolStripLabel30.Text = " ";
-            // 
-            // toolStripLabel31
-            // 
-            this.toolStripLabel31.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.操作1ToolStripMenuItem1,
-            this.操作2ToolStripMenuItem1});
-            this.toolStripLabel31.Image = global::HYPDM.WinUI.Properties.Resources.delete;
-            this.toolStripLabel31.Name = "toolStripLabel31";
-            this.toolStripLabel31.Size = new System.Drawing.Size(32, 22);
-            // 
-            // 操作1ToolStripMenuItem1
-            // 
-            this.操作1ToolStripMenuItem1.Name = "操作1ToolStripMenuItem1";
-            this.操作1ToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.操作1ToolStripMenuItem1.Text = "操作1";
-            // 
-            // 操作2ToolStripMenuItem1
-            // 
-            this.操作2ToolStripMenuItem1.Name = "操作2ToolStripMenuItem1";
-            this.操作2ToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.操作2ToolStripMenuItem1.Text = "操作2";
             // 
             // toolStripLabel28
             // 
@@ -1610,13 +1539,21 @@
             this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.工艺权限ToolStripMenuItem.Text = "工艺权限";
             // 
-            // toolStructAdd
+            // toolStructDel
             // 
-            this.toolStructAdd.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
-            this.toolStructAdd.Name = "toolStructAdd";
-            this.toolStructAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStructAdd.ToolTipText = "添加部件";
-            this.toolStructAdd.Click += new System.EventHandler(this.toolStructAdd_Click);
+            this.toolStructDel.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
+            this.toolStructDel.Name = "toolStructDel";
+            this.toolStructDel.Size = new System.Drawing.Size(23, 22);
+            this.toolStructDel.ToolTipText = "删除";
+            this.toolStructDel.Click += new System.EventHandler(this.toolStructDel_Click);
+            // 
+            // toolStructEdit
+            // 
+            this.toolStructEdit.Image = global::HYPDM.WinUI.Properties.Resources.upload;
+            this.toolStructEdit.Name = "toolStructEdit";
+            this.toolStructEdit.Size = new System.Drawing.Size(23, 22);
+            this.toolStructEdit.ToolTipText = "修改";
+            this.toolStructEdit.Click += new System.EventHandler(this.toolStructEdit_Click);
             // 
             // ProductsConfForm
             // 
@@ -1624,7 +1561,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 426);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.toolBase);
             this.Controls.Add(this.groupBox1);
             this.Name = "ProductsConfForm";
             this.Text = "产品";
@@ -1634,8 +1571,8 @@
             this.tabPage1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.toolBase.ResumeLayout(false);
+            this.toolBase.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tab_Memo.ResumeLayout(false);
@@ -1650,21 +1587,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Change)).EndInit();
             this.toolChange.ResumeLayout(false);
             this.toolChange.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
+            this.tab_Doc.ResumeLayout(false);
+            this.tab_Doc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
+            this.tab_Drawing.ResumeLayout(false);
+            this.tab_Drawing.PerformLayout();
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
+            this.tab_TelTask.ResumeLayout(false);
+            this.tab_TelTask.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.toolStrip6.ResumeLayout(false);
             this.toolStrip6.PerformLayout();
-            this.tb_productStruct.ResumeLayout(false);
+            this.tab_productStruct.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.toolStruct.ResumeLayout(false);
@@ -1691,53 +1628,40 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel11;
         private System.Windows.Forms.ToolStripLabel toolStripLabel12;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox no_Product;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_productNo;
+        private System.Windows.Forms.TextBox tb_modelType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox tb_createTime;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox tb_memoEn;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox tb_memoZh;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tb_modifier;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tb_creater;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tb_status;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tb_productType;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.ToolStripLabel toolStripLabel7;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel8;
         private System.Windows.Forms.ToolStripLabel toolStripLabel9;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
-        private System.Windows.Forms.ToolStripMenuItem 操作1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 操作2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip toolBase;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tab_Memo;
         private System.Windows.Forms.TabPage tab_ProRecord;
         private System.Windows.Forms.TabPage tab_Change;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tb_productStruct;
+        private System.Windows.Forms.TabPage tab_Doc;
+        private System.Windows.Forms.TabPage tab_Drawing;
+        private System.Windows.Forms.TabPage tab_TelTask;
+        private System.Windows.Forms.TabPage tab_productStruct;
         private System.Windows.Forms.ToolStrip toolStruct;
         private System.Windows.Forms.ToolStripLabel toolStripLabel14;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel15;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel16;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel17;
-        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel18;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel19;
         private System.Windows.Forms.ToolStripLabel toolStripLabel20;
         private System.Windows.Forms.ToolStripLabel toolStripLabel21;
         private System.Windows.Forms.ToolStripLabel toolStripLabel22;
@@ -1760,9 +1684,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel27;
         private System.Windows.Forms.ToolStripLabel toolStripLabel24;
         private System.Windows.Forms.ToolStripLabel toolStripLabel25;
-        private System.Windows.Forms.ToolStripSplitButton toolStripLabel31;
-        private System.Windows.Forms.ToolStripMenuItem 操作1ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 操作2ToolStripMenuItem1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -1815,7 +1736,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_version;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ToolStrip toolVersion;
         private System.Windows.Forms.ToolStripButton toolVersionCompare;
@@ -1828,7 +1749,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn lASTUPDATEUSERDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lASTUPDATEDATEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRODUCTSTATUSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbMemo;
         private System.Windows.Forms.ToolStrip toolProRecord;
         private System.Windows.Forms.ToolStripButton toolProRecordAdd;
         private System.Windows.Forms.ToolStripButton toolProRecordEdit;
@@ -1858,5 +1779,12 @@
         private System.Windows.Forms.ColumnHeader ObjectModel;
         private System.Windows.Forms.ColumnHeader ObjectMemo;
         private System.Windows.Forms.ToolStripButton toolStructAdd;
+        private System.Windows.Forms.TextBox tb_modifyTime;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ToolStripButton toolBaseEdit;
+        private System.Windows.Forms.ToolStripButton toolBaseReg;
+        private System.Windows.Forms.ToolStripButton toolBaseClear;
+        private System.Windows.Forms.ToolStripButton toolStructDel;
+        private System.Windows.Forms.ToolStripButton toolStructEdit;
     }
 }

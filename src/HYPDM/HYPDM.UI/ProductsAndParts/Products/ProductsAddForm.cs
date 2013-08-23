@@ -16,37 +16,48 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 {
     public partial class ProductsAddForm : BaseForm
     {
-        public ProductsAddForm()
+        private int m_type;
+        public ProductsAddForm(int p_type)
         {
             InitializeComponent();
+            this.m_type = p_type;
         }
 
-        HYPDM.Entities.PDM_PRODUCT copy_Product;
-        public HYPDM.Entities.PDM_PRODUCT Product
+        HYPDM.Entities.PDM_ALL_PRODUCT m_product;
+        public HYPDM.Entities.PDM_ALL_PRODUCT Product
         {
-            get { return this.copy_Product; }
+            get { return this.m_product; }
             set
             {
-                this.copy_Product = value;
+                this.m_product = value;
             }
         }
         //保存按钮操作
         private void save_Product_Click(object sender, EventArgs e)
         {
-            HYPDM.Entities.PDM_PRODUCT temp_Product = new HYPDM.Entities.PDM_PRODUCT();
-           // temp_Product=this.Product;
-            temp_Product.PRODUCTID=no_Product.Text;
-            temp_Product.VERSION= version_Product.Text;
-            temp_Product.PRODUCTTYPE=type_Product.Text;
-            temp_Product.PRODUCTSTATUS=status_Product.Text;
-            temp_Product.LASTUPDATEUSER= mperson_Product.Text;
-            temp_Product.LASTUPDATEDATE=creatDate_Product.Text;
-            temp_Product.LASTUPDATEDATE=modifyDate_Product.Text;
-            temp_Product.REMARK= zhMemo_Product.Text;
-            temp_Product.ENGDESCRIPTION = enMemo_Product.Text;
-            temp_Product.Save();
+            if (string.IsNullOrEmpty(this.tb_productNO.Text.Trim())) {
+                MessageBox.Show("产品编号不能为空"); return;
+            }
+
+            HYPDM.Entities.PDM_ALL_PRODUCT temp_product = new HYPDM.Entities.PDM_ALL_PRODUCT();
+
+            temp_product.PRODUCTID = Guid.NewGuid().ToString();
+            temp_product.PRODUCTNO = this.tb_productNO.Text;
+            temp_product.MODELTYPE = this.tb_modeType.Text;
+            temp_product.PRODUCTTYPE = this.tb_productType.Text;
+            temp_product.PRODUCTLEVEL = this.m_type;
+            temp_product.VERSION = "V"+DateTime.Now.ToString("yyyyMMddHHmm");
+            temp_product.STATUS = "已创建";
+            temp_product.CREATER = CommonVar.userName;
+            //temp_product.MODIFIER = "";
+            temp_product.CREATETIME = DateTime.Now.ToString();
+            //temp_product.MODIFYTIME ;
+            temp_product.MEMO_ZH = this.tb_memoZH.Text;
+            temp_product.MEMO_EN = this.tb_memoEN.Text;
+            temp_product.MEMO = this.rtb_memo.Text;
+            temp_product.Save();
             MessageBox.Show("保存成功");
-            this.Product = temp_Product;
+            this.Product = temp_product;
             this.DialogResult = DialogResult.OK;
         }
     }
