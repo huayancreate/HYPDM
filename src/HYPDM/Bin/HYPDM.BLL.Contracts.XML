@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HYPDM.BLL.Contracts</name>
+    </assembly>
+    <members>
+        <member name="M:HYPDM.BLL.IDocFileListService.GetDocFileDataTableByDCID(System.String)">
+            <summary>
+            根据文档ID找到关联的文件
+            </summary>
+            <param name="dcid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocFileListService.delDocFileByDFLID(System.String)">
+            <summary>
+            根据文件id主键删除数据(逻辑删除)
+            </summary>
+            <param name="dflID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocFileListService.GetDocFileEntityByDCID(System.String)">
+            <summary>
+            根据docid获取实体对象
+            </summary>
+            <param name="dflID">文档清单表的主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocFileListService.GetDocFileDir(System.Boolean)">
+            <summary>
+            返回文件目录清单
+            </summary>
+            <param name="bl">true标识只返回未删除的目录，false标识只返回已经删除的目录</param>
+            <returns>datatable</returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocFileListService.getDataTableBySql(System.String)">
+            <summary>
+            给定标准的SQL语句,查询返回datatable集合
+            </summary>
+            <param name="sql">查询语句</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentDirService.addDocumentDir(HYPDM.Entities.DOC_FILE_DIR)">
+            <summary>
+            添加文件夹
+            </summary>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentDirService.GetMaxID">
+            <summary>
+            生成将要创建文件夹的ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentDirService.findDoc(System.String)">
+            <summary>
+            根据文件夹节点id查询相应记录
+            </summary>
+            <param name="dfd_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentDirService.deleteDocumentDir(HYPDM.Entities.DOC_FILE_DIR)">
+            <summary>
+            逻辑删除文件夹
+            </summary>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentDirService.updateDocumentDir(HYPDM.Entities.DOC_FILE_DIR)">
+            <summary>
+            修改文件夹
+            </summary>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentDirService.findDocments(System.String,System.String)">
+            <summary>
+            判断所添加的文件夹名是否与兄弟文件夹名相同
+            </summary>
+            <param name="parentID"></param>
+            <param name="docName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDocumentDirService.findSonDocments(System.String)">
+            <summary>
+            判断要删除的文件是否有子文件夹
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IFilterService.getFilterList(System.String,System.String)">
+            <summary>
+            获取产品私有过滤器或者公共过滤器
+            </summary>
+            <param name="productID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HYPDM.BLL.IMaxCodeService">
+            <summary>
+            最大号服务。
+            </summary>
+        </member>
+    </members>
+</doc>

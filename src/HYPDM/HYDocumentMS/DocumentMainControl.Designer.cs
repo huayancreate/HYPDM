@@ -32,26 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocumentMainControl));
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.Tool_M_File = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_DataM = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolS_DAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolS_DAmend = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolS_DDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.Tool_FolderM = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_FolderAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_FolderAmend = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_FolderDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_FileM = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_FileAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_FileAmend = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_FileDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.Tool_InM = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_InList = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_OutM = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_OutFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.Tool_OutList = new System.Windows.Forms.ToolStripMenuItem();
             this.Tool_M_Find = new System.Windows.Forms.ToolStripMenuItem();
             this.Tool_FindName = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -64,7 +44,8 @@
             this.ToolS_Files = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolS_FilesAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolS_FilesAmend = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolS_FilesDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspFileDownLoad = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.关联操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.对象关联ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,13 +54,17 @@
             this.半成品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.物料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文档文件关联ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspViewFile = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_Find = new System.Windows.Forms.Panel();
-            this.textBox_FName = new System.Windows.Forms.TextBox();
+            this.TxtFName = new System.Windows.Forms.TextBox();
             this.label_FName = new System.Windows.Forms.Label();
             this.panel_F = new System.Windows.Forms.Panel();
             this.gpDoc = new System.Windows.Forms.GroupBox();
             this.webB = new System.Windows.Forms.WebBrowser();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.预览方式设定ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspInView = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspOutView = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -104,168 +89,13 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Tool_M_File,
-            this.Tool_M_Find});
+            this.Tool_M_Find,
+            this.预览方式设定ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(896, 25);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // Tool_M_File
-            // 
-            this.Tool_M_File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Tool_DataM,
-            this.toolStripSeparator1,
-            this.Tool_FolderM,
-            this.Tool_FileM,
-            this.toolStripSeparator2,
-            this.Tool_InM,
-            this.Tool_OutM});
-            this.Tool_M_File.Name = "Tool_M_File";
-            this.Tool_M_File.Size = new System.Drawing.Size(68, 21);
-            this.Tool_M_File.Text = "文件管理";
-            // 
-            // Tool_DataM
-            // 
-            this.Tool_DataM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolS_DAdd,
-            this.ToolS_DAmend,
-            this.ToolS_DDelete});
-            this.Tool_DataM.Name = "Tool_DataM";
-            this.Tool_DataM.Size = new System.Drawing.Size(136, 22);
-            this.Tool_DataM.Text = "资料集管理";
-            // 
-            // ToolS_DAdd
-            // 
-            this.ToolS_DAdd.Name = "ToolS_DAdd";
-            this.ToolS_DAdd.Size = new System.Drawing.Size(100, 22);
-            this.ToolS_DAdd.Tag = "0";
-            this.ToolS_DAdd.Text = "添加";
-            // 
-            // ToolS_DAmend
-            // 
-            this.ToolS_DAmend.Name = "ToolS_DAmend";
-            this.ToolS_DAmend.Size = new System.Drawing.Size(100, 22);
-            this.ToolS_DAmend.Tag = "1";
-            this.ToolS_DAmend.Text = "修改";
-            // 
-            // ToolS_DDelete
-            // 
-            this.ToolS_DDelete.Name = "ToolS_DDelete";
-            this.ToolS_DDelete.Size = new System.Drawing.Size(100, 22);
-            this.ToolS_DDelete.Text = "删除";
-            this.ToolS_DDelete.ToolTipText = "2";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
-            // 
-            // Tool_FolderM
-            // 
-            this.Tool_FolderM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Tool_FolderAdd,
-            this.Tool_FolderAmend,
-            this.Tool_FolderDelete});
-            this.Tool_FolderM.Name = "Tool_FolderM";
-            this.Tool_FolderM.Size = new System.Drawing.Size(136, 22);
-            this.Tool_FolderM.Text = "文件夹管理";
-            // 
-            // Tool_FolderAdd
-            // 
-            this.Tool_FolderAdd.Name = "Tool_FolderAdd";
-            this.Tool_FolderAdd.Size = new System.Drawing.Size(100, 22);
-            this.Tool_FolderAdd.Tag = "0";
-            this.Tool_FolderAdd.Text = "添加";
-            // 
-            // Tool_FolderAmend
-            // 
-            this.Tool_FolderAmend.Name = "Tool_FolderAmend";
-            this.Tool_FolderAmend.Size = new System.Drawing.Size(100, 22);
-            this.Tool_FolderAmend.Tag = "1";
-            this.Tool_FolderAmend.Text = "修改";
-            // 
-            // Tool_FolderDelete
-            // 
-            this.Tool_FolderDelete.Name = "Tool_FolderDelete";
-            this.Tool_FolderDelete.Size = new System.Drawing.Size(100, 22);
-            this.Tool_FolderDelete.Tag = "2";
-            this.Tool_FolderDelete.Text = "删除";
-            // 
-            // Tool_FileM
-            // 
-            this.Tool_FileM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Tool_FileAdd,
-            this.Tool_FileAmend,
-            this.Tool_FileDelete});
-            this.Tool_FileM.Name = "Tool_FileM";
-            this.Tool_FileM.Size = new System.Drawing.Size(136, 22);
-            this.Tool_FileM.Text = "文件管理";
-            // 
-            // Tool_FileAdd
-            // 
-            this.Tool_FileAdd.Name = "Tool_FileAdd";
-            this.Tool_FileAdd.Size = new System.Drawing.Size(100, 22);
-            this.Tool_FileAdd.Tag = "0";
-            this.Tool_FileAdd.Text = "添加";
-            // 
-            // Tool_FileAmend
-            // 
-            this.Tool_FileAmend.Name = "Tool_FileAmend";
-            this.Tool_FileAmend.Size = new System.Drawing.Size(100, 22);
-            this.Tool_FileAmend.Tag = "1";
-            this.Tool_FileAmend.Text = "修改";
-            // 
-            // Tool_FileDelete
-            // 
-            this.Tool_FileDelete.Name = "Tool_FileDelete";
-            this.Tool_FileDelete.Size = new System.Drawing.Size(100, 22);
-            this.Tool_FileDelete.Tag = "2";
-            this.Tool_FileDelete.Text = "删除";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(133, 6);
-            // 
-            // Tool_InM
-            // 
-            this.Tool_InM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Tool_InList});
-            this.Tool_InM.Name = "Tool_InM";
-            this.Tool_InM.Size = new System.Drawing.Size(136, 22);
-            this.Tool_InM.Text = "导入";
-            // 
-            // Tool_InList
-            // 
-            this.Tool_InList.Name = "Tool_InList";
-            this.Tool_InList.Size = new System.Drawing.Size(124, 22);
-            this.Tool_InList.Tag = "0";
-            this.Tool_InList.Text = "导入目录";
-            // 
-            // Tool_OutM
-            // 
-            this.Tool_OutM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Tool_OutFile,
-            this.Tool_OutList});
-            this.Tool_OutM.Name = "Tool_OutM";
-            this.Tool_OutM.Size = new System.Drawing.Size(136, 22);
-            this.Tool_OutM.Text = "导出";
-            // 
-            // Tool_OutFile
-            // 
-            this.Tool_OutFile.Name = "Tool_OutFile";
-            this.Tool_OutFile.Size = new System.Drawing.Size(124, 22);
-            this.Tool_OutFile.Tag = "2";
-            this.Tool_OutFile.Text = "导出文件";
-            // 
-            // Tool_OutList
-            // 
-            this.Tool_OutList.Name = "Tool_OutList";
-            this.Tool_OutList.Size = new System.Drawing.Size(124, 22);
-            this.Tool_OutList.Tag = "1";
-            this.Tool_OutList.Text = "导出目录";
             // 
             // Tool_M_Find
             // 
@@ -280,6 +110,7 @@
             this.Tool_FindName.Name = "Tool_FindName";
             this.Tool_FindName.Size = new System.Drawing.Size(148, 22);
             this.Tool_FindName.Text = "按文件名查询";
+            this.Tool_FindName.Click += new System.EventHandler(this.Tool_FindName_Click);
             // 
             // splitContainer1
             // 
@@ -321,9 +152,10 @@
             this.toolStripSeparator3,
             this.关联操作ToolStripMenuItem,
             this.对象关联ToolStripMenuItem,
-            this.文档文件关联ToolStripMenuItem});
+            this.文档文件关联ToolStripMenuItem,
+            this.tspViewFile});
             this.contextMenuTree.Name = "contextMenuStrip_Tree";
-            this.contextMenuTree.Size = new System.Drawing.Size(149, 120);
+            this.contextMenuTree.Size = new System.Drawing.Size(149, 142);
             // 
             // ToolS_Folder
             // 
@@ -337,8 +169,9 @@
             // 
             // ToolS_FolderAdd
             // 
+            this.ToolS_FolderAdd.Image = global::HYDocumentMS.Properties.Resources.edit_add;
             this.ToolS_FolderAdd.Name = "ToolS_FolderAdd";
-            this.ToolS_FolderAdd.Size = new System.Drawing.Size(152, 22);
+            this.ToolS_FolderAdd.Size = new System.Drawing.Size(100, 22);
             this.ToolS_FolderAdd.Tag = "0";
             this.ToolS_FolderAdd.Text = "添加";
             this.ToolS_FolderAdd.Click += new System.EventHandler(this.ToolS_FolderAdd_Click);
@@ -346,15 +179,16 @@
             // ToolS_FolderAmend
             // 
             this.ToolS_FolderAmend.Name = "ToolS_FolderAmend";
-            this.ToolS_FolderAmend.Size = new System.Drawing.Size(152, 22);
+            this.ToolS_FolderAmend.Size = new System.Drawing.Size(100, 22);
             this.ToolS_FolderAmend.Tag = "1";
             this.ToolS_FolderAmend.Text = "修改";
             this.ToolS_FolderAmend.Click += new System.EventHandler(this.ToolS_FolderAmend_Click);
             // 
             // ToolS_FolderDelete
             // 
+            this.ToolS_FolderDelete.Image = global::HYDocumentMS.Properties.Resources.delete1;
             this.ToolS_FolderDelete.Name = "ToolS_FolderDelete";
-            this.ToolS_FolderDelete.Size = new System.Drawing.Size(152, 22);
+            this.ToolS_FolderDelete.Size = new System.Drawing.Size(100, 22);
             this.ToolS_FolderDelete.Tag = "2";
             this.ToolS_FolderDelete.Text = "删除";
             this.ToolS_FolderDelete.Click += new System.EventHandler(this.ToolS_FolderDelete_Click);
@@ -364,15 +198,17 @@
             this.ToolS_Files.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolS_FilesAdd,
             this.ToolS_FilesAmend,
-            this.ToolS_FilesDelete});
+            this.查看ToolStripMenuItem1,
+            this.tspFileDownLoad});
             this.ToolS_Files.Name = "ToolS_Files";
             this.ToolS_Files.Size = new System.Drawing.Size(148, 22);
             this.ToolS_Files.Text = "文件管理";
             // 
             // ToolS_FilesAdd
             // 
+            this.ToolS_FilesAdd.Image = global::HYDocumentMS.Properties.Resources.edit_add;
             this.ToolS_FilesAdd.Name = "ToolS_FilesAdd";
-            this.ToolS_FilesAdd.Size = new System.Drawing.Size(100, 22);
+            this.ToolS_FilesAdd.Size = new System.Drawing.Size(152, 22);
             this.ToolS_FilesAdd.Tag = "0";
             this.ToolS_FilesAdd.Text = "添加";
             this.ToolS_FilesAdd.Click += new System.EventHandler(this.ToolS_FilesAdd_Click);
@@ -380,16 +216,25 @@
             // ToolS_FilesAmend
             // 
             this.ToolS_FilesAmend.Name = "ToolS_FilesAmend";
-            this.ToolS_FilesAmend.Size = new System.Drawing.Size(100, 22);
+            this.ToolS_FilesAmend.Size = new System.Drawing.Size(152, 22);
             this.ToolS_FilesAmend.Tag = "1";
-            this.ToolS_FilesAmend.Text = "修改";
+            this.ToolS_FilesAmend.Text = "编辑";
             // 
-            // ToolS_FilesDelete
+            // 查看ToolStripMenuItem1
             // 
-            this.ToolS_FilesDelete.Name = "ToolS_FilesDelete";
-            this.ToolS_FilesDelete.Size = new System.Drawing.Size(100, 22);
-            this.ToolS_FilesDelete.Tag = "2";
-            this.ToolS_FilesDelete.Text = "删除";
+            this.查看ToolStripMenuItem1.Image = global::HYDocumentMS.Properties.Resources.view;
+            this.查看ToolStripMenuItem1.Name = "查看ToolStripMenuItem1";
+            this.查看ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.查看ToolStripMenuItem1.Text = "文件预览";
+            this.查看ToolStripMenuItem1.Click += new System.EventHandler(this.查看ToolStripMenuItem1_Click);
+            // 
+            // tspFileDownLoad
+            // 
+            this.tspFileDownLoad.Image = global::HYDocumentMS.Properties.Resources.download;
+            this.tspFileDownLoad.Name = "tspFileDownLoad";
+            this.tspFileDownLoad.Size = new System.Drawing.Size(152, 22);
+            this.tspFileDownLoad.Text = "下载";
+            this.tspFileDownLoad.Click += new System.EventHandler(this.tspFileDownLoad_Click);
             // 
             // toolStripSeparator3
             // 
@@ -443,11 +288,19 @@
             this.文档文件关联ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.文档文件关联ToolStripMenuItem.Text = "文件关联文档";
             // 
+            // tspViewFile
+            // 
+            this.tspViewFile.Image = global::HYDocumentMS.Properties.Resources.view;
+            this.tspViewFile.Name = "tspViewFile";
+            this.tspViewFile.Size = new System.Drawing.Size(148, 22);
+            this.tspViewFile.Text = "文件预览";
+            this.tspViewFile.Click += new System.EventHandler(this.tspViewFile_Click);
+            // 
             // panel_Find
             // 
             this.panel_Find.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_Find.BackgroundImage")));
             this.panel_Find.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_Find.Controls.Add(this.textBox_FName);
+            this.panel_Find.Controls.Add(this.TxtFName);
             this.panel_Find.Controls.Add(this.label_FName);
             this.panel_Find.Controls.Add(this.panel_F);
             this.panel_Find.Dock = System.Windows.Forms.DockStyle.Top;
@@ -455,14 +308,15 @@
             this.panel_Find.Name = "panel_Find";
             this.panel_Find.Size = new System.Drawing.Size(203, 33);
             this.panel_Find.TabIndex = 6;
+            this.panel_Find.Visible = false;
             // 
-            // textBox_FName
+            // TxtFName
             // 
-            this.textBox_FName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_FName.Location = new System.Drawing.Point(46, 6);
-            this.textBox_FName.Name = "textBox_FName";
-            this.textBox_FName.Size = new System.Drawing.Size(105, 21);
-            this.textBox_FName.TabIndex = 5;
+            this.TxtFName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtFName.Location = new System.Drawing.Point(46, 6);
+            this.TxtFName.Name = "TxtFName";
+            this.TxtFName.Size = new System.Drawing.Size(105, 21);
+            this.TxtFName.TabIndex = 5;
             // 
             // label_FName
             // 
@@ -513,6 +367,31 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
+            // 预览方式设定ToolStripMenuItem
+            // 
+            this.预览方式设定ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspInView,
+            this.tspOutView});
+            this.预览方式设定ToolStripMenuItem.Name = "预览方式设定ToolStripMenuItem";
+            this.预览方式设定ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.预览方式设定ToolStripMenuItem.Text = "预览方式设定";
+            // 
+            // tspInView
+            // 
+            this.tspInView.Checked = true;
+            this.tspInView.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tspInView.Name = "tspInView";
+            this.tspInView.Size = new System.Drawing.Size(152, 22);
+            this.tspInView.Text = "嵌入式预览";
+            this.tspInView.Click += new System.EventHandler(this.tspInView_Click);
+            // 
+            // tspOutView
+            // 
+            this.tspOutView.Name = "tspOutView";
+            this.tspOutView.Size = new System.Drawing.Size(152, 22);
+            this.tspOutView.Text = "弹出框预览";
+            this.tspOutView.Click += new System.EventHandler(this.tspOutView_Click);
+            // 
             // DocumentMainControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -543,31 +422,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem Tool_M_File;
-        private System.Windows.Forms.ToolStripMenuItem Tool_DataM;
-        private System.Windows.Forms.ToolStripMenuItem ToolS_DAdd;
-        private System.Windows.Forms.ToolStripMenuItem ToolS_DAmend;
-        private System.Windows.Forms.ToolStripMenuItem ToolS_DDelete;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem Tool_FolderM;
-        private System.Windows.Forms.ToolStripMenuItem Tool_FolderAdd;
-        private System.Windows.Forms.ToolStripMenuItem Tool_FolderAmend;
-        private System.Windows.Forms.ToolStripMenuItem Tool_FolderDelete;
-        private System.Windows.Forms.ToolStripMenuItem Tool_FileM;
-        private System.Windows.Forms.ToolStripMenuItem Tool_FileAdd;
-        private System.Windows.Forms.ToolStripMenuItem Tool_FileAmend;
-        private System.Windows.Forms.ToolStripMenuItem Tool_FileDelete;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem Tool_InM;
-        private System.Windows.Forms.ToolStripMenuItem Tool_InList;
-        private System.Windows.Forms.ToolStripMenuItem Tool_OutM;
-        private System.Windows.Forms.ToolStripMenuItem Tool_OutFile;
-        private System.Windows.Forms.ToolStripMenuItem Tool_OutList;
         private System.Windows.Forms.ToolStripMenuItem Tool_M_Find;
         private System.Windows.Forms.ToolStripMenuItem Tool_FindName;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel_Find;
-        private System.Windows.Forms.TextBox textBox_FName;
+        private System.Windows.Forms.TextBox TxtFName;
         private System.Windows.Forms.Label label_FName;
         private System.Windows.Forms.Panel panel_F;
         private System.Windows.Forms.GroupBox gpDoc;
@@ -582,7 +441,6 @@
         private System.Windows.Forms.ToolStripMenuItem ToolS_Files;
         private System.Windows.Forms.ToolStripMenuItem ToolS_FilesAdd;
         private System.Windows.Forms.ToolStripMenuItem ToolS_FilesAmend;
-        private System.Windows.Forms.ToolStripMenuItem ToolS_FilesDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem 关联操作ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 对象关联ToolStripMenuItem;
@@ -591,6 +449,12 @@
         private System.Windows.Forms.ToolStripMenuItem 半成品ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 物料ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文档文件关联ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tspViewFile;
+        private System.Windows.Forms.ToolStripMenuItem tspFileDownLoad;
+        private System.Windows.Forms.ToolStripMenuItem 预览方式设定ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tspInView;
+        private System.Windows.Forms.ToolStripMenuItem tspOutView;
     }
 }
 

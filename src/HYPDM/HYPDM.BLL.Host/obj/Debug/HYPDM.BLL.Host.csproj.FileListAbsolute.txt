@@ -40,3 +40,4 @@ E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.pdb
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.XML

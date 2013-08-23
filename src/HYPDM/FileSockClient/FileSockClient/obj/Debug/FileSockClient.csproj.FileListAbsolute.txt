@@ -37,3 +37,4 @@ F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.XML
 F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.dll.config
 F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.dll
+F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.csprojResolveAssemblyReference.cache

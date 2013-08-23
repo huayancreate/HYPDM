@@ -1103,5 +1103,39 @@
       <Package />
       <LMTime>2013-08-21T15:07:58.373</LMTime>
     </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>9D1D5A0C-D7CE-471C-923C-A0A5102C9930</Guid>
+      <Name>材料</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.ProductsAndParts.Material.MaterialsList</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>材料管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-08-22T11:33:14.517</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>7C8BF2CA-CD71-4394-BE5D-449099ABDC69</Guid>
+      <Name>文档权限设定</Name>
+      <Assembly>HYDocumentMS</Assembly>
+      <Type>HYDocumentMS.FileAuth.FileAuthOper</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>Microsoft</Developer>
+      <Description>文档权限设定</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-08-22T14:11:18.627</LMTime>
+    </Module>
   </Items>
 </root>

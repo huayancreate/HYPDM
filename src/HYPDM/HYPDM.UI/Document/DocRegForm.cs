@@ -395,25 +395,32 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnView_Click(object sender, EventArgs e)
         {
-            int rowIndex = tvFileList.CurrentCell.RowIndex;
 
-            if (rowIndex < 0)
-                return;
-            DataGridViewRow row = tvFileList.Rows[rowIndex];
-            var fileName = row.Cells["FileName"].Value.ToString();
-            var temp = System.Environment.GetEnvironmentVariable("TEMP");
-            Util.FTPHelper helper = Util.Common.FtpHepler();
-            var info = "";
-            var tempFilePath = temp + "\\" + fileName;
-            var result = helper.DownloadFile(temp, fileName, out info);
-            if (result)
-            {
-                System.Diagnostics.Process.Start(tempFilePath);
-            }
-            else
-            {
-                MessageBox.Show("文件查看失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            HYDocumentMS.ViewFileFrm fileView = new HYDocumentMS.ViewFileFrm();
+            fileView.FileName = "文件名称.txt";
+            fileView.ViewFilePathAndName = @"D:\swf\Java网络编程精解.swf";
+            fileView.ShowDialog();
+
+
+            //int rowIndex = tvFileList.CurrentCell.RowIndex;
+
+            //if (rowIndex < 0)
+            //    return;
+            //DataGridViewRow row = tvFileList.Rows[rowIndex];
+            //var fileName = row.Cells["FileName"].Value.ToString();
+            //var temp = System.Environment.GetEnvironmentVariable("TEMP");
+            //Util.FTPHelper helper = Util.Common.FtpHepler();
+            //var info = "";
+            //var tempFilePath = temp + "\\" + fileName;
+            //var result = helper.DownloadFile(temp, fileName, out info);
+            //if (result)
+            //{
+            //    System.Diagnostics.Process.Start(tempFilePath);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("文件查看失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         /// <summary>

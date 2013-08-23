@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HYPDM.BLL.Host</name>
+    </assembly>
+    <members>
+        <member name="P:HYPDM.BLL.BaseServiceObject.DataAccessor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYPDM.BLL.DocFileListService.GetDocFileListForDatatable">
+            <summary>
+            返回所有文档清单
+            </summary>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:HYPDM.BLL.DocFileListService.GetDocFileListForDatatable(System.Boolean)">
+            <summary>
+            返回指定删除标识的文档清单
+            </summary>
+            <param name="bl">true为没有删除，false标识已经删除</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.DocumentDirService.addDocumentDir(HYPDM.Entities.DOC_FILE_DIR)">
+            <summary>
+            添加目录
+            </summary>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.DocumentDirService.findDoc(System.String)">
+            <summary>
+            根据文件节点id查询相应记录
+            </summary>
+            <param name="dfd_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.DocumentDirService.deleteDocumentDir(HYPDM.Entities.DOC_FILE_DIR)">
+            <summary>
+            逻辑删除文件夹
+            </summary>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.DocumentDirService.updateDocumentDir(HYPDM.Entities.DOC_FILE_DIR)">
+            <summary>
+            修改文件夹
+            </summary>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.FilterService.getFilterList(System.String,System.String)">
+            <summary>
+            获取产品私有过滤器或者公共过滤器
+            </summary>
+            <param name="productID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HYPDM.BLL.MaxCodeService">
+            <summary>
+            最大号服务。
+            </summary>
+        </member>
+        <member name="M:HYPDM.BLL.PartsService.GetPartsByPartsNo(System.String)">
+            <summary>
+            根据零部件编号查找零部件信息
+            </summary>
+            <param name="queryCondition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.PartsService.GetPartsByDescription(System.String)">
+            <summary>
+            根据描述查找零部件信息
+            </summary>
+            <param name="queryCondition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.ProductStructService.GetProStructList(System.String,System.String)">
+            <summary>
+            根据产品/半成品ID获取产品结构
+            </summary>
+            <param name="productID"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

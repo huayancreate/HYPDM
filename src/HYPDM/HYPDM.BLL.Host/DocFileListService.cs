@@ -147,5 +147,12 @@ namespace HYPDM.BLL
             }
             return doc;
         }
+
+        public DataTable getDataTableBySql(String sql)
+        {
+            DataTable dt = null;
+            dt = this.DataAccessor.QueryDataTable(sql);
+            return dt;
+        }
     }
 }

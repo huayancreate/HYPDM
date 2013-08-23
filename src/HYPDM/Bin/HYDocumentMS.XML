@@ -31,6 +31,50 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="F:HYDocumentMS.CreateNewFolderFrm.saveFilepath">
+            <summary>
+            保存文件路径,添加时候用的
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.CreateNewFolderFrm.saveFileKey">
+            <summary>
+            选中文件夹的节点
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.CreateNewFolderFrm.blAddFlg">
+            <summary>
+            添加标识
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.CreateNewFolderFrm.fatherFileKey">
+            <summary>
+            在进行修改的时候，获取修改文件夹的父节点
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.CreateNewFolderFrm.modifyFolderText">
+            <summary>
+            修改文件夹的时候，将文件夹原来的名称带过来
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.CreateNewFolderFrm.addChecking">
+            <summary>
+            添加文件夹check
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.CreateNewFolderFrm.modifyChecking">
+            <summary>
+            验证修改文件夹
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.CreateNewFolderFrm.txtNewFolder_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            回车事件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:HYDocumentMS.CreateNewFolderFrm.components">
             <summary>
             Required designer variable.
@@ -48,7 +92,29 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:HYDocumentMS.DocumentMainControl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.DocumentMainControl.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
         <!-- 对于成员“M:HYDocumentMS.DocumentMainControl.IniEvent”忽略有格式错误的 XML 注释 -->
+        <member name="M:HYDocumentMS.DocumentMainControl.chkIsFile">
+            <summary>
+            判定选择的节点是不是文件,是文件返回true,反之
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.DocumentMainControl.checkDel">
+            <summary>
+            删除时候的check事件
+            </summary>
+            <returns></returns>
+        </member>
         <member name="F:HYDocumentMS.DocumentMainControl.components">
             <summary>
             必需的设计器变量。
@@ -64,6 +130,45 @@
             <summary>
             设计器支持所需的方法 - 不要
             使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.FileAuth.FileAuthOper.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.FileAuth.FileAuthOper.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYDocumentMS.FileAuth.FileAuthOper.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.FileAuth.UserFileAuthFrm.userAccount">
+            <summary>
+            需要设定文件权限的用户登录账号
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.FileAuth.UserFileAuthFrm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.FileAuth.UserFileAuthFrm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYDocumentMS.FileAuth.UserFileAuthFrm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
             </summary>
         </member>
         <member name="T:HYDocumentMS.FileHelper">
@@ -116,6 +221,15 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HYDocumentMS.IFileHelper.getDataTableBySql(System.String,System.String,System.String)">
+            <summary>
+            给定列名，where条件,及表明返回datatable
+            </summary>
+            <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
+            <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
+            <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+            <returns></returns>
+        </member>
         <member name="M:HYDocumentMS.FileHelper.getDocFileList(System.Boolean)">
             <summary>
             返回指定删除标识的文件清单列表,true:delflag为N,false:delfalg为Y
@@ -141,19 +255,33 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HYDocumentMS.FileHelper.listChildDir(System.Windows.Forms.TreeNode,System.String)">
+        <member name="M:HYDocumentMS.FileHelper.getTreeViewByDocFileList(System.Windows.Forms.TreeView,System.Data.DataTable)">
             <summary>
-            遍历节点的子目录
+            
             </summary>
-            <param name="node"></param>
-            <param name="dfd_id"></param>
-            <returns></returns>
+            <param name="tv"></param>
+            <param name="dtDocList"></param>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.CreatTree(System.Windows.Forms.TreeNodeCollection,System.String,System.Data.DataTable)">
+            <summary>
+            
+            </summary>
+            <param name="Nds"></param>
+            <param name="parentID"></param>
+            <param name="dt"></param>
         </member>
         <member name="M:HYDocumentMS.FileHelper.listFileTree(System.Windows.Forms.TreeNode)">
             <summary>
             
             </summary>
             <param name="node"></param>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.getDocumentAllPathByPathID(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pathid"></param>
+            <returns></returns>
         </member>
         <member name="M:HYDocumentMS.FileHelper.getFilePath(System.String)">
             <summary>
@@ -164,6 +292,48 @@
         <member name="M:HYDocumentMS.Program.Main">
             <summary>
             应用程序的主入口点。
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.ViewFileFrm.frmText">
+            <summary>
+             窗体标题前部分内容
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.ViewFileFrm.fileName">
+            <summary>
+            文件名称
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.ViewFileFrm.viewFilePathAndName">
+            <summary>
+            需要预览的文件路径及文件名
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.ViewFileFrm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.ViewFileFrm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYDocumentMS.ViewFileFrm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:HYDocumentMS.ViewFileFrm.FrmText">
+            <summary>
+            窗体标题前部分内容
+            </summary>
+        </member>
+        <member name="P:HYDocumentMS.ViewFileFrm.FileName">
+            <summary>
+            文件名称
             </summary>
         </member>
         <member name="T:HYDocumentMS.Properties.Resources">
@@ -187,12 +357,32 @@
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
         </member>
+        <member name="P:HYDocumentMS.Properties.Resources.banner">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
         <member name="P:HYDocumentMS.Properties.Resources.Cancel">
             <summary>
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
         </member>
         <member name="P:HYDocumentMS.Properties.Resources.delete">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYDocumentMS.Properties.Resources.delete1">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYDocumentMS.Properties.Resources.download">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYDocumentMS.Properties.Resources.edit_add">
             <summary>
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
@@ -208,6 +398,11 @@
             </summary>
         </member>
         <member name="P:HYDocumentMS.Properties.Resources.F2">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYDocumentMS.Properties.Resources.file">
             <summary>
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
@@ -292,7 +487,17 @@
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
         </member>
+        <member name="P:HYDocumentMS.Properties.Resources.upload">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
         <member name="P:HYDocumentMS.Properties.Resources.user">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYDocumentMS.Properties.Resources.view">
             <summary>
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>

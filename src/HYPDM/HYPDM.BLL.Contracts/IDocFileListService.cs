@@ -35,5 +35,11 @@ namespace HYPDM.BLL
         /// <param name="bl">true标识只返回未删除的目录，false标识只返回已经删除的目录</param>
         /// <returns>datatable</returns>
         DataTable GetDocFileDir(Boolean bl);
+        /// <summary>
+        /// 给定标准的SQL语句,查询返回datatable集合
+        /// </summary>
+        /// <param name="sql">查询语句</param>
+        /// <returns>DataTable</returns>
+        DataTable getDataTableBySql(String sql);
     }
 }

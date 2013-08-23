@@ -37,3 +37,6 @@ E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.Properties.Re
 E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.csproj.GenerateResource.Cache
 E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.ViewFileFrm.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.FileAuth.FileAuthOper.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.FileAuth.UserFileAuthFrm.resources

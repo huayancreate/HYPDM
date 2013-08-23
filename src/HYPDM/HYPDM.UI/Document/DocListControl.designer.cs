@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocListControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmDocDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -156,6 +156,7 @@
             // 
             // tsToolbar
             // 
+            this.tsToolbar.BackgroundImage = global::HYPDM.WinUI.Properties.Resources.banner;
             this.tsToolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSplitButton1,
             this.btnDocToAdd,
@@ -177,6 +178,7 @@
             // 
             // btnDocToAdd
             // 
+            this.btnDocToAdd.ForeColor = System.Drawing.Color.White;
             this.btnDocToAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocToAdd.Image")));
             this.btnDocToAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDocToAdd.Name = "btnDocToAdd";
@@ -187,6 +189,7 @@
             // 
             // btnDocProperty
             // 
+            this.btnDocProperty.ForeColor = System.Drawing.Color.White;
             this.btnDocProperty.Image = ((System.Drawing.Image)(resources.GetObject("btnDocProperty.Image")));
             this.btnDocProperty.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDocProperty.Name = "btnDocProperty";
@@ -197,6 +200,7 @@
             // 
             // btnDocDelete
             // 
+            this.btnDocDelete.ForeColor = System.Drawing.Color.White;
             this.btnDocDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDocDelete.Image")));
             this.btnDocDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDocDelete.Name = "btnDocDelete";
@@ -212,6 +216,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSearch.Name = "btnSearch";
@@ -301,14 +306,14 @@
             this.LASTUPDATEDATE,
             this.CREATEUSER,
             this.CreateDate});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDocList.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDocList.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDocList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDocList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvDocList.Location = new System.Drawing.Point(0, 25);

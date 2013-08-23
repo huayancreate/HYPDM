@@ -45,5 +45,15 @@ namespace HYDocumentMS
         /// </summary>
         /// <returns></returns>
         DataTable getAllDocFileDir();
+
+        /// <summary>
+        /// 给定列名，where条件,及表明返回datatable
+        /// </summary>
+        /// <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
+        /// <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
+        /// <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+        /// <returns></returns>
+        DataTable getDataTableBySql(String fields, string where, string tableName);
+
     }
 }

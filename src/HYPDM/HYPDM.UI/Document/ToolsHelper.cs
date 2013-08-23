@@ -15,58 +15,92 @@ namespace HYPDM.WinUI.Document
         DataTable dtDirList = null;//获取文档目录的清单
         TreeNode rootNode = null; //treeview的根节点
         //DataTable dtDocFileList = null;//文档清单列表
-
-        public void getTreeViewByPathDir(TreeView treeview)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Nds"></param>
+        /// <param name="parentID"></param>
+        /// <param name="dt"></param>
+        public void CreatTree(TreeNodeCollection Nds, string parentID, DataTable dt)
         {
-
-            //dtDocFileList = dtDocList;
-            rootNode = new TreeNode();
-            TreeNode node;
-
-            HYDocumentMS.IFileHelper   filehelper=new HYDocumentMS.FileHelper();
-            //dtDirList = getDocFileDir(); //获取文档目录的清单
-            dtDirList = filehelper.getDocFileDir();
-            // dt.Select("DFD_PARENT_DIR_ID=0");
-
-            DataRow[] rootDir = dtDirList.Select("DFD_PARENT_DIR_ID='0'"); //根目录
-            if (rootDir.Length > 0)
+            //DataView dv = new DataView();
+            TreeNode tmpNode;
+            //dv.Table = dt;
+            //dv.RowFilter = "上级单位ID='" + parentID + "'";
+            DataRow[] dv = dt.Select(string.Format("DFD_PARENT_DIR_ID='{0}'", parentID));
+            foreach (DataRow drv in dv)
             {
-                foreach (DataRow row in rootDir)
-                {
-
-                    rootNode.Text = row["DFD_PATH_NAME"].ToString();
-                    rootNode.Tag = row["DFD_ID"].ToString();  //根节点
-                   // listFileTree(rootNode);
-
-
-                    DataRow[] rowdir = dtDirList.Select(string.Format("DFD_PARENT_DIR_ID='{0}'", row["DFD_ID"].ToString())); //一级子目录
-                    if (rowdir.Length > 0)
-                    {
-                        foreach (DataRow r in rowdir)
-                        {
-                            node = new TreeNode();
-                            node.Text = r["DFD_PATH_NAME"].ToString();
-                            node.Tag = r["DFD_ID"].ToString();
-                           // listFileTree(node);
-                            listChildDir(node, r["DFD_ID"].ToString()); //遍历指定一级目录的子目录
-                        }
-                    }
-
-                }
+                tmpNode = new TreeNode();
+                tmpNode.Text = drv["DFD_PATH_NAME"].ToString();
+                tmpNode.Tag = drv["DFD_ID"].ToString();
+                tmpNode.ExpandAll();
+                Nds.Add(tmpNode);
+                CreatTree(tmpNode.Nodes, tmpNode.Tag.ToString(), dt);
             }
-            rootNode.ExpandAll();
-            treeview.Nodes.Add(rootNode);
-            //foreach(DataRow row in dtDocFileList.Rows)
-            //{
-            //    node = new TreeNode();
-            //    node.Text = row["DFL_FILE_NAME"].ToString();
-            //    node.Tag = row["DFL_FILE_ROOT_PATH"].ToString() +"\\"+row["DFL_FILE_CHILD_PATH"].ToString() +"\\"+ row["DFL_FILE_NAME"].ToString();
-            //   // MessageBox.Show(node.Tag.ToString());
-            //    rootNode.Nodes.Add(node);
-            //}
-            //treeview.Nodes.Add(rootNode);
-
         }
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="tv"></param>
+       /// <param name="dtDocList"></param>
+        public void getTreeViewByPathDir(TreeView tv)
+        {
+            HYDocumentMS.IFileHelper filehelper = new HYDocumentMS.FileHelper();
+            dtDirList = filehelper.getDocFileDir(true);//获取文档目录的清单
+            CreatTree(tv.Nodes, "0", dtDirList);
+            tv.ExpandAll();
+        }
+        //public void getTreeViewByPathDir(TreeView treeview)
+        //{
+
+        //    //dtDocFileList = dtDocList;
+        //    rootNode = new TreeNode();
+        //    TreeNode node;
+
+        //    HYDocumentMS.IFileHelper   filehelper=new HYDocumentMS.FileHelper();
+        //    //dtDirList = getDocFileDir(); //获取文档目录的清单
+        //    dtDirList = filehelper.getDocFileDir(true);
+        //    // dt.Select("DFD_PARENT_DIR_ID=0");
+
+        //    DataRow[] rootDir = dtDirList.Select("DFD_PARENT_DIR_ID='0'"); //根目录
+        //    if (rootDir.Length > 0)
+        //    {
+        //        foreach (DataRow row in rootDir)
+        //        {
+
+        //            rootNode.Text = row["DFD_PATH_NAME"].ToString();
+        //            rootNode.Tag = row["DFD_ID"].ToString();  //根节点
+        //           // listFileTree(rootNode);
+
+
+        //            DataRow[] rowdir = dtDirList.Select(string.Format("DFD_PARENT_DIR_ID='{0}'", row["DFD_ID"].ToString())); //一级子目录
+        //            if (rowdir.Length > 0)
+        //            {
+        //                foreach (DataRow r in rowdir)
+        //                {
+        //                    node = new TreeNode();
+        //                    node.Text = r["DFD_PATH_NAME"].ToString();
+        //                    node.Tag = r["DFD_ID"].ToString();
+        //                   // listFileTree(node);
+        //                    listChildDir(node, r["DFD_ID"].ToString()); //遍历指定一级目录的子目录
+        //                }
+        //            }
+
+        //        }
+        //    }
+        //    rootNode.ExpandAll();
+        //    treeview.Nodes.Add(rootNode);
+        //    //foreach(DataRow row in dtDocFileList.Rows)
+        //    //{
+        //    //    node = new TreeNode();
+        //    //    node.Text = row["DFL_FILE_NAME"].ToString();
+        //    //    node.Tag = row["DFL_FILE_ROOT_PATH"].ToString() +"\\"+row["DFL_FILE_CHILD_PATH"].ToString() +"\\"+ row["DFL_FILE_NAME"].ToString();
+        //    //   // MessageBox.Show(node.Tag.ToString());
+        //    //    rootNode.Nodes.Add(node);
+        //    //}
+        //    //treeview.Nodes.Add(rootNode);
+
+        //}
        /// <summary>
        /// 获取文档路径
        /// </summary>
@@ -84,28 +118,29 @@ namespace HYPDM.WinUI.Document
         /// <param name="node"></param>
         /// <param name="dfd_id"></param>
         /// <returns></returns>
-        private void listChildDir(TreeNode node, string dfd_id)
-        {
-            TreeNode nnode;
+        //private void listChildDir(TreeNode node, string dfd_id)
+        //{
+        //    TreeNode nnode;
 
-            DataRow[] rdir = dtDirList.Select(string.Format("DFD_PARENT_DIR_ID='{0}'", dfd_id)); //指定目录存在的子目录
-            if (rdir.Length > 0)
-            {
-                foreach (DataRow r in rdir)
-                {
-                    nnode = new TreeNode();
-                    nnode.Text = r["DFD_PATH_NAME"].ToString();
-                    // nnode.Tag = r["DFD_ID"].ToString();
-                    nnode.Tag = r["DFD_ID"].ToString();
-                    //node.Nodes.Add(nnode);
-                    //listFileTree(nnode);
-                    listChildDir(nnode, r["DFD_ID"].ToString()); //遍历节点的子目录
-                    node.Nodes.Add(nnode);
-                }
-                rootNode.Nodes.Add(node);
-            }
+        //    DataRow[] rdir = dtDirList.Select(string.Format("DFD_PARENT_DIR_ID='{0}'", dfd_id)); //指定目录存在的子目录
+        //    if (rdir.Length > 0)
+        //    {
+        //        foreach (DataRow r in rdir)
+        //        {
+        //            nnode = new TreeNode();
+        //            nnode.Text = r["DFD_PATH_NAME"].ToString();
+        //            // nnode.Tag = r["DFD_ID"].ToString();
+        //            nnode.Tag = r["DFD_ID"].ToString();
+        //            //node.Nodes.Add(nnode);
+        //            //listFileTree(nnode);
+        //            listChildDir(nnode, r["DFD_ID"].ToString()); //遍历节点的子目录
+ 
+        //            node.Nodes.Add(nnode);
+        //        }
+        //        rootNode.Nodes.Add(node);
+        //    }
 
-        }
+        //}
         ///// <summary>
         ///// 
         ///// </summary>

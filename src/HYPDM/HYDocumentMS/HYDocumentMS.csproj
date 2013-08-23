@@ -103,10 +103,28 @@
     <Compile Include="DocumentMainControl.Designer.cs">
       <DependentUpon>DocumentMainControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileAuth\FileAuthOper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileAuth\FileAuthOper.Designer.cs">
+      <DependentUpon>FileAuthOper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileAuth\UserFileAuthFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileAuth\UserFileAuthFrm.Designer.cs">
+      <DependentUpon>UserFileAuthFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileHelper.cs" />
     <Compile Include="IFileHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewFileFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewFileFrm.Designer.cs">
+      <DependentUpon>ViewFileFrm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CreateNewFileFrm.resx">
       <DependentUpon>CreateNewFileFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +133,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DocumentMainControl.resx">
       <DependentUpon>DocumentMainControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileAuth\FileAuthOper.resx">
+      <DependentUpon>FileAuthOper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileAuth\UserFileAuthFrm.resx">
+      <DependentUpon>UserFileAuthFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -126,6 +150,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ViewFileFrm.resx">
+      <DependentUpon>ViewFileFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,9 +177,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Exit.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\F0.jpg" />
@@ -219,6 +243,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Main_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\banner.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

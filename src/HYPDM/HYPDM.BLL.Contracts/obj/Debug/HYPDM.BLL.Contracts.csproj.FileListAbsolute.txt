@@ -35,6 +35,7 @@ E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.pdb
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.csprojResolveAssemblyReference.cache
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.XML
 F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.csprojResolveAssemblyReference.cache

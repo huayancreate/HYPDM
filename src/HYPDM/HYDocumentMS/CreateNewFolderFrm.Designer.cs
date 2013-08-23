@@ -87,6 +87,7 @@
             this.txtNewFolder.Name = "txtNewFolder";
             this.txtNewFolder.Size = new System.Drawing.Size(221, 21);
             this.txtNewFolder.TabIndex = 6;
+            this.txtNewFolder.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNewFolder_KeyPress);
             // 
             // Cancel
             // 
@@ -106,7 +107,6 @@
             this.OK.Size = new System.Drawing.Size(48, 20);
             this.OK.TabIndex = 4;
             this.OK.Click += new System.EventHandler(this.OK_Click);
-            this.OK.Paint += new System.Windows.Forms.PaintEventHandler(this.OK_Paint);
             // 
             // label1
             // 
