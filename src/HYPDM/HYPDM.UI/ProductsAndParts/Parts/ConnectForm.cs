@@ -16,9 +16,15 @@ namespace HYPDM.WinUI.Parts
 {
     public partial class ConnectForm : BaseForm
     {
-        public static string productID;
-        IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
+        IPartsDocumentService _partsDocService = ServiceContainer.GetService<IPartsDocumentService>();
         protected int closed = 0;
+        private string partsID;
+
+        public String PartsID
+        {
+            get { return partsID; }
+            set { partsID = value; }
+        }
 
         public ConnectForm()
         {
@@ -28,7 +34,6 @@ namespace HYPDM.WinUI.Parts
 
         private void Initialize()
         {
-            productID = ProductRegForm.productID;
             this.InitList();
         }
 
@@ -62,21 +67,24 @@ namespace HYPDM.WinUI.Parts
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            List<PDM_PRODUCT_DOCUMENT> proDocList = new List<PDM_PRODUCT_DOCUMENT>();
+            List<PDM_PARTS_DOCUMENT> partsDocList = new List<PDM_PARTS_DOCUMENT>();
             for (int i = 0; i < this.dgvSearchResult.RowCount; i++)
             {
-                PDM_PRODUCT_DOCUMENT proDoc = new PDM_PRODUCT_DOCUMENT();
+                PDM_PARTS_DOCUMENT partsDoc = new PDM_PARTS_DOCUMENT();
                 if ((bool)dgvSearchResult.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
-                    proDoc.ID = _proDocService.GetMaxID().ToString();
-                    proDoc.PRODUCTID = productID;
-                    proDoc.DOCUMENTID = dgvSearchResult.Rows[i].Cells["DocID"].Value.ToString();
-                    // "1":产品;"0":零部件
-                    proDoc.ISPRODUCT = "1";
-                    proDocList.Add(proDoc);
+                    //proDoc.ID = _partsDocService.GetMaxID().ToString();
+                    //proDoc.PRODUCTID = docID;
+                    //proDoc.DOCUMENTID = dgvSearchResult.Rows[i].Cells["DocID"].Value.ToString();
+                    //// "1":产品;"0":零部件
+                    //proDoc.ISPRODUCT = "1";
+                    //partsDocList.Add(proDoc);
+                    partsDoc.PARTSID = this.PartsID;
+                    partsDoc.DOCID = dgvSearchResult.Rows[i].Cells["DocID"].Value.ToString();
+                    partsDocList.Add(partsDoc);
                 }
             }
-            _proDocService.ProDocSave(proDocList);
+            _partsDocService.PartsDocSave(partsDocList);
             this.closed = 1;
             this.DialogResult = DialogResult.OK;
         }
