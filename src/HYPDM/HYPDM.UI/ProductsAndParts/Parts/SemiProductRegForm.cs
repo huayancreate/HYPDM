@@ -27,13 +27,15 @@ namespace HYPDM.WinUI.Parts
         IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         IPartsService _partsService = ServiceContainer.GetService<IPartsService>();
+        IPartsDocumentService _partsDocService = ServiceContainer.GetService<IPartsDocumentService>();
         IFilterService _filterService = ServiceContainer.GetService<IFilterService>();
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         private Dictionary<int, PDM_FILTER> dic = new Dictionary<int, PDM_FILTER>();
-        private IList<HYPDM.Entities.PDM_PRODUCT_DOCUMENT> proDocList;
+        private IList<HYPDM.Entities.PDM_PRODUCT_DOCUMENT> proDocList = new List<HYPDM.Entities.PDM_PRODUCT_DOCUMENT>();
         private List<HYPDM.Entities.PDM_DOCUMENT> documentList = new List<HYPDM.Entities.PDM_DOCUMENT>();
         private IList<HYPDM.Entities.PDM_PRODUCT_STRUCT> proStructList = new List<HYPDM.Entities.PDM_PRODUCT_STRUCT>();
         private IList<HYPDM.Entities.PartsDetail> partsDetailList = new List<HYPDM.Entities.PartsDetail>();
+        private IList<HYPDM.Entities.PDM_PARTS_DOCUMENT> partsDocList = new List<HYPDM.Entities.PDM_PARTS_DOCUMENT>();
 
         public SemiProductRegForm()
         {
@@ -75,6 +77,8 @@ namespace HYPDM.WinUI.Parts
 
             // 初始化产品结构列表
             InitProStructList();
+
+            reloadDocumentList();
 
             // 初始化过滤器列表
             InitFilterList();
@@ -313,7 +317,7 @@ namespace HYPDM.WinUI.Parts
         {
             // 将产品ID传给连接form
             partsID = this.Parts.PARTSID;
-            addFlg = true; ;
+            addFlg = true;
             ProductStructForm form = new ProductStructForm();
             form.StartPosition = FormStartPosition.CenterParent;
             // 零部件-零部件结构
@@ -711,5 +715,67 @@ namespace HYPDM.WinUI.Parts
 
             }
         }
+
+        /// <summary>
+        /// 加载与半成品相关联的文档列表数据
+        /// </summary>
+        private void reloadDocumentList()
+        {
+            this.documentList.Clear();
+            this.partsDocList = _partsDocService.GetPartsDocList(this.Parts.PARTSID);
+            foreach (PDM_PARTS_DOCUMENT partDoc in partsDocList)
+            {
+                string docID = partDoc.DOCID;
+                IList<HYPDM.Entities.PDM_DOCUMENT> docList = ServiceContainer.GetService<IDocumentService>().GetDocListByID(docID);
+                PDM_DOCUMENT doc = new PDM_DOCUMENT();
+
+                if (docList.Count() > 0)
+                {
+                    doc.DOCID = docList[0].DOCID;
+                    doc.DOCNAME = docList[0].DOCNAME;
+                    doc.DOCTYPE = docList[0].DOCTYPE;
+                    doc.DOCSTATUS = docList[0].DOCSTATUS;
+                    doc.LASTUPDATEUSER = docList[0].LASTUPDATEUSER;
+                    doc.CREATEDATE = docList[0].CREATEDATE;
+                    doc.LASTUPDATEDATE = docList[0].LASTUPDATEDATE;
+                    doc.REMARK = docList[0].REMARK;
+                    doc.VERSION = docList[0].VERSION;
+                    doc.DOCNO = docList[0].DOCNO;
+                    doc.DESCRIPTION = docList[0].DESCRIPTION;
+                    doc.CREATEUSER = docList[0].CREATEUSER;
+                    documentList.Add(doc);
+                }
+            }
+            this.docBindingSource.DataSource = null;
+            this.docBindingSource.DataSource = documentList;
+        }
+
+        private void tsBtnPartsDocAdd_Click(object sender, EventArgs e)
+        {
+            //rowIndex = this.dgvDocumentList.RowCount;
+            //this.partsDocAdd();
+            if (this.dgvDocumentList.RowCount == 0)
+            {
+                rowIndex = 1;
+            }
+            else if (this.dgvDocumentList.RowCount > 0)
+            {
+                rowIndex = this.dgvDocumentList.RowCount + 1;
+            }
+            this.partsDocAdd();
+        }
+
+        private void partsDocAdd()
+        {
+            addFlg = true;
+            ConnectForm connForm = new ConnectForm();
+            connForm.PartsID = this.Parts.PARTSID;
+            connForm.StartPosition = FormStartPosition.CenterParent;
+            if (connForm.ShowDialog() == DialogResult.OK)
+            {
+                this.reloadDocumentList();
+            }
+        }
+
     }
 }
