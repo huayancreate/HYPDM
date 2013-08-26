@@ -79,7 +79,6 @@
             this.SingleNetweight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartsStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnProStructSearch = new System.Windows.Forms.Button();
             this.txtQuery = new System.Windows.Forms.TextBox();
             this.cobQuery = new System.Windows.Forms.ComboBox();
@@ -87,7 +86,6 @@
             this.tsPartsDoc = new System.Windows.Forms.ToolStrip();
             this.tsBtnPartsDocAdd = new System.Windows.Forms.ToolStripButton();
             this.tsBtnPartsDocDel = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnPartsDocSave = new System.Windows.Forms.ToolStripButton();
             this.dgvDocumentList = new System.Windows.Forms.DataGridView();
             this.ChkPartsDoc = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DocID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,6 +135,7 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.partsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmParts = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmPartsAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmStruct = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,7 +163,6 @@
             this.tpProStruct.SuspendLayout();
             this.toolStrip6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             this.tpDoc.SuspendLayout();
             this.tsPartsDoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentList)).BeginInit();
@@ -172,6 +170,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
             this.cmParts.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -685,8 +684,7 @@
             // 
             this.tsPartsDoc.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsBtnPartsDocAdd,
-            this.tsBtnPartsDocDel,
-            this.tsBtnPartsDocSave});
+            this.tsBtnPartsDocDel});
             this.tsPartsDoc.Location = new System.Drawing.Point(0, 0);
             this.tsPartsDoc.Name = "tsPartsDoc";
             this.tsPartsDoc.Size = new System.Drawing.Size(480, 25);
@@ -709,14 +707,7 @@
             this.tsBtnPartsDocDel.Name = "tsBtnPartsDocDel";
             this.tsBtnPartsDocDel.Size = new System.Drawing.Size(49, 22);
             this.tsBtnPartsDocDel.Text = "删除";
-            // 
-            // tsBtnPartsDocSave
-            // 
-            this.tsBtnPartsDocSave.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnPartsDocSave.Image")));
-            this.tsBtnPartsDocSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnPartsDocSave.Name = "tsBtnPartsDocSave";
-            this.tsBtnPartsDocSave.Size = new System.Drawing.Size(49, 22);
-            this.tsBtnPartsDocSave.Text = "保存";
+            this.tsBtnPartsDocDel.Click += new System.EventHandler(this.tsBtnPartsDocDel_Click);
             // 
             // dgvDocumentList
             // 
@@ -1339,7 +1330,6 @@
             this.toolStrip6.ResumeLayout(false);
             this.toolStrip6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             this.tpDoc.ResumeLayout(false);
             this.tpDoc.PerformLayout();
             this.tsPartsDoc.ResumeLayout(false);
@@ -1351,6 +1341,7 @@
             this.tabPage1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
             this.cmParts.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1472,7 +1463,6 @@
         private System.Windows.Forms.ToolStrip tsPartsDoc;
         private System.Windows.Forms.ToolStripButton tsBtnPartsDocAdd;
         private System.Windows.Forms.ToolStripButton tsBtnPartsDocDel;
-        private System.Windows.Forms.ToolStripButton tsBtnPartsDocSave;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ChkPartsDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocNO;

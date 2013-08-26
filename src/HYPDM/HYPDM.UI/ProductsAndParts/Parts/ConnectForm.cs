@@ -16,7 +16,7 @@ namespace HYPDM.WinUI.Parts
 {
     public partial class ConnectForm : BaseForm
     {
-        IPartsDocumentService _partsDocService = ServiceContainer.GetService<IPartsDocumentService>();
+        IPartsDocumentService _partsDocService = ServiceContainer.GetService<PartsDocumentService>();
         protected int closed = 0;
         private string partsID;
 
@@ -28,6 +28,13 @@ namespace HYPDM.WinUI.Parts
 
         public ConnectForm()
         {
+            InitializeComponent();
+            this.Initialize();
+        }
+
+        public ConnectForm(string partsID)
+        {
+            this.PartsID = partsID;
             InitializeComponent();
             this.Initialize();
         }
@@ -52,8 +59,38 @@ namespace HYPDM.WinUI.Parts
         private void InitList()
         {
             DateTime d0 = DateTime.Now;
-            this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForList();
+            IList<HYPDM.Entities.PDM_DOCUMENT> tempList = null;
+            tempList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForList();
+            this.documentList = delExistsDoc(tempList); 
             this.InitList(documentList);
+        }
+
+        /// <summary>
+        /// 移除 tempList 中已关联半成品的文档
+        /// </summary>
+        /// <param name="tempList"></param>
+        /// <returns></returns>
+        private IList<HYPDM.Entities.PDM_DOCUMENT> delExistsDoc(IList<HYPDM.Entities.PDM_DOCUMENT> tempList)
+        {
+            // 获取partsID
+            string partsID = this.PartsID;
+           // MessageBox.Show(partsID);
+            // 根据partsID获取关联PDM_PARTS_DOCUMENT列表
+            IPartsDocumentService _partsDocService = ServiceContainer.GetService<PartsDocumentService>();
+            IList<HYPDM.Entities.PDM_PARTS_DOCUMENT> existsPartsDocList = _partsDocService.GetPartsDocList(partsID);
+
+            // 移除已关联的PDM_DOCUMENT
+            foreach (PDM_PARTS_DOCUMENT partsDoc in existsPartsDocList)
+            {
+                for (int i = 0; i < tempList.Count; i++)
+                {
+                    if (partsDoc.DOCID == tempList[i].DOCID)
+                    {
+                        tempList.Remove(tempList[i]);
+                    }
+                }
+            }
+            return tempList;
         }
 
         /// <summary>
@@ -68,17 +105,13 @@ namespace HYPDM.WinUI.Parts
         private void btnSelect_Click(object sender, EventArgs e)
         {
             List<PDM_PARTS_DOCUMENT> partsDocList = new List<PDM_PARTS_DOCUMENT>();
+            
             for (int i = 0; i < this.dgvSearchResult.RowCount; i++)
             {
                 PDM_PARTS_DOCUMENT partsDoc = new PDM_PARTS_DOCUMENT();
                 if ((bool)dgvSearchResult.Rows[i].Cells[0].EditedFormattedValue == true)
                 {
-                    //proDoc.ID = _partsDocService.GetMaxID().ToString();
-                    //proDoc.PRODUCTID = docID;
-                    //proDoc.DOCUMENTID = dgvSearchResult.Rows[i].Cells["DocID"].Value.ToString();
-                    //// "1":产品;"0":零部件
-                    //proDoc.ISPRODUCT = "1";
-                    //partsDocList.Add(proDoc);
+                    partsDoc.ID = Convert.ToString(_partsDocService.GetMaxID());
                     partsDoc.PARTSID = this.PartsID;
                     partsDoc.DOCID = dgvSearchResult.Rows[i].Cells["DocID"].Value.ToString();
                     partsDocList.Add(partsDoc);
@@ -93,12 +126,7 @@ namespace HYPDM.WinUI.Parts
         {
             if ((bool)dgvSearchResult.Rows[e.RowIndex].Cells[0].EditedFormattedValue == false)
             {
-                for (int i = 0; i < this.dgvSearchResult.RowCount; i++)
-                {
-                    dgvSearchResult.Rows[i].Cells[0].Value = false;
-                }
                 dgvSearchResult.Rows[e.RowIndex].Cells[0].Value = true;
-
             }
             else
             {

@@ -1,6 +1,7 @@
 ﻿using EAS.Modularization;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -27,7 +28,7 @@ namespace HYPDM.WinUI.Parts
         IProductDocumentService _proDocService = ServiceContainer.GetService<IProductDocumentService>();
         IProductStructService _proStructService = ServiceContainer.GetService<IProductStructService>();
         IPartsService _partsService = ServiceContainer.GetService<IPartsService>();
-        IPartsDocumentService _partsDocService = ServiceContainer.GetService<IPartsDocumentService>();
+        IPartsDocumentService _partsDocService = ServiceContainer.GetService<PartsDocumentService>();
         IFilterService _filterService = ServiceContainer.GetService<IFilterService>();
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         private Dictionary<int, PDM_FILTER> dic = new Dictionary<int, PDM_FILTER>();
@@ -108,7 +109,7 @@ namespace HYPDM.WinUI.Parts
         private void InitProStructList()
         {
             this.partsDetailList.Clear();
-            this.proStructList = _proStructService.GetProStructList(this.Parts.PARTSID , "0");
+            this.proStructList = _proStructService.GetProStructList(this.Parts.PARTSID, "0");
             foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
             {
                 String partsID = proStruct.PARTSID;
@@ -159,7 +160,7 @@ namespace HYPDM.WinUI.Parts
         private void tsBtnSave_Click(object sender, EventArgs e)
         {
             HYPDM.Entities.PDM_PARTS tempParts = new PDM_PARTS();
-            if(txtDescription.Text.ToString().Trim() == "")
+            if (txtDescription.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("描述不能为空");
                 return;
@@ -291,7 +292,7 @@ namespace HYPDM.WinUI.Parts
             // 没有产品结构时,新增一条数据
             if (this.dgvPartsList.RowCount == 0)
             {
-                rowIndex = 0;   
+                rowIndex = 0;
                 this.proStructAdd();
                 return;
             }
@@ -331,7 +332,7 @@ namespace HYPDM.WinUI.Parts
         private void reloadPartsList()
         {
             partsDetailList.Clear();
-            this.proStructList = _proStructService.GetProStructList(this.Parts.PARTSID , "0");
+            this.proStructList = _proStructService.GetProStructList(this.Parts.PARTSID, "0");
             foreach (PDM_PRODUCT_STRUCT proStruct in proStructList)
             {
                 String partsID = proStruct.PARTSID;
@@ -752,28 +753,61 @@ namespace HYPDM.WinUI.Parts
 
         private void tsBtnPartsDocAdd_Click(object sender, EventArgs e)
         {
-            //rowIndex = this.dgvDocumentList.RowCount;
-            //this.partsDocAdd();
-            if (this.dgvDocumentList.RowCount == 0)
-            {
-                rowIndex = 1;
-            }
-            else if (this.dgvDocumentList.RowCount > 0)
-            {
-                rowIndex = this.dgvDocumentList.RowCount + 1;
-            }
+            rowIndex = this.dgvDocumentList.RowCount + 1;
             this.partsDocAdd();
         }
 
+        /// <summary>
+        /// 添加半成品关联文档
+        /// </summary>
         private void partsDocAdd()
         {
-            addFlg = true;
-            ConnectForm connForm = new ConnectForm();
-            connForm.PartsID = this.Parts.PARTSID;
+            ConnectForm connForm = new ConnectForm(this.Parts.PARTSID);
             connForm.StartPosition = FormStartPosition.CenterParent;
             if (connForm.ShowDialog() == DialogResult.OK)
             {
                 this.reloadDocumentList();
+            }
+        }
+
+        private void tsBtnPartsDocDel_Click(object sender, EventArgs e)
+        {
+            bool hasSelectedFlg = false;
+            ArrayList docID = new ArrayList();
+            for (int i = 0; i < dgvDocumentList.RowCount; i++)
+            {
+                if ((bool)dgvDocumentList.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    docID.Add(dgvDocumentList.Rows[i].Cells["DocID"].Value.ToString());
+                    hasSelectedFlg = true;
+                    break;
+                }
+            }
+            if (!hasSelectedFlg)
+            {
+                MessageBox.Show("请至少选择一条数据");
+                return;
+            }
+            if (MessageBox.Show("所选对象的关联信息将被删除，确定吗？", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.delPartsDocList(docID);
+            }
+        }
+
+        /// <summary>
+        /// 删除半成品关联文档
+        /// </summary>
+        /// <param name="docID"></param>
+        private void delPartsDocList(ArrayList docID)
+        {
+            for (int i = 0; i < docID.Count; i++)
+            {
+                IList<PDM_PARTS_DOCUMENT> partsDocList = _partsDocService.GetPartsDocByDocID((string)docID[i]);
+                if (partsDocList.Count > 0)
+                {
+                    _partsDocService.DelPartsDoc(partsDocList);
+                    reloadDocumentList();
+                }
             }
         }
 
