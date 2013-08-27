@@ -43,6 +43,7 @@ namespace HYPDM.WinUI.Document
         {
             
             this.InitList();
+            BindDataFile();
         }
 
         private void EnabledDrugTypeMenu(bool p)
@@ -74,7 +75,7 @@ namespace HYPDM.WinUI.Document
         {
            // this.docBindingSource.DataSource = null;
             this.dgvDocList.DataSource = dt;
-            BindDataFile();
+           // BindDataFile();
         }
         private void btnDocToAdd_Click(object sender, EventArgs e)
         {
@@ -252,14 +253,15 @@ namespace HYPDM.WinUI.Document
         private void LoadDoc()
         {
             this.dgvDocList.DataSource = _docList;
-            BindDataFile();
+          //  BindDataFile();
+            this.InitList();
         }
 
         private void BindDataFile()
         {
             for (int i = 0; i < dgvDocList.Rows.Count; i++)
             {
-                var count = ServiceContainer.GetService<IPhysicalFileService>().GetList(dgvDocList.Rows[i].Cells["DocID"].Value.ToString()).Count;
+                var count = ServiceContainer.GetService<DocFileListService>().GetDocFileDataTableByDCID(dgvDocList.Rows[i].Cells["DocID"].Value.ToString()).Rows.Count;
                 dgvDocList.Rows[i].Cells["REMARK"].Value = count > 2 ? "有文件" : "无文件";
             }
         }

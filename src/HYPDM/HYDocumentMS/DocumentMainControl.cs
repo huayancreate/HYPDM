@@ -54,6 +54,7 @@ namespace HYDocumentMS
             this.trvDocumentList.Nodes.Clear();
             fileHelper = new FileHelper();
             fileHelper.getTreeViewByDocFileList(this.trvDocumentList, fileHelper.getDocFileList(true));
+            trvDocumentList.ExpandAll();
         }
         private void trvDocumentList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -73,6 +74,15 @@ namespace HYDocumentMS
                 }
                 else
                 {
+
+                    IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+                    HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+                    Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.FolderCreate, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
+                    if (bl == false)
+                    {
+                        MessageBox.Show("你没有权限在此文件下创建文件夹!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     //MessageBox.Show(nodeTemp.Text.ToString());
                     CreateNewFolderFrm frm = new CreateNewFolderFrm();
                     frm.SaveFilepath = fileHelper.getDocumentAllPathByPathID(nodeTemp.Tag.ToString());
@@ -102,6 +112,14 @@ namespace HYDocumentMS
                 }
                 else
                 {
+                    IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+                    HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+                    Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.UpLoad, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
+                    if (bl == false)
+                    {
+                        MessageBox.Show("你没有权限上传文件到此文件夹!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                     //MessageBox.Show(nodeTemp.Text.ToString());
                     CreateNewFileFrm frm = new CreateNewFileFrm();
                     frm.SaveFilepath = fileHelper.getDocumentAllPathByPathID(nodeTemp.Tag.ToString());
@@ -156,6 +174,14 @@ namespace HYDocumentMS
                 {
                     if (checkDel())
                     {
+                        IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+                        HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+                        Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.FolderDelete, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
+                        if (bl == false)
+                        {
+                            MessageBox.Show("你没有权限删除文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
                         DOC_FILE_DIR doc = new DOC_FILE_DIR();
                         //  DocumentDirService docS = new DocumentDirService();
                         DataEntityQuery<DOC_FILE_DIR> query = DataEntityQuery<DOC_FILE_DIR>.Create();
@@ -197,6 +223,14 @@ namespace HYDocumentMS
                 }
                 else
                 {
+                    IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+                    HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+                    Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.FolderEdit, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
+                    if (bl == false)
+                    {
+                        MessageBox.Show("你没有权限修改此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     //MessageBox.Show(nodeTemp.Text.ToString());
                     CreateNewFolderFrm frm = new CreateNewFolderFrm();
                     frm.SaveFilepath = fileHelper.getDocumentAllPathByPathID(nodeTemp.Tag.ToString());
@@ -228,6 +262,14 @@ namespace HYDocumentMS
 
             if (chkIsFile())
             {
+                IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+                HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+                Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.View, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
+                if (bl == false)
+                {
+                    MessageBox.Show("你没有权限查看此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 if (tspInView.Checked)
                 {
                     this.webB.Navigate(@"D:\swf\Java网络编程精解.swf");
@@ -290,8 +332,39 @@ namespace HYDocumentMS
 
         private void tspFileDownLoad_Click(object sender, EventArgs e)
         {
+            string serverpath = "";
             if (chkIsFile())
             {
+                IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+                HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+                TreeNode node = this.trvDocumentList.SelectedNode;
+                string dd = node.Text;
+                string ee = node.Tag.ToString();
+
+                Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
+                if (bl == false)
+                {
+                    MessageBox.Show("你没有权限下载此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.FileName = this.trvDocumentList.SelectedNode.Text.ToString();
+                    saveDialog.Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                    DialogResult res = saveDialog.ShowDialog();
+                    if (DialogResult.OK == res)
+                    {
+                        string clientSaveFileAndPath = saveDialog.FileName.ToString();
+                        serverpath = file.getDocumentAllPathByFileID(this.trvDocumentList.SelectedNode.Tag.ToString()) + this.trvDocumentList.SelectedNode.Text.ToString();
+                        //FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, @"C:\\" + node.Cells[0].Value.ToString());
+                        FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, clientSaveFileAndPath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("请选择需要下载的文件" + ")", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
                 //ViewFileFrm fileView = new ViewFileFrm();
                 //fileView.FileName = "文件名称.txt";
                 //fileView.ViewFilePathAndName = @"D:\swf\Java网络编程精解.swf";

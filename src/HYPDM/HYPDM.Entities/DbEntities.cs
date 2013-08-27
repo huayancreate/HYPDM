@@ -25,7 +25,6 @@ namespace HYPDM.Entities
         private DataEntityQuery<PDM_PARTS_TYPE> m_PDM_PARTS_TYPEs;
         private DataEntityQuery<PDM_PRODUCT> m_PDM_PRODUCTs;
         private DataEntityQuery<PDM_PRODUCT_STRUCT> m_PDM_PRODUCT_STRUCTs;
-        private DataEntityQuery<PDM_PHYSICAL_FILE> m_PDM_PHYSICAL_FILEs;
         private DataEntityQuery<PDM_VERSION_HISTORY> m_PDM_VERSION_HISTORYs;
         private DataEntityQuery<PDM_CHANGE_HISTORY> m_PDM_CHANGE_HISTORYs;
         #endregion
@@ -209,20 +208,6 @@ namespace HYPDM.Entities
             }
         }
 
-        /// <summary>
-        /// 物理文件。
-        /// </summary>
-        public DataEntityQuery<PDM_PHYSICAL_FILE> PDM_PHYSICAL_FILEs
-        {
-            get
-            {
-                if (this.m_PDM_PHYSICAL_FILEs == null)
-                {
-                    this.m_PDM_PHYSICAL_FILEs = base.CreateQuery<PDM_PHYSICAL_FILE>();
-                }
-                return this.m_PDM_PHYSICAL_FILEs;
-            }
-        }
 
         /// <summary>
         /// 检入检出记录。

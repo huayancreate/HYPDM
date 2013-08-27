@@ -185,15 +185,21 @@
     <Compile Include="Graph\PartsRegForm.Designer.cs">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAndParts\Material\MaterailAddForm.cs" />
+    <Compile Include="ProductsAndParts\Material\MaterailAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProductsAndParts\Material\MaterailAddForm.Designer.cs">
       <DependentUpon>MaterailAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAndParts\Material\MaterialsList.cs" />
+    <Compile Include="ProductsAndParts\Material\MaterialsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="ProductsAndParts\Material\MaterialsList.Designer.cs">
       <DependentUpon>MaterialsList.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAndParts\Material\QueryMaterailForm.cs" />
+    <Compile Include="ProductsAndParts\Material\QueryMaterailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProductsAndParts\Material\QueryMaterailForm.Designer.cs">
       <DependentUpon>QueryMaterailForm.cs</DependentUpon>
     </Compile>
@@ -317,7 +323,9 @@
     <Compile Include="ProductsAndParts\Products\QueryChangeForm.Designer.cs">
       <DependentUpon>QueryChangeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAndParts\Products\QueryProductsForm.cs" />
+    <Compile Include="ProductsAndParts\Products\QueryProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProductsAndParts\Products\QueryProductsForm.Designer.cs">
       <DependentUpon>QueryProductsForm.cs</DependentUpon>
     </Compile>
@@ -327,7 +335,9 @@
     <Compile Include="ProductsAndParts\Products\QueryStructForm.Designer.cs">
       <DependentUpon>QueryStructForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAndParts\Products\StructAddForm.cs" />
+    <Compile Include="ProductsAndParts\Products\StructAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProductsAndParts\Products\StructAddForm.Designer.cs">
       <DependentUpon>StructAddForm.cs</DependentUpon>
     </Compile>

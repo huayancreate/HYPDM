@@ -65,5 +65,19 @@ namespace HYDocumentMS
         /// <param name="prefix">版本的前缀,后面为yyyyMMddHHmmss</param>
         /// <returns></returns>
         string getNewVer(string prefix);
+         /// <summary>
+        /// 给定需要判定的权限类型,用户账号key,文件key值，获取对应权限
+        /// </summary>
+        /// <param name="authType">查询的权限参数,查看,编辑</param>
+        /// <param name="userAccount">用户账户(KEY值)</param>
+        /// <param name="fileKey">文件key值</param>
+        /// <returns>boolean</returns>
+        Boolean isHasAuth(DataType.AuthParmsType authType, string userAccount, string fileKey);
+        /// <summary>
+        /// 根据文件id获取其路径
+        /// </summary>
+        /// <param name="fileid"></param>
+        /// <returns></returns>
+        string getDocumentAllPathByFileID(string fileid);
     }
 }

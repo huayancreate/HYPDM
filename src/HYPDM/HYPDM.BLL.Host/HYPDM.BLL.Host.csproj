@@ -65,7 +65,6 @@
     <Compile Include="ObjectStructService.cs" />
     <Compile Include="PartsDocumentService.cs" />
     <Compile Include="PartsService.cs" />
-    <Compile Include="PhysicalFileService.cs" />
     <Compile Include="PjtChangeService.cs" />
     <Compile Include="ProductDocumentService.cs" />
     <Compile Include="ProductProRecordService.cs" />

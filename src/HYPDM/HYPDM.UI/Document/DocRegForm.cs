@@ -26,7 +26,7 @@ namespace HYPDM.WinUI.Document
         protected bool valueChanged = false;
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         IDocFileListService _docFileListService = ServiceContainer.GetService<DocFileListService>();
-        IPhysicalFileService _physicalService = ServiceContainer.GetService<PhysicalFileService>();
+       // IPhysicalFileService _physicalService = ServiceContainer.GetService<PhysicalFileService>();
         IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
 
         public DocRegForm()
@@ -193,7 +193,7 @@ namespace HYPDM.WinUI.Document
                 savePathID = frm.SavePathID;//保存的目标路径的id
                 // MessageBox.Show(savePath);
                 //   FileSockClient.UpLoadFileSocketClient sock = null;
-                DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
+                //DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
                 DOC_FILE_LIST file = new DOC_FILE_LIST();
                 String path = "";
                 foreach (ListViewItem item in listViewFile.Items)
@@ -229,8 +229,11 @@ namespace HYPDM.WinUI.Document
                         file.CREATEUSER = LoginInfo.LoginID;
                         file.LASTUPDATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         file.LASTUPDATEUSER = LoginInfo.LoginID;
+                        file.CHECKOUTFLG = "N";
+                        file.CHECKINFLG = "Y";
                         // query.Save(file);
-                        query.Insert(file);
+                        //query.Insert(file);
+                        file.Save();
                     }
                     this.BindTreeData();
                 }
@@ -409,10 +412,22 @@ namespace HYPDM.WinUI.Document
             else
             {
 
-               
+
                 //  dr["DFL_FILE_NAME"].ToString()
                 DataGridViewRow row = tvFileList.Rows[rowIndex];
-             //   string ff = row.Cells[0].Value.ToString();
+                //   string ff = row.Cells[0].Value.ToString();
+
+                HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+                Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.View, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+                if (bl == false)
+                {
+                    MessageBox.Show("你没有权限查看此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+
+
+
                 String fileName = Path.ChangeExtension(row.Cells["DFL_FILE_NAME"].Value.ToString(), "swf");
                 string viewPath = System.Configuration.ConfigurationManager.AppSettings["viewFilePath"].ToString();
                 //if (viewPath.Substring(viewPath.Length - 1) != @"\")
@@ -468,6 +483,13 @@ namespace HYPDM.WinUI.Document
 
 
             DataGridViewRow row = tvFileList.Rows[rowIndex];
+            HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+            Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.CheckOut, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+            if (bl == false)
+            {
+                MessageBox.Show("你没有权限检出此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             String Id = row.Cells["DFL_ID"].Value.ToString();
             DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
@@ -524,7 +546,13 @@ namespace HYPDM.WinUI.Document
             String Id = row.Cells["DFL_ID"].Value.ToString();
             DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
             // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
-
+            HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+            Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.CheckIn, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+            if (bl == false)
+            {
+                MessageBox.Show("你没有权限检入此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (docFileEntity == null) return;
             if (docFileEntity.CHECKOUTFLG == "N")
             {
@@ -567,6 +595,14 @@ namespace HYPDM.WinUI.Document
                 MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+            Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.Delete, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
+            if (bl == false)
+            {
+                MessageBox.Show("你没有权限删除此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (MessageBox.Show("所选择的文件将被删除，是否确定？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
                 DataGridViewRow row = tvFileList.Rows[rowIndex];
@@ -737,14 +773,30 @@ namespace HYPDM.WinUI.Document
         {
             TreeGridNode node = null;//当前选择的节点
             String serverpath = "";
+            node = new TreeGridNode();
+            node = this.tvFileList.CurrentNode;
+            int index = node.RowIndex;
+
+            if (index <= 0)
+            {
+                MessageBox.Show("请选择需要下载的文件" + "(" + index + ")", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (tvFileList.CurrentRow == null)
             {
                 MessageBox.Show("请选择需要下载的文件", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                node = new TreeGridNode();
-                node = this.tvFileList.CurrentNode;
+                
+                HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+                Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
+                if (bl == false)
+                {
+                    MessageBox.Show("你没有权限下载此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            
                 SaveFileDialog saveDialog = new SaveFileDialog();
                 saveDialog.FileName = node.Cells[0].Value.ToString();
                 saveDialog.Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
@@ -754,7 +806,7 @@ namespace HYPDM.WinUI.Document
                     string clientSaveFileAndPath = saveDialog.FileName.ToString();
                     //MessageBox.Show(clientSavepath);
 
-                    int index = node.RowIndex;
+                  
                     // MessageBox.Show(index.ToString());
                     if (index > 0) //取消第一行
                     {
@@ -783,9 +835,16 @@ namespace HYPDM.WinUI.Document
                 MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             DataGridViewRow row = tvFileList.Rows[rowIndex];
             String Id = row.Cells["DFL_ID"].Value.ToString();
             DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
+            if (docFileEntity.CREATEUSER.ToString() != LoginInfo.LoginID.ToString())
+            {
+                MessageBox.Show("当前不为文件的检出用户，不能进行取消动作!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
             if (docFileEntity == null) return;
 
             docFileEntity.CHECKOUTFLG = "N";

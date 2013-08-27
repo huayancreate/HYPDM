@@ -61,7 +61,6 @@
     <Compile Include="IObjectStructService.cs" />
     <Compile Include="IPartsDocumentService.cs" />
     <Compile Include="IPartsService.cs" />
-    <Compile Include="IPhysicalFileService.cs" />
     <Compile Include="IPjtChangeService.cs" />
     <Compile Include="IProductDocumentService.cs" />
     <Compile Include="IProductProRecordService.cs" />

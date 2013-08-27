@@ -365,6 +365,7 @@
             this.DOCNAME.HeaderText = "文件名称";
             this.DOCNAME.Name = "DOCNAME";
             this.DOCNAME.ReadOnly = true;
+            this.DOCNAME.Visible = false;
             // 
             // VERSION
             // 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabFile = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -53,7 +53,6 @@
             this.DFL_VER_LATEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEL_FLAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CREATEDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabFolder = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -164,6 +163,7 @@
             this.chkFileUpLoad.TabIndex = 26;
             this.chkFileUpLoad.Text = "文件上传";
             this.chkFileUpLoad.UseVisualStyleBackColor = true;
+            this.chkFileUpLoad.Visible = false;
             // 
             // chkFileCheckOut
             // 
@@ -285,16 +285,15 @@
             this.DFL_FILE_CHILD_PATH,
             this.DFL_VER_LATEST,
             this.DEL_FLAG,
-            this.CREATEUSER,
-            this.CREATEDATE});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVFileList.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CREATEUSER});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVFileList.DefaultCellStyle = dataGridViewCellStyle1;
             this.dGVFileList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGVFileList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dGVFileList.Location = new System.Drawing.Point(3, 17);
@@ -302,8 +301,10 @@
             this.dGVFileList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.dGVFileList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dGVFileList.RowTemplate.Height = 23;
+            this.dGVFileList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVFileList.Size = new System.Drawing.Size(469, 263);
             this.dGVFileList.TabIndex = 2;
+            this.dGVFileList.SelectionChanged += new System.EventHandler(this.dGVFileList_SelectionChanged);
             // 
             // CHK
             // 
@@ -355,12 +356,6 @@
             this.CREATEUSER.DataPropertyName = "CREATEUSER";
             this.CREATEUSER.HeaderText = "创建用户";
             this.CREATEUSER.Name = "CREATEUSER";
-            // 
-            // CREATEDATE
-            // 
-            this.CREATEDATE.DataPropertyName = "CREATEDATE";
-            this.CREATEDATE.HeaderText = "创建日期";
-            this.CREATEDATE.Name = "CREATEDATE";
             // 
             // tabFolder
             // 
@@ -587,11 +582,13 @@
             // 
             // trvFolderDir
             // 
+            this.trvFolderDir.CheckBoxes = true;
             this.trvFolderDir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trvFolderDir.Location = new System.Drawing.Point(3, 17);
             this.trvFolderDir.Name = "trvFolderDir";
             this.trvFolderDir.Size = new System.Drawing.Size(469, 235);
             this.trvFolderDir.TabIndex = 1;
+            this.trvFolderDir.Click += new System.EventHandler(this.trvFolderDir_Click);
             // 
             // UserFileAuthFrm
             // 
@@ -645,7 +642,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DFL_VER_LATEST;
         private System.Windows.Forms.DataGridViewTextBoxColumn DEL_FLAG;
         private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEDATE;
         private System.Windows.Forms.TabPage tabFolder;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;

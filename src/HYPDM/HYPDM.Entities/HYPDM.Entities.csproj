@@ -92,8 +92,6 @@
     <Compile Include="PDM_PRODUCT.cs" />
     <Compile Include="Generat\PDM_PRODUCT_STRUCT.Generator.cs" />
     <Compile Include="PDM_PRODUCT_STRUCT.cs" />
-    <Compile Include="Generat\PDM_PHYSICAL_FILE.Generator.cs" />
-    <Compile Include="PDM_PHYSICAL_FILE.cs" />
     <Compile Include="Generat\PDM_VERSION_HISTORY.Generator.cs" />
     <Compile Include="Generat\PDM_CHANGE_HISTORY.Generator.cs" />
     <Compile Include="PDM_CHANGE_HISTORY.cs" />

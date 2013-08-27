@@ -17,5 +17,25 @@ namespace HYDocumentMS
             //用户角色
                UserRole,
         }
+
+        /// <summary>
+        /// View 查看,Eidt编辑...
+        /// </summary>
+        public enum AuthParmsType
+        {  
+            /// <summary>
+            /// 
+            /// </summary>
+            View,
+            Edit,
+            Delete,
+            DownLoad,
+            UpLoad,
+            CheckIn,
+            CheckOut,
+            FolderCreate,
+            FolderDelete,
+            FolderEdit
+        }
     }
 }

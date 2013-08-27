@@ -20,8 +20,8 @@ namespace HYDocumentMS.FileAuth
     public partial class UserFileAuthFrm : Form
     {
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
-         IFileAuthService _fileAuth = ServiceContainer.GetService<FileAuthService>();
-       
+        IFileAuthService _fileAuth = ServiceContainer.GetService<FileAuthService>();
+
         IFileHelper fileHelper = null;
         /// <summary>
         /// 需要设定文件权限的用户登录账号
@@ -75,6 +75,10 @@ namespace HYDocumentMS.FileAuth
                             MessageBox.Show("请指定需要设定权限用户信息!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                             this.Close();
                         }
+                        else
+                        {
+                            this.Text = this.Text +"--用户"+"【" +this.UserAccount+ "】";
+                        }
                         break;
                     }
                 case DataType.AuthObjectType.UserRole:
@@ -83,6 +87,10 @@ namespace HYDocumentMS.FileAuth
                         {
                             MessageBox.Show("请指定用户角色!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                             this.Close();
+                        }
+                        else
+                        {
+                            this.Text = this.Text + "--群组" + "【" + this.UserRole + "】";
                         }
                         break;
                     }
@@ -93,6 +101,7 @@ namespace HYDocumentMS.FileAuth
                         break;
                     }
             }
+            
             fileHelper = new FileHelper();
             fileHelper.getTreeViewByPathDir(this.trvFolderDir);
 
@@ -194,7 +203,7 @@ namespace HYDocumentMS.FileAuth
                                 auth.LASTUPDATEUSER = LoginInfo.LoginID;
                                 auth.LASTUPDATEDATE = createDate;
                             }
-                          
+
                             auth.DEL_FLAG = "N";
                             auth.FAU_CHECKIN = fileChkIn;
                             auth.FAU_CHECKOUT = fileChkOut;
@@ -203,7 +212,7 @@ namespace HYDocumentMS.FileAuth
                             auth.FAU_UPLOAD = fileUpload;
                             auth.FAU_VIEW = fileView;
                             auth.FAU_EDIT = fileEdit;
-                            
+
                             auth.FAU_OBJ_TYPE = DataType.AuthObjectType.UserRole.ToString();
                             auth.FAU_OBJ_VALUE = this.UserRole.ToString();
                             auth.DFL_ID = fileKey.ToString();
@@ -231,7 +240,7 @@ namespace HYDocumentMS.FileAuth
                     {
                         try
                         {
-                            auth = _fileAuth.GetFileAuth(DataType.AuthObjectType.SingleUser.ToString(),this.UserAccount, "N", fileKey);
+                            auth = _fileAuth.GetFileAuth(DataType.AuthObjectType.SingleUser.ToString(), this.UserAccount, "N", fileKey);
                             if (auth == null)
                             {
                                 auth = new FILE_AUTH();
@@ -252,13 +261,13 @@ namespace HYDocumentMS.FileAuth
                             auth.FAU_UPLOAD = fileUpload;
                             auth.FAU_VIEW = fileView;
                             auth.FAU_EDIT = fileEdit;
-                            
+
                             auth.FAU_OBJ_TYPE = DataType.AuthObjectType.SingleUser.ToString();
                             auth.FAU_OBJ_VALUE = this.UserAccount.ToString();
                             auth.DFL_ID = fileKey.ToString();
                             auth.FAU_IS_FOLDER = "N";
                             auth.Save();
-                            
+
                         }
                         catch (Exception ex)
                         {
@@ -275,20 +284,52 @@ namespace HYDocumentMS.FileAuth
                 }
             }
         }
+        List<string> listFolderChk = null;
+        private void getListFolderId()
+        {
+            listFolderChk = new List<string>();
 
+            foreach (TreeNode nnode in this.trvFolderDir.Nodes)
+            {
+                if (nnode.Checked == true)
+                {
+                    listFolderChk.Add(nnode.Tag.ToString());
+                }
+                ListTreeCheckNode(nnode);
+            }
+        }
+        private void ListTreeCheckNode(TreeNode node)
+        {
+            foreach (TreeNode n in node.Nodes)
+            {
+                if (n.Checked == true)
+                {
+                    listFolderChk.Add(n.Tag.ToString());
+                }
+                ListTreeCheckNode(n);
+            }
+        }
         private void btnFolderSubmit_Click(object sender, EventArgs e)
         {
             createDate = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string folderKey = "";
-            TreeNode node = this.trvFolderDir.SelectedNode;
-            if (node == null)
+            //TreeNode node = this.trvFolderDir.SelectedNode;
+
+            getListFolderId();
+
+            if (listFolderChk == null || listFolderChk.Count == 0)
             {
                 MessageBox.Show("没有选中需要设定权限的文件夹!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 return;
             }
+            //if (node == null)
+            //{
+            //    MessageBox.Show("没有选中需要设定权限的文件夹!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            //    return;
+            //}
             else
             {
-                folderKey = node.Tag.ToString();
+                //  folderKey = node.Tag.ToString();
             }
             fileView = this.chkView.Checked == true ? "Y" : "N";
             fileEdit = this.chkEdit.Checked == true ? "Y" : "N";
@@ -320,8 +361,11 @@ namespace HYDocumentMS.FileAuth
                 if (AuthObjectType == DataType.AuthObjectType.UserRole)
                 {
 
-                    if (!folderKey.Equals(""))
+                    //if (!folderKey.Equals(""))
+                    //{
+                    foreach (string ss in listFolderChk)
                     {
+                        folderKey = ss;
                         try
                         {
                             auth = _fileAuth.GetFileAuth(DataType.AuthObjectType.UserRole.ToString(), this.UserRole, "Y", folderKey);
@@ -350,14 +394,13 @@ namespace HYDocumentMS.FileAuth
                             auth.FOLDERDELETE = this.folderDelete;
                             auth.FOLDEREDIT = this.folderEdit;
 
-                            
+
                             auth.FAU_OBJ_TYPE = DataType.AuthObjectType.UserRole.ToString();
                             auth.FAU_OBJ_VALUE = this.UserRole.ToString();
                             auth.DFL_ID = folderKey.ToString();
                             auth.FAU_IS_FOLDER = "Y";
                             auth.Save();
-                            MessageBox.Show("插入成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                            this.Close();
+
                         }
                         catch (Exception ex)
                         {
@@ -365,23 +408,28 @@ namespace HYDocumentMS.FileAuth
                             return;
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("选中的文件夹主键不能为空!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                        return;
-                    }
-                    //MessageBox.Show("插入成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                    //this.Close();
-                    //DOC_FILE_LIST list = new DOC_FILE_LIST();
-
+                    MessageBox.Show("插入成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    this.Close();
                 }
+                //else
+                //{
+                //    MessageBox.Show("选中的文件夹主键不能为空!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                //    return;
+                //}
+                //MessageBox.Show("插入成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                //this.Close();
+                //DOC_FILE_LIST list = new DOC_FILE_LIST();
+
                 else if (AuthObjectType == DataType.AuthObjectType.SingleUser)
                 {
-                    if (!folderKey.Equals(""))
+                    //if (!folderKey.Equals(""))
+                    //{
+                    foreach (string ss in listFolderChk)
                     {
+                        folderKey = ss;
                         try
                         {
-                            Boolean operState = true;
+                            //Boolean operState = true;
                             auth = _fileAuth.GetFileAuth(DataType.AuthObjectType.SingleUser.ToString(), this.UserAccount, "Y", folderKey);
                             if (auth == null)
                             {
@@ -394,7 +442,7 @@ namespace HYDocumentMS.FileAuth
                             {
                                 auth.LASTUPDATEUSER = LoginInfo.LoginID;
                                 auth.LASTUPDATEDATE = createDate;
-                                operState = false;
+                                //  operState = false;
                             }
                             auth.DEL_FLAG = "N";
                             auth.FAU_CHECKIN = fileChkIn;
@@ -408,7 +456,7 @@ namespace HYDocumentMS.FileAuth
                             auth.FOLDERDELETE = this.folderDelete;
                             auth.FOLDEREDIT = this.folderEdit;
 
-                          
+
                             auth.FAU_OBJ_TYPE = DataType.AuthObjectType.SingleUser.ToString();
                             auth.FAU_OBJ_VALUE = this.UserAccount.ToString();
                             auth.DFL_ID = folderKey.ToString();
@@ -431,20 +479,94 @@ namespace HYDocumentMS.FileAuth
                             return;
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("选中的文件夹主键不能为空!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                        return;
-                    }
                 }
             }
         }
-
+        //else
+        //{
+        //    MessageBox.Show("选中的文件夹主键不能为空!!", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+        //    return;
+        //}
         private void btnFolderCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void dGVFileList_SelectionChanged(object sender, EventArgs e)
+        {
+            FILE_AUTH auth = null;
+            if (this.AuthObjectType == DataType.AuthObjectType.SingleUser)
+            {
+                auth = _fileAuth.GetFileAuth(DataType.AuthObjectType.SingleUser.ToString(), this.UserAccount, "N", this.dGVFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
+            }
+            else if (this.AuthObjectType == DataType.AuthObjectType.UserRole)
+            {
+                auth = _fileAuth.GetFileAuth(DataType.AuthObjectType.UserRole.ToString(), this.UserRole, "N", this.dGVFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
+            }
+            if (auth != null)
+            {
+                this.chkFileView.Checked = auth.FAU_VIEW == "Y" ? true : false;
+                this.chkFileEdit.Checked = auth.FAU_EDIT == "Y" ? true : false;
+                this.chkFileDelete.Checked = auth.FAU_DELETE == "Y" ? true : false;
+                this.chkFileUpLoad.Checked = auth.FAU_UPLOAD == "Y" ? true : false;
+                this.chkFileDownLoad.Checked = auth.FAU_DOWNLOAD == "Y" ? true : false;
+                this.chkFileCheckIn.Checked = auth.FAU_CHECKIN == "Y" ? true : false;
+                this.chkFileCheckOut.Checked = auth.FAU_CHECKOUT == "Y" ? true : false;
+            }
+            else
+            {
+                this.chkFileView.Checked = false;
+                this.chkFileEdit.Checked = false;
+                this.chkFileDelete.Checked = false;
+                this.chkFileUpLoad.Checked = false;
+                this.chkFileDownLoad.Checked = false;
+                this.chkFileCheckIn.Checked = false;
+                this.chkFileCheckOut.Checked = false;
+            }
+        }
+
+
+
+        private void trvFolderDir_Click(object sender, EventArgs e)
+        {
+            FILE_AUTH auth = null;
+            if (this.trvFolderDir.SelectedNode != null)
+            {
+                if (this.AuthObjectType == DataType.AuthObjectType.SingleUser)
+                {
+                    auth = _fileAuth.GetFileAuth(DataType.AuthObjectType.SingleUser.ToString(), this.UserAccount, "Y", this.trvFolderDir.SelectedNode.Tag.ToString());
+                }
+                else if (this.AuthObjectType == DataType.AuthObjectType.UserRole)
+                {
+                    auth = _fileAuth.GetFileAuth(DataType.AuthObjectType.UserRole.ToString(), this.UserRole, "Y", this.trvFolderDir.SelectedNode.Tag.ToString());
+                }
+                if (auth != null)
+                {
+                    this.chkView.Checked = auth.FAU_VIEW == "Y" ? true : false;
+                    this.chkEdit.Checked = auth.FAU_EDIT == "Y" ? true : false;
+                    this.chkDelete.Checked = auth.FAU_DELETE == "Y" ? true : false;
+                    this.chkUpLoad.Checked = auth.FAU_UPLOAD == "Y" ? true : false;
+                    this.chkDownLoad.Checked = auth.FAU_DOWNLOAD == "Y" ? true : false;
+                    this.chkCheckIN.Checked = auth.FAU_CHECKIN == "Y" ? true : false;
+                    this.chkCheckOut.Checked = auth.FAU_CHECKOUT == "Y" ? true : false;
+                    this.chkFolderCreate.Checked = auth.FOLDERCREATE == "Y" ? true : false;
+                    this.chkFolderDelete.Checked = auth.FOLDERDELETE == "Y" ? true : false;
+                    this.chkFolderEdit.Checked = auth.FOLDEREDIT == "Y" ? true : false;
+                }
+                else
+                {
+                    this.chkView.Checked = false;
+                    this.chkEdit.Checked = false;
+                    this.chkDelete.Checked = false;
+                    this.chkUpLoad.Checked = false;
+                    this.chkDownLoad.Checked = false;
+                    this.chkCheckIN.Checked = false;
+                    this.chkCheckOut.Checked = false;
+                    this.chkFolderCreate.Checked = false;
+                    this.chkFolderDelete.Checked = false;
+                    this.chkFolderEdit.Checked = false;
+                }
+            }
+        }
     }
-
-
 }

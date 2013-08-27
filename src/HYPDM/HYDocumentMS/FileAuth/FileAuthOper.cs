@@ -96,5 +96,17 @@ namespace HYDocumentMS.FileAuth
             }
         }
 
+
+        private void dgvRoles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            btnGroupAuth_Click(sender, new EventArgs());
+        }
+
+        private void dGVUsers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnSet_Click(sender, new EventArgs());
+        }
+
     }
 }

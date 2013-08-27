@@ -16,25 +16,25 @@ namespace HYPDM.WinUI.BaseUI
             InitializeComponent();
         }
 
-        private HYPDM.Entities.PDM_PHYSICAL_FILE physicalFile;
-        public HYPDM.Entities.PDM_PHYSICAL_FILE PhysicalFile
-        {
-            get { return this.physicalFile; }
-            set
-            {
-                this.physicalFile = value;
-                if (value != null)
-                    this.InitPhysicalInfo();
-            }
-        }
+        //private HYPDM.Entities.PDM_PHYSICAL_FILE physicalFile;
+        //public HYPDM.Entities.PDM_PHYSICAL_FILE PhysicalFile
+        //{
+        //    get { return this.physicalFile; }
+        //    set
+        //    {
+        //        this.physicalFile = value;
+        //        if (value != null)
+        //            this.InitPhysicalInfo();
+        //    }
+        //}
 
-        private void InitPhysicalInfo()
-        {
-            if (PhysicalFile != null)
-            {
-                txtFileName.Text = PhysicalFile.FILENAME;
-            }
-        }
+        //private void InitPhysicalInfo()
+        //{
+        //    if (PhysicalFile != null)
+        //    {
+        //        txtFileName.Text = PhysicalFile.FILENAME;
+        //    }
+        //}
 
         /// <summary>
         /// 选择文件路径

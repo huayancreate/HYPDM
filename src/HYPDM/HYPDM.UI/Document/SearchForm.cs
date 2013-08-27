@@ -21,6 +21,7 @@ namespace HYPDM.WinUI.Document
         {
             InitializeComponent();
             DateTimePickeEmpty();
+            this.CenterToParent();
         }
 
         public Dictionary<string, string> di;
@@ -94,6 +95,36 @@ namespace HYPDM.WinUI.Document
             this.dtpCreateDate.CustomFormat = " ";
             this.dtpUpdateDate.Format = DateTimePickerFormat.Custom;
             this.dtpUpdateDate.CustomFormat = " ";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            foreach (Control ctl in this.Controls)
+            {
+               // MessageBox.Show(ctl.GetType().Name);
+                //if (ctl.GetType().Name == "TextBox")
+                //{
+                //    ((TextBox)ctl).Text = "";
+                //}
+                switch (ctl.GetType().Name)
+                {
+                    case "TextBox":
+                        ((TextBox)ctl).Text = "";
+                        break;
+                    case "ComboBox":
+                        ((ComboBox)ctl).SelectedIndex = -1;
+                         break;
+                    case "DateTimePicker":
+                         ((DateTimePicker)ctl).Value = System.DateTime.Now;
+                         break;
+
+                }
+            }
         }
     }
 }
