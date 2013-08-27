@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.SqlClient;
 using System.Text;
 using EAS.Services;
 using HYPDM.Entities;
@@ -45,7 +46,7 @@ namespace HYPDM.BLL
 
         #region 保存数据
 
-        public void PartsDocSave(List<PDM_PARTS_DOCUMENT> partsDocList)
+        public void PartsDocSave(IList<PDM_PARTS_DOCUMENT> partsDocList)
         {
             this.DataAccessor.TransactionExecute(new TransactionHandler2(this.IniternalSave), partsDocList);
         }
@@ -54,16 +55,25 @@ namespace HYPDM.BLL
         {
             IList<PDM_PARTS_DOCUMENT> partsDocList = parameters[0] as List<PDM_PARTS_DOCUMENT>;
 
+            string connString = "Data Source=192.168.0.8;Initial Catalog=drugshop;Integrated Security=False;User ID=sa;Password=123456";
+            SqlConnection conn = new SqlConnection(connString);
+            SqlCommand cmd = null;
+            conn.Open();
+
             foreach (PDM_PARTS_DOCUMENT partsDoc in partsDocList)
             {
-                partsDoc.Save();
+                string insertSql = "INSERT INTO PDM_PARTS_DOCUMENT VALUES('" + partsDoc.ID + "', '" + partsDoc.PARTSID + "', '" + partsDoc.DOCID + "')";
+                cmd = new SqlCommand(insertSql, conn);
+                cmd.ExecuteNonQuery();
             }
+            conn.Close();
         }
+
         #endregion
 
         #region 删除数据
 
-        public void DelPartsDoc(List<PDM_PARTS_DOCUMENT> partsDocList)
+        public void DelPartsDoc(IList<PDM_PARTS_DOCUMENT> partsDocList)
         {
             this.DataAccessor.TransactionExecute(new TransactionHandler2(IniternalDel), partsDocList);
         }
