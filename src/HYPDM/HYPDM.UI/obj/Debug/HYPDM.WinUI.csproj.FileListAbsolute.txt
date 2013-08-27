@@ -39,3 +39,7 @@ F:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYPDM.WinUI.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\Bin\HYPDM.WinUI.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.ProductsAndParts.Material.MaterailAddForm.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.ProductsAndParts.Material.MaterialsList.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.ProductsAndParts.Material.QueryMaterailForm.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.UI\obj\Debug\HYPDM.WinUI.ProductsAndParts.Products.StructAddForm.resources

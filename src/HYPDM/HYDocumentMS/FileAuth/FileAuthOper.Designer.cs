@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileAuthOper));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabAuth = new System.Windows.Forms.TabControl();
             this.tabSigleUser = new System.Windows.Forms.TabPage();
             this.pnlSingle = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dGVUsers = new HYPDM.BaseControl.DataGridViewExt();
+            this.LOGINID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ROLENAME1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORGANNAME2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -48,14 +52,18 @@
             this.pnlGroup = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewExt3 = new HYPDM.BaseControl.DataGridViewExt();
+            this.dgvRoleUsers = new HYPDM.BaseControl.DataGridViewExt();
+            this.LOGINID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ROLENAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORGANNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewExt2 = new HYPDM.BaseControl.DataGridViewExt();
+            this.dgvRoles = new HYPDM.BaseControl.DataGridViewExt();
+            this.NAME1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnGroupAuth = new System.Windows.Forms.Button();
-            this.tabGroupToGroup = new System.Windows.Forms.TabPage();
-            this.pnlGroupGroup = new System.Windows.Forms.Panel();
             this.tabDescription = new System.Windows.Forms.TabPage();
             this.pnlDescription = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -72,11 +80,10 @@
             this.pnlGroup.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExt3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoleUsers)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExt2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
             this.panel6.SuspendLayout();
-            this.tabGroupToGroup.SuspendLayout();
             this.tabDescription.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -92,13 +99,11 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(923, 541);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // tabAuth
             // 
             this.tabAuth.Controls.Add(this.tabSigleUser);
             this.tabAuth.Controls.Add(this.tabGroup);
-            this.tabAuth.Controls.Add(this.tabGroupToGroup);
             this.tabAuth.Controls.Add(this.tabDescription);
             this.tabAuth.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabAuth.Location = new System.Drawing.Point(0, 27);
@@ -106,7 +111,6 @@
             this.tabAuth.SelectedIndex = 0;
             this.tabAuth.Size = new System.Drawing.Size(919, 483);
             this.tabAuth.TabIndex = 3;
-            this.tabAuth.SelectedIndexChanged += new System.EventHandler(this.tabAuth_SelectedIndexChanged);
             // 
             // tabSigleUser
             // 
@@ -119,7 +123,6 @@
             this.tabSigleUser.TabIndex = 0;
             this.tabSigleUser.Text = "单用户文档权限设定";
             this.tabSigleUser.UseVisualStyleBackColor = true;
-            this.tabSigleUser.Click += new System.EventHandler(this.tabSigleUser_Click);
             // 
             // pnlSingle
             // 
@@ -131,7 +134,6 @@
             this.pnlSingle.Name = "pnlSingle";
             this.pnlSingle.Size = new System.Drawing.Size(905, 451);
             this.pnlSingle.TabIndex = 1;
-            this.pnlSingle.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSingle_Paint);
             // 
             // groupBox1
             // 
@@ -144,48 +146,79 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "用户清单";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // dGVUsers
             // 
             this.dGVUsers.AllowUserToAddRows = false;
             this.dGVUsers.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dGVUsers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dGVUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dGVUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dGVUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVUsers.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dGVUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LOGINID,
+            this.ROLENAME1,
+            this.DESCRIPTION2,
+            this.ORGANNAME2});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVUsers.DefaultCellStyle = dataGridViewCellStyle2;
             this.dGVUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGVUsers.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dGVUsers.Location = new System.Drawing.Point(3, 17);
             this.dGVUsers.Name = "dGVUsers";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dGVUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dGVUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dGVUsers.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.dGVUsers.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dGVUsers.RowTemplate.Height = 23;
             this.dGVUsers.Size = new System.Drawing.Size(899, 297);
             this.dGVUsers.TabIndex = 1;
-            this.dGVUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewExt1_CellContentClick);
+            // 
+            // LOGINID
+            // 
+            this.LOGINID.DataPropertyName = "LOGINID";
+            this.LOGINID.HeaderText = "登录账号";
+            this.LOGINID.Name = "LOGINID";
+            this.LOGINID.Width = 150;
+            // 
+            // ROLENAME1
+            // 
+            this.ROLENAME1.DataPropertyName = "ROLENAME";
+            this.ROLENAME1.HeaderText = "群组";
+            this.ROLENAME1.Name = "ROLENAME1";
+            this.ROLENAME1.Width = 160;
+            // 
+            // DESCRIPTION2
+            // 
+            this.DESCRIPTION2.DataPropertyName = "DESCRIPTION";
+            this.DESCRIPTION2.HeaderText = "描述";
+            this.DESCRIPTION2.Name = "DESCRIPTION2";
+            this.DESCRIPTION2.Width = 180;
+            // 
+            // ORGANNAME2
+            // 
+            this.ORGANNAME2.DataPropertyName = "ORGANNAME";
+            this.ORGANNAME2.HeaderText = "组织";
+            this.ORGANNAME2.Name = "ORGANNAME2";
+            this.ORGANNAME2.Width = 180;
             // 
             // ucPaging1
             // 
@@ -196,7 +229,6 @@
             this.ucPaging1.PageSize = 20;
             this.ucPaging1.Size = new System.Drawing.Size(899, 37);
             this.ucPaging1.TabIndex = 0;
-            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
             // 
             // panel5
             // 
@@ -206,7 +238,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(905, 31);
             this.panel5.TabIndex = 4;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // panel4
             // 
@@ -216,7 +247,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(905, 66);
             this.panel4.TabIndex = 3;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // btnSet
             // 
@@ -238,7 +268,6 @@
             this.tabGroup.TabIndex = 1;
             this.tabGroup.Text = "群组文档权限设定";
             this.tabGroup.UseVisualStyleBackColor = true;
-            this.tabGroup.Click += new System.EventHandler(this.tabGroup_Click);
             // 
             // pnlGroup
             // 
@@ -249,7 +278,6 @@
             this.pnlGroup.Name = "pnlGroup";
             this.pnlGroup.Size = new System.Drawing.Size(905, 451);
             this.pnlGroup.TabIndex = 2;
-            this.pnlGroup.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGroup_Paint);
             // 
             // groupBox2
             // 
@@ -266,73 +294,124 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridViewExt3);
+            this.groupBox3.Controls.Add(this.dgvRoleUsers);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(250, 17);
+            this.groupBox3.Location = new System.Drawing.Point(295, 17);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(652, 334);
+            this.groupBox3.Size = new System.Drawing.Size(607, 334);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "群组对应用户";
             // 
-            // dataGridViewExt3
+            // dgvRoleUsers
             // 
-            this.dataGridViewExt3.AllowUserToAddRows = false;
-            this.dataGridViewExt3.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dataGridViewExt3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewExt3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewExt3.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewExt3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewExt3.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dataGridViewExt3.Location = new System.Drawing.Point(3, 17);
-            this.dataGridViewExt3.Name = "dataGridViewExt3";
-            this.dataGridViewExt3.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dataGridViewExt3.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dataGridViewExt3.RowTemplate.Height = 23;
-            this.dataGridViewExt3.Size = new System.Drawing.Size(646, 314);
-            this.dataGridViewExt3.TabIndex = 10;
+            this.dgvRoleUsers.AllowUserToAddRows = false;
+            this.dgvRoleUsers.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgvRoleUsers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvRoleUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoleUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LOGINID1,
+            this.ROLENAME,
+            this.DESCRIPTION1,
+            this.ORGANNAME});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRoleUsers.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvRoleUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRoleUsers.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgvRoleUsers.Location = new System.Drawing.Point(3, 17);
+            this.dgvRoleUsers.Name = "dgvRoleUsers";
+            this.dgvRoleUsers.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvRoleUsers.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvRoleUsers.RowTemplate.Height = 23;
+            this.dgvRoleUsers.Size = new System.Drawing.Size(601, 314);
+            this.dgvRoleUsers.TabIndex = 10;
+            // 
+            // LOGINID1
+            // 
+            this.LOGINID1.DataPropertyName = "LOGINID";
+            this.LOGINID1.HeaderText = "登录账号";
+            this.LOGINID1.Name = "LOGINID1";
+            this.LOGINID1.Width = 150;
+            // 
+            // ROLENAME
+            // 
+            this.ROLENAME.DataPropertyName = "ROLENAME";
+            this.ROLENAME.HeaderText = "群组名称";
+            this.ROLENAME.Name = "ROLENAME";
+            this.ROLENAME.Width = 150;
+            // 
+            // DESCRIPTION1
+            // 
+            this.DESCRIPTION1.DataPropertyName = "DESCRIPTION";
+            this.DESCRIPTION1.HeaderText = "描述";
+            this.DESCRIPTION1.Name = "DESCRIPTION1";
+            this.DESCRIPTION1.Width = 180;
+            // 
+            // ORGANNAME
+            // 
+            this.ORGANNAME.DataPropertyName = "ORGANNAME";
+            this.ORGANNAME.HeaderText = "组织名称";
+            this.ORGANNAME.Name = "ORGANNAME";
+            this.ORGANNAME.Width = 150;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dataGridViewExt2);
+            this.groupBox4.Controls.Add(this.dgvRoles);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox4.Location = new System.Drawing.Point(3, 17);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(247, 334);
+            this.groupBox4.Size = new System.Drawing.Size(292, 334);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "群组";
             // 
-            // dataGridViewExt2
+            // dgvRoles
             // 
-            this.dataGridViewExt2.AllowUserToAddRows = false;
-            this.dataGridViewExt2.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dataGridViewExt2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewExt2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewExt2.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewExt2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewExt2.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dataGridViewExt2.Location = new System.Drawing.Point(3, 17);
-            this.dataGridViewExt2.Name = "dataGridViewExt2";
-            this.dataGridViewExt2.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dataGridViewExt2.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dataGridViewExt2.RowTemplate.Height = 23;
-            this.dataGridViewExt2.Size = new System.Drawing.Size(241, 314);
-            this.dataGridViewExt2.TabIndex = 8;
+            this.dgvRoles.AllowUserToAddRows = false;
+            this.dgvRoles.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgvRoles.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRoles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NAME1,
+            this.DESCRIPTION});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRoles.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvRoles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRoles.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgvRoles.Location = new System.Drawing.Point(3, 17);
+            this.dgvRoles.MultiSelect = false;
+            this.dgvRoles.Name = "dgvRoles";
+            this.dgvRoles.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvRoles.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvRoles.RowTemplate.Height = 23;
+            this.dgvRoles.Size = new System.Drawing.Size(286, 314);
+            this.dgvRoles.TabIndex = 8;
+            this.dgvRoles.SelectionChanged += new System.EventHandler(this.dgvRoles_SelectionChanged);
+            // 
+            // NAME1
+            // 
+            this.NAME1.DataPropertyName = "NAME";
+            this.NAME1.HeaderText = "群组名称";
+            this.NAME1.Name = "NAME1";
+            // 
+            // DESCRIPTION
+            // 
+            this.DESCRIPTION.DataPropertyName = "DESCRIPTION";
+            this.DESCRIPTION.HeaderText = "描述";
+            this.DESCRIPTION.Name = "DESCRIPTION";
+            this.DESCRIPTION.Width = 200;
             // 
             // panel7
             // 
@@ -362,26 +441,6 @@
             this.btnGroupAuth.UseVisualStyleBackColor = true;
             this.btnGroupAuth.Click += new System.EventHandler(this.btnGroupAuth_Click);
             // 
-            // tabGroupToGroup
-            // 
-            this.tabGroupToGroup.Controls.Add(this.pnlGroupGroup);
-            this.tabGroupToGroup.Location = new System.Drawing.Point(4, 22);
-            this.tabGroupToGroup.Name = "tabGroupToGroup";
-            this.tabGroupToGroup.Size = new System.Drawing.Size(911, 457);
-            this.tabGroupToGroup.TabIndex = 2;
-            this.tabGroupToGroup.Text = "群组归属群组设定（文档）";
-            this.tabGroupToGroup.UseVisualStyleBackColor = true;
-            this.tabGroupToGroup.Click += new System.EventHandler(this.tabGroupToGroup_Click);
-            // 
-            // pnlGroupGroup
-            // 
-            this.pnlGroupGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGroupGroup.Location = new System.Drawing.Point(0, 0);
-            this.pnlGroupGroup.Name = "pnlGroupGroup";
-            this.pnlGroupGroup.Size = new System.Drawing.Size(911, 457);
-            this.pnlGroupGroup.TabIndex = 1;
-            this.pnlGroupGroup.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGroupGroup_Paint);
-            // 
             // tabDescription
             // 
             this.tabDescription.Controls.Add(this.pnlDescription);
@@ -391,7 +450,6 @@
             this.tabDescription.TabIndex = 3;
             this.tabDescription.Text = "说明";
             this.tabDescription.UseVisualStyleBackColor = true;
-            this.tabDescription.Click += new System.EventHandler(this.tabDescription_Click);
             // 
             // pnlDescription
             // 
@@ -400,7 +458,6 @@
             this.pnlDescription.Name = "pnlDescription";
             this.pnlDescription.Size = new System.Drawing.Size(911, 457);
             this.pnlDescription.TabIndex = 0;
-            this.pnlDescription.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDescription_Paint);
             // 
             // panel3
             // 
@@ -409,7 +466,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(919, 27);
             this.panel3.TabIndex = 2;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel2
             // 
@@ -420,7 +476,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(919, 27);
             this.panel2.TabIndex = 0;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -432,7 +487,6 @@
             this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "文件权限管理";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FileAuthOper
             // 
@@ -453,11 +507,10 @@
             this.pnlGroup.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExt3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoleUsers)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewExt2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
             this.panel6.ResumeLayout(false);
-            this.tabGroupToGroup.ResumeLayout(false);
             this.tabDescription.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -474,9 +527,7 @@
         private System.Windows.Forms.TabPage tabGroup;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabPage tabGroupToGroup;
         private System.Windows.Forms.TabPage tabDescription;
-        private System.Windows.Forms.Panel pnlGroupGroup;
         private System.Windows.Forms.Panel pnlDescription;
         private System.Windows.Forms.Panel pnlSingle;
         private System.Windows.Forms.Panel pnlGroup;
@@ -491,8 +542,18 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.GroupBox groupBox4;
-        private HYPDM.BaseControl.DataGridViewExt dataGridViewExt2;
+        private HYPDM.BaseControl.DataGridViewExt dgvRoles;
         private System.Windows.Forms.GroupBox groupBox3;
-        private HYPDM.BaseControl.DataGridViewExt dataGridViewExt3;
+        private HYPDM.BaseControl.DataGridViewExt dgvRoleUsers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAME1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LOGINID1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ROLENAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ORGANNAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LOGINID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ROLENAME1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ORGANNAME2;
     }
 }

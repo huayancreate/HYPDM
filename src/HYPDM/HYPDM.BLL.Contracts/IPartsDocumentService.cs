@@ -18,9 +18,9 @@ namespace HYPDM.BLL
         IList<PDM_PARTS_DOCUMENT> GetPartsDocByDocID(string docID);
 
         // 保存半成品文档关联
-        void PartsDocSave(List<PDM_PARTS_DOCUMENT> partsDocList);
+        void PartsDocSave(IList<PDM_PARTS_DOCUMENT> partsDocList);
 
         // 删除数据关联
-        void DelPartsDoc(List<PDM_PARTS_DOCUMENT> partsDocList);
+        void DelPartsDoc(IList<PDM_PARTS_DOCUMENT> partsDocList);
     }
 }

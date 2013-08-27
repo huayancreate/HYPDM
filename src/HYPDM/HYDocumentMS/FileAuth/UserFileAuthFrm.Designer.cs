@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabFile = new System.Windows.Forms.TabPage();
-            this.tabFolder = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chkCheckOut = new System.Windows.Forms.CheckBox();
-            this.chkCheckIN = new System.Windows.Forms.CheckBox();
-            this.chkDelete = new System.Windows.Forms.CheckBox();
-            this.chkDownLoad = new System.Windows.Forms.CheckBox();
-            this.chkEdit = new System.Windows.Forms.CheckBox();
-            this.chkView = new System.Windows.Forms.CheckBox();
+            this.chkFileUpLoad = new System.Windows.Forms.CheckBox();
+            this.chkFileCheckOut = new System.Windows.Forms.CheckBox();
+            this.chkFileCheckIn = new System.Windows.Forms.CheckBox();
+            this.chkFileDelete = new System.Windows.Forms.CheckBox();
+            this.chkFileDownLoad = new System.Windows.Forms.CheckBox();
+            this.chkFileEdit = new System.Windows.Forms.CheckBox();
+            this.chkFileView = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnFileCancel = new System.Windows.Forms.Button();
             this.btnFileSubmit = new System.Windows.Forms.Button();
@@ -54,17 +54,22 @@
             this.DEL_FLAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATEDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkUpLoad = new System.Windows.Forms.CheckBox();
+            this.tabFolder = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.chkUpLoad = new System.Windows.Forms.CheckBox();
+            this.chkCheckOut = new System.Windows.Forms.CheckBox();
+            this.chkCheckIN = new System.Windows.Forms.CheckBox();
+            this.chkDelete = new System.Windows.Forms.CheckBox();
+            this.chkDownLoad = new System.Windows.Forms.CheckBox();
+            this.chkEdit = new System.Windows.Forms.CheckBox();
+            this.chkView = new System.Windows.Forms.CheckBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.chkFolderCreate = new System.Windows.Forms.CheckBox();
+            this.chkFolderDelete = new System.Windows.Forms.CheckBox();
+            this.chkFolderEdit = new System.Windows.Forms.CheckBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btnFolderCancel = new System.Windows.Forms.Button();
             this.btnFolderSubmit = new System.Windows.Forms.Button();
@@ -72,16 +77,18 @@
             this.trvFolderDir = new System.Windows.Forms.TreeView();
             this.tabControl1.SuspendLayout();
             this.tabFile.SuspendLayout();
-            this.tabFolder.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dGVFileList)).BeginInit();
+            this.tabFolder.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.SuspendLayout();
@@ -107,17 +114,6 @@
             this.tabFile.TabIndex = 0;
             this.tabFile.Text = "文件权限";
             this.tabFile.UseVisualStyleBackColor = true;
-            // 
-            // tabFolder
-            // 
-            this.tabFolder.Controls.Add(this.groupBox5);
-            this.tabFolder.Location = new System.Drawing.Point(4, 22);
-            this.tabFolder.Name = "tabFolder";
-            this.tabFolder.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFolder.Size = new System.Drawing.Size(487, 467);
-            this.tabFolder.TabIndex = 1;
-            this.tabFolder.Text = "文件夹权限";
-            this.tabFolder.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -146,78 +142,88 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.chkUpLoad);
-            this.panel1.Controls.Add(this.chkCheckOut);
-            this.panel1.Controls.Add(this.chkCheckIN);
-            this.panel1.Controls.Add(this.chkDelete);
-            this.panel1.Controls.Add(this.chkDownLoad);
-            this.panel1.Controls.Add(this.chkEdit);
-            this.panel1.Controls.Add(this.chkView);
+            this.panel1.Controls.Add(this.chkFileUpLoad);
+            this.panel1.Controls.Add(this.chkFileCheckOut);
+            this.panel1.Controls.Add(this.chkFileCheckIn);
+            this.panel1.Controls.Add(this.chkFileDelete);
+            this.panel1.Controls.Add(this.chkFileDownLoad);
+            this.panel1.Controls.Add(this.chkFileEdit);
+            this.panel1.Controls.Add(this.chkFileView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 17);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(469, 81);
             this.panel1.TabIndex = 0;
             // 
-            // chkCheckOut
+            // chkFileUpLoad
             // 
-            this.chkCheckOut.AutoSize = true;
-            this.chkCheckOut.Location = new System.Drawing.Point(253, 53);
-            this.chkCheckOut.Name = "chkCheckOut";
-            this.chkCheckOut.Size = new System.Drawing.Size(72, 16);
-            this.chkCheckOut.TabIndex = 11;
-            this.chkCheckOut.Text = "文件检出";
-            this.chkCheckOut.UseVisualStyleBackColor = true;
+            this.chkFileUpLoad.AutoSize = true;
+            this.chkFileUpLoad.Location = new System.Drawing.Point(364, 17);
+            this.chkFileUpLoad.Name = "chkFileUpLoad";
+            this.chkFileUpLoad.Size = new System.Drawing.Size(72, 16);
+            this.chkFileUpLoad.TabIndex = 26;
+            this.chkFileUpLoad.Text = "文件上传";
+            this.chkFileUpLoad.UseVisualStyleBackColor = true;
             // 
-            // chkCheckIN
+            // chkFileCheckOut
             // 
-            this.chkCheckIN.AutoSize = true;
-            this.chkCheckIN.Location = new System.Drawing.Point(144, 53);
-            this.chkCheckIN.Name = "chkCheckIN";
-            this.chkCheckIN.Size = new System.Drawing.Size(72, 16);
-            this.chkCheckIN.TabIndex = 10;
-            this.chkCheckIN.Text = "文件检入";
-            this.chkCheckIN.UseVisualStyleBackColor = true;
+            this.chkFileCheckOut.AutoSize = true;
+            this.chkFileCheckOut.Location = new System.Drawing.Point(282, 48);
+            this.chkFileCheckOut.Name = "chkFileCheckOut";
+            this.chkFileCheckOut.Size = new System.Drawing.Size(72, 16);
+            this.chkFileCheckOut.TabIndex = 25;
+            this.chkFileCheckOut.Text = "文件检出";
+            this.chkFileCheckOut.UseVisualStyleBackColor = true;
             // 
-            // chkDelete
+            // chkFileCheckIn
             // 
-            this.chkDelete.AutoSize = true;
-            this.chkDelete.Location = new System.Drawing.Point(41, 53);
-            this.chkDelete.Name = "chkDelete";
-            this.chkDelete.Size = new System.Drawing.Size(72, 16);
-            this.chkDelete.TabIndex = 9;
-            this.chkDelete.Text = "文件删除";
-            this.chkDelete.UseVisualStyleBackColor = true;
+            this.chkFileCheckIn.AutoSize = true;
+            this.chkFileCheckIn.Location = new System.Drawing.Point(173, 48);
+            this.chkFileCheckIn.Name = "chkFileCheckIn";
+            this.chkFileCheckIn.Size = new System.Drawing.Size(72, 16);
+            this.chkFileCheckIn.TabIndex = 24;
+            this.chkFileCheckIn.Text = "文件检入";
+            this.chkFileCheckIn.UseVisualStyleBackColor = true;
             // 
-            // chkDownLoad
+            // chkFileDelete
             // 
-            this.chkDownLoad.AutoSize = true;
-            this.chkDownLoad.Location = new System.Drawing.Point(253, 18);
-            this.chkDownLoad.Name = "chkDownLoad";
-            this.chkDownLoad.Size = new System.Drawing.Size(72, 16);
-            this.chkDownLoad.TabIndex = 8;
-            this.chkDownLoad.Text = "文件下载";
-            this.chkDownLoad.UseVisualStyleBackColor = true;
+            this.chkFileDelete.AutoSize = true;
+            this.chkFileDelete.Location = new System.Drawing.Point(70, 48);
+            this.chkFileDelete.Name = "chkFileDelete";
+            this.chkFileDelete.Size = new System.Drawing.Size(72, 16);
+            this.chkFileDelete.TabIndex = 23;
+            this.chkFileDelete.Text = "文件删除";
+            this.chkFileDelete.UseVisualStyleBackColor = true;
             // 
-            // chkEdit
+            // chkFileDownLoad
             // 
-            this.chkEdit.AutoSize = true;
-            this.chkEdit.Location = new System.Drawing.Point(144, 18);
-            this.chkEdit.Name = "chkEdit";
-            this.chkEdit.Size = new System.Drawing.Size(72, 16);
-            this.chkEdit.TabIndex = 7;
-            this.chkEdit.Text = "文件编辑";
-            this.chkEdit.UseVisualStyleBackColor = true;
+            this.chkFileDownLoad.AutoSize = true;
+            this.chkFileDownLoad.Location = new System.Drawing.Point(282, 18);
+            this.chkFileDownLoad.Name = "chkFileDownLoad";
+            this.chkFileDownLoad.Size = new System.Drawing.Size(72, 16);
+            this.chkFileDownLoad.TabIndex = 22;
+            this.chkFileDownLoad.Text = "文件下载";
+            this.chkFileDownLoad.UseVisualStyleBackColor = true;
             // 
-            // chkView
+            // chkFileEdit
             // 
-            this.chkView.AutoSize = true;
-            this.chkView.Location = new System.Drawing.Point(41, 18);
-            this.chkView.Name = "chkView";
-            this.chkView.Size = new System.Drawing.Size(72, 16);
-            this.chkView.TabIndex = 6;
-            this.chkView.Text = "文件查看";
-            this.chkView.UseVisualStyleBackColor = true;
+            this.chkFileEdit.AutoSize = true;
+            this.chkFileEdit.Location = new System.Drawing.Point(173, 18);
+            this.chkFileEdit.Name = "chkFileEdit";
+            this.chkFileEdit.Size = new System.Drawing.Size(72, 16);
+            this.chkFileEdit.TabIndex = 21;
+            this.chkFileEdit.Text = "文件编辑";
+            this.chkFileEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkFileView
+            // 
+            this.chkFileView.AutoSize = true;
+            this.chkFileView.Location = new System.Drawing.Point(70, 18);
+            this.chkFileView.Name = "chkFileView";
+            this.chkFileView.Size = new System.Drawing.Size(72, 16);
+            this.chkFileView.TabIndex = 20;
+            this.chkFileView.Text = "文件查看";
+            this.chkFileView.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -281,14 +287,14 @@
             this.DEL_FLAG,
             this.CREATEUSER,
             this.CREATEDATE});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVFileList.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVFileList.DefaultCellStyle = dataGridViewCellStyle4;
             this.dGVFileList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGVFileList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dGVFileList.Location = new System.Drawing.Point(3, 17);
@@ -356,15 +362,16 @@
             this.CREATEDATE.HeaderText = "创建日期";
             this.CREATEDATE.Name = "CREATEDATE";
             // 
-            // chkUpLoad
+            // tabFolder
             // 
-            this.chkUpLoad.AutoSize = true;
-            this.chkUpLoad.Location = new System.Drawing.Point(335, 17);
-            this.chkUpLoad.Name = "chkUpLoad";
-            this.chkUpLoad.Size = new System.Drawing.Size(72, 16);
-            this.chkUpLoad.TabIndex = 12;
-            this.chkUpLoad.Text = "文件上传";
-            this.chkUpLoad.UseVisualStyleBackColor = true;
+            this.tabFolder.Controls.Add(this.groupBox5);
+            this.tabFolder.Location = new System.Drawing.Point(4, 22);
+            this.tabFolder.Name = "tabFolder";
+            this.tabFolder.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFolder.Size = new System.Drawing.Size(487, 467);
+            this.tabFolder.TabIndex = 1;
+            this.tabFolder.Text = "文件夹权限";
+            this.tabFolder.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -383,9 +390,9 @@
             this.groupBox6.BackColor = System.Drawing.Color.White;
             this.groupBox6.Controls.Add(this.panel2);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(3, 300);
+            this.groupBox6.Location = new System.Drawing.Point(3, 272);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(475, 101);
+            this.groupBox6.Size = new System.Drawing.Size(475, 142);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "功能选项";
@@ -393,88 +400,144 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.checkBox1);
-            this.panel2.Controls.Add(this.checkBox2);
-            this.panel2.Controls.Add(this.checkBox3);
-            this.panel2.Controls.Add(this.checkBox4);
-            this.panel2.Controls.Add(this.checkBox5);
-            this.panel2.Controls.Add(this.checkBox6);
-            this.panel2.Controls.Add(this.checkBox7);
+            this.panel2.Controls.Add(this.groupBox10);
+            this.panel2.Controls.Add(this.groupBox9);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 17);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(469, 81);
+            this.panel2.Size = new System.Drawing.Size(469, 122);
             this.panel2.TabIndex = 0;
             // 
-            // checkBox1
+            // groupBox10
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(335, 17);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(72, 16);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "文件上传";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.groupBox10.Controls.Add(this.chkUpLoad);
+            this.groupBox10.Controls.Add(this.chkCheckOut);
+            this.groupBox10.Controls.Add(this.chkCheckIN);
+            this.groupBox10.Controls.Add(this.chkDelete);
+            this.groupBox10.Controls.Add(this.chkDownLoad);
+            this.groupBox10.Controls.Add(this.chkEdit);
+            this.groupBox10.Controls.Add(this.chkView);
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox10.Location = new System.Drawing.Point(0, 42);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(467, 78);
+            this.groupBox10.TabIndex = 14;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "文件";
             // 
-            // checkBox2
+            // chkUpLoad
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(253, 53);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(72, 16);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "文件检出";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chkUpLoad.AutoSize = true;
+            this.chkUpLoad.Location = new System.Drawing.Point(392, 22);
+            this.chkUpLoad.Name = "chkUpLoad";
+            this.chkUpLoad.Size = new System.Drawing.Size(72, 16);
+            this.chkUpLoad.TabIndex = 26;
+            this.chkUpLoad.Text = "文件上传";
+            this.chkUpLoad.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chkCheckOut
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(144, 53);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(72, 16);
-            this.checkBox3.TabIndex = 10;
-            this.checkBox3.Text = "文件检入";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chkCheckOut.AutoSize = true;
+            this.chkCheckOut.Location = new System.Drawing.Point(310, 51);
+            this.chkCheckOut.Name = "chkCheckOut";
+            this.chkCheckOut.Size = new System.Drawing.Size(72, 16);
+            this.chkCheckOut.TabIndex = 25;
+            this.chkCheckOut.Text = "文件检出";
+            this.chkCheckOut.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chkCheckIN
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(41, 53);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(72, 16);
-            this.checkBox4.TabIndex = 9;
-            this.checkBox4.Text = "文件删除";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chkCheckIN.AutoSize = true;
+            this.chkCheckIN.Location = new System.Drawing.Point(201, 51);
+            this.chkCheckIN.Name = "chkCheckIN";
+            this.chkCheckIN.Size = new System.Drawing.Size(72, 16);
+            this.chkCheckIN.TabIndex = 24;
+            this.chkCheckIN.Text = "文件检入";
+            this.chkCheckIN.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // chkDelete
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(253, 18);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(72, 16);
-            this.checkBox5.TabIndex = 8;
-            this.checkBox5.Text = "文件下载";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chkDelete.AutoSize = true;
+            this.chkDelete.Location = new System.Drawing.Point(98, 51);
+            this.chkDelete.Name = "chkDelete";
+            this.chkDelete.Size = new System.Drawing.Size(72, 16);
+            this.chkDelete.TabIndex = 23;
+            this.chkDelete.Text = "文件删除";
+            this.chkDelete.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // chkDownLoad
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(144, 18);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(72, 16);
-            this.checkBox6.TabIndex = 7;
-            this.checkBox6.Text = "文件编辑";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.chkDownLoad.AutoSize = true;
+            this.chkDownLoad.Location = new System.Drawing.Point(310, 23);
+            this.chkDownLoad.Name = "chkDownLoad";
+            this.chkDownLoad.Size = new System.Drawing.Size(72, 16);
+            this.chkDownLoad.TabIndex = 22;
+            this.chkDownLoad.Text = "文件下载";
+            this.chkDownLoad.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // chkEdit
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(41, 18);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(72, 16);
-            this.checkBox7.TabIndex = 6;
-            this.checkBox7.Text = "文件查看";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.chkEdit.AutoSize = true;
+            this.chkEdit.Location = new System.Drawing.Point(201, 23);
+            this.chkEdit.Name = "chkEdit";
+            this.chkEdit.Size = new System.Drawing.Size(72, 16);
+            this.chkEdit.TabIndex = 21;
+            this.chkEdit.Text = "文件编辑";
+            this.chkEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkView
+            // 
+            this.chkView.AutoSize = true;
+            this.chkView.Location = new System.Drawing.Point(98, 23);
+            this.chkView.Name = "chkView";
+            this.chkView.Size = new System.Drawing.Size(72, 16);
+            this.chkView.TabIndex = 20;
+            this.chkView.Text = "文件查看";
+            this.chkView.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.groupBox9.Controls.Add(this.chkFolderCreate);
+            this.groupBox9.Controls.Add(this.chkFolderDelete);
+            this.groupBox9.Controls.Add(this.chkFolderEdit);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox9.Location = new System.Drawing.Point(0, 0);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(467, 42);
+            this.groupBox9.TabIndex = 13;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "文件夹";
+            // 
+            // chkFolderCreate
+            // 
+            this.chkFolderCreate.AutoSize = true;
+            this.chkFolderCreate.Location = new System.Drawing.Point(360, 19);
+            this.chkFolderCreate.Name = "chkFolderCreate";
+            this.chkFolderCreate.Size = new System.Drawing.Size(96, 16);
+            this.chkFolderCreate.TabIndex = 10;
+            this.chkFolderCreate.Text = "文件夹的创建";
+            this.chkFolderCreate.UseVisualStyleBackColor = true;
+            // 
+            // chkFolderDelete
+            // 
+            this.chkFolderDelete.AutoSize = true;
+            this.chkFolderDelete.Location = new System.Drawing.Point(233, 19);
+            this.chkFolderDelete.Name = "chkFolderDelete";
+            this.chkFolderDelete.Size = new System.Drawing.Size(96, 16);
+            this.chkFolderDelete.TabIndex = 9;
+            this.chkFolderDelete.Text = "文件夹的删除";
+            this.chkFolderDelete.UseVisualStyleBackColor = true;
+            // 
+            // chkFolderEdit
+            // 
+            this.chkFolderEdit.AutoSize = true;
+            this.chkFolderEdit.Location = new System.Drawing.Point(99, 19);
+            this.chkFolderEdit.Name = "chkFolderEdit";
+            this.chkFolderEdit.Size = new System.Drawing.Size(96, 16);
+            this.chkFolderEdit.TabIndex = 8;
+            this.chkFolderEdit.Text = "文件夹的编辑";
+            this.chkFolderEdit.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -482,31 +545,33 @@
             this.groupBox7.Controls.Add(this.btnFolderCancel);
             this.groupBox7.Controls.Add(this.btnFolderSubmit);
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox7.Location = new System.Drawing.Point(3, 401);
+            this.groupBox7.Location = new System.Drawing.Point(3, 414);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(475, 57);
+            this.groupBox7.Size = new System.Drawing.Size(475, 44);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             // 
             // btnFolderCancel
             // 
             this.btnFolderCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnFolderCancel.Location = new System.Drawing.Point(414, 20);
+            this.btnFolderCancel.Location = new System.Drawing.Point(411, 13);
             this.btnFolderCancel.Name = "btnFolderCancel";
             this.btnFolderCancel.Size = new System.Drawing.Size(61, 28);
             this.btnFolderCancel.TabIndex = 1;
             this.btnFolderCancel.Text = "取消";
             this.btnFolderCancel.UseVisualStyleBackColor = true;
+            this.btnFolderCancel.Click += new System.EventHandler(this.btnFolderCancel_Click);
             // 
             // btnFolderSubmit
             // 
             this.btnFolderSubmit.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnFolderSubmit.Location = new System.Drawing.Point(333, 20);
+            this.btnFolderSubmit.Location = new System.Drawing.Point(330, 13);
             this.btnFolderSubmit.Name = "btnFolderSubmit";
             this.btnFolderSubmit.Size = new System.Drawing.Size(61, 28);
             this.btnFolderSubmit.TabIndex = 0;
             this.btnFolderSubmit.Text = "提交";
             this.btnFolderSubmit.UseVisualStyleBackColor = true;
+            this.btnFolderSubmit.Click += new System.EventHandler(this.btnFolderSubmit_Click);
             // 
             // groupBox8
             // 
@@ -515,7 +580,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox8.Location = new System.Drawing.Point(3, 17);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(475, 283);
+            this.groupBox8.Size = new System.Drawing.Size(475, 255);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "文件夹";
@@ -525,7 +590,7 @@
             this.trvFolderDir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trvFolderDir.Location = new System.Drawing.Point(3, 17);
             this.trvFolderDir.Name = "trvFolderDir";
-            this.trvFolderDir.Size = new System.Drawing.Size(469, 263);
+            this.trvFolderDir.Size = new System.Drawing.Size(469, 235);
             this.trvFolderDir.TabIndex = 1;
             // 
             // UserFileAuthFrm
@@ -540,7 +605,6 @@
             this.Load += new System.EventHandler(this.UserFileAuthFrm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabFile.ResumeLayout(false);
-            this.tabFolder.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -548,10 +612,14 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dGVFileList)).EndInit();
+            this.tabFolder.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -565,12 +633,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox chkCheckOut;
-        private System.Windows.Forms.CheckBox chkCheckIN;
-        private System.Windows.Forms.CheckBox chkDelete;
-        private System.Windows.Forms.CheckBox chkDownLoad;
-        private System.Windows.Forms.CheckBox chkEdit;
-        private System.Windows.Forms.CheckBox chkView;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnFileCancel;
         private System.Windows.Forms.Button btnFileSubmit;
@@ -585,22 +647,33 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
         private System.Windows.Forms.DataGridViewTextBoxColumn CREATEDATE;
         private System.Windows.Forms.TabPage tabFolder;
-        private System.Windows.Forms.CheckBox chkUpLoad;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button btnFolderCancel;
         private System.Windows.Forms.Button btnFolderSubmit;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.TreeView trvFolderDir;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.CheckBox chkFolderCreate;
+        private System.Windows.Forms.CheckBox chkFolderDelete;
+        private System.Windows.Forms.CheckBox chkFolderEdit;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.CheckBox chkFileUpLoad;
+        private System.Windows.Forms.CheckBox chkFileCheckOut;
+        private System.Windows.Forms.CheckBox chkFileCheckIn;
+        private System.Windows.Forms.CheckBox chkFileDelete;
+        private System.Windows.Forms.CheckBox chkFileDownLoad;
+        private System.Windows.Forms.CheckBox chkFileEdit;
+        private System.Windows.Forms.CheckBox chkFileView;
+        private System.Windows.Forms.CheckBox chkUpLoad;
+        private System.Windows.Forms.CheckBox chkCheckOut;
+        private System.Windows.Forms.CheckBox chkCheckIN;
+        private System.Windows.Forms.CheckBox chkDelete;
+        private System.Windows.Forms.CheckBox chkDownLoad;
+        private System.Windows.Forms.CheckBox chkEdit;
+        private System.Windows.Forms.CheckBox chkView;
 
     }
 }

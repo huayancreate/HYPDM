@@ -48,14 +48,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAllProductService.cs" />
     <Compile Include="IChangeService.cs" />
     <Compile Include="IDocFileListService.cs" />
     <Compile Include="IDocumentDirService.cs" />
     <Compile Include="IDocumentService.cs" />
+    <Compile Include="IFileAuthService.cs" />
     <Compile Include="IFilterService.cs" />
+    <Compile Include="IMaterailService.cs" />
     <Compile Include="IMaxCodeService.cs" />
     <Compile Include="IMaxID.cs" />
     <Compile Include="IObjectStructService.cs" />
+    <Compile Include="IPartsDocumentService.cs" />
     <Compile Include="IPartsService.cs" />
     <Compile Include="IPhysicalFileService.cs" />
     <Compile Include="IPjtChangeService.cs" />
@@ -63,6 +67,7 @@
     <Compile Include="IProductProRecordService.cs" />
     <Compile Include="IProductService.cs" />
     <Compile Include="IProductStructService.cs" />
+    <Compile Include="IStructService.cs" />
     <Compile Include="IVersionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -185,6 +185,18 @@
     <Compile Include="Graph\PartsRegForm.Designer.cs">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsAndParts\Material\MaterailAddForm.cs" />
+    <Compile Include="ProductsAndParts\Material\MaterailAddForm.Designer.cs">
+      <DependentUpon>MaterailAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Material\MaterialsList.cs" />
+    <Compile Include="ProductsAndParts\Material\MaterialsList.Designer.cs">
+      <DependentUpon>MaterialsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Material\QueryMaterailForm.cs" />
+    <Compile Include="ProductsAndParts\Material\QueryMaterailForm.Designer.cs">
+      <DependentUpon>QueryMaterailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductsAndParts\Parts\ConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,12 +299,6 @@
     <Compile Include="ProductsAndParts\Products\ProductsProRecordAddForm.Designer.cs">
       <DependentUpon>ProductsProRecordAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsAndParts\Products\ProductsQueryForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductsAndParts\Products\ProductsQueryForm.Designer.cs">
-      <DependentUpon>ProductsQueryForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ProductsAndParts\Products\ProductsStructAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,11 +317,19 @@
     <Compile Include="ProductsAndParts\Products\QueryChangeForm.Designer.cs">
       <DependentUpon>QueryChangeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsAndParts\Products\QueryProductsForm.cs" />
+    <Compile Include="ProductsAndParts\Products\QueryProductsForm.Designer.cs">
+      <DependentUpon>QueryProductsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductsAndParts\Products\QueryStructForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductsAndParts\Products\QueryStructForm.Designer.cs">
       <DependentUpon>QueryStructForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\StructAddForm.cs" />
+    <Compile Include="ProductsAndParts\Products\StructAddForm.Designer.cs">
+      <DependentUpon>StructAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -355,6 +369,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Graph\PartsRegForm.resx">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Material\MaterailAddForm.resx">
+      <DependentUpon>MaterailAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Material\MaterialsList.resx">
+      <DependentUpon>MaterialsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Material\QueryMaterailForm.resx">
+      <DependentUpon>QueryMaterailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Parts\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
@@ -407,9 +430,6 @@
     <EmbeddedResource Include="ProductsAndParts\Products\ProductsProRecordAddForm.resx">
       <DependentUpon>ProductsProRecordAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductsAndParts\Products\ProductsQueryForm.resx">
-      <DependentUpon>ProductsQueryForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\ProductsStructAddForm.resx">
       <DependentUpon>ProductsStructAddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,8 +439,14 @@
     <EmbeddedResource Include="ProductsAndParts\Products\QueryChangeForm.resx">
       <DependentUpon>QueryChangeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\QueryProductsForm.resx">
+      <DependentUpon>QueryProductsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\QueryStructForm.resx">
       <DependentUpon>QueryStructForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\StructAddForm.resx">
+      <DependentUpon>StructAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

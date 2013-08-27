@@ -52,14 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllProductService.cs" />
     <Compile Include="BaseServiceObject.cs" />
     <Compile Include="ChangeService.cs" />
     <Compile Include="DocFileListService.cs" />
     <Compile Include="DocumentDirService.cs" />
     <Compile Include="DocumentService.cs" />
+    <Compile Include="FileAuthService.cs" />
     <Compile Include="FilterService.cs" />
+    <Compile Include="MaterailService.cs" />
     <Compile Include="MaxCodeService.cs" />
     <Compile Include="ObjectStructService.cs" />
+    <Compile Include="PartsDocumentService.cs" />
     <Compile Include="PartsService.cs" />
     <Compile Include="PhysicalFileService.cs" />
     <Compile Include="PjtChangeService.cs" />
@@ -68,6 +72,7 @@
     <Compile Include="ProductService.cs" />
     <Compile Include="ProductStructService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StructService.cs" />
     <Compile Include="VersionService.cs" />
   </ItemGroup>
   <ItemGroup>

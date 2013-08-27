@@ -1038,23 +1038,6 @@
     <Module>
       <Used>false</Used>
       <WorkFlowAddIn>false</WorkFlowAddIn>
-      <Guid>8FCABB5B-DA3F-4F1B-8AE0-6F07A208F6A9</Guid>
-      <Name>testFunction</Name>
-      <Assembly>Function</Assembly>
-      <Type>Function</Type>
-      <Method />
-      <Version>1.0.0.0</Version>
-      <Developer>AgileEAS.NET</Developer>
-      <Description />
-      <Url />
-      <SortCode>0</SortCode>
-      <Attributes>32</Attributes>
-      <Package>00000000-0000-0000-0000-000000000000</Package>
-      <LMTime>2013-08-08T14:42:50.687</LMTime>
-    </Module>
-    <Module>
-      <Used>false</Used>
-      <WorkFlowAddIn>false</WorkFlowAddIn>
       <Guid>BC7555A2-2FBE-43BE-9D4A-894ED11D9890</Guid>
       <Name>产品</Name>
       <Assembly>HYPDM.WinUI</Assembly>
@@ -1136,6 +1119,40 @@
       <Attributes>1</Attributes>
       <Package />
       <LMTime>2013-08-22T14:11:18.627</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>8FCABB5B-DA3F-4F1B-8AE0-6F07A208F6A9</Guid>
+      <Name>testFunction</Name>
+      <Assembly>Function</Assembly>
+      <Type>Function</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>AgileEAS.NET</Developer>
+      <Description />
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>32</Attributes>
+      <Package>00000000-0000-0000-0000-000000000000</Package>
+      <LMTime>2013-08-23T16:43:04.41</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>C7BB89C1-BAE9-4BDD-9E80-571C59EA055F</Guid>
+      <Name>111</Name>
+      <Assembly>Function</Assembly>
+      <Type>Function</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>AgileEAS.NET</Developer>
+      <Description />
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>32</Attributes>
+      <Package>00000000-0000-0000-0000-000000000000</Package>
+      <LMTime>2013-08-23T16:51:18.083</LMTime>
     </Module>
   </Items>
 </root>

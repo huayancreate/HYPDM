@@ -37,3 +37,4 @@ E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.Welcome.resources
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csproj.GenerateResource.Cache
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.pdb
+F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.MainForm.resources

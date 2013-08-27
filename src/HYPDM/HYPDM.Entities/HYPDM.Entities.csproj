@@ -45,21 +45,31 @@
   <ItemGroup>
     <Compile Include="DOC_FILE_DIR.cs" />
     <Compile Include="DOC_FILE_LIST.cs" />
+    <Compile Include="FILE_AUTH.cs" />
     <Compile Include="Generat\DOC_FILE_DIR.Generator.cs" />
     <Compile Include="Generat\DOC_FILE_LIST_Generator.cs" />
+    <Compile Include="Generat\FILE_AUTH_Generator.cs" />
+    <Compile Include="Generat\PDM_ALL_PRODUCT.Generator.cs" />
     <Compile Include="Generat\PDM_FILTER.Generator.cs" />
+    <Compile Include="Generat\PDM_MATERAIL.Generator.cs" />
     <Compile Include="Generat\PDM_OBJECT_STRUCT.Generator.cs" />
+    <Compile Include="Generat\PDM_PARTS_DOCUMENT.Generator.cs" />
     <Compile Include="Generat\PDM_PJTCHANGE.Generator.cs" />
     <Compile Include="Generat\PDM_PRODUCT_CHANGE.Generator.cs" />
     <Compile Include="Generat\PDM_PRODUCT_DOCUMENT.Generator.cs" />
     <Compile Include="Generat\PDM_PRODUCT_PRORECORD.Generator.cs" />
+    <Compile Include="Generat\PDM_STRUCT.Generator.cs" />
     <Compile Include="PartsDetail.cs" />
+    <Compile Include="PDM_ALL_PRODUCT.cs" />
     <Compile Include="PDM_FILTER.cs" />
+    <Compile Include="PDM_MATERAIL.cs" />
     <Compile Include="PDM_OBJECT_STRUCT.cs" />
+    <Compile Include="PDM_PARTS_DOCUMENT.cs" />
     <Compile Include="PDM_PJTCHANGE.cs" />
     <Compile Include="PDM_PRODUCT_CHANGE.cs" />
     <Compile Include="PDM_PRODUCT_DOCUMENT.cs" />
     <Compile Include="PDM_PRODUCT_PRORECORD.cs" />
+    <Compile Include="PDM_STRUCT.cs" />
     <Compile Include="PDM_VERSION_HISTORY.cs">
       <SubType>Code</SubType>
     </Compile>
