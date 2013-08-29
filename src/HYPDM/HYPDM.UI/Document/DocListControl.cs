@@ -159,19 +159,6 @@ namespace HYPDM.WinUI.Document
         }
 
         /// <summary>
-        /// 行双击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dgvDocList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvDocList.SelectedRows.Count != 0)
-            {
-                DocProperty();
-            }
-        }
-
-        /// <summary>
         /// 记录属性。
         /// </summary>
         protected void DocProperty()
@@ -268,11 +255,6 @@ namespace HYPDM.WinUI.Document
             }
         }
 
-        private void dgvDocList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void tsToolbar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -281,6 +263,14 @@ namespace HYPDM.WinUI.Document
         private void ucPaging1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void dgvDocList_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDocList.SelectedRows.Count != 0)
+            {
+                DocProperty();
+            }
         }
     }
 }

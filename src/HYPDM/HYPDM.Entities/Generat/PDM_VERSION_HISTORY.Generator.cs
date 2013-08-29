@@ -65,7 +65,7 @@ namespace HYPDM.Entities
        /// <summary>
        /// 版本状态 。
        /// </summary>
-       [Column("VERSION_STATUS","版本状态"),DataSize(128)]
+       [Column("VERSIONSTATUS", "版本状态"), DataSize(128)]
        [DisplayName("版本状态")]
        public string VERSIONSTATUS
        {

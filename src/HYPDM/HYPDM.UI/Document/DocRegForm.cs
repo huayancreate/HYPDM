@@ -26,7 +26,7 @@ namespace HYPDM.WinUI.Document
         protected bool valueChanged = false;
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         IDocFileListService _docFileListService = ServiceContainer.GetService<DocFileListService>();
-       // IPhysicalFileService _physicalService = ServiceContainer.GetService<PhysicalFileService>();
+        // IPhysicalFileService _physicalService = ServiceContainer.GetService<PhysicalFileService>();
         IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
 
         public DocRegForm()
@@ -126,7 +126,7 @@ namespace HYPDM.WinUI.Document
 
             this.Document = document;
 
-          //  this.DialogResult = DialogResult.OK;
+            //  this.DialogResult = DialogResult.OK;
         }
 
         private void btnDocAdd_Click(object sender, EventArgs e)
@@ -158,7 +158,7 @@ namespace HYPDM.WinUI.Document
 
         private void InitDocumentInfo()
         {
-        
+
             if (this.Document != null)
             {
                 tbcContent.TabPages.Add(tpFile);
@@ -175,6 +175,7 @@ namespace HYPDM.WinUI.Document
                 this.txtVer.Text = this.Document.VERSION;
                 //this.BindData();
                 BindTreeData();
+                InitialObjectRelation();
             }
         }
 
@@ -664,10 +665,39 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnAddRelation_Click(object sender, EventArgs e)
         {
+            //    List<PDM_ALL_PRODUCT> pdmAllSelectedProduct = null;
+            //    List<PDM_MATERAIL> pdmSelectedMaterial = null;
+            //    HYDocumentMS.DataType.RelationObjectType relationObjectType;
+            ObjectRelation or = new ObjectRelation();
+            IObjectRelationService orS = ServiceContainer.GetService<ObjectRelationService>();
+            IList<ObjectRelation> listObjectRelation = new List<ObjectRelation>();
             HYPDM.WinUI.Document.ConnectForm frmConnect = new ConnectForm();
+            frmConnect.Document = this.Document;
             if (frmConnect.ShowDialog() == DialogResult.OK)
             {
+                listObjectRelation = frmConnect.ListObjectRelation;
 
+                try
+                {
+                    foreach (ObjectRelation objRelation in listObjectRelation)
+                    {
+                        objRelation.MASTEROBJECTID = this.Document.DOCID;
+                        objRelation.MASTEROBJECTTYPE = HYDocumentMS.DataType.RelationObjectType.Document.ToString();
+                        objRelation.MASTEROBJECTVERSION = this.Document.VERSION;
+                        objRelation.Save();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                finally
+                {
+                    InitialObjectRelation();
+
+                }
             }
         }
         /// <summary>
@@ -682,13 +712,20 @@ namespace HYPDM.WinUI.Document
 
         private void DocRegForm_Load(object sender, EventArgs e)
         {
-          //  new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
+            //  new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
             this.txtDocNo.Focus();
             if (document != null)
             {
                 this.txtDocNo.Enabled = false;  //如果为修改界面，则将文档编号设置为不可用状态
                 //this.txtRemark.ReadOnly = true;  //remark标记为只读
                 this.Text = "文档对象-编辑";
+
+                
+          
+
+
+
+
             }
             else
             {
@@ -791,7 +828,7 @@ namespace HYPDM.WinUI.Document
             }
             else
             {
-                
+
                 HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
                 Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
                 if (bl == false)
@@ -799,7 +836,7 @@ namespace HYPDM.WinUI.Document
                     MessageBox.Show("你没有权限下载此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-            
+
                 SaveFileDialog saveDialog = new SaveFileDialog();
                 saveDialog.FileName = node.Cells[0].Value.ToString();
                 saveDialog.Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
@@ -809,7 +846,7 @@ namespace HYPDM.WinUI.Document
                     string clientSaveFileAndPath = saveDialog.FileName.ToString();
                     //MessageBox.Show(clientSavepath);
 
-                  
+
                     // MessageBox.Show(index.ToString());
                     if (index > 0) //取消第一行
                     {
@@ -892,5 +929,17 @@ namespace HYPDM.WinUI.Document
             FrmMat.ShowDialog();
         }
 
+
+        /// <summary>
+        /// 初始化文档关联的对象信息
+        /// </summary>
+        private void  InitialObjectRelation()
+        {
+            if (this.Document != null)
+            {
+                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*", "WHERE PRODUCTID IN (SELECT RELATIONOBJECTID FROM [drugshop].[dbo].[ObjectRelation] WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Product' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*", "WHERE MATERIALID IN (SELECT RELATIONOBJECTID FROM [drugshop].[dbo].[ObjectRelation] WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Material' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
+            }
+        }
     }
 }

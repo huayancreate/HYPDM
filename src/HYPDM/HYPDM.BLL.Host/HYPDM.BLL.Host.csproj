@@ -63,6 +63,7 @@
     <Compile Include="FilterService.cs" />
     <Compile Include="MaterailService.cs" />
     <Compile Include="MaxCodeService.cs" />
+    <Compile Include="ObjectRelationService.cs" />
     <Compile Include="ObjectStructService.cs" />
     <Compile Include="PartsDocumentService.cs" />
     <Compile Include="PjtChangeService.cs" />

@@ -51,6 +51,7 @@
     <Compile Include="Generat\DOC_FILE_DIR.Generator.cs" />
     <Compile Include="Generat\DOC_FILE_LIST_Generator.cs" />
     <Compile Include="Generat\FILE_AUTH_Generator.cs" />
+    <Compile Include="Generat\ObjectRelation_Generator.cs" />
     <Compile Include="Generat\PDM_ALL_PRODUCT.Generator.cs" />
     <Compile Include="Generat\PDM_FILTER.Generator.cs" />
     <Compile Include="Generat\PDM_MATERAIL.Generator.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Generat\PDM_PRODUCT_DOCUMENT.Generator.cs" />
     <Compile Include="Generat\PDM_PRODUCT_PRORECORD.Generator.cs" />
     <Compile Include="Generat\PDM_STRUCT.Generator.cs" />
+    <Compile Include="ObjectRelation.cs" />
     <Compile Include="PartsDetail.cs" />
     <Compile Include="PDM_ALL_PRODUCT.cs" />
     <Compile Include="PDM_FILTER.cs" />

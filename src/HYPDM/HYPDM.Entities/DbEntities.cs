@@ -9,11 +9,11 @@ using EAS.Data.Linq;
 
 namespace HYPDM.Entities
 {
-   /// <summary>
-   /// 数据上下文。
-   /// </summary>
-   public class DbEntities:DataContext
-   {
+    /// <summary>
+    /// 数据上下文。
+    /// </summary>
+    public class DbEntities : DataContext
+    {
         #region 字段定义
 
         private DataEntityQuery<PDM_DOCUMENT> m_PDM_DOCUMENTs;
@@ -25,6 +25,13 @@ namespace HYPDM.Entities
         private DataEntityQuery<PDM_VERSION_HISTORY> m_PDM_VERSION_HISTORYs;
         private DataEntityQuery<PDM_CHANGE_HISTORY> m_PDM_CHANGE_HISTORYs;
         private DataEntityQuery<ComboBoxValue> m_ComboBoxValues;
+        private DataEntityQuery<ObjectRelation> m_ObjectRelations;
+
+        public DataEntityQuery<ObjectRelation> ObjectRelations
+        {
+            get { return m_ObjectRelations; }
+            set { m_ObjectRelations = value; }
+        }
 
         public DataEntityQuery<ComboBoxValue> ComboBoxValues
         {
@@ -137,7 +144,7 @@ namespace HYPDM.Entities
             }
         }
 
-     
+
         /// <summary>
         /// 零件类型。
         /// </summary>
@@ -203,5 +210,5 @@ namespace HYPDM.Entities
 
         #endregion
 
-   }
+    }
 }

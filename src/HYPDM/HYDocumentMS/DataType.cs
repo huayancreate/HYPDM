@@ -37,5 +37,31 @@ namespace HYDocumentMS
             FolderDelete,
             FolderEdit
         }
+        /// <summary>
+        /// 关联及被关联对象的类型
+        /// </summary>
+        public enum RelationObjectType
+        {   
+            /// <summary>
+            /// 文档
+            /// </summary>
+            Document,
+            /// <summary>
+            /// 文件
+            /// </summary>
+            File,
+            /// <summary>
+            /// 产品
+            /// </summary>
+            Product,
+            /// <summary>
+            /// 半产品
+            /// </summary>
+            SemiProduct,
+            /// <summary>
+            /// 物料
+            /// </summary>
+            Material
+        }
     }
 }

@@ -160,6 +160,12 @@
     <Compile Include="Document\DocRegForm.Designer.cs">
       <DependentUpon>DocRegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Document\FrmShowSelectedObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\FrmShowSelectedObject.Designer.cs">
+      <DependentUpon>FrmShowSelectedObject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Document\SearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Document\DocRegForm.resx">
       <DependentUpon>DocRegForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\FrmShowSelectedObject.resx">
+      <DependentUpon>FrmShowSelectedObject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\SearchForm.resx">
       <DependentUpon>SearchForm.cs</DependentUpon>
