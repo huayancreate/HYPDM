@@ -23,8 +23,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         }
 
         //产品数据
-        HYPDM.Entities.PDM_PRODUCT copy_Product;
-        public HYPDM.Entities.PDM_PRODUCT Product
+        HYPDM.Entities.PDM_ALL_PRODUCT copy_Product;
+        public HYPDM.Entities.PDM_ALL_PRODUCT Product
         {
             get { return this.copy_Product; }
             set

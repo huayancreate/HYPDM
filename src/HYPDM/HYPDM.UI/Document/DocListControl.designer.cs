@@ -68,6 +68,7 @@
             this.DOCNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REMARK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COMBTEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DocStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -300,6 +301,7 @@
             this.DOCNAME,
             this.VERSION,
             this.REMARK,
+            this.COMBTEXT,
             this.DocType,
             this.Description,
             this.DocStatus,
@@ -383,12 +385,20 @@
             this.REMARK.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.REMARK.Width = 150;
             // 
+            // COMBTEXT
+            // 
+            this.COMBTEXT.DataPropertyName = "COMBTEXT";
+            this.COMBTEXT.HeaderText = "文档类别";
+            this.COMBTEXT.Name = "COMBTEXT";
+            this.COMBTEXT.ReadOnly = true;
+            // 
             // DocType
             // 
             this.DocType.DataPropertyName = "DOCTYPE";
             this.DocType.HeaderText = "文档分类";
             this.DocType.Name = "DocType";
             this.DocType.ReadOnly = true;
+            this.DocType.Visible = false;
             this.DocType.Width = 120;
             // 
             // Description
@@ -501,6 +511,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCNAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn VERSION;
         private System.Windows.Forms.DataGridViewTextBoxColumn REMARK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn COMBTEXT;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn DocStatus;

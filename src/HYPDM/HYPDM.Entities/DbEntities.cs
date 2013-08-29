@@ -20,13 +20,17 @@ namespace HYPDM.Entities
         private DataEntityQuery<PDM_DOCUMENT_TYPE> m_PDM_DOCUMENT_TYPEs;
         private DataEntityQuery<PDM_DRAWING> m_PDM_DRAWINGs;
         private DataEntityQuery<PDM_DRAWING_TYPE> m_PDM_DRAWING_TYPEs;
-        private DataEntityQuery<PDM_MATERIAL> m_PDM_MATERIALs;
-        private DataEntityQuery<PDM_PARTS> m_PDM_PARTSs;
         private DataEntityQuery<PDM_PARTS_TYPE> m_PDM_PARTS_TYPEs;
-        private DataEntityQuery<PDM_PRODUCT> m_PDM_PRODUCTs;
         private DataEntityQuery<PDM_PRODUCT_STRUCT> m_PDM_PRODUCT_STRUCTs;
         private DataEntityQuery<PDM_VERSION_HISTORY> m_PDM_VERSION_HISTORYs;
         private DataEntityQuery<PDM_CHANGE_HISTORY> m_PDM_CHANGE_HISTORYs;
+        private DataEntityQuery<ComboBoxValue> m_ComboBoxValues;
+
+        public DataEntityQuery<ComboBoxValue> ComboBoxValues
+        {
+            get { return m_ComboBoxValues; }
+            set { m_ComboBoxValues = value; }
+        }
         #endregion
 
         #region 构造函数
@@ -133,36 +137,7 @@ namespace HYPDM.Entities
             }
         }
 
-        /// <summary>
-        /// 材料。
-        /// </summary>
-        public DataEntityQuery<PDM_MATERIAL> PDM_MATERIALs
-        {
-            get
-            {
-                if (this.m_PDM_MATERIALs == null)
-                {
-                    this.m_PDM_MATERIALs = base.CreateQuery<PDM_MATERIAL>();
-                }
-                return this.m_PDM_MATERIALs;
-            }
-        }
-
-        /// <summary>
-        /// 零部件。
-        /// </summary>
-        public DataEntityQuery<PDM_PARTS> PDM_PARTSs
-        {
-            get
-            {
-                if (this.m_PDM_PARTSs == null)
-                {
-                    this.m_PDM_PARTSs = base.CreateQuery<PDM_PARTS>();
-                }
-                return this.m_PDM_PARTSs;
-            }
-        }
-
+     
         /// <summary>
         /// 零件类型。
         /// </summary>
@@ -178,20 +153,6 @@ namespace HYPDM.Entities
             }
         }
 
-        /// <summary>
-        /// 产品。
-        /// </summary>
-        public DataEntityQuery<PDM_PRODUCT> PDM_PRODUCTs
-        {
-            get
-            {
-                if (this.m_PDM_PRODUCTs == null)
-                {
-                    this.m_PDM_PRODUCTs = base.CreateQuery<PDM_PRODUCT>();
-                }
-                return this.m_PDM_PRODUCTs;
-            }
-        }
 
         /// <summary>
         /// 产品结构。

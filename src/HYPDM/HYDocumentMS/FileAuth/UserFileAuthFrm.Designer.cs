@@ -53,6 +53,7 @@
             this.DFL_VER_LATEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEL_FLAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATEDATE1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabFolder = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -285,7 +286,8 @@
             this.DFL_FILE_CHILD_PATH,
             this.DFL_VER_LATEST,
             this.DEL_FLAG,
-            this.CREATEUSER});
+            this.CREATEUSER,
+            this.CREATEDATE1});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -356,6 +358,12 @@
             this.CREATEUSER.DataPropertyName = "CREATEUSER";
             this.CREATEUSER.HeaderText = "创建用户";
             this.CREATEUSER.Name = "CREATEUSER";
+            // 
+            // CREATEDATE1
+            // 
+            this.CREATEDATE1.DataPropertyName = "CREATEDATE";
+            this.CREATEDATE1.HeaderText = "创建日期";
+            this.CREATEDATE1.Name = "CREATEDATE1";
             // 
             // tabFolder
             // 
@@ -635,13 +643,6 @@
         private System.Windows.Forms.Button btnFileSubmit;
         private System.Windows.Forms.GroupBox groupBox2;
         private HYPDM.BaseControl.DataGridViewExt dGVFileList;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn CHK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_FILE_NAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_FILE_CHILD_PATH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_VER_LATEST;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DEL_FLAG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
         private System.Windows.Forms.TabPage tabFolder;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -670,6 +671,14 @@
         private System.Windows.Forms.CheckBox chkDownLoad;
         private System.Windows.Forms.CheckBox chkEdit;
         private System.Windows.Forms.CheckBox chkView;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn CHK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_FILE_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_FILE_CHILD_PATH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_VER_LATEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEL_FLAG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEDATE1;
 
     }
 }

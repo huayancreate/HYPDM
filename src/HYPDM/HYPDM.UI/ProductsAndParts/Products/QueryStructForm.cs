@@ -18,8 +18,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         }
 
         public DataTable dt;
-        private  PDM_PRODUCT product;
-        public PDM_PRODUCT Product {
+        private  PDM_ALL_PRODUCT product;
+        public PDM_ALL_PRODUCT Product
+        {
             get { return this.product; }
             set { this.product = value; }
         }

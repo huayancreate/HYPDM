@@ -650,6 +650,13 @@ namespace HYDocumentMS
         //    dtRoleRole = this.getDataTableBySql("FAURR_TO_ROLE", " WHERE FAURR_FROM_ROLE='" + userRole + "'", "FILE_AUTH_ROLE_ROLE");
         //    return dtRoleRole;
         //}
+        public void SetComboBoxValue(System.Windows.Forms.ComboBox cobbox, string dataType,int selectedIndex)
+        {
+            cobbox.DataSource = this.getDataTableBySql("COMBTEXT,COMBVALUE", "WHERE COMBTYPE='" + dataType + "'", "ComboBoxValue");
+            cobbox.DisplayMember = "COMBTEXT";
+            cobbox.ValueMember = "COMBVALUE";
+            cobbox.SelectedIndex = selectedIndex;
+        }
     }
 
 }

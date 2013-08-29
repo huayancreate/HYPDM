@@ -43,9 +43,11 @@
     <Reference Include="System.Data.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxValue.cs" />
     <Compile Include="DOC_FILE_DIR.cs" />
     <Compile Include="DOC_FILE_LIST.cs" />
     <Compile Include="FILE_AUTH.cs" />
+    <Compile Include="Generat\ComboBoxValue_Generator.cs" />
     <Compile Include="Generat\DOC_FILE_DIR.Generator.cs" />
     <Compile Include="Generat\DOC_FILE_LIST_Generator.cs" />
     <Compile Include="Generat\FILE_AUTH_Generator.cs" />
@@ -82,14 +84,8 @@
     <Compile Include="PDM_DRAWING.cs" />
     <Compile Include="Generat\PDM_DRAWING_TYPE.Generator.cs" />
     <Compile Include="PDM_DRAWING_TYPE.cs" />
-    <Compile Include="Generat\PDM_MATERIAL.Generator.cs" />
-    <Compile Include="PDM_MATERIAL.cs" />
-    <Compile Include="Generat\PDM_PARTS.Generator.cs" />
-    <Compile Include="PDM_PARTS.cs" />
     <Compile Include="Generat\PDM_PARTS_TYPE.Generator.cs" />
     <Compile Include="PDM_PARTS_TYPE.cs" />
-    <Compile Include="Generat\PDM_PRODUCT.Generator.cs" />
-    <Compile Include="PDM_PRODUCT.cs" />
     <Compile Include="Generat\PDM_PRODUCT_STRUCT.Generator.cs" />
     <Compile Include="PDM_PRODUCT_STRUCT.cs" />
     <Compile Include="Generat\PDM_VERSION_HISTORY.Generator.cs" />

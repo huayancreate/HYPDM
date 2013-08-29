@@ -34,6 +34,7 @@ namespace HYPDM.WinUI.Document
             InitializeComponent();
             tbcContent.TabPages.Remove(tpFile);
             tbcContent.TabPages.Remove(tpVersion);
+            new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -56,6 +57,7 @@ namespace HYPDM.WinUI.Document
             {
                 this.document = value;
                 if (value != null)
+
                     this.InitDocumentInfo();
             }
         }
@@ -81,7 +83,7 @@ namespace HYPDM.WinUI.Document
                 document.DESCRIPTION = txtDescription.Text;
                 document.REMARK = txtRemark.Text;
                 document.VERSION = new HYDocumentMS.FileHelper().getNewVer("V");
-                document.DOCTYPE = cobDocType.Text;
+                document.DOCTYPE = cobDocType.SelectedValue.ToString();
                 document.DEL_FLAG = "N";
             }
             else //修改
@@ -95,7 +97,7 @@ namespace HYPDM.WinUI.Document
                 document.DESCRIPTION = txtDescription.Text;
                 document.REMARK = txtRemark.Text;
                 //document.VERSION = "V1.0";
-                //document.DOCTYPE = cobDocType.Text;
+                document.DOCTYPE = cobDocType.SelectedValue.ToString();
             }
 
 
@@ -123,7 +125,8 @@ namespace HYPDM.WinUI.Document
             MessageBox.Show(msg);
 
             this.Document = document;
-            this.DialogResult = DialogResult.OK;
+
+          //  this.DialogResult = DialogResult.OK;
         }
 
         private void btnDocAdd_Click(object sender, EventArgs e)
@@ -155,6 +158,7 @@ namespace HYPDM.WinUI.Document
 
         private void InitDocumentInfo()
         {
+        
             if (this.Document != null)
             {
                 tbcContent.TabPages.Add(tpFile);
@@ -166,7 +170,7 @@ namespace HYPDM.WinUI.Document
                 this.txtUpdateDate.Text = this.Document.LASTUPDATEDATE;
                 this.txtUpdateUser.Text = this.Document.LASTUPDATEUSER;
                 this.txtCreateDate.Text = this.Document.CREATEDATE;
-                this.cobDocType.Text = this.Document.DOCTYPE;
+                this.cobDocType.SelectedValue = this.Document.DOCTYPE;
                 this.txtCreateUser.Text = this.Document.CREATEUSER;
                 this.txtVer.Text = this.Document.VERSION;
                 //this.BindData();
@@ -648,11 +652,9 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnHalfProduct_Click(object sender, EventArgs e)
         {
-            Parts.ProductRegForm form = new Parts.ProductRegForm();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            ProductsAndParts.Products.ProductsAddForm FrmProduct = new ProductsAndParts.Products.ProductsAddForm(2);  //2为半成品  1为成品
+            FrmProduct.StartPosition = FormStartPosition.CenterParent;
+            FrmProduct.ShowDialog();
         }
 
         /// <summary>
@@ -662,8 +664,8 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnAddRelation_Click(object sender, EventArgs e)
         {
-            Parts.ConnectForm form = new Parts.ConnectForm();
-            if (form.ShowDialog() == DialogResult.OK)
+            HYPDM.WinUI.Document.ConnectForm frmConnect = new ConnectForm();
+            if (frmConnect.ShowDialog() == DialogResult.OK)
             {
 
             }
@@ -680,6 +682,7 @@ namespace HYPDM.WinUI.Document
 
         private void DocRegForm_Load(object sender, EventArgs e)
         {
+          //  new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
             this.txtDocNo.Focus();
             if (document != null)
             {
@@ -868,6 +871,25 @@ namespace HYPDM.WinUI.Document
 
             }
 
+        }
+
+        private void DocRegForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            ProductsAndParts.Products.ProductsAddForm FrmProduct = new ProductsAndParts.Products.ProductsAddForm(1);  //2为半成品  1为成品
+            FrmProduct.StartPosition = FormStartPosition.CenterParent;
+            FrmProduct.ShowDialog();
+        }
+
+        private void btnMaterial_Click(object sender, EventArgs e)
+        {
+            ProductsAndParts.Material.MaterailAddForm FrmMat = new ProductsAndParts.Material.MaterailAddForm();
+            FrmMat.StartPosition = FormStartPosition.CenterParent;
+            FrmMat.ShowDialog();
         }
 
     }

@@ -91,8 +91,9 @@ namespace HYPDM.Res
 
             this.Tree.Nodes.Add(root);
 
-            root.Expand();
+            
             this.Tree.SelectedNode = root;
+            root.Expand();
         }
 
         /// <summary>
@@ -194,23 +195,33 @@ namespace HYPDM.Res
             {
                 Point ClickPoint = new Point(e.X, e.Y);
                 CurrentNode = Tree.GetNodeAt(ClickPoint);
-                if (CurrentNode.Level != 0 && CurrentNode.Nodes.Count == 0)
+                if (CurrentNode == null) //
                 {
-                    if (CurrentNode != null)//判断你点的是不是一个节点
+                }
+                else
+                {
+                    if (CurrentNode.Level != 0 && CurrentNode.Nodes.Count == 0)
                     {
-                        CurrentNode.ContextMenuStrip = contextMenu;
+                        if (CurrentNode != null)//判断你点的是不是一个节点
+                        {
+                            INavigateModule modue = CurrentNode.Tag as INavigateModule;
+                            if (modue.Guid == "CED0FF76-5C3B-4951-8285-A66AA8ADA3BE") //文档管理
+                            {
+                                CurrentNode.ContextMenuStrip = contextMenu;
+                            }
+                           
+                            //if (Editor.ShowDialog() == DialogResult.OK)
+                            //{
+                            //    //this.LoadDrugDict();
+                            //}
+                            //switch (CurrentNode.Name)//根据不同节点显示不同的右键菜单，当然你可以让它显示一样的菜单
+                            //{
+                            //    case "errorUrl":
 
-                        //if (Editor.ShowDialog() == DialogResult.OK)
-                        //{
-                        //    //this.LoadDrugDict();
-                        //}
-                        //switch (CurrentNode.Name)//根据不同节点显示不同的右键菜单，当然你可以让它显示一样的菜单
-                        //{
-                        //    case "errorUrl":
-
-                        //        break;
-                        //}
-                        Tree.SelectedNode = CurrentNode;//选中这个节点
+                            //        break;
+                            //}
+                            Tree.SelectedNode = CurrentNode;//选中这个节点
+                        }
                     }
                 }
             }
@@ -226,10 +237,21 @@ namespace HYPDM.Res
                     object addIn = LoadModule(modue.Name, modue.Assembly, modue.Type);
                     EAS.Application.Instance.OpenModule(addIn);
                 }
+                HYPDM.WinUI.Document.DocRegForm frmDocReg = new DocRegForm();
+
+                frmDocReg.ShowDialog();
+
             }
+           
+            
         }
 
         private void 流程权限ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 权限ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

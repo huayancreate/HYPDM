@@ -17,7 +17,7 @@ namespace HYPDM.BLL
     {
         public int GetMaxID()
         {
-            return new MaxCodeService().GetMaxCode(new PDM_PRODUCT().DbTableName);
+            return new MaxCodeService().GetMaxCode(new PDM_ALL_PRODUCT().DbTableName);
         }
 
         public DataTable GetMaterailList()
@@ -48,26 +48,41 @@ namespace HYPDM.BLL
 
         public PDM_MATERAIL GetById(String p_id)
         {
-            PDM_MATERAIL t_product = new PDM_MATERAIL();
-            string sqlText = "select *  from  PDM_MATERAIL where MATERIALID = '" + p_id + "'";
-            System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
-            if(dt.Rows.Count>0){
-                t_product.MATERIALID = dt.Rows[0]["MATERIALID"].ToString();
-                t_product.MATERIALNO = dt.Rows[0]["MATERIALNO"].ToString();
-                t_product.MODELTYPE = dt.Rows[0]["MODELTYPE"].ToString();
-                t_product.MATERIALTYPE = dt.Rows[0]["MATERIALTYPE"].ToString();
-                t_product.RAWMATERIAL = dt.Rows[0]["RAWMATERIAL"].ToString();
-                t_product.MATERIALSRC = dt.Rows[0]["MATERIALSRC"].ToString();
-                t_product.VERSION = dt.Rows[0]["VERSION"].ToString();
-                t_product.CREATER = dt.Rows[0]["CREATER"].ToString();
-                t_product.MODIFIER = dt.Rows[0]["MODIFIER"].ToString();
-                t_product.CTREATETIME = dt.Rows[0]["CTREATETIME"].ToString();
-                t_product.MODIFYTIME = dt.Rows[0]["MODIFYTIME"].ToString();
-                t_product.MEMO_ZH = dt.Rows[0]["MEMO_ZH"].ToString();
-                t_product.MEMO_EN = dt.Rows[0]["MEMO_EN"].ToString();
-                t_product.MEMO = dt.Rows[0]["MEMO"].ToString();
+            //PDM_MATERAIL t_product = new PDM_MATERAIL();
+            //string sqlText = "select *  from  PDM_MATERAIL where MATERIALID = '" + p_id + "'";
+            //System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
+            //if(dt.Rows.Count>0){
+            //    t_product.MATERIALID = dt.Rows[0]["MATERIALID"].ToString();
+            //    t_product.MATERIALNO = dt.Rows[0]["MATERIALNO"].ToString();
+            //    t_product.MODELTYPE = dt.Rows[0]["MODELTYPE"].ToString();
+            //    t_product.MATERIALTYPE = dt.Rows[0]["MATERIALTYPE"].ToString();
+            //    t_product.RAWMATERIAL = dt.Rows[0]["RAWMATERIAL"].ToString();
+            //    t_product.MATERIALSRC = dt.Rows[0]["MATERIALSRC"].ToString();
+            //    t_product.VERSION = dt.Rows[0]["VERSION"].ToString();
+            //    t_product.CREATER = dt.Rows[0]["CREATER"].ToString();
+            //    t_product.MODIFIER = dt.Rows[0]["MODIFIER"].ToString();
+            //    t_product.CTREATETIME = dt.Rows[0]["CTREATETIME"].ToString();
+            //    t_product.MODIFYTIME = dt.Rows[0]["MODIFYTIME"].ToString();
+            //    t_product.MEMO_ZH = dt.Rows[0]["MEMO_ZH"].ToString();
+            //    t_product.MEMO_EN = dt.Rows[0]["MEMO_EN"].ToString();
+            //    t_product.MEMO = dt.Rows[0]["MEMO"].ToString();
+            //}
+
+            DataEntityQuery<PDM_MATERAIL> query = DataEntityQuery<PDM_MATERAIL>.Create();
+
+            var p = (from item in query
+                     where item.MATERIALID==p_id
+                     select item
+                );
+            IList<PDM_MATERAIL> list = p.ToList();
+            if (list == null || list.Count == 0)
+            {
+                return new PDM_MATERAIL();
             }
-            return t_product;
+            else
+            {
+                return p.ToList()[0];
+            }
         }
 
         public void DelMaterailList(String p_id)

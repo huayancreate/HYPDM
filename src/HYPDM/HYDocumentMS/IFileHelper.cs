@@ -79,5 +79,12 @@ namespace HYDocumentMS
         /// <param name="fileid"></param>
         /// <returns></returns>
         string getDocumentAllPathByFileID(string fileid);
+        /// <summary>
+        /// 给ComboBox赋值
+        /// </summary>
+        /// <param name="cobbox">ComboBox控件</param>
+        /// <param name="dataType">数据类型</param>
+        /// <param name="selectedIndex">默认选择的index</param>
+        void SetComboBoxValue(System.Windows.Forms.ComboBox cobbox, string dataType, int selectedIndex);
     }
 }

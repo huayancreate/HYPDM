@@ -53,12 +53,19 @@
             this.零部件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnHalfProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMaterial = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnCrafts = new System.Windows.Forms.ToolStripMenuItem();
             this.btnProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.tpFile = new System.Windows.Forms.TabPage();
             this.tvFileList = new AdvancedDataGridView.TreeGridView();
+            this.DFL_FILE_NAME = new AdvancedDataGridView.TreeGridColumn();
+            this.FilePathName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DFL_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsp = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnRegPhysicalFile = new System.Windows.Forms.ToolStripButton();
@@ -107,14 +114,6 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DFL_FILE_NAME = new AdvancedDataGridView.TreeGridColumn();
-            this.FilePathName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DFL_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             this.tbcContent.SuspendLayout();
@@ -322,10 +321,9 @@
             // 
             this.零部件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnHalfProduct,
-            this.btnMaterial,
-            this.btnCrafts});
+            this.btnMaterial});
             this.零部件ToolStripMenuItem.Name = "零部件ToolStripMenuItem";
-            this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.零部件ToolStripMenuItem.Text = "零部件";
             // 
             // btnHalfProduct
@@ -339,24 +337,17 @@
             // btnMaterial
             // 
             this.btnMaterial.Name = "btnMaterial";
-            this.btnMaterial.Size = new System.Drawing.Size(124, 22);
+            this.btnMaterial.Size = new System.Drawing.Size(152, 22);
             this.btnMaterial.Tag = "原材料";
             this.btnMaterial.Text = "原材料";
-            this.btnMaterial.Click += new System.EventHandler(this.btnHalfProduct_Click);
-            // 
-            // btnCrafts
-            // 
-            this.btnCrafts.Name = "btnCrafts";
-            this.btnCrafts.Size = new System.Drawing.Size(124, 22);
-            this.btnCrafts.Tag = "工艺装备";
-            this.btnCrafts.Text = "工艺装备";
-            this.btnCrafts.Click += new System.EventHandler(this.btnHalfProduct_Click);
+            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
             // btnProduct
             // 
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(112, 22);
+            this.btnProduct.Size = new System.Drawing.Size(152, 22);
             this.btnProduct.Text = "产品";
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnAddRelation
             // 
@@ -412,6 +403,62 @@
             this.tvFileList.TabIndex = 8;
             this.tvFileList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tvFileList_CellClick);
             this.tvFileList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tvTaskList_CellMouseDown);
+            // 
+            // DFL_FILE_NAME
+            // 
+            this.DFL_FILE_NAME.DefaultNodeImage = null;
+            this.DFL_FILE_NAME.HeaderText = "文件名称";
+            this.DFL_FILE_NAME.Name = "DFL_FILE_NAME";
+            this.DFL_FILE_NAME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DFL_FILE_NAME.Width = 230;
+            // 
+            // FilePathName
+            // 
+            this.FilePathName.HeaderText = "文件路径";
+            this.FilePathName.Name = "FilePathName";
+            this.FilePathName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.FilePathName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FilePathName.Width = 240;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "版本";
+            this.Column10.Name = "Column10";
+            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column10.Width = 50;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "检入标识";
+            this.Column11.Name = "Column11";
+            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column11.Width = 80;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "检入日期";
+            this.Column9.Name = "Column9";
+            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "检出标识";
+            this.Column12.Name = "Column12";
+            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column12.Width = 80;
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "检出日期";
+            this.Column23.Name = "Column23";
+            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DFL_ID
+            // 
+            this.DFL_ID.HeaderText = "DFL_ID";
+            this.DFL_ID.Name = "DFL_ID";
+            this.DFL_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DFL_ID.Visible = false;
             // 
             // tsp
             // 
@@ -560,8 +607,6 @@
             // 
             this.cobDocType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cobDocType.FormattingEnabled = true;
-            this.cobDocType.Items.AddRange(new object[] {
-            "技术文件"});
             this.cobDocType.Location = new System.Drawing.Point(68, 46);
             this.cobDocType.Name = "cobDocType";
             this.cobDocType.Size = new System.Drawing.Size(149, 20);
@@ -822,62 +867,6 @@
             this.Column16.Name = "Column16";
             this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // DFL_FILE_NAME
-            // 
-            this.DFL_FILE_NAME.DefaultNodeImage = null;
-            this.DFL_FILE_NAME.HeaderText = "文件名称";
-            this.DFL_FILE_NAME.Name = "DFL_FILE_NAME";
-            this.DFL_FILE_NAME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DFL_FILE_NAME.Width = 230;
-            // 
-            // FilePathName
-            // 
-            this.FilePathName.HeaderText = "文件路径";
-            this.FilePathName.Name = "FilePathName";
-            this.FilePathName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.FilePathName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.FilePathName.Width = 240;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "版本";
-            this.Column10.Name = "Column10";
-            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column10.Width = 50;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "检入标识";
-            this.Column11.Name = "Column11";
-            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column11.Width = 80;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "检入日期";
-            this.Column9.Name = "Column9";
-            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "检出标识";
-            this.Column12.Name = "Column12";
-            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column12.Width = 80;
-            // 
-            // Column23
-            // 
-            this.Column23.HeaderText = "检出日期";
-            this.Column23.Name = "Column23";
-            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DFL_ID
-            // 
-            this.DFL_ID.HeaderText = "DFL_ID";
-            this.DFL_ID.Name = "DFL_ID";
-            this.DFL_ID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DFL_ID.Visible = false;
-            // 
             // DocRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -890,6 +879,7 @@
             this.Name = "DocRegForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "文档 注册";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DocRegForm_FormClosing);
             this.Load += new System.EventHandler(this.DocRegForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -973,7 +963,6 @@
         private System.Windows.Forms.ToolStripMenuItem 零部件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnHalfProduct;
         private System.Windows.Forms.ToolStripMenuItem btnMaterial;
-        private System.Windows.Forms.ToolStripMenuItem btnCrafts;
         private System.Windows.Forms.ToolStripMenuItem btnProduct;
         private System.Windows.Forms.ToolStripMenuItem btnAddRelation;
         private System.Windows.Forms.ToolStripMenuItem btnDelRelation;

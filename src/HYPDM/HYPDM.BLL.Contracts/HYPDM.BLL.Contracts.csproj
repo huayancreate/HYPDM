@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="IAllProductService.cs" />
     <Compile Include="IChangeService.cs" />
+    <Compile Include="IComboBoxValueService.cs" />
     <Compile Include="IDocFileListService.cs" />
     <Compile Include="IDocumentDirService.cs" />
     <Compile Include="IDocumentService.cs" />
@@ -60,11 +61,9 @@
     <Compile Include="IMaxID.cs" />
     <Compile Include="IObjectStructService.cs" />
     <Compile Include="IPartsDocumentService.cs" />
-    <Compile Include="IPartsService.cs" />
     <Compile Include="IPjtChangeService.cs" />
     <Compile Include="IProductDocumentService.cs" />
     <Compile Include="IProductProRecordService.cs" />
-    <Compile Include="IProductService.cs" />
     <Compile Include="IProductStructService.cs" />
     <Compile Include="IStructService.cs" />
     <Compile Include="IVersionService.cs" />

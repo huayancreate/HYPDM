@@ -55,6 +55,7 @@
     <Compile Include="AllProductService.cs" />
     <Compile Include="BaseServiceObject.cs" />
     <Compile Include="ChangeService.cs" />
+    <Compile Include="ComboBoxValueService.cs" />
     <Compile Include="DocFileListService.cs" />
     <Compile Include="DocumentDirService.cs" />
     <Compile Include="DocumentService.cs" />
@@ -64,11 +65,9 @@
     <Compile Include="MaxCodeService.cs" />
     <Compile Include="ObjectStructService.cs" />
     <Compile Include="PartsDocumentService.cs" />
-    <Compile Include="PartsService.cs" />
     <Compile Include="PjtChangeService.cs" />
     <Compile Include="ProductDocumentService.cs" />
     <Compile Include="ProductProRecordService.cs" />
-    <Compile Include="ProductService.cs" />
     <Compile Include="ProductStructService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StructService.cs" />

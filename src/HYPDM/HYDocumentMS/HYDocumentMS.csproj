@@ -85,6 +85,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BRM\ComboboxValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BRM\ComboboxValueControl.Designer.cs">
+      <DependentUpon>ComboboxValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BRM\FrmEditComboValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BRM\FrmEditComboValue.Designer.cs">
+      <DependentUpon>FrmEditComboValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateNewFileFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,12 @@
     <Compile Include="ViewFileFrm.Designer.cs">
       <DependentUpon>ViewFileFrm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BRM\ComboboxValueControl.resx">
+      <DependentUpon>ComboboxValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BRM\FrmEditComboValue.resx">
+      <DependentUpon>FrmEditComboValue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateNewFileFrm.resx">
       <DependentUpon>CreateNewFileFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +287,7 @@
   <ItemGroup>
     <None Include="Resources\banner.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

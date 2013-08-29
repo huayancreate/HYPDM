@@ -56,7 +56,7 @@ namespace HYPDM.WinUI.Document
         {
             DateTime d0 = DateTime.Now;
            // this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
-            this.dt = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentListForDatatable(true); ;
+            this.dt = EAS.Services.ServiceContainer.GetService<DocumentService>().GetDocumentListForDatatable(true); ;
             //this.InitList(documentList);
             this.InitList(dt);
             this.ucPaging1.SourceDataGridView = this.dgvDocList;
@@ -207,8 +207,10 @@ namespace HYPDM.WinUI.Document
             {
                 HYPDM.Entities.PDM_DOCUMENT doc = o.Document;
                 //这个地方需要在加一些字段的更新值
-                row.Cells["DocType"].Value = doc.DOCTYPE.ToString();
-                row.Cells["Description"].Value = doc.DESCRIPTION.ToString();
+                //row.Cells["DocType"].Value = doc.DOCTYPE.ToString();
+                //row.Cells["Description"].Value = doc.DESCRIPTION.ToString();
+                this.InitList();
+                BindDataFile();
             }
         }
 

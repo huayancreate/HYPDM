@@ -17,7 +17,7 @@ namespace HYPDM.BLL
     {
         public int GetMaxID()
         {
-            return new MaxCodeService().GetMaxCode(new PDM_PRODUCT().DbTableName);
+            return new MaxCodeService().GetMaxCode(new PDM_ALL_PRODUCT().DbTableName);
         }
 
         public DataTable GetProductList()
