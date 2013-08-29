@@ -23,7 +23,7 @@ namespace HYPDM.BLL
 
         public DataTable GetAssoList(String p_productId)
         {
-            string sqlText = "Select A.* from  PDM_PJTCHANGE A,PDM_PRODUCT_CHANGE B where A.PJTCHANGENO=B.PJTCHANGENO and B.PRODUCTNO  = " + p_productId;
+            string sqlText = "Select A.* from  PDM_PJTCHANGE A,PDM_PRODUCT_CHANGE B where A.PJTCHANGENO=B.PJTCHANGENO and B.PRODUCTNO  = '" + p_productId+"'";
             System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
             return dt;
         }

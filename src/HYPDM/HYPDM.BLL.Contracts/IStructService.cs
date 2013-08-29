@@ -11,14 +11,17 @@ namespace HYPDM.BLL
     public interface IStructService
     {
         int GetMaxID();
-        DataTable  GetProductList();
-        DataTable  GetPartsList();
-        DataTable  GetMaterailList();
+        DataTable  GetProductList(PDM_ALL_PRODUCT p);
+        DataTable GetPartsList(PDM_ALL_PRODUCT p);
+        DataTable  GetMaterailList(PDM_MATERAIL p);
         DataTable  GetStructPartList(string p_objectId);
         DataTable  GetStructMaterailList(string p_objectId);
+        string getCount(string p_productId);
         void saveStruct(PDM_STRUCT c);
         void delStruct(PDM_STRUCT c);
-        void editStruct(PDM_STRUCT c);
+        void editStruct(PDM_STRUCT c,string p_assobjId);
+        void transactionExc(string p_productId,string p_sortNum);
+
         DataTable getStruct(PDM_STRUCT c);
     }
 }

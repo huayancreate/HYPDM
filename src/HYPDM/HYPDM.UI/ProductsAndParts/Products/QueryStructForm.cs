@@ -12,37 +12,63 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 {
     public partial class QueryStructForm : Form
     {
-        public QueryStructForm()
+        enum selectType { Matieral, Parts, Product };
+        private selectType s_type;
+        public QueryStructForm(int t)
         {
             InitializeComponent();
+            s_type = (selectType)t;
         }
-
-        public DataTable dt;
-        private  PDM_ALL_PRODUCT product;
-        public PDM_ALL_PRODUCT Product
+        private  PDM_MATERAIL p_materail;
+        public PDM_MATERAIL Materails
         {
-            get { return this.product; }
-            set { this.product = value; }
+             get { return this.p_materail; }
+            set { this.p_materail = value; }
+        }
+        private  PDM_ALL_PRODUCT p_products;
+        public PDM_ALL_PRODUCT Products
+        {
+            get { return this.p_products; }
+            set { this.p_products = value; }
+        }
+        private PDM_ALL_PRODUCT p_parts;
+        public PDM_ALL_PRODUCT Parts
+        {
+            get { return this.p_parts; }
+            set { this.p_parts = value; }
         }
 
         private void bt_Query_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> condition = new Dictionary<string, string>();
-            if (!string.IsNullOrEmpty(this.tb_No.Text)) {
-                condition.Add("tb_No", this.tb_No.Text);
+            if (s_type == selectType.Matieral) {
+                this.p_materail = new PDM_MATERAIL();
+                p_materail.MATERIALNO = this.tb_No.Text;
+                p_materail.MODELTYPE = this.tb_Model.Text;
+                p_materail.VERSION = this.tb_Version.Text;
+                p_materail.MEMO = this.tb_Memo.Text;
             }
-            if (!string.IsNullOrEmpty(this.tb_Version.Text))
+            else if (s_type == selectType.Parts)
             {
-                condition.Add("tb_Version", this.tb_Version.Text);
+                this.p_parts = new PDM_ALL_PRODUCT();
+                p_parts.PRODUCTNO = this.tb_No.Text;
+                p_parts.MODELTYPE = this.tb_Model.Text;
+                p_parts.VERSION = this.tb_Version.Text;
+                p_parts.MEMO = this.tb_Memo.Text;
             }
-            if (!string.IsNullOrEmpty(this.tb_Model.Text))
+            else if (s_type == selectType.Product)
             {
-                condition.Add("tb_Model", this.tb_Model.Text);
+                this.p_products = new PDM_ALL_PRODUCT();
+                p_products.PRODUCTNO = this.tb_No.Text;
+                p_products.MODELTYPE = this.tb_Model.Text;
+                p_products.VERSION = this.tb_Version.Text;
+                p_products.MEMO = this.tb_Memo.Text;
             }
-            if (!string.IsNullOrEmpty(this.tb_Memo.Text))
-            {
-                condition.Add("tb_Memo", this.tb_Memo.Text);
-            }
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void bt_Cancle_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
 
     }

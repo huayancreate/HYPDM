@@ -37,6 +37,7 @@
             this.tb_assoWeight = new System.Windows.Forms.TextBox();
             this.rtb_memo = new System.Windows.Forms.RichTextBox();
             this.btn_save = new System.Windows.Forms.Button();
+            this.bt_cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -77,6 +78,7 @@
             // 
             // tb_sortNum
             // 
+            this.tb_sortNum.Enabled = false;
             this.tb_sortNum.Location = new System.Drawing.Point(49, 29);
             this.tb_sortNum.Name = "tb_sortNum";
             this.tb_sortNum.Size = new System.Drawing.Size(69, 21);
@@ -106,7 +108,7 @@
             // 
             // btn_save
             // 
-            this.btn_save.Location = new System.Drawing.Point(278, 178);
+            this.btn_save.Location = new System.Drawing.Point(194, 178);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(75, 23);
             this.btn_save.TabIndex = 8;
@@ -114,11 +116,22 @@
             this.btn_save.UseVisualStyleBackColor = true;
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
+            // bt_cancel
+            // 
+            this.bt_cancel.Location = new System.Drawing.Point(278, 178);
+            this.bt_cancel.Name = "bt_cancel";
+            this.bt_cancel.Size = new System.Drawing.Size(75, 23);
+            this.bt_cancel.TabIndex = 9;
+            this.bt_cancel.Text = "取消";
+            this.bt_cancel.UseVisualStyleBackColor = true;
+            this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
+            // 
             // StructAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 213);
+            this.Controls.Add(this.bt_cancel);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.rtb_memo);
             this.Controls.Add(this.tb_assoWeight);
@@ -146,5 +159,6 @@
         private System.Windows.Forms.TextBox tb_assoWeight;
         private System.Windows.Forms.RichTextBox rtb_memo;
         private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button bt_cancel;
     }
 }

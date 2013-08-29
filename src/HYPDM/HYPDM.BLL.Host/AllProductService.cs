@@ -22,7 +22,7 @@ namespace HYPDM.BLL
 
         public DataTable GetProductList()
         {
-            string sqlText = "Select * from  PDM_ALL_PRODUCT ";
+            string sqlText = "Select * from  PDM_ALL_PRODUCT WHERE PRODUCTLEVEL=1";
             System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
 
             /* for (int i = 0; i < dt.Rows.Count; i++)
@@ -46,7 +46,7 @@ namespace HYPDM.BLL
 
         public DataTable GetProductList(PDM_ALL_PRODUCT c)
         {
-            string sqlText = "Select * from  PDM_ALL_PRODUCT where 1=1  ";
+            string sqlText = "Select * from  PDM_ALL_PRODUCT WHERE PRODUCTLEVEL=1  ";
             if (!string.IsNullOrEmpty(c.PRODUCTNO)) {
                 sqlText += " AND PRODUCTNO LIKE '%"+ c.PRODUCTNO+"%' "; 
             }
@@ -98,6 +98,29 @@ namespace HYPDM.BLL
                            + "MODIFIER ='" + c.MODIFIER + "'  "
                            + "where PRODUCTID = '" + c.PRODUCTID + "'";
             int temp = this.DataAccessor.Execute(sqlText);
+        }
+
+        /// <summary>
+        /// 根据产品编号获取所有该产品的版本（模糊查询)
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetListByNo(string p_productNo) {
+
+            string sqlText = "SELECT  PRODUCTID,  PRODUCTNO,VERSION,MODELTYPE,PRODUCTTYPE,STATUS,MEMO_ZH  FROM PDM_ALL_PRODUCT "
+                           + "WHERE  PRODUCTLEVEL=1 AND PRODUCTNO LIKE '%" + p_productNo + "%'";
+            return  this.DataAccessor.QueryDataTable(sqlText);
+        }
+
+        /// <summary>
+        /// 根据产品编号获取所有该产品的版本（精确查询）
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetListByNoDetail(string p_productNo)
+        {
+
+            string sqlText = "SELECT  PRODUCTID,  PRODUCTNO,VERSION,MODELTYPE,PRODUCTTYPE,STATUS,MEMO_ZH  FROM PDM_ALL_PRODUCT "
+                           + "WHERE  PRODUCTLEVEL=1 AND PRODUCTNO ='" + p_productNo + "'";
+            return this.DataAccessor.QueryDataTable(sqlText);
         }
     }
 }

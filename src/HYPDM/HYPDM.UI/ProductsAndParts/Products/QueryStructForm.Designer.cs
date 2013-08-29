@@ -106,7 +106,7 @@
             // 
             // bt_Query
             // 
-            this.bt_Query.Location = new System.Drawing.Point(46, 119);
+            this.bt_Query.Location = new System.Drawing.Point(83, 119);
             this.bt_Query.Name = "bt_Query";
             this.bt_Query.Size = new System.Drawing.Size(75, 23);
             this.bt_Query.TabIndex = 7;
@@ -122,6 +122,7 @@
             this.bt_Cancle.TabIndex = 8;
             this.bt_Cancle.Text = "取消";
             this.bt_Cancle.UseVisualStyleBackColor = true;
+            this.bt_Cancle.Click += new System.EventHandler(this.bt_Cancle_Click);
             // 
             // QueryStructForm
             // 
