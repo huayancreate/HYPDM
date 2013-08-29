@@ -40,3 +40,5 @@ F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.ViewFileFrm.r
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.FileAuth.FileAuthOper.resources
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.FileAuth.UserFileAuthFrm.resources
 F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.csprojResolveAssemblyReference.cache
+F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.BRM.ComboboxValueControl.resources
+F:\HYFrameWork\HYPDM\src\HYPDM\HYDocumentMS\obj\Debug\HYDocumentMS.BRM.FrmEditComboValue.resources

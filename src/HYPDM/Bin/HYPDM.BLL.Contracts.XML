@@ -4,6 +4,11 @@
         <name>HYPDM.BLL.Contracts</name>
     </assembly>
     <members>
+        <member name="T:HYPDM.BLL.IComboBoxValueService">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:HYPDM.BLL.IDocFileListService.GetDocFileDataTableByDCID(System.String)">
             <summary>
             根据文档ID找到关联的文件

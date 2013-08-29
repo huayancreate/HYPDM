@@ -4,6 +4,55 @@
         <name>HYDocumentMS</name>
     </assembly>
     <members>
+        <member name="T:HYDocumentMS.BRM.ComboboxValueControl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.BRM.ComboboxValueControl.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.BRM.ComboboxValueControl.StartEx">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.BRM.ComboboxValueControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.BRM.ComboboxValueControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYDocumentMS.BRM.ComboboxValueControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.BRM.FrmEditComboValue.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYDocumentMS.BRM.FrmEditComboValue.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYDocumentMS.BRM.FrmEditComboValue.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:HYDocumentMS.CreateNewFileFrm">
             <summary>
             
@@ -95,6 +144,16 @@
         <member name="T:HYDocumentMS.DataType.AuthObjectType">
             <summary>
             文件权限设定时候的对象,SingleUser标识对单用户进行设定,UserRole以用户角色为设定对象,Folder以文件夹为对象
+            </summary>
+        </member>
+        <member name="T:HYDocumentMS.DataType.AuthParmsType">
+            <summary>
+            View 查看,Eidt编辑...
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.DataType.AuthParmsType.View">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:HYDocumentMS.DocumentMainControl">
@@ -283,6 +342,30 @@
             <param name="prefix">版本的前缀,后面为yyyyMMddHHmmss</param>
             <returns></returns>
         </member>
+        <member name="M:HYDocumentMS.IFileHelper.isHasAuth(HYDocumentMS.DataType.AuthParmsType,System.String,System.String)">
+            <summary>
+            给定需要判定的权限类型,用户账号key,文件key值，获取对应权限
+            </summary>
+            <param name="authType">查询的权限参数,查看,编辑</param>
+            <param name="userAccount">用户账户(KEY值)</param>
+            <param name="fileKey">文件key值</param>
+            <returns>boolean</returns>
+        </member>
+        <member name="M:HYDocumentMS.IFileHelper.getDocumentAllPathByFileID(System.String)">
+            <summary>
+            根据文件id获取其路径
+            </summary>
+            <param name="fileid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.IFileHelper.SetComboBoxValue(System.Windows.Forms.ComboBox,System.String,System.Int32)">
+            <summary>
+            给ComboBox赋值
+            </summary>
+            <param name="cobbox">ComboBox控件</param>
+            <param name="dataType">数据类型</param>
+            <param name="selectedIndex">默认选择的index</param>
+        </member>
         <member name="M:HYDocumentMS.FileHelper.getDocFileList(System.Boolean)">
             <summary>
             返回指定删除标识的文件清单列表,true:delflag为N,false:delfalg为Y
@@ -349,6 +432,83 @@
             <param name="Nds"></param>
             <param name="parentID"></param>
             <param name="dt"></param>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.isHasAuth(HYDocumentMS.DataType.AuthParmsType,System.String,System.String)">
+            <summary>
+            给定需要判定的权限类型,用户账号key,文件key值，获取对应权限
+            </summary>
+            <param name="authType">查询的权限参数,查看,编辑</param>
+            <param name="userAccount">用户账户(KEY值)</param>
+            <param name="fileKey">文件key值</param>
+            <returns>boolean</returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.IsTrueFolderAuth(System.String,System.String,System.String)">
+            <summary>
+            针对文件夹的权限进行判定
+            </summary>
+            <param name="queryAuthFields"></param>
+            <param name="folderKey"></param>
+            <param name="userKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.isTrue(System.String,System.String,System.String)">
+            <summary>
+            给定需要判定的权限类型,用户账号key,文件key值，获取对应权限
+            </summary>
+            <param name="strAuthType">需要查询的权限类型,如:查看,编辑等</param>
+            <param name="userAccount">用户账户(KEY值)</param>
+            <param name="fileKey">文件key值</param>
+            <returns>boolean</returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.getUserRolesFileFolderAuth(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            给定用户归属的多群组角色对给定文件的文件夹的权限判定
+            </summary>
+            <param name="roleList"></param>
+            <param name="fileFolderKey"></param>
+            <param name="queryAuthFields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.getUserFileFolderAuth(System.String,System.String,System.String)">
+            <summary>
+            单用户对给定文件夹的权限判定
+            </summary>
+            <param name="queryAuthFields"></param>
+            <param name="fileFolderKey">文件夹Key值</param>
+            <param name="userKey">用户Key值</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.getUserRolesFileAuth(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            用户归属多角色对给定文件的权限判定
+            </summary>
+            <param name="roleList"></param>
+            <param name="fileKey"></param>
+            <param name="queryAuthFields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.getSingleUserFileAuth(System.String,System.String,System.String)">
+            <summary>
+            判定单用户对单文件的访问权限
+            </summary>
+            <param name="userKey"></param>
+            <param name="fileKey"></param>
+            <param name="queryAuthFields"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.getUserRoleByAccount(System.String)">
+            <summary>
+            用户账号归属群组
+            </summary>
+            <param name="userAccount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYDocumentMS.FileHelper.getFileFolder(System.String)">
+            <summary>
+            文件归属文件夹
+            </summary>
+            <param name="fileKey"></param>
+            <returns></returns>
         </member>
         <member name="M:HYDocumentMS.Program.Main">
             <summary>

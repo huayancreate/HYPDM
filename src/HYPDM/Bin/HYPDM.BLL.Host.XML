@@ -62,20 +62,6 @@
             最大号服务。
             </summary>
         </member>
-        <member name="M:HYPDM.BLL.PartsService.GetPartsByPartsNo(System.String)">
-            <summary>
-            根据零部件编号查找零部件信息
-            </summary>
-            <param name="queryCondition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:HYPDM.BLL.PartsService.GetPartsByDescription(System.String)">
-            <summary>
-            根据描述查找零部件信息
-            </summary>
-            <param name="queryCondition"></param>
-            <returns></returns>
-        </member>
         <member name="M:HYPDM.BLL.ProductStructService.GetProStructList(System.String,System.String)">
             <summary>
             根据产品/半成品ID获取产品结构

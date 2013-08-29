@@ -1154,5 +1154,22 @@
       <Package>00000000-0000-0000-0000-000000000000</Package>
       <LMTime>2013-08-23T16:51:18.083</LMTime>
     </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>BF495E20-CD0B-4CAA-B455-BC8B3C545930</Guid>
+      <Name>下拉框值</Name>
+      <Assembly>HYDocumentMS</Assembly>
+      <Type>HYDocumentMS.BRM.ComboboxValueControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>Microsoft</Developer>
+      <Description>下拉框值管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-08-28T10:25:59.17</LMTime>
+    </Module>
   </Items>
 </root>
