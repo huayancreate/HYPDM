@@ -116,8 +116,8 @@ namespace HYDocumentMS
             {
                 fileNode = new TreeNode();
                 fileNode.Text = fileRow["DFL_FILE_NAME"].ToString();
-                fileNode.Tag = fileRow["DFL_ID"].ToString();
-                //  fileNode.Tag = fileRow;
+                //fileNode.Tag = fileRow["DFL_ID"].ToString();
+                fileNode.Tag = fileRow;
                 node.Nodes.Add(fileNode);
             }
 
@@ -495,29 +495,32 @@ namespace HYDocumentMS
                 MessageBox.Show("一个文件不能同时归属几个文件夹!", "数据异常", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 return false;  //异常返回
             }
-            //foreach (DataRow dr in dtFileFolder.Rows)
-            //{
-            //    listFilder.Add(dr["DFL_FILE_CHILD_PATH"].ToString());
-            //}
-            fileFolderKey = dtFileFolder.Rows[0]["DFL_FILE_CHILD_PATH"].ToString();
-
-            DataTable dtUserFileFolderAuth = getUserFileFolderAuth(strAuthType, fileFolderKey, userAccount);
-            if (dtUserFileFolderAuth == null || dtUserFileFolderAuth.Rows.Count == 0)
-            {
-                bl = false;
-            }
-            else if (dtUserFileFolderAuth.Rows.Count > 1)
-            {
-                bl = false;
-                MessageBox.Show("一个用户对一个文件夹只能有一笔资料!", "数据异常", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                return false;  //异常返回
-            }
             else
             {
-                bl = dtUserFileFolderAuth.Rows[0][0].ToString() == "Y" ? true : false;
-                if (bl == true)
+                //foreach (DataRow dr in dtFileFolder.Rows)
+                //{
+                //    listFilder.Add(dr["DFL_FILE_CHILD_PATH"].ToString());
+                //}
+                fileFolderKey = dtFileFolder.Rows[0]["DFL_FILE_CHILD_PATH"].ToString();
+
+                DataTable dtUserFileFolderAuth = getUserFileFolderAuth(strAuthType, fileFolderKey, userAccount);
+                if (dtUserFileFolderAuth == null || dtUserFileFolderAuth.Rows.Count == 0)
                 {
-                    return bl;    //如果有权限就直接返回,不继续下面的的判定
+                    bl = false;
+                }
+                else if (dtUserFileFolderAuth.Rows.Count > 1)
+                {
+                    bl = false;
+                    MessageBox.Show("一个用户对一个文件夹只能有一笔资料!", "数据异常", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return false;  //异常返回
+                }
+                else
+                {
+                    bl = dtUserFileFolderAuth.Rows[0][0].ToString() == "Y" ? true : false;
+                    if (bl == true)
+                    {
+                        return bl;    //如果有权限就直接返回,不继续下面的的判定
+                    }
                 }
             }
             // DataTable dtUserRoleRole = getUserRoleRole();//用户角色归属角色

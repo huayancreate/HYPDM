@@ -147,9 +147,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\login.jpg" />
     <None Include="Resources\login.bmp" />
   </ItemGroup>

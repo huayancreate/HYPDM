@@ -7,6 +7,8 @@ namespace HYPDM.BLL
 {
    public  interface IObjectRelationService
     {
-       ObjectRelation findRelation(String masterObjID, String relationObjID);
+       //ObjectRelation findRelation(String masterObjID, String relationObjID);
+       ObjectRelation getDocProdObjectRelation(string documentID, string productID);
+       ObjectRelation getDocMaterialObjectRelation(string documentID, string materialID);
     }
 }

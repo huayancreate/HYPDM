@@ -180,6 +180,11 @@ namespace HYDocumentMS.BRM
 
         private void dgvExt_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+        }
+
+        private void dgvExt_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
             if (this.dgvExt.CurrentRow == null)
             {
                 MessageBox.Show("请选择需要修改的记录!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);

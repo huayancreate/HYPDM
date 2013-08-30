@@ -34,6 +34,7 @@ namespace HYPDM.WinUI.Document
             InitializeComponent();
             tbcContent.TabPages.Remove(tpFile);
             tbcContent.TabPages.Remove(tpVersion);
+            tbcContent.TabPages.Remove(tpParts);
             new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
         }
 
@@ -161,8 +162,10 @@ namespace HYPDM.WinUI.Document
 
             if (this.Document != null)
             {
+                tbcContent.TabPages.Add(tpParts);
                 tbcContent.TabPages.Add(tpFile);
                 tbcContent.TabPages.Add(tpVersion);
+                
                 this.txtDocNo.Text = this.Document.DOCNO;
                 this.txtDescription.Text = this.Document.DESCRIPTION;
                 this.txtRemark.Text = this.Document.REMARK;
@@ -707,7 +710,58 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnDelRelation_Click(object sender, EventArgs e)
         {
+            //tabProduct
+            //  MessageBox.Show(this.tabControl2.SelectedTab.Name.ToString());
+            if (this.tabControl2.SelectedTab.Name.ToString() == "tabProduct")
+            {
+                if (this.dGVProduct.CurrentRow == null)
+                {
+                    MessageBox.Show("当前没有选中任何可以删除的对象，请确认!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    ObjectRelation or = new ObjectRelation();
 
+                    IObjectRelationService _orDocProd = ServiceContainer.GetService<ObjectRelationService>();
+                    or=_orDocProd.getDocProdObjectRelation(this.Document.DOCID,this.dGVProduct.CurrentRow.Cells["PRODUCTID"].Value.ToString());
+                    if (or != null)
+                    {
+                        or.DEL_FALG = "Y";
+                        or.Save();
+                        MessageBox.Show("关联删除成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        InitialObjectRelation();
+                    }
+
+
+                }
+            }
+            else if (this.tabControl2.SelectedTab.Name.ToString() == "tabMaterial")
+            {
+                if (this.dgvMaterial.CurrentRow == null)
+                {
+                    MessageBox.Show("当前没有选中任何可以删除的对象，请确认!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+                    ObjectRelation or = new ObjectRelation();
+
+                    IObjectRelationService _orDocProd = ServiceContainer.GetService<ObjectRelationService>();
+                    or = _orDocProd.getDocMaterialObjectRelation(this.Document.DOCID, this.dgvMaterial.CurrentRow.Cells["MATERIALID"].Value.ToString());
+                    if (or != null)
+                    {
+                        or.DEL_FALG = "Y";
+                        or.Save();
+                        MessageBox.Show("关联删除成功!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        InitialObjectRelation();
+                    }
+                }
+            }
+            else
+            {
+
+            }
         }
 
         private void DocRegForm_Load(object sender, EventArgs e)
@@ -720,16 +774,11 @@ namespace HYPDM.WinUI.Document
                 //this.txtRemark.ReadOnly = true;  //remark标记为只读
                 this.Text = "文档对象-编辑";
 
-                
-          
-
-
-
-
             }
             else
             {
                 this.Text = "文档对象-注册";
+                this.txtDocNo.Text = System.DateTime.Now.ToString("yyyyMMddHHmmss");
             }
         }
 
@@ -917,7 +966,7 @@ namespace HYPDM.WinUI.Document
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
-            ProductsAndParts.Products.ProductsAddForm FrmProduct = new ProductsAndParts.Products.ProductsAddForm(1);  //2为半成品  1为成品
+            ProductsAndParts.Products.ProductsConfForm FrmProduct = new ProductsAndParts.Products.ProductsConfForm(1);  //2为半成品  1为成品
             FrmProduct.StartPosition = FormStartPosition.CenterParent;
             FrmProduct.ShowDialog();
         }
@@ -933,7 +982,7 @@ namespace HYPDM.WinUI.Document
         /// <summary>
         /// 初始化文档关联的对象信息
         /// </summary>
-        private void  InitialObjectRelation()
+        private void InitialObjectRelation()
         {
             if (this.Document != null)
             {

@@ -231,10 +231,10 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         /// <param name="e"></param>
         private void toolBaseClear_Click(object sender, EventArgs e)
         {
-            if (this.m_product == null)
-            {
-                return;
-            }
+            //if (this.m_product == null)
+            //{
+            //    return;
+            //}
             //1.清空基本信息显示
             this.tb_productNo.Text = "";
             this.tb_modelType.Text = "";

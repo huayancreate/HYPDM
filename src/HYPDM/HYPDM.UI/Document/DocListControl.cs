@@ -22,6 +22,7 @@ namespace HYPDM.WinUI.Document
     public partial class DocListControl : UserControl
     {
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+        
         public event EventHandler Close;
 
         public IList<PDM_DOCUMENT> _docList;
@@ -36,7 +37,6 @@ namespace HYPDM.WinUI.Document
         public void StartEx()
         {
             this.Initialize();
-            
         }
 
         private void Initialize()
@@ -56,7 +56,7 @@ namespace HYPDM.WinUI.Document
         {
             DateTime d0 = DateTime.Now;
            // this.documentList = EAS.Services.ServiceContainer.GetService<IDocumentService>().GetDocumentList();
-            this.dt = EAS.Services.ServiceContainer.GetService<DocumentService>().GetDocumentListForDatatable(true); ;
+            this.dt = EAS.Services.ServiceContainer.GetService<DocumentService>().GetDocumentListForDatatable(true);
             //this.InitList(documentList);
             this.InitList(dt);
             this.ucPaging1.SourceDataGridView = this.dgvDocList;

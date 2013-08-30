@@ -80,6 +80,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\HYPDM.BLL.Host.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.Excel">
+      <HintPath>..\HYMes.WinUI.BaseControl\Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -257,11 +261,23 @@
     <Compile Include="ProductsAndParts\Products\ProductsCompForm.Designer.cs">
       <DependentUpon>ProductsCompForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsConfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsConfForm.Designer.cs">
+      <DependentUpon>ProductsConfForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductsAndParts\Products\ProductsConnectForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductsAndParts\Products\ProductsConnectForm.Designer.cs">
       <DependentUpon>ProductsConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsListControl.Designer.cs">
+      <DependentUpon>ProductsListControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsAndParts\Products\ProductsProRecordAddForm.cs">
       <SubType>Form</SubType>
@@ -269,11 +285,29 @@
     <Compile Include="ProductsAndParts\Products\ProductsProRecordAddForm.Designer.cs">
       <DependentUpon>ProductsProRecordAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsStructAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsStructAddForm.Designer.cs">
+      <DependentUpon>ProductsStructAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsStructForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\ProductsStructForm.Designer.cs">
+      <DependentUpon>ProductsStructForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductsAndParts\Products\QueryChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductsAndParts\Products\QueryChangeForm.Designer.cs">
       <DependentUpon>QueryChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\QueryProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\QueryProductsForm.Designer.cs">
+      <DependentUpon>QueryProductsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsAndParts\Products\QueryStructForm.cs">
       <SubType>Form</SubType>
@@ -362,14 +396,29 @@
     <EmbeddedResource Include="ProductsAndParts\Products\ProductsCompForm.resx">
       <DependentUpon>ProductsCompForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsConfForm.resx">
+      <DependentUpon>ProductsConfForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\ProductsConnectForm.resx">
       <DependentUpon>ProductsConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsListControl.resx">
+      <DependentUpon>ProductsListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\ProductsProRecordAddForm.resx">
       <DependentUpon>ProductsProRecordAddForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsStructAddForm.resx">
+      <DependentUpon>ProductsStructAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\ProductsStructForm.resx">
+      <DependentUpon>ProductsStructForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\QueryChangeForm.resx">
       <DependentUpon>QueryChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\QueryProductsForm.resx">
+      <DependentUpon>QueryProductsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\QueryStructForm.resx">
       <DependentUpon>QueryStructForm.cs</DependentUpon>

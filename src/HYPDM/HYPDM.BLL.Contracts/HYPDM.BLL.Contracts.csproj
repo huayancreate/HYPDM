@@ -59,6 +59,7 @@
     <Compile Include="IMaterailService.cs" />
     <Compile Include="IMaxCodeService.cs" />
     <Compile Include="IMaxID.cs" />
+    <Compile Include="IObjectRelationService.cs" />
     <Compile Include="IObjectStructService.cs" />
     <Compile Include="IPartsDocumentService.cs" />
     <Compile Include="IPjtChangeService.cs" />

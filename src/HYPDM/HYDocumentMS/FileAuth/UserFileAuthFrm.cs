@@ -292,7 +292,8 @@ namespace HYDocumentMS.FileAuth
             foreach (TreeNode nnode in this.trvFolderDir.Nodes)
             {
                 if (nnode.Checked == true)
-                {
+                {  
+                   //((DataRow)nnode.Tag)[""
                     listFolderChk.Add(nnode.Tag.ToString());
                 }
                 ListTreeCheckNode(nnode);
@@ -382,7 +383,6 @@ namespace HYDocumentMS.FileAuth
                                 auth.LASTUPDATEDATE = createDate;
                             }
                             auth.DEL_FLAG = "N";
-                            auth.DFL_ID = "";
                             auth.FAU_CHECKIN = fileChkIn;
                             auth.FAU_CHECKOUT = fileChkOut;
                             auth.FAU_DELETE = fileDelete;

@@ -39,19 +39,24 @@ namespace HYPDM.WinUI.Document
         //产品
         private void InitList()
         {
-
-            this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM [drugshop].[dbo].[ObjectRelation] WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='"+this.Document.DOCID+"')", "PDM_ALL_PRODUCT");
-            this.ucPaging1.SourceDataGridView = this.dGVProduct;
-            this.dgvMaterial.Visible = false;
-            this.dGVProduct.Visible = true;
+            if (this.Document != null)
+            {
+                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM [drugshop].[dbo].[ObjectRelation] WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.ucPaging1.SourceDataGridView = this.dGVProduct;
+                this.dgvMaterial.Visible = false;
+                this.dGVProduct.Visible = true;
+            }
         }
         //物料
         private void InitList1()
         {
-            this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM [drugshop].[dbo].[ObjectRelation] WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
-            this.ucPaging1.SourceDataGridView = this.dgvMaterial;
-            this.dGVProduct.Visible = false;
-            this.dgvMaterial.Visible = true;
+            if (this.Document != null)
+            {
+                this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM [drugshop].[dbo].[ObjectRelation] WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
+                this.ucPaging1.SourceDataGridView = this.dgvMaterial;
+                this.dGVProduct.Visible = false;
+                this.dgvMaterial.Visible = true;
+            }
         }
         //半成品
         private void InitList2()
@@ -158,23 +163,23 @@ namespace HYPDM.WinUI.Document
         }
 
         private void btnView_Click(object sender, EventArgs e)
-        { 
-             string iDList="";
+        {
+            string iDList = "";
             if (ListObjectRelation == null || ListObjectRelation.Count == 0)
             {
                 MessageBox.Show("你目前没有选中任何需要关联的对象!!", "讯息", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 return;
             }
             else
-            { 
-               iDList="";
+            {
+                iDList = "";
                 foreach (ObjectRelation oo in ListObjectRelation)
                 {
                     iDList += "'" + oo.RELATIONOBJECTID + "',";
                 }
-                iDList = "("+iDList.Substring(0, iDList.Length - 1)+")";
+                iDList = "(" + iDList.Substring(0, iDList.Length - 1) + ")";
             }
-            DataTable dtTemp = new HYDocumentMS.FileHelper().getDataTableBySql("*", "  WHERE A.ID IN"+iDList, "(SELECT  PRODUCTID as ID ,PRODUCTNO as NO ,[VERSION]  ,'产品' as Type FROM [drugshop].[dbo].[PDM_ALL_PRODUCT]UNION ALL SELECT MATERIALID as id  ,MATERIALNO as NO,[VERSION] ,'物料' type FROM [drugshop].[dbo].[PDM_MATERAIL]) A");
+            DataTable dtTemp = new HYDocumentMS.FileHelper().getDataTableBySql("*", "  WHERE A.ID IN" + iDList, "(SELECT  PRODUCTID as ID ,PRODUCTNO as NO ,[VERSION]  ,'产品' as Type FROM [drugshop].[dbo].[PDM_ALL_PRODUCT]UNION ALL SELECT MATERIALID as id  ,MATERIALNO as NO,[VERSION] ,'物料' type FROM [drugshop].[dbo].[PDM_MATERAIL]) A");
             FrmShowSelectedObject FrmSelView = new FrmShowSelectedObject();
             FrmSelView.DtDataList = dtTemp;
             FrmSelView.ShowDialog();
@@ -211,11 +216,18 @@ namespace HYPDM.WinUI.Document
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == MessageBox.Show("关闭后刚才选中的信息将不被保存，请确认是否继续!", "讯息", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2))
+            if (this.ListObjectRelation != null && this.ListObjectRelation.Count != 0)
+            {
+                if (DialogResult.OK == MessageBox.Show("关闭后刚才选中的信息将不被保存，请确认是否继续!", "讯息", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2))
+                {
+                    this.Close();
+                }
+            }
+            else
             {
                 this.Close();
             }
- 
+
         }
 
         private void btnQuery_Click(object sender, EventArgs e)
@@ -241,7 +253,7 @@ namespace HYPDM.WinUI.Document
                     //dt = (DataTable)this.dGVProduct.DataSource;
                     //this.dGVProduct.DataSource = dt.Select("PRODUCTNO='{0}'",this.txtValue.Text.ToString());
 
-                    this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM [drugshop].[dbo].[ObjectRelation] WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND PRODUCTNO LIKE '%"+this.txtValue.Text.ToString()+"%'","PDM_ALL_PRODUCT");
+                    this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM [drugshop].[dbo].[ObjectRelation] WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND PRODUCTNO LIKE '%" + this.txtValue.Text.ToString() + "%'", "PDM_ALL_PRODUCT");
                 }
                 else if (this.combQueryType.Text == "物料")
                 {

@@ -44,7 +44,8 @@
             this.del_Memu_Product = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.conf_Menu_Product = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgv_ProductList = new System.Windows.Forms.DataGridView();
+          //  this.dgv_ProductList = new System.Windows.Forms.DataGridView();
+            this.dgv_ProductList = new HYPDM.BaseControl.DataGridViewExt();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();

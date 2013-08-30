@@ -29,12 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvExt = new HYPDM.BaseControl.DataGridViewExt();
+            this.COMBTYPE1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COMBDESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COMBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COMBTEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COMBVALUE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tspModify = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
@@ -51,23 +58,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.dgvExt = new HYPDM.BaseControl.DataGridViewExt();
-            this.COMBTYPE1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COMBDESC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COMBID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COMBTEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COMBVALUE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExt)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvExt)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -84,6 +90,11 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.splitContainer1.Panel2.Controls.Add(this.label12);
+            this.splitContainer1.Panel2.Controls.Add(this.label11);
+            this.splitContainer1.Panel2.Controls.Add(this.label10);
+            this.splitContainer1.Panel2.Controls.Add(this.label9);
+            this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Size = new System.Drawing.Size(923, 545);
             this.splitContainer1.SplitterDistance = 245;
             this.splitContainer1.TabIndex = 0;
@@ -110,6 +121,79 @@
             this.panel1.Size = new System.Drawing.Size(917, 225);
             this.panel1.TabIndex = 0;
             // 
+            // dgvExt
+            // 
+            this.dgvExt.AllowUserToAddRows = false;
+            this.dgvExt.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgvExt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvExt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.COMBTYPE1,
+            this.COMBDESC,
+            this.COMBID,
+            this.COMBTEXT,
+            this.COMBVALUE});
+            this.dgvExt.ContextMenuStrip = this.contextMenuStrip1;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvExt.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvExt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvExt.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgvExt.Location = new System.Drawing.Point(443, 0);
+            this.dgvExt.Name = "dgvExt";
+            this.dgvExt.ReadOnly = true;
+            this.dgvExt.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvExt.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvExt.RowTemplate.Height = 23;
+            this.dgvExt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvExt.Size = new System.Drawing.Size(474, 203);
+            this.dgvExt.TabIndex = 3;
+            this.dgvExt.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExt_CellDoubleClick_1);
+            // 
+            // COMBTYPE1
+            // 
+            this.COMBTYPE1.DataPropertyName = "COMBTYPE";
+            this.COMBTYPE1.HeaderText = "类型";
+            this.COMBTYPE1.Name = "COMBTYPE1";
+            this.COMBTYPE1.ReadOnly = true;
+            // 
+            // COMBDESC
+            // 
+            this.COMBDESC.DataPropertyName = "COMBDESC";
+            this.COMBDESC.HeaderText = "备注";
+            this.COMBDESC.Name = "COMBDESC";
+            this.COMBDESC.ReadOnly = true;
+            this.COMBDESC.Width = 180;
+            // 
+            // COMBID
+            // 
+            this.COMBID.DataPropertyName = "COMBID";
+            this.COMBID.HeaderText = "COMBID";
+            this.COMBID.Name = "COMBID";
+            this.COMBID.ReadOnly = true;
+            this.COMBID.Visible = false;
+            // 
+            // COMBTEXT
+            // 
+            this.COMBTEXT.DataPropertyName = "COMBTEXT";
+            this.COMBTEXT.HeaderText = "文本值";
+            this.COMBTEXT.Name = "COMBTEXT";
+            this.COMBTEXT.ReadOnly = true;
+            this.COMBTEXT.Width = 150;
+            // 
+            // COMBVALUE
+            // 
+            this.COMBVALUE.DataPropertyName = "COMBVALUE";
+            this.COMBVALUE.HeaderText = "Value值";
+            this.COMBVALUE.Name = "COMBVALUE";
+            this.COMBVALUE.ReadOnly = true;
+            this.COMBVALUE.Width = 120;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -123,6 +207,14 @@
             this.tspModify.Size = new System.Drawing.Size(100, 22);
             this.tspModify.Text = "修改";
             this.tspModify.Click += new System.EventHandler(this.tspModify_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(443, 203);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(474, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // panel2
             // 
@@ -281,84 +373,55 @@
             this.txtDesc.Size = new System.Drawing.Size(169, 21);
             this.txtDesc.TabIndex = 24;
             // 
-            // statusStrip1
+            // label8
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(443, 203);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(474, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(42, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(377, 12);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "本界面主要用与界面功能下拉框值的设定，方便用户添加新的分类信息";
             // 
-            // dgvExt
+            // label9
             // 
-            this.dgvExt.AllowUserToAddRows = false;
-            this.dgvExt.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dgvExt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.COMBTYPE1,
-            this.COMBDESC,
-            this.COMBID,
-            this.COMBTEXT,
-            this.COMBVALUE});
-            this.dgvExt.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvExt.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvExt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvExt.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgvExt.Location = new System.Drawing.Point(443, 0);
-            this.dgvExt.Name = "dgvExt";
-            this.dgvExt.ReadOnly = true;
-            this.dgvExt.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dgvExt.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dgvExt.RowTemplate.Height = 23;
-            this.dgvExt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExt.Size = new System.Drawing.Size(474, 203);
-            this.dgvExt.TabIndex = 3;
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(108, 97);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(395, 12);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "1、在左边模块，可以选择已经有的类型添加子项，也可以新增一个大分类";
             // 
-            // COMBTYPE1
+            // label10
             // 
-            this.COMBTYPE1.DataPropertyName = "COMBTYPE";
-            this.COMBTYPE1.HeaderText = "类型";
-            this.COMBTYPE1.Name = "COMBTYPE1";
-            this.COMBTYPE1.ReadOnly = true;
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(108, 133);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(227, 12);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "2、右边Grid主要用来显示已有的记录信息";
             // 
-            // COMBDESC
+            // label11
             // 
-            this.COMBDESC.DataPropertyName = "COMBDESC";
-            this.COMBDESC.HeaderText = "备注";
-            this.COMBDESC.Name = "COMBDESC";
-            this.COMBDESC.ReadOnly = true;
-            this.COMBDESC.Width = 180;
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(108, 169);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(497, 12);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "3、在右边数据显示的grid中，双击选中的记录，会弹出修改对话框,可以对此信息进行修改。";
             // 
-            // COMBID
+            // label12
             // 
-            this.COMBID.DataPropertyName = "COMBID";
-            this.COMBID.HeaderText = "COMBID";
-            this.COMBID.Name = "COMBID";
-            this.COMBID.ReadOnly = true;
-            this.COMBID.Visible = false;
-            // 
-            // COMBTEXT
-            // 
-            this.COMBTEXT.DataPropertyName = "COMBTEXT";
-            this.COMBTEXT.HeaderText = "文本值";
-            this.COMBTEXT.Name = "COMBTEXT";
-            this.COMBTEXT.ReadOnly = true;
-            this.COMBTEXT.Width = 150;
-            // 
-            // COMBVALUE
-            // 
-            this.COMBVALUE.DataPropertyName = "COMBVALUE";
-            this.COMBVALUE.HeaderText = "Value值";
-            this.COMBVALUE.Name = "COMBVALUE";
-            this.COMBVALUE.ReadOnly = true;
-            this.COMBVALUE.Width = 120;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(139, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(304, 16);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "【此界面主要为企业运维/开发人员使用】";
             // 
             // ComboboxValueControl
             // 
@@ -368,18 +431,20 @@
             this.Name = "ComboboxValueControl";
             this.Size = new System.Drawing.Size(923, 545);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExt)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvExt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -414,6 +479,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn COMBID;
         private System.Windows.Forms.DataGridViewTextBoxColumn COMBTEXT;
         private System.Windows.Forms.DataGridViewTextBoxColumn COMBVALUE;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
 
     }
 }
