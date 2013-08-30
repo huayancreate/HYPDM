@@ -116,8 +116,8 @@ namespace HYDocumentMS
             {
                 fileNode = new TreeNode();
                 fileNode.Text = fileRow["DFL_FILE_NAME"].ToString();
-                //fileNode.Tag = fileRow["DFL_ID"].ToString();
-                fileNode.Tag = fileRow;
+                fileNode.Tag = fileRow["DFL_ID"].ToString();
+                //fileNode.Tag = fileRow;
                 node.Nodes.Add(fileNode);
             }
 

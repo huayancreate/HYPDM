@@ -51,15 +51,14 @@ namespace HYDocumentMS
         /// </summary>
         private void IniEvent()
         {
+            InitialEvent();
+        }
+        private void InitialEvent()
+        {
             this.trvDocumentList.Nodes.Clear();
             fileHelper = new FileHelper();
             fileHelper.getTreeViewByDocFileList(this.trvDocumentList, fileHelper.getDocFileList(true));
             trvDocumentList.ExpandAll();
-        }
-        private void trvDocumentList_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-
-
         }
         TreeNode nodeTemp;
         private void ToolS_FolderAdd_Click(object sender, EventArgs e)
@@ -135,19 +134,22 @@ namespace HYDocumentMS
         string filepath = "";
         private void trvDocumentList_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.Nodes.Count == 0 && e.Node.Parent != null && e.Node.Text.IndexOf(@".") > -1)  //说明是子文件
-            {
-                DataRow row = (DataRow)e.Node.Tag;
-                filepath = fileHelper.getDocumentAllPathByPathID(row["DFL_FILE_CHILD_PATH"].ToString());
-                //MessageBox.Show("你单击了文件:" + row["DFL_FILE_NAME"].ToString() + "filepath:" + filepath);
-                filepath += row["DFL_FILE_NAME"].ToString();
-                //  MessageBox.Show("你打开了文件:" + filepath);
-                this.webB.Navigate(filepath);
-            }
-            else
-            {
-                //MessageBox.Show("你点击的是文件目录并非是文件");
-            }
+            //if (e.Node.Nodes.Count == 0 && e.Node.Parent != null && e.Node.Text.IndexOf(@".") > -1)  //说明是子文件
+            //{
+            //   // DataRow row = (DataRow)e.Node.Tag;
+            //   // filepath = fileHelper.getDocumentAllPathByPathID(row["DFL_FILE_CHILD_PATH"].ToString());
+            //    filepath = fileHelper.getDocumentAllPathByFileID(e.Node.Tag.ToString());
+            //    //MessageBox.Show("你单击了文件:" + row["DFL_FILE_NAME"].ToString() + "filepath:" + filepath);
+            //    filepath += e.Node.Text.ToString();
+            //    //  filepath += row["DFL_FILE_NAME"].ToString();
+            //    //  MessageBox.Show("你打开了文件:" + filepath);
+            //    filepath = @"F:\12.docx";
+            //    this.webB.Navigate(filepath);
+            //}
+            //else
+            //{
+            //    //MessageBox.Show("你点击的是文件目录并非是文件");
+            //}
         }
 
         private void Tool_FolderAdd_Click(object sender, EventArgs e)
@@ -262,6 +264,8 @@ namespace HYDocumentMS
 
             if (chkIsFile())
             {
+
+
                 IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
                 HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
                 Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.View, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
@@ -272,12 +276,12 @@ namespace HYDocumentMS
                 }
                 if (tspInView.Checked)
                 {
-                    this.webB.Navigate(@"D:\swf\Java网络编程精解.swf");
+                    this.webB.Navigate(@"D:\swf\漂亮动态ppt模板.swf");
                 }
                 else
                 {
                     ViewFileFrm fileView = new ViewFileFrm();
-                    fileView.FileName = "Java网络编程精解.swf";
+                    fileView.FileName = "漂亮动态ppt模板.swf";
                     fileView.ViewFilePath = @"D:\swf\";
                     fileView.ShowDialog();
                 }
@@ -325,9 +329,9 @@ namespace HYDocumentMS
 
         private void Tool_FindName_Click(object sender, EventArgs e)
         {
-            this.panel_Find.Visible = true;
-            this.TxtFName.Focus();
-            this.TxtFName.SelectAll();
+            //this.panel_Find.Visible = true;
+            //this.txtName.Focus();
+            //this.txtName.SelectAll();
         }
 
         private void tspFileDownLoad_Click(object sender, EventArgs e)
@@ -428,7 +432,169 @@ namespace HYDocumentMS
 
         }
 
+        private void pnlFind_Click(object sender, EventArgs e)
+        {
+            StringBuilder stbQuery = new StringBuilder();
+            //stbQuery.Append("SELECT DFL_ID,DFL_FILE_NAME,DFL_FILE_EXTEND,DFL_FILE_CHILD_PATH");
+            //stbQuery.Append(" FROM DOC_FILE_LIST");
+            stbQuery.Append("WHERE DEL_FLAG='N'");
+            CheckBox chkAll = null;
+            StringBuilder strFileExt = new StringBuilder();
+            if (this.chkFileType.Checked == true)
+            {
+                foreach (Control ctl in this.pnlFileExt.Controls)
+                {
+                    // MessageBox.Show(ctl.GetType().Name.ToString());
+                    if (ctl.GetType().Name.ToString() == "CheckBox")
+                    {
+                        if (((CheckBox)ctl).Checked == true)
+                        {
+                            if (((CheckBox)ctl).Name == "ALL")
+                            {
+                                chkAll = (CheckBox)ctl;
+                                return;
+                            }
+                            strFileExt.Append("'").Append(((CheckBox)ctl).Name.ToString()).Append("',");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (this.txtName.Text.ToString().Trim() == "")
+                {
+                    MessageBox.Show("请输入文件名称！", "查询助手提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    this.txtName.Focus();
+                    return;
+                }
+            }
+
+            if (this.txtName.Text.ToString().Trim() != "")
+            {
+                stbQuery.Append(" AND DFL_FILE_NAME LIKE '").Append("%").Append(this.txtName.Text).Append("%'");
+            }
+
+            if (this.chkFileType.Checked == true)
+            {
+                if (chkAll != null && chkAll.Name.ToString() == "ALL")
+                {
+                    //为ALL标识不区分后缀
+                }
+                else
+                {
+                    if (strFileExt == null || strFileExt.Length == 0)
+                    {
+                        MessageBox.Show("请选择文件类别！", "查询助手提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    else
+                    {
+                        strFileExt.Remove(strFileExt.Length - 1, 1);
+                        strFileExt.Insert(0, "(").Append(")");
+                        stbQuery.Append(" AND upper(DFL_FILE_EXTEND) IN ").Append(strFileExt.ToString());
+                    }
+                }
+            }
+            //MessageBox.Show(strFileExt.ToString());
+            //stbQuery.Append(" AND upper(DFL_FILE_EXTEND) IN ").Append(strFileExt.ToString());
+            //查询生成树
+            DataTable dtDocFileList = new FileHelper().getDataTableBySql("DFL_ID,DFL_FILE_NAME,DFL_FILE_EXTEND,DFL_FILE_CHILD_PATH", stbQuery.ToString(), "DOC_FILE_LIST");
+            if (dtDocFileList.Rows.Count == 0)
+            {
+                MessageBox.Show("没有查询到你需要的信息!！", "查询助手提示您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                this.trvDocumentList.Nodes.Clear();
+                return;
+            }
+            this.trvDocumentList.Nodes.Clear();
+            fileHelper.getTreeViewByDocFileList(this.trvDocumentList, dtDocFileList);
+            trvDocumentList.ExpandAll();
 
 
+
+            //}
+        }
+
+        private void Tool_FindName_CheckedChanged(object sender, EventArgs e)
+        {
+            //  MessageBox.Show(Tool_FindName.Checked.ToString());
+            if (Tool_FindName.Checked == true)
+            {
+                this.panel_Find.Visible = true;
+            }
+            else
+            {
+                this.panel_Find.Visible = false;
+                this.txtName.Text = "";
+            }
+        }
+
+        private void chkFileType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chkFileType.Checked == true)
+            {
+                this.pnlFileExt.Visible = true;
+                this.panel_Find.Height += 119;
+                setCheckFileType();
+            }
+            else
+            {
+                this.pnlFileExt.Visible = false;
+                this.panel_Find.Height -= this.pnlFileExt.Height;
+            }
+        }
+        //自动生成文件类型的选项
+        private void setCheckFileType()
+        {
+
+            DataTable dtTemp = new FileHelper().getDataTableBySql("distinct upper(DFL_FILE_EXTEND) as ext", "", "DOC_FILE_LIST ORDER BY EXT ASC");
+            if (dtTemp != null && dtTemp.Rows.Count > 0)
+            {
+                ///添加checkbox控件
+                CheckBox chkBoxExt = null;
+                int x = 15;
+                int y = 19;
+                int count = 1;
+                chkBoxExt = new CheckBox();
+                chkBoxExt.Location = new System.Drawing.Point(x, y);
+                chkBoxExt.Name = "ALL";
+                chkBoxExt.Size = new System.Drawing.Size(78, 16);
+                chkBoxExt.Text = "ALL";
+                chkBoxExt.UseVisualStyleBackColor = true;
+                chkBoxExt.Visible = true;
+                chkBoxExt.Checked = false;
+                this.pnlFileExt.Controls.Add(chkBoxExt);
+                x += 90;
+                foreach (DataRow row in dtTemp.Rows)
+                {
+                    chkBoxExt = new CheckBox();
+
+                    chkBoxExt.Location = new System.Drawing.Point(x, y);
+                    chkBoxExt.Name = row["ext"].ToString();
+                    chkBoxExt.Size = new System.Drawing.Size(78, 16);
+                    chkBoxExt.Text = row["ext"].ToString();
+                    chkBoxExt.UseVisualStyleBackColor = true;
+                    chkBoxExt.Visible = true;
+
+                    count += 1;
+                    if (count % 3 == 0)
+                    {
+                        x = 15;
+                        y += 28;
+                    }
+                    else
+                    {
+                        x += 90;
+                    }
+                    this.pnlFileExt.Controls.Add(chkBoxExt);
+                }
+            }
+            this.txtName.Focus();
+            this.txtName.SelectAll();
+        }
+
+        private void tspRefresh_Click(object sender, EventArgs e)
+        {
+            InitialEvent();
+        }
     }
 }
