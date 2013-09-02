@@ -35,7 +35,7 @@ namespace HYDocumentMS.FileAuth
 
             initial();
             //DataTable
-
+            webBrowser1.Navigate(Application.StartupPath +"\\"+ "文件权限管理V1.0.swf");
             ucPaging1.SourceDataGridView = this.dGVUsers;
 
         }
