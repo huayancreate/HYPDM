@@ -30,16 +30,49 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tsToolbar = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDocAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tbcContent = new System.Windows.Forms.TabControl();
             this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.tpParts = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabProduct = new System.Windows.Forms.TabPage();
+            this.dGVProduct = new HYPDM.BaseControl.DataGridViewExt();
+            this.PRODUCTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODELTYPE1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCTTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCTLEVEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VERSION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATER1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODIFIER1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATETIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODIFYTIME1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEMO_ZH1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEMO_EN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEMO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabMaterial = new System.Windows.Forms.TabPage();
+            this.dgvMaterial = new HYPDM.BaseControl.DataGridViewExt();
+            this.MATERIALID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MATERIALNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODELTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MATERIALTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RAWMATERIAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MATERIALSRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODIFIER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CTREATETIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODIFYTIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEMO_ZH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEMO_EN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.新建关联对象ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.产品零部件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +94,9 @@
             this.DFL_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsp = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnRegPhysicalFile = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tspDownLoad = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.tpVersion = new System.Windows.Forms.TabPage();
             this.txtVer = new System.Windows.Forms.TextBox();
@@ -84,11 +119,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmPhysical = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnView = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFileDown = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCheckIN = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCheckOut = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDel = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new AdvancedDataGridView.TreeGridColumn();
             this.Column3 = new AdvancedDataGridView.TreeGridColumn();
@@ -102,49 +140,16 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDocAdd = new System.Windows.Forms.ToolStripButton();
-            this.btnRegPhysicalFile = new System.Windows.Forms.ToolStripButton();
-            this.tspDownLoad = new System.Windows.Forms.ToolStripButton();
-            this.btnView = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnFileDown = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnDel = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabProduct = new System.Windows.Forms.TabPage();
-            this.tabMaterial = new System.Windows.Forms.TabPage();
-            this.dgvMaterial = new HYPDM.BaseControl.DataGridViewExt();
-            this.MATERIALID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MATERIALNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MODELTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MATERIALTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RAWMATERIAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MATERIALSRC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CREATER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MODIFIER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CTREATETIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MODIFYTIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MEMO_ZH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MEMO_EN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dGVProduct = new HYPDM.BaseControl.DataGridViewExt();
-            this.PRODUCTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MODELTYPE1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCTTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCTLEVEL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VERSION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CREATER1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MODIFIER1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CREATETIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MODIFYTIME1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MEMO_ZH1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MEMO_EN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MEMO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             this.tbcContent.SuspendLayout();
             this.tpRemark.SuspendLayout();
             this.tpParts.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVProduct)).BeginInit();
+            this.tabMaterial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tpFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tvFileList)).BeginInit();
@@ -153,11 +158,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.cmPhysical.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tabProduct.SuspendLayout();
-            this.tabMaterial.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -187,6 +187,16 @@
             // 
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnDocAdd
+            // 
+            this.btnDocAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocAdd.Image")));
+            this.btnDocAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDocAdd.Name = "btnDocAdd";
+            this.btnDocAdd.Size = new System.Drawing.Size(76, 22);
+            this.btnDocAdd.Text = "记录保存";
+            this.btnDocAdd.ToolTipText = "保存或修改一个新的基础数据记录。";
+            this.btnDocAdd.Click += new System.EventHandler(this.btnDocAdd_Click);
             // 
             // toolStripSeparator1
             // 
@@ -236,6 +246,286 @@
             this.tpParts.TabIndex = 3;
             this.tpParts.Text = "产品零部件";
             this.tpParts.UseVisualStyleBackColor = true;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabProduct);
+            this.tabControl2.Controls.Add(this.tabMaterial);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(0, 25);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(634, 306);
+            this.tabControl2.TabIndex = 12;
+            // 
+            // tabProduct
+            // 
+            this.tabProduct.Controls.Add(this.dGVProduct);
+            this.tabProduct.Location = new System.Drawing.Point(4, 22);
+            this.tabProduct.Name = "tabProduct";
+            this.tabProduct.Padding = new System.Windows.Forms.Padding(3);
+            this.tabProduct.Size = new System.Drawing.Size(626, 280);
+            this.tabProduct.TabIndex = 0;
+            this.tabProduct.Text = "产品";
+            this.tabProduct.UseVisualStyleBackColor = true;
+            // 
+            // dGVProduct
+            // 
+            this.dGVProduct.AllowUserToAddRows = false;
+            this.dGVProduct.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dGVProduct.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dGVProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PRODUCTID,
+            this.PRODUCTNO,
+            this.MODELTYPE1,
+            this.PRODUCTTYPE,
+            this.PRODUCTLEVEL,
+            this.VERSION1,
+            this.STATUS,
+            this.CREATER1,
+            this.MODIFIER1,
+            this.CREATETIME,
+            this.MODIFYTIME1,
+            this.MEMO_ZH1,
+            this.MEMO_EN1,
+            this.MEMO});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVProduct.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dGVProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dGVProduct.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dGVProduct.Location = new System.Drawing.Point(3, 3);
+            this.dGVProduct.Name = "dGVProduct";
+            this.dGVProduct.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dGVProduct.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dGVProduct.RowTemplate.Height = 23;
+            this.dGVProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGVProduct.Size = new System.Drawing.Size(620, 274);
+            this.dGVProduct.TabIndex = 2;
+            // 
+            // PRODUCTID
+            // 
+            this.PRODUCTID.DataPropertyName = "PRODUCTID";
+            this.PRODUCTID.Frozen = true;
+            this.PRODUCTID.HeaderText = "PRODUCTID";
+            this.PRODUCTID.Name = "PRODUCTID";
+            this.PRODUCTID.Visible = false;
+            // 
+            // PRODUCTNO
+            // 
+            this.PRODUCTNO.DataPropertyName = "PRODUCTNO";
+            this.PRODUCTNO.Frozen = true;
+            this.PRODUCTNO.HeaderText = "产品NO";
+            this.PRODUCTNO.Name = "PRODUCTNO";
+            // 
+            // MODELTYPE1
+            // 
+            this.MODELTYPE1.DataPropertyName = "MODELTYPE";
+            this.MODELTYPE1.HeaderText = "MODELTYPE";
+            this.MODELTYPE1.Name = "MODELTYPE1";
+            // 
+            // PRODUCTTYPE
+            // 
+            this.PRODUCTTYPE.DataPropertyName = "PRODUCTTYPE";
+            this.PRODUCTTYPE.HeaderText = "PRODUCTTYPE";
+            this.PRODUCTTYPE.Name = "PRODUCTTYPE";
+            // 
+            // PRODUCTLEVEL
+            // 
+            this.PRODUCTLEVEL.DataPropertyName = "PRODUCTLEVEL";
+            this.PRODUCTLEVEL.HeaderText = "PRODUCTLEVEL";
+            this.PRODUCTLEVEL.Name = "PRODUCTLEVEL";
+            // 
+            // VERSION1
+            // 
+            this.VERSION1.DataPropertyName = "VERSION";
+            this.VERSION1.HeaderText = "版本";
+            this.VERSION1.Name = "VERSION1";
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "STATUS";
+            this.STATUS.Name = "STATUS";
+            // 
+            // CREATER1
+            // 
+            this.CREATER1.DataPropertyName = "CREATER";
+            this.CREATER1.HeaderText = "CREATER";
+            this.CREATER1.Name = "CREATER1";
+            // 
+            // MODIFIER1
+            // 
+            this.MODIFIER1.DataPropertyName = "MODIFIER";
+            this.MODIFIER1.HeaderText = "MODIFIER";
+            this.MODIFIER1.Name = "MODIFIER1";
+            // 
+            // CREATETIME
+            // 
+            this.CREATETIME.DataPropertyName = "CREATETIME";
+            this.CREATETIME.HeaderText = "创建时间";
+            this.CREATETIME.Name = "CREATETIME";
+            // 
+            // MODIFYTIME1
+            // 
+            this.MODIFYTIME1.DataPropertyName = "MODIFYTIME";
+            this.MODIFYTIME1.HeaderText = "修改时间";
+            this.MODIFYTIME1.Name = "MODIFYTIME1";
+            // 
+            // MEMO_ZH1
+            // 
+            this.MEMO_ZH1.DataPropertyName = "MEMO_ZH";
+            this.MEMO_ZH1.HeaderText = "MEMO_ZH";
+            this.MEMO_ZH1.Name = "MEMO_ZH1";
+            // 
+            // MEMO_EN1
+            // 
+            this.MEMO_EN1.DataPropertyName = "MEMO_EN";
+            this.MEMO_EN1.HeaderText = "MEMO_EN";
+            this.MEMO_EN1.Name = "MEMO_EN1";
+            // 
+            // MEMO
+            // 
+            this.MEMO.DataPropertyName = "MEMO";
+            this.MEMO.HeaderText = "MEMO";
+            this.MEMO.Name = "MEMO";
+            // 
+            // tabMaterial
+            // 
+            this.tabMaterial.Controls.Add(this.dgvMaterial);
+            this.tabMaterial.Location = new System.Drawing.Point(4, 22);
+            this.tabMaterial.Name = "tabMaterial";
+            this.tabMaterial.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMaterial.Size = new System.Drawing.Size(626, 280);
+            this.tabMaterial.TabIndex = 1;
+            this.tabMaterial.Text = "物料";
+            this.tabMaterial.UseVisualStyleBackColor = true;
+            // 
+            // dgvMaterial
+            // 
+            this.dgvMaterial.AllowUserToAddRows = false;
+            this.dgvMaterial.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgvMaterial.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaterial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MATERIALID,
+            this.MATERIALNO,
+            this.MODELTYPE,
+            this.MATERIALTYPE,
+            this.RAWMATERIAL,
+            this.MATERIALSRC,
+            this.VERSION,
+            this.CREATER,
+            this.MODIFIER,
+            this.CTREATETIME,
+            this.MODIFYTIME,
+            this.MEMO_ZH,
+            this.MEMO_EN});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvMaterial.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgvMaterial.Location = new System.Drawing.Point(3, 3);
+            this.dgvMaterial.Name = "dgvMaterial";
+            this.dgvMaterial.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvMaterial.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvMaterial.RowTemplate.Height = 23;
+            this.dgvMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMaterial.Size = new System.Drawing.Size(620, 274);
+            this.dgvMaterial.TabIndex = 3;
+            // 
+            // MATERIALID
+            // 
+            this.MATERIALID.DataPropertyName = "MATERIALID";
+            this.MATERIALID.Frozen = true;
+            this.MATERIALID.HeaderText = "物料主键";
+            this.MATERIALID.Name = "MATERIALID";
+            this.MATERIALID.Visible = false;
+            // 
+            // MATERIALNO
+            // 
+            this.MATERIALNO.DataPropertyName = "MATERIALNO";
+            this.MATERIALNO.Frozen = true;
+            this.MATERIALNO.HeaderText = "物料号";
+            this.MATERIALNO.Name = "MATERIALNO";
+            // 
+            // MODELTYPE
+            // 
+            this.MODELTYPE.DataPropertyName = "MODELTYPE";
+            this.MODELTYPE.HeaderText = "MODELTYPE";
+            this.MODELTYPE.Name = "MODELTYPE";
+            // 
+            // MATERIALTYPE
+            // 
+            this.MATERIALTYPE.DataPropertyName = "MATERIALTYPE";
+            this.MATERIALTYPE.HeaderText = "MATERIALTYPE";
+            this.MATERIALTYPE.Name = "MATERIALTYPE";
+            // 
+            // RAWMATERIAL
+            // 
+            this.RAWMATERIAL.DataPropertyName = "RAWMATERIAL";
+            this.RAWMATERIAL.HeaderText = "RAWMATERIAL";
+            this.RAWMATERIAL.Name = "RAWMATERIAL";
+            // 
+            // MATERIALSRC
+            // 
+            this.MATERIALSRC.DataPropertyName = "MATERIALSRC";
+            this.MATERIALSRC.HeaderText = "MATERIALSRC";
+            this.MATERIALSRC.Name = "MATERIALSRC";
+            // 
+            // VERSION
+            // 
+            this.VERSION.DataPropertyName = "VERSION";
+            this.VERSION.HeaderText = "版本";
+            this.VERSION.Name = "VERSION";
+            // 
+            // CREATER
+            // 
+            this.CREATER.DataPropertyName = "CREATER";
+            this.CREATER.HeaderText = "CREATER";
+            this.CREATER.Name = "CREATER";
+            // 
+            // MODIFIER
+            // 
+            this.MODIFIER.DataPropertyName = "MODIFIER";
+            this.MODIFIER.HeaderText = "MODIFIER";
+            this.MODIFIER.Name = "MODIFIER";
+            // 
+            // CTREATETIME
+            // 
+            this.CTREATETIME.DataPropertyName = "CTREATETIME";
+            this.CTREATETIME.HeaderText = "CTREATETIME";
+            this.CTREATETIME.Name = "CTREATETIME";
+            // 
+            // MODIFYTIME
+            // 
+            this.MODIFYTIME.DataPropertyName = "MODIFYTIME";
+            this.MODIFYTIME.HeaderText = "MODIFYTIME";
+            this.MODIFYTIME.Name = "MODIFYTIME";
+            // 
+            // MEMO_ZH
+            // 
+            this.MEMO_ZH.DataPropertyName = "MEMO_ZH";
+            this.MEMO_ZH.HeaderText = "MEMO_ZH";
+            this.MEMO_ZH.Name = "MEMO_ZH";
+            // 
+            // MEMO_EN
+            // 
+            this.MEMO_EN.DataPropertyName = "MEMO_EN";
+            this.MEMO_EN.HeaderText = "MEMO_EN";
+            this.MEMO_EN.Name = "MEMO_EN";
             // 
             // menuStrip1
             // 
@@ -428,10 +718,29 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // btnRegPhysicalFile
+            // 
+            this.btnRegPhysicalFile.Image = ((System.Drawing.Image)(resources.GetObject("btnRegPhysicalFile.Image")));
+            this.btnRegPhysicalFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRegPhysicalFile.Name = "btnRegPhysicalFile";
+            this.btnRegPhysicalFile.Size = new System.Drawing.Size(76, 22);
+            this.btnRegPhysicalFile.Text = "文件注册";
+            this.btnRegPhysicalFile.ToolTipText = "管理文档的物理文件。";
+            this.btnRegPhysicalFile.Click += new System.EventHandler(this.btnRegPhysicalFile_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tspDownLoad
+            // 
+            this.tspDownLoad.Image = ((System.Drawing.Image)(resources.GetObject("tspDownLoad.Image")));
+            this.tspDownLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspDownLoad.Name = "tspDownLoad";
+            this.tspDownLoad.Size = new System.Drawing.Size(76, 22);
+            this.tspDownLoad.Text = "文件下载";
+            this.tspDownLoad.Click += new System.EventHandler(this.tspDownLoad_Click);
             // 
             // toolStripButton3
             // 
@@ -499,17 +808,17 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(67, 202);
+            this.txtDescription.Location = new System.Drawing.Point(57, 72);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(150, 55);
+            this.txtDescription.Size = new System.Drawing.Size(150, 36);
             this.txtDescription.TabIndex = 18;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(32, 206);
+            this.label3.Location = new System.Drawing.Point(22, 76);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 19;
@@ -517,8 +826,9 @@
             // 
             // txtCreateUser
             // 
+            this.txtCreateUser.BackColor = System.Drawing.Color.LightCyan;
             this.txtCreateUser.Enabled = false;
-            this.txtCreateUser.Location = new System.Drawing.Point(68, 148);
+            this.txtCreateUser.Location = new System.Drawing.Point(58, 197);
             this.txtCreateUser.Name = "txtCreateUser";
             this.txtCreateUser.Size = new System.Drawing.Size(149, 21);
             this.txtCreateUser.TabIndex = 16;
@@ -527,7 +837,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(11, 152);
+            this.label4.Location = new System.Drawing.Point(1, 201);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 17;
@@ -537,46 +847,50 @@
             // 
             this.cobDocType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cobDocType.FormattingEnabled = true;
-            this.cobDocType.Location = new System.Drawing.Point(68, 46);
+            this.cobDocType.Location = new System.Drawing.Point(58, 46);
             this.cobDocType.Name = "cobDocType";
             this.cobDocType.Size = new System.Drawing.Size(149, 20);
             this.cobDocType.TabIndex = 2;
             // 
             // txtStatus
             // 
+            this.txtStatus.BackColor = System.Drawing.Color.LightCyan;
             this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(67, 71);
+            this.txtStatus.Location = new System.Drawing.Point(57, 120);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(150, 21);
             this.txtStatus.TabIndex = 4;
             // 
             // txtCreateDate
             // 
+            this.txtCreateDate.BackColor = System.Drawing.Color.LightCyan;
             this.txtCreateDate.Enabled = false;
-            this.txtCreateDate.Location = new System.Drawing.Point(68, 175);
+            this.txtCreateDate.Location = new System.Drawing.Point(58, 224);
             this.txtCreateDate.Name = "txtCreateDate";
             this.txtCreateDate.Size = new System.Drawing.Size(149, 21);
             this.txtCreateDate.TabIndex = 6;
             // 
             // txtUpdateDate
             // 
+            this.txtUpdateDate.BackColor = System.Drawing.Color.LightCyan;
             this.txtUpdateDate.Enabled = false;
-            this.txtUpdateDate.Location = new System.Drawing.Point(68, 122);
+            this.txtUpdateDate.Location = new System.Drawing.Point(58, 171);
             this.txtUpdateDate.Name = "txtUpdateDate";
             this.txtUpdateDate.Size = new System.Drawing.Size(149, 21);
             this.txtUpdateDate.TabIndex = 7;
             // 
             // txtUpdateUser
             // 
+            this.txtUpdateUser.BackColor = System.Drawing.Color.LightCyan;
             this.txtUpdateUser.Enabled = false;
-            this.txtUpdateUser.Location = new System.Drawing.Point(67, 97);
+            this.txtUpdateUser.Location = new System.Drawing.Point(57, 146);
             this.txtUpdateUser.Name = "txtUpdateUser";
             this.txtUpdateUser.Size = new System.Drawing.Size(150, 21);
             this.txtUpdateUser.TabIndex = 5;
             // 
             // txtDocNo
             // 
-            this.txtDocNo.Location = new System.Drawing.Point(67, 22);
+            this.txtDocNo.Location = new System.Drawing.Point(57, 22);
             this.txtDocNo.Name = "txtDocNo";
             this.txtDocNo.Size = new System.Drawing.Size(150, 21);
             this.txtDocNo.TabIndex = 1;
@@ -585,7 +899,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(10, 126);
+            this.label8.Location = new System.Drawing.Point(0, 175);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 15;
@@ -595,7 +909,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(11, 179);
+            this.label7.Location = new System.Drawing.Point(1, 228);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 14;
@@ -605,7 +919,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(32, 75);
+            this.label6.Location = new System.Drawing.Point(22, 124);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 12);
             this.label6.TabIndex = 12;
@@ -615,7 +929,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(22, 101);
+            this.label5.Location = new System.Drawing.Point(12, 150);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 13;
@@ -625,7 +939,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(10, 50);
+            this.label2.Location = new System.Drawing.Point(0, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 10;
@@ -635,7 +949,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(33, 27);
+            this.label1.Location = new System.Drawing.Point(23, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 9;
@@ -654,6 +968,22 @@
             this.btnDel});
             this.cmPhysical.Name = "contextMenuStrip1";
             this.cmPhysical.Size = new System.Drawing.Size(125, 148);
+            // 
+            // btnView
+            // 
+            this.btnView.Image = global::HYPDM.WinUI.Properties.Resources.view;
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(124, 22);
+            this.btnView.Text = "查看";
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnFileDown
+            // 
+            this.btnFileDown.Image = global::HYPDM.WinUI.Properties.Resources.download;
+            this.btnFileDown.Name = "btnFileDown";
+            this.btnFileDown.Size = new System.Drawing.Size(124, 22);
+            this.btnFileDown.Text = "文件下载";
+            this.btnFileDown.Click += new System.EventHandler(this.btnFileDown_Click);
             // 
             // toolStripSeparator4
             // 
@@ -685,6 +1015,14 @@
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(121, 6);
+            // 
+            // btnDel
+            // 
+            this.btnDel.Image = global::HYPDM.WinUI.Properties.Resources.delete;
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(124, 22);
+            this.btnDel.Text = "删除文件";
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // Column1
             // 
@@ -773,339 +1111,6 @@
             this.Column16.Name = "Column16";
             this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // btnDocAdd
-            // 
-            this.btnDocAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocAdd.Image")));
-            this.btnDocAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDocAdd.Name = "btnDocAdd";
-            this.btnDocAdd.Size = new System.Drawing.Size(76, 22);
-            this.btnDocAdd.Text = "记录保存";
-            this.btnDocAdd.ToolTipText = "保存或修改一个新的基础数据记录。";
-            this.btnDocAdd.Click += new System.EventHandler(this.btnDocAdd_Click);
-            // 
-            // btnRegPhysicalFile
-            // 
-            this.btnRegPhysicalFile.Image = ((System.Drawing.Image)(resources.GetObject("btnRegPhysicalFile.Image")));
-            this.btnRegPhysicalFile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRegPhysicalFile.Name = "btnRegPhysicalFile";
-            this.btnRegPhysicalFile.Size = new System.Drawing.Size(76, 22);
-            this.btnRegPhysicalFile.Text = "文件注册";
-            this.btnRegPhysicalFile.ToolTipText = "管理文档的物理文件。";
-            this.btnRegPhysicalFile.Click += new System.EventHandler(this.btnRegPhysicalFile_Click);
-            // 
-            // tspDownLoad
-            // 
-            this.tspDownLoad.Image = ((System.Drawing.Image)(resources.GetObject("tspDownLoad.Image")));
-            this.tspDownLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tspDownLoad.Name = "tspDownLoad";
-            this.tspDownLoad.Size = new System.Drawing.Size(76, 22);
-            this.tspDownLoad.Text = "文件下载";
-            this.tspDownLoad.Click += new System.EventHandler(this.tspDownLoad_Click);
-            // 
-            // btnView
-            // 
-            this.btnView.Image = global::HYPDM.WinUI.Properties.Resources.view;
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(124, 22);
-            this.btnView.Text = "查看";
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // btnFileDown
-            // 
-            this.btnFileDown.Image = global::HYPDM.WinUI.Properties.Resources.download;
-            this.btnFileDown.Name = "btnFileDown";
-            this.btnFileDown.Size = new System.Drawing.Size(124, 22);
-            this.btnFileDown.Text = "文件下载";
-            this.btnFileDown.Click += new System.EventHandler(this.btnFileDown_Click);
-            // 
-            // btnDel
-            // 
-            this.btnDel.Image = global::HYPDM.WinUI.Properties.Resources.delete;
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(124, 22);
-            this.btnDel.Text = "删除文件";
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.tabProduct);
-            this.tabControl2.Controls.Add(this.tabMaterial);
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(0, 25);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(634, 306);
-            this.tabControl2.TabIndex = 12;
-            // 
-            // tabProduct
-            // 
-            this.tabProduct.Controls.Add(this.dGVProduct);
-            this.tabProduct.Location = new System.Drawing.Point(4, 22);
-            this.tabProduct.Name = "tabProduct";
-            this.tabProduct.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProduct.Size = new System.Drawing.Size(626, 280);
-            this.tabProduct.TabIndex = 0;
-            this.tabProduct.Text = "产品";
-            this.tabProduct.UseVisualStyleBackColor = true;
-            // 
-            // tabMaterial
-            // 
-            this.tabMaterial.Controls.Add(this.dgvMaterial);
-            this.tabMaterial.Location = new System.Drawing.Point(4, 22);
-            this.tabMaterial.Name = "tabMaterial";
-            this.tabMaterial.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMaterial.Size = new System.Drawing.Size(626, 280);
-            this.tabMaterial.TabIndex = 1;
-            this.tabMaterial.Text = "物料";
-            this.tabMaterial.UseVisualStyleBackColor = true;
-            // 
-            // dgvMaterial
-            // 
-            this.dgvMaterial.AllowUserToAddRows = false;
-            this.dgvMaterial.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dgvMaterial.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaterial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MATERIALID,
-            this.MATERIALNO,
-            this.MODELTYPE,
-            this.MATERIALTYPE,
-            this.RAWMATERIAL,
-            this.MATERIALSRC,
-            this.VERSION,
-            this.CREATER,
-            this.MODIFIER,
-            this.CTREATETIME,
-            this.MODIFYTIME,
-            this.MEMO_ZH,
-            this.MEMO_EN});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvMaterial.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgvMaterial.Location = new System.Drawing.Point(3, 3);
-            this.dgvMaterial.Name = "dgvMaterial";
-            this.dgvMaterial.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dgvMaterial.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dgvMaterial.RowTemplate.Height = 23;
-            this.dgvMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterial.Size = new System.Drawing.Size(620, 274);
-            this.dgvMaterial.TabIndex = 3;
-            // 
-            // MATERIALID
-            // 
-            this.MATERIALID.DataPropertyName = "MATERIALID";
-            this.MATERIALID.Frozen = true;
-            this.MATERIALID.HeaderText = "物料主键";
-            this.MATERIALID.Name = "MATERIALID";
-            this.MATERIALID.Visible = false;
-            // 
-            // MATERIALNO
-            // 
-            this.MATERIALNO.DataPropertyName = "MATERIALNO";
-            this.MATERIALNO.Frozen = true;
-            this.MATERIALNO.HeaderText = "物料号";
-            this.MATERIALNO.Name = "MATERIALNO";
-            // 
-            // MODELTYPE
-            // 
-            this.MODELTYPE.DataPropertyName = "MODELTYPE";
-            this.MODELTYPE.HeaderText = "MODELTYPE";
-            this.MODELTYPE.Name = "MODELTYPE";
-            // 
-            // MATERIALTYPE
-            // 
-            this.MATERIALTYPE.DataPropertyName = "MATERIALTYPE";
-            this.MATERIALTYPE.HeaderText = "MATERIALTYPE";
-            this.MATERIALTYPE.Name = "MATERIALTYPE";
-            // 
-            // RAWMATERIAL
-            // 
-            this.RAWMATERIAL.DataPropertyName = "RAWMATERIAL";
-            this.RAWMATERIAL.HeaderText = "RAWMATERIAL";
-            this.RAWMATERIAL.Name = "RAWMATERIAL";
-            // 
-            // MATERIALSRC
-            // 
-            this.MATERIALSRC.DataPropertyName = "MATERIALSRC";
-            this.MATERIALSRC.HeaderText = "MATERIALSRC";
-            this.MATERIALSRC.Name = "MATERIALSRC";
-            // 
-            // VERSION
-            // 
-            this.VERSION.DataPropertyName = "VERSION";
-            this.VERSION.HeaderText = "版本";
-            this.VERSION.Name = "VERSION";
-            // 
-            // CREATER
-            // 
-            this.CREATER.DataPropertyName = "CREATER";
-            this.CREATER.HeaderText = "CREATER";
-            this.CREATER.Name = "CREATER";
-            // 
-            // MODIFIER
-            // 
-            this.MODIFIER.DataPropertyName = "MODIFIER";
-            this.MODIFIER.HeaderText = "MODIFIER";
-            this.MODIFIER.Name = "MODIFIER";
-            // 
-            // CTREATETIME
-            // 
-            this.CTREATETIME.DataPropertyName = "CTREATETIME";
-            this.CTREATETIME.HeaderText = "CTREATETIME";
-            this.CTREATETIME.Name = "CTREATETIME";
-            // 
-            // MODIFYTIME
-            // 
-            this.MODIFYTIME.DataPropertyName = "MODIFYTIME";
-            this.MODIFYTIME.HeaderText = "MODIFYTIME";
-            this.MODIFYTIME.Name = "MODIFYTIME";
-            // 
-            // MEMO_ZH
-            // 
-            this.MEMO_ZH.DataPropertyName = "MEMO_ZH";
-            this.MEMO_ZH.HeaderText = "MEMO_ZH";
-            this.MEMO_ZH.Name = "MEMO_ZH";
-            // 
-            // MEMO_EN
-            // 
-            this.MEMO_EN.DataPropertyName = "MEMO_EN";
-            this.MEMO_EN.HeaderText = "MEMO_EN";
-            this.MEMO_EN.Name = "MEMO_EN";
-            // 
-            // dGVProduct
-            // 
-            this.dGVProduct.AllowUserToAddRows = false;
-            this.dGVProduct.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dGVProduct.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dGVProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PRODUCTID,
-            this.PRODUCTNO,
-            this.MODELTYPE1,
-            this.PRODUCTTYPE,
-            this.PRODUCTLEVEL,
-            this.VERSION1,
-            this.STATUS,
-            this.CREATER1,
-            this.MODIFIER1,
-            this.CREATETIME,
-            this.MODIFYTIME1,
-            this.MEMO_ZH1,
-            this.MEMO_EN1,
-            this.MEMO});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVProduct.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dGVProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dGVProduct.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dGVProduct.Location = new System.Drawing.Point(3, 3);
-            this.dGVProduct.Name = "dGVProduct";
-            this.dGVProduct.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dGVProduct.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dGVProduct.RowTemplate.Height = 23;
-            this.dGVProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVProduct.Size = new System.Drawing.Size(620, 274);
-            this.dGVProduct.TabIndex = 2;
-            // 
-            // PRODUCTID
-            // 
-            this.PRODUCTID.DataPropertyName = "PRODUCTID";
-            this.PRODUCTID.Frozen = true;
-            this.PRODUCTID.HeaderText = "PRODUCTID";
-            this.PRODUCTID.Name = "PRODUCTID";
-            this.PRODUCTID.Visible = false;
-            // 
-            // PRODUCTNO
-            // 
-            this.PRODUCTNO.DataPropertyName = "PRODUCTNO";
-            this.PRODUCTNO.Frozen = true;
-            this.PRODUCTNO.HeaderText = "产品NO";
-            this.PRODUCTNO.Name = "PRODUCTNO";
-            // 
-            // MODELTYPE1
-            // 
-            this.MODELTYPE1.DataPropertyName = "MODELTYPE";
-            this.MODELTYPE1.HeaderText = "MODELTYPE";
-            this.MODELTYPE1.Name = "MODELTYPE1";
-            // 
-            // PRODUCTTYPE
-            // 
-            this.PRODUCTTYPE.DataPropertyName = "PRODUCTTYPE";
-            this.PRODUCTTYPE.HeaderText = "PRODUCTTYPE";
-            this.PRODUCTTYPE.Name = "PRODUCTTYPE";
-            // 
-            // PRODUCTLEVEL
-            // 
-            this.PRODUCTLEVEL.DataPropertyName = "PRODUCTLEVEL";
-            this.PRODUCTLEVEL.HeaderText = "PRODUCTLEVEL";
-            this.PRODUCTLEVEL.Name = "PRODUCTLEVEL";
-            // 
-            // VERSION1
-            // 
-            this.VERSION1.DataPropertyName = "VERSION";
-            this.VERSION1.HeaderText = "版本";
-            this.VERSION1.Name = "VERSION1";
-            // 
-            // STATUS
-            // 
-            this.STATUS.DataPropertyName = "STATUS";
-            this.STATUS.HeaderText = "STATUS";
-            this.STATUS.Name = "STATUS";
-            // 
-            // CREATER1
-            // 
-            this.CREATER1.DataPropertyName = "CREATER";
-            this.CREATER1.HeaderText = "CREATER";
-            this.CREATER1.Name = "CREATER1";
-            // 
-            // MODIFIER1
-            // 
-            this.MODIFIER1.DataPropertyName = "MODIFIER";
-            this.MODIFIER1.HeaderText = "MODIFIER";
-            this.MODIFIER1.Name = "MODIFIER1";
-            // 
-            // CREATETIME
-            // 
-            this.CREATETIME.DataPropertyName = "CREATETIME";
-            this.CREATETIME.HeaderText = "创建时间";
-            this.CREATETIME.Name = "CREATETIME";
-            // 
-            // MODIFYTIME1
-            // 
-            this.MODIFYTIME1.DataPropertyName = "MODIFYTIME";
-            this.MODIFYTIME1.HeaderText = "修改时间";
-            this.MODIFYTIME1.Name = "MODIFYTIME1";
-            // 
-            // MEMO_ZH1
-            // 
-            this.MEMO_ZH1.DataPropertyName = "MEMO_ZH";
-            this.MEMO_ZH1.HeaderText = "MEMO_ZH";
-            this.MEMO_ZH1.Name = "MEMO_ZH1";
-            // 
-            // MEMO_EN1
-            // 
-            this.MEMO_EN1.DataPropertyName = "MEMO_EN";
-            this.MEMO_EN1.HeaderText = "MEMO_EN";
-            this.MEMO_EN1.Name = "MEMO_EN1";
-            // 
-            // MEMO
-            // 
-            this.MEMO.DataPropertyName = "MEMO";
-            this.MEMO.HeaderText = "MEMO";
-            this.MEMO.Name = "MEMO";
-            // 
             // DocRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1129,6 +1134,11 @@
             this.tpRemark.PerformLayout();
             this.tpParts.ResumeLayout(false);
             this.tpParts.PerformLayout();
+            this.tabControl2.ResumeLayout(false);
+            this.tabProduct.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dGVProduct)).EndInit();
+            this.tabMaterial.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tpFile.ResumeLayout(false);
@@ -1142,11 +1152,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.cmPhysical.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tabProduct.ResumeLayout(false);
-            this.tabMaterial.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVProduct)).EndInit();
             this.ResumeLayout(false);
 
         }

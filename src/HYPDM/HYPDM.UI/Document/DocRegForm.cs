@@ -986,8 +986,8 @@ namespace HYPDM.WinUI.Document
         {
             if (this.Document != null)
             {
-                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*", "WHERE PRODUCTID IN (SELECT RELATIONOBJECTID FROM [drugshop].[dbo].[ObjectRelation] WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Product' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
-                this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*", "WHERE MATERIALID IN (SELECT RELATIONOBJECTID FROM [drugshop].[dbo].[ObjectRelation] WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Material' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
+                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*", "WHERE PRODUCTID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Product' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*", "WHERE MATERIALID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Material' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
             }
         }
     }
