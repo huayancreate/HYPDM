@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaterialsList));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ts_tool_Materail = new System.Windows.Forms.ToolStrip();
             this.add_Materail = new System.Windows.Forms.ToolStripButton();
             this.conf_Materail = new System.Windows.Forms.ToolStripButton();
@@ -38,7 +39,13 @@
             this.print_Materail = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.query_Materail = new System.Windows.Forms.ToolStripButton();
-            this.dgv_MaterailList = new System.Windows.Forms.DataGridView();
+            this.dgv_MaterailList = new HYPDM.BaseControl.DataGridViewExt();
+            this.cms_Memu_Materail = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.add_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
+            this.conf_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.del_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagination1 = new HYPDM.WinUI.DefineControl.Pagination();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,11 +60,6 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cms_Memu_Materail = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.add_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
-            this.conf_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
-            this.del_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.ts_tool_Materail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MaterailList)).BeginInit();
             this.cms_Memu_Materail.SuspendLayout();
@@ -90,7 +92,7 @@
             // 
             // conf_Materail
             // 
-            this.conf_Materail.Image = ((System.Drawing.Image)(resources.GetObject("conf_Materail.Image")));
+            this.conf_Materail.Image = global::HYPDM.WinUI.Properties.Resources.pagination_load;
             this.conf_Materail.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.conf_Materail.Name = "conf_Materail";
             this.conf_Materail.Size = new System.Drawing.Size(52, 22);
@@ -136,6 +138,13 @@
             // 
             // dgv_MaterailList
             // 
+            this.dgv_MaterailList.AllowUserToAddRows = false;
+            this.dgv_MaterailList.AllowUserToDeleteRows = false;
+            this.dgv_MaterailList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_MaterailList.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgv_MaterailList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_MaterailList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_MaterailList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -152,16 +161,78 @@
             this.Column12,
             this.Column13,
             this.Column14});
-            this.dgv_MaterailList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_MaterailList.Location = new System.Drawing.Point(0, 25);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_MaterailList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_MaterailList.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgv_MaterailList.Location = new System.Drawing.Point(3, 28);
             this.dgv_MaterailList.MultiSelect = false;
             this.dgv_MaterailList.Name = "dgv_MaterailList";
             this.dgv_MaterailList.ReadOnly = true;
+            this.dgv_MaterailList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgv_MaterailList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgv_MaterailList.RowTemplate.Height = 23;
             this.dgv_MaterailList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_MaterailList.Size = new System.Drawing.Size(835, 394);
+            this.dgv_MaterailList.Size = new System.Drawing.Size(832, 366);
             this.dgv_MaterailList.TabIndex = 1;
             this.dgv_MaterailList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MaterailList_CellMouseDown);
+            // 
+            // cms_Memu_Materail
+            // 
+            this.cms_Memu_Materail.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.add_materail_memu,
+            this.conf_materail_memu,
+            this.toolStripSeparator3,
+            this.del_materail_memu});
+            this.cms_Memu_Materail.Name = "cms_Memu_Materail";
+            this.cms_Memu_Materail.Size = new System.Drawing.Size(153, 98);
+            // 
+            // add_materail_memu
+            // 
+            this.add_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
+            this.add_materail_memu.Name = "add_materail_memu";
+            this.add_materail_memu.Size = new System.Drawing.Size(100, 22);
+            this.add_materail_memu.Text = "增加";
+            this.add_materail_memu.Click += new System.EventHandler(this.add_materail_memu_Click);
+            // 
+            // conf_materail_memu
+            // 
+            this.conf_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.pagination_load;
+            this.conf_materail_memu.Name = "conf_materail_memu";
+            this.conf_materail_memu.Size = new System.Drawing.Size(152, 22);
+            this.conf_materail_memu.Text = "配置";
+            this.conf_materail_memu.Click += new System.EventHandler(this.conf_materail_memu_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(97, 6);
+            // 
+            // del_materail_memu
+            // 
+            this.del_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
+            this.del_materail_memu.Name = "del_materail_memu";
+            this.del_materail_memu.Size = new System.Drawing.Size(100, 22);
+            this.del_materail_memu.Text = "删除";
+            this.del_materail_memu.Click += new System.EventHandler(this.del_materail_memu_Click);
+            // 
+            // pagination1
+            // 
+            this.pagination1.CurrentPage = 1;
+            this.pagination1.CurrentRows = 20;
+            this.pagination1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pagination1.Location = new System.Drawing.Point(0, 393);
+            this.pagination1.Name = "pagination1";
+            this.pagination1.QueryCondition = null;
+            this.pagination1.Size = new System.Drawing.Size(835, 26);
+            this.pagination1.TabIndex = 2;
+            this.pagination1.TotalPage = 0;
+            this.pagination1.TotalRows = 0;
             // 
             // Column1
             // 
@@ -169,6 +240,7 @@
             this.Column1.HeaderText = "主键";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
             // 
             // Column2
             // 
@@ -261,49 +333,11 @@
             this.Column14.Name = "Column14";
             this.Column14.ReadOnly = true;
             // 
-            // cms_Memu_Materail
-            // 
-            this.cms_Memu_Materail.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.add_materail_memu,
-            this.conf_materail_memu,
-            this.toolStripSeparator3,
-            this.del_materail_memu});
-            this.cms_Memu_Materail.Name = "cms_Memu_Materail";
-            this.cms_Memu_Materail.Size = new System.Drawing.Size(101, 76);
-            // 
-            // add_materail_memu
-            // 
-            this.add_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
-            this.add_materail_memu.Name = "add_materail_memu";
-            this.add_materail_memu.Size = new System.Drawing.Size(100, 22);
-            this.add_materail_memu.Text = "增加";
-            this.add_materail_memu.Click += new System.EventHandler(this.add_materail_memu_Click);
-            // 
-            // conf_materail_memu
-            // 
-            this.conf_materail_memu.Image = ((System.Drawing.Image)(resources.GetObject("conf_materail_memu.Image")));
-            this.conf_materail_memu.Name = "conf_materail_memu";
-            this.conf_materail_memu.Size = new System.Drawing.Size(100, 22);
-            this.conf_materail_memu.Text = "配置";
-            this.conf_materail_memu.Click += new System.EventHandler(this.conf_materail_memu_Click);
-            // 
-            // del_materail_memu
-            // 
-            this.del_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
-            this.del_materail_memu.Name = "del_materail_memu";
-            this.del_materail_memu.Size = new System.Drawing.Size(100, 22);
-            this.del_materail_memu.Text = "删除";
-            this.del_materail_memu.Click += new System.EventHandler(this.del_materail_memu_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(97, 6);
-            // 
             // MaterialsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pagination1);
             this.Controls.Add(this.dgv_MaterailList);
             this.Controls.Add(this.ts_tool_Materail);
             this.Name = "MaterialsList";
@@ -320,7 +354,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip ts_tool_Materail;
-        private System.Windows.Forms.DataGridView dgv_MaterailList;
         private System.Windows.Forms.ToolStripButton add_Materail;
         private System.Windows.Forms.ToolStripButton conf_Materail;
         private System.Windows.Forms.ToolStripButton edit_Materail;
@@ -328,6 +361,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton query_Materail;
+        private System.Windows.Forms.ContextMenuStrip cms_Memu_Materail;
+        private System.Windows.Forms.ToolStripMenuItem add_materail_memu;
+        private System.Windows.Forms.ToolStripMenuItem conf_materail_memu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem del_materail_memu;
+        private DefineControl.Pagination pagination1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -342,11 +381,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.ContextMenuStrip cms_Memu_Materail;
-        private System.Windows.Forms.ToolStripMenuItem add_materail_memu;
-        private System.Windows.Forms.ToolStripMenuItem conf_materail_memu;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem del_materail_memu;
+        private BaseControl.DataGridViewExt dgv_MaterailList;
 
     }
 }

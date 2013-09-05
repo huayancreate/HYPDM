@@ -9,17 +9,17 @@ using System.Windows.Forms;
 using EAS.Data.ORM;
 using HYPDM.Entities;
 using HYPDM.BLL;
-namespace HYPDM.WinUI.ProductsAndParts.Products
+namespace HYPDM.WinUI.ProductsAndParts.Parts
 {
-    public partial class ProductsConfForm : Form
+    public partial class PartsConfForm : Form
     {
 
-        public ProductsConfForm()
+        public PartsConfForm()
         {
             InitializeComponent();
         }
 
-        public ProductsConfForm(int p_type)
+        public PartsConfForm(int p_type)
         {
             InitializeComponent();
 
@@ -29,14 +29,14 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             toolBaseClear_Click(null,null);
         }
 
-        public ProductsConfForm(string t_productId, int p_type)
+        public PartsConfForm(string t_productId, int p_type)
         {
             InitializeComponent();
 
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
-            this.m_product = m_AllProductService.GetById(t_productId);
+            this.m_product = m_AllPartsService.GetById(t_productId);
             allinit();
         }
 
@@ -45,7 +45,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private int m_type;     //类型（半成品，成品）
         private bool opStatus;  //操作状态（产品清空状态，配置状态）
 
-        private IAllProductService m_AllProductService;      //产品服务类
+        private IAllPartsService m_AllPartsService;      //产品服务类
         private IStructService m_StructService;              //结构体服务类
         private IProductProRecordService m_proRecordService; //生产记录服务类
 
@@ -84,7 +84,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         /// </summary>
         private void service_Init()
         {
-            m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
+            m_AllPartsService = EAS.Services.ServiceContainer.GetService<IAllPartsService>();
             m_StructService = EAS.Services.ServiceContainer.GetService<IStructService>();
             m_proRecordService = EAS.Services.ServiceContainer.GetService<IProductProRecordService>();
         }
@@ -125,11 +125,11 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         {
             //
             if (this.m_product == null) {
-                MessageBox.Show("该产品不存在,无法修改！"); return;
+                MessageBox.Show("该半成品不存在,无法修改！"); return;
             }
 
             //判断是否需要修改
-            if (MessageBox.Show("您确认要修改此产品基本信息?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            if (MessageBox.Show("您确认要修改此半成品基本信息?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
             {
                 return;
             }
@@ -145,7 +145,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             t_product.MEMO = this.rtbMemo.Text;
             t_product.MODIFYTIME = DateTime.Now.ToString();
             t_product.MODIFIER = CommonVar.userName;
-            m_AllProductService.UpdateByID(t_product);
+            m_AllPartsService.UpdateByID(t_product);
 
 
             //2.基本信息改变后更新基本信息显示
@@ -153,7 +153,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             this.tb_modifier.Text = t_product.MODIFIER;
 
             //3.更新（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面列表显示,更新基本属性信息
-            this.m_product = m_AllProductService.GetById(t_product.PRODUCTID);
+            this.m_product = m_AllPartsService.GetById(t_product.PRODUCTID);
             allinit();
         }
 
@@ -164,8 +164,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         /// <param name="e"></param>
         private void toolBaseReg_Click(object sender, EventArgs e)
         {
-            //是否复制关联关系及产品结构
-            bool copy_Asso_Struct = false;
            
             //1.判断产品编号是否为空
             if (string.IsNullOrEmpty(this.tb_productNo.Text.Trim()))
@@ -173,7 +171,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 MessageBox.Show("产品编号不能为空"); return;
             }
 
-            DataTable dt = m_AllProductService.GetListByNoDetail(this.tb_productNo.Text.Trim());
+            DataTable dt = m_AllPartsService.GetListByNoDetail(this.tb_productNo.Text.Trim());
 
             //1.判断产品是否存在，如果存在是否生产新版本
             if (dt.Rows.Count>0)
@@ -181,13 +179,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 if (MessageBox.Show("该产品已存在，是否生产新版本?\n如果不是请更改产品编号!", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
                 {
                     return;
-                }
-            }
-
-            if(this.m_product != null){
-                if (MessageBox.Show("是否复制产品结构及关联文档和图纸！", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                {
-                    copy_Asso_Struct = true;
                 }
             }
 
@@ -227,12 +218,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
                 this.opStatus = false;
             }
-            if (copy_Asso_Struct) {
-                //copyDocAsso();    //复制与文档的关联
-               // copyDrawingAsso();//复制与图纸的关联
-               // copySturct();//复制产品结构   
-            
-            }
+
             //5.更新（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面列表显示,更新基本属性信息
             this.m_product = temp_product;
             allinit();
@@ -246,6 +232,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void toolBaseClear_Click(object sender, EventArgs e)
         {
             this.m_product = null;
+
             //1.清空基本信息显示
             this.tb_productNo.Text = "";
             this.tb_modelType.Text = "";
@@ -275,7 +262,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
         #endregion
 
-        #region 产品生产记录tab页面操作
+        #region 半成品生产记录tab页面操作
         /************************************************************************
         *******************     产品生产记录tab页面操作     *********************
         ************************************************************************/
@@ -298,45 +285,45 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void toolProRecordAdd_Click(object sender, EventArgs e)
         {
 
-            ProductsProRecordAddForm o = new ProductsProRecordAddForm();
-            o._ProductId = this.m_product.PRODUCTID;
-            o.StartPosition = FormStartPosition.CenterParent;
-            if (o.ShowDialog() == DialogResult.OK)
-            {
-                tabProRecord_Init();
-            }
+            //ProductsProRecordAddForm o = new ProductsProRecordAddForm();
+            //o._ProductId = this.m_product.PRODUCTID;
+            //o.StartPosition = FormStartPosition.CenterParent;
+            //if (o.ShowDialog() == DialogResult.OK)
+            //{
+            //    tabProRecord_Init();
+            //}
         }
 
         //产品生产记录修改按钮操作
         private void toolProRecordEdit_Click(object sender, EventArgs e)
         {
-            int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
+            //int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
 
-            if (rowIndex < 0)
-                return;
+            //if (rowIndex < 0)
+            //    return;
 
-            DataGridViewRow row = dgv_ProRecord.Rows[rowIndex];
+            //DataGridViewRow row = dgv_ProRecord.Rows[rowIndex];
 
-            HYPDM.Entities.PDM_PRODUCT_PRORECORD record = row.DataBoundItem as HYPDM.Entities.PDM_PRODUCT_PRORECORD;
+            //HYPDM.Entities.PDM_PRODUCT_PRORECORD record = row.DataBoundItem as HYPDM.Entities.PDM_PRODUCT_PRORECORD;
 
-            if (record == null)
-            {
-                MessageBox.Show("请选择一条记录"); return;
-            }
+            //if (record == null)
+            //{
+            //    MessageBox.Show("请选择一条记录"); return;
+            //}
 
-            ProductsProRecordAddForm o = new ProductsProRecordAddForm();
-            o.StartPosition = FormStartPosition.CenterParent;
-            o._ProductId = this.m_product.PRODUCTID;
-            o.Record = record;
+            //ProductsProRecordAddForm o = new ProductsProRecordAddForm();
+            //o.StartPosition = FormStartPosition.CenterParent;
+            //o._ProductId = this.m_product.PRODUCTID;
+            //o.Record = record;
 
-            if (o.ShowDialog() == DialogResult.OK)
-            {
-                MessageBox.Show("更新记录");
-            }
+            //if (o.ShowDialog() == DialogResult.OK)
+            //{
+            //    MessageBox.Show("更新记录");
+            //}
         }
         #endregion
 
-        #region 产品变更记录tab页面操作
+        #region 半成品变更记录tab页面操作
         /************************************************************************
        *******************     产品变更记录tab页面操作     *********************
        ************************************************************************/
@@ -359,11 +346,11 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
         private void toolChangeAdd_Click(object sender, EventArgs e)
         {
-            ProductsAssChangeListForm o = new ProductsAssChangeListForm();
-            o.StartPosition = FormStartPosition.CenterParent;
-            //o.Product = m_product;
-            o.ShowDialog();
-            this.dgv_Change.DataSource = _pjtChangeService.GetAssoList(this.m_product.PRODUCTID);
+            //ProductsAssChangeListForm o = new ProductsAssChangeListForm();
+            //o.StartPosition = FormStartPosition.CenterParent;
+            ////o.Product = m_product;
+            //o.ShowDialog();
+            //this.dgv_Change.DataSource = _pjtChangeService.GetAssoList(this.m_product.PRODUCTID);
         }
 
         private void toolChangeDel_Click(object sender, EventArgs e)
@@ -379,7 +366,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
         #endregion
 
-        #region 产品结构tab页面操作
+        #region 半成品结构tab页面操作
 
         /************************************************************************
        *******************     产品结构tab页面操作     *********************
@@ -575,7 +562,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void toolStructAdd_Click(object sender, EventArgs e)
         {
             //1.打开产品添加界面传递（产品对象，关联对象ID,操作类型--保存）参数
-            ProductsStructAddForm o = new ProductsStructAddForm(this.m_product,"",Enum_AssOpType.SAVE);
+            PartsStructAddForm o = new PartsStructAddForm(this.m_product, "", Enum_AssOpType.SAVE);
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
 
@@ -695,7 +682,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             t_struct.ASSOBJECTID = item.Items[index].Tag.ToString();
 
             //2.打开产品添加界面传递（产品对象，关联对象ID,操作类型--替换）参数
-            ProductsStructAddForm o = new ProductsStructAddForm(this.m_product, t_struct.ASSOBJECTID, Enum_AssOpType.REPLACE);
+            PartsStructAddForm o = new PartsStructAddForm(this.m_product, t_struct.ASSOBJECTID, Enum_AssOpType.REPLACE);
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
 
@@ -734,7 +721,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             t_struct.ASSOBJECTID = item.Items[index].Tag.ToString();
 
             //2.打开产品添加界面传递（产品对象，关联对象ID,操作类型--插入）参数
-            ProductsStructAddForm o = new ProductsStructAddForm(this.m_product, t_struct.ASSOBJECTID, Enum_AssOpType.INSERT);
+            PartsStructAddForm o = new PartsStructAddForm(this.m_product, t_struct.ASSOBJECTID, Enum_AssOpType.INSERT);
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
 
@@ -813,7 +800,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void tabVersion_Init()
         {
             //1.列表数据初始化
-            this.dgv_Product.DataSource = m_AllProductService.GetListByNo(this.m_product.PRODUCTNO);//列表显示初始化
+            this.dgv_Product.DataSource = m_AllPartsService.GetListByNo(this.m_product.PRODUCTNO);//列表显示初始化
         }
 
 
@@ -844,7 +831,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             if (!string.IsNullOrEmpty(this.toolVersionNo.Text))
             {
                 //2.更新列表显示
-                this.dgv_Product.DataSource = m_AllProductService.GetListByNo(this.toolVersionNo.Text);
+                this.dgv_Product.DataSource = m_AllPartsService.GetListByNo(this.toolVersionNo.Text);
             }
             else
             {
@@ -884,12 +871,11 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             }
 
             //3.打开产品比较页面,且将比较的两个产品ID作为参数传递给比较页面
-            ProductsCompForm o = new ProductsCompForm(_compList[0].ToString(), _compList[1].ToString());
+            PartsCompForm o = new PartsCompForm(_compList[0].ToString(), _compList[1].ToString());
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
 
         }
-        
 
         #endregion
 

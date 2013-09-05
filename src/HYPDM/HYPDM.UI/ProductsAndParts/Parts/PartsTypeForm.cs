@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace HYPDM.WinUI.Parts
+namespace HYPDM.WinUI.ProductsAndParts.Parts
 {
     public partial class PartsTypeForm : Form
     {

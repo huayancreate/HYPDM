@@ -19,6 +19,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         public MaterialsList()
         {
             InitializeComponent();
+            this.pagination1.LoadData += new HYPDM.WinUI.DefineControl.Pagination.LoadDataDelegate(InitGridList);
         }
         [ModuleStart]
         public void StartEx()
@@ -102,11 +103,17 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         private void InitList()
         {
             this.m_IMaterailService = EAS.Services.ServiceContainer.GetService<IMaterailService>();
-            this.dgv_MaterailList.DataSource = m_IMaterailService.GetMaterailList();
+            this.pagination1.QueryCondition = new PDM_MATERAIL();
+            InitGridList();
         }
         internal void InitGridList()
         {
-            this.dgv_MaterailList.DataSource = m_IMaterailService.GetMaterailList();
+            DataSet ds = m_IMaterailService.GetProductByPage((PDM_MATERAIL)this.pagination1.QueryCondition, this.pagination1.CurrentPage, this.pagination1.CurrentRows);
+            this.dgv_MaterailList.DataSource = ds.Tables[2];
+            this.pagination1.TotalPage = Convert.ToInt16(ds.Tables[1].Rows[0][0].ToString());
+            this.pagination1.TotalRows = Convert.ToInt16(ds.Tables[1].Rows[0][1].ToString());
+            this.pagination1.changeMemo();
+            //this.dgv_MaterailList.DataSource = m_IMaterailService.GetMaterailList();
         }
 
          //右键操作
@@ -145,12 +152,32 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             o.StartPosition = FormStartPosition.CenterParent;
             if (o.ShowDialog() == DialogResult.OK)
             {
-                InitGridList();
+                changePage();
             }
         }
          //配置一个记录
-        private void confMaterail() { 
-        
+        private void confMaterail() {
+            int rowIndex = dgv_MaterailList.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+
+            DataGridViewRow row = dgv_MaterailList.Rows[rowIndex];
+            string t_id = row.Cells[0].Value.ToString();
+
+            if (string.IsNullOrEmpty(t_id))
+            {
+                return;
+            }
+            if (t_id == null)
+            {
+                MessageBox.Show("请选择一条记录"); return;
+            }
+
+            MaterialConfForm o = new MaterialConfForm(t_id, 1);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+            changePage();
 
         }
 
@@ -173,14 +200,14 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             if (MessageBox.Show("您确认要删除所选择的产品记录？\n删除产品记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 this.m_IMaterailService.DelMaterailList(t_id);
-                this.InitGridList();
+                changePage();
             }
         }
 
          //打印记录
         private void printMaterail()
         {
-
+           
         }
 
          //查询记录
@@ -190,8 +217,17 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             o.StartPosition = FormStartPosition.CenterParent;
             if (o.ShowDialog() == DialogResult.OK)
             {
-                this.dgv_MaterailList.DataSource = o._materailList;
+                //this.dgv_MaterailList.DataSource = o._materailList;
+                this.pagination1.QueryCondition = o.Mmaterail;
+                changePage();
             }
+        }
+
+        private void changePage()
+        {
+            this.pagination1.CurrentPage = 1;
+            this.pagination1.CurrentRows = 20;
+            InitGridList();
         }
         #endregion
 

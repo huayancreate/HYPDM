@@ -1,6 +1,6 @@
-﻿namespace HYPDM.WinUI.ProductsAndParts.Products
+﻿namespace HYPDM.WinUI.ProductsAndParts.Parts
 {
-    partial class QueryProductsForm
+    partial class QueryPartsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryProductsForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryPartsForm));
             this.label1 = new System.Windows.Forms.Label();
             this.no_Product = new System.Windows.Forms.TextBox();
             this.version_Product = new System.Windows.Forms.TextBox();

@@ -1,6 +1,6 @@
-﻿namespace HYPDM.WinUI.ProductsAndParts.Products
+﻿namespace HYPDM.WinUI.ProductsAndParts.Parts
 {
-    partial class ProductsListControl
+    partial class PartsListControl
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsListControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsListControl));
             this.ts_Tool_Product = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.add_Product = new System.Windows.Forms.ToolStripButton();
@@ -45,7 +44,8 @@
             this.del_Memu_Product = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.conf_Menu_Product = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgv_ProductList = new HYPDM.BaseControl.DataGridViewExt();
+            this.dgv_ProductList = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,8 +60,6 @@
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MEMO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pagination1 = new HYPDM.WinUI.DefineControl.Pagination();
             this.ts_Tool_Product.SuspendLayout();
             this.cm_Memu_Product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProductList)).BeginInit();
@@ -81,7 +79,7 @@
             this.query_Product});
             this.ts_Tool_Product.Location = new System.Drawing.Point(0, 0);
             this.ts_Tool_Product.Name = "ts_Tool_Product";
-            this.ts_Tool_Product.Size = new System.Drawing.Size(836, 25);
+            this.ts_Tool_Product.Size = new System.Drawing.Size(833, 25);
             this.ts_Tool_Product.TabIndex = 0;
             this.ts_Tool_Product.Text = "toolStrip1";
             // 
@@ -182,11 +180,6 @@
             // 
             this.dgv_ProductList.AllowUserToAddRows = false;
             this.dgv_ProductList.AllowUserToDeleteRows = false;
-            this.dgv_ProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_ProductList.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dgv_ProductList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_ProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
@@ -203,27 +196,27 @@
             this.Column15,
             this.Column14,
             this.MEMO});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_ProductList.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_ProductList.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgv_ProductList.Location = new System.Drawing.Point(3, 28);
+            this.dgv_ProductList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_ProductList.Location = new System.Drawing.Point(0, 25);
             this.dgv_ProductList.MultiSelect = false;
             this.dgv_ProductList.Name = "dgv_ProductList";
             this.dgv_ProductList.ReadOnly = true;
-            this.dgv_ProductList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dgv_ProductList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgv_ProductList.RowTemplate.Height = 23;
             this.dgv_ProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ProductList.Size = new System.Drawing.Size(830, 342);
+            this.dgv_ProductList.Size = new System.Drawing.Size(833, 373);
             this.dgv_ProductList.TabIndex = 2;
             this.dgv_ProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ProductList_CellDoubleClick);
             this.dgv_ProductList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ProductList_CellMouseDown);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgv_ProductList);
+            this.panel1.Controls.Add(this.ts_Tool_Product);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(833, 398);
+            this.panel1.TabIndex = 4;
             // 
             // Column8
             // 
@@ -324,29 +317,6 @@
             this.MEMO.Name = "MEMO";
             this.MEMO.ReadOnly = true;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dgv_ProductList);
-            this.panel1.Controls.Add(this.pagination1);
-            this.panel1.Controls.Add(this.ts_Tool_Product);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 402);
-            this.panel1.TabIndex = 4;
-            // 
-            // pagination1
-            // 
-            this.pagination1.CurrentPage = 1;
-            this.pagination1.CurrentRows = 20;
-            this.pagination1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pagination1.Location = new System.Drawing.Point(0, 376);
-            this.pagination1.Name = "pagination1";
-            this.pagination1.Size = new System.Drawing.Size(836, 26);
-            this.pagination1.TabIndex = 3;
-            this.pagination1.TotalPage = 0;
-            this.pagination1.TotalRows = 0;
-            // 
             // ProductsListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -354,7 +324,7 @@
             this.AutoSize = true;
             this.Controls.Add(this.panel1);
             this.Name = "ProductsListControl";
-            this.Size = new System.Drawing.Size(836, 402);
+            this.Size = new System.Drawing.Size(833, 398);
             this.ts_Tool_Product.ResumeLayout(false);
             this.ts_Tool_Product.PerformLayout();
             this.cm_Memu_Product.ResumeLayout(false);
@@ -375,6 +345,7 @@
         private System.Windows.Forms.ToolStripMenuItem del_Memu_Product;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem conf_Menu_Product;
+        private System.Windows.Forms.DataGridView dgv_ProductList;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRODUCTIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vERSIONDataGridViewTextBoxColumn;
@@ -410,7 +381,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn MEMO;
-        private BaseControl.DataGridViewExt dgv_ProductList;
-        private DefineControl.Pagination pagination1;
     }
 }

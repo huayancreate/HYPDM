@@ -1,4 +1,4 @@
-﻿namespace HYPDM.WinUI.Parts
+﻿namespace HYPDM.WinUI.ProductsAndParts.Parts
 {
     partial class PartsTypeForm
     {

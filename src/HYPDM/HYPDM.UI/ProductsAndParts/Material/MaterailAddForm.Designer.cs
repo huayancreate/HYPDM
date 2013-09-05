@@ -47,6 +47,7 @@
             this.bt_save = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.bt_cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -180,7 +181,7 @@
             // 
             // bt_save
             // 
-            this.bt_save.Location = new System.Drawing.Point(453, 254);
+            this.bt_save.Location = new System.Drawing.Point(367, 256);
             this.bt_save.Name = "bt_save";
             this.bt_save.Size = new System.Drawing.Size(75, 23);
             this.bt_save.TabIndex = 16;
@@ -208,11 +209,22 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "*为必需填写项";
             // 
+            // bt_cancel
+            // 
+            this.bt_cancel.Location = new System.Drawing.Point(453, 256);
+            this.bt_cancel.Name = "bt_cancel";
+            this.bt_cancel.Size = new System.Drawing.Size(75, 23);
+            this.bt_cancel.TabIndex = 19;
+            this.bt_cancel.Text = "取消";
+            this.bt_cancel.UseVisualStyleBackColor = true;
+            this.bt_cancel.Click += new System.EventHandler(this.bt_cancel_Click);
+            // 
             // MaterailAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 307);
+            this.Controls.Add(this.bt_cancel);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.bt_save);
@@ -260,5 +272,6 @@
         private System.Windows.Forms.Button bt_save;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button bt_cancel;
     }
 }

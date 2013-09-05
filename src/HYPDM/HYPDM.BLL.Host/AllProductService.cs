@@ -38,6 +38,48 @@ namespace HYPDM.BLL
              }*/
             return dt;
         }
+
+        /// <summary>
+        /// 调用存储过程，用于分页查询.
+        /// </summary>
+        /// <param name="p_productId"></param>
+        /// <param name="p_sortNum"></param>
+        public DataSet GetProductByPage(int currentpage, int pagesize)
+        {
+            ParameterCollection pc = new ParameterCollection();
+            pc.Add("sqlstr", "select * from PDM_ALL_PRODUCT  WHERE PRODUCTLEVEL=1  ");
+            pc.Add("currentpage", currentpage);
+            pc.Add("pagesize", pagesize);
+            DataSet ds = this.DataAccessor.QueryDataSet("SqlPager", CommandType.StoredProcedure, pc);
+            return ds;
+        }
+
+        /// <summary>
+        /// 调用存储过程，用于插入产品结构时排序的序号加1.
+        /// </summary>
+        /// <param name="p_productId"></param>
+        /// <param name="p_sortNum"></param>
+        public DataSet GetProductByPage(PDM_ALL_PRODUCT c,int currentpage, int pagesize)
+        {
+            string sqlText = "Select * from  PDM_ALL_PRODUCT WHERE PRODUCTLEVEL=1  ";
+            if (!string.IsNullOrEmpty(c.PRODUCTNO))
+            {
+                sqlText += " AND PRODUCTNO LIKE '%" + c.PRODUCTNO + "%' ";
+            }
+            if (!string.IsNullOrEmpty(c.VERSION))
+            {
+                sqlText += " AND VERSION LIKE '%" + c.VERSION + "%' ";
+            }
+
+            ParameterCollection pc = new ParameterCollection();
+            pc.Add("sqlstr", sqlText);
+            pc.Add("currentpage", currentpage);
+            pc.Add("pagesize", pagesize);
+            DataSet ds = this.DataAccessor.QueryDataSet("SqlPager", CommandType.StoredProcedure, pc);
+            return ds;
+        }
+
+
         public IList<PDM_ALL_PRODUCT> GetProductList2(Condition c)
         {
             DataEntityQuery<PDM_ALL_PRODUCT> query = DataEntityQuery<PDM_ALL_PRODUCT>.Create();

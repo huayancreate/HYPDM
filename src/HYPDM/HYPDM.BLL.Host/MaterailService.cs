@@ -20,6 +20,34 @@ namespace HYPDM.BLL
             return new MaxCodeService().GetMaxCode(new PDM_ALL_PRODUCT().DbTableName);
         }
 
+
+        /// <summary>
+        /// 根据条件分页查询记录
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="currentpage"></param>
+        /// <param name="pagesize"></param>
+        /// <returns></returns>
+        public  DataSet GetProductByPage(PDM_MATERAIL c, int currentpage, int pagesize) {
+            string sqlText = "Select * from  PDM_MATERAIL where 1=1  ";
+            if (!string.IsNullOrEmpty(c.MATERIALNO))
+            {
+                sqlText += " AND MATERIALNO LIKE '%" + c.MATERIALNO + "%' ";
+            }
+            if (!string.IsNullOrEmpty(c.VERSION))
+            {
+                sqlText += " AND VERSION LIKE '%" + c.VERSION + "%' ";
+            }
+
+            ParameterCollection pc = new ParameterCollection();
+            pc.Add("sqlstr", sqlText);
+            pc.Add("currentpage", currentpage);
+            pc.Add("pagesize", pagesize);
+            DataSet ds = this.DataAccessor.QueryDataSet("SqlPager", CommandType.StoredProcedure, pc);
+            return ds;
+        }
+
+
         public DataTable GetMaterailList()
         {
             string sqlText = "Select * from  PDM_MATERAIL ";
@@ -45,7 +73,11 @@ namespace HYPDM.BLL
             return dt;
         }
 
-
+        /// <summary>
+        /// 根据ID获取一条记录
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public PDM_MATERAIL GetById(String p_id)
         {
             //PDM_MATERAIL t_product = new PDM_MATERAIL();
@@ -91,6 +123,11 @@ namespace HYPDM.BLL
             int temp = this.DataAccessor.Execute(sqlText);
         }
 
+        /// <summary>
+        /// 根据材料实体类更新一条记录
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public void UpdateByID(PDM_MATERAIL c)
         {
             string sqlText = "update  PDM_MATERAIL SET  MATERIALNO ='" + c.MATERIALNO + "',"
@@ -105,6 +142,17 @@ namespace HYPDM.BLL
                            + "MODIFIER ='" + c.MODIFIER + "'  "
                            + "where MATERIALID = '" + c.MATERIALID + "'";
             int temp = this.DataAccessor.Execute(sqlText);
+        }
+
+        /// <summary>
+        /// 根据编号查询一组数据
+        /// </summary>
+        /// <param name="p_productNo"></param>
+        /// <returns></returns>
+        public DataTable GetListByNoDetail(string p_productNo) {
+            string sqlText = "SELECT  MATERIALID,  MATERIALNO,VERSION,MODELTYPE,MATERIALTYPE,MEMO_ZH  FROM PDM_MATERAIL "
+                               + "WHERE  MATERIALNO ='" + p_productNo + "'";
+            return this.DataAccessor.QueryDataTable(sqlText);
         }
     }
 }

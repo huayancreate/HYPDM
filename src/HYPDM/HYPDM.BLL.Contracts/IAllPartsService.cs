@@ -8,49 +8,65 @@ using EAS.Data.ORM;
 
 namespace HYPDM.BLL
 {
-    public interface IAllProductService
+    public interface IAllPartsService
     {
 
         //*****************************************************************//
-        //*********************       成品操作         ********************//
+        //*********************       半成品操作         ******************//
         //*****************************************************************//
         int GetMaxID();
-        /// <summary>
-        /// 分页查询记录
-        /// </summary>
-        /// <param name="currentpage"></param>
-        /// <param name="pagesize"></param>
-        /// <returns></returns>
-        DataSet GetProductByPage(int currentpage, int pagesize);
 
         /// <summary>
-        /// 根据条件分页查询记录
+        /// 获取所有半成品记录
+        /// </summary>
+        /// <returns></returns>
+        DataTable  GetProductList();
+
+        /// <summary>
+        /// 更加对象查询半成品记录
         /// </summary>
         /// <param name="c"></param>
-        /// <param name="currentpage"></param>
-        /// <param name="pagesize"></param>
         /// <returns></returns>
-        DataSet GetProductByPage(PDM_ALL_PRODUCT c, int currentpage, int pagesize);
-
-        DataTable  GetProductList();
-        IList<PDM_ALL_PRODUCT> GetProductList2(Condition c);
-        PDM_ALL_PRODUCT GetById(String p_id);
         DataTable GetProductList(PDM_ALL_PRODUCT c);
 
         /// <summary>
-        /// 根据产品编号获取所有该产品的版本(模糊查询)
+        /// 查询符合条件的半成品记录
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        IList<PDM_ALL_PRODUCT> GetProductList2(Condition c);
+
+        /// <summary>
+        /// 根据主键查询半成品记录
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
+        PDM_ALL_PRODUCT GetById(String p_id);
+
+        /// <summary>
+        /// 根据半成品编号获取所有该半成品的版本(模糊查询)
         /// </summary>
         /// <returns></returns>
         DataTable GetListByNo(string p_productNo);
 
         /// <summary>
-        /// 根据产品编号获取所有该产品的版本（精确查询）
+        /// 根据半成品编号获取所有该半成品的版本（精确查询）
         /// </summary>
         /// <param name="p_productNo"></param>
         /// <returns></returns>
         DataTable GetListByNoDetail(string p_productNo);
 
+
+        /// <summary>
+        /// 根据主键删除半成品记录
+        /// </summary>
+        /// <param name="p_id"></param>
         void DelProductList(String p_id);
+
+        /// <summary>
+        /// 根据半成品对象更新记录
+        /// </summary>
+        /// <param name="c"></param>
         void UpdateByID(PDM_ALL_PRODUCT c);
     }
 }

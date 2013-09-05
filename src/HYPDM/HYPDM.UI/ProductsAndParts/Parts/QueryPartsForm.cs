@@ -10,20 +10,13 @@ using EAS.Data.ORM;
 using HYPDM.Entities;
 using HYPDM.BLL;
 using HYPDM.WinUI.Util;
-namespace HYPDM.WinUI.ProductsAndParts.Products
+namespace HYPDM.WinUI.ProductsAndParts.Parts
 {
-    public partial class QueryProductsForm : Form
+    public partial class QueryPartsForm : Form
     {
-        //IAllProductService m_productService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
-
-        private PDM_ALL_PRODUCT m_product = new PDM_ALL_PRODUCT();
-
-        public PDM_ALL_PRODUCT MProduct {
-            get { return this.m_product; }
-            set { this.m_product = value; }
-        }
-
-        public QueryProductsForm()
+        IAllPartsService m_partsService = EAS.Services.ServiceContainer.GetService<IAllPartsService>();
+        public DataTable m_partsList;
+        public QueryPartsForm()
         {
             InitializeComponent();
             if (query_Product.Image != null)
@@ -61,19 +54,13 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             {
                 condition.AddElement("MODIFYTIME", modifyDate_Product.Text);
             }
-            condition.AddElement("PRODUCTLEVEL", 1);
+            condition.AddElement("PRODUCTLEVEL", 2);
            // BindData(condition);
             PDM_ALL_PRODUCT t_product = new PDM_ALL_PRODUCT();
             t_product.PRODUCTNO = no_Product.Text;
             t_product.VERSION = version_Product.Text;
-            this.MProduct = t_product;
-           // _productList = m_productService.GetProductList(t_product);
+            m_partsList = m_partsService.GetProductList(t_product);
             this.DialogResult = DialogResult.OK;
-        }
-        public void BindData(Condition c)
-        {
-            //DataTable list = m_productService.GetProductList2(c);
-            //_productList = list;
         }
     }
 }
