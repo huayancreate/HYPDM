@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.btnClear = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +62,16 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(452, 108);
             this.panel4.TabIndex = 3;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(204, 74);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(59, 25);
+            this.btnClear.TabIndex = 41;
+            this.btnClear.Text = "取消";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSubmit
             // 
@@ -92,6 +102,7 @@
             this.label5.Size = new System.Drawing.Size(161, 12);
             this.label5.TabIndex = 38;
             this.label5.Text = "默认为系统自动生产的主键值";
+            this.label5.Visible = false;
             // 
             // label4
             // 
@@ -101,6 +112,7 @@
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 37;
             this.label4.Text = "数据值";
+            this.label4.Visible = false;
             // 
             // txtValue
             // 
@@ -108,6 +120,7 @@
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(169, 21);
             this.txtValue.TabIndex = 36;
+            this.txtValue.Visible = false;
             // 
             // label2
             // 
@@ -182,16 +195,6 @@
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(169, 21);
             this.txtDesc.TabIndex = 24;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(204, 74);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(59, 25);
-            this.btnClear.TabIndex = 41;
-            this.btnClear.Text = "取消";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // FrmEditComboValue
             // 

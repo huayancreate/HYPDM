@@ -68,6 +68,7 @@
     <Compile Include="IProductStructService.cs" />
     <Compile Include="IStructService.cs" />
     <Compile Include="IVersionService.cs" />
+    <Compile Include="IWFTemplatesStepService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

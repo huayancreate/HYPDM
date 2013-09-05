@@ -58,11 +58,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -281,6 +281,7 @@
             this.label5.Size = new System.Drawing.Size(161, 12);
             this.label5.TabIndex = 38;
             this.label5.Text = "默认为系统自动生产的主键值";
+            this.label5.Visible = false;
             // 
             // label4
             // 
@@ -290,6 +291,7 @@
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 37;
             this.label4.Text = "数据值";
+            this.label4.Visible = false;
             // 
             // txtValue
             // 
@@ -297,6 +299,7 @@
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(169, 21);
             this.txtValue.TabIndex = 36;
+            this.txtValue.Visible = false;
             // 
             // label2
             // 
@@ -373,34 +376,16 @@
             this.txtDesc.Size = new System.Drawing.Size(169, 21);
             this.txtDesc.TabIndex = 24;
             // 
-            // label8
+            // label12
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(42, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(377, 12);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "本界面主要用与界面功能下拉框值的设定，方便用户添加新的分类信息";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(108, 97);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(395, 12);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "1、在左边模块，可以选择已经有的类型添加子项，也可以新增一个大分类";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(108, 133);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(227, 12);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "2、右边Grid主要用来显示已有的记录信息";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(139, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(304, 16);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "【此界面主要为企业运维/开发人员使用】";
             // 
             // label11
             // 
@@ -412,16 +397,34 @@
             this.label11.TabIndex = 3;
             this.label11.Text = "3、在右边数据显示的grid中，双击选中的记录，会弹出修改对话框,可以对此信息进行修改。";
             // 
-            // label12
+            // label10
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(139, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(304, 16);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "【此界面主要为企业运维/开发人员使用】";
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(108, 133);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(227, 12);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "2、右边Grid主要用来显示已有的记录信息";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(108, 97);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(395, 12);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "1、在左边模块，可以选择已经有的类型添加子项，也可以新增一个大分类";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(42, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(377, 12);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "本界面主要用与界面功能下拉框值的设定，方便用户添加新的分类信息";
             // 
             // ComboboxValueControl
             // 

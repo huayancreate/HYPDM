@@ -26,7 +26,19 @@ namespace HYPDM.Entities
         private DataEntityQuery<PDM_CHANGE_HISTORY> m_PDM_CHANGE_HISTORYs;
         private DataEntityQuery<ComboBoxValue> m_ComboBoxValues;
         private DataEntityQuery<ObjectRelation> m_ObjectRelations;
+        private DataEntityQuery<WF_TEMPLATES_STEP> m_WF_TEMPLATES_STEPs;
+        private DataEntityQuery<WF_TEMPLATES> m_WF_TEMPLATESs;
 
+        public DataEntityQuery<WF_TEMPLATES> WF_TEMPLATESs
+        {
+            get { return m_WF_TEMPLATESs; }
+            set { m_WF_TEMPLATESs = value; }
+        }
+        public DataEntityQuery<WF_TEMPLATES_STEP> WF_TEMPLATES_STEPs
+        {
+            get { return m_WF_TEMPLATES_STEPs; }
+            set { m_WF_TEMPLATES_STEPs = value; }
+        }
         public DataEntityQuery<ObjectRelation> ObjectRelations
         {
             get { return m_ObjectRelations; }

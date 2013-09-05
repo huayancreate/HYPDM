@@ -62,6 +62,8 @@
     <Compile Include="Generat\PDM_PRODUCT_DOCUMENT.Generator.cs" />
     <Compile Include="Generat\PDM_PRODUCT_PRORECORD.Generator.cs" />
     <Compile Include="Generat\PDM_STRUCT.Generator.cs" />
+    <Compile Include="Generat\WF_ TEMPLATES_STEP_Generator.cs" />
+    <Compile Include="Generat\WF_TEMPLATES_Generator.cs" />
     <Compile Include="ObjectRelation.cs" />
     <Compile Include="PartsDetail.cs" />
     <Compile Include="PDM_ALL_PRODUCT.cs" />
@@ -94,6 +96,8 @@
     <Compile Include="Generat\PDM_CHANGE_HISTORY.Generator.cs" />
     <Compile Include="PDM_CHANGE_HISTORY.cs" />
     <Compile Include="DbEntities.cs" />
+    <Compile Include="WF_TEMPLATES.cs" />
+    <Compile Include="WF_TEMPLATES_STEP.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

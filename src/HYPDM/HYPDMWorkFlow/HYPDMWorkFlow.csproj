@@ -49,6 +49,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\HYPDM.BaseControl.dll</HintPath>
     </Reference>
+    <Reference Include="HYPDM.BLL.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\HYPDM.BLL.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="HYPDM.BLL.Host, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\HYPDM.BLL.Host.dll</HintPath>
+    </Reference>
+    <Reference Include="HYPDM.Entities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\HYPDM.Entities.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonFuns.cs" />
+    <Compile Include="WorkFlow.cs" />
     <Compile Include="WorkFlowDesign.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
