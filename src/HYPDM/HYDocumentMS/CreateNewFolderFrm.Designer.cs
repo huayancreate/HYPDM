@@ -43,7 +43,7 @@
             // 
             // panel_Title
             // 
-            this.panel_Title.BackgroundImage = global:: HYDocumentMS.Properties.Resources.Folder;
+            this.panel_Title.BackgroundImage = global::HYDocumentMS.Properties.Resources.Folder;
             this.panel_Title.Controls.Add(this.min);
             this.panel_Title.Controls.Add(this.panel_Exit);
             this.panel_Title.Dock = System.Windows.Forms.DockStyle.Top;
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global:: HYDocumentMS.Properties.Resources.Min_All;
+            this.BackgroundImage = global::HYDocumentMS.Properties.Resources.Min_All;
             this.ClientSize = new System.Drawing.Size(319, 156);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLastFolder);

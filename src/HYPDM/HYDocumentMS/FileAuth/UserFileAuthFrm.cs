@@ -13,9 +13,9 @@ using EAS.Services;
 using EAS.Data.ORM;
 using HYPDM.BLL;
 using HYPDM;
-using HYDocumentMS;
 namespace HYDocumentMS.FileAuth
-{
+{  
+   
     /// <summary>
     /// 用户文件权限管理
     /// </summary>
@@ -24,7 +24,7 @@ namespace HYDocumentMS.FileAuth
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         IFileAuthService _fileAuth = ServiceContainer.GetService<FileAuthService>();
 
-        HYDocumentMS.IFileHelper fileHelper = null;
+        IFileHelper fileHelper = null;
         /// <summary>
         /// 需要设定文件权限的用户登录账号
         /// </summary>

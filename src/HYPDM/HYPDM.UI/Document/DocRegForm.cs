@@ -19,6 +19,7 @@ using System.Configuration;
 using System.Collections;
 using EAS.Data.Linq;
 using HYDocumentMS;
+using HYPDM;
 namespace HYPDM.WinUI.Document
 {
     public partial class DocRegForm : Form

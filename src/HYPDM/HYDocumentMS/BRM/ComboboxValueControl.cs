@@ -14,7 +14,6 @@ using HYPDM.Entities;
 using HYPDM.BLL;
 using EAS.Explorer;
 using EAS.Data.Linq;
-using HYDocumentMS;
 namespace HYDocumentMS.BRM
 {
     /// <summary>
@@ -23,7 +22,7 @@ namespace HYDocumentMS.BRM
     [Module("{BF495E20-CD0B-4CAA-B455-BC8B3C545930}", "下拉框值", "下拉框值管理")]
     public partial class ComboboxValueControl : UserControl
     {
-         HYDocumentMS.IFileHelper helper = null;
+        IFileHelper helper = null;
         IComboBoxValueService _comboValue = ServiceContainer.GetService<ComboBoxValueService>();
         /// <summary>
         ///false为添加状态,true为修改状态

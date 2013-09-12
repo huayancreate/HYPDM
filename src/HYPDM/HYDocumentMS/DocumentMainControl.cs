@@ -75,7 +75,7 @@ namespace HYDocumentMS
                 {
 
                     IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
-                     IFileHelper file = new  FileHelper();
+                    HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
                     Boolean bl = file.isHasAuth(DataType.AuthParmsType.FolderCreate, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
                     if (bl == false)
                     {
@@ -112,7 +112,7 @@ namespace HYDocumentMS
                 else
                 {
                     IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
-                     IFileHelper file = new  FileHelper();
+                    HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
                     Boolean bl = file.isHasAuth(DataType.AuthParmsType.UpLoad, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
                     if (bl == false)
                     {
@@ -177,7 +177,7 @@ namespace HYDocumentMS
                     if (checkDel())
                     {
                         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
-                         IFileHelper file = new  FileHelper();
+                        HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
                         Boolean bl = file.isHasAuth(DataType.AuthParmsType.FolderDelete, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
                         if (bl == false)
                         {
@@ -226,7 +226,7 @@ namespace HYDocumentMS
                 else
                 {
                     IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
-                     IFileHelper file = new  FileHelper();
+                    HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
                     Boolean bl = file.isHasAuth(DataType.AuthParmsType.FolderEdit, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
                     if (bl == false)
                     {
@@ -267,7 +267,7 @@ namespace HYDocumentMS
 
 
                 IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
-                 IFileHelper file = new  FileHelper();
+                HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
                 Boolean bl = file.isHasAuth(DataType.AuthParmsType.View, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
                 if (bl == false)
                 {
@@ -340,12 +340,12 @@ namespace HYDocumentMS
             if (chkIsFile())
             {
                 IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
-                 IFileHelper file = new  FileHelper();
+                HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
                 TreeNode node = this.trvDocumentList.SelectedNode;
                 string dd = node.Text;
                 string ee = node.Tag.ToString();
 
-                Boolean bl = file.isHasAuth( DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
+                Boolean bl = file.isHasAuth(DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, this.trvDocumentList.SelectedNode.Tag.ToString());
                 if (bl == false)
                 {
                     MessageBox.Show("你没有权限下载此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);

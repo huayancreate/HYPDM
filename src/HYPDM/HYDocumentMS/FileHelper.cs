@@ -222,7 +222,7 @@ namespace HYDocumentMS
         }
         public void getTreeViewByPathDir(TreeView treeview)
         {
-             IFileHelper filehelper = new  FileHelper();
+            HYDocumentMS.IFileHelper filehelper = new HYDocumentMS.FileHelper();
             dtDirList = filehelper.getDocFileDir(true);//获取文档目录的清单
             CreatTreeDir(treeview.Nodes, "0", dtDirList);
             treeview.ExpandAll();

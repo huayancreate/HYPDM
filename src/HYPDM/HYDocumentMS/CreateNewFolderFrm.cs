@@ -111,7 +111,7 @@ namespace HYDocumentMS
                 this.label_Name.Text = "修改文件夹";
                 this.txtLastFolder.Text = this.SaveFilepath;
                 this.txtNewFolder.Text = this.ModifyFolderText;
-                this.panel_Title.BackgroundImage = global:: HYDocumentMS.Properties.Resources.F1;
+                this.panel_Title.BackgroundImage = global::HYDocumentMS.Properties.Resources.F1;
             }
 
         }

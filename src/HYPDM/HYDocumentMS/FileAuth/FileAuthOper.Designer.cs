@@ -40,10 +40,6 @@
             this.pnlSingle = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dGVUsers = new HYPDM.BaseControl.DataGridViewExt();
-            this.LOGINID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ROLENAME1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPTION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORGANNAME2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -66,10 +62,14 @@
             this.btnGroupAuth = new System.Windows.Forms.Button();
             this.tabDescription = new System.Windows.Forms.TabPage();
             this.pnlDescription = new System.Windows.Forms.Panel();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.LOGINID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ROLENAME1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ORGANNAME2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabAuth.SuspendLayout();
             this.tabSigleUser.SuspendLayout();
@@ -197,38 +197,6 @@
             this.dGVUsers.Size = new System.Drawing.Size(1021, 314);
             this.dGVUsers.TabIndex = 1;
             this.dGVUsers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVUsers_CellDoubleClick);
-            // 
-            // LOGINID
-            // 
-            this.LOGINID.DataPropertyName = "LOGINID";
-            this.LOGINID.HeaderText = "登录账号";
-            this.LOGINID.Name = "LOGINID";
-            this.LOGINID.ReadOnly = true;
-            this.LOGINID.Width = 150;
-            // 
-            // ROLENAME1
-            // 
-            this.ROLENAME1.DataPropertyName = "ROLENAME";
-            this.ROLENAME1.HeaderText = "群组";
-            this.ROLENAME1.Name = "ROLENAME1";
-            this.ROLENAME1.ReadOnly = true;
-            this.ROLENAME1.Width = 180;
-            // 
-            // DESCRIPTION2
-            // 
-            this.DESCRIPTION2.DataPropertyName = "DESCRIPTION";
-            this.DESCRIPTION2.HeaderText = "描述";
-            this.DESCRIPTION2.Name = "DESCRIPTION2";
-            this.DESCRIPTION2.ReadOnly = true;
-            this.DESCRIPTION2.Width = 200;
-            // 
-            // ORGANNAME2
-            // 
-            this.ORGANNAME2.DataPropertyName = "ORGANNAME";
-            this.ORGANNAME2.HeaderText = "组织";
-            this.ORGANNAME2.Name = "ORGANNAME2";
-            this.ORGANNAME2.ReadOnly = true;
-            this.ORGANNAME2.Width = 260;
             // 
             // ucPaging1
             // 
@@ -472,7 +440,7 @@
             this.tabDescription.Controls.Add(this.pnlDescription);
             this.tabDescription.Location = new System.Drawing.Point(4, 22);
             this.tabDescription.Name = "tabDescription";
-            this.tabDescription.Size = new System.Drawing.Size(1033, 457);
+            this.tabDescription.Size = new System.Drawing.Size(911, 457);
             this.tabDescription.TabIndex = 3;
             this.tabDescription.Text = "说明";
             this.tabDescription.UseVisualStyleBackColor = true;
@@ -483,17 +451,8 @@
             this.pnlDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDescription.Location = new System.Drawing.Point(0, 0);
             this.pnlDescription.Name = "pnlDescription";
-            this.pnlDescription.Size = new System.Drawing.Size(1033, 457);
+            this.pnlDescription.Size = new System.Drawing.Size(911, 457);
             this.pnlDescription.TabIndex = 0;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1033, 457);
-            this.webBrowser1.TabIndex = 0;
             // 
             // panel3
             // 
@@ -523,6 +482,47 @@
             this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "文件权限管理";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(911, 457);
+            this.webBrowser1.TabIndex = 0;
+            // 
+            // LOGINID
+            // 
+            this.LOGINID.DataPropertyName = "LOGINID";
+            this.LOGINID.HeaderText = "登录账号";
+            this.LOGINID.Name = "LOGINID";
+            this.LOGINID.ReadOnly = true;
+            this.LOGINID.Width = 150;
+            // 
+            // ROLENAME1
+            // 
+            this.ROLENAME1.DataPropertyName = "ROLENAME";
+            this.ROLENAME1.HeaderText = "群组";
+            this.ROLENAME1.Name = "ROLENAME1";
+            this.ROLENAME1.ReadOnly = true;
+            this.ROLENAME1.Width = 180;
+            // 
+            // DESCRIPTION2
+            // 
+            this.DESCRIPTION2.DataPropertyName = "DESCRIPTION";
+            this.DESCRIPTION2.HeaderText = "描述";
+            this.DESCRIPTION2.Name = "DESCRIPTION2";
+            this.DESCRIPTION2.ReadOnly = true;
+            this.DESCRIPTION2.Width = 200;
+            // 
+            // ORGANNAME2
+            // 
+            this.ORGANNAME2.DataPropertyName = "ORGANNAME";
+            this.ORGANNAME2.HeaderText = "组织";
+            this.ORGANNAME2.Name = "ORGANNAME2";
+            this.ORGANNAME2.ReadOnly = true;
+            this.ORGANNAME2.Width = 260;
             // 
             // FileAuthOper
             // 

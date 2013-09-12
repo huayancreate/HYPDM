@@ -7,18 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using EAS.Modularization;
-using HYDocumentMS;
+using HYPDM;
 namespace HYDocumentMS.FileAuth
 {
     /// <summary>
     /// 
     /// </summary>
-    [Module("{7C8BF2CA-CD71-4394-BE5D-449099ABDC69}", "文档权限设定", "文档权限设定")]
+    [Module("{9908B9DF-94DD-46C7-884B-DE488E8CDCAF}", "文档权限设定", "文档权限设定")]
     public partial class FileAuthOper : UserControl
     {
 
 
-        HYDocumentMS.IFileHelper fileHelper = null;
+        IFileHelper fileHelper = null;
         /// <summary>
         /// 
         /// </summary>
@@ -59,7 +59,7 @@ namespace HYDocumentMS.FileAuth
             {
                 UserFileAuthFrm frm = new UserFileAuthFrm();
                 frm.UserAccount = this.dGVUsers.CurrentRow.Cells["LOGINID"].Value.ToString();
-                frm.AuthObjectType =  HYPDM.DataType.AuthObjectType.SingleUser;
+                frm.AuthObjectType = DataType.AuthObjectType.SingleUser;
                 frm.ShowDialog();
 
             }
@@ -77,7 +77,7 @@ namespace HYDocumentMS.FileAuth
             {
                 UserFileAuthFrm frm = new UserFileAuthFrm();
                 frm.UserRole = this.dgvRoles.CurrentRow.Cells["NAME1"].Value.ToString();
-                frm.AuthObjectType = HYPDM.DataType.AuthObjectType.UserRole;
+                frm.AuthObjectType = DataType.AuthObjectType.UserRole;
                 frm.ShowDialog();
             }
         }
