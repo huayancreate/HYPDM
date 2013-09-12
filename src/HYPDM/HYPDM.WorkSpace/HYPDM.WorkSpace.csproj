@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{17E71B26-0E11-495D-A71D-AF43ACC02C04}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HYPDM.WorkSpace</RootNamespace>
+    <AssemblyName>HYPDM.WorkSpace</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Bin\HYPDM.WorkSpace.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProjcetManger\ProjectModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProjcetManger\ProjectModule.Designer.cs">
+      <DependentUpon>ProjectModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TempClass1.cs" />
+    <Compile Include="CommonEnum.cs" />
+    <Compile Include="WorkManager\MyFloderManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkManager\MyFloderManager.Designer.cs">
+      <DependentUpon>MyFloderManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkManager\NewFloderAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkManager\NewFloderAddForm.Designer.cs">
+      <DependentUpon>NewFloderAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkManager\NewNodeAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkManager\NewNodeAddForm.Designer.cs">
+      <DependentUpon>NewNodeAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkManager\RecentWorkManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkManager\RecentWorkManager.Designer.cs">
+      <DependentUpon>RecentWorkManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkManager\WorkManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkManager\WorkManager.Designer.cs">
+      <DependentUpon>WorkManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkSapce.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkSapce.Designer.cs">
+      <DependentUpon>WorkSapce.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EAS.Data">
+      <HintPath>..\Bin\EAS.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EAS.Explorer">
+      <HintPath>..\Bin\EAS.Explorer.dll</HintPath>
+    </Reference>
+    <Reference Include="EAS.Explorer.Entities">
+      <HintPath>..\Bin\EAS.Explorer.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="EAS.MicroKernel">
+      <HintPath>..\Bin\EAS.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="EAS.Windows">
+      <HintPath>..\Bin\EAS.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="ExpandableGridView, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="FileSockClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="HYDocumentMS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="HYPDM.BaseControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="HYPDM.BLL.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="HYPDM.BLL.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="HYPDM.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="HYPDM.WinUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\HYPDM.WinUI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.TreeListView, Version=1.0.4976.19134, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjcetManger\ProjectModule.resx">
+      <DependentUpon>ProjectModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkManager\MyFloderManager.resx">
+      <DependentUpon>MyFloderManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkManager\NewFloderAddForm.resx">
+      <DependentUpon>NewFloderAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkManager\NewNodeAddForm.resx">
+      <DependentUpon>NewNodeAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkManager\RecentWorkManager.resx">
+      <DependentUpon>RecentWorkManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkManager\WorkManager.resx">
+      <DependentUpon>WorkManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkSapce.resx">
+      <DependentUpon>WorkSapce.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
