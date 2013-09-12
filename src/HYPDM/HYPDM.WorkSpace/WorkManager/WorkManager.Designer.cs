@@ -33,24 +33,29 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.tsl_delete = new System.Windows.Forms.ToolStripButton();
             this.tsl_export = new System.Windows.Forms.ToolStripButton();
-            this.pagination1 = new HYPDM.WinUI.DefineControl.Pagination();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tsb_retrive = new System.Windows.Forms.ToolStripButton();
+            this.pagination1 = new HYPDM.WinUI.DefineControl.Pagination();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_list)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv_list
             // 
+            this.dgv_list.AllowUserToAddRows = false;
+            this.dgv_list.AllowUserToDeleteRows = false;
             this.dgv_list.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_list.Location = new System.Drawing.Point(0, 28);
             this.dgv_list.Name = "dgv_list";
+            this.dgv_list.ReadOnly = true;
             this.dgv_list.RowTemplate.Height = 23;
+            this.dgv_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_list.Size = new System.Drawing.Size(803, 387);
             this.dgv_list.TabIndex = 4;
+            this.dgv_list.DoubleClick += new System.EventHandler(this.dgv_list_DoubleClick);
             // 
             // toolStrip2
             // 
@@ -82,19 +87,6 @@
             this.tsl_export.Size = new System.Drawing.Size(81, 22);
             this.tsl_export.Text = "导出Excel";
             // 
-            // pagination1
-            // 
-            this.pagination1.CurrentPage = 1;
-            this.pagination1.CurrentRows = 20;
-            this.pagination1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pagination1.Location = new System.Drawing.Point(0, 413);
-            this.pagination1.Name = "pagination1";
-            this.pagination1.QueryCondition = null;
-            this.pagination1.Size = new System.Drawing.Size(803, 28);
-            this.pagination1.TabIndex = 5;
-            this.pagination1.TotalPage = 0;
-            this.pagination1.TotalRows = 0;
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
@@ -110,6 +102,19 @@
             this.tsb_retrive.Name = "tsb_retrive";
             this.tsb_retrive.Size = new System.Drawing.Size(52, 22);
             this.tsb_retrive.Text = "回退";
+            // 
+            // pagination1
+            // 
+            this.pagination1.CurrentPage = 1;
+            this.pagination1.CurrentRows = 20;
+            this.pagination1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pagination1.Location = new System.Drawing.Point(0, 413);
+            this.pagination1.Name = "pagination1";
+            this.pagination1.QueryCondition = null;
+            this.pagination1.Size = new System.Drawing.Size(803, 28);
+            this.pagination1.TabIndex = 5;
+            this.pagination1.TotalPage = 0;
+            this.pagination1.TotalRows = 0;
             // 
             // WorkManager
             // 
