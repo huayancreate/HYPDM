@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gpDetail = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.txtFlowName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
@@ -39,6 +42,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSubject = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tsp = new System.Windows.Forms.ToolStrip();
+            this.tspDelete = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tspStart = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsphandle = new System.Windows.Forms.ToolStripLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpFlow = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,24 +55,15 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.cMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tspMenuUserOrGroup = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnModify = new System.Windows.Forms.Button();
-            this.tsp = new System.Windows.Forms.ToolStrip();
-            this.tspDelete = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tspStart = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsphandle = new System.Windows.Forms.ToolStripLabel();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.gpDetail.SuspendLayout();
+            this.tsp.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpFlow.SuspendLayout();
             this.cMenu.SuspendLayout();
-            this.tsp.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -105,6 +105,35 @@
             this.gpDetail.TabIndex = 1;
             this.gpDetail.TabStop = false;
             this.gpDetail.Text = "基本信息";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(837, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "测试";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnModify
+            // 
+            this.btnModify.Location = new System.Drawing.Point(846, 24);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(51, 24);
+            this.btnModify.TabIndex = 9;
+            this.btnModify.Text = "修改";
+            this.btnModify.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(789, 24);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(51, 24);
+            this.btnSubmit.TabIndex = 8;
+            this.btnSubmit.Text = "提交";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtFlowName
             // 
@@ -173,6 +202,54 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "主题";
             // 
+            // tsp
+            // 
+            this.tsp.BackgroundImage = global::HYPDM.WinUI.Properties.Resources.banner;
+            this.tsp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspDelete,
+            this.toolStripSeparator2,
+            this.tspStart,
+            this.toolStripSeparator1,
+            this.tsphandle});
+            this.tsp.Location = new System.Drawing.Point(0, 0);
+            this.tsp.Name = "tsp";
+            this.tsp.Size = new System.Drawing.Size(949, 25);
+            this.tsp.TabIndex = 0;
+            this.tsp.Text = "toolStrip1";
+            // 
+            // tspDelete
+            // 
+            this.tspDelete.ForeColor = System.Drawing.Color.White;
+            this.tspDelete.Name = "tspDelete";
+            this.tspDelete.Size = new System.Drawing.Size(32, 22);
+            this.tspDelete.Text = "删除";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tspStart
+            // 
+            this.tspStart.ForeColor = System.Drawing.Color.White;
+            this.tspStart.Name = "tspStart";
+            this.tspStart.Size = new System.Drawing.Size(32, 22);
+            this.tspStart.Text = "启动";
+            this.tspStart.Click += new System.EventHandler(this.tspStart_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsphandle
+            // 
+            this.tsphandle.Enabled = false;
+            this.tsphandle.ForeColor = System.Drawing.Color.White;
+            this.tsphandle.Name = "tsphandle";
+            this.tsphandle.Size = new System.Drawing.Size(56, 22);
+            this.tsphandle.Text = "流程处理";
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpFlow);
@@ -236,83 +313,6 @@
             this.tspMenuUserOrGroup.Text = "指定处理人【群组】";
             this.tspMenuUserOrGroup.Click += new System.EventHandler(this.tspMenuUserOrGroup_Click);
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(789, 24);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(51, 24);
-            this.btnSubmit.TabIndex = 8;
-            this.btnSubmit.Text = "提交";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnModify
-            // 
-            this.btnModify.Location = new System.Drawing.Point(846, 24);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(51, 24);
-            this.btnModify.TabIndex = 9;
-            this.btnModify.Text = "修改";
-            this.btnModify.UseVisualStyleBackColor = true;
-            // 
-            // tsp
-            // 
-            this.tsp.BackgroundImage = global::HYPDM.WinUI.Properties.Resources.banner;
-            this.tsp.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tspDelete,
-            this.toolStripSeparator2,
-            this.tspStart,
-            this.toolStripSeparator1,
-            this.tsphandle});
-            this.tsp.Location = new System.Drawing.Point(0, 0);
-            this.tsp.Name = "tsp";
-            this.tsp.Size = new System.Drawing.Size(949, 25);
-            this.tsp.TabIndex = 0;
-            this.tsp.Text = "toolStrip1";
-            // 
-            // tspDelete
-            // 
-            this.tspDelete.ForeColor = System.Drawing.Color.White;
-            this.tspDelete.Name = "tspDelete";
-            this.tspDelete.Size = new System.Drawing.Size(32, 22);
-            this.tspDelete.Text = "删除";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tspStart
-            // 
-            this.tspStart.ForeColor = System.Drawing.Color.White;
-            this.tspStart.Name = "tspStart";
-            this.tspStart.Size = new System.Drawing.Size(32, 22);
-            this.tspStart.Text = "启动";
-            this.tspStart.Click += new System.EventHandler(this.tspStart_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsphandle
-            // 
-            this.tsphandle.Enabled = false;
-            this.tsphandle.ForeColor = System.Drawing.Color.White;
-            this.tsphandle.Name = "tsphandle";
-            this.tsphandle.Size = new System.Drawing.Size(56, 22);
-            this.tsphandle.Text = "流程处理";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(837, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "测试";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // StandardFlow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -329,12 +329,12 @@
             this.splitContainer1.ResumeLayout(false);
             this.gpDetail.ResumeLayout(false);
             this.gpDetail.PerformLayout();
+            this.tsp.ResumeLayout(false);
+            this.tsp.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tpFlow.ResumeLayout(false);
             this.tpFlow.PerformLayout();
             this.cMenu.ResumeLayout(false);
-            this.tsp.ResumeLayout(false);
-            this.tsp.PerformLayout();
             this.ResumeLayout(false);
 
         }

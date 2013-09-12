@@ -394,6 +394,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
 
            // WorkFlow.GetTableName((DataType.RelationObjectType)Enum.Parse(typeof(DataType.RelationObjectType), APP.RELATIONOBJECTTYPE, false));
             Form frmDetai = WorkFlow.GetDetaiFrm((DataType.RelationObjectType)Enum.Parse(typeof(DataType.RelationObjectType), APP.RELATIONOBJECTTYPE, false),APP.OBJECTKEY);
+            frmDetai.StartPosition = FormStartPosition.CenterParent;
             frmDetai.Show();
         }
 

@@ -460,9 +460,6 @@ namespace HYPDM.WinUI.WorkFlow
                         HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID, 1);  //2为半成品  1为成品
                          IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
                          IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
-                          
-                        // frm.Product = m_AllProductService.GetById(objectID);
-                         frm.StartPosition = FormStartPosition.CenterParent;
                          FrmDetail = frm;
                       
                        
