@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using HYDocumentMS;
 namespace HYPDM.WinUI.Document
 {
     public partial class CheckInForm : Form
@@ -81,10 +81,10 @@ namespace HYPDM.WinUI.Document
                     tempNewFileName = tempNewFileName.Substring(0, tempNewFileName.LastIndexOf(@".")) + DocFileEntity.DFL_VER_LATEST + tempNewFileName.Substring(tempNewFileName.LastIndexOf(@"."));
 
                   //  MessageBox.Show(filePath);
-                    string serPathAndFileName=new HYDocumentMS.FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH)+this.txtFileName.Text.ToString();
+                    string serPathAndFileName=new  FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH)+this.txtFileName.Text.ToString();
                     FileSockClient.CopyOldVerFile hh = new FileSockClient.CopyOldVerFile(serPathAndFileName, tempNewFileName); //复制旧版本数据到Vers目录下
                     //上传更新文件覆盖旧文件
-                    FileSockClient.UpLoadFileSocketClient upload = new FileSockClient.UpLoadFileSocketClient(filePath,new HYDocumentMS.FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH), true);
+                    FileSockClient.UpLoadFileSocketClient upload = new FileSockClient.UpLoadFileSocketClient(filePath,new  FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH), true);
                     
                 }
                 catch(Exception ex)

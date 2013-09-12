@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using EAS.Modularization;
-
+using HYDocumentMS;
 namespace HYDocumentMS.FileAuth
 {
     /// <summary>
@@ -18,7 +18,7 @@ namespace HYDocumentMS.FileAuth
     {
 
 
-        IFileHelper fileHelper = null;
+        HYDocumentMS.IFileHelper fileHelper = null;
         /// <summary>
         /// 
         /// </summary>
@@ -59,7 +59,7 @@ namespace HYDocumentMS.FileAuth
             {
                 UserFileAuthFrm frm = new UserFileAuthFrm();
                 frm.UserAccount = this.dGVUsers.CurrentRow.Cells["LOGINID"].Value.ToString();
-                frm.AuthObjectType = DataType.AuthObjectType.SingleUser;
+                frm.AuthObjectType =  HYPDM.DataType.AuthObjectType.SingleUser;
                 frm.ShowDialog();
 
             }
@@ -77,7 +77,7 @@ namespace HYDocumentMS.FileAuth
             {
                 UserFileAuthFrm frm = new UserFileAuthFrm();
                 frm.UserRole = this.dgvRoles.CurrentRow.Cells["NAME1"].Value.ToString();
-                frm.AuthObjectType = DataType.AuthObjectType.UserRole;
+                frm.AuthObjectType = HYPDM.DataType.AuthObjectType.UserRole;
                 frm.ShowDialog();
             }
         }

@@ -8,7 +8,7 @@ using EAS.Services;
 using EAS.Data.ORM;
 using HYPDM.BLL;
 using System.Windows.Forms;
-
+using HYPDM;
 namespace HYDocumentMS
 {
     /// <summary>
@@ -222,7 +222,7 @@ namespace HYDocumentMS
         }
         public void getTreeViewByPathDir(TreeView treeview)
         {
-            HYDocumentMS.IFileHelper filehelper = new HYDocumentMS.FileHelper();
+             IFileHelper filehelper = new  FileHelper();
             dtDirList = filehelper.getDocFileDir(true);//获取文档目录的清单
             CreatTreeDir(treeview.Nodes, "0", dtDirList);
             treeview.ExpandAll();

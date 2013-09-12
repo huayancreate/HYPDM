@@ -1,4 +1,4 @@
-﻿namespace HYPDMWorkFlow
+﻿namespace HYPDM.WinUI.WorkFlow
 {
     partial class WorkFlowDesign
     {
@@ -31,6 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.pnlBtnTools = new System.Windows.Forms.Panel();
+            this.btnWFHold = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnNextStepAdd = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtDefineUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,8 +51,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioBtnNo = new System.Windows.Forms.RadioButton();
             this.radioBtnYes = new System.Windows.Forms.RadioButton();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnNextStep = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtComment = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,6 +65,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.combCurrentStep = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlModify = new System.Windows.Forms.Panel();
+            this.btnStepModify = new System.Windows.Forms.Button();
+            this.btnStepDel = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gpWFG = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -75,6 +82,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.pnlTop.SuspendLayout();
+            this.pnlBtnTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -83,6 +91,8 @@
             this.pnlMain.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.pnlModify.SuspendLayout();
             this.pnlParameter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +115,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.splitContainer1.Panel1.Controls.Add(this.pnlTop);
             // 
             // splitContainer1.Panel2
@@ -117,17 +128,69 @@
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.White;
+            this.pnlTop.Controls.Add(this.pnlBtnTools);
+            this.pnlTop.Controls.Add(this.btnModify);
             this.pnlTop.Controls.Add(this.btnCreate);
             this.pnlTop.Controls.Add(this.txtDefineUser);
             this.pnlTop.Controls.Add(this.label7);
             this.pnlTop.Controls.Add(this.label1);
             this.pnlTop.Controls.Add(this.txtWFName);
             this.pnlTop.Controls.Add(this.lblWFName);
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(920, 70);
+            this.pnlTop.Size = new System.Drawing.Size(920, 80);
             this.pnlTop.TabIndex = 4;
+            // 
+            // pnlBtnTools
+            // 
+            this.pnlBtnTools.Controls.Add(this.btnWFHold);
+            this.pnlBtnTools.Controls.Add(this.btnSubmit);
+            this.pnlBtnTools.Controls.Add(this.btnNextStepAdd);
+            this.pnlBtnTools.Location = new System.Drawing.Point(475, 41);
+            this.pnlBtnTools.Name = "pnlBtnTools";
+            this.pnlBtnTools.Size = new System.Drawing.Size(412, 36);
+            this.pnlBtnTools.TabIndex = 10;
+            // 
+            // btnWFHold
+            // 
+            this.btnWFHold.Location = new System.Drawing.Point(278, 7);
+            this.btnWFHold.Name = "btnWFHold";
+            this.btnWFHold.Size = new System.Drawing.Size(130, 27);
+            this.btnWFHold.TabIndex = 12;
+            this.btnWFHold.Text = "停用工作流";
+            this.btnWFHold.UseVisualStyleBackColor = true;
+            this.btnWFHold.Click += new System.EventHandler(this.btnWFHold_Click);
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Location = new System.Drawing.Point(142, 7);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(130, 27);
+            this.btnSubmit.TabIndex = 11;
+            this.btnSubmit.Text = "启用工作流";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnNextStepAdd
+            // 
+            this.btnNextStepAdd.Location = new System.Drawing.Point(6, 7);
+            this.btnNextStepAdd.Name = "btnNextStepAdd";
+            this.btnNextStepAdd.Size = new System.Drawing.Size(130, 27);
+            this.btnNextStepAdd.TabIndex = 10;
+            this.btnNextStepAdd.Text = "添加下一节点";
+            this.btnNextStepAdd.UseVisualStyleBackColor = true;
+            this.btnNextStepAdd.Click += new System.EventHandler(this.btnNextStepAdd_Click);
+            // 
+            // btnModify
+            // 
+            this.btnModify.Location = new System.Drawing.Point(301, 46);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(75, 23);
+            this.btnModify.TabIndex = 6;
+            this.btnModify.Text = "工作流修改";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnCreate
             // 
@@ -135,13 +198,13 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 5;
-            this.btnCreate.Text = "创建工作流";
+            this.btnCreate.Text = "工作流创建";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // txtDefineUser
             // 
-            this.txtDefineUser.Location = new System.Drawing.Point(452, 19);
+            this.txtDefineUser.Location = new System.Drawing.Point(547, 3);
             this.txtDefineUser.Name = "txtDefineUser";
             this.txtDefineUser.ReadOnly = true;
             this.txtDefineUser.Size = new System.Drawing.Size(185, 21);
@@ -150,7 +213,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(402, 23);
+            this.label7.Location = new System.Drawing.Point(497, 7);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 12);
             this.label7.TabIndex = 3;
@@ -159,7 +222,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 54);
+            this.label1.Location = new System.Drawing.Point(3, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 2;
@@ -202,20 +265,21 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Controls.Add(this.pnlMain);
+            this.groupBox1.Controls.Add(this.panel4);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(483, 450);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "工作流设计";
             // 
             // pnlMain
             // 
             this.pnlMain.Controls.Add(this.groupBox3);
             this.pnlMain.Controls.Add(this.groupBox2);
-            this.pnlMain.Controls.Add(this.btnSave);
-            this.pnlMain.Controls.Add(this.btnNextStep);
             this.pnlMain.Controls.Add(this.label9);
             this.pnlMain.Controls.Add(this.txtComment);
             this.pnlMain.Controls.Add(this.label8);
@@ -233,8 +297,8 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(3, 17);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(477, 430);
-            this.pnlMain.TabIndex = 9;
+            this.pnlMain.Size = new System.Drawing.Size(477, 380);
+            this.pnlMain.TabIndex = 11;
             // 
             // groupBox3
             // 
@@ -302,25 +366,6 @@
             this.radioBtnYes.Text = "是";
             this.radioBtnYes.UseVisualStyleBackColor = true;
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(331, 385);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(79, 38);
-            this.btnSave.TabIndex = 19;
-            this.btnSave.Text = "完成";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnNextStep
-            // 
-            this.btnNextStep.Location = new System.Drawing.Point(230, 385);
-            this.btnNextStep.Name = "btnNextStep";
-            this.btnNextStep.Size = new System.Drawing.Size(88, 38);
-            this.btnNextStep.TabIndex = 18;
-            this.btnNextStep.Text = "继续添加节点";
-            this.btnNextStep.UseVisualStyleBackColor = true;
-            this.btnNextStep.Click += new System.EventHandler(this.btnNextStep_Click);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -332,7 +377,7 @@
             // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(118, 314);
+            this.txtComment.Location = new System.Drawing.Point(111, 314);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(364, 48);
@@ -350,7 +395,7 @@
             // chkStartUserNote
             // 
             this.chkStartUserNote.AutoSize = true;
-            this.chkStartUserNote.Location = new System.Drawing.Point(119, 292);
+            this.chkStartUserNote.Location = new System.Drawing.Point(114, 292);
             this.chkStartUserNote.Name = "chkStartUserNote";
             this.chkStartUserNote.Size = new System.Drawing.Size(84, 16);
             this.chkStartUserNote.TabIndex = 14;
@@ -360,7 +405,7 @@
             // chkDelWF
             // 
             this.chkDelWF.AutoSize = true;
-            this.chkDelWF.Location = new System.Drawing.Point(120, 266);
+            this.chkDelWF.Location = new System.Drawing.Point(115, 266);
             this.chkDelWF.Name = "chkDelWF";
             this.chkDelWF.Size = new System.Drawing.Size(84, 16);
             this.chkDelWF.TabIndex = 13;
@@ -370,7 +415,7 @@
             // chkMdyContent
             // 
             this.chkMdyContent.AutoSize = true;
-            this.chkMdyContent.Location = new System.Drawing.Point(120, 238);
+            this.chkMdyContent.Location = new System.Drawing.Point(115, 238);
             this.chkMdyContent.Name = "chkMdyContent";
             this.chkMdyContent.Size = new System.Drawing.Size(84, 16);
             this.chkMdyContent.TabIndex = 12;
@@ -436,7 +481,6 @@
             this.combCurrentStep.Name = "combCurrentStep";
             this.combCurrentStep.Size = new System.Drawing.Size(364, 20);
             this.combCurrentStep.TabIndex = 2;
-            this.combCurrentStep.SelectedValueChanged += new System.EventHandler(this.combCurrentStep_SelectedValueChanged);
             // 
             // label2
             // 
@@ -446,6 +490,44 @@
             this.label2.Size = new System.Drawing.Size(83, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "当前步骤名称:";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pnlModify);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(3, 397);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(477, 50);
+            this.panel4.TabIndex = 10;
+            // 
+            // pnlModify
+            // 
+            this.pnlModify.Controls.Add(this.btnStepModify);
+            this.pnlModify.Controls.Add(this.btnStepDel);
+            this.pnlModify.Location = new System.Drawing.Point(299, 2);
+            this.pnlModify.Name = "pnlModify";
+            this.pnlModify.Size = new System.Drawing.Size(173, 46);
+            this.pnlModify.TabIndex = 30;
+            // 
+            // btnStepModify
+            // 
+            this.btnStepModify.Location = new System.Drawing.Point(88, 4);
+            this.btnStepModify.Name = "btnStepModify";
+            this.btnStepModify.Size = new System.Drawing.Size(79, 38);
+            this.btnStepModify.TabIndex = 23;
+            this.btnStepModify.Text = "修改";
+            this.btnStepModify.UseVisualStyleBackColor = true;
+            this.btnStepModify.Click += new System.EventHandler(this.btnStepModify_Click);
+            // 
+            // btnStepDel
+            // 
+            this.btnStepDel.Location = new System.Drawing.Point(5, 4);
+            this.btnStepDel.Name = "btnStepDel";
+            this.btnStepDel.Size = new System.Drawing.Size(79, 38);
+            this.btnStepDel.TabIndex = 22;
+            this.btnStepDel.Text = "删除";
+            this.btnStepDel.UseVisualStyleBackColor = true;
+            this.btnStepDel.Click += new System.EventHandler(this.btnStepDel_Click);
             // 
             // panel3
             // 
@@ -457,6 +539,7 @@
             // 
             // gpWFG
             // 
+            this.gpWFG.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.gpWFG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gpWFG.Location = new System.Drawing.Point(0, 0);
             this.gpWFG.Name = "gpWFG";
@@ -502,6 +585,7 @@
             this.btnWorkFlowModify.TabIndex = 1;
             this.btnWorkFlowModify.Text = "工作流修改";
             this.btnWorkFlowModify.UseVisualStyleBackColor = true;
+            this.btnWorkFlowModify.Click += new System.EventHandler(this.btnWorkFlowModify_Click);
             // 
             // btnWorkFlowNew
             // 
@@ -527,6 +611,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            this.pnlBtnTools.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -538,6 +623,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.pnlModify.ResumeLayout(false);
             this.pnlParameter.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -562,9 +649,15 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpWFG;
+        private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnNextStep;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton radioEndN;
+        private System.Windows.Forms.RadioButton radioEndY;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton radioBtnNo;
+        private System.Windows.Forms.RadioButton radioBtnYes;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtComment;
         private System.Windows.Forms.Label label8;
@@ -579,13 +672,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox combCurrentStep;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioEndN;
-        private System.Windows.Forms.RadioButton radioEndY;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioBtnNo;
-        private System.Windows.Forms.RadioButton radioBtnYes;
-        private System.Windows.Forms.GroupBox gpWFG;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlModify;
+        private System.Windows.Forms.Button btnStepModify;
+        private System.Windows.Forms.Button btnStepDel;
+        private System.Windows.Forms.Panel pnlBtnTools;
+        private System.Windows.Forms.Button btnWFHold;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnNextStepAdd;
     }
 }
 

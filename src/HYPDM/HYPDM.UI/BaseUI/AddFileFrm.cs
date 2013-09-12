@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace HYPDM.WinUI.Document
 {   
     /// <summary>
@@ -130,7 +129,7 @@ namespace HYPDM.WinUI.Document
 
         private void trvFileDir_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            HYDocumentMS.IFileHelper helper = new HYDocumentMS.FileHelper();
+             HYDocumentMS.IFileHelper helper = new  HYDocumentMS.FileHelper();
            this.SaveFilepath=helper.getDocumentAllPathByPathID(this.trvFileDir.SelectedNode.Tag.ToString());
            this.SavePathID = this.trvFileDir.SelectedNode.Tag.ToString();
            lblSavePath.Text = "文件将被保存在服务器的如下路径:" + this.SaveFilepath;

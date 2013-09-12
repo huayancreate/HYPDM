@@ -18,6 +18,7 @@ using System.IO;
 using System.Configuration;
 using System.Collections;
 using EAS.Data.Linq;
+using HYDocumentMS;
 namespace HYPDM.WinUI.Document
 {
     public partial class DocRegForm : Form
@@ -83,7 +84,7 @@ namespace HYPDM.WinUI.Document
                 document.DOCSTATUS = "已创建";
                 document.DESCRIPTION = txtDescription.Text;
                 document.REMARK = txtRemark.Text;
-                document.VERSION = new HYDocumentMS.FileHelper().getNewVer("V");
+                document.VERSION = new  FileHelper().getNewVer("V");
                 document.DOCTYPE = cobDocType.SelectedValue.ToString();
                 document.DEL_FLAG = "N";
             }
@@ -425,8 +426,8 @@ namespace HYPDM.WinUI.Document
                 DataGridViewRow row = tvFileList.Rows[rowIndex];
                 //   string ff = row.Cells[0].Value.ToString();
 
-                HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
-                Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.View, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+                 HYDocumentMS.IFileHelper file = new  FileHelper();
+                Boolean bl = file.isHasAuth( DataType.AuthParmsType.View, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
                 if (bl == false)
                 {
                     MessageBox.Show("你没有权限查看此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -445,7 +446,7 @@ namespace HYPDM.WinUI.Document
                 //        viewPath = viewPath + @"\";
                 //    }
                 //}
-                HYDocumentMS.ViewFileFrm fileView = new HYDocumentMS.ViewFileFrm();
+                 ViewFileFrm fileView = new  ViewFileFrm();
                 fileView.FileName = fileName;
                 //fileView.ViewFilePathAndName = @"D:\swf\Java网络编程精解.swf";
                 fileView.ViewFilePath = viewPath;
@@ -491,8 +492,8 @@ namespace HYPDM.WinUI.Document
 
 
             DataGridViewRow row = tvFileList.Rows[rowIndex];
-            HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
-            Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.CheckOut, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+             HYDocumentMS.IFileHelper file = new  FileHelper();
+            Boolean bl = file.isHasAuth( DataType.AuthParmsType.CheckOut, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
             if (bl == false)
             {
                 MessageBox.Show("你没有权限检出此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -554,8 +555,8 @@ namespace HYPDM.WinUI.Document
             String Id = row.Cells["DFL_ID"].Value.ToString();
             DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
             // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
-            HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
-            Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.CheckIn, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+             HYDocumentMS.IFileHelper file = new  FileHelper();
+            Boolean bl = file.isHasAuth( DataType.AuthParmsType.CheckIn, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
             if (bl == false)
             {
                 MessageBox.Show("你没有权限检入此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -603,8 +604,8 @@ namespace HYPDM.WinUI.Document
                 MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
-            Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.Delete, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
+             HYDocumentMS.IFileHelper file = new  FileHelper();
+            Boolean bl = file.isHasAuth( DataType.AuthParmsType.Delete, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
             if (bl == false)
             {
                 MessageBox.Show("你没有权限删除此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -670,7 +671,7 @@ namespace HYPDM.WinUI.Document
         {
             //    List<PDM_ALL_PRODUCT> pdmAllSelectedProduct = null;
             //    List<PDM_MATERAIL> pdmSelectedMaterial = null;
-            //    HYDocumentMS.DataType.RelationObjectType relationObjectType;
+            //     DataType.RelationObjectType relationObjectType;
             ObjectRelation or = new ObjectRelation();
             IObjectRelationService orS = ServiceContainer.GetService<ObjectRelationService>();
             IList<ObjectRelation> listObjectRelation = new List<ObjectRelation>();
@@ -685,7 +686,7 @@ namespace HYPDM.WinUI.Document
                     foreach (ObjectRelation objRelation in listObjectRelation)
                     {
                         objRelation.MASTEROBJECTID = this.Document.DOCID;
-                        objRelation.MASTEROBJECTTYPE = HYDocumentMS.DataType.RelationObjectType.Document.ToString();
+                        objRelation.MASTEROBJECTTYPE =  DataType.RelationObjectType.Document.ToString();
                         objRelation.MASTEROBJECTVERSION = this.Document.VERSION;
                         objRelation.Save();
                     }
@@ -766,7 +767,7 @@ namespace HYPDM.WinUI.Document
 
         private void DocRegForm_Load(object sender, EventArgs e)
         {
-            //  new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
+            //  new  FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
             this.txtDocNo.Focus();
             if (document != null)
             {
@@ -805,7 +806,7 @@ namespace HYPDM.WinUI.Document
             node.DefaultCellStyle.Font = boldFont;
 
             // BindChildNode(node, (string)dr["PHYSICALID"]);
-            HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
+             HYDocumentMS.IFileHelper file = new  FileHelper();
             foreach (DataRow dr in dtDocFile.Rows)
             {
                 node.Nodes.Add(dr["DFL_FILE_NAME"].ToString(), file.getDocumentAllPathByPathID(dr["DFL_FILE_CHILD_PATH"].ToString()),
@@ -878,8 +879,8 @@ namespace HYPDM.WinUI.Document
             else
             {
 
-                HYDocumentMS.IFileHelper file = new HYDocumentMS.FileHelper();
-                Boolean bl = file.isHasAuth(HYDocumentMS.DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
+                 HYDocumentMS.IFileHelper file = new  FileHelper();
+                Boolean bl = file.isHasAuth( DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
                 if (bl == false)
                 {
                     MessageBox.Show("你没有权限下载此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -986,8 +987,8 @@ namespace HYPDM.WinUI.Document
         {
             if (this.Document != null)
             {
-                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*", "WHERE PRODUCTID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Product' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
-                this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*", "WHERE MATERIALID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Material' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
+                this.dGVProduct.DataSource = new  FileHelper().getDataTableBySql("*", "WHERE PRODUCTID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Product' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.dgvMaterial.DataSource = new  FileHelper().getDataTableBySql("*", "WHERE MATERIALID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Material' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
             }
         }
     }

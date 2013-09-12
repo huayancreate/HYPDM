@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using HYPDM.WinUI.BaseUI;
-
+using HYDocumentMS;
 namespace HYPDM.WinUI.Document
 {
     public partial class DetectionForm : BaseForm
@@ -67,7 +67,7 @@ namespace HYPDM.WinUI.Document
 
                // MessageBox.Show(this.txtFilePath.Text.ToString() + @"\" + this.txtFileName.Text.ToString());
                 ///下载文件并存放到指定的本地文件夹中
-                HYDocumentMS.IFileHelper fileHelper=new HYDocumentMS.FileHelper();
+                 HYDocumentMS.IFileHelper fileHelper=new  FileHelper();
                 string srvFilePath=fileHelper.getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH)+this.txtFileName.Text.ToString();
                 FileSockClient.DownLoadFileSocketClient down = new FileSockClient.DownLoadFileSocketClient(srvFilePath, this.txtFilePath.Text.ToString() +@"\"+ this.txtFileName.Text.ToString());
 

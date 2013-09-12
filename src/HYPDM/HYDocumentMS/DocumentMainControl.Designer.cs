@@ -80,7 +80,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel1.BackgroundImage = global::HYDocumentMS.Properties.Resources.Main_1;
+            this.panel1.BackgroundImage = global:: HYDocumentMS.Properties.Resources.Main_1;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -104,7 +104,7 @@
             // 
             this.Tool_M_Find.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Tool_FindName});
-            this.Tool_M_Find.Image = global::HYDocumentMS.Properties.Resources.view;
+            this.Tool_M_Find.Image = global:: HYDocumentMS.Properties.Resources.view;
             this.Tool_M_Find.Name = "Tool_M_Find";
             this.Tool_M_Find.Size = new System.Drawing.Size(84, 21);
             this.Tool_M_Find.Text = "文件查询";
@@ -145,7 +145,7 @@
             // 
             // tspRefresh
             // 
-            this.tspRefresh.Image = global::HYDocumentMS.Properties.Resources.pagination_load;
+            this.tspRefresh.Image = global:: HYDocumentMS.Properties.Resources.pagination_load;
             this.tspRefresh.Name = "tspRefresh";
             this.tspRefresh.Size = new System.Drawing.Size(60, 21);
             this.tspRefresh.Text = "刷新";
@@ -205,7 +205,7 @@
             // 
             // ToolS_FolderAdd
             // 
-            this.ToolS_FolderAdd.Image = global::HYDocumentMS.Properties.Resources.edit_add;
+            this.ToolS_FolderAdd.Image = global:: HYDocumentMS.Properties.Resources.edit_add;
             this.ToolS_FolderAdd.Name = "ToolS_FolderAdd";
             this.ToolS_FolderAdd.Size = new System.Drawing.Size(100, 22);
             this.ToolS_FolderAdd.Tag = "0";
@@ -222,7 +222,7 @@
             // 
             // ToolS_FolderDelete
             // 
-            this.ToolS_FolderDelete.Image = global::HYDocumentMS.Properties.Resources.delete1;
+            this.ToolS_FolderDelete.Image = global:: HYDocumentMS.Properties.Resources.delete1;
             this.ToolS_FolderDelete.Name = "ToolS_FolderDelete";
             this.ToolS_FolderDelete.Size = new System.Drawing.Size(100, 22);
             this.ToolS_FolderDelete.Tag = "2";
@@ -241,7 +241,7 @@
             // 
             // ToolS_FilesAdd
             // 
-            this.ToolS_FilesAdd.Image = global::HYDocumentMS.Properties.Resources.edit_add;
+            this.ToolS_FilesAdd.Image = global:: HYDocumentMS.Properties.Resources.edit_add;
             this.ToolS_FilesAdd.Name = "ToolS_FilesAdd";
             this.ToolS_FilesAdd.Size = new System.Drawing.Size(124, 22);
             this.ToolS_FilesAdd.Tag = "0";
@@ -250,7 +250,7 @@
             // 
             // 查看ToolStripMenuItem1
             // 
-            this.查看ToolStripMenuItem1.Image = global::HYDocumentMS.Properties.Resources.view;
+            this.查看ToolStripMenuItem1.Image = global:: HYDocumentMS.Properties.Resources.view;
             this.查看ToolStripMenuItem1.Name = "查看ToolStripMenuItem1";
             this.查看ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
             this.查看ToolStripMenuItem1.Text = "文件预览";
@@ -258,7 +258,7 @@
             // 
             // tspFileDownLoad
             // 
-            this.tspFileDownLoad.Image = global::HYDocumentMS.Properties.Resources.download;
+            this.tspFileDownLoad.Image = global:: HYDocumentMS.Properties.Resources.download;
             this.tspFileDownLoad.Name = "tspFileDownLoad";
             this.tspFileDownLoad.Size = new System.Drawing.Size(124, 22);
             this.tspFileDownLoad.Text = "下载";
@@ -306,7 +306,7 @@
             // 
             // tspViewFile
             // 
-            this.tspViewFile.Image = global::HYDocumentMS.Properties.Resources.view;
+            this.tspViewFile.Image = global:: HYDocumentMS.Properties.Resources.view;
             this.tspViewFile.Name = "tspViewFile";
             this.tspViewFile.Size = new System.Drawing.Size(136, 22);
             this.tspViewFile.Text = "文件预览";
@@ -420,7 +420,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::HYDocumentMS.Properties.Resources.Max_All;
+            this.BackgroundImage = global:: HYDocumentMS.Properties.Resources.Max_All;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);

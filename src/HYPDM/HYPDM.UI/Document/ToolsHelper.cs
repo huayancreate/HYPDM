@@ -45,7 +45,7 @@ namespace HYPDM.WinUI.Document
        /// <param name="dtDocList"></param>
         public void getTreeViewByPathDir(TreeView tv)
         {
-            HYDocumentMS.IFileHelper filehelper = new HYDocumentMS.FileHelper();
+             HYDocumentMS.IFileHelper filehelper = new HYDocumentMS.FileHelper();
             dtDirList = filehelper.getDocFileDir(true);//获取文档目录的清单
             CreatTree(tv.Nodes, "0", dtDirList);
             tv.ExpandAll();
@@ -57,7 +57,7 @@ namespace HYPDM.WinUI.Document
         //    rootNode = new TreeNode();
         //    TreeNode node;
 
-        //    HYDocumentMS.IFileHelper   filehelper=new HYDocumentMS.FileHelper();
+        //     HYDocumentMS.IFileHelper   filehelper=new  FileHelper();
         //    //dtDirList = getDocFileDir(); //获取文档目录的清单
         //    dtDirList = filehelper.getDocFileDir(true);
         //    // dt.Select("DFD_PARENT_DIR_ID=0");

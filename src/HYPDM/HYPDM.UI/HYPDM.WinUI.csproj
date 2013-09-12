@@ -327,6 +327,45 @@
     <Compile Include="Util\Common.cs" />
     <Compile Include="Util\FTPHelper.cs" />
     <Compile Include="Util\Util.cs" />
+    <Compile Include="WorkFlow\CommonFuns.cs" />
+    <Compile Include="WorkFlow\FlowDetail.cs" />
+    <Compile Include="WorkFlow\Flow\CurrentStepHandle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Flow\CurrentStepHandle.Designer.cs">
+      <DependentUpon>CurrentStepHandle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Flow\FlowStepHandle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Flow\FlowStepHandle.Designer.cs">
+      <DependentUpon>FlowStepHandle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Flow\StandardFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Flow\StandardFlow.Designer.cs">
+      <DependentUpon>StandardFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\Flow\FlowStepHandleCommon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\Flow\FlowStepHandleCommon.Designer.cs">
+      <DependentUpon>FlowStepHandleCommon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\UserAndUserRoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\UserAndUserRoleForm.Designer.cs">
+      <DependentUpon>UserAndUserRoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\WorkFlow.cs" />
+    <Compile Include="WorkFlow\WorkFlowDesign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\WorkFlowDesign.Designer.cs">
+      <DependentUpon>WorkFlowDesign.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BaseUI\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -439,7 +478,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <EmbeddedResource Include="WorkFlow\Flow\CurrentStepHandle.resx">
+      <DependentUpon>CurrentStepHandle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Flow\FlowStepHandle.resx">
+      <DependentUpon>FlowStepHandle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Flow\StandardFlow.resx">
+      <DependentUpon>StandardFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\Flow\FlowStepHandleCommon.resx">
+      <DependentUpon>FlowStepHandleCommon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\UserAndUserRoleForm.resx">
+      <DependentUpon>UserAndUserRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\WorkFlowDesign.resx">
+      <DependentUpon>WorkFlowDesign.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -600,6 +656,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\banner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

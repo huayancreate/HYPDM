@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using HYPDM.BLL;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using EAS.Explorer;
 using EAS.Modularization;
-namespace HYPDMWorkFlow
+using EAS.Explorer;
+namespace HYPDM.WinUI.WorkFlow
 {
    public  class CommonFuns
     {
