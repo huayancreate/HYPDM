@@ -60,5 +60,12 @@ namespace HYPDM.BLL
         /// <param name="wfaID"></param>
         /// <returns></returns>
         IList<WF_APP_HANDLE> GetWfAppHandleList(string wfaID);
+
+        /// <summary>
+        /// 获取给定object的对象
+        /// </summary>
+        /// <param name="OBJECTVALUE"></param>
+        /// <returns></returns>
+        WF_TEMPLATES_OBJECT GetWfTemplatesObject(string OBJECTVALUE);
     }
 }

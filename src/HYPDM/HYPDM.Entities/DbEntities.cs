@@ -28,6 +28,13 @@ namespace HYPDM.Entities
         private DataEntityQuery<ObjectRelation> m_ObjectRelations;
         private DataEntityQuery<WF_TEMPLATES_STEP> m_WF_TEMPLATES_STEPs;
         private DataEntityQuery<WF_TEMPLATES> m_WF_TEMPLATESs;
+        private DataEntityQuery<WF_TEMPLATES_OBJECT> m_WF_TEMPLATES_OBJECTs;
+
+        public DataEntityQuery<WF_TEMPLATES_OBJECT> WF_TEMPLATES_OBJECTs
+        {
+            get { return m_WF_TEMPLATES_OBJECTs; }
+            set { m_WF_TEMPLATES_OBJECTs = value; }
+        }
 
         public DataEntityQuery<WF_TEMPLATES> WF_TEMPLATESs
         {

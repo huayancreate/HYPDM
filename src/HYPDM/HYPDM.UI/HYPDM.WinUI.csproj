@@ -201,6 +201,12 @@
     <Compile Include="ProductsAndParts\Material\MaterailAddForm.Designer.cs">
       <DependentUpon>MaterailAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsAndParts\Material\MaterialConfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Material\MaterialConfForm.Designer.cs">
+      <DependentUpon>MaterialConfForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductsAndParts\Material\MaterialsList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -225,11 +231,59 @@
     <Compile Include="ProductsAndParts\Parts\ConnectionFilterForm.Designer.cs">
       <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsAddForm.Designer.cs">
+      <DependentUpon>PartsAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsCompForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsCompForm.Designer.cs">
+      <DependentUpon>PartsCompForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsConfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsConfForm.Designer.cs">
+      <DependentUpon>PartsConfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsListControl.Designer.cs">
+      <DependentUpon>PartsListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsStructAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\PartsStructAddForm.Designer.cs">
+      <DependentUpon>PartsStructAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductsAndParts\Parts\PartsTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ProductsAndParts\Parts\PartsTypeForm.Designer.cs">
       <DependentUpon>PartsTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\QueryPartsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\QueryPartsForm.Designer.cs">
+      <DependentUpon>QueryPartsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\QueryStructForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\QueryStructForm.Designer.cs">
+      <DependentUpon>QueryStructForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\StructAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\StructAddForm.Designer.cs">
+      <DependentUpon>StructAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsAndParts\Parts\UseMsgForm.cs">
       <SubType>Form</SubType>
@@ -329,6 +383,12 @@
     <Compile Include="Util\Util.cs" />
     <Compile Include="WorkFlow\CommonFuns.cs" />
     <Compile Include="WorkFlow\FlowDetail.cs" />
+    <Compile Include="WorkFlow\FlowRelationConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\FlowRelationConfig.Designer.cs">
+      <DependentUpon>FlowRelationConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkFlow\Flow\CurrentStepHandle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +412,12 @@
     </Compile>
     <Compile Include="WorkFlow\Flow\FlowStepHandleCommon.Designer.cs">
       <DependentUpon>FlowStepHandleCommon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\RelationObject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkFlow\RelationObject.Designer.cs">
+      <DependentUpon>RelationObject.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkFlow\UserAndUserRoleForm.cs">
       <SubType>Form</SubType>
@@ -407,6 +473,9 @@
     <EmbeddedResource Include="ProductsAndParts\Material\MaterailAddForm.resx">
       <DependentUpon>MaterailAddForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Material\MaterialConfForm.resx">
+      <DependentUpon>MaterialConfForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Material\MaterialsList.resx">
       <DependentUpon>MaterialsList.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,8 +488,32 @@
     <EmbeddedResource Include="ProductsAndParts\Parts\ConnectionFilterForm.resx">
       <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\PartsAddForm.resx">
+      <DependentUpon>PartsAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\PartsCompForm.resx">
+      <DependentUpon>PartsCompForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\PartsConfForm.resx">
+      <DependentUpon>PartsConfForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\PartsListControl.resx">
+      <DependentUpon>PartsListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\PartsStructAddForm.resx">
+      <DependentUpon>PartsStructAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Parts\PartsTypeForm.resx">
       <DependentUpon>PartsTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\QueryPartsForm.resx">
+      <DependentUpon>QueryPartsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\QueryStructForm.resx">
+      <DependentUpon>QueryStructForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\StructAddForm.resx">
+      <DependentUpon>StructAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Parts\UseMsgForm.resx">
       <DependentUpon>UseMsgForm.cs</DependentUpon>
@@ -478,6 +571,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="WorkFlow\FlowRelationConfig.resx">
+      <DependentUpon>FlowRelationConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkFlow\Flow\CurrentStepHandle.resx">
       <DependentUpon>CurrentStepHandle.cs</DependentUpon>
     </EmbeddedResource>
@@ -490,12 +586,16 @@
     <EmbeddedResource Include="WorkFlow\Flow\FlowStepHandleCommon.resx">
       <DependentUpon>FlowStepHandleCommon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WorkFlow\RelationObject.resx">
+      <DependentUpon>RelationObject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkFlow\UserAndUserRoleForm.resx">
       <DependentUpon>UserAndUserRoleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkFlow\WorkFlowDesign.resx">
       <DependentUpon>WorkFlowDesign.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

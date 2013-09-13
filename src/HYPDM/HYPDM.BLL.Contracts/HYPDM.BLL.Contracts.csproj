@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAllPartsService.cs" />
     <Compile Include="IAllProductService.cs" />
     <Compile Include="IChangeService.cs" />
     <Compile Include="IComboBoxValueService.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="IMaterailService.cs" />
     <Compile Include="IMaxCodeService.cs" />
     <Compile Include="IMaxID.cs" />
+    <Compile Include="IMyWorkSpaceService.cs" />
     <Compile Include="IObjectRelationService.cs" />
     <Compile Include="IObjectStructService.cs" />
     <Compile Include="IPartsDocumentService.cs" />

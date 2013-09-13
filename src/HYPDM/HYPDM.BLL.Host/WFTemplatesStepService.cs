@@ -219,17 +219,34 @@ namespace HYPDM.BLL
         {
             DataEntityQuery<WF_APP_HANDLE> query = DataEntityQuery<WF_APP_HANDLE>.Create();
 
-  //          var p = (from item in query
-  //                   orderby item.LASTUPDATEDATE  descending
-  //                   where (item.WFA_ID == wfaID && item.LASTUPDATEDATE != "" && item.IS_THROUGH != ""
-  //&& item.IS_THROUGH != null && item.LASTUPDATEDATE != null && item.OBJECTTYPE == "SingleUser")
-  //                   select item
-                                 var p = (from item in query
-                     orderby item.LASTUPDATEDATE  descending
-                     where (item.WFA_ID == wfaID && (item.IS_THROUGH=="Y" || item.IS_THROUGH=="N") && item.OBJECTTYPE == "SingleUser")
+            //          var p = (from item in query
+            //                   orderby item.LASTUPDATEDATE  descending
+            //                   where (item.WFA_ID == wfaID && item.LASTUPDATEDATE != "" && item.IS_THROUGH != ""
+            //&& item.IS_THROUGH != null && item.LASTUPDATEDATE != null && item.OBJECTTYPE == "SingleUser")
+            //                   select item
+            var p = (from item in query
+                     orderby item.LASTUPDATEDATE descending
+                     where (item.WFA_ID == wfaID && (item.IS_THROUGH == "Y" || item.IS_THROUGH == "N") && item.OBJECTTYPE == "SingleUser")
                      select item
-                );
+);
             return p.ToList();
+        }
+
+        public WF_TEMPLATES_OBJECT GetWfTemplatesObject(string OBJECTVALUE)
+        {
+            DataEntityQuery<WF_TEMPLATES_OBJECT> query = DataEntityQuery<WF_TEMPLATES_OBJECT>.Create();
+            var p = (from item in query
+                     where (item.OBJECTVALUE==OBJECTVALUE)
+                     select item);
+            IList<WF_TEMPLATES_OBJECT> list = p.ToList();
+            if (list == null || list.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return p.ToList()[0];
+            }
         }
     }
 }

@@ -46,11 +46,14 @@
     <Compile Include="ComboBoxValue.cs" />
     <Compile Include="DOC_FILE_DIR.cs" />
     <Compile Include="DOC_FILE_LIST.cs" />
+    <Compile Include="EAS_ACCOUNTS.cs" />
     <Compile Include="FILE_AUTH.cs" />
     <Compile Include="Generat\ComboBoxValue_Generator.cs" />
     <Compile Include="Generat\DOC_FILE_DIR.Generator.cs" />
     <Compile Include="Generat\DOC_FILE_LIST_Generator.cs" />
+    <Compile Include="Generat\EAS_ACCOUNTS.Generator.cs" />
     <Compile Include="Generat\FILE_AUTH_Generator.cs" />
+    <Compile Include="Generat\MYWOKSPACE.Generator.cs" />
     <Compile Include="Generat\ObjectRelation_Generator.cs" />
     <Compile Include="Generat\PDM_ALL_PRODUCT.Generator.cs" />
     <Compile Include="Generat\PDM_FILTER.Generator.cs" />
@@ -63,7 +66,12 @@
     <Compile Include="Generat\PDM_PRODUCT_PRORECORD.Generator.cs" />
     <Compile Include="Generat\PDM_STRUCT.Generator.cs" />
     <Compile Include="Generat\WF_ TEMPLATES_STEP_Generator.cs" />
+    <Compile Include="Generat\WF_APP_Generator.cs" />
+    <Compile Include="Generat\WF_APP_HANDLE_Generator.cs" />
+    <Compile Include="Generat\WF_DETAIL_Generator.cs" />
     <Compile Include="Generat\WF_TEMPLATES_Generator.cs" />
+    <Compile Include="Generat\WF_TEMPLATES_OBJECT_Genreator.cs" />
+    <Compile Include="MYWOKSPACE.cs" />
     <Compile Include="ObjectRelation.cs" />
     <Compile Include="PartsDetail.cs" />
     <Compile Include="PDM_ALL_PRODUCT.cs" />
@@ -96,7 +104,11 @@
     <Compile Include="Generat\PDM_CHANGE_HISTORY.Generator.cs" />
     <Compile Include="PDM_CHANGE_HISTORY.cs" />
     <Compile Include="DbEntities.cs" />
+    <Compile Include="WF_APP.cs" />
+    <Compile Include="WF_APP_HANDLE.cs" />
+    <Compile Include="WF_DETAIL.cs" />
     <Compile Include="WF_TEMPLATES.cs" />
+    <Compile Include="WF_TEMPLATES_OBJECT.cs" />
     <Compile Include="WF_TEMPLATES_STEP.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

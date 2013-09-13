@@ -327,7 +327,7 @@ namespace HYPDM.WinUI.WorkFlow
             stb.Append("AND (COMPLEMENTDATE='' or  COMPLEMENTDATE is null)");
             stb.Append("AND  IS_Through<>'Y'");
             DataTable dt = CommonFuns.getDataTableBySql("*", stb.ToString(), "WF_DETAIL");
-            if (dt == null && dt.Rows.Count == 0)
+            if (dt == null || dt.Rows.Count == 0)
             {
                 return null;
             }
@@ -430,6 +430,18 @@ namespace HYPDM.WinUI.WorkFlow
             return _wfService.GetWFStep(wftCurrentStepID);
         }
 
+        public WF_TEMPLATES_OBJECT GetWfTemplatesObject(string objectValue)
+        {
+            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+            return _wfService.GetWfTemplatesObject(objectValue);
+        }
+
+        /// <summary>
+        /// 获取form
+        /// </summary>
+        /// <param name="RelationObjectType"></param>
+        /// <param name="objectID"></param>
+        /// <returns></returns>
         public static Form GetDetaiFrm(DataType.RelationObjectType RelationObjectType, string objectID)
         {
             Form  FrmDetail = null;
