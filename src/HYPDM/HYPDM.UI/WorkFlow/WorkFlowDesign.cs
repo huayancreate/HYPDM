@@ -616,12 +616,38 @@ namespace HYPDM.WinUI.WorkFlow
                 MessageBox.Show("没有指定工作流对象!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 return;
             }
-            ///需要加入一些Check进行验证
-            ///1.是否存在终结点
-            ///2.是否有起始节点
-            ///3.是否有重复的步骤节点
-            ///4.
+
+            //需要加入一些Check进行验证
+            //1.是否存在终结点
+            //2.是否有起始节点
+            //3.是否有重复的步骤节点
+            //4.
             //成功后执行如下代码
+            
+             WF_TEMPLATES_STEP endStep = WorkFlow.NewInstance.GetWFEndStepByWFID(this.currentWFTemplateID);
+             
+            /// check是否有终节点
+             if (endStep == null)
+             {
+                 MessageBox.Show("没有指定工作流对象【" + this.txtWFName.Text + "】的终节点,无法正式启用!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                 return;
+             }
+             /// check是否有起始节点
+             WF_TEMPLATES_STEP startStep = WorkFlow.NewInstance.GetWFStartStepByWFID(this.currentWFTemplateID);
+             if (startStep == null)
+             {
+                 MessageBox.Show("没有指定工作流对象【"+this.txtWFName.Text+"】的起始节点,无法正式启用!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                 return;
+             }
+             /// check是否有重复节点
+             DataTable dtTemp = CommonFuns.getDataTableBySql("WFT_CURRENT_STEP_ID", "WHERE WFT_ID='" + this.currentWFTemplateID + "' AND DEL_FLAG='N' GROUP BY WFT_CURRENT_STEP_ID  HAVING COUNT(1)>1", "WF_TEMPLATES_STEP");
+             if (dtTemp != null && dtTemp.Rows.Count>0)
+             {
+                 string stepName = WorkFlow.NewInstance.GetWFStep(dtTemp.Rows[0]["WFT_CURRENT_STEP_ID"].ToString()).COMBTEXT;
+                 MessageBox.Show("节点【" + stepName + "】，存在重复设定，请核查!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                 return;
+             }
+
             if (true)
             {
                 WF_TEMPLATES wf = WorkFlow.NewInstance.GetWFTemplatesInfoByWFID(this.currentWFTemplateID);

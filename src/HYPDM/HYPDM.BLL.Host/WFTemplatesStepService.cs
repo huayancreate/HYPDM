@@ -111,7 +111,15 @@ namespace HYPDM.BLL
                      where (item.DEL_FLAG == "N" && item.WFT_ID == wftID && item.IS_START_STEP == "Y")
                      select item
                 );
-            return p.ToList()[0];
+            IList<WF_TEMPLATES_STEP> list = p.ToList();
+            if (list == null || list.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return p.ToList()[0];
+            }
         }
 
         public WF_TEMPLATES_STEP GetWFEndStepByWFID(string wftID)
@@ -123,7 +131,15 @@ namespace HYPDM.BLL
                      where (item.DEL_FLAG == "N" && item.WFT_ID == wftID && item.IS_END_STEP == "Y")
                      select item
                 );
-            return p.ToList()[0];
+            IList<WF_TEMPLATES_STEP> list = p.ToList();
+            if (list == null || list.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return p.ToList()[0];
+            }
         }
 
         public WF_APP GetWFappByWFID(string wfappID)
@@ -135,7 +151,15 @@ namespace HYPDM.BLL
                      where (item.DEL_FLAG == "N" && item.WFA_ID == wfappID)
                      select item
                 );
-            return p.ToList()[0];
+            IList<WF_APP> list = p.ToList();
+            if (list == null || list.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return p.ToList()[0];
+            }
         }
         public IList<WF_APP_HANDLE> GetWFAppStepHandle(string wfappID, string wftStepID)
         {
@@ -165,7 +189,15 @@ namespace HYPDM.BLL
                      && item.OBJECTTYPE == "SingleUser" && item.OBJECTVALUE == userID)
                      select item
                 );
-            return p.ToList()[0];
+            IList<WF_APP_HANDLE> list = p.ToList();
+            if (list == null || list.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return p.ToList()[0];
+            }
         }
         /// <summary>
         /// 根据工作流实例APPID与目前工作节点获取WF_APP_HANDLE信息集合
@@ -200,7 +232,15 @@ namespace HYPDM.BLL
                      where (item.DEL_FLAG == "N" && item.WFA_ID == wfaID && item.Current_STEP_ID == CurrentStepID)
                      select item
                 );
-            return p.ToList()[0];
+            IList<WF_DETAIL> list = p.ToList();
+            if (list == null || list.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return p.ToList()[0];
+            }
         }
 
         public WF_TEMPLATES_STEP GetStepInfoByWftIDAndCurrentStepID(string wftID, string CurrentStepID)
@@ -211,32 +251,43 @@ namespace HYPDM.BLL
                      where (item.DEL_FLAG == "N" && item.WFT_ID == wftID && item.WFT_CURRENT_STEP_ID == CurrentStepID)
                      select item
                 );
-            return p.ToList()[0];
+            IList<WF_TEMPLATES_STEP> list = p.ToList();
+            if (list == null || list.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return p.ToList()[0];
+            }
         }
 
 
         public IList<WF_APP_HANDLE> GetWfAppHandleList(string wfaID)
         {
             DataEntityQuery<WF_APP_HANDLE> query = DataEntityQuery<WF_APP_HANDLE>.Create();
-
-            //          var p = (from item in query
-            //                   orderby item.LASTUPDATEDATE  descending
-            //                   where (item.WFA_ID == wfaID && item.LASTUPDATEDATE != "" && item.IS_THROUGH != ""
-            //&& item.IS_THROUGH != null && item.LASTUPDATEDATE != null && item.OBJECTTYPE == "SingleUser")
-            //                   select item
             var p = (from item in query
                      orderby item.LASTUPDATEDATE descending
                      where (item.WFA_ID == wfaID && (item.IS_THROUGH == "Y" || item.IS_THROUGH == "N") && item.OBJECTTYPE == "SingleUser")
                      select item
-);
+                       );
             return p.ToList();
         }
-
+        public IList<WF_APP_HANDLE> GetAllHandleList(string wfaID)
+        {
+            DataEntityQuery<WF_APP_HANDLE> query = DataEntityQuery<WF_APP_HANDLE>.Create();
+            var p = (from item in query
+                     orderby item.LASTUPDATEDATE descending
+                     where (item.WFA_ID == wfaID && item.DEL_FLAG=="N")
+                     select item
+                    );
+            return p.ToList();
+        }
         public WF_TEMPLATES_OBJECT GetWfTemplatesObject(string OBJECTVALUE)
         {
             DataEntityQuery<WF_TEMPLATES_OBJECT> query = DataEntityQuery<WF_TEMPLATES_OBJECT>.Create();
             var p = (from item in query
-                     where (item.OBJECTVALUE==OBJECTVALUE)
+                     where (item.OBJECTVALUE == OBJECTVALUE)
                      select item);
             IList<WF_TEMPLATES_OBJECT> list = p.ToList();
             if (list == null || list.Count == 0)
@@ -247,6 +298,17 @@ namespace HYPDM.BLL
             {
                 return p.ToList()[0];
             }
+        }
+
+        public IList<WF_DETAIL> GetWfDetailList(string wfaID)
+        {
+            DataEntityQuery<WF_DETAIL> query = DataEntityQuery<WF_DETAIL>.Create();
+
+            var p = (from item in query
+                     where (item.DEL_FLAG == "N" && item.WFA_ID == wfaID)
+                     select item
+                );
+            return p.ToList();
         }
     }
 }

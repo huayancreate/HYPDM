@@ -271,7 +271,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
             }
 
-            HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new HYPDM.WinUI.WorkFlow.Flow.StandardFlow(prod_id, DataType.RelationObjectType.Product, "780a15a5-29e8-442b-959a-871b0c9e2595");
+            ///objectValue工作流模板
+            string objectValue = WorkFlow.WorkFlow.NewInstance.GetWfTemplatesObject(DataType.RelationObjectType.Product.ToString()).WFT_ID;
+            HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new HYPDM.WinUI.WorkFlow.Flow.StandardFlow(prod_id, DataType.RelationObjectType.Product, objectValue);
             flow.ShowDialog();
         }
     }

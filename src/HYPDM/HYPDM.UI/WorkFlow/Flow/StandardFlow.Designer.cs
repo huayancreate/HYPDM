@@ -219,10 +219,12 @@
             // 
             // tspDelete
             // 
+            this.tspDelete.Enabled = false;
             this.tspDelete.ForeColor = System.Drawing.Color.White;
             this.tspDelete.Name = "tspDelete";
             this.tspDelete.Size = new System.Drawing.Size(32, 22);
             this.tspDelete.Text = "删除";
+            this.tspDelete.Click += new System.EventHandler(this.tspDelete_Click);
             // 
             // toolStripSeparator2
             // 

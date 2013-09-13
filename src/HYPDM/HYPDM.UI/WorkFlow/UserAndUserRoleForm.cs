@@ -15,12 +15,22 @@ namespace HYPDM.WinUI.WorkFlow
     public partial class UserAndUserRoleForm : Form
     {
         //  IAccountsService _accountsService = ServiceContainer.GetService<AccountsService>();
-        private IList<EasAccountEntity> accountsList = new List<EasAccountEntity>();
+        private IList<EasAccountEntity> accountsUnSelectedList = new List<EasAccountEntity>();
+        private IList<EasAccountEntity> accountsOldSelectedList = new List<EasAccountEntity>();
         /// <summary>
         /// 选中的用户或者群组
         /// </summary>
         private List<DataType.UserOrGroupSelected> selectedUserOrGroupList = new List<DataType.UserOrGroupSelected>();
+        /// <summary>
+        /// 标示该节点已经选择的用户信息
+        /// </summary>
+        private List<DataType.UserOrGroupSelected> oldSelectedUserList = new List<DataType.UserOrGroupSelected>();
 
+        public List<DataType.UserOrGroupSelected> OldSelectedUserList
+        {
+            get { return oldSelectedUserList; }
+            set { oldSelectedUserList = value; }
+        }
         public List<DataType.UserOrGroupSelected> SelectedUserOrGroupList
         {
             get { return selectedUserOrGroupList; }
@@ -38,38 +48,98 @@ namespace HYPDM.WinUI.WorkFlow
             InitAccountsList();
         }
 
+        StringBuilder stbOldSelected = null;
         private void InitAccountsList()
         {
-            this.accountsList.Clear();
+            this.accountsUnSelectedList.Clear();
+            this.accountsOldSelectedList.Clear();
             //  this.accountsList = _accountsService.GetAllAccountsList();
 
             //  DataTable dtUserRole= CommonFuns.getDataTableBySql("NAME,DESCRIPTION", " WHERE NAME NOT IN ('Administrators','Guests','平台演示')", "EAS_ROLES");
-            DataTable dtUser = CommonFuns.getDataTableBySql("A.LOGINID,A.ROLENAME,B.Name,B.DESCRIPTION,B.ORGANNAME", "WHERE B.ORGANID NOT IN ('7ECC3D03-B80E-4EBC-9DEC-CAE93143321F','7987FC8D-BF40-4A3D-B7CD-588CD6CDD175')", "EAS_ACCOUNTGROUPING A LEFT JOIN EAS_ACCOUNTS  B ON A.LOGINID=B.LOGINID");
-            DataTable dtUserGroup = CommonFuns.getDataTableBySql("NAME,DESCRIPTION", " WHERE NAME NOT IN ('Administrators','Guests','平台演示')", "EAS_ROLES");
-            foreach (DataRow dr in dtUser.Rows)
+
+            if (this.OldSelectedUserList == null || this.OldSelectedUserList.Count == 0)
             {
-                EasAccountEntity userAndRole = new EasAccountEntity();
-                userAndRole.LoginID = dr["LOGINID"].ToString();
-                userAndRole.RoleName = dr["ROLENAME"].ToString();
-                userAndRole.Name = dr["Name"].ToString();
-                userAndRole.ObjectType =  DataType.AuthObjectType.SingleUser; //单用户
-                accountsList.Add(userAndRole);
+
             }
-            foreach (DataRow dr in dtUserGroup.Rows)
+            else
             {
-                EasAccountEntity userAndRole = new EasAccountEntity();
-                userAndRole.LoginID = dr["NAME"].ToString();
-                userAndRole.RoleName = dr["NAME"].ToString();
-                userAndRole.Name = dr["NAME"].ToString();
-                userAndRole.ObjectType =  DataType.AuthObjectType.UserRole; //用户群组
-                accountsList.Add(userAndRole);
+                stbOldSelected = new StringBuilder("(");
+                foreach (DataType.UserOrGroupSelected it in this.OldSelectedUserList)
+                {
+                    stbOldSelected.Append("'" + it.Value + "'").Append(",");
+                }
+                stbOldSelected.Remove(stbOldSelected.Length - 1, 1).Append(")");
             }
-            reloadAccountList(this.accountsList, lvNotSelect);
+            DataTable dtUnSelectedUsers;
+            DataTable dtOldSelectedUsers;
+            if (stbOldSelected == null || stbOldSelected.ToString() == "")
+            {
+                dtUnSelectedUsers = CommonFuns.getDataTableBySql("A.LOGINID,A.ROLENAME,B.Name,B.DESCRIPTION,B.ORGANNAME", "WHERE B.ORGANID NOT IN ('7ECC3D03-B80E-4EBC-9DEC-CAE93143321F','7987FC8D-BF40-4A3D-B7CD-588CD6CDD175') ", "EAS_ACCOUNTGROUPING A LEFT JOIN EAS_ACCOUNTS  B ON A.LOGINID=B.LOGINID");
+
+                //未选择的用户
+                foreach (DataRow dr in dtUnSelectedUsers.Rows)
+                {
+                    EasAccountEntity userAndRole = new EasAccountEntity();
+                    userAndRole.LoginID = dr["LOGINID"].ToString();
+                    userAndRole.RoleName = dr["ROLENAME"].ToString();
+                    userAndRole.Name = dr["Name"].ToString();
+                    userAndRole.ObjectType = DataType.AuthObjectType.SingleUser; //单用户
+                    accountsUnSelectedList.Add(userAndRole);
+                }
+                reloadAccountList(this.accountsUnSelectedList, lvNotSelect);
+
+                // dtOldSelectedUsers = new DataTable();
+            }
+            else
+            {
+                dtUnSelectedUsers = CommonFuns.getDataTableBySql("A.LOGINID,A.ROLENAME,B.Name,B.DESCRIPTION,B.ORGANNAME", "WHERE B.ORGANID NOT IN ('7ECC3D03-B80E-4EBC-9DEC-CAE93143321F','7987FC8D-BF40-4A3D-B7CD-588CD6CDD175') AND A.LOGINID NOT IN " + stbOldSelected.ToString(), "EAS_ACCOUNTGROUPING A LEFT JOIN EAS_ACCOUNTS  B ON A.LOGINID=B.LOGINID");
+                dtOldSelectedUsers = CommonFuns.getDataTableBySql("A.LOGINID,A.ROLENAME,B.Name,B.DESCRIPTION,B.ORGANNAME", "WHERE B.ORGANID NOT IN ('7ECC3D03-B80E-4EBC-9DEC-CAE93143321F','7987FC8D-BF40-4A3D-B7CD-588CD6CDD175') AND A.LOGINID  IN " + stbOldSelected.ToString(), "EAS_ACCOUNTGROUPING A LEFT JOIN EAS_ACCOUNTS  B ON A.LOGINID=B.LOGINID");
+
+                //未选择的用户
+                foreach (DataRow dr in dtUnSelectedUsers.Rows)
+                {
+                    EasAccountEntity userAndRole = new EasAccountEntity();
+                    userAndRole.LoginID = dr["LOGINID"].ToString();
+                    userAndRole.RoleName = dr["ROLENAME"].ToString();
+                    userAndRole.Name = dr["Name"].ToString();
+                    userAndRole.ObjectType = DataType.AuthObjectType.SingleUser; //单用户
+                    accountsUnSelectedList.Add(userAndRole);
+                }
+
+                ///已经选择了的用户
+                foreach (DataRow dr in dtOldSelectedUsers.Rows)
+                {
+                    EasAccountEntity userAndRole = new EasAccountEntity();
+                    userAndRole.LoginID = dr["LOGINID"].ToString();
+                    userAndRole.RoleName = dr["ROLENAME"].ToString();
+                    userAndRole.Name = dr["Name"].ToString();
+                    userAndRole.ObjectType = DataType.AuthObjectType.SingleUser; //单用户
+                    accountsOldSelectedList.Add(userAndRole);
+                }
+                reloadAccountList(this.accountsUnSelectedList, lvNotSelect);
+                reloadAccountList(this.accountsOldSelectedList, lvSelected);
+            }
+
+            ///用户群组信息，暂时去掉
+            // DataTable dtUserGroup = CommonFuns.getDataTableBySql("NAME,DESCRIPTION", " WHERE NAME NOT IN ('Administrators','Guests','平台演示')", "EAS_ROLES");
+
+
+            ///用户群组信息，暂时去掉
+            //foreach (DataRow dr in dtUserGroup.Rows)
+            //{
+            //    EasAccountEntity userAndRole = new EasAccountEntity();
+            //    userAndRole.LoginID = dr["NAME"].ToString();
+            //    userAndRole.RoleName = dr["NAME"].ToString();
+            //    userAndRole.Name = dr["NAME"].ToString();
+            //    userAndRole.ObjectType = DataType.AuthObjectType.UserRole; //用户群组
+            //    accountsList.Add(userAndRole);
+            //}
+
         }
 
         private void reloadAccountList(IList<EasAccountEntity> accountsList, ListView lv)
         {
-            if (this.accountsList.Count != 0)
+            if (this.accountsUnSelectedList.Count != 0)
             {
                 EasAccountEntity account = null;
 
@@ -184,13 +254,13 @@ namespace HYPDM.WinUI.WorkFlow
             for (int i = 0; i < lvNotSelect.Items.Count; )
             {
                 item = lvNotSelect.Items[i];
-                if ((DataType.AuthObjectType)item.Tag ==DataType.AuthObjectType.UserRole)
+                if ((DataType.AuthObjectType)item.Tag == DataType.AuthObjectType.UserRole)
                 {
                     item.ForeColor = Color.Red;
                 }
                 lvNotSelect.Items.RemoveAt(i);
                 lvSelected.Items.Add(item);
-             
+
             }
             lvSelected.EndUpdate();
         }
@@ -202,11 +272,11 @@ namespace HYPDM.WinUI.WorkFlow
             for (int i = 0; i < lvSelected.Items.Count; )
             {
                 item = lvSelected.Items[i];
-                if (( DataType.AuthObjectType)item.Tag ==  DataType.AuthObjectType.UserRole)
+                if ((DataType.AuthObjectType)item.Tag == DataType.AuthObjectType.UserRole)
                 {
                     item.ForeColor = Color.Red;
                 }
-                
+
                 lvSelected.Items.RemoveAt(i); //先删除后添加
                 lvNotSelect.Items.Add(item);
             }
@@ -224,7 +294,7 @@ namespace HYPDM.WinUI.WorkFlow
         private void btnOk_Click(object sender, EventArgs e)
         {
             DataType.UserOrGroupSelected item = new DataType.UserOrGroupSelected();
-            for (int i = 0; i < lvSelected.Items.Count;i++ )
+            for (int i = 0; i < lvSelected.Items.Count; i++)
             {
                 ListViewItem selItem = lvSelected.Items[i];
                 //if(( DataType.AuthObjectType)selItem.Tag== DataType.AuthObjectType.UserRole)

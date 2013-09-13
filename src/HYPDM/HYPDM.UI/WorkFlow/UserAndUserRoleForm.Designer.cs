@@ -32,7 +32,6 @@
             this.lvNotSelect = new System.Windows.Forms.ListView();
             this.colUsername = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colGroupName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cbUser = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnQuery = new System.Windows.Forms.Button();
             this.pnlSelected = new System.Windows.Forms.Panel();
@@ -86,21 +85,9 @@
             this.colGroupName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colGroupName.Width = 100;
             // 
-            // cbUser
-            // 
-            this.cbUser.FormattingEnabled = true;
-            this.cbUser.Items.AddRange(new object[] {
-            "用户",
-            "用户组"});
-            this.cbUser.Location = new System.Drawing.Point(3, 5);
-            this.cbUser.Name = "cbUser";
-            this.cbUser.Size = new System.Drawing.Size(137, 20);
-            this.cbUser.TabIndex = 0;
-            this.cbUser.Text = "用 户";
-            // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(148, 4);
+            this.txtName.Location = new System.Drawing.Point(5, 4);
             this.txtName.Name = "txtName";
             this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtName.Size = new System.Drawing.Size(163, 21);
@@ -109,7 +96,7 @@
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(317, 3);
+            this.btnQuery.Location = new System.Drawing.Point(174, 3);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(52, 23);
             this.btnQuery.TabIndex = 3;
@@ -132,6 +119,7 @@
             this.colSelectUn,
             this.colSelectGn});
             this.lvSelected.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvSelected.FullRowSelect = true;
             this.lvSelected.GridLines = true;
             this.lvSelected.Location = new System.Drawing.Point(0, 0);
             this.lvSelected.Name = "lvSelected";
@@ -228,10 +216,9 @@
             this.Controls.Add(this.btnQuery);
             this.Controls.Add(this.pnlNotSelect);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.cbUser);
             this.MaximizeBox = false;
             this.Name = "UserAndUserRoleForm";
-            this.Text = "UserAndUserRoleForm";
+            this.Text = "签批人员选择";
             this.Load += new System.EventHandler(this.UserAndUserRoleForm_Load);
             this.pnlNotSelect.ResumeLayout(false);
             this.pnlSelected.ResumeLayout(false);
@@ -243,7 +230,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlNotSelect;
-        private System.Windows.Forms.ComboBox cbUser;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Panel pnlSelected;

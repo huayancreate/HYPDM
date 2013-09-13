@@ -498,5 +498,16 @@ namespace HYPDM.WinUI.WorkFlow
             }
             return FrmDetail;
         }
+
+        public IList<WF_DETAIL> GetWfDetailList(string wfaID)
+        {
+            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+            return _wfService.GetWfDetailList(wfaID);
+        }
+        public IList<WF_APP_HANDLE> GetAllHandleList(string wfaID)
+        {
+            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+            return _wfService.GetAllHandleList(wfaID);
+        }
     }
 }

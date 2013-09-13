@@ -15,7 +15,10 @@ using EAS.Data.Linq;
 using EAS.Data.ORM;
 using HYPDM;
 namespace HYPDM.WinUI.WorkFlow.Flow
-{
+{  
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class CurrentStepHandle : Form
     {
         /// <summary>
@@ -108,15 +111,15 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             foreach (WF_APP_HANDLE handle in list)
             {
                 string result = handle.IS_THROUGH == "Y" ? "同意" : "不同意";
-                stb.Append(handle.LASTUPDATEDATE).Append(" ").Append(handle.OBJECTVALUE).Append(" 【").Append(WorkFlow.NewInstance.GetWFStep(handle.Current_STEP_ID).COMBTEXT).Append("】  ").Append(result) ;
+                stb.Append(handle.LASTUPDATEDATE).Append(" ").Append(handle.OBJECTVALUE).Append(" 【").Append(WorkFlow.NewInstance.GetWFStep(handle.Current_STEP_ID).COMBTEXT).Append("】  ").Append(result);
                 //WorkFlow.NewInstance.
-              //  stb.Append("\n");
-                this.listComments.Items.Add(stb.ToString());
+                stb.Append("\n");
+                this.listComments.Text += stb.ToString();
                 stb = new StringBuilder();
-                this.listComments.Items.Add(handle.MSG);
+                this.listComments.Text += handle.MSG;
             }
 
-           
+
 
 
         }
@@ -249,8 +252,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
         }
         string contentMsg = "";
         Boolean isThrough = false;
-        string nowDate = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-        string loginID = CommonFuns.NewInstance.LoginInfo.LoginID;
+
         private void btnHandle_Click(object sender, EventArgs e)
         {
             FlowStepHandleCommon handle = new FlowStepHandleCommon();
@@ -266,14 +268,28 @@ namespace HYPDM.WinUI.WorkFlow.Flow
         }
         private void DataStore()
         {
+            string nowDate = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string loginID = CommonFuns.NewInstance.LoginInfo.LoginID;
             //1.detail中存放两笔资料，一笔当前状态的更新   2  下一节点的记录新增 ，如果当前没有完成整个节点的审批，那么不需要进行此项工作
             //2.往handle中更新当前处理人的处理状态及意见
 
             ///1  更新表WF_APP_HANDLE:往handle中更新当前处理人的处理状态及意见
             WF_APP_HANDLE item = WorkFlow.NewInstance.GetWfAppHandleItem(APP.WFA_ID, wipWFAppDetai.Current_STEP_ID, loginID);
-            if(item.IS_THROUGH!=null && item.IS_THROUGH!="")
+            if (item != null)
             {
-                MessageBox.Show("您已经审批过，无需再一次审批!", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                if (item.IS_THROUGH != null && item.IS_THROUGH.Trim() != "")
+                {
+                    MessageBox.Show("您已经审批过，无需再一次审批!", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("获取当前用户处理节点信息异常!", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 return;
             }
             item.DEL_FLAG = "N";
@@ -288,6 +304,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             else
             {
                 item.IS_THROUGH = "N";
+
             }
             item.Update();
 
@@ -377,23 +394,44 @@ namespace HYPDM.WinUI.WorkFlow.Flow
 
             if (!blAllThrough)  //说明有用户选择没有通过的选项
             {
+                ///1.如果没有通过工作流审批，A.将WF_APP中工作流实例信息的状态变为:UNActivate,未激活,返回拟制状态
+                ///                     B.将WF_APP_HANDLE表中对应的处理人del_flag设为Y
+                ///                     C.将WF_DETAIL表中对应的信息del_falg设为Y
+                ///                     
                 ///如果有审批人员在此节点审批不通过，则将此工作流实例设为UNActivate(未激活，拟制状态)
+                //A.将WF_APP中工作流实例信息的状态变为:UNActivate,未激活,返回拟制状态
                 WF_APP wfapp = WorkFlow.NewInstance.GetWFappByWFID(wipWFAppDetai.WFA_ID);
                 wfapp.LASTUPDATEDATE = nowDate;
                 wfapp.LASTUPDATEUSER = loginID;
                 wfapp.STATUS = DataType.WFDetailSTATUS.UNActivate.ToString();
                 wfapp.Update();
 
+                // B.将WF_APP_HANDLE表中对应的处理人del_flag设为Y
+                IList<WF_APP_HANDLE> handleUsers = WorkFlow.NewInstance.GetAllHandleList(wipWFAppDetai.WFA_ID);
+                foreach (WF_APP_HANDLE handle in handleUsers)
+                {
+                    handle.LASTUPDATEDATE = nowDate;
+                    handle.LASTUPDATEUSER = loginID;
+                    handle.DEL_FLAG = "Y";
+                    handle.Update();
+                }
+                //C.将WF_DETAIL表中对应的信息del_falg设为Y
+                IList<WF_DETAIL> detailList = WorkFlow.NewInstance.GetWfDetailList(wipWFAppDetai.WFA_ID);
+                foreach (WF_DETAIL detail in detailList)
+                {
+                    detail.DEL_FLAG = "Y";
+                    detail.Update();
+                }
                 /////
             }
         }
 
         private void btnDetail_Click(object sender, EventArgs e)
         {
-           // APP.RELATIONOBJECTTYPE
+            // APP.RELATIONOBJECTTYPE
 
-           // WorkFlow.GetTableName((DataType.RelationObjectType)Enum.Parse(typeof(DataType.RelationObjectType), APP.RELATIONOBJECTTYPE, false));
-            Form frmDetai = WorkFlow.GetDetaiFrm((DataType.RelationObjectType)Enum.Parse(typeof(DataType.RelationObjectType), APP.RELATIONOBJECTTYPE, false),APP.OBJECTKEY);
+            // WorkFlow.GetTableName((DataType.RelationObjectType)Enum.Parse(typeof(DataType.RelationObjectType), APP.RELATIONOBJECTTYPE, false));
+            Form frmDetai = WorkFlow.GetDetaiFrm((DataType.RelationObjectType)Enum.Parse(typeof(DataType.RelationObjectType), APP.RELATIONOBJECTTYPE, false), APP.OBJECTKEY);
             frmDetai.StartPosition = FormStartPosition.CenterParent;
             frmDetai.Show();
         }

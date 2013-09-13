@@ -57,12 +57,12 @@ namespace HYPDM.WinUI.WorkFlow
 
                         stbTableNameSQl.Append(" WF_APP A,");
                         stbTableNameSQl.Append("( SELECT * FROM WF_DETAIL  WHERE IS_Through NOT IN ('Y','N') AND");
-                        stbTableNameSQl.Append(" (COMPLEMENTDATE ='' OR COMPLEMENTDATE IS NULL)) B ,WF_TEMPLATES C");
+                        stbTableNameSQl.AppendFormat(" (COMPLEMENTDATE ='' OR COMPLEMENTDATE IS NULL)) B ,WF_TEMPLATES C,( SELECT*  FROM WF_APP_HANDLE WHERE OBJECTVALUE='{0}' AND IS_THROUGH NOT IN ('Y','N') ) D",loginD);
                         stbTableNameSQl.Append("   WHERE A.WFA_ID IN ");
-                        stbTableNameSQl.AppendFormat("( SELECT DISTINCT WFA_ID FROM WF_APP_HANDLE WHERE OBJECTVALUE='{0}')", loginD);
+                        stbTableNameSQl.AppendFormat("( SELECT DISTINCT WFA_ID FROM WF_APP_HANDLE WHERE OBJECTVALUE='{0}' AND IS_THROUGH NOT IN ('Y','N'))", loginD);
                         stbTableNameSQl.Append(" AND   A.STATUS NOT IN ('UNActivated','Complete') AND A.DEL_FLAG='N'");
                         stbTableNameSQl.Append(" AND A.WFA_ID=B.WFA_ID");
-                        stbTableNameSQl.Append(" AND  A.WFT_ID=C.WFT_ID ");
+                        stbTableNameSQl.Append(" AND  A.WFT_ID=C.WFT_ID   AND B.Current_STEP_ID=D.Current_STEP_ID");
                         dtTemp = CommonFuns.getDataTableBySql(stbFieldsSQl.ToString(), stbWhereSQl.ToString(), stbTableNameSQl.ToString());
                         break;
                     }

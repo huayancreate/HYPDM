@@ -43,8 +43,8 @@
             this.txtSubject = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listComments = new System.Windows.Forms.ListBox();
             this.gpFlowDetail = new System.Windows.Forms.GroupBox();
+            this.listComments = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -212,19 +212,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Comments";
             // 
-            // listComments
-            // 
-            this.listComments.BackColor = System.Drawing.Color.Azure;
-            this.listComments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listComments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listComments.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.listComments.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.listComments.FormattingEnabled = true;
-            this.listComments.Location = new System.Drawing.Point(3, 17);
-            this.listComments.Name = "listComments";
-            this.listComments.Size = new System.Drawing.Size(946, 131);
-            this.listComments.TabIndex = 0;
-            // 
             // gpFlowDetail
             // 
             this.gpFlowDetail.BackColor = System.Drawing.Color.CadetBlue;
@@ -234,6 +221,16 @@
             this.gpFlowDetail.Size = new System.Drawing.Size(952, 211);
             this.gpFlowDetail.TabIndex = 2;
             this.gpFlowDetail.TabStop = false;
+            // 
+            // listComments
+            // 
+            this.listComments.BackColor = System.Drawing.Color.Azure;
+            this.listComments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listComments.Location = new System.Drawing.Point(3, 17);
+            this.listComments.Name = "listComments";
+            this.listComments.Size = new System.Drawing.Size(946, 131);
+            this.listComments.TabIndex = 0;
+            this.listComments.Text = "";
             // 
             // CurrentStepHandle
             // 
@@ -273,6 +270,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnHandle;
         private System.Windows.Forms.Button btnDetail;
-        private System.Windows.Forms.ListBox listComments;
+        private System.Windows.Forms.RichTextBox listComments;
     }
 }
