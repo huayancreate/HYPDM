@@ -63,5 +63,10 @@ namespace HYPDM.BLL
         /// </summary>
         /// <param name="c"></param>
         void Save(MYWOKSPACE c);
+
+        void SaveRecord(MYWORKRECORD c);
+        void DeleteRecord(MYWORKRECORD c);
+        DataTable GetListFromTableRemove(DataTable p_dt, MYWORKRECORD mwr);
+        DataTable GetListFromTableAdd(DataTable p_dt, MYWORKRECORD mwr);
     }
 }
