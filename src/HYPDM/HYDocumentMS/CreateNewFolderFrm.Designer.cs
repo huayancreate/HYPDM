@@ -107,6 +107,7 @@
             this.OK.Size = new System.Drawing.Size(48, 20);
             this.OK.TabIndex = 4;
             this.OK.Click += new System.EventHandler(this.OK_Click);
+            this.OK.Paint += new System.Windows.Forms.PaintEventHandler(this.OK_Paint_1);
             // 
             // label1
             // 

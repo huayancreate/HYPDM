@@ -70,6 +70,12 @@
     <Compile Include="WorkManager\NewNodeAddForm.Designer.cs">
       <DependentUpon>NewNodeAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkManager\QueryWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkManager\QueryWorkForm.Designer.cs">
+      <DependentUpon>QueryWorkForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkManager\RecentWorkManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WorkManager\NewNodeAddForm.resx">
       <DependentUpon>NewNodeAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkManager\QueryWorkForm.resx">
+      <DependentUpon>QueryWorkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkManager\RecentWorkManager.resx">
       <DependentUpon>RecentWorkManager.cs</DependentUpon>

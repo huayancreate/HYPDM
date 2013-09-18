@@ -43,8 +43,8 @@
             this.txtSubject = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gpFlowDetail = new System.Windows.Forms.GroupBox();
             this.listComments = new System.Windows.Forms.RichTextBox();
+            this.gpFlowDetail = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -212,6 +212,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Comments";
             // 
+            // listComments
+            // 
+            this.listComments.BackColor = System.Drawing.Color.Azure;
+            this.listComments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listComments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listComments.Location = new System.Drawing.Point(3, 17);
+            this.listComments.Name = "listComments";
+            this.listComments.ReadOnly = true;
+            this.listComments.Size = new System.Drawing.Size(946, 131);
+            this.listComments.TabIndex = 0;
+            this.listComments.Text = "";
+            // 
             // gpFlowDetail
             // 
             this.gpFlowDetail.BackColor = System.Drawing.Color.CadetBlue;
@@ -221,16 +233,6 @@
             this.gpFlowDetail.Size = new System.Drawing.Size(952, 211);
             this.gpFlowDetail.TabIndex = 2;
             this.gpFlowDetail.TabStop = false;
-            // 
-            // listComments
-            // 
-            this.listComments.BackColor = System.Drawing.Color.Azure;
-            this.listComments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listComments.Location = new System.Drawing.Point(3, 17);
-            this.listComments.Name = "listComments";
-            this.listComments.Size = new System.Drawing.Size(946, 131);
-            this.listComments.TabIndex = 0;
-            this.listComments.Text = "";
             // 
             // CurrentStepHandle
             // 

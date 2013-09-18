@@ -95,9 +95,9 @@ namespace HYPDM
             /// </summary>
             Activated,
             /// <summary>
-            /// 处理中
+            /// 返回
             /// </summary>
-            Handling,
+            Return,
             /// <summary>
             /// 完成
             /// </summary>
@@ -110,7 +110,18 @@ namespace HYPDM
             /// </summary>
             public DataType.AuthObjectType ObjectType;
             public string Value;
-
+        }
+        //区分文件的大分类，工艺文件 工程文件(图纸)
+        public enum FileType
+        {   
+            /// <summary>
+            /// 工艺文件
+            /// </summary>
+            ProcessFile,
+            /// <summary>
+            /// 图纸文件
+            /// </summary>
+            Drawing
         }
     }
 }

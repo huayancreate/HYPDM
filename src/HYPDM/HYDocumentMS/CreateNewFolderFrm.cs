@@ -15,7 +15,7 @@ using System.IO;
 namespace HYDocumentMS
 {
     public partial class CreateNewFolderFrm : Form
-    {  
+    {
         /// <summary>
         /// 保存文件路径,添加时候用的
         /// </summary>
@@ -152,9 +152,15 @@ namespace HYDocumentMS
                     if (ok == true)
                     {
                         FileSockClient.FolderOperSocketClient folder = new FileSockClient.FolderOperSocketClient("add", new FileHelper().getDocumentAllPathByPathID(dir.DFD_ID.ToString()), "");
-                        MessageBox.Show("添加成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                        this.Close();
-
+                        if (folder.AckStatus)
+                        {
+                            MessageBox.Show("添加成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                            this.Close();
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else
                     {
@@ -177,9 +183,15 @@ namespace HYDocumentMS
                     if (ok == true)
                     {
                         FileSockClient.FolderOperSocketClient folder = new FileSockClient.FolderOperSocketClient("modify", oldPath, new FileHelper().getDocumentAllPathByPathID(doc.DFD_ID.ToString()));
-                        MessageBox.Show("修改成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                        this.Close();
-
+                        if (folder.AckStatus)
+                        {
+                            MessageBox.Show("修改成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                            this.Close();
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else
                     {
@@ -196,8 +208,6 @@ namespace HYDocumentMS
         {
 
         }
-
-
         /// <summary>
         /// 添加文件夹check
         /// </summary>
@@ -269,10 +279,15 @@ namespace HYDocumentMS
         /// <param name="e"></param>
         private void txtNewFolder_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar==13)
+            if (e.KeyChar == 13)
             {
                 OK_Click(sender, new EventArgs());
             }
+        }
+
+        private void OK_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
 
 

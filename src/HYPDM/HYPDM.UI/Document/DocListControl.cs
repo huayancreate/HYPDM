@@ -251,7 +251,7 @@ namespace HYPDM.WinUI.Document
             for (int i = 0; i < dgvDocList.Rows.Count; i++)
             {
                 var count = ServiceContainer.GetService<DocFileListService>().GetDocFileDataTableByDCID(dgvDocList.Rows[i].Cells["DocID"].Value.ToString()).Rows.Count;
-                dgvDocList.Rows[i].Cells["REMARK"].Value = count > 2 ? "有文件" : "无文件";
+                dgvDocList.Rows[i].Cells["REMARK"].Value = count > 0 ? "有文件" : "无文件";
             }
         }
 

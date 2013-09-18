@@ -117,7 +117,7 @@ namespace HYPDM.WinUI.Document
                         MessageBox.Show("选择成功!!", "讯息", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                         break;
                     }
-                case "物料":
+                case "材料":
                     {
                         IsExist = false;
                         foreach (DataGridViewRow row in this.dgvMaterial.Rows)
@@ -179,7 +179,7 @@ namespace HYPDM.WinUI.Document
                 }
                 iDList = "(" + iDList.Substring(0, iDList.Length - 1) + ")";
             }
-            DataTable dtTemp = new  HYDocumentMS.FileHelper().getDataTableBySql("*", "  WHERE A.ID IN" + iDList, "(SELECT  PRODUCTID as ID ,PRODUCTNO as NO ,[VERSION]  ,'产品' as Type FROM PDM_ALL_PRODUCT]UNION ALL SELECT MATERIALID as id  ,MATERIALNO as NO,[VERSION] ,'物料' type FROM PDM_MATERAIL) A");
+            DataTable dtTemp = new  HYDocumentMS.FileHelper().getDataTableBySql("*", "  WHERE A.ID IN" + iDList, "(SELECT  PRODUCTID as ID ,PRODUCTNO as NO ,[VERSION]  ,'产品' as Type FROM PDM_ALL_PRODUCT UNION ALL SELECT MATERIALID as id  ,MATERIALNO as NO,[VERSION] ,'材料' type FROM PDM_MATERAIL) A");
             FrmShowSelectedObject FrmSelView = new FrmShowSelectedObject();
             FrmSelView.DtDataList = dtTemp;
             FrmSelView.ShowDialog();
@@ -198,7 +198,7 @@ namespace HYPDM.WinUI.Document
                 {
                     this.InitList();
                 }
-                else if (this.combQueryType.Text == "物料")
+                else if (this.combQueryType.Text == "材料")
                 {
                     this.InitList1();
                 }
@@ -253,11 +253,11 @@ namespace HYPDM.WinUI.Document
                     //dt = (DataTable)this.dGVProduct.DataSource;
                     //this.dGVProduct.DataSource = dt.Select("PRODUCTNO='{0}'",this.txtValue.Text.ToString());
 
-                    this.dGVProduct.DataSource = new  HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND PRODUCTNO LIKE '%" + this.txtValue.Text.ToString() + "%'", "PDM_ALL_PRODUCT");
+                    this.dGVProduct.DataSource = new  HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND PRODUCTNO LIKE '%" + this.txtValue.Text.ToString().Trim() + "%'", "PDM_ALL_PRODUCT");
                 }
-                else if (this.combQueryType.Text == "物料")
+                else if (this.combQueryType.Text == "材料")
                 {
-                    this.dgvMaterial.DataSource = new   HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND MATERIALNO LIKE '%" + this.txtValue.Text.ToString() + "%'", "PDM_MATERAIL");
+                    this.dgvMaterial.DataSource = new   HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND MATERIALNO LIKE '%" + this.txtValue.Text.ToString().Trim() + "%'", "PDM_MATERAIL");
                 }
                 else if (this.combQueryType.Text == "半产品")
                 {

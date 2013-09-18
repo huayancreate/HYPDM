@@ -15,7 +15,7 @@ using EAS.Data.Linq;
 using EAS.Data.ORM;
 using HYPDM;
 namespace HYPDM.WinUI.WorkFlow.Flow
-{  
+{
     /// <summary>
     /// 
     /// </summary>
@@ -50,25 +50,57 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             this.CenterToParent();
         }
 
+        string loginID = CommonFuns.NewInstance.LoginInfo.LoginID;
         private void CurrentStepHandle_Load(object sender, EventArgs e)
         {
+            this.listComments.Text = "";
+            this.gpFlowDetail.Controls.Clear();
             APP = WorkFlow.NewInstance.GetWFappByWFID(this.WfAppID);
 
-            ///显示之前签批人员的签批记录
+            if (APP.STATUS == DataType.WFDetailSTATUS.UNActivate.ToString())
+            {
+                MessageBox.Show("当前工作流状态为未激活状态!", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                this.Close();
+                return;
+            }
+            if (APP.STATUS == DataType.WFDetailSTATUS.Complete.ToString())
+            {
+                this.btnHandle.Enabled = false;
+            }
+            //显示之前签批人员的签批记录
             showOldMsg();
-
-
-
-
 
             this.txtSubject.Text = APP.SUBJECT;
             this.txtUserPM.Text = APP.CREATEUSER;
-            this.txtHandleUser.Text = CommonFuns.NewInstance.LoginInfo.LoginID;
+           
 
 
             try
             {
+
                 wipWFAppDetai = WorkFlow.NewInstance.GetWfAppWipDetailByWfaID(WfAppID);
+                if (wipWFAppDetai == null)
+                {
+                    wipWFAppDetai = WorkFlow.NewInstance.GetWfAppLastDetailByWfaID(wfAppID);
+                    this.btnHandle.Enabled = false;
+                }
+                else
+                {  
+                     //if(wipWFAppDetai.c
+                    // this.txtHandleUser.Text = CommonFuns.NewInstance.LoginInfo.LoginID;
+                    //IList<WF_APP_HANDLE> list = WorkFlow.NewInstance.GetWFAppStepHandle(WfAppID, wipWFAppDetai.Current_STEP_ID);
+                    WF_APP_HANDLE handItem=WorkFlow.NewInstance.GetWfAppHandleItem(wfAppID, wipWFAppDetai.Current_STEP_ID, loginID);
+                    this.txtHandleUser.Text = handItem.OBJECTVALUE;
+                    if (handItem != null && (handItem.IS_THROUGH == null || handItem.IS_THROUGH.Trim() == ""))
+                    {
+                        this.btnHandle.Enabled = true;
+                    }
+                    else
+                    {
+                        this.btnHandle.Enabled = false;
+                    }
+                   
+                }
             }
             catch (Exception ex)
             {
@@ -77,7 +109,12 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 return;
             }
 
-
+            if (wipWFAppDetai == null)
+            {
+                MessageBox.Show("获取工作流信息失败", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                this.Close();
+                return;
+            }
 
 
 
@@ -94,9 +131,9 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             {
                 this.txtStatus.Text = "未激活";
             }
-            else if (APP.STATUS == DataType.WFDetailSTATUS.Handling.ToString())
+            else if (APP.STATUS == DataType.WFDetailSTATUS.Return.ToString())
             {
-                this.txtStatus.Text = "激活";
+                this.txtStatus.Text = "退回拟制";
             }
             //  this.txtStatus.Text = APP.STATUS;
             loadIni();
@@ -116,7 +153,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 stb.Append("\n");
                 this.listComments.Text += stb.ToString();
                 stb = new StringBuilder();
-                this.listComments.Text += handle.MSG;
+                this.listComments.Text += handle.MSG + "\n";
             }
 
 
@@ -232,20 +269,27 @@ namespace HYPDM.WinUI.WorkFlow.Flow
 
         private string getCurrentStepHandle(string wfappID, string wftStepID)
         {
-            IList<WF_APP_HANDLE> list = WorkFlow.NewInstance.GetWFAppStepHandle(wfappID, wftStepID);
-            if (list != null && list.Count > 0)
+            if (APP.STATUS == DataType.WFDetailSTATUS.Return.ToString())
             {
-                stbUser = new StringBuilder("\n");
+                stbUser = new StringBuilder();
             }
-            foreach (WF_APP_HANDLE handle in list)
+            else
             {
-                if (handle.OBJECTTYPE == DataType.AuthObjectType.SingleUser.ToString())
+                IList<WF_APP_HANDLE> list = WorkFlow.NewInstance.GetWFAppStepHandle(wfappID, wftStepID);
+                if (list != null && list.Count > 0)
                 {
-                    stbUser.Append("用户:【" + handle.OBJECTVALUE + "】" + "\n");
+                    stbUser = new StringBuilder("\n");
                 }
-                else
+                foreach (WF_APP_HANDLE handle in list)
                 {
-                    stbUser.Append("群组:【" + handle.OBJECTVALUE + "】" + "\n");
+                    if (handle.OBJECTTYPE == DataType.AuthObjectType.SingleUser.ToString())
+                    {
+                        stbUser.Append("用户:【" + handle.OBJECTVALUE + "】" + "\n");
+                    }
+                    else
+                    {
+                        stbUser.Append("群组:【" + handle.OBJECTVALUE + "】" + "\n");
+                    }
                 }
             }
             return stbUser.ToString();
@@ -263,13 +307,14 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 DataStore();
             }
 
-            this.Close();
+         //   this.Close();
+            CurrentStepHandle_Load(sender, e);
 
         }
         private void DataStore()
         {
             string nowDate = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string loginID = CommonFuns.NewInstance.LoginInfo.LoginID;
+            //string loginID = CommonFuns.NewInstance.LoginInfo.LoginID;
             //1.detail中存放两笔资料，一笔当前状态的更新   2  下一节点的记录新增 ，如果当前没有完成整个节点的审批，那么不需要进行此项工作
             //2.往handle中更新当前处理人的处理状态及意见
 
@@ -282,10 +327,6 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     MessageBox.Show("您已经审批过，无需再一次审批!", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                     return;
                 }
-                else
-                {
-
-                }
             }
             else
             {
@@ -296,7 +337,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             item.LASTUPDATEDATE = nowDate;
             item.LASTUPDATEUSER = loginID;
             item.MSG = contentMsg;
-
+            item.COMPLEMENTDATE = nowDate;
             if (isThrough == true)
             {
                 item.IS_THROUGH = "Y";
@@ -313,29 +354,22 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             Boolean blAllThrough = true;
             Boolean isUpdateDetail = true;
             IList<WF_APP_HANDLE> list = WorkFlow.NewInstance.GetWfAppStepHandleList(APP.WFA_ID, wipWFAppDetai.Current_STEP_ID);
-            foreach (WF_APP_HANDLE handleItem in list)
+            foreach (WF_APP_HANDLE handleItem in list)  //判定该流程节点是否通过
             {
                 if (handleItem.IS_THROUGH == "N")
                 {
-                    blAllThrough = false;
-                    return;
-                }
-                else if (handleItem.IS_THROUGH == "Y")
-                {
-                    //  blAllThrough = true;
-                }
-                else if (handleItem.IS_THROUGH == "")
-                {
-                    isUpdateDetail = false;
-                    // return;
-                }
-                else if (handleItem.IS_THROUGH == null)
-                {
-                    isUpdateDetail = false;
-                    //return;
+                    blAllThrough = false; //只要有一个人员的签批为未通过，则整个节点就为未通过
+                    break;
                 }
             }
-
+            foreach (WF_APP_HANDLE handleItem in list) //判定该节点是否还有没有完成的签批用户
+            {
+                if (handleItem.IS_THROUGH == null || handleItem.IS_THROUGH == "")
+                {
+                    isUpdateDetail = false;
+                    break;
+                }
+            }
             if (isUpdateDetail) //需要更新detail信息，说明此节点的所有用户已经审批完成,而且全部通过审批
             {
                 ///A更新当前节点的处理信息
@@ -350,7 +384,8 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 }
                 detail.Current_STEP_ID = wipWFAppDetai.Current_STEP_ID;
                 detail.MSG = contentMsg; //可加可不加
-                detail.IS_Through = "Y";
+                //detail.IS_Through = "Y";
+                detail.IS_Through = blAllThrough == true ? "Y" : "N";
                 detail.COMPLEMENTDATE = nowDate;
                 detail.WFA_ID = wipWFAppDetai.WFA_ID;
                 detail.Update();
@@ -369,27 +404,26 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 }
                 else
                 {
-                    //如果不是跟节点，且目前节点已经审批完成，需要添加下节点信息
+                    //如果不是跟节点，且目前节点已经审批完成，需要添加下节点信息,WIP信息
 
-
-                    ///新增WF_DETAIL记录，指向下一工作流信息
-                    // wfah.Current_STEP_ID = WorkFlow.NewInstance.GetWFStepInfoByStepID(wftStepID).WFT_CURRENT_STEP_ID;
-                    WF_DETAIL detailNew = new HYPDM.Entities.WF_DETAIL();
-                    detailNew.Current_STEP_ID = WorkFlow.NewInstance.GetStepInfoByWftIDAndCurrentStepID(APP.WFT_ID, detail.Current_STEP_ID).WFT_NEXT_STEP_ID;
-                    detailNew.MSG = "";
-                    detailNew.IS_Through = "";
-                    detailNew.DEL_FLAG = "N";
-                    detailNew.COMPLEMENTDATE = "";
-                    detailNew.RECIVEDATE = detail.COMPLEMENTDATE;
-                    detailNew.WFD_ID = Guid.NewGuid().ToString();
-                    detailNew.WFA_ID = detail.WFA_ID;
-                    detailNew.WFT_STEP_ID = WorkFlow.NewInstance.GetWftStepIDByStepIDAndAppID(detailNew.WFA_ID, detailNew.Current_STEP_ID);
-                    detailNew.Save();
+                    // if (isThrough) //如果本用户签批通过，在detail信息表中新增wip信息
+                    if (blAllThrough ||isThrough)
+                    {
+                        ///新增WF_DETAIL记录，指向下一工作流信息
+                        // wfah.Current_STEP_ID = WorkFlow.NewInstance.GetWFStepInfoByStepID(wftStepID).WFT_CURRENT_STEP_ID;
+                        WF_DETAIL detailNew = new HYPDM.Entities.WF_DETAIL();
+                        detailNew.Current_STEP_ID = WorkFlow.NewInstance.GetStepInfoByWftIDAndCurrentStepID(APP.WFT_ID, detail.Current_STEP_ID).WFT_NEXT_STEP_ID;
+                        detailNew.MSG = "";
+                        detailNew.IS_Through = "";
+                        detailNew.DEL_FLAG = "N";
+                        detailNew.COMPLEMENTDATE = "";
+                        detailNew.RECIVEDATE = detail.COMPLEMENTDATE;
+                        detailNew.WFD_ID = Guid.NewGuid().ToString();
+                        detailNew.WFA_ID = detail.WFA_ID;
+                        detailNew.WFT_STEP_ID = WorkFlow.NewInstance.GetWftStepIDByStepIDAndAppID(detailNew.WFA_ID, detailNew.Current_STEP_ID);
+                        detailNew.Save();
+                    }
                 }
-            }
-            else
-            {
-                //还有用户没有审批完成，而且目前此节点完成审批的用户均已经通过审批,此种情况下不需要更新detail及相关信息
             }
 
             if (!blAllThrough)  //说明有用户选择没有通过的选项
@@ -398,12 +432,12 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 ///                     B.将WF_APP_HANDLE表中对应的处理人del_flag设为Y
                 ///                     C.将WF_DETAIL表中对应的信息del_falg设为Y
                 ///                     
-                ///如果有审批人员在此节点审批不通过，则将此工作流实例设为UNActivate(未激活，拟制状态)
-                //A.将WF_APP中工作流实例信息的状态变为:UNActivate,未激活,返回拟制状态
+                ///如果有审批人员在此节点审批不通过，则将此工作流实例设为Return(退回、拟制状态)
+                //A.将WF_APP中工作流实例信息的状态变为:Return,未激活,返回拟制状态
                 WF_APP wfapp = WorkFlow.NewInstance.GetWFappByWFID(wipWFAppDetai.WFA_ID);
                 wfapp.LASTUPDATEDATE = nowDate;
                 wfapp.LASTUPDATEUSER = loginID;
-                wfapp.STATUS = DataType.WFDetailSTATUS.UNActivate.ToString();
+                wfapp.STATUS = DataType.WFDetailSTATUS.Return.ToString();
                 wfapp.Update();
 
                 // B.将WF_APP_HANDLE表中对应的处理人del_flag设为Y

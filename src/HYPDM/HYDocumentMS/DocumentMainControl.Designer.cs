@@ -132,14 +132,14 @@
             this.tspInView.Checked = true;
             this.tspInView.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tspInView.Name = "tspInView";
-            this.tspInView.Size = new System.Drawing.Size(152, 22);
+            this.tspInView.Size = new System.Drawing.Size(136, 22);
             this.tspInView.Text = "嵌入式预览";
             this.tspInView.Click += new System.EventHandler(this.tspInView_Click);
             // 
             // tspOutView
             // 
             this.tspOutView.Name = "tspOutView";
-            this.tspOutView.Size = new System.Drawing.Size(152, 22);
+            this.tspOutView.Size = new System.Drawing.Size(136, 22);
             this.tspOutView.Text = "弹出框预览";
             this.tspOutView.Click += new System.EventHandler(this.tspOutView_Click);
             // 
@@ -243,16 +243,17 @@
             // 
             this.ToolS_FilesAdd.Image = global::HYDocumentMS.Properties.Resources.edit_add;
             this.ToolS_FilesAdd.Name = "ToolS_FilesAdd";
-            this.ToolS_FilesAdd.Size = new System.Drawing.Size(124, 22);
+            this.ToolS_FilesAdd.Size = new System.Drawing.Size(152, 22);
             this.ToolS_FilesAdd.Tag = "0";
             this.ToolS_FilesAdd.Text = "添加";
+            this.ToolS_FilesAdd.Visible = false;
             this.ToolS_FilesAdd.Click += new System.EventHandler(this.ToolS_FilesAdd_Click);
             // 
             // 查看ToolStripMenuItem1
             // 
             this.查看ToolStripMenuItem1.Image = global::HYDocumentMS.Properties.Resources.view;
             this.查看ToolStripMenuItem1.Name = "查看ToolStripMenuItem1";
-            this.查看ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.查看ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.查看ToolStripMenuItem1.Text = "文件预览";
             this.查看ToolStripMenuItem1.Click += new System.EventHandler(this.查看ToolStripMenuItem1_Click);
             // 
@@ -260,7 +261,7 @@
             // 
             this.tspFileDownLoad.Image = global::HYDocumentMS.Properties.Resources.download;
             this.tspFileDownLoad.Name = "tspFileDownLoad";
-            this.tspFileDownLoad.Size = new System.Drawing.Size(124, 22);
+            this.tspFileDownLoad.Size = new System.Drawing.Size(152, 22);
             this.tspFileDownLoad.Text = "下载";
             this.tspFileDownLoad.Click += new System.EventHandler(this.tspFileDownLoad_Click);
             // 
@@ -279,29 +280,30 @@
             this.对象关联ToolStripMenuItem.Name = "对象关联ToolStripMenuItem";
             this.对象关联ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.对象关联ToolStripMenuItem.Text = "对象关联";
+            this.对象关联ToolStripMenuItem.Visible = false;
             // 
             // 零部件ToolStripMenuItem
             // 
             this.零部件ToolStripMenuItem.Name = "零部件ToolStripMenuItem";
-            this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.零部件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.零部件ToolStripMenuItem.Text = "零部件";
             // 
             // 产品ToolStripMenuItem
             // 
             this.产品ToolStripMenuItem.Name = "产品ToolStripMenuItem";
-            this.产品ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.产品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.产品ToolStripMenuItem.Text = "产品";
             // 
             // 半成品ToolStripMenuItem
             // 
             this.半成品ToolStripMenuItem.Name = "半成品ToolStripMenuItem";
-            this.半成品ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.半成品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.半成品ToolStripMenuItem.Text = "半成品";
             // 
             // 物料ToolStripMenuItem
             // 
             this.物料ToolStripMenuItem.Name = "物料ToolStripMenuItem";
-            this.物料ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.物料ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.物料ToolStripMenuItem.Text = "物料";
             // 
             // tspViewFile

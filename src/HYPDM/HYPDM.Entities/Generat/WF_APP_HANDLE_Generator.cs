@@ -165,6 +165,18 @@ namespace HYPDM.Entities
             get;
             set;
         }
+          /// <summary>
+        ///审批意见。
+        /// </summary>
+        [Column("COMPLEMENTDATE", "完成日期"), DataSize(50)]
+        [DisplayName("完成日期")]
+        public string COMPLEMENTDATE
+        {
+            get;
+            set;
+        }
+
+        
         #endregion
     }
 }

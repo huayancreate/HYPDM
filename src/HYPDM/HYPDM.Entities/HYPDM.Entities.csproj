@@ -54,6 +54,7 @@
     <Compile Include="Generat\EAS_ACCOUNTS.Generator.cs" />
     <Compile Include="Generat\FILE_AUTH_Generator.cs" />
     <Compile Include="Generat\MYWOKSPACE.Generator.cs" />
+    <Compile Include="Generat\MYWORKRECORD.Generator.cs" />
     <Compile Include="Generat\ObjectRelation_Generator.cs" />
     <Compile Include="Generat\PDM_ALL_PRODUCT.Generator.cs" />
     <Compile Include="Generat\PDM_FILTER.Generator.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Generat\WF_TEMPLATES_Generator.cs" />
     <Compile Include="Generat\WF_TEMPLATES_OBJECT_Genreator.cs" />
     <Compile Include="MYWOKSPACE.cs" />
+    <Compile Include="MYWORKRECORD.cs" />
     <Compile Include="ObjectRelation.cs" />
     <Compile Include="PartsDetail.cs" />
     <Compile Include="PDM_ALL_PRODUCT.cs" />

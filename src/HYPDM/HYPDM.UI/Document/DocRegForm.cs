@@ -37,6 +37,7 @@ namespace HYPDM.WinUI.Document
             tbcContent.TabPages.Remove(tpFile);
             tbcContent.TabPages.Remove(tpVersion);
             tbcContent.TabPages.Remove(tpParts);
+            tbcContent.TabPages.Remove(tabCad);
             new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
         }
 
@@ -166,7 +167,9 @@ namespace HYPDM.WinUI.Document
             {
                 tbcContent.TabPages.Add(tpParts);
                 tbcContent.TabPages.Add(tpFile);
+                tbcContent.TabPages.Add(tabCad);
                 tbcContent.TabPages.Add(tpVersion);
+                
                 
                 this.txtDocNo.Text = this.Document.DOCNO;
                 this.txtDescription.Text = this.Document.DESCRIPTION;
@@ -217,8 +220,11 @@ namespace HYPDM.WinUI.Document
                     try
                     {
                         //FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, @"D:\\PDM文件服务器根目录");
-                        FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, savePath);
-
+                        FileSockClient.UpLoadFileSocketClient uploadSocket = new FileSockClient.UpLoadFileSocketClient(path, savePath);
+                        if (!uploadSocket.AckStatus)
+                        {
+                            return;
+                        }
                         // MessageBox.Show("文件添加成功==文件目录" + @"E:\\PDM文件服务器根目录");
                     }
                     catch (Exception ex)
@@ -226,6 +232,10 @@ namespace HYPDM.WinUI.Document
                         MessageBox.Show("文件添加失败==文件目录" + savePath + "===" + ex.Message.ToString());
                     }
                     finally
+                    {
+
+                    }
+                    try
                     {
                         file.DFL_ID = Guid.NewGuid().ToString();
                         file.DFL_FILE_NAME = path.Substring(path.LastIndexOf(@"\") + 1);
@@ -244,7 +254,14 @@ namespace HYPDM.WinUI.Document
                         // query.Save(file);
                         //query.Insert(file);
                         file.Save();
+                        MessageBox.Show("文件注册成功,文件目录" + savePath,"提示",MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
                     }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show("文件注册失败【注册到数据库失败】,"+ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+
                     this.BindTreeData();
                 }
             }
@@ -658,7 +675,7 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void btnHalfProduct_Click(object sender, EventArgs e)
         {
-            ProductsAndParts.Products.ProductsAddForm FrmProduct = new ProductsAndParts.Products.ProductsAddForm(2);  //2为半成品  1为成品
+            ProductsAndParts.Parts.PartsConfForm FrmProduct = new ProductsAndParts.Parts.PartsConfForm(2);  //2为半成品  1为成品
             FrmProduct.StartPosition = FormStartPosition.CenterParent;
             FrmProduct.ShowDialog();
         }
@@ -906,6 +923,10 @@ namespace HYPDM.WinUI.Document
 
                         //FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, @"C:\\" + node.Cells[0].Value.ToString());
                         FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(serverpath, clientSaveFileAndPath);
+                        if (!downSocket.AckStatus)
+                        {
+                            return;
+                        }
                     }
                     else
                     {
@@ -975,7 +996,7 @@ namespace HYPDM.WinUI.Document
 
         private void btnMaterial_Click(object sender, EventArgs e)
         {
-            ProductsAndParts.Material.MaterailAddForm FrmMat = new ProductsAndParts.Material.MaterailAddForm();
+            ProductsAndParts.Material.MaterialConfForm FrmMat = new ProductsAndParts.Material.MaterialConfForm();
             FrmMat.StartPosition = FormStartPosition.CenterParent;
             FrmMat.ShowDialog();
         }

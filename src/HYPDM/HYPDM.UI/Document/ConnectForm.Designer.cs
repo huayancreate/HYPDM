@@ -381,7 +381,7 @@
             // ucPaging1
             // 
             this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucPaging1.ExportIsVisiable = true;
+            this.ucPaging1.ExportIsVisiable = false;
             this.ucPaging1.Location = new System.Drawing.Point(3, 273);
             this.ucPaging1.Name = "ucPaging1";
             this.ucPaging1.PageSize = 20;
@@ -453,7 +453,7 @@
             this.combQueryType.FormattingEnabled = true;
             this.combQueryType.Items.AddRange(new object[] {
             "产品",
-            "物料"});
+            "材料"});
             this.combQueryType.Location = new System.Drawing.Point(103, 15);
             this.combQueryType.Name = "combQueryType";
             this.combQueryType.Size = new System.Drawing.Size(181, 23);

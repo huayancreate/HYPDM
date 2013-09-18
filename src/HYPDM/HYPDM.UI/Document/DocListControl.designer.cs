@@ -62,8 +62,9 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDocList = new HYPDM.BaseControl.DataGridViewExt();
-            this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.DOCNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REMARK = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,7 +77,6 @@
             this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEL_FLAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.cmDocument.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocList)).BeginInit();
@@ -296,8 +296,8 @@
             this.dgvDocList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDocList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DOCID,
             this.DOCNO,
+            this.DOCID,
             this.DOCNAME,
             this.VERSION,
             this.REMARK,
@@ -332,22 +332,31 @@
             this.dgvDocList.TabIndex = 7;
             this.dgvDocList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellDoubleClick_1);
             // 
-            // DOCID
+            // ucPaging1
             // 
-            this.DOCID.DataPropertyName = "DOCID";
-            this.DOCID.Frozen = true;
-            this.DOCID.HeaderText = "DOCID";
-            this.DOCID.Name = "DOCID";
-            this.DOCID.ReadOnly = true;
-            this.DOCID.ToolTipText = "123";
-            this.DOCID.Visible = false;
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = false;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 30;
+            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
+            this.ucPaging1.TabIndex = 4;
+            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
             // 
             // DOCNO
             // 
             this.DOCNO.DataPropertyName = "DOCNO";
-            this.DOCNO.HeaderText = "编号";
+            this.DOCNO.HeaderText = "文档编号";
             this.DOCNO.Name = "DOCNO";
             this.DOCNO.ReadOnly = true;
+            // 
+            // DOCID
+            // 
+            this.DOCID.DataPropertyName = "DOCID";
+            this.DOCID.HeaderText = "DOCID";
+            this.DOCID.Name = "DOCID";
+            this.DOCID.ReadOnly = true;
+            this.DOCID.Visible = false;
             // 
             // DOCNAME
             // 
@@ -442,17 +451,6 @@
             this.DEL_FLAG.ReadOnly = true;
             this.DEL_FLAG.Visible = false;
             // 
-            // ucPaging1
-            // 
-            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucPaging1.ExportIsVisiable = false;
-            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
-            this.ucPaging1.Name = "ucPaging1";
-            this.ucPaging1.PageSize = 30;
-            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
-            this.ucPaging1.TabIndex = 4;
-            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
-            // 
             // DocListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -505,8 +503,8 @@
         private System.Windows.Forms.ToolStripButton btnSearch;
         private BaseControl.UcPaging ucPaging1;
         private BaseControl.DataGridViewExt dgvDocList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DOCID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOCID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCNAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn VERSION;
         private System.Windows.Forms.DataGridViewTextBoxColumn REMARK;

@@ -16,6 +16,7 @@ using HYPDM.BLL;
 using EAS.Explorer;
 using EAS.Data.Linq;
 using HYPDM;
+using System.Configuration;
 namespace HYDocumentMS
 {
     /// <summary>
@@ -23,8 +24,27 @@ namespace HYDocumentMS
     /// </summary>
     [Module("{20EE5B83-2353-40DC-ADD4-29B3B2BA3AF9}", "文档管理主界面", "文档管理")]
     public partial class DocumentMainControl : UserControl
-    {
+    {  
+        /// <summary>
+        /// swf存放的路径,服务器上的
+        /// </summary>
+        private string viewFilePath = System.Configuration.ConfigurationManager.AppSettings["swfPath"].ToString();//swf文件存放的路径
 
+        //下载swf文件存放在本地的路径
+        private string saveTempPath = System.Configuration.ConfigurationManager.AppSettings["SaveTempPath"].ToString();//swf文件存放的路径
+
+        public string SaveTempPath
+        {
+            get { return saveTempPath; }
+            set { saveTempPath = value; }
+        }
+
+        
+        public string ViewFilePath
+        {
+            get { return viewFilePath; }
+            set { viewFilePath = value; }
+        }
         IFileHelper fileHelper;
         /// <summary>
         /// 
@@ -41,7 +61,8 @@ namespace HYDocumentMS
         [ModuleStart]
         public void StartEx()
         {
-            this.webB.Navigate(@"D:\PDM文件服务器根目录\Demo.swf");
+           // this.webB.Navigate(@"D:\PDM文件服务器根目录\Demo.swf");
+            this.webB.Navigate(Application.StartupPath + "\\" + "Demo.swf"); ;
             IniEvent();
 
         }
@@ -274,15 +295,36 @@ namespace HYDocumentMS
                     MessageBox.Show("你没有权限查看此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if (tspInView.Checked)
+
+                string fileName = this.trvDocumentList.SelectedNode.Text.ToString();
+                string swfFileName = System.IO.Path.GetFileNameWithoutExtension(fileName) + @".swf";
+                //下载文件
+                try
                 {
-                    this.webB.Navigate(@"D:\swf\漂亮动态ppt模板.swf");
+                    FileSockClient.DownLoadFileSocketClient downSocket = new FileSockClient.DownLoadFileSocketClient(ViewFilePath + swfFileName, this.SaveTempPath + swfFileName);
+                    if (!downSocket.AckStatus)
+                    {
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("下载数据异常!:" + ex.Message.ToString(), "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (tspInView.Checked)
+                {   
+                   // this.webB.Navigate(@"D:\swf\文件权限管理.swf");
+                    this.webB.Navigate(this.SaveTempPath + swfFileName);
                 }
                 else
                 {
                     ViewFileFrm fileView = new ViewFileFrm();
-                    fileView.FileName = "漂亮动态ppt模板.swf";
-                    fileView.ViewFilePath = @"D:\swf\";
+                  //  fileView.FileName = "文件权限管理.swf";
+                    fileView.FileName = swfFileName;
+                   // fileView.ViewFilePath = @"D:\swf\";
+                    fileView.ViewFilePath = this.SaveTempPath;
                     fileView.ShowDialog();
                 }
 

@@ -16,21 +16,33 @@ namespace FileSockClient
         int portFolderOperFlag = 2013;
         int portFolderOperPath = 2014;
         int portFolderOperNewPath = 2015;
+        /// <summary>
+        /// 表示交易的最终状态，成功为true，异常为false
+        /// </summary>
+        private Boolean ackStatus = true; //表示交易的最终状态，成功为true，异常为false
 
-        public int PortFolderOperNewPath
+        /// <summary>
+        /// 表示交易的最终状态，成功为true，异常为false
+        /// </summary>
+        public Boolean AckStatus
         {
-            get { return portFolderOperNewPath; }
-            set { portFolderOperNewPath = value; }
+            get { return ackStatus; }
+            set { ackStatus = value; }
         }
+        //public int PortFolderOperNewPath
+        //{
+        //    get { return portFolderOperNewPath; }
+        //    set { portFolderOperNewPath = value; }
+        //}
         string folderOperFlg = "";
         string folderOperPath = "";
         string folderOperNewPath = "";
 
-        public string FolderOperNewPath
-        {
-            get { return folderOperNewPath; }
-            set { folderOperNewPath = value; }
-        }
+        //public string FolderOperNewPath
+        //{
+        //    get { return folderOperNewPath; }
+        //    set { folderOperNewPath = value; }
+        //}
         Form frmWait = new FrmWait();
 
         public Form FrmWait
@@ -38,31 +50,31 @@ namespace FileSockClient
             get { return frmWait; }
             set { frmWait = value; }
         }
-        public string Host
-        {
-            get { return host; }
-            set { host = value; }
-        }
-        public int PortFolderOperFlag
-        {
-            get { return portFolderOperFlag; }
-            set { portFolderOperFlag = value; }
-        }
-        public int PortFolderOperPath
-        {
-            get { return portFolderOperPath; }
-            set { portFolderOperPath = value; }
-        }
-        public string FolderOperFlg
-        {
-            get { return folderOperFlg; }
-            set { folderOperFlg = value; }
-        }
-        public string FolderOperPath
-        {
-            get { return folderOperPath; }
-            set { folderOperPath = value; }
-        }
+        //public string Host
+        //{
+        //    get { return host; }
+        //    set { host = value; }
+        //}
+        //public int PortFolderOperFlag
+        //{
+        //    get { return portFolderOperFlag; }
+        //    set { portFolderOperFlag = value; }
+        //}
+        //public int PortFolderOperPath
+        //{
+        //    get { return portFolderOperPath; }
+        //    set { portFolderOperPath = value; }
+        //}
+        //public string FolderOperFlg
+        //{
+        //    get { return folderOperFlg; }
+        //    set { folderOperFlg = value; }
+        //}
+        //public string FolderOperPath
+        //{
+        //    get { return folderOperPath; }
+        //    set { folderOperPath = value; }
+        //}
         /// <summary>
         /// 对文件夹的操作
         /// </summary>
@@ -72,13 +84,13 @@ namespace FileSockClient
         public FolderOperSocketClient(string fldOperFlg, string fldOperPath, string fldOperNewPath)
         {
             TextBox.CheckForIllegalCrossThreadCalls = false;
-            this.Host = System.Configuration.ConfigurationManager.AppSettings["ServerIP"].ToString();
-            this.PortFolderOperFlag = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["portFolderOperFlag"].ToString());
-            this.PortFolderOperPath = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["portFolderOperPath"].ToString());
-            this.PortFolderOperNewPath = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["portFolderOperNewPath"].ToString());
-            this.FolderOperNewPath = fldOperNewPath;
-            FolderOperFlg = fldOperFlg;
-            this.FolderOperPath = fldOperPath;
+            this.host = System.Configuration.ConfigurationManager.AppSettings["ServerIP"].ToString();
+            this.portFolderOperFlag = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["portFolderOperFlag"].ToString());
+            this.portFolderOperPath = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["portFolderOperPath"].ToString());
+            this.portFolderOperNewPath = Convert.ToInt16(System.Configuration.ConfigurationManager.AppSettings["portFolderOperNewPath"].ToString());
+            this.folderOperNewPath = fldOperNewPath;
+            folderOperFlg = fldOperFlg;
+            this.folderOperPath = fldOperPath;
 
             if (FrmWait == null)
             {
@@ -91,9 +103,10 @@ namespace FileSockClient
                 FrmWait = new FrmWait();
                 FrmWait.Show();
             }
-            Thread th = new Thread(startListen);
-            th.IsBackground = true;
-            th.Start();
+            //Thread th = new Thread(startListen);
+            //th.IsBackground = true;
+            //th.Start();
+            startListen();
 
         }
         void startListen()
@@ -101,36 +114,92 @@ namespace FileSockClient
 
             try
             {
-                byte[] folderOperFlgByte = Encoding.UTF8.GetBytes(this.FolderOperFlg);
-                byte[] folerOperPathByte = Encoding.UTF8.GetBytes(this.FolderOperPath);
-                byte[] folerOperNewPathByte = Encoding.UTF8.GetBytes(this.FolderOperNewPath);
-                scoketSend(Host, this.PortFolderOperFlag, folderOperFlgByte);
-                scoketSend(Host, this.PortFolderOperPath, folerOperPathByte);
-                scoketSend(Host, this.PortFolderOperNewPath, folerOperNewPathByte);
+                byte[] folderOperFlgByte = Encoding.UTF8.GetBytes(this.folderOperFlg);
+                byte[] folerOperPathByte = Encoding.UTF8.GetBytes(this.folderOperPath);
+                byte[] folerOperNewPathByte = Encoding.UTF8.GetBytes(this.folderOperNewPath);
+                if (!scoketSend(host, this.portFolderOperFlag, folderOperFlgByte))
+                {
+                    AckStatus = false;
+                    return;
+                }
+                if (!scoketSend(host, this.portFolderOperPath, folerOperPathByte))
+                {
+                    AckStatus = false;
+                    return;
+                }
+                if (!scoketSend(host, this.portFolderOperNewPath, folerOperNewPathByte))
+                {
+                    AckStatus = false;
+                    return;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                AckStatus = false;
+                MessageBox.Show("文件夹操作异常:" + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             finally
             {
                 if (this.FrmWait != null)
                 {
                     this.FrmWait.Close();
-                    this.FrmWait.Dispose();
                 }
             }
 
         }
 
-        private void scoketSend(string host, int port, byte[] bs)
+        private Boolean scoketSend(string host, int port, byte[] bs)
         {
-            IPAddress ip = IPAddress.Parse(host);
-            IPEndPoint ipe = new IPEndPoint(ip, port);
-            Socket c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            c.Connect(ipe);
-            c.Send(bs, bs.Length, 0);
-            c.Close();
+            Socket c = null;
+            Boolean bl = true;
+            try
+            {
+                IPAddress ip = IPAddress.Parse(host);
+                IPEndPoint ipe = new IPEndPoint(ip, port);
+                c = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                try
+                {
+                    c.Connect(ipe);
+                }
+                catch (Exception ex)
+                {
+                    bl = false;
+                    MessageBox.Show("连接服务器失败:" + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                finally
+                {
+                    if (FrmWait != null)
+                    {
+                        FrmWait.Close();
+                    }
+                    if (c != null)
+                    {
+                        c.Close();
+                    }
+                }
+                c.Send(bs, bs.Length, 0);
+                c.Close();
+            }
+            catch (Exception ex)
+            {
+                bl = false;
+                MessageBox.Show("文件夹操作失败:" + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            finally
+            {
+                if (FrmWait != null)
+                {
+                    FrmWait.Close();
+                }
+                if (c != null)
+                {
+                    c.Close();
+                }
+            }
+            return bl;
         }
     }
 }

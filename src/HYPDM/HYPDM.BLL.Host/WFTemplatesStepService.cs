@@ -267,7 +267,7 @@ namespace HYPDM.BLL
         {
             DataEntityQuery<WF_APP_HANDLE> query = DataEntityQuery<WF_APP_HANDLE>.Create();
             var p = (from item in query
-                     orderby item.LASTUPDATEDATE descending
+                     orderby item.COMPLEMENTDATE descending
                      where (item.WFA_ID == wfaID && (item.IS_THROUGH == "Y" || item.IS_THROUGH == "N") && item.OBJECTTYPE == "SingleUser")
                      select item
                        );

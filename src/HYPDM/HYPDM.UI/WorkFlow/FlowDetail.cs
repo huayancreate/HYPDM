@@ -49,7 +49,7 @@ namespace HYPDM.WinUI.WorkFlow
                         stbWhereSQl = new StringBuilder();
                         stbFieldsSQl = new StringBuilder();
 
-                        stbFieldsSQl.Append("  A.WFA_ID,A.WFT_ID,A.CREATEDATE,A.CREATEUSER,A.DEL_FLAG,A.OBJECTKEY,");
+                        stbFieldsSQl.Append(" DISTINCT  A.WFA_ID,A.WFT_ID,A.CREATEDATE,A.CREATEUSER,A.DEL_FLAG,A.OBJECTKEY,");
                         stbFieldsSQl.Append(" A.RELATIONOBJECTTYPE,A.START_DATE,A.STATUS,A.SUBJECT");
                         stbFieldsSQl.Append(" ,B.Current_STEP_ID,B.COMPLEMENTDATE,B.IS_Through STEP_THROUGH,B.MSG,");
                         stbFieldsSQl.Append(" B.RECIVEDATE,B.WFT_STEP_ID,'' USER_THROUGH,");
@@ -60,7 +60,7 @@ namespace HYPDM.WinUI.WorkFlow
                         stbTableNameSQl.AppendFormat(" (COMPLEMENTDATE ='' OR COMPLEMENTDATE IS NULL)) B ,WF_TEMPLATES C,( SELECT*  FROM WF_APP_HANDLE WHERE OBJECTVALUE='{0}' AND IS_THROUGH NOT IN ('Y','N') ) D",loginD);
                         stbTableNameSQl.Append("   WHERE A.WFA_ID IN ");
                         stbTableNameSQl.AppendFormat("( SELECT DISTINCT WFA_ID FROM WF_APP_HANDLE WHERE OBJECTVALUE='{0}' AND IS_THROUGH NOT IN ('Y','N'))", loginD);
-                        stbTableNameSQl.Append(" AND   A.STATUS NOT IN ('UNActivated','Complete') AND A.DEL_FLAG='N'");
+                        stbTableNameSQl.Append(" AND   A.STATUS NOT IN ('UNActivate','Complete') AND A.DEL_FLAG='N'");
                         stbTableNameSQl.Append(" AND A.WFA_ID=B.WFA_ID");
                         stbTableNameSQl.Append(" AND  A.WFT_ID=C.WFT_ID   AND B.Current_STEP_ID=D.Current_STEP_ID");
                         dtTemp = CommonFuns.getDataTableBySql(stbFieldsSQl.ToString(), stbWhereSQl.ToString(), stbTableNameSQl.ToString());
@@ -73,7 +73,7 @@ namespace HYPDM.WinUI.WorkFlow
                         stbWhereSQl = new StringBuilder();
                         stbFieldsSQl = new StringBuilder();
 
-                        stbFieldsSQl.Append("  A.WFA_ID,A.WFT_ID,A.CREATEDATE,A.CREATEUSER,A.DEL_FLAG,A.OBJECTKEY,");
+                        stbFieldsSQl.Append("  DISTINCT A.WFA_ID,A.WFT_ID,A.CREATEDATE,A.CREATEUSER,A.DEL_FLAG,A.OBJECTKEY,");
                         stbFieldsSQl.Append(" A.RELATIONOBJECTTYPE,A.START_DATE,A.STATUS,A.SUBJECT");
                         stbFieldsSQl.Append(" ,B.Current_STEP_ID,B.COMPLEMENTDATE,B.IS_Through STEP_THROUGH,B.MSG,");
                         stbFieldsSQl.Append(" B.RECIVEDATE,B.WFT_STEP_ID,A.LASTUPDATEDATE,'' USER_THROUGH");
@@ -94,7 +94,7 @@ namespace HYPDM.WinUI.WorkFlow
                         stbTableNameSQl = new StringBuilder();
                         stbWhereSQl = new StringBuilder();
                         stbFieldsSQl = new StringBuilder();
-                        stbFieldsSQl.Append(" A.WFA_ID,A.WFT_ID,A.CREATEDATE,A.CREATEUSER,A.DEL_FLAG,A.OBJECTKEY,");
+                        stbFieldsSQl.Append("  DISTINCT A.WFA_ID,A.WFT_ID,A.CREATEDATE,A.CREATEUSER,A.DEL_FLAG,A.OBJECTKEY,");
                         stbFieldsSQl.Append(" A.LASTUPDATEDATE,A.RELATIONOBJECTTYPE,A.START_DATE,A.STATUS,A.SUBJECT");
                         stbFieldsSQl.Append(" ,B.Current_STEP_ID,B.COMPLEMENTDATE,B.IS_Through STEP_THROUGH,B.MSG,");
                         stbFieldsSQl.Append(" B.RECIVEDATE,B.WFT_STEP_ID,D.IS_THROUGH USER_THROUGH ,C.WFT_NAME ");
@@ -104,7 +104,7 @@ namespace HYPDM.WinUI.WorkFlow
                         stbTableNameSQl.AppendFormat("( SELECT * FROM WF_APP_HANDLE WHERE OBJECTVALUE='{0}' AND  IS_THROUGH IN ('Y','N')) D,",loginD);
                         stbTableNameSQl.Append(" WF_APP A ,WF_TEMPLATES C");
                         stbTableNameSQl.Append(" WHERE  B.WFA_ID=D.WFA_ID AND B.Current_STEP_ID=D.Current_STEP_ID");
-                        stbTableNameSQl.Append(" AND  A.WFT_ID=C.WFT_ID ");
+                        stbTableNameSQl.Append(" AND  A.WFT_ID=C.WFT_ID  AND A.WFA_ID=B.WFA_ID AND A.WFA_ID=D.WFA_ID ");
 
                         dtTemp = CommonFuns.getDataTableBySql(stbFieldsSQl.ToString(), stbWhereSQl.ToString(), stbTableNameSQl.ToString());
                         break;
