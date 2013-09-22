@@ -34,7 +34,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmDocDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmDocProperty = new System.Windows.Forms.ToolStripMenuItem();
             this.cmDocAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -62,7 +61,6 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDocList = new HYPDM.BaseControl.DataGridViewExt();
-            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.DOCNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +75,9 @@
             this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEL_FLAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
+            this.RegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegStardardFlow = new System.Windows.Forms.ToolStripMenuItem();
             this.cmDocument.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocList)).BeginInit();
@@ -99,12 +100,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(138, 6);
             // 
-            // cmDocProperty
-            // 
-            this.cmDocProperty.Name = "cmDocProperty";
-            this.cmDocProperty.Size = new System.Drawing.Size(141, 22);
-            this.cmDocProperty.Text = "记录属性(&P)";
-            // 
             // cmDocAdd
             // 
             this.cmDocAdd.Name = "cmDocAdd";
@@ -116,10 +111,10 @@
             // 
             this.cmDocument.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmDocAdd,
-            this.cmDocProperty,
             this.toolStripSeparator3,
             this.cmDocDelete,
-            this.toolStripSeparator4});
+            this.toolStripSeparator4,
+            this.RegToolStripMenuItem});
             this.cmDocument.Name = "cmGroup";
             this.cmDocument.Size = new System.Drawing.Size(142, 82);
             // 
@@ -310,6 +305,7 @@
             this.CREATEUSER,
             this.CreateDate,
             this.DEL_FLAG});
+            this.dgvDocList.ContextMenuStrip = this.cmDocument;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -331,17 +327,6 @@
             this.dgvDocList.Size = new System.Drawing.Size(913, 381);
             this.dgvDocList.TabIndex = 7;
             this.dgvDocList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocList_CellDoubleClick_1);
-            // 
-            // ucPaging1
-            // 
-            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucPaging1.ExportIsVisiable = false;
-            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
-            this.ucPaging1.Name = "ucPaging1";
-            this.ucPaging1.PageSize = 30;
-            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
-            this.ucPaging1.TabIndex = 4;
-            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
             // 
             // DOCNO
             // 
@@ -451,6 +436,32 @@
             this.DEL_FLAG.ReadOnly = true;
             this.DEL_FLAG.Visible = false;
             // 
+            // ucPaging1
+            // 
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = false;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 406);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 30;
+            this.ucPaging1.Size = new System.Drawing.Size(913, 37);
+            this.ucPaging1.TabIndex = 4;
+            this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
+            // 
+            // RegToolStripMenuItem
+            // 
+            this.RegToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RegStardardFlow});
+            this.RegToolStripMenuItem.Name = "RegToolStripMenuItem";
+            this.RegToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.RegToolStripMenuItem.Text = "注册流程";
+            // 
+            // RegStardardFlow
+            // 
+            this.RegStardardFlow.Name = "RegStardardFlow";
+            this.RegStardardFlow.Size = new System.Drawing.Size(152, 22);
+            this.RegStardardFlow.Text = "标准流程注册";
+            this.RegStardardFlow.Click += new System.EventHandler(this.RegStardardFlow_Click);
+            // 
             // DocListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -474,7 +485,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem cmDocDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem cmDocProperty;
         private System.Windows.Forms.ToolStripMenuItem cmDocAdd;
         private System.Windows.Forms.ContextMenuStrip cmDocument;
         private System.Windows.Forms.ColumnHeader columnHeader6;
@@ -517,6 +527,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn DEL_FLAG;
+        private System.Windows.Forms.ToolStripMenuItem RegToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RegStardardFlow;
 
     }
 }

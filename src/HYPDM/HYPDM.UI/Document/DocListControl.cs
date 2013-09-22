@@ -272,5 +272,35 @@ namespace HYPDM.WinUI.Document
                 DocProperty();
             }
         }
+
+        //注册流程
+        private void RegStardardFlow_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow dgv = this.dgvDocList.CurrentRow;
+
+            if (dgv == null)
+            {
+                return;
+            }
+
+            string doc_id = dgv.Cells["DOCID"].Value.ToString();
+
+            if (string.IsNullOrEmpty(doc_id))
+            {
+                return;
+            }
+            if (doc_id == null)
+            {
+                MessageBox.Show("请选择一条记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+
+            }
+
+            ///objectValue工作流模板
+            string objectValue = WorkFlow.WorkFlow.NewInstance.GetWfTemplatesObject(DataType.RelationObjectType.Document.ToString()).WFT_ID;
+            HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new HYPDM.WinUI.WorkFlow.Flow.StandardFlow(doc_id, DataType.RelationObjectType.Document, objectValue);
+            flow.ShowDialog();
+        }
+
     }
 }

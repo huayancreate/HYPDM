@@ -27,7 +27,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
-            toolBaseClear_Click(null,null);
+            toolBaseClear_Click(null, null);
         }
 
         public MaterialConfForm(string t_productId, int p_type)
@@ -40,9 +40,27 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             this.m_product = m_MaterailService.GetById(t_productId);
             allinit();
         }
+        public MaterialConfForm(string t_productId, int p_type, Boolean isWFDetailView)
+        {
+            InitializeComponent();
+
+            this.m_type = p_type;
+            this.opStatus = false;
+            service_Init();
+            this.m_product = m_MaterailService.GetById(t_productId);
+            allinit();
+            if (isWFDetailView)
+            {
+                this.toolBase.Enabled = false;
+                this.toolStripLabel42.Enabled = false;
+                this.toolStripLabel43.Enabled = false;
+                this.toolStripLabel45.Enabled = false;
+                this.toolStripLabel46.Enabled = false;
+            }
+        }
 
         #region 属性基本数据
-        
+
         private int m_type;     //类型（半成品，成品）
         private bool opStatus;  //操作状态（产品清空状态，配置状态）
 
@@ -119,7 +137,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         private void toolBaseEdit_Click(object sender, EventArgs e)
         {
             //
-            if (this.m_product == null) {
+            if (this.m_product == null)
+            {
                 MessageBox.Show("材料不存在,无法修改！"); return;
             }
 
@@ -162,7 +181,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         /// <param name="e"></param>
         private void toolBaseReg_Click(object sender, EventArgs e)
         {
-           
+
             //1.判断产品编号是否为空
             if (string.IsNullOrEmpty(this.tb_productNo.Text.Trim()))
             {
@@ -172,7 +191,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             DataTable dt = m_MaterailService.GetListByNoDetail(this.tb_productNo.Text.Trim());
 
             //1.判断产品是否存在，如果存在是否生产新版本
-            if (dt.Rows.Count>0)
+            if (dt.Rows.Count > 0)
             {
                 if (MessageBox.Show("该编号材料已存在，是否生成新版本?\n如果不是请更改产品编号!", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
                 {
@@ -199,7 +218,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             temp_product.MEMO = this.rtbMemo.Text;
             temp_product.Save();
             MessageBox.Show("保存成功");
-            
+
 
             //4. 判断显示状态
             if (this.opStatus)
@@ -233,7 +252,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             this.tb_productType.Text = "";
             this.tb_rawMaterail.Text = "";
             this.tb_materailSrc.Text = "";
-            this.tb_version.Text = "";      
+            this.tb_version.Text = "";
             this.tb_creater.Text = "";
             this.tb_modifier.Text = "";
             this.tb_createTime.Text = "";

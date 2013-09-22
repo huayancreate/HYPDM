@@ -243,5 +243,33 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             }
         }
     #endregion
+
+        private void regStardardFlow_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow dgv = this.dgv_ProductList.CurrentRow;
+
+            if (dgv == null)
+            {
+                return;
+            }
+
+            string partProduct_id = dgv.Cells["PRODUCTID"].Value.ToString();
+
+            if (string.IsNullOrEmpty(partProduct_id))
+            {
+                return;
+            }
+            if (partProduct_id == null)
+            {
+                MessageBox.Show("请选择一条记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+
+            }
+
+            ///objectValue工作流模板
+            string objectValue = WorkFlow.WorkFlow.NewInstance.GetWfTemplatesObject(DataType.RelationObjectType.SemiProduct.ToString()).WFT_ID;
+            HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new HYPDM.WinUI.WorkFlow.Flow.StandardFlow(partProduct_id, DataType.RelationObjectType.SemiProduct, objectValue);
+            flow.ShowDialog();
+        }
     }
 }

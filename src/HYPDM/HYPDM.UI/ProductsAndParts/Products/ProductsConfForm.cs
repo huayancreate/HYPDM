@@ -39,7 +39,32 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             this.m_product = m_AllProductService.GetById(t_productId);
             allinit();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="t_productId"></param>
+        /// <param name="p_type"></param>
+        /// <param name="ISWFDetailView">是否是在工作流中预览</param>
+        public ProductsConfForm(string t_productId, int p_type,Boolean ISWFDetailView)
+        {
+            InitializeComponent();
 
+            this.m_type = p_type;
+            this.opStatus = false;
+            service_Init();
+            this.m_product = m_AllProductService.GetById(t_productId);
+            allinit();
+            if (ISWFDetailView)
+            {
+                this.toolBase.Enabled = false;
+                this.toolProRecord.Enabled = false;
+                this.toolChange.Enabled = false;
+                this.toolStrip4.Enabled = false;
+                this.toolStrip5.Enabled = false;
+                this.toolStrip6.Enabled = false;
+                this.toolStruct.Enabled = false;
+            }
+        }
         #region 属性基本数据
         
         private int m_type;     //类型（半成品，成品）
@@ -892,6 +917,11 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         
 
         #endregion
+
+        private void ProductsConfForm_Load(object sender, EventArgs e)
+        {
+
+        }
 
 
     }

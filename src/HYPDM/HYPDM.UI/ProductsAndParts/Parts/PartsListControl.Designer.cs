@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsListControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ts_Tool_Product = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.add_Product = new System.Windows.Forms.ToolStripButton();
@@ -44,9 +45,11 @@
             this.del_Memu_Product = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.conf_Menu_Product = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgv_ProductList = new System.Windows.Forms.DataGridView();
+            this.REGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regStardardFlow = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgv_ProductList = new HYPDM.BaseControl.DataGridViewExt();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,15 +146,16 @@
             this.add_Product_Menu,
             this.del_Memu_Product,
             this.toolStripSeparator3,
-            this.conf_Menu_Product});
+            this.conf_Menu_Product,
+            this.REGToolStripMenuItem});
             this.cm_Memu_Product.Name = "cm_Product";
-            this.cm_Memu_Product.Size = new System.Drawing.Size(101, 76);
+            this.cm_Memu_Product.Size = new System.Drawing.Size(125, 98);
             // 
             // add_Product_Menu
             // 
             this.add_Product_Menu.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
             this.add_Product_Menu.Name = "add_Product_Menu";
-            this.add_Product_Menu.Size = new System.Drawing.Size(100, 22);
+            this.add_Product_Menu.Size = new System.Drawing.Size(124, 22);
             this.add_Product_Menu.Text = "添加";
             this.add_Product_Menu.Click += new System.EventHandler(this.add_Product_Menu_Click);
             // 
@@ -159,30 +163,47 @@
             // 
             this.del_Memu_Product.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
             this.del_Memu_Product.Name = "del_Memu_Product";
-            this.del_Memu_Product.Size = new System.Drawing.Size(100, 22);
+            this.del_Memu_Product.Size = new System.Drawing.Size(124, 22);
             this.del_Memu_Product.Text = "删除";
             this.del_Memu_Product.Click += new System.EventHandler(this.del_Memu_Product_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(97, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(121, 6);
             // 
             // conf_Menu_Product
             // 
             this.conf_Menu_Product.Image = ((System.Drawing.Image)(resources.GetObject("conf_Menu_Product.Image")));
             this.conf_Menu_Product.Name = "conf_Menu_Product";
-            this.conf_Menu_Product.Size = new System.Drawing.Size(100, 22);
+            this.conf_Menu_Product.Size = new System.Drawing.Size(124, 22);
             this.conf_Menu_Product.Text = "配置";
             this.conf_Menu_Product.Click += new System.EventHandler(this.conf_Menu_Product_Click);
+            // 
+            // REGToolStripMenuItem
+            // 
+            this.REGToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.regStardardFlow});
+            this.REGToolStripMenuItem.Name = "REGToolStripMenuItem";
+            this.REGToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.REGToolStripMenuItem.Text = "注册流程";
+            // 
+            // regStardardFlow
+            // 
+            this.regStardardFlow.Name = "regStardardFlow";
+            this.regStardardFlow.Size = new System.Drawing.Size(152, 22);
+            this.regStardardFlow.Text = "注册标准流程";
+            this.regStardardFlow.Click += new System.EventHandler(this.regStardardFlow_Click);
             // 
             // dgv_ProductList
             // 
             this.dgv_ProductList.AllowUserToAddRows = false;
             this.dgv_ProductList.AllowUserToDeleteRows = false;
+            this.dgv_ProductList.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgv_ProductList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_ProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ProductList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column8,
+            this.PRODUCTID,
             this.Column1,
             this.Column2,
             this.Column3,
@@ -196,11 +217,22 @@
             this.Column15,
             this.Column14,
             this.MEMO});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_ProductList.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_ProductList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_ProductList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgv_ProductList.Location = new System.Drawing.Point(0, 25);
             this.dgv_ProductList.MultiSelect = false;
             this.dgv_ProductList.Name = "dgv_ProductList";
             this.dgv_ProductList.ReadOnly = true;
+            this.dgv_ProductList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgv_ProductList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgv_ProductList.RowTemplate.Height = 23;
             this.dgv_ProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ProductList.Size = new System.Drawing.Size(833, 373);
@@ -218,13 +250,13 @@
             this.panel1.Size = new System.Drawing.Size(833, 398);
             this.panel1.TabIndex = 4;
             // 
-            // Column8
+            // PRODUCTID
             // 
-            this.Column8.DataPropertyName = "PRODUCTID";
-            this.Column8.HeaderText = "主键";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
+            this.PRODUCTID.DataPropertyName = "PRODUCTID";
+            this.PRODUCTID.HeaderText = "主键";
+            this.PRODUCTID.Name = "PRODUCTID";
+            this.PRODUCTID.ReadOnly = true;
+            this.PRODUCTID.Visible = false;
             // 
             // Column1
             // 
@@ -317,13 +349,13 @@
             this.MEMO.Name = "MEMO";
             this.MEMO.ReadOnly = true;
             // 
-            // ProductsListControl
+            // PartsListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.panel1);
-            this.Name = "ProductsListControl";
+            this.Name = "PartsListControl";
             this.Size = new System.Drawing.Size(833, 398);
             this.ts_Tool_Product.ResumeLayout(false);
             this.ts_Tool_Product.PerformLayout();
@@ -345,7 +377,6 @@
         private System.Windows.Forms.ToolStripMenuItem del_Memu_Product;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem conf_Menu_Product;
-        private System.Windows.Forms.DataGridView dgv_ProductList;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRODUCTIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn vERSIONDataGridViewTextBoxColumn;
@@ -367,7 +398,9 @@
         private System.Windows.Forms.ToolStripButton print_Product;
         private System.Windows.Forms.ToolStripButton query_Product;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.ToolStripMenuItem REGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regStardardFlow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -381,5 +414,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn MEMO;
+        private BaseControl.DataGridViewExt dgv_ProductList;
     }
 }

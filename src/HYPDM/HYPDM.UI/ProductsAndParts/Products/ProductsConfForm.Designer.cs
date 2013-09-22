@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsConfForm));
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer2 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer1 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -66,8 +66,8 @@
             this.toolStripLabel12 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolBase = new System.Windows.Forms.ToolStrip();
-            this.toolBaseEdit = new System.Windows.Forms.ToolStripButton();
             this.toolBaseReg = new System.Windows.Forms.ToolStripButton();
+            this.toolBaseEdit = new System.Windows.Forms.ToolStripButton();
             this.toolBaseClear = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -491,15 +491,6 @@
             this.toolBase.TabIndex = 1;
             this.toolBase.Text = "toolStrip1";
             // 
-            // toolBaseEdit
-            // 
-            this.toolBaseEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolBaseEdit.Image")));
-            this.toolBaseEdit.Name = "toolBaseEdit";
-            this.toolBaseEdit.Size = new System.Drawing.Size(52, 22);
-            this.toolBaseEdit.Text = "修改";
-            this.toolBaseEdit.ToolTipText = "修改";
-            this.toolBaseEdit.Click += new System.EventHandler(this.toolBaseEdit_Click);
-            // 
             // toolBaseReg
             // 
             this.toolBaseReg.Image = global::HYPDM.WinUI.Properties.Resources.download;
@@ -508,6 +499,15 @@
             this.toolBaseReg.Text = "新建";
             this.toolBaseReg.ToolTipText = "新版本";
             this.toolBaseReg.Click += new System.EventHandler(this.toolBaseReg_Click);
+            // 
+            // toolBaseEdit
+            // 
+            this.toolBaseEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolBaseEdit.Image")));
+            this.toolBaseEdit.Name = "toolBaseEdit";
+            this.toolBaseEdit.Size = new System.Drawing.Size(52, 22);
+            this.toolBaseEdit.Text = "修改";
+            this.toolBaseEdit.ToolTipText = "修改";
+            this.toolBaseEdit.Click += new System.EventHandler(this.toolBaseEdit_Click);
             // 
             // toolBaseClear
             // 
@@ -826,10 +826,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
             this.listView1.Location = new System.Drawing.Point(7, 32);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(514, 323);
@@ -974,9 +974,9 @@
             this.ObjectModel,
             this.ObjectSort,
             this.ObjectMemo});
-            treeListViewItemCollectionComparer2.Column = 0;
-            treeListViewItemCollectionComparer2.SortOrder = System.Windows.Forms.SortOrder.None;
-            this.list_productTreeStruct.Comparer = treeListViewItemCollectionComparer2;
+            treeListViewItemCollectionComparer1.Column = 0;
+            treeListViewItemCollectionComparer1.SortOrder = System.Windows.Forms.SortOrder.None;
+            this.list_productTreeStruct.Comparer = treeListViewItemCollectionComparer1;
             this.list_productTreeStruct.GridLines = true;
             this.list_productTreeStruct.Location = new System.Drawing.Point(0, 59);
             this.list_productTreeStruct.MultiSelect = false;
@@ -1412,6 +1412,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ProductsConfForm";
             this.Text = "产品";
+            this.Load += new System.EventHandler(this.ProductsConfForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

@@ -231,6 +231,34 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         }
         #endregion
 
+        private void regStardardFlow_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow dgv = this.dgv_MaterailList.CurrentRow;
+
+            if (dgv == null)
+            {
+                return;
+            }
+
+            string material_id = dgv.Cells["MATERIALID"].Value.ToString();
+
+            if (string.IsNullOrEmpty(material_id))
+            {
+                return;
+            }
+            if (material_id == null)
+            {
+                MessageBox.Show("请选择一条记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+
+            }
+
+            ///objectValue工作流模板
+            string objectValue = WorkFlow.WorkFlow.NewInstance.GetWfTemplatesObject(DataType.RelationObjectType.Material.ToString()).WFT_ID;
+            HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new HYPDM.WinUI.WorkFlow.Flow.StandardFlow(material_id, DataType.RelationObjectType.Material, objectValue);
+            flow.ShowDialog();
+        }
+
         
 
     }

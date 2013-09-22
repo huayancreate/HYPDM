@@ -450,8 +450,9 @@ namespace HYPDM.WinUI.WorkFlow
                 case DataType.RelationObjectType.Document:
                     {
                       IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
-                        HYPDM.WinUI.Document.DocRegForm frm = new Document.DocRegForm();
+                        HYPDM.WinUI.Document.DocRegForm frm = new Document.DocRegForm(true);
                         frm.Document = _docService.GetDocListByID(objectID)[0];
+                        frm.StartPosition = FormStartPosition.CenterParent;
                         FrmDetail = frm;
                         break;
                     }
@@ -463,30 +464,36 @@ namespace HYPDM.WinUI.WorkFlow
                 case DataType.RelationObjectType.Material:
                     {
                         //tableName = "PDM_MATERAIL";
+
+                        HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm frm = new ProductsAndParts.Material.MaterialConfForm(objectID, 1, true);  //2为半成品  1为成品
+                        //IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
+                        //IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
+                        FrmDetail = frm;
+                        frm.StartPosition = FormStartPosition.CenterParent;
                         break;
                     }
                 case DataType.RelationObjectType.Product:
                     {
                        // tableName = "PDM_ALL_PRODUCT";  //PRODUCTLEVEL为1的时候表示是产品
-                        HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID, 1);  //2为半成品  1为成品
-                         IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
-                         IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
+                        HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID, 1,true);  //2为半成品  1为成品
+                         //IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
+                         //IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
                          FrmDetail = frm;
-                      
+                         frm.StartPosition = FormStartPosition.CenterParent;
                        
-
                         break;
                     }
                 case DataType.RelationObjectType.SemiProduct:
                     {
                         //tableName = "PDM_ALL_PRODUCT"; //PRODUCTLEVEL为2的时候表示是半产品
-                        HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID,2);  //2为半成品  1为成品
-                        IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
-                        IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
+                        HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID,2,true);  //2为半成品  1为成品
+                        //IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
+                        //IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
 
-                        frm.Product = m_AllProductService.GetById(objectID);
-                        FrmDetail = frm;
+                        //frm.Product = m_AllProductService.GetById(objectID);
+                       
                         frm.StartPosition = FormStartPosition.CenterParent;
+                        FrmDetail = frm;
                         break;
                     }
                 default:

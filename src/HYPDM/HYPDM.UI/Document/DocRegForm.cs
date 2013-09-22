@@ -21,11 +21,13 @@ using EAS.Data.Linq;
 using HYDocumentMS;
 using HYPDM;
 namespace HYPDM.WinUI.Document
-{
+{  
+
     public partial class DocRegForm : Form
     {
         protected int closed = 0;
         protected bool valueChanged = false;
+        protected Boolean IsWFViewDetail = false;//表明是否是在工作流中进行查看
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         IDocFileListService _docFileListService = ServiceContainer.GetService<DocFileListService>();
         // IPhysicalFileService _physicalService = ServiceContainer.GetService<PhysicalFileService>();
@@ -39,6 +41,23 @@ namespace HYPDM.WinUI.Document
             tbcContent.TabPages.Remove(tpParts);
             tbcContent.TabPages.Remove(tabCad);
             new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
+        }
+        public DocRegForm(Boolean isWFViewDetail)
+        {
+            InitializeComponent();
+            tbcContent.TabPages.Remove(tpFile);
+            tbcContent.TabPages.Remove(tpVersion);
+            tbcContent.TabPages.Remove(tpParts);
+            tbcContent.TabPages.Remove(tabCad);
+            new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
+            IsWFViewDetail = isWFViewDetail;
+            if (IsWFViewDetail)
+            {
+                this.tsToolbar.Enabled = false;
+                this.tsp.Enabled = false;
+                this.menuStrip1.Enabled = false;
+                this.toolStrip1.Enabled = false;
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)

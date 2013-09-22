@@ -45,11 +45,9 @@
             this.del_Memu_Product = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.conf_Menu_Product = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgv_ProductList = new HYPDM.BaseControl.DataGridViewExt();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.注册流程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmStanderFlow = new System.Windows.Forms.ToolStripMenuItem();
-            this.pagination1 = new HYPDM.WinUI.DefineControl.Pagination();
+            this.dgv_ProductList = new HYPDM.BaseControl.DataGridViewExt();
             this.PRODUCTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +62,8 @@
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MEMO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pagination1 = new HYPDM.WinUI.DefineControl.Pagination();
             this.ts_Tool_Product.SuspendLayout();
             this.cm_Memu_Product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProductList)).BeginInit();
@@ -150,13 +150,13 @@
             this.conf_Menu_Product,
             this.注册流程ToolStripMenuItem});
             this.cm_Memu_Product.Name = "cm_Product";
-            this.cm_Memu_Product.Size = new System.Drawing.Size(125, 98);
+            this.cm_Memu_Product.Size = new System.Drawing.Size(153, 120);
             // 
             // add_Product_Menu
             // 
             this.add_Product_Menu.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
             this.add_Product_Menu.Name = "add_Product_Menu";
-            this.add_Product_Menu.Size = new System.Drawing.Size(124, 22);
+            this.add_Product_Menu.Size = new System.Drawing.Size(152, 22);
             this.add_Product_Menu.Text = "添加";
             this.add_Product_Menu.Click += new System.EventHandler(this.add_Product_Menu_Click);
             // 
@@ -164,22 +164,37 @@
             // 
             this.del_Memu_Product.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
             this.del_Memu_Product.Name = "del_Memu_Product";
-            this.del_Memu_Product.Size = new System.Drawing.Size(124, 22);
+            this.del_Memu_Product.Size = new System.Drawing.Size(152, 22);
             this.del_Memu_Product.Text = "删除";
             this.del_Memu_Product.Click += new System.EventHandler(this.del_Memu_Product_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(121, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // conf_Menu_Product
             // 
             this.conf_Menu_Product.Image = ((System.Drawing.Image)(resources.GetObject("conf_Menu_Product.Image")));
             this.conf_Menu_Product.Name = "conf_Menu_Product";
-            this.conf_Menu_Product.Size = new System.Drawing.Size(124, 22);
+            this.conf_Menu_Product.Size = new System.Drawing.Size(152, 22);
             this.conf_Menu_Product.Text = "配置";
             this.conf_Menu_Product.Click += new System.EventHandler(this.conf_Menu_Product_Click);
+            // 
+            // 注册流程ToolStripMenuItem
+            // 
+            this.注册流程ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmStanderFlow});
+            this.注册流程ToolStripMenuItem.Name = "注册流程ToolStripMenuItem";
+            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.注册流程ToolStripMenuItem.Text = "注册流程";
+            // 
+            // tsmStanderFlow
+            // 
+            this.tsmStanderFlow.Name = "tsmStanderFlow";
+            this.tsmStanderFlow.Size = new System.Drawing.Size(152, 22);
+            this.tsmStanderFlow.Text = "标准流程注册";
+            this.tsmStanderFlow.Click += new System.EventHandler(this.tsmStanderFlow_Click);
             // 
             // dgv_ProductList
             // 
@@ -227,45 +242,6 @@
             this.dgv_ProductList.TabIndex = 2;
             this.dgv_ProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ProductList_CellDoubleClick);
             this.dgv_ProductList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ProductList_CellMouseDown);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dgv_ProductList);
-            this.panel1.Controls.Add(this.pagination1);
-            this.panel1.Controls.Add(this.ts_Tool_Product);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 402);
-            this.panel1.TabIndex = 4;
-            // 
-            // 注册流程ToolStripMenuItem
-            // 
-            this.注册流程ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmStanderFlow});
-            this.注册流程ToolStripMenuItem.Name = "注册流程ToolStripMenuItem";
-            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.注册流程ToolStripMenuItem.Text = "注册流程";
-            // 
-            // tsmStanderFlow
-            // 
-            this.tsmStanderFlow.Name = "tsmStanderFlow";
-            this.tsmStanderFlow.Size = new System.Drawing.Size(152, 22);
-            this.tsmStanderFlow.Text = "标准注册流程";
-            this.tsmStanderFlow.Click += new System.EventHandler(this.tsmStanderFlow_Click);
-            // 
-            // pagination1
-            // 
-            this.pagination1.CurrentPage = 1;
-            this.pagination1.CurrentRows = 20;
-            this.pagination1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pagination1.Location = new System.Drawing.Point(0, 376);
-            this.pagination1.Name = "pagination1";
-            this.pagination1.QueryCondition = null;
-            this.pagination1.Size = new System.Drawing.Size(836, 26);
-            this.pagination1.TabIndex = 3;
-            this.pagination1.TotalPage = 0;
-            this.pagination1.TotalRows = 0;
             // 
             // PRODUCTID
             // 
@@ -365,6 +341,30 @@
             this.MEMO.HeaderText = "备注";
             this.MEMO.Name = "MEMO";
             this.MEMO.ReadOnly = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgv_ProductList);
+            this.panel1.Controls.Add(this.pagination1);
+            this.panel1.Controls.Add(this.ts_Tool_Product);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(836, 402);
+            this.panel1.TabIndex = 4;
+            // 
+            // pagination1
+            // 
+            this.pagination1.CurrentPage = 1;
+            this.pagination1.CurrentRows = 20;
+            this.pagination1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pagination1.Location = new System.Drawing.Point(0, 376);
+            this.pagination1.Name = "pagination1";
+            this.pagination1.QueryCondition = null;
+            this.pagination1.Size = new System.Drawing.Size(836, 26);
+            this.pagination1.TabIndex = 3;
+            this.pagination1.TotalPage = 0;
+            this.pagination1.TotalRows = 0;
             // 
             // ProductsListControl
             // 

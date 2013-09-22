@@ -73,8 +73,6 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             this.txtSubject.Text = APP.SUBJECT;
             this.txtUserPM.Text = APP.CREATEUSER;
            
-
-
             try
             {
 
