@@ -17,12 +17,17 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         public PartsConfForm()
         {
             InitializeComponent();
+            this.tabControl.TabPages.Remove(tab_Change);
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
         }
 
         public PartsConfForm(int p_type)
         {
             InitializeComponent();
-
+            this.tabControl.TabPages.Remove(tab_Change);
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -32,7 +37,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         public PartsConfForm(string t_productId, int p_type)
         {
             InitializeComponent();
-
+            this.tabControl.TabPages.Remove(tab_Change);
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -73,6 +80,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         private void allinit()
         {
             baseInfo_Init();
+            dgv_docList_Init();
             //tabProRecord_Init();
             //dgv_Change_init(t);
             tabStruct_Init();
@@ -207,12 +215,12 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             if (this.opStatus)
             {
                 //a.显示（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面
-                this.tabControl.TabPages.Add(tab_ProRecord);
-                this.tabControl.TabPages.Add(tab_Change);
+                //this.tabControl.TabPages.Add(tab_ProRecord);
+                //this.tabControl.TabPages.Add(tab_Change);
                 this.tabControl.TabPages.Add(tab_Doc);
                 this.tabControl.TabPages.Add(tab_Drawing);
                 this.tabControl.TabPages.Add(tab_productStruct);
-                this.tabControl.TabPages.Add(tab_TelTask);
+                //this.tabControl.TabPages.Add(tab_TelTask);
                 this.tabControl.TabPages.Add(tab_Version);
 
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
@@ -248,12 +256,12 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             this.rtbMemo.Text = "";
 
             //2.移除（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab 页面
-            this.tabControl.TabPages.Remove(tab_ProRecord);
-            this.tabControl.TabPages.Remove(tab_Change);
+            //this.tabControl.TabPages.Remove(tab_ProRecord);
+            //this.tabControl.TabPages.Remove(tab_Change);
             this.tabControl.TabPages.Remove(tab_Doc);
             this.tabControl.TabPages.Remove(tab_Drawing);
             this.tabControl.TabPages.Remove(tab_productStruct);
-            this.tabControl.TabPages.Remove(tab_TelTask);
+            //this.tabControl.TabPages.Remove(tab_TelTask);
             this.tabControl.TabPages.Remove(tab_Version);
 
             //3.改变显示属性（产品清空状态 ，产品配置状态）
@@ -879,6 +887,46 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
 
         #endregion
 
+        #region 文档tab页面操作
+
+        private void dgv_docList_Init() {
+            this.dgv_DocList.DataSource = this.m_AllPartsService.GetAssoDoc(this.m_product.PRODUCTID, this.m_product.VERSION);
+            this.ucPageDoc.SourceDataGridView = this.dgv_DocList;
+        }
+
+        private void tsb_DocAdd_Click(object sender, EventArgs e)
+        {
+            DocAddForm o = new DocAddForm(this.m_product.PRODUCTID);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+            dgv_docList_Init();
+        }
+
+        private void tsb_DocDel_Click(object sender, EventArgs e)
+        {
+            if (this.dgv_DocList.RowCount <= 0) return;
+
+            int rowIndex = this.dgv_DocList.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+
+            DataGridViewRow row = dgv_DocList.Rows[rowIndex];
+
+            if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.m_AllPartsService.DelAssoDoc(row.Cells["DOCID"].Value.ToString(), row.Cells["DOCVERSION"].Value.ToString(), this.m_product.PRODUCTID, this.m_product.VERSION);
+                dgv_docList_Init();
+            }
+        }
+
+        private void tsb_DocLook_Click(object sender, EventArgs e)
+        {
+            Document.DocRegForm o = new Document.DocRegForm(true);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+        }
+        #endregion
 
     }
 }

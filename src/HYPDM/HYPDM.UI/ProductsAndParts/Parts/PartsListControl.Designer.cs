@@ -37,8 +37,6 @@
             this.conf_Product = new System.Windows.Forms.ToolStripButton();
             this.del_Product = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.print_Product = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.query_Product = new System.Windows.Forms.ToolStripButton();
             this.cm_Memu_Product = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.add_Product_Menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +47,7 @@
             this.regStardardFlow = new System.Windows.Forms.ToolStripMenuItem();
             this.dgv_ProductList = new HYPDM.BaseControl.DataGridViewExt();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.PRODUCTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,8 +76,6 @@
             this.conf_Product,
             this.del_Product,
             this.toolStripSeparator2,
-            this.print_Product,
-            this.toolStripSeparator6,
             this.query_Product});
             this.ts_Tool_Product.Location = new System.Drawing.Point(0, 0);
             this.ts_Tool_Product.Name = "ts_Tool_Product";
@@ -119,18 +116,6 @@
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // print_Product
-            // 
-            this.print_Product.Name = "print_Product";
-            this.print_Product.Size = new System.Drawing.Size(36, 22);
-            this.print_Product.Text = "打印";
-            this.print_Product.Click += new System.EventHandler(this.print_Product_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
             // query_Product
             // 
@@ -191,7 +176,7 @@
             // regStardardFlow
             // 
             this.regStardardFlow.Name = "regStardardFlow";
-            this.regStardardFlow.Size = new System.Drawing.Size(152, 22);
+            this.regStardardFlow.Size = new System.Drawing.Size(148, 22);
             this.regStardardFlow.Text = "注册标准流程";
             this.regStardardFlow.Click += new System.EventHandler(this.regStardardFlow_Click);
             // 
@@ -199,6 +184,9 @@
             // 
             this.dgv_ProductList.AllowUserToAddRows = false;
             this.dgv_ProductList.AllowUserToDeleteRows = false;
+            this.dgv_ProductList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_ProductList.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgv_ProductList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_ProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -225,7 +213,6 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_ProductList.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_ProductList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_ProductList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgv_ProductList.Location = new System.Drawing.Point(0, 25);
             this.dgv_ProductList.MultiSelect = false;
@@ -235,13 +222,14 @@
             this.dgv_ProductList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgv_ProductList.RowTemplate.Height = 23;
             this.dgv_ProductList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ProductList.Size = new System.Drawing.Size(833, 373);
+            this.dgv_ProductList.Size = new System.Drawing.Size(833, 342);
             this.dgv_ProductList.TabIndex = 2;
             this.dgv_ProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ProductList_CellDoubleClick);
             this.dgv_ProductList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ProductList_CellMouseDown);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ucPaging1);
             this.panel1.Controls.Add(this.dgv_ProductList);
             this.panel1.Controls.Add(this.ts_Tool_Product);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -250,9 +238,20 @@
             this.panel1.Size = new System.Drawing.Size(833, 398);
             this.panel1.TabIndex = 4;
             // 
+            // ucPaging1
+            // 
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = true;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 373);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 20;
+            this.ucPaging1.Size = new System.Drawing.Size(833, 25);
+            this.ucPaging1.TabIndex = 3;
+            // 
             // PRODUCTID
             // 
             this.PRODUCTID.DataPropertyName = "PRODUCTID";
+            this.PRODUCTID.Frozen = true;
             this.PRODUCTID.HeaderText = "主键";
             this.PRODUCTID.Name = "PRODUCTID";
             this.PRODUCTID.ReadOnly = true;
@@ -261,6 +260,7 @@
             // Column1
             // 
             this.Column1.DataPropertyName = "PRODUCTNO";
+            this.Column1.Frozen = true;
             this.Column1.HeaderText = "产品编号";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -268,6 +268,7 @@
             // Column2
             // 
             this.Column2.DataPropertyName = "MODELTYPE";
+            this.Column2.Frozen = true;
             this.Column2.HeaderText = "产品型号";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -275,6 +276,7 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "PRODUCTTYPE";
+            this.Column3.Frozen = true;
             this.Column3.HeaderText = "产品类型";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -391,15 +393,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPTIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eNGDESCRIPTIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRONODataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton add_Product;
         private System.Windows.Forms.ToolStripButton conf_Product;
         private System.Windows.Forms.ToolStripButton del_Product;
-        private System.Windows.Forms.ToolStripButton print_Product;
         private System.Windows.Forms.ToolStripButton query_Product;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem REGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regStardardFlow;
+        private BaseControl.DataGridViewExt dgv_ProductList;
+        private BaseControl.UcPaging ucPaging1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -414,6 +416,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn MEMO;
-        private BaseControl.DataGridViewExt dgv_ProductList;
     }
 }

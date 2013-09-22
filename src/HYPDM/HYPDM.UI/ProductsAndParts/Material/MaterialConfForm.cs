@@ -15,6 +15,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
     public partial class MaterialConfForm : Form
     {
         IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+
         public MaterialConfForm()
         {
             InitializeComponent();
@@ -52,8 +53,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             if (isWFDetailView)
             {
                 this.toolBase.Enabled = false;
-                this.toolStripLabel42.Enabled = false;
-                this.toolStripLabel43.Enabled = false;
+                this.tsb_DocAdd.Enabled = false;
+                this.tsb_DocDel.Enabled = false;
                 this.toolStripLabel45.Enabled = false;
                 this.toolStripLabel46.Enabled = false;
             }
@@ -90,6 +91,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         private void allinit()
         {
             baseInfo_Init();
+            docInfo_Init();
         }
 
         /// <summary>
@@ -160,7 +162,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             t_product.MEMO_ZH = this.tb_memoZh.Text;
             t_product.MEMO_EN = this.tb_memoEn.Text;
             t_product.MEMO = this.rtbMemo.Text;
-            t_product.MODIFYTIME = DateTime.Now.ToString();
+            t_product.MODIFYTIME = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             t_product.MODIFIER = LoginInfo.LoginID;// LoginInfo.LoginID;//CommonVar.userName;
             m_MaterailService.UpdateByID(t_product);
 
@@ -211,7 +213,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             temp_product.VERSION = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
             temp_product.CREATER = LoginInfo.LoginID; // CommonVar.userName;
             //temp_product.MODIFIER = "";
-            temp_product.CTREATETIME = DateTime.Now.ToString();
+            temp_product.CTREATETIME = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             //temp_product.MODIFYTIME ;
             temp_product.MEMO_ZH = this.tb_memoZh.Text;
             temp_product.MEMO_EN = this.tb_memoEn.Text;
@@ -270,7 +272,63 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         }
 
         #endregion
+        #region 文档操作
+        private void docInfo_Init() {
+            this.dgvDoc.DataSource = m_MaterailService.GetAssoDoc(this.m_product.MATERIALID,this.m_product.VERSION);
+            this.ucPageDoc.SourceDataGridView = this.dgvDoc;
+        }
 
+        private void tsb_DocAdd_Click(object sender, EventArgs e)
+        {
+            DocAddForm o = new DocAddForm(this.m_product.MATERIALID);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+            docInfo_Init();
+        }
+
+        private void tsb_DocDel_Click(object sender, EventArgs e)
+        {
+            if (this.dgvDoc.RowCount <= 0) return;
+
+            int rowIndex = this.dgvDoc.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+
+            DataGridViewRow row = dgvDoc.Rows[rowIndex];
+
+            if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.m_MaterailService.DelAssoDoc(row.Cells["DOCID"].Value.ToString(),row.Cells["DOCVERSION"].Value.ToString(),this.m_product.MATERIALID,this.m_product.VERSION);
+                docInfo_Init();
+            }
+        }
+
+        private void tsb_DocLook_Click(object sender, EventArgs e)
+        {
+            Document.DocRegForm o = new Document.DocRegForm(true);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+        }
+
+        #endregion
+
+        #region 图纸操作
+        private void toolStripLabel45_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel46_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel47_Click(object sender, EventArgs e)
+        {
+
+        }
+         #endregion
 
     }
 }

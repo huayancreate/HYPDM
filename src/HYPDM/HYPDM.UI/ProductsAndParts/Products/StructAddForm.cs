@@ -110,6 +110,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
             temp_struct.OBJECTID = this.m_struct.OBJECTID;
             temp_struct.ASSOBJECTID = this.m_struct.ASSOBJECTID;
+            if (string.IsNullOrEmpty(this.tb_assoNum.Text.Trim())) {
+                MessageBox.Show("数量必须填写"); return;
+            }
             temp_struct.ASSONUM = this.tb_assoNum.Text;
             temp_struct.ASSOWEIGHT = this.tb_assoWeight.Text;
             temp_struct.SORTNUM = this.tb_sortNum.Text;

@@ -26,7 +26,7 @@ namespace HYPDM.BLL
         /// <returns></returns>
         public DataTable GetProductList()
         {
-            string sqlText = "Select * from  PDM_ALL_PRODUCT WHERE PRODUCTLEVEL=2";
+            string sqlText = "Select * from  PDM_ALL_PRODUCT WHERE PRODUCTLEVEL=2 AND DEL_FLAG = 'N' ";
             System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
             return dt;
         }
@@ -38,7 +38,7 @@ namespace HYPDM.BLL
         /// <returns></returns>
         public DataTable GetProductList(PDM_ALL_PRODUCT c)
         {
-            string sqlText = "Select * from  PDM_ALL_PRODUCT WHERE PRODUCTLEVEL=2  ";
+            string sqlText = "Select * from  PDM_ALL_PRODUCT WHERE PRODUCTLEVEL=2  AND DEL_FLAG = 'N'  ";
             if (!string.IsNullOrEmpty(c.PRODUCTNO))
             {
                 sqlText += " AND PRODUCTNO LIKE '%" + c.PRODUCTNO + "%' ";
@@ -116,7 +116,7 @@ namespace HYPDM.BLL
         {
 
             string sqlText = "SELECT  PRODUCTID,  PRODUCTNO,VERSION,MODELTYPE,PRODUCTTYPE,STATUS,MEMO_ZH  FROM PDM_ALL_PRODUCT "
-                           + "WHERE  PRODUCTLEVEL=2 AND PRODUCTNO LIKE '%" + p_productNo + "%'";
+                           + "WHERE  PRODUCTLEVEL=2  AND DEL_FLAG = 'N' AND PRODUCTNO LIKE '%" + p_productNo + "%'";
             return this.DataAccessor.QueryDataTable(sqlText);
         }
 
@@ -130,7 +130,7 @@ namespace HYPDM.BLL
         {
 
             string sqlText = "SELECT  PRODUCTID,  PRODUCTNO,VERSION,MODELTYPE,PRODUCTTYPE,STATUS,MEMO_ZH  FROM PDM_ALL_PRODUCT "
-                           + "WHERE  PRODUCTLEVEL=2 AND PRODUCTNO ='" + p_productNo + "'";
+                           + "WHERE  PRODUCTLEVEL=2  AND DEL_FLAG = 'N'  AND PRODUCTNO ='" + p_productNo + "'";
             return this.DataAccessor.QueryDataTable(sqlText);
         }
 
@@ -143,7 +143,18 @@ namespace HYPDM.BLL
             string sqlText = "delete  from  PDM_ALL_PRODUCT where PRODUCTID = '" + p_id+"'";
             int temp = this.DataAccessor.Execute(sqlText);
         }
-
+        /// <summary>
+        /// 根据主键删除半成品记录
+        /// </summary>
+        /// <param name="p_id"></param>
+        public void DelProductList(String p_id,String p_user)
+        {
+            string sqlText = " UPDATE  PDM_ALL_PRODUCT  SET DEL_FLAG ='Y', "
+                                + " MODIFIER ='" + p_user + "', "
+                                + " MODIFYTIME ='" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "'  "
+                                + " WHERE PRODUCTLEVEL = 2 AND PRODUCTID = '" + p_id + "'";
+            int temp = this.DataAccessor.Execute(sqlText);
+        }
 
         /// <summary>
         /// 根据半成品对象更新记录
@@ -161,6 +172,50 @@ namespace HYPDM.BLL
                            + "where PRODUCTID = '" + c.PRODUCTID + "'";
             int temp = this.DataAccessor.Execute(sqlText);
         }
+
+        /********************************************************/
+        /****************      材料关联文档操作       *******************/
+        /********************************************************/
         
+        public DataTable GetAssoDoc(String p_ProductId, String p_version)
+        {
+            string sqlText = " select b.DOCID, b.DOCNO,b.VERSION,b.DOCSTATUS,b.CREATEUSER "
+                                 + " from ObjectRelation a, PDM_DOCUMENT b "
+                                 + " where a.MASTEROBJECTID=b.DOCID and a.DEL_FALG='N' and b.DEL_FLAG = 'N' and a.RELATIONOBJECTTYPE='Parts' "
+                                 + " and a.RELATIONOBJECTID='" + p_ProductId + "' "
+                                 + " and a.RELATIONOBJECTVERSION='" + p_version + "' ";
+            return this.DataAccessor.QueryDataTable(sqlText);
+        }
+
+        public void DelAssoDoc(String p_DocId, String p_DocVersion, String p_ProductId, String p_MaterailVersion)
+        {
+            string sqlText = " update ObjectRelation set DEL_FALG ='Y'  "
+                                + " where MASTEROBJECTID = '" + p_DocId + "' "
+                                + " and MASTEROBJECTVERSION='" + p_DocVersion + "' "
+                                + " and RELATIONOBJECTID ='" + p_ProductId + "' "
+                                + " and RELATIONOBJECTVERSION = '" + p_MaterailVersion + "' ";
+            this.DataAccessor.Execute(sqlText);
+        }
+
+        public DataTable GetDocList(String p_ProductId, String p_version, int p_type, String p_value)
+        {
+            string sqlText = " select b.DOCID,b.DOCNO,b.VERSION,b.CREATEUSER,b.DESCRIPTION "
+                                + " from PDM_DOCUMENT b  "
+                                + " where b.DEL_FLAG = 'N'  "
+                                + " and b.DOCID not in("
+                                + " select a.MASTEROBJECTID from ObjectRelation a where a.DEL_FALG ='N'   and a.RELATIONOBJECTTYPE='Parts'  "
+                                + " and a.RELATIONOBJECTID ='" + p_ProductId + "'  "
+                                + " and a.RELATIONOBJECTVERSION ='" + p_version + "'  "
+                                 + " )  ";
+            if (p_type == 1)
+            {
+                sqlText += " and  b.DOCNO LIKE '%" + p_value + "%'  ";
+            }
+            if (p_type == 2)
+            {
+                sqlText += "  and b.DESCRIPTION LIKE '%" + p_value + "%'";
+            }
+            return this.DataAccessor.QueryDataTable(sqlText);
+        }
     }
 }

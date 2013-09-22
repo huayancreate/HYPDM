@@ -11,6 +11,7 @@ using HYPDM.Entities;
 using EAS.Services;
 using HYPDM.BLL;
 using EAS.Data.ORM;
+using EAS.Explorer;
 namespace HYPDM.WinUI.ProductsAndParts.Parts
 {
     [Module("AC7555A2-2FBE-43BE-9D4A-894ED11D9891", "半成品", "半成品管理")]
@@ -56,12 +57,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             delProduct();
         }
 
-        //打印按钮操作
-        private void print_Product_Click(object sender, EventArgs e)
-        {
-            printProduct();
-        }
-
         //查询按钮操作
         private void query_Product_Click(object sender, EventArgs e)
         {
@@ -100,14 +95,16 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
 
         //列表数据初始化
         private IAllPartsService m_AllPartsService;
+        IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         private void InitList()
         {
             this.m_AllPartsService = EAS.Services.ServiceContainer.GetService<IAllPartsService>();
-            this.dgv_ProductList.DataSource = m_AllPartsService.GetProductList();
+            InitGridList();
         }
         internal void InitGridList()
         {
             this.dgv_ProductList.DataSource = m_AllPartsService.GetProductList();
+            this.ucPaging1.SourceDataGridView = this.dgv_ProductList;
         }
         
         //鼠标右键单击操作 
@@ -148,36 +145,24 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         
         //添加一个产品记录
         private void addProduct() {
-            PartsAddForm o = new PartsAddForm(2);//1 表示半成品
+            PartsConfForm o = new PartsConfForm(2);//1 表示半成品
             o.StartPosition = FormStartPosition.CenterParent;
-            if (o.ShowDialog() == DialogResult.OK)
-            {
-                InitGridList();
-               /* PDM_ALL_PRODUCT temp = o.Product;
-                DataRow _newRow = m_productList.NewRow();
-                _newRow["PRODUCTNO"] = temp.PRODUCTNO;
-                _newRow["MODELTYPE"] = temp.MODELTYPE;
-                _newRow["PRODUCTTYPE"] = temp.PRODUCTTYPE;
-                _newRow["VERSION"] = temp.VERSION;
-                _newRow["STATUS"] = temp.STATUS;
-                _newRow["CREATER"] = temp.CREATER;
-                _newRow["CREATETIME"] = temp.CREATETIME;
-                this.m_productList.Rows.Add(_newRow);
-                this.dgv_ProductList.DataSource = null;
-                this.dgv_ProductList.DataSource = m_productList;*/
-            }
+            o.ShowDialog() ;
+            InitGridList();
         }
 
         //配置一个产品记录
         private void confProduct()
         {
+            if (this.dgv_ProductList.RowCount <= 0) return;
+
             int rowIndex = dgv_ProductList.CurrentCell.RowIndex;
 
             if (rowIndex < 0)
                 return;
 
             DataGridViewRow row = dgv_ProductList.Rows[rowIndex];
-            string t_id = row.Cells[0].Value.ToString();
+            string t_id = row.Cells["PRODUCTID"].Value.ToString();
 
             if (string.IsNullOrEmpty(t_id))
             {
@@ -197,38 +182,19 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         //删除一个产品记录
         private void  delProduct()
         {
-            int rowIndex = dgv_ProductList.CurrentCell.RowIndex;
+            if (this.dgv_ProductList.RowCount <= 0) return;
 
+            int rowIndex = dgv_ProductList.CurrentCell.RowIndex;
             if (rowIndex < 0)
                 return;
 
             DataGridViewRow row = dgv_ProductList.Rows[rowIndex];
-            string t_id = row.Cells[0].Value.ToString();
+            string t_id = row.Cells["PRODUCTID"].Value.ToString();
 
-            if (string.IsNullOrEmpty(t_id))
+            if (MessageBox.Show("您确认要删除所选择的半成品记录？\n删除半成品记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                return;
-            }
-
-            if (MessageBox.Show("您确认要删除所选择的产品记录？\n删除产品记录可能造成历史数据的查询错误。\n请确认您的操作。", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
-                m_AllPartsService.DelProductList(t_id);
+                m_AllPartsService.DelProductList(t_id, LoginInfo.LoginID);
                 this.InitGridList();
-            }
-        }
-
-        //打印一个产品记录
-        private void printProduct()
-        {
-            PartsConfForm o = new PartsConfForm();
-            o.StartPosition = FormStartPosition.CenterParent;
-            if (o.ShowDialog() == DialogResult.OK)
-            {
-                // PDM_PARTS parts = o.Parts;
-                // this.partsList.Insert(0, parts);
-
-                // this.partsBindingSource.DataSource = null;
-                // this.partsBindingSource.DataSource = partsList;
             }
         }
 
@@ -240,6 +206,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             if (o.ShowDialog() == DialogResult.OK)
             {
                 this.dgv_ProductList.DataSource = o.m_partsList;
+                this.ucPaging1.SourceDataGridView = this.dgv_ProductList;
             }
         }
     #endregion

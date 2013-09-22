@@ -14,27 +14,20 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
 {
     public partial class QueryMaterailForm : Form
     {
+        
         public QueryMaterailForm()
         {
             InitializeComponent();
         }
 
-        //IMaterailService m_materailService = EAS.Services.ServiceContainer.GetService<IMaterailService>();
-        //public DataTable _materailList;
-        private PDM_MATERAIL m_materail = new PDM_MATERAIL();
-
-        public PDM_MATERAIL Mmaterail
-        {
-            get { return this.m_materail; }
-            set { this.m_materail = value; }
-        }
+        IMaterailService m_materailService = EAS.Services.ServiceContainer.GetService<IMaterailService>();
+        public DataTable m_dt;
 
         //查询按钮操作
         private void bt_query_Click(object sender, EventArgs e)
         {
-            Condition condition = PDM_MATERAIL.Create().CreateCondition();
-
-
+            /*Condition condition = PDM_MATERAIL.Create().CreateCondition();
+            
             if (!string.IsNullOrEmpty(this.tb_materailNo.Text))
             {
                 condition.AddElement("MATERIALNO", this.tb_materailNo.Text, ElementType.Match);
@@ -62,13 +55,18 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             if (!string.IsNullOrEmpty(this.tb_creater.Text))
             {
                 condition.AddElement("CREATER", this.tb_creater.Text);
-            }
-            // BindData(condition);
+            }*/
+
             PDM_MATERAIL t_materail = new PDM_MATERAIL();
-            t_materail.MATERIALNO =this.tb_materailNo.Text;
+            t_materail.MATERIALNO = this.tb_materailNo.Text;
             t_materail.MODELTYPE = this.tb_modelType.Text;
-            m_materail = t_materail;
-            //_materailList = m_materailService.GetMaterailList(t_materail);
+            t_materail.MATERIALSRC = this.tb_materailSrc.Text;
+            t_materail.MATERIALTYPE= this.tb_materailType.Text;
+            t_materail.MEMO_ZH= this.tb_memoZh.Text;
+            t_materail.MEMO_EN = this.tb_memoEn.Text;
+            t_materail.CREATER = this.tb_creater.Text;
+            t_materail.RAWMATERIAL = this.tb_rawMaterail.Text.Trim();
+            m_dt = m_materailService.GetMaterailList(t_materail);
             this.DialogResult = DialogResult.OK;
         }
     }

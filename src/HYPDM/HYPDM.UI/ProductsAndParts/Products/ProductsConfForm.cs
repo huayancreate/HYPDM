@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EAS.Data.ORM;
 using HYPDM.Entities;
 using HYPDM.BLL;
+using EAS.Explorer;
 namespace HYPDM.WinUI.ProductsAndParts.Products
 {
     public partial class ProductsConfForm : Form
@@ -17,12 +18,17 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         public ProductsConfForm()
         {
             InitializeComponent();
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_Change);
         }
 
         public ProductsConfForm(int p_type)
         {
             InitializeComponent();
-
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_Change);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -32,7 +38,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         public ProductsConfForm(string t_productId, int p_type)
         {
             InitializeComponent();
-
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_Change);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -48,7 +56,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         public ProductsConfForm(string t_productId, int p_type,Boolean ISWFDetailView)
         {
             InitializeComponent();
-
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_Change);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -73,7 +83,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private IAllProductService m_AllProductService;      //产品服务类
         private IStructService m_StructService;              //结构体服务类
         private IProductProRecordService m_proRecordService; //生产记录服务类
-
+        IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         HYPDM.Entities.PDM_ALL_PRODUCT m_product;       //操作的产品
         public HYPDM.Entities.PDM_ALL_PRODUCT Product
         {
@@ -98,6 +108,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void allinit()
         {
             baseInfo_Init();
+            dgv_docList_Init();
             //tabProRecord_Init();
             //dgv_Change_init(t);
             tabStruct_Init();
@@ -168,8 +179,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             t_product.MEMO_ZH = this.tb_memoZh.Text;
             t_product.MEMO_EN = this.tb_memoEn.Text;
             t_product.MEMO = this.rtbMemo.Text;
-            t_product.MODIFYTIME = DateTime.Now.ToString();
-            t_product.MODIFIER = CommonVar.userName;
+            t_product.MODIFYTIME = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            t_product.MODIFIER = this.LoginInfo.LoginID;
             m_AllProductService.UpdateByID(t_product);
 
 
@@ -224,11 +235,11 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             temp_product.MODELTYPE = this.tb_modelType.Text;
             temp_product.PRODUCTTYPE = this.tb_productType.Text;
             temp_product.PRODUCTLEVEL = this.m_type;
-            temp_product.VERSION = "V" + DateTime.Now.ToString("yyyyMMddHHmm");
+            temp_product.VERSION = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
             temp_product.STATUS = "已创建";
-            temp_product.CREATER = CommonVar.userName;
+            temp_product.CREATER = LoginInfo.LoginID;
             //temp_product.MODIFIER = "";
-            temp_product.CREATETIME = DateTime.Now.ToString();
+            temp_product.CREATETIME = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             //temp_product.MODIFYTIME ;
             temp_product.MEMO_ZH = this.tb_memoZh.Text;
             temp_product.MEMO_EN = this.tb_memoEn.Text;
@@ -241,12 +252,12 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             if (this.opStatus)
             {
                 //a.显示（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面
-                this.tabControl.TabPages.Add(tab_ProRecord);
-                this.tabControl.TabPages.Add(tab_Change);
+               // this.tabControl.TabPages.Add(tab_ProRecord);
+              //  this.tabControl.TabPages.Add(tab_Change);
                 this.tabControl.TabPages.Add(tab_Doc);
                 this.tabControl.TabPages.Add(tab_Drawing);
                 this.tabControl.TabPages.Add(tab_productStruct);
-                this.tabControl.TabPages.Add(tab_TelTask);
+                //this.tabControl.TabPages.Add(tab_TelTask);
                 this.tabControl.TabPages.Add(tab_Version);
 
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
@@ -286,12 +297,12 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             this.rtbMemo.Text = "";
 
             //2.移除（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab 页面
-            this.tabControl.TabPages.Remove(tab_ProRecord);
-            this.tabControl.TabPages.Remove(tab_Change);
+            //this.tabControl.TabPages.Remove(tab_ProRecord);
+            //this.tabControl.TabPages.Remove(tab_Change);
             this.tabControl.TabPages.Remove(tab_Doc);
             this.tabControl.TabPages.Remove(tab_Drawing);
             this.tabControl.TabPages.Remove(tab_productStruct);
-            this.tabControl.TabPages.Remove(tab_TelTask);
+            //this.tabControl.TabPages.Remove(tab_TelTask);
             this.tabControl.TabPages.Remove(tab_Version);
 
             //3.改变显示属性（产品清空状态 ，产品配置状态）
@@ -918,10 +929,47 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
         #endregion
 
-        private void ProductsConfForm_Load(object sender, EventArgs e)
-        {
+        #region 文档tab页面操作
 
+        private void dgv_docList_Init()
+        {
+            this.dgv_DocList.DataSource = this.m_AllProductService.GetAssoDoc(this.m_product.PRODUCTID, this.m_product.VERSION);
+            this.ucPagingDoc.SourceDataGridView = this.dgv_DocList;
         }
+
+        private void tsb_DocAdd_Click(object sender, EventArgs e)
+        {
+            DocAddForm o = new DocAddForm(this.m_product.PRODUCTID);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+            dgv_docList_Init();
+        }
+
+        private void tsb_DocDel_Click(object sender, EventArgs e)
+        {
+            if (this.dgv_DocList.RowCount <= 0) return;
+
+            int rowIndex = this.dgv_DocList.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+
+            DataGridViewRow row = dgv_DocList.Rows[rowIndex];
+
+            if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.m_AllProductService.DelAssoDoc(row.Cells["DOCID"].Value.ToString(), row.Cells["DOCVERSION"].Value.ToString(), this.m_product.PRODUCTID, this.m_product.VERSION);
+                dgv_docList_Init();
+            }
+        }
+
+        private void tsb_DocLook_Click(object sender, EventArgs e)
+        {
+            Document.DocRegForm o = new Document.DocRegForm(true);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+        }
+        #endregion
 
 
     }
