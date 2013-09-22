@@ -19,9 +19,9 @@ namespace HYPDM.BLL
         string getCount(string p_productId);
         void saveStruct(PDM_STRUCT c);
         void delStruct(PDM_STRUCT c);
+        void delStruct(string p_objId, string p_assoId);
         void editStruct(PDM_STRUCT c,string p_assobjId);
-        void transactionExc(string p_productId,string p_sortNum);
-
+        void transactionExc(string p_productId,string p_sortNum);  
         DataTable getStruct(PDM_STRUCT c);
     }
 }

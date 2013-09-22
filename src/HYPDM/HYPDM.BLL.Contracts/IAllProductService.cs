@@ -61,6 +61,10 @@ namespace HYPDM.BLL
         DataTable GetAssoDoc(String p_ProductId, String p_version);
         DataTable GetDocList(String p_ProductId, String p_version, int p_type, String p_value);
         void DelAssoDoc(String p_DocId, String p_DocVersion, String p_ProductId, String p_MaterailVersion);
-     
+
+        /********************************************************/
+        /****************     复制产品结构操作       *******************/
+        /********************************************************/
+        void CopyAllAsso(PDM_ALL_PRODUCT p_OldProduct, PDM_ALL_PRODUCT p_NewProduct);
     }
 }

@@ -224,5 +224,36 @@ namespace HYPDM.BLL
             }
             return this.DataAccessor.QueryDataTable(sqlText);
         }
+
+        /********************************************************/
+        /****************     复制产品结构操作       *******************/
+        /********************************************************/
+
+        public void CopyAllAsso(PDM_ALL_PRODUCT p_OldProduct,PDM_ALL_PRODUCT p_NewProduct) {
+            CopyStrut(p_OldProduct, p_NewProduct);
+            CopyDoc(p_OldProduct, p_NewProduct);
+        }
+        private void CopyStrut(PDM_ALL_PRODUCT p_OldProduct,PDM_ALL_PRODUCT p_NewProduct)
+        {
+            string sqlText = " INSERT INTO PDM_STRUCT(OBJECTID, ASSOBJECTID, ASSONUM, ASSOWEIGHT, SORTNUM, MEMO,DEL_FLAG  ) "
+                                + " SELECT '" + p_NewProduct.PRODUCTID+ "', "
+                                + " ASSOBJECTID, ASSONUM, ASSOWEIGHT, SORTNUM, MEMO,DEL_FLAG    "
+                                + " FROM PDM_STRUCT  "
+                                + " WHERE  DEL_FLAG='N'  "
+                                + " AND    OBJECTID='" + p_OldProduct .PRODUCTID+ "'  ";
+            this.DataAccessor.Execute(sqlText);
+        }
+        private void CopyDoc(PDM_ALL_PRODUCT p_OldProduct, PDM_ALL_PRODUCT p_NewProduct)
+        {
+            string sqlText = " INSERT INTO ObjectRelation(ORID, MASTEROBJECTID, MASTEROBJECTTYPE, MASTEROBJECTVERSION, RELATIONOBJECTID, RELATIONOBJECTTYPE, RELATIONOBJECTVERSION,OPT1, OPT2, DEL_FALG)  "
+                                + " SELECT  NEWID(), MASTEROBJECTID, MASTEROBJECTTYPE, MASTEROBJECTVERSION, '" + p_NewProduct.PRODUCTID + "', "
+                                + "  RELATIONOBJECTTYPE, '" + p_NewProduct.VERSION + "',"
+                                + "  OPT1, OPT2, DEL_FALG  "
+                                + " FROM  ObjectRelation "
+                                + " WHERE DEL_FALG ='N' "
+                                + " and RELATIONOBJECTID ='" + p_OldProduct.PRODUCTID + "' "
+                                + " and  RELATIONOBJECTVERSION='" + p_OldProduct.VERSION + "' ";
+            this.DataAccessor.Execute(sqlText);
+        }
     }
 }

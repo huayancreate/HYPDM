@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsConfForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer1 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer2 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -177,6 +177,7 @@
             this.DOCVERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCCREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolBaseCopy = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -485,6 +486,7 @@
             this.toolBase.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel2,
             this.toolBaseReg,
+            this.toolBaseCopy,
             this.toolBaseEdit,
             this.toolBaseClear});
             this.toolBase.Location = new System.Drawing.Point(0, 0);
@@ -765,14 +767,14 @@
             this.DOCVERSION,
             this.DOCSTATUS,
             this.DOCCREATEUSER});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_DocList.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_DocList.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_DocList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_DocList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgv_DocList.Location = new System.Drawing.Point(3, 28);
@@ -854,14 +856,14 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewExt1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewExt1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewExt1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewExt1.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dataGridViewExt1.Location = new System.Drawing.Point(3, 28);
@@ -1030,9 +1032,9 @@
             this.ObjectModel,
             this.ObjectSort,
             this.ObjectMemo});
-            treeListViewItemCollectionComparer1.Column = 0;
-            treeListViewItemCollectionComparer1.SortOrder = System.Windows.Forms.SortOrder.None;
-            this.list_productTreeStruct.Comparer = treeListViewItemCollectionComparer1;
+            treeListViewItemCollectionComparer2.Column = 0;
+            treeListViewItemCollectionComparer2.SortOrder = System.Windows.Forms.SortOrder.None;
+            this.list_productTreeStruct.Comparer = treeListViewItemCollectionComparer2;
             this.list_productTreeStruct.GridLines = true;
             this.list_productTreeStruct.Location = new System.Drawing.Point(0, 59);
             this.list_productTreeStruct.MultiSelect = false;
@@ -1490,6 +1492,15 @@
             this.DOCCREATEUSER.HeaderText = "创建人";
             this.DOCCREATEUSER.Name = "DOCCREATEUSER";
             // 
+            // toolBaseCopy
+            // 
+            this.toolBaseCopy.Image = global::HYPDM.WinUI.Properties.Resources.pagination_last;
+            this.toolBaseCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBaseCopy.Name = "toolBaseCopy";
+            this.toolBaseCopy.Size = new System.Drawing.Size(52, 22);
+            this.toolBaseCopy.Text = "复制";
+            this.toolBaseCopy.Click += new System.EventHandler(this.toolBaseCopy_Click);
+            // 
             // ProductsConfForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1707,5 +1718,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCVERSION;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCSTATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCCREATEUSER;
+        private System.Windows.Forms.ToolStripButton toolBaseCopy;
     }
 }

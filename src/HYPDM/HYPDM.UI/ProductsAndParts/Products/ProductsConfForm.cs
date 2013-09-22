@@ -200,8 +200,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         /// <param name="e"></param>
         private void toolBaseReg_Click(object sender, EventArgs e)
         {
-            //是否复制关联关系及产品结构
-            bool copy_Asso_Struct = false;
            
             //1.判断产品编号是否为空
             if (string.IsNullOrEmpty(this.tb_productNo.Text.Trim()))
@@ -217,13 +215,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 if (MessageBox.Show("该产品已存在，是否生产新版本?\n如果不是请更改产品编号!", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
                 {
                     return;
-                }
-            }
-
-            if(this.m_product != null){
-                if (MessageBox.Show("是否复制产品结构及关联文档和图纸！", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                {
-                    copy_Asso_Struct = true;
                 }
             }
 
@@ -244,6 +235,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             temp_product.MEMO_ZH = this.tb_memoZh.Text;
             temp_product.MEMO_EN = this.tb_memoEn.Text;
             temp_product.MEMO = this.rtbMemo.Text;
+            temp_product.DEL_FLAG ="N";
             temp_product.Save();
             MessageBox.Show("保存成功");
             
@@ -262,12 +254,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
                 this.opStatus = false;
-            }
-            if (copy_Asso_Struct) {
-                //copyDocAsso();    //复制与文档的关联
-               // copyDrawingAsso();//复制与图纸的关联
-               // copySturct();//复制产品结构   
-            
             }
             //5.更新（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面列表显示,更新基本属性信息
             this.m_product = temp_product;
@@ -309,6 +295,76 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             this.opStatus = true;
         }
 
+        private void toolBaseCopy_Click(object sender, EventArgs e)
+        {
+            if (this.m_product == null)
+            {
+                MessageBox.Show("产品不存在,无法复制！"); return;
+            }
+
+            //1.判断产品编号是否为空
+            if (string.IsNullOrEmpty(this.tb_productNo.Text.Trim()))
+            {
+                MessageBox.Show("产品编号不能为空"); return;
+            }
+
+            DataTable dt = m_AllProductService.GetListByNoDetail(this.tb_productNo.Text.Trim());
+
+            //1.判断产品是否存在，如果存在是否生产新版本
+            if (dt.Rows.Count > 0)
+            {
+                if (MessageBox.Show("该产品已存在，是否生产新版本?\n如果不是请更改产品编号!", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            //3.保存新的产品记录
+            HYPDM.Entities.PDM_ALL_PRODUCT temp_product = new HYPDM.Entities.PDM_ALL_PRODUCT();
+
+            temp_product.PRODUCTID = Guid.NewGuid().ToString();
+            temp_product.PRODUCTNO = this.tb_productNo.Text;
+            temp_product.MODELTYPE = this.tb_modelType.Text;
+            temp_product.PRODUCTTYPE = this.tb_productType.Text;
+            temp_product.PRODUCTLEVEL = this.m_type;
+            temp_product.VERSION = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            temp_product.STATUS = "已创建";
+            temp_product.CREATER = LoginInfo.LoginID;
+            //temp_product.MODIFIER = "";
+            temp_product.CREATETIME = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            //temp_product.MODIFYTIME ;
+            temp_product.MEMO_ZH = this.tb_memoZh.Text;
+            temp_product.MEMO_EN = this.tb_memoEn.Text;
+            temp_product.MEMO = this.rtbMemo.Text;
+            temp_product.DEL_FLAG = "N";
+            try {
+                temp_product.Save();
+                this.m_AllProductService.CopyAllAsso(m_product,temp_product);
+                MessageBox.Show("保存成功");
+            }
+            catch (Exception e1) {
+                MessageBox.Show("保存失败："+e1.Message);
+            }
+            
+            //4. 判断显示状态
+            if (this.opStatus)
+            {
+                //a.显示（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面
+                // this.tabControl.TabPages.Add(tab_ProRecord);
+                //  this.tabControl.TabPages.Add(tab_Change);
+                this.tabControl.TabPages.Add(tab_Doc);
+                this.tabControl.TabPages.Add(tab_Drawing);
+                this.tabControl.TabPages.Add(tab_productStruct);
+                //this.tabControl.TabPages.Add(tab_TelTask);
+                this.tabControl.TabPages.Add(tab_Version);
+
+                //b.改变显示属性（产品清空状态 ，产品配置状态）
+                this.opStatus = false;
+            }
+            //5.更新（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面列表显示,更新基本属性信息
+            this.m_product = temp_product;
+            allinit();
+        }
         #endregion
 
         #region 产品生产记录tab页面操作
@@ -651,7 +707,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 {
                     t_struct.OBJECTID = this.m_product.PRODUCTID;
                     t_struct.ASSOBJECTID = tlvi.Tag.ToString();
-                    m_StructService.delStruct(t_struct);
+                    //m_StructService.delStruct(t_struct);
+                    m_StructService.delStruct(t_struct.OBJECTID, t_struct.ASSOBJECTID);
                 }
             }
             else {
@@ -849,7 +906,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void tabVersion_Init()
         {
             //1.列表数据初始化
-            this.dgv_Product.DataSource = m_AllProductService.GetListByNo(this.m_product.PRODUCTNO);//列表显示初始化
+            this.dgv_Product.DataSource = m_AllProductService.GetListByNoDetail(this.m_product.PRODUCTNO);//列表显示初始化
         }
 
 
@@ -970,7 +1027,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             o.ShowDialog();
         }
         #endregion
-
 
     }
 }

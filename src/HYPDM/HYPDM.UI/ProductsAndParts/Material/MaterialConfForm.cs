@@ -218,6 +218,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             temp_product.MEMO_ZH = this.tb_memoZh.Text;
             temp_product.MEMO_EN = this.tb_memoEn.Text;
             temp_product.MEMO = this.rtbMemo.Text;
+            temp_product.DEL_FLAG = "N";
             temp_product.Save();
             MessageBox.Show("保存成功");
 
