@@ -123,5 +123,23 @@ namespace HYPDM
             /// </summary>
             Drawing
         }
+        /// <summary>
+        /// 扩展栏位的列数据类型
+        /// </summary>
+        public enum DataColumnType
+        {   
+            /// <summary>
+            /// 文本
+            /// </summary>
+            Text,
+            /// <summary>
+            /// 数值
+            /// </summary>
+            Number,
+            /// <summary>
+            /// 日期
+            /// </summary>
+            DateTime
+        }
     }
 }
