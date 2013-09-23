@@ -29,6 +29,7 @@ namespace HYPDM.Entities
         private DataEntityQuery<WF_TEMPLATES_STEP> m_WF_TEMPLATES_STEPs;
         private DataEntityQuery<WF_TEMPLATES> m_WF_TEMPLATESs;
         private DataEntityQuery<WF_TEMPLATES_OBJECT> m_WF_TEMPLATES_OBJECTs;
+        private DataEntityQuery<WF_APP_USER> m_WF_APP_USERs;
 
         public DataEntityQuery<WF_TEMPLATES_OBJECT> WF_TEMPLATES_OBJECTs
         {
@@ -225,7 +226,20 @@ namespace HYPDM.Entities
                 return this.m_PDM_CHANGE_HISTORYs;
             }
         }
-
+        /// <summary>
+        /// 流程实例。
+        /// </summary>
+        public DataEntityQuery<WF_APP_USER> WF_APP_USERs
+        {
+            get
+            {
+                if (this.m_WF_APP_USERs == null)
+                {
+                    this.m_WF_APP_USERs = base.CreateQuery<WF_APP_USER>();
+                }
+                return this.m_WF_APP_USERs;
+            }
+        }
 
         #endregion
 
