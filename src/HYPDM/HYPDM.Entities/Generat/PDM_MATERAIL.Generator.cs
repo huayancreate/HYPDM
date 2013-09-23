@@ -204,7 +204,16 @@ namespace HYPDM.Entities
            get;
            set;
        }
-       
+       /// <summary>
+       /// 删除标识 。
+       /// </summary>
+       [Column("DEL_FLAG", "删除标识"), DataSize(4)]
+       [DisplayName("删除标识")]
+       public string DEL_FLAG
+       {
+           get;
+           set;
+       }       
        #endregion
    }
 }

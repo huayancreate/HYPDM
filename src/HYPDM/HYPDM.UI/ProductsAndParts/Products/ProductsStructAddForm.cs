@@ -58,8 +58,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void tv_struct_init()
         {
             this.tv_struct.Nodes.Clear();
-            TreeNode root = new TreeNode("产品及零部件", 0, 1);
-            TreeNode node1 = new TreeNode("零部件", 1, 2); node1.Tag = selectType.Matieral;this.tv_struct.SelectedNode = node1;
+            TreeNode root = new TreeNode("产品及材料", 0, 1);
+            TreeNode node1 = new TreeNode("材料", 1, 2); node1.Tag = selectType.Matieral;this.tv_struct.SelectedNode = node1;
             TreeNode node2 = new TreeNode("半成品", 1, 2); node2.Tag = selectType.Parts;
             TreeNode node3 = new TreeNode("产品", 1, 2); node3.Tag = selectType.Product;
 

@@ -40,9 +40,19 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_productList = new System.Windows.Forms.DataGridView();
+            this.productChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PRODUCTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolSelect = new System.Windows.Forms.ToolStripButton();
             this.dgv_PartsList = new System.Windows.Forms.DataGridView();
+            this.partsChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PRODUCTID_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCTNO_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modeltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolDetailQuery = new System.Windows.Forms.ToolStripButton();
             this.toolVersionComb = new System.Windows.Forms.ToolStripComboBox();
@@ -51,16 +61,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolProValue = new System.Windows.Forms.ToolStripTextBox();
             this.toolQuery = new System.Windows.Forms.ToolStripButton();
-            this.productChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PRODUCTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partsChecked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PRODUCTID_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCTNO_P = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modeltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -192,6 +192,37 @@
             this.dgv_productList.TabIndex = 3;
             this.dgv_productList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_productList_CellContentClick);
             // 
+            // productChecked
+            // 
+            this.productChecked.HeaderText = "";
+            this.productChecked.Name = "productChecked";
+            this.productChecked.Width = 50;
+            // 
+            // PRODUCTID
+            // 
+            this.PRODUCTID.DataPropertyName = "PRODUCTID";
+            this.PRODUCTID.HeaderText = "主键";
+            this.PRODUCTID.Name = "PRODUCTID";
+            this.PRODUCTID.Visible = false;
+            // 
+            // PRODUCTNO
+            // 
+            this.PRODUCTNO.DataPropertyName = "PRODUCTNO";
+            this.PRODUCTNO.HeaderText = "产品编号";
+            this.PRODUCTNO.Name = "PRODUCTNO";
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "MODELTYPE";
+            this.Column11.HeaderText = "产品型号";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "PRODUCTTYPE";
+            this.Column12.HeaderText = "产品类型";
+            this.Column12.Name = "Column12";
+            // 
             // toolStrip2
             // 
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -232,6 +263,39 @@
             this.dgv_PartsList.Size = new System.Drawing.Size(513, 342);
             this.dgv_PartsList.TabIndex = 1;
             this.dgv_PartsList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_PartsList_CellContentClick);
+            // 
+            // partsChecked
+            // 
+            this.partsChecked.HeaderText = "";
+            this.partsChecked.Name = "partsChecked";
+            this.partsChecked.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.partsChecked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.partsChecked.Width = 50;
+            // 
+            // PRODUCTID_P
+            // 
+            this.PRODUCTID_P.DataPropertyName = "PRODUCTID";
+            this.PRODUCTID_P.HeaderText = "主键";
+            this.PRODUCTID_P.Name = "PRODUCTID_P";
+            this.PRODUCTID_P.Visible = false;
+            // 
+            // PRODUCTNO_P
+            // 
+            this.PRODUCTNO_P.DataPropertyName = "PRODUCTNO";
+            this.PRODUCTNO_P.HeaderText = "半成品编号";
+            this.PRODUCTNO_P.Name = "PRODUCTNO_P";
+            // 
+            // modeltype
+            // 
+            this.modeltype.DataPropertyName = "MODELTYPE";
+            this.modeltype.HeaderText = "半成品型号";
+            this.modeltype.Name = "modeltype";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "PRODUCTTYPE";
+            this.Column4.HeaderText = "半成品类型";
+            this.Column4.Name = "Column4";
             // 
             // toolStrip1
             // 
@@ -306,77 +370,13 @@
             this.toolQuery.Text = "查询";
             this.toolQuery.Click += new System.EventHandler(this.toolQuery_Click);
             // 
-            // productChecked
-            // 
-            this.productChecked.HeaderText = "";
-            this.productChecked.Name = "productChecked";
-            this.productChecked.Width = 50;
-            // 
-            // PRODUCTID
-            // 
-            this.PRODUCTID.DataPropertyName = "PRODUCTID";
-            this.PRODUCTID.HeaderText = "主键";
-            this.PRODUCTID.Name = "PRODUCTID";
-            this.PRODUCTID.Visible = false;
-            // 
-            // PRODUCTNO
-            // 
-            this.PRODUCTNO.DataPropertyName = "PRODUCTNO";
-            this.PRODUCTNO.HeaderText = "产品编号";
-            this.PRODUCTNO.Name = "PRODUCTNO";
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "MODELTYPE";
-            this.Column11.HeaderText = "产品型号";
-            this.Column11.Name = "Column11";
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "PRODUCTTYPE";
-            this.Column12.HeaderText = "产品类型";
-            this.Column12.Name = "Column12";
-            // 
-            // partsChecked
-            // 
-            this.partsChecked.HeaderText = "";
-            this.partsChecked.Name = "partsChecked";
-            this.partsChecked.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.partsChecked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.partsChecked.Width = 50;
-            // 
-            // PRODUCTID_P
-            // 
-            this.PRODUCTID_P.DataPropertyName = "PRODUCTID";
-            this.PRODUCTID_P.HeaderText = "主键";
-            this.PRODUCTID_P.Name = "PRODUCTID_P";
-            this.PRODUCTID_P.Visible = false;
-            // 
-            // PRODUCTNO_P
-            // 
-            this.PRODUCTNO_P.DataPropertyName = "PRODUCTNO";
-            this.PRODUCTNO_P.HeaderText = "半成品编号";
-            this.PRODUCTNO_P.Name = "PRODUCTNO_P";
-            // 
-            // modeltype
-            // 
-            this.modeltype.DataPropertyName = "MODELTYPE";
-            this.modeltype.HeaderText = "半成品型号";
-            this.modeltype.Name = "modeltype";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "PRODUCTTYPE";
-            this.Column4.HeaderText = "半成品类型";
-            this.Column4.Name = "Column4";
-            // 
-            // ProductsStructAddForm
+            // PartsStructAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 410);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "ProductsStructAddForm";
+            this.Name = "PartsStructAddForm";
             this.Text = "产品结构选择";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

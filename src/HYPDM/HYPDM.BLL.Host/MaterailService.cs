@@ -50,7 +50,7 @@ namespace HYPDM.BLL
 
         public DataTable GetMaterailList()
         {
-            string sqlText = "Select * from  PDM_MATERAIL ";
+            string sqlText = "Select * from  PDM_MATERAIL WHERE DEL_FLAG ='N' ";
             System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
             return dt;
         }
@@ -123,6 +123,16 @@ namespace HYPDM.BLL
             int temp = this.DataAccessor.Execute(sqlText);
         }
 
+
+        public void DelMaterailList(String p_id, String p_user)
+        {
+            string sqlText = " UPDATE  PDM_MATERAIL  SET DEL_FLAG ='Y', "
+                                + " MODIFIER ='" + p_user + "', "
+                                + " MODIFYTIME ='" + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "'  "
+                                + " WHERE MATERIALID = '" + p_id + "'";
+            int temp = this.DataAccessor.Execute(sqlText);
+        }
+
         /// <summary>
         /// 根据材料实体类更新一条记录
         /// </summary>
@@ -152,6 +162,48 @@ namespace HYPDM.BLL
         public DataTable GetListByNoDetail(string p_productNo) {
             string sqlText = "SELECT  MATERIALID,  MATERIALNO,VERSION,MODELTYPE,MATERIALTYPE,MEMO_ZH  FROM PDM_MATERAIL "
                                + "WHERE  MATERIALNO ='" + p_productNo + "'";
+            return this.DataAccessor.QueryDataTable(sqlText);
+        }
+
+        /********************************************************/
+        /****************      材料关联文档操作       *******************/
+        /********************************************************/
+
+        public DataTable GetAssoDoc(String p_MaterailId,String p_version) {
+            string sqlText = " select b.DOCID, b.DOCNO,b.VERSION,b.DOCSTATUS,b.CREATEUSER "
+                                 + " from ObjectRelation a, PDM_DOCUMENT b "
+                                 + " where a.MASTEROBJECTID=b.DOCID and a.DEL_FALG='N' and b.DEL_FLAG = 'N' and a.RELATIONOBJECTTYPE='Material' "
+                                 + " and a.RELATIONOBJECTID='"+p_MaterailId+"' "
+                                 + " and a.RELATIONOBJECTVERSION='" + p_version + "' ";
+            return this.DataAccessor.QueryDataTable(sqlText);
+        }
+
+        public void DelAssoDoc(String p_DocId,String p_DocVersion,String p_MaterailId,String p_MaterailVersion) {     
+            string sqlText = " update ObjectRelation set DEL_FALG ='Y'  "
+                                + " where MASTEROBJECTID = '" + p_DocId + "' "
+                                + " and MASTEROBJECTVERSION='" + p_DocVersion + "' "
+                                + " and RELATIONOBJECTID ='"+p_MaterailId+"' "
+                                + " and RELATIONOBJECTVERSION = '" + p_MaterailVersion + "' ";
+            this.DataAccessor.Execute(sqlText);
+        }
+
+        public DataTable GetDocList(String p_MaterailId,String p_version ,int p_type,String p_value ) {
+            string sqlText = " select b.DOCID,b.DOCNO,b.VERSION,b.CREATEUSER,b.DESCRIPTION "
+                                + " from PDM_DOCUMENT b  "
+                                + " where b.DEL_FLAG = 'N'  "
+                                + " and b.DOCID not in("
+                                + " select a.MASTEROBJECTID from ObjectRelation a where a.DEL_FALG ='N'   and a.RELATIONOBJECTTYPE='Material'  "
+	                            + " and a.RELATIONOBJECTID ='"+p_MaterailId+"'  "
+                                + " and a.RELATIONOBJECTVERSION ='" + p_version + "'  "
+	                             + " )  ";
+            if (p_type == 1)
+            {
+                sqlText += " and  b.DOCNO LIKE '%" + p_value + "%'  ";
+            }
+            if (p_type == 2)
+            {
+                sqlText += "  and b.DESCRIPTION LIKE '%" + p_value + "%'";
+            }
             return this.DataAccessor.QueryDataTable(sqlText);
         }
     }

@@ -55,7 +55,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
                 condition.AddElement("MODIFYTIME", modifyDate_Product.Text);
             }
             condition.AddElement("PRODUCTLEVEL", 2);
-           // BindData(condition);
+
             PDM_ALL_PRODUCT t_product = new PDM_ALL_PRODUCT();
             t_product.PRODUCTNO = no_Product.Text;
             t_product.VERSION = version_Product.Text;

@@ -26,7 +26,7 @@ namespace HYPDM.BLL
         /// <returns></returns>
         public DataTable GetProductList(PDM_ALL_PRODUCT p)
         {
-            string sqlText = "Select PRODUCTID,PRODUCTNO,MODELTYPE,PRODUCTTYPE from  PDM_ALL_PRODUCT WHERE PRODUCTLEVEL =1 ";
+            string sqlText = "Select PRODUCTID,PRODUCTNO,MODELTYPE,PRODUCTTYPE from  PDM_ALL_PRODUCT WHERE  DEL_FLAG='N' AND PRODUCTLEVEL =1 ";
             if (!string.IsNullOrEmpty(p.PRODUCTNO)) {
                 sqlText += "AND PRODUCTNO like '%" + p.PRODUCTNO + "%'  ";
             }
@@ -53,7 +53,7 @@ namespace HYPDM.BLL
         /// <returns></returns>
         public DataTable GetPartsList(PDM_ALL_PRODUCT p)
         {
-            string sqlText = "Select PRODUCTID,PRODUCTNO,MODELTYPE,PRODUCTTYPE from  PDM_ALL_PRODUCT  WHERE PRODUCTLEVEL =2  ";
+            string sqlText = "Select PRODUCTID,PRODUCTNO,MODELTYPE,PRODUCTTYPE from  PDM_ALL_PRODUCT  WHERE  DEL_FLAG='N'  AND  PRODUCTLEVEL =2  ";
             if (!string.IsNullOrEmpty(p.PRODUCTNO))
             {
                 sqlText += "AND PRODUCTNO like '%" + p.PRODUCTNO + "%'  ";
@@ -81,7 +81,7 @@ namespace HYPDM.BLL
         /// <returns></returns>
         public DataTable GetMaterailList(PDM_MATERAIL p)
         {
-            string sqlText = "Select MATERIALID,MATERIALNO,MODELTYPE,MATERIALTYPE from  PDM_MATERAIL WHERE 1=1 ";
+            string sqlText = "Select MATERIALID,MATERIALNO,MODELTYPE,MATERIALTYPE from  PDM_MATERAIL WHERE  DEL_FLAG='N' ";
 
             if (!string.IsNullOrEmpty(p.MATERIALNO))
             {
@@ -111,7 +111,7 @@ namespace HYPDM.BLL
         {
             string sqlText = "SELECT     A.ASSOBJECTID,A.ASSONUM, A.SORTNUM, A.MEMO,B.PRODUCTNO,B.VERSION,B.MODELTYPE  " +
                              "FROM       PDM_STRUCT A,PDM_ALL_PRODUCT B  "+
-                             "Where      A.OBJECTID = '" + p_objectId +"'  "+
+                             "Where       A.DEL_FLAG='N' AND A.OBJECTID = '" + p_objectId + "'  " +
                              "AND        A.ASSOBJECTID=B.PRODUCTID ORDER BY Convert (int,A.SORTNUM) ASC";
             System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
             return dt;
@@ -124,7 +124,7 @@ namespace HYPDM.BLL
         public DataTable GetStructMaterailList(string p_objectId) {
             string sqlText = "SELECT     A.ASSOBJECTID,A.ASSONUM, A.SORTNUM, A.MEMO,B.MATERIALNO,B.VERSION,B.MODELTYPE  " +
                              "FROM       PDM_STRUCT A,PDM_MATERAIL B  " +
-                             "Where      A.OBJECTID = '" + p_objectId + "'  " +
+                             "Where     A.DEL_FLAG='N' AND    A.OBJECTID = '" + p_objectId + "'  " +
                              "AND        A.ASSOBJECTID=B.MATERIALID  ORDER BY Convert (int,A.SORTNUM) ASC";
             System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
             return dt;
@@ -136,13 +136,13 @@ namespace HYPDM.BLL
         /// <param name="c"></param>
         public  void saveStruct(PDM_STRUCT c)
         {
-            string sqlText = "INSERT  PDM_STRUCT (OBJECTID,ASSOBJECTID,ASSONUM,ASSOWEIGHT,SORTNUM,MEMO) VALUES ('" 
+            string sqlText = "INSERT  PDM_STRUCT (OBJECTID,ASSOBJECTID,ASSONUM,ASSOWEIGHT,SORTNUM,MEMO,DEL_FLAG) VALUES ('" 
                             + c.OBJECTID + "','"
                             + c.ASSOBJECTID + "','"
                             + c.ASSONUM + "','"
                             + c.ASSOWEIGHT + "','"
                             + c.SORTNUM + "','"
-                            + c.MEMO + "')  ";
+                            + c.MEMO + "','N')  ";
             this.DataAccessor.Execute(sqlText);
         }
         /// <summary>
@@ -155,7 +155,12 @@ namespace HYPDM.BLL
                             + "' AND ASSOBJECTID ='" + c.ASSOBJECTID + "' ";
             this.DataAccessor.Execute(sqlText);
         }
-
+        public void delStruct(string p_objId,string p_assoId)
+        {
+            string sqlText = "UPDATE PDM_STRUCT SET DEL_FLAG='Y'  WHERE  OBJECTID='" + p_objId
+                            + "' AND ASSOBJECTID ='" + p_assoId + "' ";
+            this.DataAccessor.Execute(sqlText);
+        }
         /// <summary>
         /// 获取一条记录（产品，半成品，材料）之间的关联关系
         /// </summary>
@@ -163,7 +168,7 @@ namespace HYPDM.BLL
         /// <returns></returns>
         public DataTable getStruct(PDM_STRUCT c)
         {
-            string sqlText = "SELECT * FROM  PDM_STRUCT  WHERE  OBJECTID='" + c.OBJECTID
+            string sqlText = "SELECT * FROM  PDM_STRUCT  WHERE  DEL_FLAG='N' AND  OBJECTID='" + c.OBJECTID
                             + "' AND ASSOBJECTID ='" + c.ASSOBJECTID + "' ";
             DataTable dt=this.DataAccessor.QueryDataTable(sqlText);
             return dt;
@@ -199,7 +204,7 @@ namespace HYPDM.BLL
        /// <param name="p_productId"></param>
        /// <returns></returns>
         public string  getCount(string p_productId) {
-            string sqlText = " Select Count(*)+1 as MAXSORTNUM from PDM_STRUCT where OBJECTID='" + p_productId+"'";
+            string sqlText = " Select Count(*)+1 as MAXSORTNUM from PDM_STRUCT where DEL_FLAG='N' AND  OBJECTID='" + p_productId + "'";
             DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
            return  dt.Rows[0]["MAXSORTNUM"].ToString();
         }

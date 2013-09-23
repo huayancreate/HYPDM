@@ -30,15 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsListControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ts_Tool_Product = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.add_Product = new System.Windows.Forms.ToolStripButton();
             this.conf_Product = new System.Windows.Forms.ToolStripButton();
             this.del_Product = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.print_Product = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.query_Product = new System.Windows.Forms.ToolStripButton();
             this.cm_Memu_Product = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.add_Product_Menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +46,7 @@
             this.注册流程ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmStanderFlow = new System.Windows.Forms.ToolStripMenuItem();
             this.dgv_ProductList = new HYPDM.BaseControl.DataGridViewExt();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.PRODUCTID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,8 +61,7 @@
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MEMO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pagination1 = new HYPDM.WinUI.DefineControl.Pagination();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.ts_Tool_Product.SuspendLayout();
             this.cm_Memu_Product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ProductList)).BeginInit();
@@ -78,8 +76,6 @@
             this.conf_Product,
             this.del_Product,
             this.toolStripSeparator2,
-            this.print_Product,
-            this.toolStripSeparator6,
             this.query_Product});
             this.ts_Tool_Product.Location = new System.Drawing.Point(0, 0);
             this.ts_Tool_Product.Name = "ts_Tool_Product";
@@ -121,18 +117,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // print_Product
-            // 
-            this.print_Product.Name = "print_Product";
-            this.print_Product.Size = new System.Drawing.Size(36, 22);
-            this.print_Product.Text = "打印";
-            this.print_Product.Click += new System.EventHandler(this.print_Product_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
             // query_Product
             // 
             this.query_Product.Image = ((System.Drawing.Image)(resources.GetObject("query_Product.Image")));
@@ -150,13 +134,13 @@
             this.conf_Menu_Product,
             this.注册流程ToolStripMenuItem});
             this.cm_Memu_Product.Name = "cm_Product";
-            this.cm_Memu_Product.Size = new System.Drawing.Size(153, 120);
+            this.cm_Memu_Product.Size = new System.Drawing.Size(125, 98);
             // 
             // add_Product_Menu
             // 
             this.add_Product_Menu.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
             this.add_Product_Menu.Name = "add_Product_Menu";
-            this.add_Product_Menu.Size = new System.Drawing.Size(152, 22);
+            this.add_Product_Menu.Size = new System.Drawing.Size(124, 22);
             this.add_Product_Menu.Text = "添加";
             this.add_Product_Menu.Click += new System.EventHandler(this.add_Product_Menu_Click);
             // 
@@ -164,20 +148,20 @@
             // 
             this.del_Memu_Product.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
             this.del_Memu_Product.Name = "del_Memu_Product";
-            this.del_Memu_Product.Size = new System.Drawing.Size(152, 22);
+            this.del_Memu_Product.Size = new System.Drawing.Size(124, 22);
             this.del_Memu_Product.Text = "删除";
             this.del_Memu_Product.Click += new System.EventHandler(this.del_Memu_Product_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(121, 6);
             // 
             // conf_Menu_Product
             // 
             this.conf_Menu_Product.Image = ((System.Drawing.Image)(resources.GetObject("conf_Menu_Product.Image")));
             this.conf_Menu_Product.Name = "conf_Menu_Product";
-            this.conf_Menu_Product.Size = new System.Drawing.Size(152, 22);
+            this.conf_Menu_Product.Size = new System.Drawing.Size(124, 22);
             this.conf_Menu_Product.Text = "配置";
             this.conf_Menu_Product.Click += new System.EventHandler(this.conf_Menu_Product_Click);
             // 
@@ -186,13 +170,13 @@
             this.注册流程ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmStanderFlow});
             this.注册流程ToolStripMenuItem.Name = "注册流程ToolStripMenuItem";
-            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.注册流程ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.注册流程ToolStripMenuItem.Text = "注册流程";
             // 
             // tsmStanderFlow
             // 
             this.tsmStanderFlow.Name = "tsmStanderFlow";
-            this.tsmStanderFlow.Size = new System.Drawing.Size(152, 22);
+            this.tsmStanderFlow.Size = new System.Drawing.Size(148, 22);
             this.tsmStanderFlow.Text = "标准流程注册";
             this.tsmStanderFlow.Click += new System.EventHandler(this.tsmStanderFlow_Click);
             // 
@@ -221,14 +205,14 @@
             this.Column15,
             this.Column14,
             this.MEMO});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_ProductList.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_ProductList.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_ProductList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgv_ProductList.Location = new System.Drawing.Point(3, 28);
             this.dgv_ProductList.MultiSelect = false;
@@ -243,9 +227,21 @@
             this.dgv_ProductList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ProductList_CellDoubleClick);
             this.dgv_ProductList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ProductList_CellMouseDown);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ucPaging1);
+            this.panel1.Controls.Add(this.dgv_ProductList);
+            this.panel1.Controls.Add(this.ts_Tool_Product);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(836, 402);
+            this.panel1.TabIndex = 4;
+            // 
             // PRODUCTID
             // 
             this.PRODUCTID.DataPropertyName = "PRODUCTID";
+            this.PRODUCTID.Frozen = true;
             this.PRODUCTID.HeaderText = "主键";
             this.PRODUCTID.Name = "PRODUCTID";
             this.PRODUCTID.ReadOnly = true;
@@ -254,6 +250,7 @@
             // Column1
             // 
             this.Column1.DataPropertyName = "PRODUCTNO";
+            this.Column1.Frozen = true;
             this.Column1.HeaderText = "产品编号";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -261,6 +258,7 @@
             // Column2
             // 
             this.Column2.DataPropertyName = "MODELTYPE";
+            this.Column2.Frozen = true;
             this.Column2.HeaderText = "产品型号";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -342,29 +340,15 @@
             this.MEMO.Name = "MEMO";
             this.MEMO.ReadOnly = true;
             // 
-            // panel1
+            // ucPaging1
             // 
-            this.panel1.Controls.Add(this.dgv_ProductList);
-            this.panel1.Controls.Add(this.pagination1);
-            this.panel1.Controls.Add(this.ts_Tool_Product);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(836, 402);
-            this.panel1.TabIndex = 4;
-            // 
-            // pagination1
-            // 
-            this.pagination1.CurrentPage = 1;
-            this.pagination1.CurrentRows = 20;
-            this.pagination1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pagination1.Location = new System.Drawing.Point(0, 376);
-            this.pagination1.Name = "pagination1";
-            this.pagination1.QueryCondition = null;
-            this.pagination1.Size = new System.Drawing.Size(836, 26);
-            this.pagination1.TabIndex = 3;
-            this.pagination1.TotalPage = 0;
-            this.pagination1.TotalRows = 0;
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = true;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 374);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 20;
+            this.ucPaging1.Size = new System.Drawing.Size(836, 28);
+            this.ucPaging1.TabIndex = 3;
             // 
             // ProductsListControl
             // 
@@ -408,15 +392,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCRIPTIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn eNGDESCRIPTIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pRONODataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton add_Product;
         private System.Windows.Forms.ToolStripButton conf_Product;
         private System.Windows.Forms.ToolStripButton del_Product;
-        private System.Windows.Forms.ToolStripButton print_Product;
         private System.Windows.Forms.ToolStripButton query_Product;
         private System.Windows.Forms.Panel panel1;
         private BaseControl.DataGridViewExt dgv_ProductList;
-        private DefineControl.Pagination pagination1;
         private System.Windows.Forms.ToolStripMenuItem 注册流程ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmStanderFlow;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTID;
@@ -433,5 +414,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn MEMO;
+        private BaseControl.UcPaging ucPaging1;
     }
 }

@@ -33,6 +33,7 @@ namespace HYPDM.BLL
 
         DataTable GetMaterailList(PDM_MATERAIL c);
         void DelMaterailList(String p_id);
+        void DelMaterailList(String p_id, String p_user);
 
         /// <summary>
         /// 根据一个材料实体类更新一条记录
@@ -46,5 +47,12 @@ namespace HYPDM.BLL
         /// <param name="p_productNo"></param>
         /// <returns></returns>
         DataTable GetListByNoDetail(string p_productNo);
+
+        /********************************************************/
+        /****************      材料关联文档操作       *******************/
+        /********************************************************/
+        DataTable GetAssoDoc(String p_MaterailId, String p_version);
+        void DelAssoDoc(String p_DocId, String p_DocVersion, String p_MaterailId, String p_MaterailVersion);
+        DataTable GetDocList(String p_MaterailId, String p_version, int p_type, String p_value);
     }
 }

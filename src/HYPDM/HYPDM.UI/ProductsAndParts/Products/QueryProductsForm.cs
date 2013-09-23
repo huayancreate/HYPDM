@@ -14,15 +14,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 {
     public partial class QueryProductsForm : Form
     {
-        //IAllProductService m_productService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
-
-        private PDM_ALL_PRODUCT m_product = new PDM_ALL_PRODUCT();
-
-        public PDM_ALL_PRODUCT MProduct {
-            get { return this.m_product; }
-            set { this.m_product = value; }
-        }
-
+        IAllProductService m_productService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
+        public DataTable m_productList;
         public QueryProductsForm()
         {
             InitializeComponent();
@@ -33,12 +26,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         }
         private void query_Product_Click(object sender, EventArgs e)
         {
-            Condition condition = PDM_ALL_PRODUCT.Create().CreateCondition();
-
-            
+            /*Condition condition = PDM_ALL_PRODUCT.Create().CreateCondition();
             if (!string.IsNullOrEmpty(no_Product.Text))
             {
-                
                 condition.AddElement("PRODUCTNO", no_Product.Text, ElementType.Match);
             }
             if (!string.IsNullOrEmpty(version_Product.Text))
@@ -62,18 +52,12 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 condition.AddElement("MODIFYTIME", modifyDate_Product.Text);
             }
             condition.AddElement("PRODUCTLEVEL", 1);
-           // BindData(condition);
+          */
             PDM_ALL_PRODUCT t_product = new PDM_ALL_PRODUCT();
             t_product.PRODUCTNO = no_Product.Text;
             t_product.VERSION = version_Product.Text;
-            this.MProduct = t_product;
-           // _productList = m_productService.GetProductList(t_product);
+            m_productList = m_productService.GetProductList(t_product);
             this.DialogResult = DialogResult.OK;
-        }
-        public void BindData(Condition c)
-        {
-            //DataTable list = m_productService.GetProductList2(c);
-            //_productList = list;
         }
     }
 }

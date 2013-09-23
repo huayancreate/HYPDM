@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using EAS.Data.ORM;
 using HYPDM.Entities;
 using HYPDM.BLL;
+using EAS.Explorer;
 namespace HYPDM.WinUI.ProductsAndParts.Products
 {
     public partial class ProductsConfForm : Form
@@ -17,12 +18,17 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         public ProductsConfForm()
         {
             InitializeComponent();
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_Change);
         }
 
         public ProductsConfForm(int p_type)
         {
             InitializeComponent();
-
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_Change);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -32,7 +38,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         public ProductsConfForm(string t_productId, int p_type)
         {
             InitializeComponent();
-
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_Change);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -48,7 +56,9 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         public ProductsConfForm(string t_productId, int p_type,Boolean ISWFDetailView)
         {
             InitializeComponent();
-
+            this.tabControl.TabPages.Remove(tab_TelTask);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_Change);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -73,7 +83,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private IAllProductService m_AllProductService;      //产品服务类
         private IStructService m_StructService;              //结构体服务类
         private IProductProRecordService m_proRecordService; //生产记录服务类
-
+        IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
         HYPDM.Entities.PDM_ALL_PRODUCT m_product;       //操作的产品
         public HYPDM.Entities.PDM_ALL_PRODUCT Product
         {
@@ -98,6 +108,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void allinit()
         {
             baseInfo_Init();
+            dgv_docList_Init();
             //tabProRecord_Init();
             //dgv_Change_init(t);
             tabStruct_Init();
@@ -168,8 +179,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             t_product.MEMO_ZH = this.tb_memoZh.Text;
             t_product.MEMO_EN = this.tb_memoEn.Text;
             t_product.MEMO = this.rtbMemo.Text;
-            t_product.MODIFYTIME = DateTime.Now.ToString();
-            t_product.MODIFIER = CommonVar.userName;
+            t_product.MODIFYTIME = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            t_product.MODIFIER = this.LoginInfo.LoginID;
             m_AllProductService.UpdateByID(t_product);
 
 
@@ -189,8 +200,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         /// <param name="e"></param>
         private void toolBaseReg_Click(object sender, EventArgs e)
         {
-            //是否复制关联关系及产品结构
-            bool copy_Asso_Struct = false;
            
             //1.判断产品编号是否为空
             if (string.IsNullOrEmpty(this.tb_productNo.Text.Trim()))
@@ -209,13 +218,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 }
             }
 
-            if(this.m_product != null){
-                if (MessageBox.Show("是否复制产品结构及关联文档和图纸！", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                {
-                    copy_Asso_Struct = true;
-                }
-            }
-
             //3.保存新的产品记录
             HYPDM.Entities.PDM_ALL_PRODUCT temp_product = new HYPDM.Entities.PDM_ALL_PRODUCT();
 
@@ -224,15 +226,16 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             temp_product.MODELTYPE = this.tb_modelType.Text;
             temp_product.PRODUCTTYPE = this.tb_productType.Text;
             temp_product.PRODUCTLEVEL = this.m_type;
-            temp_product.VERSION = "V" + DateTime.Now.ToString("yyyyMMddHHmm");
+            temp_product.VERSION = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
             temp_product.STATUS = "已创建";
-            temp_product.CREATER = CommonVar.userName;
+            temp_product.CREATER = LoginInfo.LoginID;
             //temp_product.MODIFIER = "";
-            temp_product.CREATETIME = DateTime.Now.ToString();
+            temp_product.CREATETIME = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             //temp_product.MODIFYTIME ;
             temp_product.MEMO_ZH = this.tb_memoZh.Text;
             temp_product.MEMO_EN = this.tb_memoEn.Text;
             temp_product.MEMO = this.rtbMemo.Text;
+            temp_product.DEL_FLAG ="N";
             temp_product.Save();
             MessageBox.Show("保存成功");
             
@@ -241,22 +244,16 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             if (this.opStatus)
             {
                 //a.显示（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面
-                this.tabControl.TabPages.Add(tab_ProRecord);
-                this.tabControl.TabPages.Add(tab_Change);
+               // this.tabControl.TabPages.Add(tab_ProRecord);
+              //  this.tabControl.TabPages.Add(tab_Change);
                 this.tabControl.TabPages.Add(tab_Doc);
                 this.tabControl.TabPages.Add(tab_Drawing);
                 this.tabControl.TabPages.Add(tab_productStruct);
-                this.tabControl.TabPages.Add(tab_TelTask);
+                //this.tabControl.TabPages.Add(tab_TelTask);
                 this.tabControl.TabPages.Add(tab_Version);
 
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
                 this.opStatus = false;
-            }
-            if (copy_Asso_Struct) {
-                //copyDocAsso();    //复制与文档的关联
-               // copyDrawingAsso();//复制与图纸的关联
-               // copySturct();//复制产品结构   
-            
             }
             //5.更新（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面列表显示,更新基本属性信息
             this.m_product = temp_product;
@@ -286,18 +283,88 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             this.rtbMemo.Text = "";
 
             //2.移除（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab 页面
-            this.tabControl.TabPages.Remove(tab_ProRecord);
-            this.tabControl.TabPages.Remove(tab_Change);
+            //this.tabControl.TabPages.Remove(tab_ProRecord);
+            //this.tabControl.TabPages.Remove(tab_Change);
             this.tabControl.TabPages.Remove(tab_Doc);
             this.tabControl.TabPages.Remove(tab_Drawing);
             this.tabControl.TabPages.Remove(tab_productStruct);
-            this.tabControl.TabPages.Remove(tab_TelTask);
+            //this.tabControl.TabPages.Remove(tab_TelTask);
             this.tabControl.TabPages.Remove(tab_Version);
 
             //3.改变显示属性（产品清空状态 ，产品配置状态）
             this.opStatus = true;
         }
 
+        private void toolBaseCopy_Click(object sender, EventArgs e)
+        {
+            if (this.m_product == null)
+            {
+                MessageBox.Show("产品不存在,无法复制！"); return;
+            }
+
+            //1.判断产品编号是否为空
+            if (string.IsNullOrEmpty(this.tb_productNo.Text.Trim()))
+            {
+                MessageBox.Show("产品编号不能为空"); return;
+            }
+
+            DataTable dt = m_AllProductService.GetListByNoDetail(this.tb_productNo.Text.Trim());
+
+            //1.判断产品是否存在，如果存在是否生产新版本
+            if (dt.Rows.Count > 0)
+            {
+                if (MessageBox.Show("该产品已存在，是否生产新版本?\n如果不是请更改产品编号!", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            //3.保存新的产品记录
+            HYPDM.Entities.PDM_ALL_PRODUCT temp_product = new HYPDM.Entities.PDM_ALL_PRODUCT();
+
+            temp_product.PRODUCTID = Guid.NewGuid().ToString();
+            temp_product.PRODUCTNO = this.tb_productNo.Text;
+            temp_product.MODELTYPE = this.tb_modelType.Text;
+            temp_product.PRODUCTTYPE = this.tb_productType.Text;
+            temp_product.PRODUCTLEVEL = this.m_type;
+            temp_product.VERSION = "V" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            temp_product.STATUS = "已创建";
+            temp_product.CREATER = LoginInfo.LoginID;
+            //temp_product.MODIFIER = "";
+            temp_product.CREATETIME = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+            //temp_product.MODIFYTIME ;
+            temp_product.MEMO_ZH = this.tb_memoZh.Text;
+            temp_product.MEMO_EN = this.tb_memoEn.Text;
+            temp_product.MEMO = this.rtbMemo.Text;
+            temp_product.DEL_FLAG = "N";
+            try {
+                temp_product.Save();
+                this.m_AllProductService.CopyAllAsso(m_product,temp_product);
+                MessageBox.Show("保存成功");
+            }
+            catch (Exception e1) {
+                MessageBox.Show("保存失败："+e1.Message);
+            }
+            
+            //4. 判断显示状态
+            if (this.opStatus)
+            {
+                //a.显示（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面
+                // this.tabControl.TabPages.Add(tab_ProRecord);
+                //  this.tabControl.TabPages.Add(tab_Change);
+                this.tabControl.TabPages.Add(tab_Doc);
+                this.tabControl.TabPages.Add(tab_Drawing);
+                this.tabControl.TabPages.Add(tab_productStruct);
+                //this.tabControl.TabPages.Add(tab_TelTask);
+                this.tabControl.TabPages.Add(tab_Version);
+
+                //b.改变显示属性（产品清空状态 ，产品配置状态）
+                this.opStatus = false;
+            }
+            //5.更新（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面列表显示,更新基本属性信息
+            this.m_product = temp_product;
+            allinit();
+        }
         #endregion
 
         #region 产品生产记录tab页面操作
@@ -640,7 +707,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 {
                     t_struct.OBJECTID = this.m_product.PRODUCTID;
                     t_struct.ASSOBJECTID = tlvi.Tag.ToString();
-                    m_StructService.delStruct(t_struct);
+                    //m_StructService.delStruct(t_struct);
+                    m_StructService.delStruct(t_struct.OBJECTID, t_struct.ASSOBJECTID);
                 }
             }
             else {
@@ -838,7 +906,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void tabVersion_Init()
         {
             //1.列表数据初始化
-            this.dgv_Product.DataSource = m_AllProductService.GetListByNo(this.m_product.PRODUCTNO);//列表显示初始化
+            this.dgv_Product.DataSource = m_AllProductService.GetListByNoDetail(this.m_product.PRODUCTNO);//列表显示初始化
         }
 
 
@@ -918,11 +986,47 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
         #endregion
 
-        private void ProductsConfForm_Load(object sender, EventArgs e)
-        {
+        #region 文档tab页面操作
 
+        private void dgv_docList_Init()
+        {
+            this.dgv_DocList.DataSource = this.m_AllProductService.GetAssoDoc(this.m_product.PRODUCTID, this.m_product.VERSION);
+            this.ucPagingDoc.SourceDataGridView = this.dgv_DocList;
         }
 
+        private void tsb_DocAdd_Click(object sender, EventArgs e)
+        {
+            DocAddForm o = new DocAddForm(this.m_product.PRODUCTID);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+            dgv_docList_Init();
+        }
+
+        private void tsb_DocDel_Click(object sender, EventArgs e)
+        {
+            if (this.dgv_DocList.RowCount <= 0) return;
+
+            int rowIndex = this.dgv_DocList.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+
+            DataGridViewRow row = dgv_DocList.Rows[rowIndex];
+
+            if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.m_AllProductService.DelAssoDoc(row.Cells["DOCID"].Value.ToString(), row.Cells["DOCVERSION"].Value.ToString(), this.m_product.PRODUCTID, this.m_product.VERSION);
+                dgv_docList_Init();
+            }
+        }
+
+        private void tsb_DocLook_Click(object sender, EventArgs e)
+        {
+            Document.DocRegForm o = new Document.DocRegForm(true);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+        }
+        #endregion
 
     }
 }
