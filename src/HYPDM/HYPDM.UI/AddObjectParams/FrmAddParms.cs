@@ -58,7 +58,7 @@ namespace HYPDM.WinUI.AddObjectParams
         protected void CreateParams(Control ctl)
         {
 
-
+            ctl.Controls.Clear();
             DataTable dtTemp = ObjectParams.getDataTableBySql("PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME", " ORDER BY TARGET_COLNAME", "PDM_Params");
 
             if (dtTemp == null || dtTemp.Rows.Count == 0)
@@ -118,6 +118,7 @@ namespace HYPDM.WinUI.AddObjectParams
         {
             FrmAddNewParams frmNew = new FrmAddNewParams();
             frmNew.ShowDialog();
+            //  CreateParams(pnlIsHasParams);
         }
 
     }

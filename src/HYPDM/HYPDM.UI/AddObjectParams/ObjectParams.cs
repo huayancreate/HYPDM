@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using HYPDM.BLL;
-using EAS.Modularization;
 using EAS.Explorer;
+using EAS.Modularization;
+using HYPDM.BLL;
 namespace HYPDM.WinUI.AddObjectParams
 {
     public class ObjectParams
@@ -25,6 +25,59 @@ namespace HYPDM.WinUI.AddObjectParams
             stb.Append("SELECT " + fields + " FROM " + tableName + " " + where);
             tb = EAS.Services.ServiceContainer.GetService<DocFileListService>().getDataTableBySql(stb.ToString());
             return tb;
+        }
+
+        private static ObjectParams newInstance;
+
+        public static ObjectParams NewInstance
+        {
+            get {
+                if (newInstance == null)
+                {
+                    newInstance = new ObjectParams();
+                }
+                return ObjectParams.newInstance; }
+            set { ObjectParams.newInstance = value; }
+        }
+   
+
+        public void SetColNameToCmb(System.Windows.Forms.ComboBox cbx)
+        {
+            cbx.DataSource = getDataTableBySql("PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME", " ORDER BY TARGET_COLNAME", "PDM_Params");
+            cbx.ValueMember = "TARGET_COLNAME";
+            cbx.DisplayMember = "PARAMS_NAME";
+         
+            cbx.SelectedIndex = -1;
+        }
+        public void  SetOperations(DataType.DataColumnType dct,System.Windows.Forms.ComboBox cmbOper)
+        {
+            cmbOper.Items.Clear();
+          ///= > < like between
+            switch (dct)
+            {
+                case DataType.DataColumnType.Number:
+                    cmbOper.Items.Add("=");
+                    cmbOper.Items.Add(">");
+                    cmbOper.Items.Add("<");
+                    cmbOper.Items.Add("like");
+                    cmbOper.Items.Add("between");
+
+                    break;
+                case DataType.DataColumnType.Text:
+                    cmbOper.Items.Add("=");
+                    cmbOper.Items.Add("like");
+                    break;
+                case  DataType.DataColumnType.DateTime:
+                    cmbOper.Items.Add("=");
+                    cmbOper.Items.Add(">");
+                    cmbOper.Items.Add("<");
+                    cmbOper.Items.Add("between");
+                    break;
+                default:
+                    //System.Windows.Forms.MessageBox.Show("数据类型异常");
+                     cmbOper.Items.Add("=");
+                    break;
+            }
         }
     }
 }
