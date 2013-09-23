@@ -1032,5 +1032,18 @@ namespace HYPDM.WinUI.Document
                 this.dgvMaterial.DataSource = new  FileHelper().getDataTableBySql("*", "WHERE MATERIALID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Material' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
             }
         }
+
+        private void btnAddProperties_Click(object sender, EventArgs e)
+        {
+            AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("document","123","id");
+            parms.ShowDialog();
+        }
+
+        private void tspBtnQuery_Click(object sender, EventArgs e)
+        {
+            AddObjectParams.FrmAdvanceQuery query = new AddObjectParams.FrmAdvanceQuery();
+            query.ShowDialog();
+
+        }
     }
 }
