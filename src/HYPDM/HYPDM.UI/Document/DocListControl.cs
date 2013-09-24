@@ -231,10 +231,11 @@ namespace HYPDM.WinUI.Document
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SearchForm form = new SearchForm();
+            //SearchForm form = new SearchForm();
+            FrmDocumentQuery form = new FrmDocumentQuery();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                _docList = form._docList;
+              //  _docList = form._docList;
                 this.LoadDoc();
             }
         }

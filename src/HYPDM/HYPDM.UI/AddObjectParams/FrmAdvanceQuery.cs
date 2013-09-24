@@ -27,7 +27,17 @@ namespace HYPDM.WinUI.AddObjectParams
 
             // Initial();
         }
+        public FrmAdvanceQuery(string masteTblName)
+        {   
+            InitializeComponent();
+            this.MasterTableName = masteTblName;
+            this.CenterToParent();
+            this.Height = MinHeigh;
+            this.splitmain.Panel2Collapsed = true;
+            btnExtandAdvanceQuery.Text = collapsTitle;
 
+            // Initial();
+        }
         private Boolean isExtandAdvanceOption = false;
         private int minHeigh = 206;//普通查询界面加上高级查询按钮的高度
         private string masterTableName; //主表名称

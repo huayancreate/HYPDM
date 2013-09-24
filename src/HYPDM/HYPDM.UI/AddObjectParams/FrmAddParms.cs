@@ -261,7 +261,7 @@ namespace HYPDM.WinUI.AddObjectParams
                 t_type.GetProperty(t.Tag.ToString()).SetValue(temp, t.Text.ToString(), null);
             }
 
-            temp.MASTER_TABLE_NAME = tableName;
+            temp.MASTER_TABLE_NAME = tableName.Trim().ToUpper();
             temp.PK_COL_NAME = pkColName;
             temp.PK_VALUE = pkValue;
 

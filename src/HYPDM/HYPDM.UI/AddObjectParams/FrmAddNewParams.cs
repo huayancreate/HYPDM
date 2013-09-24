@@ -25,7 +25,7 @@ namespace HYPDM.WinUI.AddObjectParams
         {
             InitializeComponent();
             this.CenterToParent();
-            m_PDM_Params.MASTER_TABLE_NAME = p_TableName;
+            m_PDM_Params.MASTER_TABLE_NAME = p_TableName.Trim().ToUpper();
         }
         
         private void btnSubmit_Click(object sender, EventArgs e)
