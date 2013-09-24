@@ -173,5 +173,10 @@ namespace HYPDM.BLL
             dt = this.DataAccessor.QueryDataTable(sql);
             return dt;
         }
+
+        public void SaveParamValue(String sql)
+        {
+            this.DataAccessor.Execute(sql);
+        }
     }
 }

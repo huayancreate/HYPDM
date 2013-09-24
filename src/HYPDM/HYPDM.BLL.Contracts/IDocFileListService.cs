@@ -47,5 +47,7 @@ namespace HYPDM.BLL
         /// <param name="dcid"></param>
         /// <returns>Ilist</returns>
         IList<DOC_FILE_LIST> GetDocFileListByDCID(string dcid);
+
+        void SaveParamValue(String sql);
     }
 }

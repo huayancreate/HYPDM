@@ -1035,7 +1035,7 @@ namespace HYPDM.WinUI.Document
 
         private void btnAddProperties_Click(object sender, EventArgs e)
         {
-            AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("document","123","id");
+            AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("PDM_DOCUMENT", document.DOCID, "DOCID");
             parms.ShowDialog();
         }
 
@@ -1043,7 +1043,6 @@ namespace HYPDM.WinUI.Document
         {
             AddObjectParams.FrmAdvanceQuery query = new AddObjectParams.FrmAdvanceQuery();
             query.ShowDialog();
-
         }
     }
 }
