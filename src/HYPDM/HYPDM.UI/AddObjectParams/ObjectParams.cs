@@ -141,5 +141,19 @@ namespace HYPDM.WinUI.AddObjectParams
                     break;
             }
         }
+        public static void SaveParamBySql(String fields, string values, string tableName)
+        {
+           
+            StringBuilder stb = new StringBuilder();
+            stb.Append("INSERT  " + tableName + "(" + fields + ") values (" + values+")");
+            EAS.Services.ServiceContainer.GetService<DocFileListService>().SaveParamValue(stb.ToString());
+        }
+
+        public static void UpDateParamBySql(String fields, string where, string tableName)
+        {
+            StringBuilder stb = new StringBuilder();
+            stb.Append("UPDATE   " + tableName + "  SET " + fields + "  " + where);
+            EAS.Services.ServiceContainer.GetService<DocFileListService>().SaveParamValue(stb.ToString());
+        }
     }
 }

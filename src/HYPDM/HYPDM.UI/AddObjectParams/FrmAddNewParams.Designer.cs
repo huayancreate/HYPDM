@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtParamsColName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtParamsValue = new System.Windows.Forms.TextBox();
-            this.btnNumberValue = new System.Windows.Forms.RadioButton();
-            this.btnDateTime = new System.Windows.Forms.RadioButton();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.btnTxtValue = new System.Windows.Forms.RadioButton();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnDateTime = new System.Windows.Forms.RadioButton();
+            this.btnNumberValue = new System.Windows.Forms.RadioButton();
+            this.txtParamsValue = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtParamsColName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,21 +57,55 @@
             this.panel1.Size = new System.Drawing.Size(339, 212);
             this.panel1.TabIndex = 0;
             // 
-            // txtParamsColName
+            // btnTxtValue
             // 
-            this.txtParamsColName.Location = new System.Drawing.Point(87, 14);
-            this.txtParamsColName.Name = "txtParamsColName";
-            this.txtParamsColName.Size = new System.Drawing.Size(235, 21);
-            this.txtParamsColName.TabIndex = 0;
+            this.btnTxtValue.AutoSize = true;
+            this.btnTxtValue.Checked = true;
+            this.btnTxtValue.Location = new System.Drawing.Point(94, 137);
+            this.btnTxtValue.Name = "btnTxtValue";
+            this.btnTxtValue.Size = new System.Drawing.Size(47, 16);
+            this.btnTxtValue.TabIndex = 7;
+            this.btnTxtValue.TabStop = true;
+            this.btnTxtValue.Text = "文本";
+            this.btnTxtValue.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnSubmit
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "属性名称:";
+            this.btnSubmit.Location = new System.Drawing.Point(241, 171);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(58, 33);
+            this.btnSubmit.TabIndex = 6;
+            this.btnSubmit.Text = "提交";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnDateTime
+            // 
+            this.btnDateTime.AutoSize = true;
+            this.btnDateTime.Location = new System.Drawing.Point(241, 138);
+            this.btnDateTime.Name = "btnDateTime";
+            this.btnDateTime.Size = new System.Drawing.Size(47, 16);
+            this.btnDateTime.TabIndex = 5;
+            this.btnDateTime.Text = "日期";
+            this.btnDateTime.UseVisualStyleBackColor = true;
+            // 
+            // btnNumberValue
+            // 
+            this.btnNumberValue.AutoSize = true;
+            this.btnNumberValue.Location = new System.Drawing.Point(163, 138);
+            this.btnNumberValue.Name = "btnNumberValue";
+            this.btnNumberValue.Size = new System.Drawing.Size(47, 16);
+            this.btnNumberValue.TabIndex = 4;
+            this.btnNumberValue.Text = "数值";
+            this.btnNumberValue.UseVisualStyleBackColor = true;
+            // 
+            // txtParamsValue
+            // 
+            this.txtParamsValue.Location = new System.Drawing.Point(87, 42);
+            this.txtParamsValue.Multiline = true;
+            this.txtParamsValue.Name = "txtParamsValue";
+            this.txtParamsValue.Size = new System.Drawing.Size(235, 56);
+            this.txtParamsValue.TabIndex = 3;
             // 
             // label2
             // 
@@ -82,55 +116,21 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "属性值:";
             // 
-            // txtParamsValue
+            // label1
             // 
-            this.txtParamsValue.Location = new System.Drawing.Point(87, 42);
-            this.txtParamsValue.Multiline = true;
-            this.txtParamsValue.Name = "txtParamsValue";
-            this.txtParamsValue.Size = new System.Drawing.Size(235, 56);
-            this.txtParamsValue.TabIndex = 3;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "属性名称:";
             // 
-            // btnNumberValue
+            // txtParamsColName
             // 
-            this.btnNumberValue.AutoSize = true;
-            this.btnNumberValue.Location = new System.Drawing.Point(163, 138);
-            this.btnNumberValue.Name = "btnNumberValue";
-            this.btnNumberValue.Size = new System.Drawing.Size(47, 16);
-            this.btnNumberValue.TabIndex = 4;
-            this.btnNumberValue.TabStop = true;
-            this.btnNumberValue.Text = "数值";
-            this.btnNumberValue.UseVisualStyleBackColor = true;
-            // 
-            // btnDateTime
-            // 
-            this.btnDateTime.AutoSize = true;
-            this.btnDateTime.Location = new System.Drawing.Point(241, 138);
-            this.btnDateTime.Name = "btnDateTime";
-            this.btnDateTime.Size = new System.Drawing.Size(47, 16);
-            this.btnDateTime.TabIndex = 5;
-            this.btnDateTime.TabStop = true;
-            this.btnDateTime.Text = "日期";
-            this.btnDateTime.UseVisualStyleBackColor = true;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(241, 171);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(58, 33);
-            this.btnSubmit.TabIndex = 6;
-            this.btnSubmit.Text = "提交";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            // 
-            // btnTxtValue
-            // 
-            this.btnTxtValue.AutoSize = true;
-            this.btnTxtValue.Location = new System.Drawing.Point(94, 137);
-            this.btnTxtValue.Name = "btnTxtValue";
-            this.btnTxtValue.Size = new System.Drawing.Size(47, 16);
-            this.btnTxtValue.TabIndex = 7;
-            this.btnTxtValue.TabStop = true;
-            this.btnTxtValue.Text = "文本";
-            this.btnTxtValue.UseVisualStyleBackColor = true;
+            this.txtParamsColName.Location = new System.Drawing.Point(87, 14);
+            this.txtParamsColName.Name = "txtParamsColName";
+            this.txtParamsColName.Size = new System.Drawing.Size(235, 21);
+            this.txtParamsColName.TabIndex = 0;
             // 
             // FrmAddNewParams
             // 
@@ -141,7 +141,6 @@
             this.MaximizeBox = false;
             this.Name = "FrmAddNewParams";
             this.Text = "添加新属性";
-            this.Load += new System.EventHandler(this.FrmAddNewParams_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

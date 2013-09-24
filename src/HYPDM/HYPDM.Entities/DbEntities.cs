@@ -30,6 +30,8 @@ namespace HYPDM.Entities
         private DataEntityQuery<WF_TEMPLATES> m_WF_TEMPLATESs;
         private DataEntityQuery<WF_TEMPLATES_OBJECT> m_WF_TEMPLATES_OBJECTs;
         private DataEntityQuery<WF_APP_USER> m_WF_APP_USERs;
+        private DataEntityQuery<PDM_Params> m_PDM_Paramss;
+        private DataEntityQuery<PDM_Params_DETAIL> m_PDM_Params_DETAILs;
 
         public DataEntityQuery<WF_TEMPLATES_OBJECT> WF_TEMPLATES_OBJECTs
         {
@@ -240,6 +242,37 @@ namespace HYPDM.Entities
                 return this.m_WF_APP_USERs;
             }
         }
+
+        /// <summary>
+        /// 参数列名。
+        /// </summary>
+        public DataEntityQuery<PDM_Params> PDM_Paramss
+        {
+            get
+            {
+                if (this.m_PDM_Paramss == null)
+                {
+                    this.m_PDM_Paramss = base.CreateQuery<PDM_Params>();
+                }
+                return this.m_PDM_Paramss;
+            }
+        }
+
+        /// <summary>
+        /// 参数值表。
+        /// </summary>
+        public DataEntityQuery<PDM_Params_DETAIL> PDM_Params_DETAILs
+        {
+            get
+            {
+                if (this.m_PDM_Params_DETAILs == null)
+                {
+                    this.m_PDM_Params_DETAILs = base.CreateQuery<PDM_Params_DETAIL>();
+                }
+                return this.m_PDM_Params_DETAILs;
+            }
+        }
+
 
         #endregion
 
