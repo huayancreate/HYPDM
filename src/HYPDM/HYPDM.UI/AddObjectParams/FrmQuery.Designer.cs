@@ -1,6 +1,6 @@
 ﻿namespace HYPDM.WinUI.AddObjectParams
 {
-    partial class FrmAdvanceQuery
+    partial class FrmQuery
     {
         /// <summary>
         /// Required designer variable.
@@ -191,15 +191,16 @@
             this.val2.HeaderText = "val2";
             this.val2.Name = "val2";
             // 
-            // FrmAdvanceQuery
+            // FrmQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 475);
             this.Controls.Add(this.splitmain);
             this.MaximizeBox = false;
-            this.Name = "FrmAdvanceQuery";
+            this.Name = "FrmQuery";
             this.Text = "查询";
+            this.Load += new System.EventHandler(this.FrmQuery_Load);
             this.splitmain.Panel1.ResumeLayout(false);
             this.splitmain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitmain)).EndInit();

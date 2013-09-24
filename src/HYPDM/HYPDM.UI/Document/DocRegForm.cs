@@ -1041,7 +1041,9 @@ namespace HYPDM.WinUI.Document
 
         private void tspBtnQuery_Click(object sender, EventArgs e)
         {
-            AddObjectParams.FrmAdvanceQuery query = new AddObjectParams.FrmAdvanceQuery();
+           // AddObjectParams.FrmAdvanceQuery query = new AddObjectParams.FrmAdvanceQuery();
+            AddObjectParams.FrmTest query = new AddObjectParams.FrmTest();
+            query.MasterTableName = "PDM_DOCUMENT";
             query.ShowDialog();
 
         }

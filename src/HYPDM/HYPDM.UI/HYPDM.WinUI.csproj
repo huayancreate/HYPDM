@@ -102,6 +102,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddObjectParams\Dictionary.cs" />
+    <Compile Include="AddObjectParams\FrmAddNewParams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddObjectParams\FrmAddNewParams.Designer.cs">
+      <DependentUpon>FrmAddNewParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddObjectParams\FrmAddParms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddObjectParams\FrmAddParms.Designer.cs">
+      <DependentUpon>FrmAddParms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddObjectParams\FrmAdvanceQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddObjectParams\FrmAdvanceQuery.Designer.cs">
+      <DependentUpon>FrmAdvanceQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddObjectParams\FrmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddObjectParams\FrmTest.Designer.cs">
+      <DependentUpon>FrmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddObjectParams\ObjectParams.cs" />
+    <Compile Include="AddObjectParams\FrmQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddObjectParams\FrmQuery.Designer.cs">
+      <DependentUpon>FrmQuery.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseUI\BaseCheckInForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +228,12 @@
     <Compile Include="Graph\PartsRegForm.Designer.cs">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsAndParts\Material\DocAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Material\DocAddForm.Designer.cs">
+      <DependentUpon>DocAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductsAndParts\Material\MaterailAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +269,12 @@
     </Compile>
     <Compile Include="ProductsAndParts\Parts\ConnectionFilterForm.Designer.cs">
       <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\DocAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\DocAddForm.Designer.cs">
+      <DependentUpon>DocAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsAndParts\Parts\PartsAddForm.cs">
       <SubType>Form</SubType>
@@ -291,6 +335,12 @@
     </Compile>
     <Compile Include="ProductsAndParts\Parts\UseMsgForm.Designer.cs">
       <DependentUpon>UseMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\DocAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\DocAddForm.Designer.cs">
+      <DependentUpon>DocAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsAndParts\Products\LookViewForm.cs">
       <SubType>Form</SubType>
@@ -433,20 +483,45 @@
     <Compile Include="WorkFlow\WorkFlowDesign.Designer.cs">
       <DependentUpon>WorkFlowDesign.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddObjectParams\FrmAddNewParams.resx">
+      <DependentUpon>FrmAddNewParams.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddObjectParams\FrmAddParms.resx">
+      <DependentUpon>FrmAddParms.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddObjectParams\FrmAdvanceQuery.resx">
+      <DependentUpon>FrmAdvanceQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddObjectParams\FrmTest.resx">
+      <DependentUpon>FrmTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddObjectParams\FrmQuery.resx">
+      <DependentUpon>FrmQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseUI\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DefineControl\Pagination.resx">
       <DependentUpon>Pagination.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\CheckInForm.resx">
       <DependentUpon>CheckInForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseUI\AddFileFrm.resx">
       <DependentUpon>AddFileFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\DetectionForm.resx">
       <DependentUpon>DetectionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\DocListControl.resx">
       <DependentUpon>DocListControl.cs</DependentUpon>
@@ -471,6 +546,9 @@
     <EmbeddedResource Include="Graph\PartsRegForm.resx">
       <DependentUpon>PartsRegForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Material\DocAddForm.resx">
+      <DependentUpon>DocAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Material\MaterailAddForm.resx">
       <DependentUpon>MaterailAddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -485,9 +563,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Document\ConnectForm.resx">
       <DependentUpon>ConnectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Parts\ConnectionFilterForm.resx">
       <DependentUpon>ConnectionFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\DocAddForm.resx">
+      <DependentUpon>DocAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Parts\PartsAddForm.resx">
       <DependentUpon>PartsAddForm.cs</DependentUpon>
@@ -518,6 +600,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Parts\UseMsgForm.resx">
       <DependentUpon>UseMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\DocAddForm.resx">
+      <DependentUpon>DocAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\LookViewForm.resx">
       <DependentUpon>LookViewForm.cs</DependentUpon>
@@ -763,6 +848,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\line2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SysConfig\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

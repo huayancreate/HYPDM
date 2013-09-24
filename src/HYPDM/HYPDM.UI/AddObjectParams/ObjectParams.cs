@@ -46,36 +46,98 @@ namespace HYPDM.WinUI.AddObjectParams
             cbx.DataSource = getDataTableBySql("PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME", " ORDER BY TARGET_COLNAME", "PDM_Params");
             cbx.ValueMember = "TARGET_COLNAME";
             cbx.DisplayMember = "PARAMS_NAME";
-         
+            
             cbx.SelectedIndex = -1;
         }
-        public void  SetOperations(DataType.DataColumnType dct,System.Windows.Forms.ComboBox cmbOper)
+
+        public DataType.DataColumnType GetDataColumnType(string  masterTblname,string colName)
         {
-            cmbOper.Items.Clear();
-          ///= > < like between
+            DataTable dt = getDataTableBySql("PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME","  WHERE MASTER_TABLE_NAME IN ('" + masterTblname + "','ALL') AND PARAMS_NAME='" + colName + "'", "PDM_Params");
+            return (DataType.DataColumnType)Enum.Parse(typeof(DataType.DataColumnType), dt.Rows[0]["PARAMS_DATA_TYPE"].ToString(),false);
+            //return 
+        }
+
+
+        public DataTable GetMastableExtandColumns(string masterTblname)
+        {
+            DataTable dt = getDataTableBySql("PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME,MASTER_TABLE_NAME,'' operation,'' val1,'' val2", "  WHERE MASTER_TABLE_NAME IN ('" + masterTblname + "','ALL')", "PDM_Params");
+            return dt;
+            //return 
+        }
+
+
+        //public void  SetOperations(DataType.DataColumnType dct,System.Windows.Forms.ComboBox cmbOper)
+        //{
+        //    cmbOper.Items.Clear();
+        //  ///= > < like between
+        //    switch (dct)
+        //    {
+        //        case DataType.DataColumnType.Number:
+        //            cmbOper.Items.Add("=");
+        //            cmbOper.Items.Add(">");
+        //            cmbOper.Items.Add("<");
+        //            cmbOper.Items.Add("like");
+        //            cmbOper.Items.Add("between");
+
+        //            break;
+        //        case DataType.DataColumnType.Text:
+        //            cmbOper.Items.Add("=");
+        //            cmbOper.Items.Add("like");
+        //            break;
+        //        case  DataType.DataColumnType.DateTime:
+        //            cmbOper.Items.Add("=");
+        //            cmbOper.Items.Add(">");
+        //            cmbOper.Items.Add("<");
+        //            cmbOper.Items.Add("between");
+        //            break;
+        //        default:
+        //            //System.Windows.Forms.MessageBox.Show("数据类型异常");
+        //             cmbOper.Items.Add("=");
+        //            break;
+        //    }
+        //}
+        public void SetOperations(string masterTblname, string colName, System.Windows.Forms.DataGridViewComboBoxCell cmbOper)
+        {
+
+            string[] operNumber = {"=", "<", ">", "<=", ">=", "between" };
+            string[] operDateTime = {"=", "<", ">", "<=", ">=", "between" };
+            string[] operText = { "=","like" };
+            string[] operDefault = {"="};
+          DataType.DataColumnType dct= GetDataColumnType(masterTblname, colName);
+          if (cmbOper != null)
+          {
+              cmbOper.Items.Clear();
+          }
+          else
+          {
+              cmbOper = new System.Windows.Forms.DataGridViewComboBoxCell();
+          }
+            ///= > < like between
             switch (dct)
             {
                 case DataType.DataColumnType.Number:
-                    cmbOper.Items.Add("=");
-                    cmbOper.Items.Add(">");
-                    cmbOper.Items.Add("<");
-                    cmbOper.Items.Add("like");
-                    cmbOper.Items.Add("between");
-
+                    //cmbOper.Items.Add("=");
+                    //cmbOper.Items.Add(">");
+                    //cmbOper.Items.Add("<");
+                    //cmbOper.Items.Add("like");
+                    //cmbOper.Items.Add("between");
+                    cmbOper.Items.AddRange(operNumber);
                     break;
                 case DataType.DataColumnType.Text:
-                    cmbOper.Items.Add("=");
-                    cmbOper.Items.Add("like");
+                    //cmbOper.Items.Add("=");
+                    //cmbOper.Items.Add("like");
+                    cmbOper.Items.AddRange(operText);
                     break;
-                case  DataType.DataColumnType.DateTime:
-                    cmbOper.Items.Add("=");
-                    cmbOper.Items.Add(">");
-                    cmbOper.Items.Add("<");
-                    cmbOper.Items.Add("between");
+                case DataType.DataColumnType.DateTime:
+                    //cmbOper.Items.Add("=");
+                    //cmbOper.Items.Add(">");
+                    //cmbOper.Items.Add("<");
+                    //cmbOper.Items.Add("between");
+                    cmbOper.Items.AddRange(operDateTime);
                     break;
                 default:
                     //System.Windows.Forms.MessageBox.Show("数据类型异常");
-                     cmbOper.Items.Add("=");
+                    cmbOper.Items.AddRange(operDefault);
                     break;
             }
         }
