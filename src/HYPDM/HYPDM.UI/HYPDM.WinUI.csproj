@@ -102,7 +102,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddObjectParams\Dictionary.cs" />
     <Compile Include="AddObjectParams\FrmAddNewParams.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,11 +190,18 @@
     <Compile Include="Document\DocListControl.designer.cs">
       <DependentUpon>DocListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Document\DocQuery.cs" />
     <Compile Include="Document\DocRegForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Document\DocRegForm.Designer.cs">
       <DependentUpon>DocRegForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Document\FrmDocumentQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Document\FrmDocumentQuery.Designer.cs">
+      <DependentUpon>FrmDocumentQuery.cs</DependentUpon>
     </Compile>
     <Compile Include="Document\FrmShowSelectedObject.cs">
       <SubType>Form</SubType>
@@ -495,12 +501,12 @@
       <DependentUpon>FrmAdvanceQuery.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddObjectParams\FrmTest.resx">
-      <DependentUpon>FrmTest.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddObjectParams\FrmQuery.resx">
       <DependentUpon>FrmQuery.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddObjectParams\FrmTest.resx">
+      <DependentUpon>FrmTest.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="BaseUI\BaseForm.resx">
@@ -530,6 +536,9 @@
     <EmbeddedResource Include="Document\DocRegForm.resx">
       <DependentUpon>DocRegForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Document\FrmDocumentQuery.resx">
+      <DependentUpon>FrmDocumentQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Document\FrmShowSelectedObject.resx">
       <DependentUpon>FrmShowSelectedObject.cs</DependentUpon>

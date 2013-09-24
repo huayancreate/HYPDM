@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using EAS.Explorer;
 using EAS.Modularization;
 using HYPDM.BLL;
+using HYPDM.BaseControl;
 namespace HYPDM.WinUI.AddObjectParams
 {
     public class ObjectParams

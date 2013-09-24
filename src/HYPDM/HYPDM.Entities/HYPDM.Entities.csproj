@@ -60,6 +60,8 @@
     <Compile Include="Generat\PDM_FILTER.Generator.cs" />
     <Compile Include="Generat\PDM_MATERAIL.Generator.cs" />
     <Compile Include="Generat\PDM_OBJECT_STRUCT.Generator.cs" />
+    <Compile Include="Generat\PDM_Params.Generator.cs" />
+    <Compile Include="Generat\PDM_Params_DETAIL.Generator.cs" />
     <Compile Include="Generat\PDM_PARTS_DOCUMENT.Generator.cs" />
     <Compile Include="Generat\PDM_PJTCHANGE.Generator.cs" />
     <Compile Include="Generat\PDM_PRODUCT_CHANGE.Generator.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Generat\WF_ TEMPLATES_STEP_Generator.cs" />
     <Compile Include="Generat\WF_APP_Generator.cs" />
     <Compile Include="Generat\WF_APP_HANDLE_Generator.cs" />
+    <Compile Include="Generat\WF_APP_USER.Generator.cs" />
     <Compile Include="Generat\WF_DETAIL_Generator.cs" />
     <Compile Include="Generat\WF_TEMPLATES_Generator.cs" />
     <Compile Include="Generat\WF_TEMPLATES_OBJECT_Genreator.cs" />
@@ -80,6 +83,8 @@
     <Compile Include="PDM_FILTER.cs" />
     <Compile Include="PDM_MATERAIL.cs" />
     <Compile Include="PDM_OBJECT_STRUCT.cs" />
+    <Compile Include="PDM_Params.cs" />
+    <Compile Include="PDM_Params_DETAIL.cs" />
     <Compile Include="PDM_PARTS_DOCUMENT.cs" />
     <Compile Include="PDM_PJTCHANGE.cs" />
     <Compile Include="PDM_PRODUCT_CHANGE.cs" />
@@ -108,6 +113,7 @@
     <Compile Include="DbEntities.cs" />
     <Compile Include="WF_APP.cs" />
     <Compile Include="WF_APP_HANDLE.cs" />
+    <Compile Include="WF_APP_USER.cs" />
     <Compile Include="WF_DETAIL.cs" />
     <Compile Include="WF_TEMPLATES.cs" />
     <Compile Include="WF_TEMPLATES_OBJECT.cs" />

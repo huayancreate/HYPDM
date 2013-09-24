@@ -9,6 +9,96 @@
             
             </summary>
         </member>
+        <member name="M:HYPDM.BLL.AllPartsService.GetProductList">
+            <summary>
+            获取所有半成品记录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.AllPartsService.GetProductList(HYPDM.Entities.PDM_ALL_PRODUCT)">
+            <summary>
+            更加对象查询半成品记录
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.AllPartsService.GetProductList2(EAS.Data.ORM.Condition)">
+            <summary>
+            查询符合条件的半成品记录
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.AllPartsService.GetById(System.String)">
+            <summary>
+            根据主键查询半成品记录
+            </summary>
+            <param name="p_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.AllPartsService.GetListByNo(System.String)">
+            <summary>
+            根据半成品编号获取所有该半成品的版本(模糊查询)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.AllPartsService.GetListByNoDetail(System.String)">
+            <summary>
+            根据半成品编号获取所有该半成品的版本（精确查询）
+            </summary>
+            <param name="p_productNo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.AllPartsService.DelProductList(System.String)">
+            <summary>
+            根据主键删除半成品记录
+            </summary>
+            <param name="p_id"></param>
+        </member>
+        <member name="M:HYPDM.BLL.AllPartsService.DelProductList(System.String,System.String)">
+            <summary>
+            根据主键删除半成品记录
+            </summary>
+            <param name="p_id"></param>
+        </member>
+        <member name="M:HYPDM.BLL.AllPartsService.UpdateByID(HYPDM.Entities.PDM_ALL_PRODUCT)">
+            <summary>
+            根据半成品对象更新记录
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:HYPDM.BLL.AllProductService.GetProductByPage(System.Int32,System.Int32)">
+            <summary>
+            调用存储过程，用于分页查询.
+            </summary>
+            <param name="p_productId"></param>
+            <param name="p_sortNum"></param>
+        </member>
+        <member name="M:HYPDM.BLL.AllProductService.GetProductByPage(HYPDM.Entities.PDM_ALL_PRODUCT,System.Int32,System.Int32)">
+            <summary>
+            调用存储过程，用于插入产品结构时排序的序号加1.
+            </summary>
+            <param name="p_productId"></param>
+            <param name="p_sortNum"></param>
+        </member>
+        <member name="M:HYPDM.BLL.AllProductService.DelProductList(System.String,System.String)">
+            <summary>
+            根据主键删除半成品记录
+            </summary>
+            <param name="p_id"></param>
+        </member>
+        <member name="M:HYPDM.BLL.AllProductService.GetListByNo(System.String)">
+            <summary>
+            根据产品编号获取所有该产品的版本（模糊查询)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.AllProductService.GetListByNoDetail(System.String)">
+            <summary>
+            根据产品编号获取所有该产品的版本（精确查询）
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HYPDM.BLL.DocFileListService.GetDocFileListForDatatable">
             <summary>
             返回所有文档清单
@@ -57,16 +147,194 @@
             <param name="productID"></param>
             <returns></returns>
         </member>
+        <member name="M:HYPDM.BLL.MaterailService.GetProductByPage(HYPDM.Entities.PDM_MATERAIL,System.Int32,System.Int32)">
+            <summary>
+            根据条件分页查询记录
+            </summary>
+            <param name="c"></param>
+            <param name="currentpage"></param>
+            <param name="pagesize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.MaterailService.GetById(System.String)">
+            <summary>
+            根据ID获取一条记录
+            </summary>
+            <param name="p_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.MaterailService.UpdateByID(HYPDM.Entities.PDM_MATERAIL)">
+            <summary>
+            根据材料实体类更新一条记录
+            </summary>
+            <param name="p_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.MaterailService.GetListByNoDetail(System.String)">
+            <summary>
+            根据编号查询一组数据
+            </summary>
+            <param name="p_productNo"></param>
+            <returns></returns>
+        </member>
         <member name="T:HYPDM.BLL.MaxCodeService">
             <summary>
             最大号服务。
             </summary>
+        </member>
+        <member name="M:HYPDM.BLL.MyWorkSpaceService.GetComBoxList">
+            <summary>
+            获取结构树的父节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.MyWorkSpaceService.GetList">
+            <summary>
+            获取树形目录结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.MyWorkSpaceService.GetList(System.String)">
+            <summary>
+            获取树形目录结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.MyWorkSpaceService.GetByParentId(System.String)">
+            <summary>
+            获取树形目录结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.MyWorkSpaceService.DelAssoByID(System.String)">
+            <summary>
+            级联删除目录结构
+            </summary>
+            <param name="p_id"></param>
+        </member>
+        <member name="M:HYPDM.BLL.MyWorkSpaceService.DelByID(HYPDM.Entities.MYWOKSPACE)">
+            <summary>
+            根据主键删除目录结构
+            </summary>
+            <param name="p_id"></param>
+        </member>
+        <member name="M:HYPDM.BLL.MyWorkSpaceService.UpDateByID(HYPDM.Entities.MYWOKSPACE)">
+            <summary>
+            根据主键更新目录结构
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:HYPDM.BLL.MyWorkSpaceService.Save(HYPDM.Entities.MYWOKSPACE)">
+            <summary>
+            保存目录结构
+            </summary>
+            <param name="c"></param>
         </member>
         <member name="M:HYPDM.BLL.ProductStructService.GetProStructList(System.String,System.String)">
             <summary>
             根据产品/半成品ID获取产品结构
             </summary>
             <param name="productID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.GetProductList(HYPDM.Entities.PDM_ALL_PRODUCT)">
+            <summary>
+            获取符合条件的产品的列表
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.GetPartsList(HYPDM.Entities.PDM_ALL_PRODUCT)">
+            <summary>
+            获取符合条件的产成品的列表
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.GetMaterailList(HYPDM.Entities.PDM_MATERAIL)">
+            <summary>
+            获取符合条件的材料的列表
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.GetStructPartList(System.String)">
+            <summary>
+            获取产品结构树的数据
+            </summary>
+            <param name="p_objectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.GetStructMaterailList(System.String)">
+            <summary>
+            获取产品机构树中材料的数据
+            </summary>
+            <param name="p_objectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.saveStruct(HYPDM.Entities.PDM_STRUCT)">
+            <summary>
+            保存产品结构的一条记录
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.delStruct(HYPDM.Entities.PDM_STRUCT)">
+            <summary>
+            删除产品结构的一条记录
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.getStruct(HYPDM.Entities.PDM_STRUCT)">
+            <summary>
+            获取一条记录（产品，半成品，材料）之间的关联关系
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.editStruct(HYPDM.Entities.PDM_STRUCT,System.String)">
+            <summary>
+            编辑产品结构的一条记录
+            </summary>
+            <param name="c"></param>
+            <param name="p_assobjId"></param>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.getCount(System.String)">
+             <summary>
+            获取结构的数量，用于增加时排序
+             </summary>
+             <param name="p_productId"></param>
+             <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.StructService.transactionExc(System.String,System.String)">
+            <summary>
+            调用存储过程，用于插入产品结构时排序的序号加1.
+            </summary>
+            <param name="p_productId"></param>
+            <param name="p_sortNum"></param>
+        </member>
+        <member name="M:HYPDM.BLL.WFTemplatesStepService.GetWfAppHandleItem(System.String,System.String,System.String)">
+            <summary>
+            根据工作流实例APPID与目前工作节点、用户ID获取WF_APP_HANDLE信息
+            </summary>
+            <param name="wfaID"></param>
+            <param name="CurrentStepID"></param>
+            <param name="userID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.WFTemplatesStepService.GetWfAppStepHandleList(System.String,System.String)">
+            <summary>
+            根据工作流实例APPID与目前工作节点获取WF_APP_HANDLE信息集合
+            </summary>
+            <param name="wfaID"></param>
+            <param name="CurrentStepID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.WFTemplatesStepService.GetDetailByWFAppidAndStepID(System.String,System.String)">
+            <summary>
+            获取detail信息,当前节点
+            </summary>
+            <param name="wfaID"></param>
+            <param name="CurrentStepID"></param>
             <returns></returns>
         </member>
     </members>

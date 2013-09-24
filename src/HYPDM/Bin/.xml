@@ -37,6 +37,131 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
+        <member name="T:HYPDM.DataType.AuthObjectType">
+            <summary>
+            文件权限设定时候的对象,SingleUser标识对单用户进行设定,UserRole以用户角色为设定对象,Folder以文件夹为对象
+            </summary>
+        </member>
+        <member name="T:HYPDM.DataType.AuthParmsType">
+            <summary>
+            View 查看,Eidt编辑...
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.AuthParmsType.View">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HYPDM.DataType.RelationObjectType">
+            <summary>
+            关联及被关联对象的类型
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.RelationObjectType.Document">
+            <summary>
+            文档
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.RelationObjectType.File">
+            <summary>
+            文件
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.RelationObjectType.Product">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.RelationObjectType.SemiProduct">
+            <summary>
+            半产品
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.RelationObjectType.Material">
+            <summary>
+            物料
+            </summary>
+        </member>
+        <member name="T:HYPDM.DataType.WFTEMPLATESSTATUS">
+            <summary>
+            工作流模板状态
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.WFTEMPLATESSTATUS.Complete">
+            <summary>
+            完成
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.WFTEMPLATESSTATUS.Modify">
+            <summary>
+            修改
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.WFTEMPLATESSTATUS.Hold">
+            <summary>
+            暂停使用
+            </summary>
+        </member>
+        <member name="T:HYPDM.DataType.WFDetailSTATUS">
+            <summary>
+            工作流实例状态
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.WFDetailSTATUS.UNActivate">
+            <summary>
+            未激活
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.WFDetailSTATUS.Activated">
+            <summary>
+            激活中
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.WFDetailSTATUS.Return">
+            <summary>
+            返回
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.WFDetailSTATUS.Complete">
+            <summary>
+            完成
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.UserOrGroupSelected.ObjectType">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.FileType.ProcessFile">
+            <summary>
+            工艺文件
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.FileType.Drawing">
+            <summary>
+            图纸文件
+            </summary>
+        </member>
+        <member name="T:HYPDM.DataType.DataColumnType">
+            <summary>
+            扩展栏位的列数据类型
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.DataColumnType.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.DataColumnType.Number">
+            <summary>
+            数值
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.DataColumnType.DateTime">
+            <summary>
+            日期
+            </summary>
+        </member>
         <member name="T:HYPDM.BaseControl.ExportToExcelProvider">
             <summary>
             标题：将 DataSet, DataTable 导出到 Excel

@@ -1,0 +1,2608 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HYPDM.WinUI</name>
+    </assembly>
+    <members>
+        <member name="F:HYPDM.WinUI.AddObjectParams.FrmAddNewParams.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAddNewParams.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAddNewParams.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAddParms.#ctor(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tblName">主表名称</param>
+            <param name="Value">表的主键值</param>
+            <param name="ColName">表的主键栏位名称</param>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAddParms.CreateParams(System.Windows.Forms.Control)">
+            <summary>
+            
+            </summary>
+            <param name="ctl">容器</param>
+        </member>
+        <member name="F:HYPDM.WinUI.AddObjectParams.FrmAddParms.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAddParms.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAddParms.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.extandTitle">
+            <summary>
+            展开高级查询时候的按钮名称
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.collapsTitle">
+            <summary>
+            未展开高级查询按钮时候的名称
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.GetQueryString">
+            <summary>
+            遍历集合组成查询字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.MasterTableName">
+            <summary>
+            主表名称
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.MinHeigh">
+            <summary>
+            普通查询界面加上高级查询按钮的高度
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.MaxHeigh">
+            <summary>
+            总高度
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.ExtandTitle">
+            <summary>
+            展开高级查询时候的按钮名称
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.AddObjectParams.FrmAdvanceQuery.CollapsTitle">
+            <summary>
+            未展开高级查询按钮时候的名称
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.AddObjectParams.FrmTest.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmTest.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmTest.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.ObjectParams.getDataTableBySql(System.String,System.String,System.String)">
+            <summary>
+            给定列名，where条件,及表明返回datatable
+            </summary>
+            <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
+            <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
+            <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+            <returns></returns>
+        </member>
+        <member name="F:HYPDM.WinUI.AddObjectParams.FrmQuery.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmQuery.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmQuery.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseCheckInForm.btnSelectPath_Click(System.Object,System.EventArgs)">
+            <summary>
+            选择文件路径
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseCheckInForm.btnCheckIN_Click(System.Object,System.EventArgs)">
+            <summary>
+            检入
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseCheckInForm.btnClose_Click(System.Object,System.EventArgs)">
+            <summary>
+            关闭
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.BaseUI.BaseCheckInForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseCheckInForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseCheckInForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.BaseUI.BaseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseDetectionForm.btnSelectPath_Click(System.Object,System.EventArgs)">
+            <summary>
+            选择存放路径
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseDetectionForm.btnDetect_Click(System.Object,System.EventArgs)">
+            <summary>
+            检出
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.BaseUI.BaseDetectionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseDetectionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.BaseDetectionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.BaseUI.OpenFileDialogForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.OpenFileDialogForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.BaseUI.OpenFileDialogForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.DefineControl.DateTimePickerExt.IsValueChanged">
+            <summary> 
+            值是否已改变 
+            </summary> 
+        </member>
+        <member name="F:HYPDM.WinUI.DefineControl.DateTimePickerExt._formatString">
+            <summary> 
+            原格式字符串 
+            </summary> 
+        </member>
+        <member name="F:HYPDM.WinUI.DefineControl.DateTimePickerExt._originalFormat">
+            <summary> 
+            原格式 
+            </summary> 
+        </member>
+        <member name="F:HYPDM.WinUI.DefineControl.DateTimePickerExt.valueX">
+            <summary> 
+            可空日期 
+            </summary> 
+        </member>
+        <member name="M:HYPDM.WinUI.DefineControl.DateTimePickerExt.SetNullText">
+            <summary> 
+            设置空字符显示 
+            </summary> 
+        </member>
+        <member name="P:HYPDM.WinUI.DefineControl.DateTimePickerExt.ValueX">
+            <summary> 
+            日期(值改变前为null) 
+            </summary> 
+        </member>
+        <member name="P:HYPDM.WinUI.DefineControl.DateTimePickerExt.FormatString">
+            <summary> 
+            格式字符串 
+            </summary> 
+        </member>
+        <member name="P:HYPDM.WinUI.DefineControl.DateTimePickerExt.OriginalFormat">
+            <summary> 
+            设置格式 
+            </summary> 
+        </member>
+        <member name="P:HYPDM.WinUI.DefineControl.DateTimePickerExt.BeginTime">
+            <summary> 
+            开始时间(该日期的00:00:00) 
+            </summary> 
+        </member>
+        <member name="P:HYPDM.WinUI.DefineControl.DateTimePickerExt.EndTime">
+            <summary> 
+            结束时间(该日期的23:59:59) 
+            </summary> 
+        </member>
+        <member name="M:HYPDM.WinUI.DefineControl.Pagination.pageRowsCtrl_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            输入显示的记录数更新记录
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DefineControl.Pagination.pageNumCtrl_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            输入页数的时候显示更新记录
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.DefineControl.Pagination.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DefineControl.Pagination.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.DefineControl.Pagination.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.CheckInForm.btnSelectPath_Click(System.Object,System.EventArgs)">
+            <summary>
+            选择文件路径
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.CheckInForm.btnCheckIN_Click(System.Object,System.EventArgs)">
+            <summary>
+            检入
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.CheckInForm.btnClose_Click(System.Object,System.EventArgs)">
+            <summary>
+            关闭
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.CheckInForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.CheckInForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.CheckInForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:HYPDM.WinUI.Document.AddFileFrm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.AddFileFrm.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.AddFileFrm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.AddFileFrm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.AddFileFrm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DetectionForm.btnSelectPath_Click(System.Object,System.EventArgs)">
+            <summary>
+            选择存放路径
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DetectionForm.btnDetect_Click(System.Object,System.EventArgs)">
+            <summary>
+            检出
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.DetectionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DetectionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DetectionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocListControl.InitList(System.Data.DataTable)">
+            <summary>
+            将指定的数据源中的记录绑定到列表。
+            </summary>
+        </member>
+        <!-- 对于成员“M:HYPDM.WinUI.Document.DocListControl.DocAdd”忽略有格式错误的 XML 注释 -->
+        <member name="M:HYPDM.WinUI.Document.DocListControl.OnExited(System.EventArgs)">
+            <summary>
+            触发 Exited 事件。
+            </summary>
+            <param name="e">事件参数。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocListControl.DocDelete">
+            <summary>
+            记录删除
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocListControl.DocProperty">
+            <summary>
+            记录属性。
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.DocListControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocListControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocListControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.SaveDocment">
+            <summary>
+            保存文档基本属性
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.SaveCheck">
+            <summary>
+            保存前的输入check
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnView_Click(System.Object,System.EventArgs)">
+            <summary>
+            查看文件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnCheckOut_Click(System.Object,System.EventArgs)">
+            <summary>
+            检出
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnCheckIN_Click(System.Object,System.EventArgs)">
+            <summary>
+            检入
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnDel_Click(System.Object,System.EventArgs)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.VersionSave(System.String,HYPDM.Entities.DOC_FILE_LIST)">
+            <summary>
+            版本历史记录保存
+            </summary>
+            <param name="type">0：检出，1：检入</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnHalfProduct_Click(System.Object,System.EventArgs)">
+            <summary>
+            半成品、原材料、工艺装备
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnAddRelation_Click(System.Object,System.EventArgs)">
+            <summary>
+            新建关联
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnDelRelation_Click(System.Object,System.EventArgs)">
+            <summary>
+            删除关联
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.tvFileList_CellClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            测试
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.tspDownLoad_Click(System.Object,System.EventArgs)">
+            <summary>
+            文件下载
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.downLoadFile">
+            <summary>
+            文件下载
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.InitialObjectRelation">
+            <summary>
+            初始化文档关联的对象信息
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.DocRegForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.FrmDocumentQuery.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.FrmDocumentQuery.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.FrmDocumentQuery.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.FrmShowSelectedObject.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.FrmShowSelectedObject.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.FrmShowSelectedObject.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.SearchForm.btnSearch_Click(System.Object,System.EventArgs)">
+            <summary>
+            查询
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.SearchForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.SearchForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.SearchForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.ToolsHelper.CreatTree(System.Windows.Forms.TreeNodeCollection,System.String,System.Data.DataTable)">
+            <summary>
+            
+            </summary>
+            <param name="Nds"></param>
+            <param name="parentID"></param>
+            <param name="dt"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.ToolsHelper.getTreeViewByPathDir(System.Windows.Forms.TreeView)">
+            <summary>
+            
+            </summary>
+            <param name="tv"></param>
+            <param name="dtDocList"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.graph.GraphRegForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.graph.GraphRegForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.graph.GraphRegForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.graph.InitGraphForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.graph.InitGraphForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.graph.InitGraphForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.graph.PartsRegForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.graph.PartsRegForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.graph.PartsRegForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Material.DocAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.DocAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.DocAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Material.MaterailAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterailAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterailAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.allinit">
+            <summary>
+            初始化界面控件数据
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.service_Init">
+            <summary>
+            //初始化服务类
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.baseInfo_Init">
+            <summary>
+            基本信息--显示初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.toolBaseEdit_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--修改按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.toolBaseReg_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--新建按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.toolBaseClear_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--清空按钮的操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialConfForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Material.MaterialsList.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialsList.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.MaterialsList.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Material.QueryMaterailForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.QueryMaterailForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.QueryMaterailForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.ConnectForm.listObjectRelation">
+            <summary>
+            存放选中的信息
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.ConnectForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.ConnectForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.ConnectForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Parts.ConnectionFilterForm.ViewFilter">
+            <summary>
+            选择一个过滤器
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Parts.ConnectionFilterForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Parts.ConnectionFilterForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Parts.ConnectionFilterForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.DocAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.DocAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.DocAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.PartsAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsCompForm.common_Init(System.String,System.String)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsCompForm.tree_Init">
+            <summary>
+            树结构展示初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsCompForm.treeRootCreate(System.Windows.Forms.TreeListView,System.String,System.String)">
+            <summary>m
+            构造树根节点
+            </summary>
+            <param name="tree"></param>
+            <param name="p_productId"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsCompForm.treeChildCreate(System.Windows.Forms.TreeListViewItem,System.String)">
+            <summary>
+            /构造树子节点
+            </summary>
+            <param name="node"></param>
+            <param name="p_objectId"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsCompForm.changeColor(System.Windows.Forms.TreeListViewItem,System.Drawing.Color)">
+            <summary>
+            改变行背景色
+            </summary>
+            <param name="item"></param>
+            <param name="c"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.PartsCompForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsCompForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsCompForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.allinit">
+            <summary>
+            初始化界面控件数据
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.service_Init">
+            <summary>
+            //初始化服务类
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.baseInfo_Init">
+            <summary>
+            基本信息--显示初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolBaseEdit_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--修改按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolBaseReg_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--新建按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolBaseClear_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--清空按钮的操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.tabProRecord_Init">
+            <summary>
+            生产记录页面初始化
+            </summary>
+            <param name="t"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolProRecordAdd_Click(System.Object,System.EventArgs)">
+            
+             页面控件操作***********************************************************
+            
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm._pjtChangeService">
+            
+             变量定义*************************************************************
+            
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.dgv_Change_init(HYPDM.Entities.PDM_ALL_PRODUCT)">
+            
+             页面控件初始化********************************************************
+            
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.tabStruct_Init">
+            <summary>
+            产品结构页面初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.structPro_Init">
+            <summary>
+            属性combox控件初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.list_productTreeStruct_init">
+            <summary>
+            初始化树列表根节点
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.treeCreater(System.Windows.Forms.TreeListViewItem,System.String)">
+            <summary>
+            初始化树列表子节点
+            </summary>
+            <param name="node"></param>
+            <param name="p_objectId"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.bt_StructSearch_Click(System.Object,System.EventArgs)">
+            <summary>
+            查询按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.treeCreaterSearch(System.Windows.Forms.TreeListViewItem,System.String)">
+            <summary>
+            构造符合查询条件的产品结构树
+            </summary>
+            <param name="node"></param>
+            <param name="p_objectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolStructAdd_Click(System.Object,System.EventArgs)">
+            <summary>
+            添加产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolStructDel_Click(System.Object,System.EventArgs)">
+            <summary>
+            删除产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolStructEdit_Click(System.Object,System.EventArgs)">
+            <summary>
+             修改产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolStructReplace_Click(System.Object,System.EventArgs)">
+            <summary>
+            替换产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolStructInsert_Click(System.Object,System.EventArgs)">
+            <summary>
+            插入产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolStructSave_Click(System.Object,System.EventArgs)">
+            <summary>
+            保存--查询结果
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.getchildValue(System.Windows.Forms.TreeListViewItem,Excel.Worksheet,System.Int32,System.Int32)">
+            <summary>
+            保存--遍历树结构
+            </summary>
+            <param name="item_first"></param>
+            <param name="mySheet"></param>
+            <param name="p_rowNum"></param>
+            <param name="p_level"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.tabVersion_Init">
+            <summary>
+            版本页面初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.dgv_Product_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+             // dgv_Product（列表checkbox选择操作）
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolVersionQuery_Click(System.Object,System.EventArgs)">
+            <summary>
+            toolVersionQuery（查询按钮操作）
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.toolVersionCompare_Click(System.Object,System.EventArgs)">
+            <summary>
+            比较按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.PartsListControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsListControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsListControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsStructAddForm.toolDetailQuery_Click(System.Object,System.EventArgs)">
+            
+            控件初始化
+            
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.PartsStructAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsStructAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsStructAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.PartsTypeForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsTypeForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsTypeForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.QueryPartsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.QueryPartsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.QueryPartsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.QueryStructForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.QueryStructForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.QueryStructForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.StructAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.StructAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.StructAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Parts.UseMsgForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Parts.UseMsgForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Parts.UseMsgForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.DocAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.DocAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.DocAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.LookViewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.LookViewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.LookViewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsAssChangeListForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsAssChangeListForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsAssChangeListForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsCompForm.common_Init(System.String,System.String)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsCompForm.tree_Init">
+            <summary>
+            树结构展示初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsCompForm.treeRootCreate(System.Windows.Forms.TreeListView,System.String,System.String)">
+            <summary>m
+            构造树根节点
+            </summary>
+            <param name="tree"></param>
+            <param name="p_productId"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsCompForm.treeChildCreate(System.Windows.Forms.TreeListViewItem,System.String)">
+            <summary>
+            /构造树子节点
+            </summary>
+            <param name="node"></param>
+            <param name="p_objectId"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsCompForm.changeColor(System.Windows.Forms.TreeListViewItem,System.Drawing.Color)">
+            <summary>
+            改变行背景色
+            </summary>
+            <param name="item"></param>
+            <param name="c"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsCompForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsCompForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsCompForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.#ctor(System.String,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="t_productId"></param>
+            <param name="p_type"></param>
+            <param name="ISWFDetailView">是否是在工作流中预览</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.allinit">
+            <summary>
+            初始化界面控件数据
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.service_Init">
+            <summary>
+            //初始化服务类
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.baseInfo_Init">
+            <summary>
+            基本信息--显示初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolBaseEdit_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--修改按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolBaseReg_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--新建按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolBaseClear_Click(System.Object,System.EventArgs)">
+            <summary>
+            基本信息--清空按钮的操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.tabProRecord_Init">
+            <summary>
+            生产记录页面初始化
+            </summary>
+            <param name="t"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolProRecordAdd_Click(System.Object,System.EventArgs)">
+            
+             页面控件操作***********************************************************
+            
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm._pjtChangeService">
+            
+             变量定义*************************************************************
+            
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.dgv_Change_init(HYPDM.Entities.PDM_ALL_PRODUCT)">
+            
+             页面控件初始化********************************************************
+            
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.tabStruct_Init">
+            <summary>
+            产品结构页面初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.structPro_Init">
+            <summary>
+            属性combox控件初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.list_productTreeStruct_init">
+            <summary>
+            初始化树列表根节点
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.treeCreater(System.Windows.Forms.TreeListViewItem,System.String)">
+            <summary>
+            初始化树列表子节点
+            </summary>
+            <param name="node"></param>
+            <param name="p_objectId"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.bt_StructSearch_Click(System.Object,System.EventArgs)">
+            <summary>
+            查询按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.treeCreaterSearch(System.Windows.Forms.TreeListViewItem,System.String)">
+            <summary>
+            构造符合查询条件的产品结构树
+            </summary>
+            <param name="node"></param>
+            <param name="p_objectId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolStructAdd_Click(System.Object,System.EventArgs)">
+            <summary>
+            添加产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolStructDel_Click(System.Object,System.EventArgs)">
+            <summary>
+            删除产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolStructEdit_Click(System.Object,System.EventArgs)">
+            <summary>
+             修改产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolStructReplace_Click(System.Object,System.EventArgs)">
+            <summary>
+            替换产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolStructInsert_Click(System.Object,System.EventArgs)">
+            <summary>
+            插入产品结构
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolStructSave_Click(System.Object,System.EventArgs)">
+            <summary>
+            保存--查询结果
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.getchildValue(System.Windows.Forms.TreeListViewItem,Excel.Worksheet,System.Int32,System.Int32)">
+            <summary>
+            保存--遍历树结构
+            </summary>
+            <param name="item_first"></param>
+            <param name="mySheet"></param>
+            <param name="p_rowNum"></param>
+            <param name="p_level"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.tabVersion_Init">
+            <summary>
+            版本页面初始化
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.dgv_Product_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+             // dgv_Product（列表checkbox选择操作）
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolVersionQuery_Click(System.Object,System.EventArgs)">
+            <summary>
+            toolVersionQuery（查询按钮操作）
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.toolVersionCompare_Click(System.Object,System.EventArgs)">
+            <summary>
+            比较按钮操作
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsConnectForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConnectForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConnectForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsListControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsListControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsListControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsProRecordAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsProRecordAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsProRecordAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsStructAddForm.toolDetailQuery_Click(System.Object,System.EventArgs)">
+            
+            控件初始化
+            
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsStructAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsStructAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsStructAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.ProductsStructForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsStructForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsStructForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.QueryChangeForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.QueryChangeForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.QueryChangeForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.QueryProductsForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.QueryProductsForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.QueryProductsForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.QueryStructForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.QueryStructForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.QueryStructForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.StructAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.StructAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.StructAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Program.Main">
+            <summary>
+            应用程序的主入口点。
+            </summary>
+        </member>
+        <member name="T:HYPDM.WinUI.Util.FTPDownUp">
+            <summary>
+            文件的FTP上传与FTP下载
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPDownUp.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPDownUp.#ctor(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            FTP构造函数
+            </summary>
+            <param name="serverAdd">FTP服务器地址</param>
+            <param name="serverPort">FTP服务器端口号</param>
+            <param name="userID">登录FTP服务器的账号</param>
+            <param name="password">登录FTP服务器的账号密码</param>
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPDownUp.FTPDownload(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            文件下载
+            </summary>
+            <param name="remoteFilePath">远程FTPServer上的路径</param>
+            <param name="remoteFileName">远程FTPServer杀过的文件名称</param>
+            <param name="localFilePath">本地目录，以“\”分隔每一级目录。如果为空，下载到当前目录。如果非空，以“\”结尾</param>
+            <param name="localFileName">本地文件名，如果为空，则与远程文件同名</param>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPDownUp.FTPUpload(System.String,System.String,System.IO.FileInfo,System.String@)">
+            <summary>   
+            FTP上传文件   
+            </summary>   
+            <param name="remoteFilePath">远程目录，以“/”分隔每一级目录。如果非空，以“/”结尾</param>   
+            <param name="remoteFileName">远程文件名，如果为空，则与本地文件同名</param>   
+            <param name="localFilePath">本地目录，以“\”分隔每一级目录。如果为空，下载到当前目录。如果非空，以“\”结尾</param>   
+            <param name="localFileName">本地文件名</param>   
+            <param name="info"></param>   
+            <returns></returns>   
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPDownUp.ChkAndSetDir(System.String)">
+            <summary>
+            如果目录不存在，将创建新目录
+            </summary>
+            <param name="objPath"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPDownUp.DirExist(System.String)">
+            <summary>
+            判定该目录是否存在
+            </summary>
+            <param name="objPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPDownUp.FTPDownload(System.String,System.String,System.String@)">
+            <summary>
+            FTP文件下载
+            </summary>
+            <param name="remoteFilePathAndFileName">远程需要下载的文件路径及名称</param>
+            <param name="localFilePathAndName">本地需要下载的文件路径及名称</param>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HYPDM.WinUI.Util.FTPDownUp.ServerAddr">
+            <summary>
+            FTP服务器地址
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Util.FTPDownUp.ServerPort">
+            <summary>
+            FTP服务器端口号
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Util.FTPDownUp.UserID">
+            <summary>
+            登录FTP服务器的账号
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Util.FTPDownUp.Password">
+            <summary>
+            登录FTP服务器的账号密码
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Util.Common.FtpInfo">
+            <summary>
+            FTP对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HYPDM.WinUI.Util.FTPHelper">
+            <summary>
+            FTP帮助类
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>  
+            连接FTP服务器
+            </summary>  
+            <param name="FtpServerIP">FTP连接地址</param>  
+            <param name="FtpRemotePath">指定FTP连接成功后的当前目录, 如果不指定即默认为根目录</param>  
+            <param name="FtpUserID">用户名</param>  
+            <param name="FtpPassword">密码</param>  
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.Upload(System.String)">
+            <summary>  
+            上传  
+            </summary>   
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.Download(System.String,System.String)">
+            <summary>  
+            下载  
+            </summary>   
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.Delete(System.String)">
+            <summary>  
+            删除文件  
+            </summary>  
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.GetFilesDetailList">
+            <summary>  
+            获取当前目录下明细(包含文件和文件夹)  
+            </summary>  
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.GetAllList(System.String)">
+            <summary>  
+            获取FTP文件列表(包括文件夹)
+            </summary>   
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.GetFileList(System.String)">
+            <summary>  
+            获取当前目录下文件列表(不包括文件夹)  
+            </summary>  
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.FileExist(System.String)">
+            <summary>  
+            判断当前目录下指定的文件是否存在  
+            </summary>  
+            <param name="RemoteFileName">远程文件名</param>  
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.MakeDir(System.String)">
+            <summary>  
+            创建文件夹  
+            </summary>   
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.GetFileSize(System.String)">
+            <summary>  
+            获取指定文件大小  
+            </summary>  
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.ReName(System.String,System.String)">
+            <summary>  
+            更改文件名  
+            </summary> 
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.MovieFile(System.String,System.String)">
+            <summary>  
+            移动文件  
+            </summary>  
+        </member>
+        <member name="M:HYPDM.WinUI.Util.FTPHelper.GotoDirectory(System.String,System.Boolean)">
+            <summary>  
+            切换当前目录  
+            </summary>  
+            <param name="IsRoot">true:绝对路径 false:相对路径</param>   
+        </member>
+        <member name="M:HYPDM.WinUI.Util.Util.FtpInfo">
+            <summary>
+            FTP对象
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.CommonFuns.SetComboBoxValue(System.Windows.Forms.ComboBox,System.String,System.Int32)">
+            <summary>
+            给combox赋值
+            </summary>
+            <param name="cobbox"></param>
+            <param name="dataType"></param>
+            <param name="selectedIndex"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.CommonFuns.getDataTableBySql(System.String,System.String,System.String)">
+            <summary>
+            给定列名，where条件,及表明返回datatable
+            </summary>
+            <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
+            <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
+            <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.FlowDetail.GetWorkDetail(System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="loginD">登录账号</param>
+            <param name="detailType">1. 本人待办工作流   2. 发出的工作:本人拟制的工作流  3. 完成的工作:本人发起的、不是本人发起的，但是与本人有关的工作流且自己已经完成签批，但是整个工作流不一定完成签批</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.FlowRelationConfig.CreateFlowGraphicByWFTID(System.String,System.String,System.Windows.Forms.Control,System.String)">
+            <summary>
+            创建流程实例视图
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.FlowRelationConfig.CreateTemplatesGraphic(System.String,System.String,System.Windows.Forms.Control)">
+            <summary>
+            创建流程模板视图
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.FlowRelationConfig.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.FlowRelationConfig.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.FlowRelationConfig.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle.wfAppID">
+            <summary>
+            工作流实例的主键
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle.CreateFlowGraphicByWFTID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle.WfAppID">
+            <summary>
+            工作流实例的主键
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandle.contentMsg">
+            <summary>
+            返回主调用窗体
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandle.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandle.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandle.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.objectKey">
+            <summary>
+            对象主键
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.relationObjectType">
+            <summary>
+            关联类型
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.wfAppID">
+            <summary>
+            工作流实例的主键
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.wfTemplatesID">
+            <summary>
+            工作流模板主键
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.#ctor(System.String,HYPDM.DataType.RelationObjectType,System.String)">
+            <summary>
+            传参构造方法
+            </summary>
+            <param name="objectKey">对象主键</param>
+            <param name="relationObjectType">关联类型</param>
+            <param name="wfTemplates">工作流模板ID</param>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.flowName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.selUser(System.String)">
+            <summary>
+            弹出选择用户登录的弹出框
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.WfAppID">
+            <summary>
+            工作流实例的主键
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.WfTemplatesID">
+            <summary>
+            工作流模板主键
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.ObjectKey">
+            <summary>
+            对象主键
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.RelationObjectType">
+            <summary>
+            关联类型
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandleCommon.contentMsg">
+            <summary>
+            返回主调用窗体,审核人员意见内容
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandleCommon.iSThrough">
+            <summary>
+             返回主调用窗体,表明是否通过该流程节点
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandleCommon.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandleCommon.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.FlowStepHandleCommon.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.RelationObject.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.RelationObject.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.RelationObject.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.UserAndUserRoleForm.selectedUserOrGroupList">
+            <summary>
+            选中的用户或者群组
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.UserAndUserRoleForm.oldSelectedUserList">
+            <summary>
+            标示该节点已经选择的用户信息
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.UserAndUserRoleForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.UserAndUserRoleForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.UserAndUserRoleForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.UserAndUserRoleForm.EasAccountEntity.objectType">
+            <summary>
+            说明是单用户还是群组用户
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.WorkFlow.UserAndUserRoleForm.EasAccountEntity.ObjectType">
+            <summary>
+            说明是单用户还是群组用户
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetWFStepInfoByStepID(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="stepID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetWFStepListByWFID(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="wftID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetWFStartStepByWFID(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="wftID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetTableName(HYPDM.DataType.RelationObjectType)">
+            <summary>
+            根据RelationObjectType类型获取对应的主表名称及form
+            </summary>
+            <param name="RelationObjectType"> DataType.RelationObjectTyp</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetObjectTitle(HYPDM.DataType.RelationObjectType)">
+            <summary>
+            获取设定流程对象的title名称
+            </summary>
+            <param name="relationObjectType">RelationObjectType</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GETCurrentStepHandleUser(System.String)">
+            <summary>
+            获取当前处理人集合
+            </summary>
+            <param name="wfaID">WF_APP表主键,工作流实例的主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetWfAppWipDetailByWfaID(System.String)">
+            <summary>
+            获取工作流实例的的当前处理节点
+            </summary>
+            <param name="wfaID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetWftStepIDByStepIDAndAppID(System.String,System.String)">
+            <summary>
+            根据工作流实例主键与节点（工作流节点）获取WF_TEMPLATES_STEP中的主键
+            </summary>
+            <param name="wfappID"></param>
+            <param name="stepID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetWfAppStepHandleList(System.String,System.String)">
+            <summary>
+            根据工作流实例APPID与目前工作节点获取WF_APP_HANDLE信息集合
+            </summary>
+            <param name="wfaID"></param>
+            <param name="CurrentStepID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetWfAppHandleItem(System.String,System.String,System.String)">
+            <summary>
+            根据工作流实例APPID与目前工作节点、用户ID获取WF_APP_HANDLE信息
+            </summary>
+            <param name="wfaID"></param>
+            <param name="CurrentStepID"></param>
+            <param name="userID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetWFStep(System.String)">
+            <summary>
+            获取工作节点的名称如审批、拟制等信息
+            </summary>
+            <param name="wftCurrentStepID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetDetaiFrm(HYPDM.DataType.RelationObjectType,System.String)">
+            <summary>
+            获取form
+            </summary>
+            <param name="RelationObjectType"></param>
+            <param name="objectID"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HYPDM.WinUI.WorkFlow.WorkFlow.NewInstance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlowDesign.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.WorkFlowDesign.currentWFTemplateID">
+            <summary>
+            当前操作的工作流ID
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.WorkFlowDesign.currentWFStep">
+            <summary>
+            当前节点value，记录下一节点的去向，新增加下一节点的当前节点值
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlowDesign.initialEvent(System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="pnlTop"></param>
+            <param name="pnlMain"></param>
+            <param name="dgVStepInfo"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlowDesign.IsWFTemplateExist">
+            <summary>
+            判定是否有同名称的工作流
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlowDesign.IsWFFirstStep">
+            <summary>
+            判定是否是第一个需要保存的节点
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlowDesign.btnModify_Click(System.Object,System.EventArgs)">
+            <summary>
+            修改工作流
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:HYPDM.WinUI.WorkFlow.WorkFlowDesign.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlowDesign.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlowDesign.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="T:HYPDM.WinUI.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Add">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.banner">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Cancel">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.delete">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.delete1">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.delete16_16">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.delete48">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.download">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.edit_add">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.edit_remove">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Exit">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.F0">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.F1">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.F2">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.file">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Find">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Find_0">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.G0">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.G1">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.G2">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.In_forder">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.line">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.line2">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Main_1">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Main_3">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Max">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Max_All">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Min_All">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.modify_13">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.newGroupPostIconStrip">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.pagination_first">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.pagination_last">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.pagination_load">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.pagination_loading">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.pagination_next">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.pagination_prev">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.print">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.search">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.T0">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.T1">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.T2">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.Text_Document__plain_">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.upload">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.user">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.view">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.W0">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.W0_Max">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.W1">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.WinUI.Properties.Resources.W2">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+    </members>
+</doc>

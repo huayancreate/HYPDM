@@ -1004,23 +1004,6 @@
     <Module>
       <Used>false</Used>
       <WorkFlowAddIn>false</WorkFlowAddIn>
-      <Guid>CED0FF76-5C3B-4951-8285-A66AA8ADA3BE</Guid>
-      <Name>文档列表</Name>
-      <Assembly>HYPDM.WinUI</Assembly>
-      <Type>HYPDM.WinUI.Document.DocListControl</Type>
-      <Method />
-      <Version>1.0.0.0</Version>
-      <Developer />
-      <Description>文档管理</Description>
-      <Url />
-      <SortCode>0</SortCode>
-      <Attributes>1</Attributes>
-      <Package />
-      <LMTime>2013-07-10T11:37:18.483</LMTime>
-    </Module>
-    <Module>
-      <Used>false</Used>
-      <WorkFlowAddIn>false</WorkFlowAddIn>
       <Guid>2A728C57-1DB0-47D5-BAB9-61B949312EE7</Guid>
       <Name>零部件信息</Name>
       <Assembly>HYPDM.WinUI</Assembly>
@@ -1068,23 +1051,6 @@
       <Attributes>1</Attributes>
       <Package />
       <LMTime>2013-07-17T15:26:54.75</LMTime>
-    </Module>
-    <Module>
-      <Used>false</Used>
-      <WorkFlowAddIn>false</WorkFlowAddIn>
-      <Guid>20EE5B83-2353-40DC-ADD4-29B3B2BA3AF9</Guid>
-      <Name>文档管理主界面</Name>
-      <Assembly>HYDocumentMS</Assembly>
-      <Type>HYDocumentMS.DocumentMainControl</Type>
-      <Method />
-      <Version>1.0.0.0</Version>
-      <Developer>Microsoft</Developer>
-      <Description>文档管理</Description>
-      <Url />
-      <SortCode>0</SortCode>
-      <Attributes>1</Attributes>
-      <Package />
-      <LMTime>2013-08-21T15:07:58.373</LMTime>
     </Module>
     <Module>
       <Used>false</Used>
@@ -1170,6 +1136,125 @@
       <Attributes>1</Attributes>
       <Package />
       <LMTime>2013-08-28T10:25:59.17</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>20EE5B83-2353-40DC-ADD4-29B3B2BA3AF9</Guid>
+      <Name>文档管理主界面</Name>
+      <Assembly>HYDocumentMS</Assembly>
+      <Type>HYDocumentMS.DocumentMainControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>Microsoft</Developer>
+      <Description>文档管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-12T12:29:56.677</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>21746628-4DFC-49B3-AEEF-AE50FFD82CDA</Guid>
+      <Name>工作流模板清单</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.WorkFlow.FlowRelationConfig</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>工作流模板清单</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-12T16:21:19.65</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>3C424749-7455-4BF1-B246-51CEC6690509</Guid>
+      <Name>工作区</Name>
+      <Assembly>HYPDM.WorkSpace</Assembly>
+      <Type>HYPDM.WorkSpace.WorkSapce</Type>
+      <Method />
+      <Version>0.0.0.0</Version>
+      <Developer>AgileLab.cn</Developer>
+      <Description>我的工作区</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-05T14:57:13.79</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>9908B9DF-94DD-46C7-884B-DE488E8CDCAF</Guid>
+      <Name>文档权限设定</Name>
+      <Assembly>HYDocumentMS</Assembly>
+      <Type>HYDocumentMS.FileAuth.FileAuthOper</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer>Microsoft</Developer>
+      <Description>文档权限设定</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-12T12:29:56.677</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>AC7555A2-2FBE-43BE-9D4A-894ED11D9891</Guid>
+      <Name>半成品</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.ProductsAndParts.Parts.PartsListControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>半成品管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-08-30T11:29:36.437</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>CED0FF76-5C3B-4951-8285-A66AA8ADA3BE</Guid>
+      <Name>文档列表</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.Document.DocListControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>文档管理</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-12T12:32:32.473</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>EB7A20E5-0875-4C82-93AE-0A8CA67C137F</Guid>
+      <Name>工作流设计</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.WorkFlow.WorkFlowDesign</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>工作流设计</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-12T09:41:25.067</LMTime>
     </Module>
   </Items>
 </root>

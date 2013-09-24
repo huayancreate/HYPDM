@@ -141,24 +141,14 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="T:HYDocumentMS.DataType.AuthObjectType">
-            <summary>
-            文件权限设定时候的对象,SingleUser标识对单用户进行设定,UserRole以用户角色为设定对象,Folder以文件夹为对象
-            </summary>
-        </member>
-        <member name="T:HYDocumentMS.DataType.AuthParmsType">
-            <summary>
-            View 查看,Eidt编辑...
-            </summary>
-        </member>
-        <member name="F:HYDocumentMS.DataType.AuthParmsType.View">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:HYDocumentMS.DocumentMainControl">
             <summary>
             
+            </summary>
+        </member>
+        <member name="F:HYDocumentMS.DocumentMainControl.viewFilePath">
+            <summary>
+            swf存放的路径,服务器上的
             </summary>
         </member>
         <member name="M:HYDocumentMS.DocumentMainControl.#ctor">
@@ -342,7 +332,7 @@
             <param name="prefix">版本的前缀,后面为yyyyMMddHHmmss</param>
             <returns></returns>
         </member>
-        <member name="M:HYDocumentMS.IFileHelper.isHasAuth(HYDocumentMS.DataType.AuthParmsType,System.String,System.String)">
+        <member name="M:HYDocumentMS.IFileHelper.isHasAuth(HYPDM.DataType.AuthParmsType,System.String,System.String)">
             <summary>
             给定需要判定的权限类型,用户账号key,文件key值，获取对应权限
             </summary>
@@ -433,7 +423,7 @@
             <param name="parentID"></param>
             <param name="dt"></param>
         </member>
-        <member name="M:HYDocumentMS.FileHelper.isHasAuth(HYDocumentMS.DataType.AuthParmsType,System.String,System.String)">
+        <member name="M:HYDocumentMS.FileHelper.isHasAuth(HYPDM.DataType.AuthParmsType,System.String,System.String)">
             <summary>
             给定需要判定的权限类型,用户账号key,文件key值，获取对应权限
             </summary>
@@ -689,6 +679,11 @@
             </summary>
         </member>
         <member name="P:HYDocumentMS.Properties.Resources.modify_13">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYDocumentMS.Properties.Resources.pagination_load">
             <summary>
               查找 System.Drawing.Bitmap 类型的本地化资源。
             </summary>
