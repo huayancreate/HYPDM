@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MaterialConfForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -75,6 +75,11 @@
             this.tab_Doc = new System.Windows.Forms.TabPage();
             this.ucPageDoc = new HYPDM.BaseControl.UcPaging();
             this.dgvDoc = new HYPDM.BaseControl.DataGridViewExt();
+            this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCVERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCDOCSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOCCREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.tsb_DocAdd = new System.Windows.Forms.ToolStripButton();
             this.tsb_DocDel = new System.Windows.Forms.ToolStripButton();
@@ -110,11 +115,7 @@
             this.eRP集成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCVERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCDOCSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DOCCREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolBaseAddPro = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -428,7 +429,8 @@
             this.toolStripLabel2,
             this.toolBaseReg,
             this.toolBaseEdit,
-            this.toolBaseClear});
+            this.toolBaseClear,
+            this.toolBaseAddPro});
             this.toolBase.Location = new System.Drawing.Point(0, 0);
             this.toolBase.Name = "toolBase";
             this.toolBase.Size = new System.Drawing.Size(864, 25);
@@ -539,14 +541,14 @@
             this.DOCVERSION,
             this.DOCDOCSTATUS,
             this.DOCCREATEUSER});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDoc.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDoc.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDoc.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvDoc.Location = new System.Drawing.Point(3, 32);
             this.dgvDoc.Name = "dgvDoc";
@@ -557,6 +559,42 @@
             this.dgvDoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoc.Size = new System.Drawing.Size(521, 319);
             this.dgvDoc.TabIndex = 1;
+            // 
+            // DOCID
+            // 
+            this.DOCID.DataPropertyName = "DOCID";
+            this.DOCID.HeaderText = "文档ID";
+            this.DOCID.Name = "DOCID";
+            this.DOCID.ReadOnly = true;
+            this.DOCID.Visible = false;
+            // 
+            // DOCNO
+            // 
+            this.DOCNO.DataPropertyName = "DOCNO";
+            this.DOCNO.HeaderText = "文档编号";
+            this.DOCNO.Name = "DOCNO";
+            this.DOCNO.ReadOnly = true;
+            // 
+            // DOCVERSION
+            // 
+            this.DOCVERSION.DataPropertyName = "VERSION";
+            this.DOCVERSION.HeaderText = "版本";
+            this.DOCVERSION.Name = "DOCVERSION";
+            this.DOCVERSION.ReadOnly = true;
+            // 
+            // DOCDOCSTATUS
+            // 
+            this.DOCDOCSTATUS.DataPropertyName = "DOCSTATUS";
+            this.DOCDOCSTATUS.HeaderText = "状态";
+            this.DOCDOCSTATUS.Name = "DOCDOCSTATUS";
+            this.DOCDOCSTATUS.ReadOnly = true;
+            // 
+            // DOCCREATEUSER
+            // 
+            this.DOCCREATEUSER.DataPropertyName = "CREATEUSER";
+            this.DOCCREATEUSER.HeaderText = "创建人";
+            this.DOCCREATEUSER.Name = "DOCCREATEUSER";
+            this.DOCCREATEUSER.ReadOnly = true;
             // 
             // toolStrip4
             // 
@@ -627,14 +665,14 @@
             this.dgvDrawing.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgvDrawing.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDrawing.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDrawing.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDrawing.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDrawing.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvDrawing.Location = new System.Drawing.Point(6, 31);
             this.dgvDrawing.Name = "dgvDrawing";
@@ -840,41 +878,14 @@
             this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.工艺权限ToolStripMenuItem.Text = "工艺权限";
             // 
-            // DOCID
+            // toolBaseAddPro
             // 
-            this.DOCID.DataPropertyName = "DOCID";
-            this.DOCID.HeaderText = "文档ID";
-            this.DOCID.Name = "DOCID";
-            this.DOCID.ReadOnly = true;
-            this.DOCID.Visible = false;
-            // 
-            // DOCNO
-            // 
-            this.DOCNO.DataPropertyName = "DOCNO";
-            this.DOCNO.HeaderText = "文档编号";
-            this.DOCNO.Name = "DOCNO";
-            this.DOCNO.ReadOnly = true;
-            // 
-            // DOCVERSION
-            // 
-            this.DOCVERSION.DataPropertyName = "VERSION";
-            this.DOCVERSION.HeaderText = "版本";
-            this.DOCVERSION.Name = "DOCVERSION";
-            this.DOCVERSION.ReadOnly = true;
-            // 
-            // DOCDOCSTATUS
-            // 
-            this.DOCDOCSTATUS.DataPropertyName = "DOCSTATUS";
-            this.DOCDOCSTATUS.HeaderText = "状态";
-            this.DOCDOCSTATUS.Name = "DOCDOCSTATUS";
-            this.DOCDOCSTATUS.ReadOnly = true;
-            // 
-            // DOCCREATEUSER
-            // 
-            this.DOCCREATEUSER.DataPropertyName = "CREATEUSER";
-            this.DOCCREATEUSER.HeaderText = "创建人";
-            this.DOCCREATEUSER.Name = "DOCCREATEUSER";
-            this.DOCCREATEUSER.ReadOnly = true;
+            this.toolBaseAddPro.Image = ((System.Drawing.Image)(resources.GetObject("toolBaseAddPro.Image")));
+            this.toolBaseAddPro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBaseAddPro.Name = "toolBaseAddPro";
+            this.toolBaseAddPro.Size = new System.Drawing.Size(76, 22);
+            this.toolBaseAddPro.Text = "添加属性";
+            this.toolBaseAddPro.Click += new System.EventHandler(this.toolBaseAddPro_Click);
             // 
             // MaterialConfForm
             // 
@@ -1007,5 +1018,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCVERSION;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCDOCSTATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DOCCREATEUSER;
+        private System.Windows.Forms.ToolStripButton toolBaseAddPro;
     }
 }

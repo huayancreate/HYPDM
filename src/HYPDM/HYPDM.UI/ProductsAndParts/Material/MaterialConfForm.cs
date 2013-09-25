@@ -272,6 +272,11 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             this.opStatus = true;
         }
 
+        private void toolBaseAddPro_Click(object sender, EventArgs e)
+        {
+            AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("PDM_MATERAIL", this.m_product.MATERIALID, "MATERIALID");
+            parms.ShowDialog();
+        }
         #endregion
         #region 文档操作
         private void docInfo_Init() {
@@ -330,6 +335,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
 
         }
          #endregion
+
+        
 
     }
 }
