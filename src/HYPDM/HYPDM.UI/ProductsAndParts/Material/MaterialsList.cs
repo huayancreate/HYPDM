@@ -205,7 +205,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
          //查询记录
         private void queryMaterail()
         {
-            QueryMaterailForm o = new QueryMaterailForm();
+            //QueryMaterailForm o = new QueryMaterailForm();
+            AdvanceQuery o = new AdvanceQuery();
             o.StartPosition = FormStartPosition.CenterParent;
             if (o.ShowDialog() == DialogResult.OK)
             {

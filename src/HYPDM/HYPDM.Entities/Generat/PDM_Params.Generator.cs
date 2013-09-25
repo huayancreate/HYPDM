@@ -87,7 +87,7 @@ namespace HYPDM.Entities
        /// <summary>
        /// MASTER_TABLE_NAME 。
        /// </summary>
-       [Column("MASTER_TABLE_NAME","MASTER_TABLE_NAME"),DataSize(50)]
+       [Column("MASTER_TABLE_NAME", "MASTER_TABLE_NAME"), DataSize(50), PrimaryKey]
        [DisplayName("MASTER_TABLE_NAME")]
        public string MASTER_TABLE_NAME
        {

@@ -32,6 +32,8 @@ namespace HYPDM.BLL
 
 
         DataTable GetMaterailList(PDM_MATERAIL c);
+        DataTable GetMaterailList(PDM_MATERAIL c, String p_partSql);
+
         void DelMaterailList(String p_id);
         void DelMaterailList(String p_id, String p_user);
 

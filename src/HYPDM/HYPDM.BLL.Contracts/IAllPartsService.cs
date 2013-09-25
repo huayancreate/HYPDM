@@ -28,7 +28,7 @@ namespace HYPDM.BLL
         /// <param name="c"></param>
         /// <returns></returns>
         DataTable GetProductList(PDM_ALL_PRODUCT c);
-
+        DataTable GetProductList(PDM_ALL_PRODUCT c, String p_partSql);
         /// <summary>
         /// 查询符合条件的半成品记录
         /// </summary>

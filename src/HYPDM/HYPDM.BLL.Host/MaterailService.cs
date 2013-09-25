@@ -62,17 +62,84 @@ namespace HYPDM.BLL
 
         public DataTable GetMaterailList(PDM_MATERAIL c)
         {
-            string sqlText = "Select * from  PDM_MATERAIL where 1=1  ";
-            if (!string.IsNullOrEmpty(c.MATERIALNO)) {
-                sqlText += " AND MATERIALNO LIKE '%" + c.MATERIALNO + "%' "; 
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Select * from  PDM_MATERAIL where  DEL_FLAG ='N'   ");
+            if (!string.IsNullOrEmpty(c.MATERIALNO))
+            {
+                sb.Append(" AND MATERIALNO LIKE '%").Append(c.MATERIALNO).Append("%' ");
             }
-            if(!string.IsNullOrEmpty(c.VERSION)){
-                sqlText += " AND VERSION LIKE '%" + c.VERSION + "%' ";
+            if (!string.IsNullOrEmpty(c.MATERIALTYPE))
+            {
+                sb.Append(" AND MATERIALTYPE LIKE '%").Append(c.MATERIALTYPE).Append("%' ");
             }
-            System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sqlText);
+            if (!string.IsNullOrEmpty(c.RAWMATERIAL))
+            {
+                sb.Append(" AND RAWMATERIAL LIKE '%").Append(c.RAWMATERIAL).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MATERIALTYPE))
+            {
+                sb.Append(" AND MATERIALTYPE LIKE '%").Append(c.MATERIALTYPE).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MATERIALSRC))
+            {
+                sb.Append(" AND MATERIALSRC LIKE '%").Append(c.MATERIALSRC).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.CREATER))
+            {
+                sb.Append(" AND CREATER LIKE '%").Append(c.CREATER).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MEMO_EN))
+            {
+                sb.Append(" AND MEMO_EN LIKE '%").Append(c.MEMO_EN).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MEMO_ZH))
+            {
+                sb.Append(" AND MEMO_ZH LIKE '%").Append(c.MEMO_ZH).Append("%'  ");
+            }
+            System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sb.ToString());
             return dt;
         }
 
+        public DataTable GetMaterailList(PDM_MATERAIL c,String p_partSql)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Select A.* from  PDM_MATERAIL A Left join PDM_Params_DETAIL on  PK_VALUE =MATERIALID where   DEL_FLAG ='N'    ");
+            if (!string.IsNullOrEmpty(c.MATERIALNO))
+            {
+                sb.Append(" AND MATERIALNO LIKE '%").Append(c.MATERIALNO).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MATERIALTYPE))
+            {
+                sb.Append(" AND MATERIALTYPE LIKE '%").Append(c.MATERIALTYPE).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.RAWMATERIAL))
+            {
+                sb.Append(" AND RAWMATERIAL LIKE '%").Append(c.RAWMATERIAL).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MATERIALTYPE))
+            {
+                sb.Append(" AND MATERIALTYPE LIKE '%").Append(c.MATERIALTYPE).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MATERIALSRC))
+            {
+                sb.Append(" AND MATERIALSRC LIKE '%").Append(c.MATERIALSRC).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.CREATER))
+            {
+                sb.Append(" AND CREATER LIKE '%").Append(c.CREATER).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MEMO_EN))
+            {
+                sb.Append(" AND MEMO_EN LIKE '%").Append(c.MEMO_EN).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MEMO_ZH))
+            {
+                sb.Append(" AND MEMO_ZH LIKE '%").Append(c.MEMO_ZH).Append("%'  ");
+            }
+            sb.Append(p_partSql);
+            System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sb.ToString());
+            return dt;
+        }
         /// <summary>
         /// 根据ID获取一条记录
         /// </summary>
