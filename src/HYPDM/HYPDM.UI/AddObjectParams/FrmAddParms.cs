@@ -68,10 +68,7 @@ namespace HYPDM.WinUI.AddObjectParams
             ctl.Controls.Clear();
             textBoxList.Clear();
             labelList.Clear();
-            DataTable dtTemp = ObjectParams.getDataTableBySql(
-                "PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME",
-                "WHERE   MASTER_TABLE_NAME ='ALL' OR  MASTER_TABLE_NAME ='" + tableName + "' ORDER BY TARGET_COLNAME", 
-                "PDM_Params");
+            DataTable dtTemp = GetProperties();
 
             maxcolumns = dtTemp.Rows.Count;
             DataTable dtTempValue = ObjectParams.getDataTableBySql(
@@ -216,7 +213,8 @@ namespace HYPDM.WinUI.AddObjectParams
         //添加新属性按钮
         private void btnAddNewParams_Click(object sender, EventArgs e)
         {
-            if (maxcolumns >= 30) {
+            if (GetMaxCountForProperties() >= 30)
+            {
                 MessageBox.Show("最多只能添加30个属性");
                 return;
             }
@@ -230,8 +228,7 @@ namespace HYPDM.WinUI.AddObjectParams
                 {
                     if (t.Text.ToString().Equals(t_params.PARAMS_NAME+ ":")) { MessageBox.Show("属性已经存在，不能添加"); return; }
                 }
-                t_params.TARGET_COLNAME = "C" + (maxcolumns + 1);
-
+                t_params.TARGET_COLNAME = "C" + (GetMaxCountForProperties() + 1);
                 SaveColumnAndValue(t_params,frmNew.M_ProValue);
 
                 CreateParams(pnlIsHasParams);
@@ -276,42 +273,65 @@ namespace HYPDM.WinUI.AddObjectParams
         }
 
         //添加扩展属性记录
-        private void InsertExtPro()
-        {
-            StringBuilder valuesDetail = new StringBuilder();
-            StringBuilder columnDetail = new StringBuilder();
-            foreach (TextBox t in textBoxList)
-            {
-                valuesDetail.Append(" '").Append(t.Text.ToString()).Append("',");
-                columnDetail.Append(t.Tag.ToString()).Append(",");
-            }
-            valuesDetail.Append("'").Append(tableName).Append("','").Append(pkColName).Append("','").Append(pkValue).Append("' ");
-            columnDetail.Append("MASTER_TABLE_NAME, PK_COL_NAME, PK_VALUE ");
-            ObjectParams.SaveParamBySql(columnDetail.ToString(), valuesDetail.ToString(), " PDM_Params_DETAIL");
-        }
+        //private void InsertExtPro()
+        //{
+        //    StringBuilder valuesDetail = new StringBuilder();
+        //    StringBuilder columnDetail = new StringBuilder();
+        //    foreach (TextBox t in textBoxList)
+        //    {
+        //        valuesDetail.Append(" '").Append(t.Text.ToString()).Append("',");
+        //        columnDetail.Append(t.Tag.ToString()).Append(",");
+        //    }
+        //    valuesDetail.Append("'").Append(tableName).Append("','").Append(pkColName).Append("','").Append(pkValue).Append("' ");
+        //    columnDetail.Append("MASTER_TABLE_NAME, PK_COL_NAME, PK_VALUE ");
+        //    ObjectParams.SaveParamBySql(columnDetail.ToString(), valuesDetail.ToString(), " PDM_Params_DETAIL");
+        //}
         //更新扩展属性记录
-        private void UpDateExtPro() {
-            string fields = "";
-            string where = "";
-            StringBuilder sb = new StringBuilder();
+        //private void UpDateExtPro() {
+        //    string fields = "";
+        //    string where = "";
+        //    StringBuilder sb = new StringBuilder();
 
-            //设置更新列
-            foreach (TextBox t in textBoxList)
-            {
-                sb.Append(t.Tag.ToString()).Append("= '").Append(t.Text.ToString()).Append("',");
-            }
-            if (sb.Length<=0) return;
-            sb.Length--;
-            fields = sb.ToString();
+        //    //设置更新列
+        //    foreach (TextBox t in textBoxList)
+        //    {
+        //        sb.Append(t.Tag.ToString()).Append("= '").Append(t.Text.ToString()).Append("',");
+        //    }
+        //    if (sb.Length<=0) return;
+        //    sb.Length--;
+        //    fields = sb.ToString();
 
-            //设置条件
-            sb.Length = 0;
-            sb.Append(" WHERE  MASTER_TABLE_NAME ='").Append(tableName);
-            sb.Append("' AND PK_COL_NAME ='").Append(pkColName);
-            sb.Append("' AND PK_VALUE ='").Append(pkValue).Append("'");
-            where = sb.ToString();
-            ObjectParams.UpDateParamBySql(fields, where, " PDM_Params_DETAIL");
-        }
+        //    //设置条件
+        //    sb.Length = 0;
+        //    sb.Append(" WHERE  MASTER_TABLE_NAME ='").Append(tableName);
+        //    sb.Append("' AND PK_COL_NAME ='").Append(pkColName);
+        //    sb.Append("' AND PK_VALUE ='").Append(pkValue).Append("'");
+        //    where = sb.ToString();
+        //    ObjectParams.UpDateParamBySql(fields, where, " PDM_Params_DETAIL");
+        //}
         #endregion
+        private DataTable GetProperties()
+        {
+            return ObjectParams.getDataTableBySql(
+                "PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME",
+                "WHERE   MASTER_TABLE_NAME ='ALL' OR  MASTER_TABLE_NAME ='" + tableName + "' ORDER BY TARGET_COLNAME",
+                "PDM_Params");
+        }
+
+        private int  GetMaxCountForProperties()
+        {
+            DataTable dt= ObjectParams.getDataTableBySql(
+                           "COUNT(*) ROWCNT",
+                           "WHERE   MASTER_TABLE_NAME ='ALL' OR  MASTER_TABLE_NAME ='" + tableName + "' ",
+                           "PDM_Params");
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return   Convert.ToInt32(dt.Rows[0]["ROWCNT"].ToString());
+            }
+        }
     }
 }

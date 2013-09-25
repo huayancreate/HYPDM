@@ -32,29 +32,31 @@ namespace HYPDM.WinUI.AddObjectParams
 
         public static ObjectParams NewInstance
         {
-            get {
+            get
+            {
                 if (newInstance == null)
                 {
                     newInstance = new ObjectParams();
                 }
-                return ObjectParams.newInstance; }
+                return ObjectParams.newInstance;
+            }
             set { ObjectParams.newInstance = value; }
         }
-   
+
 
         public void SetColNameToCmb(System.Windows.Forms.ComboBox cbx)
         {
             cbx.DataSource = getDataTableBySql("PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME", " ORDER BY TARGET_COLNAME", "PDM_Params");
             cbx.ValueMember = "TARGET_COLNAME";
             cbx.DisplayMember = "PARAMS_NAME";
-            
+
             cbx.SelectedIndex = -1;
         }
 
-        public DataType.DataColumnType GetDataColumnType(string  masterTblname,string colName)
+        public DataType.DataColumnType GetDataColumnType(string masterTblname, string colName)
         {
-            DataTable dt = getDataTableBySql("PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME","  WHERE MASTER_TABLE_NAME IN ('" + masterTblname + "','ALL') AND PARAMS_NAME='" + colName + "'", "PDM_Params");
-            return (DataType.DataColumnType)Enum.Parse(typeof(DataType.DataColumnType), dt.Rows[0]["PARAMS_DATA_TYPE"].ToString(),false);
+            DataTable dt = getDataTableBySql("PARAMS_NAME,PARAMS_DATA_TYPE,TARGET_COLNAME", "  WHERE MASTER_TABLE_NAME IN ('" + masterTblname + "','ALL') AND PARAMS_NAME='" + colName + "'", "PDM_Params");
+            return (DataType.DataColumnType)Enum.Parse(typeof(DataType.DataColumnType), dt.Rows[0]["PARAMS_DATA_TYPE"].ToString(), false);
             //return 
         }
 
@@ -100,19 +102,19 @@ namespace HYPDM.WinUI.AddObjectParams
         public void SetOperations(string masterTblname, string colName, System.Windows.Forms.DataGridViewComboBoxCell cmbOper)
         {
 
-            string[] operNumber = {"=", "<", ">", "<=", ">=", "between" };
-            string[] operDateTime = {"=", "<", ">", "<=", ">=", "between" };
-            string[] operText = { "=","like" };
-            string[] operDefault = {"="};
-          DataType.DataColumnType dct= GetDataColumnType(masterTblname, colName);
-          if (cmbOper != null)
-          {
-              cmbOper.Items.Clear();
-          }
-          else
-          {
-              cmbOper = new System.Windows.Forms.DataGridViewComboBoxCell();
-          }
+            string[] operNumber = { "=", "<", ">", "<=", ">=", "between" };
+            string[] operDateTime = { "=", "<", ">", "<=", ">=", "between" };
+            string[] operText = { "=", "like" };
+            string[] operDefault = { "=" };
+            DataType.DataColumnType dct = GetDataColumnType(masterTblname, colName);
+            if (cmbOper != null)
+            {
+                cmbOper.Items.Clear();
+            }
+            else
+            {
+                cmbOper = new System.Windows.Forms.DataGridViewComboBoxCell();
+            }
             ///= > < like between
             switch (dct)
             {
@@ -142,19 +144,64 @@ namespace HYPDM.WinUI.AddObjectParams
                     break;
             }
         }
-        public static void SaveParamBySql(String fields, string values, string tableName)
-        {
-           
-            StringBuilder stb = new StringBuilder();
-            stb.Append("INSERT  " + tableName + "(" + fields + ") values (" + values+")");
-            EAS.Services.ServiceContainer.GetService<DocFileListService>().SaveParamValue(stb.ToString());
-        }
 
-        public static void UpDateParamBySql(String fields, string where, string tableName)
+        public DataTable GetExtendsProperties(string masterTableName, string pkValue, string pkId)
         {
-            StringBuilder stb = new StringBuilder();
-            stb.Append("UPDATE   " + tableName + "  SET " + fields + "  " + where);
-            EAS.Services.ServiceContainer.GetService<DocFileListService>().SaveParamValue(stb.ToString());
+            DataTable dt;
+            DataTable dtParams = getDataTableBySql(" PARAMS_NAME,TARGET_COLNAME,'' colValue", " WHERE  MASTER_TABLE_NAME IN ('" + masterTableName + "','ALL')", "PDM_Params");
+            DataTable dtResult = dtParams.Clone();
+            DataTable dtTemp = dtParams.Copy();
+            string colValue = "";
+
+            if (dtParams == null || dtParams.Rows.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                // foreach (DataRow dr in dtParams.Rows)
+                for (int i = 0; i < dtParams.Rows.Count; i++)
+                {
+                    dt = getDataTableBySql(dtParams.Rows[i]["TARGET_COLNAME"].ToString().Trim().ToUpper(), "WHERE MASTER_TABLE_NAME='" + masterTableName + "' AND PK_VALUE='" + pkValue + "'", "PDM_Params_DETAIL");
+                    if (dt != null && dt.Rows.Count != 0 )
+                    {
+                        colValue = dt.Rows[0][0].ToString();
+                        //dtParams.Rows[i]["colValue"] = colValue;
+                        if (colValue != "")
+                        {
+                            dtTemp.Rows[i]["colValue"] = colValue;
+                            dtResult.Rows.Add(dtTemp.Rows[i].ItemArray);
+                        }
+                        
+                        //
+
+                    }
+                    //else
+                    //{
+                    //    //dtParams.Rows.Remove(dtParams.Rows[i]);
+                    //    //dtTemp.Rows.Remove(dtTemp.Rows[i]);
+                    //}
+                }
+              //  dtResult.AcceptChanges();
+
+            }
+            return dtResult;
         }
+        //public static void SaveParamBySql(String fields, string values, string tableName)
+        //{
+
+        //    StringBuilder stb = new StringBuilder();
+        //    stb.Append("INSERT  " + tableName + "(" + fields + ") values (" + values+")");
+        //    EAS.Services.ServiceContainer.GetService<DocFileListService>().SaveParamValue(stb.ToString());
+        //}
+
+        //public static void UpDateParamBySql(String fields, string where, string tableName)
+        //{
+        //    StringBuilder stb = new StringBuilder();
+        //    stb.Append("UPDATE   " + tableName + "  SET " + fields + "  " + where);
+        //    EAS.Services.ServiceContainer.GetService<DocFileListService>().SaveParamValue(stb.ToString());
+        //}
+
+
     }
 }

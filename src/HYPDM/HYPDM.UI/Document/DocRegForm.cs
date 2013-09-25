@@ -33,6 +33,7 @@ namespace HYPDM.WinUI.Document
         // IPhysicalFileService _physicalService = ServiceContainer.GetService<PhysicalFileService>();
         IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
 
+        private Boolean isAddedTab = false; //记录是否已经进行过tab页面的添加
         public DocRegForm()
         {
             InitializeComponent();
@@ -40,6 +41,8 @@ namespace HYPDM.WinUI.Document
             tbcContent.TabPages.Remove(tpVersion);
             tbcContent.TabPages.Remove(tpParts);
             tbcContent.TabPages.Remove(tabCad);
+
+            tbcContent.TabPages.Remove(tpgExtandsProperties);
             new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
         }
         public DocRegForm(Boolean isWFViewDetail)
@@ -49,6 +52,7 @@ namespace HYPDM.WinUI.Document
             tbcContent.TabPages.Remove(tpVersion);
             tbcContent.TabPages.Remove(tpParts);
             tbcContent.TabPages.Remove(tabCad);
+            tbcContent.TabPages.Remove(tpgExtandsProperties);
             new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
             IsWFViewDetail = isWFViewDetail;
             if (IsWFViewDetail)
@@ -57,6 +61,7 @@ namespace HYPDM.WinUI.Document
                 this.tsp.Enabled = false;
                 this.menuStrip1.Enabled = false;
                 this.toolStrip1.Enabled = false;
+                this.tspExtands.Enabled = false;
             }
         }
 
@@ -81,6 +86,7 @@ namespace HYPDM.WinUI.Document
                 this.document = value;
                 if (value != null)
 
+                   // isAddedTab = true;
                     this.InitDocumentInfo();
             }
         }
@@ -184,12 +190,16 @@ namespace HYPDM.WinUI.Document
 
             if (this.Document != null)
             {
-                tbcContent.TabPages.Add(tpParts);
-                tbcContent.TabPages.Add(tpFile);
-                tbcContent.TabPages.Add(tabCad);
-                tbcContent.TabPages.Add(tpVersion);
-                
-                
+                if (!isAddedTab)
+                {
+                    tbcContent.TabPages.Add(tpParts);
+                    tbcContent.TabPages.Add(tpFile);
+                    tbcContent.TabPages.Add(tabCad);
+                    tbcContent.TabPages.Add(tpVersion);
+                    tbcContent.TabPages.Add(tpgExtandsProperties);
+                    isAddedTab = true;
+                }
+                UpdateExtProperties();
                 this.txtDocNo.Text = this.Document.DOCNO;
                 this.txtDescription.Text = this.Document.DESCRIPTION;
                 this.txtRemark.Text = this.Document.REMARK;
@@ -426,18 +436,6 @@ namespace HYPDM.WinUI.Document
         //        }
         //    }
         //}
-        private void tvTaskList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (tvFileList.CurrentRow == null) return;
-            if (e.RowIndex != -1)
-            {
-                if (e.Button == MouseButtons.Right)
-                {
-                    //弹出操作菜单
-                    cmPhysical.Show(MousePosition.X, MousePosition.Y);
-                }
-            }
-        }
 
         /// <summary>
         /// 查看文件
@@ -858,26 +856,6 @@ namespace HYPDM.WinUI.Document
             //}
         }
 
-
-
-        /// <summary>
-        /// 测试
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void tvFileList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //if (e.RowIndex > -1)
-            if (e.RowIndex > 0) //将第一行去掉，第一行为文档编号
-            {
-                // MessageBox.Show(this.tvFileList.Nodes[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                //   MessageBox.Show(this.tvFileList.CurrentRow.Cells[1].Value.ToString() + this.tvFileList.CurrentRow.Cells[0].Value.ToString());
-                //MessageBox.Show("列的索引"+e.ColumnIndex.ToString());
-                //MessageBox.Show("行的索引" + e.RowIndex.ToString());
-                //  MessageBox.Show(this.tvFileList.CurrentNode.Cells[1].Value.ToString() + this.tvFileList.CurrentNode.Cells[0].Value.ToString());
-            }
-        }
-
         /// <summary>
         /// 文件下载
         /// </summary>
@@ -1037,6 +1015,7 @@ namespace HYPDM.WinUI.Document
         {
             AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("PDM_DOCUMENT", document.DOCID, "DOCID");
             parms.ShowDialog();
+            UpdateExtProperties();
         }
 
         private void tspBtnQuery_Click(object sender, EventArgs e)
@@ -1046,5 +1025,11 @@ namespace HYPDM.WinUI.Document
             query.MasterTableName = "PDM_DOCUMENT";
             query.ShowDialog();
         }
+
+        private void UpdateExtProperties()
+        {
+         this.dgvExptendProperties.DataSource=AddObjectParams.ObjectParams.NewInstance.GetExtendsProperties("PDM_DOCUMENT", document.DOCID, "DOCID");
+        }
+
     }
 }

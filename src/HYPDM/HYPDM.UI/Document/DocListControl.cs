@@ -25,7 +25,8 @@ namespace HYPDM.WinUI.Document
         
         public event EventHandler Close;
 
-        public IList<PDM_DOCUMENT> _docList;
+        //public IList<PDM_DOCUMENT> _docList;
+        public  DataTable  _docList;
 
         DataTable dt;
         public DocListControl()
@@ -59,8 +60,8 @@ namespace HYPDM.WinUI.Document
             this.dt = EAS.Services.ServiceContainer.GetService<DocumentService>().GetDocumentListForDatatable(true);
             //this.InitList(documentList);
             this.InitList(dt);
-            this.ucPaging1.SourceDataGridView = this.dgvDocList;
 
+            //this.ucPaging1.SourceDataGridView = this.dgvDocList;
         }
         /// <summary>
         /// 将指定的数据源中的记录绑定到列表。
@@ -75,6 +76,7 @@ namespace HYPDM.WinUI.Document
         {
            // this.docBindingSource.DataSource = null;
             this.dgvDocList.DataSource = dt;
+            this.ucPaging1.SourceDataGridView = this.dgvDocList;
            // BindDataFile();
         }
         private void btnDocToAdd_Click(object sender, EventArgs e)
@@ -193,10 +195,21 @@ namespace HYPDM.WinUI.Document
             if (o.ShowDialog() == DialogResult.OK)
             {
                 HYPDM.Entities.PDM_DOCUMENT doc = o.Document;
-                //这个地方需要在加一些字段的更新值
-                //row.Cells["DocType"].Value = doc.DOCTYPE.ToString();
-                //row.Cells["Description"].Value = doc.DESCRIPTION.ToString();
-                this.InitList();
+              //更新当前记录
+                //row.Cells["DOCID"].Value = document.DOCID;
+                row.Cells["DOCNAME"].Value=document.DOCNAME;
+                row.Cells["DOCNO"].Value=document.DOCNO;
+                row.Cells["DOCSTATUS"].Value=document.DOCSTATUS;
+                row.Cells["DOCTYPE"].Value=document.DOCTYPE;
+                row.Cells["REMARK"].Value=document.REMARK;
+                row.Cells["VERSION"].Value=document.VERSION;
+                row.Cells["LASTUPDATEDATE"].Value=document.LASTUPDATEDATE;
+                row.Cells["LASTUPDATEUSER"].Value=document.LASTUPDATEUSER;
+                row.Cells["CREATEDATE"].Value=document.CREATEDATE;
+                row.Cells["DESCRIPTION"].Value=document.DESCRIPTION;
+                row.Cells["CREATEUSER"].Value=document.CREATEUSER;
+                row.Cells["DEL_FLAG"].Value=document.DEL_FLAG;
+               // this.InitList();
                 BindDataFile();
             }
         }
@@ -235,7 +248,7 @@ namespace HYPDM.WinUI.Document
             FrmDocumentQuery form = new FrmDocumentQuery();
             if (form.ShowDialog() == DialogResult.OK)
             {
-              //  _docList = form._docList;
+                _docList = form._docList;
                 this.LoadDoc();
             }
         }
@@ -244,7 +257,7 @@ namespace HYPDM.WinUI.Document
         {
             this.dgvDocList.DataSource = _docList;
           //  BindDataFile();
-            this.InitList();
+            this.InitList(_docList);
         }
 
         private void BindDataFile()
@@ -301,6 +314,12 @@ namespace HYPDM.WinUI.Document
             string objectValue = WorkFlow.WorkFlow.NewInstance.GetWfTemplatesObject(DataType.RelationObjectType.Document.ToString()).WFT_ID;
             HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new HYPDM.WinUI.WorkFlow.Flow.StandardFlow(doc_id, DataType.RelationObjectType.Document, objectValue);
             flow.ShowDialog();
+        }
+
+        private void tspRefresh_Click(object sender, EventArgs e)
+        {
+            this._docList = null;
+            this.InitList();
         }
 
     }

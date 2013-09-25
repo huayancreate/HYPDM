@@ -32,10 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocRegForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tsToolbar = new System.Windows.Forms.ToolStrip();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tbcContent = new System.Windows.Forms.TabControl();
             this.tpRemark = new System.Windows.Forms.TabPage();
             this.txtRemark = new System.Windows.Forms.TextBox();
@@ -81,6 +81,23 @@
             this.btnProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelRelation = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabCad = new System.Windows.Forms.TabPage();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.tspRegPhysicCad = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.tspCadDownLoad = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.tpVersion = new System.Windows.Forms.TabPage();
+            this.txtVer = new System.Windows.Forms.TextBox();
+            this.tpgExtandsProperties = new System.Windows.Forms.TabPage();
+            this.dgvExptendProperties = new HYPDM.BaseControl.DataGridViewExt();
+            this.PARAMS_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TARGET_COLNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tspExtands = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAddProperties = new System.Windows.Forms.ToolStripButton();
             this.tpFile = new System.Windows.Forms.TabPage();
             this.tvFileList = new AdvancedDataGridView.TreeGridView();
             this.DFL_FILE_NAME = new AdvancedDataGridView.TreeGridColumn();
@@ -93,10 +110,32 @@
             this.DFL_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsp = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnRegPhysicalFile = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tspDownLoad = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.tabCad = new System.Windows.Forms.TabPage();
-            this.treeGridCad = new AdvancedDataGridView.TreeGridView();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtCreateUser = new System.Windows.Forms.TextBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.txtCreateDate = new System.Windows.Forms.TextBox();
+            this.txtUpdateDate = new System.Windows.Forms.TextBox();
+            this.txtUpdateUser = new System.Windows.Forms.TextBox();
+            this.txtDocNo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cobDocType = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tsToolbar = new System.Windows.Forms.ToolStrip();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDocAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.DFL_CAD_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CadPathName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.版本 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,36 +144,15 @@
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DFL_ID_CAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.tpVersion = new System.Windows.Forms.TabPage();
-            this.txtVer = new System.Windows.Forms.TextBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCreateUser = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cobDocType = new System.Windows.Forms.ComboBox();
-            this.txtStatus = new System.Windows.Forms.TextBox();
-            this.txtCreateDate = new System.Windows.Forms.TextBox();
-            this.txtUpdateDate = new System.Windows.Forms.TextBox();
-            this.txtUpdateUser = new System.Windows.Forms.TextBox();
-            this.txtDocNo = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.cmPhysical = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnView = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFileDown = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCheckIN = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCheckOut = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDel = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new AdvancedDataGridView.TreeGridColumn();
             this.Column3 = new AdvancedDataGridView.TreeGridColumn();
@@ -148,18 +166,7 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDocAdd = new System.Windows.Forms.ToolStripButton();
-            this.btnAddProperties = new System.Windows.Forms.ToolStripButton();
-            this.btnRegPhysicalFile = new System.Windows.Forms.ToolStripButton();
-            this.tspDownLoad = new System.Windows.Forms.ToolStripButton();
-            this.tspRegPhysicCad = new System.Windows.Forms.ToolStripButton();
-            this.tspCadDownLoad = new System.Windows.Forms.ToolStripButton();
-            this.btnView = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnFileDown = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnDel = new System.Windows.Forms.ToolStripMenuItem();
-            this.tspBtnQuery = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
-            this.tsToolbar.SuspendLayout();
             this.tbcContent.SuspendLayout();
             this.tpRemark.SuspendLayout();
             this.tpParts.SuspendLayout();
@@ -169,65 +176,46 @@
             this.tabMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.tabCad.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.tpVersion.SuspendLayout();
+            this.tpgExtandsProperties.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExptendProperties)).BeginInit();
+            this.tspExtands.SuspendLayout();
             this.tpFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tvFileList)).BeginInit();
             this.tsp.SuspendLayout();
-            this.tabCad.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeGridCad)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.tpVersion.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tsToolbar.SuspendLayout();
             this.cmPhysical.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.tsToolbar);
             this.panel1.Controls.Add(this.tbcContent);
             this.panel1.Controls.Add(this.tabControl1);
+            this.panel1.Controls.Add(this.tsToolbar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(887, 419);
             this.panel1.TabIndex = 0;
             // 
-            // tsToolbar
-            // 
-            this.tsToolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSplitButton1,
-            this.btnDocAdd,
-            this.toolStripSeparator1,
-            this.btnAddProperties,
-            this.tspBtnQuery});
-            this.tsToolbar.Location = new System.Drawing.Point(0, 0);
-            this.tsToolbar.Name = "tsToolbar";
-            this.tsToolbar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsToolbar.Size = new System.Drawing.Size(887, 25);
-            this.tsToolbar.TabIndex = 4;
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // tbcContent
             // 
             this.tbcContent.Controls.Add(this.tpRemark);
             this.tbcContent.Controls.Add(this.tpParts);
-            this.tbcContent.Controls.Add(this.tpFile);
             this.tbcContent.Controls.Add(this.tabCad);
             this.tbcContent.Controls.Add(this.tpVersion);
-            this.tbcContent.Location = new System.Drawing.Point(233, 28);
+            this.tbcContent.Controls.Add(this.tpgExtandsProperties);
+            this.tbcContent.Controls.Add(this.tpFile);
+            this.tbcContent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tbcContent.Location = new System.Drawing.Point(247, 25);
             this.tbcContent.Name = "tbcContent";
             this.tbcContent.SelectedIndex = 0;
-            this.tbcContent.Size = new System.Drawing.Size(642, 357);
-            this.tbcContent.TabIndex = 2;
+            this.tbcContent.Size = new System.Drawing.Size(626, 394);
+            this.tbcContent.TabIndex = 7;
             // 
             // tpRemark
             // 
@@ -236,7 +224,7 @@
             this.tpRemark.Location = new System.Drawing.Point(4, 22);
             this.tpRemark.Name = "tpRemark";
             this.tpRemark.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRemark.Size = new System.Drawing.Size(634, 331);
+            this.tpRemark.Size = new System.Drawing.Size(618, 368);
             this.tpRemark.TabIndex = 0;
             this.tpRemark.Text = "备注";
             // 
@@ -249,7 +237,7 @@
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.ReadOnly = true;
-            this.txtRemark.Size = new System.Drawing.Size(628, 325);
+            this.txtRemark.Size = new System.Drawing.Size(612, 362);
             this.txtRemark.TabIndex = 8;
             // 
             // tpParts
@@ -258,7 +246,7 @@
             this.tpParts.Controls.Add(this.menuStrip1);
             this.tpParts.Location = new System.Drawing.Point(4, 22);
             this.tpParts.Name = "tpParts";
-            this.tpParts.Size = new System.Drawing.Size(634, 331);
+            this.tpParts.Size = new System.Drawing.Size(618, 368);
             this.tpParts.TabIndex = 3;
             this.tpParts.Text = "产品零部件";
             this.tpParts.UseVisualStyleBackColor = true;
@@ -271,7 +259,7 @@
             this.tabControl2.Location = new System.Drawing.Point(0, 25);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(634, 306);
+            this.tabControl2.Size = new System.Drawing.Size(618, 343);
             this.tabControl2.TabIndex = 12;
             // 
             // tabProduct
@@ -280,7 +268,7 @@
             this.tabProduct.Location = new System.Drawing.Point(4, 22);
             this.tabProduct.Name = "tabProduct";
             this.tabProduct.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProduct.Size = new System.Drawing.Size(626, 280);
+            this.tabProduct.Size = new System.Drawing.Size(610, 317);
             this.tabProduct.TabIndex = 0;
             this.tabProduct.Text = "产品";
             this.tabProduct.UseVisualStyleBackColor = true;
@@ -322,7 +310,7 @@
             this.dGVProduct.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dGVProduct.RowTemplate.Height = 23;
             this.dGVProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVProduct.Size = new System.Drawing.Size(620, 274);
+            this.dGVProduct.Size = new System.Drawing.Size(604, 311);
             this.dGVProduct.TabIndex = 2;
             // 
             // PRODUCTID
@@ -418,7 +406,7 @@
             this.tabMaterial.Location = new System.Drawing.Point(4, 22);
             this.tabMaterial.Name = "tabMaterial";
             this.tabMaterial.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMaterial.Size = new System.Drawing.Size(626, 280);
+            this.tabMaterial.Size = new System.Drawing.Size(610, 317);
             this.tabMaterial.TabIndex = 1;
             this.tabMaterial.Text = "材料";
             this.tabMaterial.UseVisualStyleBackColor = true;
@@ -459,7 +447,7 @@
             this.dgvMaterial.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgvMaterial.RowTemplate.Height = 23;
             this.dgvMaterial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterial.Size = new System.Drawing.Size(620, 274);
+            this.dgvMaterial.Size = new System.Drawing.Size(604, 311);
             this.dgvMaterial.TabIndex = 3;
             // 
             // MATERIALID
@@ -551,7 +539,7 @@
             this.btnDelRelation});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(634, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(618, 25);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -587,7 +575,6 @@
             this.btnHalfProduct.Size = new System.Drawing.Size(112, 22);
             this.btnHalfProduct.Tag = "半成品";
             this.btnHalfProduct.Text = "半成品";
-            this.btnHalfProduct.Click += new System.EventHandler(this.btnHalfProduct_Click);
             // 
             // btnMaterial
             // 
@@ -595,28 +582,193 @@
             this.btnMaterial.Size = new System.Drawing.Size(112, 22);
             this.btnMaterial.Tag = "原材料";
             this.btnMaterial.Text = "原材料";
-            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
             // btnProduct
             // 
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(112, 22);
             this.btnProduct.Text = "产品";
-            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnAddRelation
             // 
             this.btnAddRelation.Name = "btnAddRelation";
             this.btnAddRelation.Size = new System.Drawing.Size(68, 21);
             this.btnAddRelation.Text = "新增关联";
-            this.btnAddRelation.Click += new System.EventHandler(this.btnAddRelation_Click);
             // 
             // btnDelRelation
             // 
             this.btnDelRelation.Name = "btnDelRelation";
             this.btnDelRelation.Size = new System.Drawing.Size(68, 21);
             this.btnDelRelation.Text = "删除关联";
-            this.btnDelRelation.Click += new System.EventHandler(this.btnDelRelation_Click);
+            // 
+            // tabCad
+            // 
+            this.tabCad.Controls.Add(this.toolStrip1);
+            this.tabCad.Location = new System.Drawing.Point(4, 22);
+            this.tabCad.Name = "tabCad";
+            this.tabCad.Size = new System.Drawing.Size(618, 368);
+            this.tabCad.TabIndex = 4;
+            this.tabCad.Text = "图纸";
+            this.tabCad.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator6,
+            this.tspRegPhysicCad,
+            this.toolStripSeparator7,
+            this.tspCadDownLoad,
+            this.toolStripButton4});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(618, 25);
+            this.toolStrip1.TabIndex = 6;
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tspRegPhysicCad
+            // 
+            this.tspRegPhysicCad.Image = ((System.Drawing.Image)(resources.GetObject("tspRegPhysicCad.Image")));
+            this.tspRegPhysicCad.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspRegPhysicCad.Name = "tspRegPhysicCad";
+            this.tspRegPhysicCad.Size = new System.Drawing.Size(76, 22);
+            this.tspRegPhysicCad.Text = "文件注册";
+            this.tspRegPhysicCad.ToolTipText = "管理文档的物理文件。";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tspCadDownLoad
+            // 
+            this.tspCadDownLoad.Image = ((System.Drawing.Image)(resources.GetObject("tspCadDownLoad.Image")));
+            this.tspCadDownLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspCadDownLoad.Name = "tspCadDownLoad";
+            this.tspCadDownLoad.Size = new System.Drawing.Size(76, 22);
+            this.tspCadDownLoad.Text = "文件下载";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton3";
+            // 
+            // tpVersion
+            // 
+            this.tpVersion.Controls.Add(this.txtVer);
+            this.tpVersion.Location = new System.Drawing.Point(4, 22);
+            this.tpVersion.Name = "tpVersion";
+            this.tpVersion.Size = new System.Drawing.Size(618, 368);
+            this.tpVersion.TabIndex = 2;
+            this.tpVersion.Text = "版本";
+            this.tpVersion.UseVisualStyleBackColor = true;
+            // 
+            // txtVer
+            // 
+            this.txtVer.BackColor = System.Drawing.Color.White;
+            this.txtVer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtVer.Location = new System.Drawing.Point(0, 0);
+            this.txtVer.Multiline = true;
+            this.txtVer.Name = "txtVer";
+            this.txtVer.ReadOnly = true;
+            this.txtVer.Size = new System.Drawing.Size(618, 368);
+            this.txtVer.TabIndex = 0;
+            // 
+            // tpgExtandsProperties
+            // 
+            this.tpgExtandsProperties.Controls.Add(this.dgvExptendProperties);
+            this.tpgExtandsProperties.Controls.Add(this.tspExtands);
+            this.tpgExtandsProperties.Location = new System.Drawing.Point(4, 22);
+            this.tpgExtandsProperties.Name = "tpgExtandsProperties";
+            this.tpgExtandsProperties.Padding = new System.Windows.Forms.Padding(3);
+            this.tpgExtandsProperties.Size = new System.Drawing.Size(618, 368);
+            this.tpgExtandsProperties.TabIndex = 5;
+            this.tpgExtandsProperties.Text = "扩展属性";
+            this.tpgExtandsProperties.UseVisualStyleBackColor = true;
+            // 
+            // dgvExptendProperties
+            // 
+            this.dgvExptendProperties.AllowUserToAddRows = false;
+            this.dgvExptendProperties.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgvExptendProperties.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvExptendProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExptendProperties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PARAMS_NAME,
+            this.TARGET_COLNAME,
+            this.colValue});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvExptendProperties.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvExptendProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvExptendProperties.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgvExptendProperties.Location = new System.Drawing.Point(3, 28);
+            this.dgvExptendProperties.Name = "dgvExptendProperties";
+            this.dgvExptendProperties.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvExptendProperties.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvExptendProperties.RowTemplate.Height = 23;
+            this.dgvExptendProperties.Size = new System.Drawing.Size(612, 337);
+            this.dgvExptendProperties.TabIndex = 24;
+            // 
+            // PARAMS_NAME
+            // 
+            this.PARAMS_NAME.DataPropertyName = "PARAMS_NAME";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PARAMS_NAME.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PARAMS_NAME.HeaderText = "属性值";
+            this.PARAMS_NAME.Name = "PARAMS_NAME";
+            this.PARAMS_NAME.Width = 280;
+            // 
+            // TARGET_COLNAME
+            // 
+            this.TARGET_COLNAME.DataPropertyName = "TARGET_COLNAME";
+            this.TARGET_COLNAME.HeaderText = "TARGET_COLNAME";
+            this.TARGET_COLNAME.Name = "TARGET_COLNAME";
+            this.TARGET_COLNAME.Visible = false;
+            // 
+            // colValue
+            // 
+            this.colValue.DataPropertyName = "colValue";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colValue.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colValue.HeaderText = "属性值";
+            this.colValue.Name = "colValue";
+            this.colValue.Width = 280;
+            // 
+            // tspExtands
+            // 
+            this.tspExtands.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator8,
+            this.btnAddProperties});
+            this.tspExtands.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.tspExtands.Location = new System.Drawing.Point(3, 3);
+            this.tspExtands.Name = "tspExtands";
+            this.tspExtands.Size = new System.Drawing.Size(612, 25);
+            this.tspExtands.TabIndex = 23;
+            this.tspExtands.Click += new System.EventHandler(this.btnAddProperties_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnAddProperties
+            // 
+            this.btnAddProperties.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
+            this.btnAddProperties.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAddProperties.Name = "btnAddProperties";
+            this.btnAddProperties.Size = new System.Drawing.Size(76, 22);
+            this.btnAddProperties.Text = "属性添加";
             // 
             // tpFile
             // 
@@ -624,7 +776,7 @@
             this.tpFile.Controls.Add(this.tsp);
             this.tpFile.Location = new System.Drawing.Point(4, 22);
             this.tpFile.Name = "tpFile";
-            this.tpFile.Size = new System.Drawing.Size(634, 331);
+            this.tpFile.Size = new System.Drawing.Size(618, 368);
             this.tpFile.TabIndex = 1;
             this.tpFile.Text = "文件";
             this.tpFile.UseVisualStyleBackColor = true;
@@ -654,10 +806,8 @@
             this.tvFileList.RowHeadersVisible = false;
             this.tvFileList.RowHeadersWidth = 20;
             this.tvFileList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tvFileList.Size = new System.Drawing.Size(634, 306);
-            this.tvFileList.TabIndex = 8;
-            this.tvFileList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tvFileList_CellClick);
-            this.tvFileList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.tvTaskList_CellMouseDown);
+            this.tvFileList.Size = new System.Drawing.Size(618, 343);
+            this.tvFileList.TabIndex = 9;
             // 
             // DFL_FILE_NAME
             // 
@@ -725,8 +875,7 @@
             this.toolStripButton3});
             this.tsp.Location = new System.Drawing.Point(0, 0);
             this.tsp.Name = "tsp";
-            this.tsp.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsp.Size = new System.Drawing.Size(634, 25);
+            this.tsp.Size = new System.Drawing.Size(618, 25);
             this.tsp.TabIndex = 5;
             // 
             // toolStripSeparator2
@@ -734,10 +883,27 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // btnRegPhysicalFile
+            // 
+            this.btnRegPhysicalFile.Image = ((System.Drawing.Image)(resources.GetObject("btnRegPhysicalFile.Image")));
+            this.btnRegPhysicalFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRegPhysicalFile.Name = "btnRegPhysicalFile";
+            this.btnRegPhysicalFile.Size = new System.Drawing.Size(76, 22);
+            this.btnRegPhysicalFile.Text = "文件注册";
+            this.btnRegPhysicalFile.ToolTipText = "管理文档的物理文件。";
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tspDownLoad
+            // 
+            this.tspDownLoad.Image = ((System.Drawing.Image)(resources.GetObject("tspDownLoad.Image")));
+            this.tspDownLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspDownLoad.Name = "tspDownLoad";
+            this.tspDownLoad.Size = new System.Drawing.Size(76, 22);
+            this.tspDownLoad.Text = "文件下载";
             // 
             // toolStripButton3
             // 
@@ -747,44 +913,221 @@
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // tabCad
+            // tabControl1
             // 
-            this.tabCad.Controls.Add(this.treeGridCad);
-            this.tabCad.Controls.Add(this.toolStrip1);
-            this.tabCad.Location = new System.Drawing.Point(4, 22);
-            this.tabCad.Name = "tabCad";
-            this.tabCad.Size = new System.Drawing.Size(634, 331);
-            this.tabCad.TabIndex = 4;
-            this.tabCad.Text = "图纸";
-            this.tabCad.UseVisualStyleBackColor = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControl1.Location = new System.Drawing.Point(0, 25);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(247, 394);
+            this.tabControl1.TabIndex = 5;
             // 
-            // treeGridCad
+            // tabPage1
             // 
-            this.treeGridCad.AllowUserToAddRows = false;
-            this.treeGridCad.AllowUserToDeleteRows = false;
-            this.treeGridCad.AllowUserToOrderColumns = true;
-            this.treeGridCad.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.treeGridCad.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.treeGridCad.ColumnHeadersHeight = 20;
-            this.treeGridCad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DFL_CAD_NAME,
-            this.CadPathName,
-            this.版本,
-            this.Column17,
-            this.Column18,
-            this.Column19,
-            this.Column20,
-            this.DFL_ID_CAD});
-            this.treeGridCad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeGridCad.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.treeGridCad.ImageList = null;
-            this.treeGridCad.Location = new System.Drawing.Point(0, 25);
-            this.treeGridCad.Name = "treeGridCad";
-            this.treeGridCad.RowHeadersVisible = false;
-            this.treeGridCad.RowHeadersWidth = 20;
-            this.treeGridCad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.treeGridCad.Size = new System.Drawing.Size(634, 306);
-            this.treeGridCad.TabIndex = 10;
+            this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tabPage1.Controls.Add(this.txtDescription);
+            this.tabPage1.Controls.Add(this.txtCreateUser);
+            this.tabPage1.Controls.Add(this.txtStatus);
+            this.tabPage1.Controls.Add(this.txtCreateDate);
+            this.tabPage1.Controls.Add(this.txtUpdateDate);
+            this.tabPage1.Controls.Add(this.txtUpdateUser);
+            this.tabPage1.Controls.Add(this.txtDocNo);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.cobDocType);
+            this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label7);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(239, 368);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "基本信息";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(57, 58);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(150, 36);
+            this.txtDescription.TabIndex = 18;
+            // 
+            // txtCreateUser
+            // 
+            this.txtCreateUser.BackColor = System.Drawing.Color.LightCyan;
+            this.txtCreateUser.Enabled = false;
+            this.txtCreateUser.Location = new System.Drawing.Point(58, 176);
+            this.txtCreateUser.Name = "txtCreateUser";
+            this.txtCreateUser.Size = new System.Drawing.Size(149, 21);
+            this.txtCreateUser.TabIndex = 16;
+            // 
+            // txtStatus
+            // 
+            this.txtStatus.BackColor = System.Drawing.Color.LightCyan;
+            this.txtStatus.Enabled = false;
+            this.txtStatus.Location = new System.Drawing.Point(57, 99);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(150, 21);
+            this.txtStatus.TabIndex = 4;
+            // 
+            // txtCreateDate
+            // 
+            this.txtCreateDate.BackColor = System.Drawing.Color.LightCyan;
+            this.txtCreateDate.Enabled = false;
+            this.txtCreateDate.Location = new System.Drawing.Point(58, 203);
+            this.txtCreateDate.Name = "txtCreateDate";
+            this.txtCreateDate.Size = new System.Drawing.Size(149, 21);
+            this.txtCreateDate.TabIndex = 6;
+            // 
+            // txtUpdateDate
+            // 
+            this.txtUpdateDate.BackColor = System.Drawing.Color.LightCyan;
+            this.txtUpdateDate.Enabled = false;
+            this.txtUpdateDate.Location = new System.Drawing.Point(58, 150);
+            this.txtUpdateDate.Name = "txtUpdateDate";
+            this.txtUpdateDate.Size = new System.Drawing.Size(149, 21);
+            this.txtUpdateDate.TabIndex = 7;
+            // 
+            // txtUpdateUser
+            // 
+            this.txtUpdateUser.BackColor = System.Drawing.Color.LightCyan;
+            this.txtUpdateUser.Enabled = false;
+            this.txtUpdateUser.Location = new System.Drawing.Point(57, 125);
+            this.txtUpdateUser.Name = "txtUpdateUser";
+            this.txtUpdateUser.Size = new System.Drawing.Size(150, 21);
+            this.txtUpdateUser.TabIndex = 5;
+            // 
+            // txtDocNo
+            // 
+            this.txtDocNo.Location = new System.Drawing.Point(57, 11);
+            this.txtDocNo.Name = "txtDocNo";
+            this.txtDocNo.Size = new System.Drawing.Size(150, 21);
+            this.txtDocNo.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(22, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "描述";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label4.Location = new System.Drawing.Point(1, 180);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "创建用户";
+            // 
+            // cobDocType
+            // 
+            this.cobDocType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cobDocType.FormattingEnabled = true;
+            this.cobDocType.Location = new System.Drawing.Point(58, 35);
+            this.cobDocType.Name = "cobDocType";
+            this.cobDocType.Size = new System.Drawing.Size(149, 20);
+            this.cobDocType.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(0, 154);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "修改日期";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(1, 207);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "创建时间";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(22, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "状态";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(12, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "修改者";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(0, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "文档分类";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(23, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "编号";
+            // 
+            // tsToolbar
+            // 
+            this.tsToolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButton1,
+            this.btnDocAdd,
+            this.toolStripSeparator1});
+            this.tsToolbar.Location = new System.Drawing.Point(0, 0);
+            this.tsToolbar.Name = "tsToolbar";
+            this.tsToolbar.Size = new System.Drawing.Size(887, 25);
+            this.tsToolbar.TabIndex = 4;
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnDocAdd
+            // 
+            this.btnDocAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocAdd.Image")));
+            this.btnDocAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDocAdd.Name = "btnDocAdd";
+            this.btnDocAdd.Size = new System.Drawing.Size(76, 22);
+            this.btnDocAdd.Text = "记录保存";
+            this.btnDocAdd.ToolTipText = "保存或修改一个新的基础数据记录。";
+            this.btnDocAdd.Click += new System.EventHandler(this.btnDocAdd_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // DFL_CAD_NAME
             // 
@@ -837,243 +1180,6 @@
             this.DFL_ID_CAD.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.DFL_ID_CAD.Visible = false;
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator6,
-            this.tspRegPhysicCad,
-            this.toolStripSeparator7,
-            this.tspCadDownLoad,
-            this.toolStripButton4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(634, 25);
-            this.toolStrip1.TabIndex = 6;
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton3";
-            // 
-            // tpVersion
-            // 
-            this.tpVersion.Controls.Add(this.txtVer);
-            this.tpVersion.Location = new System.Drawing.Point(4, 22);
-            this.tpVersion.Name = "tpVersion";
-            this.tpVersion.Size = new System.Drawing.Size(634, 331);
-            this.tpVersion.TabIndex = 2;
-            this.tpVersion.Text = "版本";
-            this.tpVersion.UseVisualStyleBackColor = true;
-            // 
-            // txtVer
-            // 
-            this.txtVer.BackColor = System.Drawing.Color.White;
-            this.txtVer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtVer.Location = new System.Drawing.Point(0, 0);
-            this.txtVer.Multiline = true;
-            this.txtVer.Name = "txtVer";
-            this.txtVer.ReadOnly = true;
-            this.txtVer.Size = new System.Drawing.Size(634, 331);
-            this.txtVer.TabIndex = 0;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(231, 366);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage1.Controls.Add(this.txtDescription);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.txtCreateUser);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.cobDocType);
-            this.tabPage1.Controls.Add(this.txtStatus);
-            this.tabPage1.Controls.Add(this.txtCreateDate);
-            this.tabPage1.Controls.Add(this.txtUpdateDate);
-            this.tabPage1.Controls.Add(this.txtUpdateUser);
-            this.tabPage1.Controls.Add(this.txtDocNo);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(223, 340);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "基本信息";
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(57, 72);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(150, 36);
-            this.txtDescription.TabIndex = 18;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(22, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 12);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "描述";
-            // 
-            // txtCreateUser
-            // 
-            this.txtCreateUser.BackColor = System.Drawing.Color.LightCyan;
-            this.txtCreateUser.Enabled = false;
-            this.txtCreateUser.Location = new System.Drawing.Point(58, 197);
-            this.txtCreateUser.Name = "txtCreateUser";
-            this.txtCreateUser.Size = new System.Drawing.Size(149, 21);
-            this.txtCreateUser.TabIndex = 16;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(1, 201);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 12);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "创建用户";
-            // 
-            // cobDocType
-            // 
-            this.cobDocType.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cobDocType.FormattingEnabled = true;
-            this.cobDocType.Location = new System.Drawing.Point(58, 46);
-            this.cobDocType.Name = "cobDocType";
-            this.cobDocType.Size = new System.Drawing.Size(149, 20);
-            this.cobDocType.TabIndex = 2;
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.BackColor = System.Drawing.Color.LightCyan;
-            this.txtStatus.Enabled = false;
-            this.txtStatus.Location = new System.Drawing.Point(57, 120);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(150, 21);
-            this.txtStatus.TabIndex = 4;
-            // 
-            // txtCreateDate
-            // 
-            this.txtCreateDate.BackColor = System.Drawing.Color.LightCyan;
-            this.txtCreateDate.Enabled = false;
-            this.txtCreateDate.Location = new System.Drawing.Point(58, 224);
-            this.txtCreateDate.Name = "txtCreateDate";
-            this.txtCreateDate.Size = new System.Drawing.Size(149, 21);
-            this.txtCreateDate.TabIndex = 6;
-            // 
-            // txtUpdateDate
-            // 
-            this.txtUpdateDate.BackColor = System.Drawing.Color.LightCyan;
-            this.txtUpdateDate.Enabled = false;
-            this.txtUpdateDate.Location = new System.Drawing.Point(58, 171);
-            this.txtUpdateDate.Name = "txtUpdateDate";
-            this.txtUpdateDate.Size = new System.Drawing.Size(149, 21);
-            this.txtUpdateDate.TabIndex = 7;
-            // 
-            // txtUpdateUser
-            // 
-            this.txtUpdateUser.BackColor = System.Drawing.Color.LightCyan;
-            this.txtUpdateUser.Enabled = false;
-            this.txtUpdateUser.Location = new System.Drawing.Point(57, 146);
-            this.txtUpdateUser.Name = "txtUpdateUser";
-            this.txtUpdateUser.Size = new System.Drawing.Size(150, 21);
-            this.txtUpdateUser.TabIndex = 5;
-            // 
-            // txtDocNo
-            // 
-            this.txtDocNo.Location = new System.Drawing.Point(57, 22);
-            this.txtDocNo.Name = "txtDocNo";
-            this.txtDocNo.Size = new System.Drawing.Size(150, 21);
-            this.txtDocNo.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(0, 175);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "修改日期";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(1, 228);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "创建时间";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(22, 124);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "状态";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(12, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 12);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "修改者";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(0, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "文档分类";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(23, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "编号";
-            // 
             // cmPhysical
             // 
             this.cmPhysical.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1087,6 +1193,22 @@
             this.btnDel});
             this.cmPhysical.Name = "contextMenuStrip1";
             this.cmPhysical.Size = new System.Drawing.Size(125, 148);
+            // 
+            // btnView
+            // 
+            this.btnView.Image = global::HYPDM.WinUI.Properties.Resources.view;
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(124, 22);
+            this.btnView.Text = "查看";
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnFileDown
+            // 
+            this.btnFileDown.Image = global::HYPDM.WinUI.Properties.Resources.download;
+            this.btnFileDown.Name = "btnFileDown";
+            this.btnFileDown.Size = new System.Drawing.Size(124, 22);
+            this.btnFileDown.Text = "文件下载";
+            this.btnFileDown.Click += new System.EventHandler(this.btnFileDown_Click);
             // 
             // toolStripSeparator4
             // 
@@ -1118,6 +1240,14 @@
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(121, 6);
+            // 
+            // btnDel
+            // 
+            this.btnDel.Image = global::HYPDM.WinUI.Properties.Resources.delete;
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(124, 22);
+            this.btnDel.Text = "删除文件";
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // Column1
             // 
@@ -1206,101 +1336,12 @@
             this.Column16.Name = "Column16";
             this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // btnDocAdd
-            // 
-            this.btnDocAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnDocAdd.Image")));
-            this.btnDocAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDocAdd.Name = "btnDocAdd";
-            this.btnDocAdd.Size = new System.Drawing.Size(76, 22);
-            this.btnDocAdd.Text = "记录保存";
-            this.btnDocAdd.ToolTipText = "保存或修改一个新的基础数据记录。";
-            this.btnDocAdd.Click += new System.EventHandler(this.btnDocAdd_Click);
-            // 
-            // btnAddProperties
-            // 
-            this.btnAddProperties.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
-            this.btnAddProperties.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAddProperties.Name = "btnAddProperties";
-            this.btnAddProperties.Size = new System.Drawing.Size(76, 22);
-            this.btnAddProperties.Text = "属性添加";
-            this.btnAddProperties.Click += new System.EventHandler(this.btnAddProperties_Click);
-            // 
-            // btnRegPhysicalFile
-            // 
-            this.btnRegPhysicalFile.Image = ((System.Drawing.Image)(resources.GetObject("btnRegPhysicalFile.Image")));
-            this.btnRegPhysicalFile.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRegPhysicalFile.Name = "btnRegPhysicalFile";
-            this.btnRegPhysicalFile.Size = new System.Drawing.Size(76, 22);
-            this.btnRegPhysicalFile.Text = "文件注册";
-            this.btnRegPhysicalFile.ToolTipText = "管理文档的物理文件。";
-            this.btnRegPhysicalFile.Click += new System.EventHandler(this.btnRegPhysicalFile_Click);
-            // 
-            // tspDownLoad
-            // 
-            this.tspDownLoad.Image = ((System.Drawing.Image)(resources.GetObject("tspDownLoad.Image")));
-            this.tspDownLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tspDownLoad.Name = "tspDownLoad";
-            this.tspDownLoad.Size = new System.Drawing.Size(76, 22);
-            this.tspDownLoad.Text = "文件下载";
-            this.tspDownLoad.Click += new System.EventHandler(this.tspDownLoad_Click);
-            // 
-            // tspRegPhysicCad
-            // 
-            this.tspRegPhysicCad.Image = ((System.Drawing.Image)(resources.GetObject("tspRegPhysicCad.Image")));
-            this.tspRegPhysicCad.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tspRegPhysicCad.Name = "tspRegPhysicCad";
-            this.tspRegPhysicCad.Size = new System.Drawing.Size(76, 22);
-            this.tspRegPhysicCad.Text = "文件注册";
-            this.tspRegPhysicCad.ToolTipText = "管理文档的物理文件。";
-            // 
-            // tspCadDownLoad
-            // 
-            this.tspCadDownLoad.Image = ((System.Drawing.Image)(resources.GetObject("tspCadDownLoad.Image")));
-            this.tspCadDownLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tspCadDownLoad.Name = "tspCadDownLoad";
-            this.tspCadDownLoad.Size = new System.Drawing.Size(76, 22);
-            this.tspCadDownLoad.Text = "文件下载";
-            // 
-            // btnView
-            // 
-            this.btnView.Image = global::HYPDM.WinUI.Properties.Resources.view;
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(124, 22);
-            this.btnView.Text = "查看";
-            this.btnView.Click += new System.EventHandler(this.btnView_Click);
-            // 
-            // btnFileDown
-            // 
-            this.btnFileDown.Image = global::HYPDM.WinUI.Properties.Resources.download;
-            this.btnFileDown.Name = "btnFileDown";
-            this.btnFileDown.Size = new System.Drawing.Size(124, 22);
-            this.btnFileDown.Text = "文件下载";
-            this.btnFileDown.Click += new System.EventHandler(this.btnFileDown_Click);
-            // 
-            // btnDel
-            // 
-            this.btnDel.Image = global::HYPDM.WinUI.Properties.Resources.delete;
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(124, 22);
-            this.btnDel.Text = "删除文件";
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
-            // tspBtnQuery
-            // 
-            this.tspBtnQuery.Image = ((System.Drawing.Image)(resources.GetObject("tspBtnQuery.Image")));
-            this.tspBtnQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tspBtnQuery.Name = "tspBtnQuery";
-            this.tspBtnQuery.Size = new System.Drawing.Size(52, 22);
-            this.tspBtnQuery.Text = "查询";
-            this.tspBtnQuery.Click += new System.EventHandler(this.tspBtnQuery_Click);
-            // 
             // DocRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 419);
             this.Controls.Add(this.panel1);
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DocRegForm";
@@ -1310,8 +1351,6 @@
             this.Load += new System.EventHandler(this.DocRegForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tsToolbar.ResumeLayout(false);
-            this.tsToolbar.PerformLayout();
             this.tbcContent.ResumeLayout(false);
             this.tpRemark.ResumeLayout(false);
             this.tpRemark.PerformLayout();
@@ -1324,21 +1363,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabCad.ResumeLayout(false);
+            this.tabCad.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.tpVersion.ResumeLayout(false);
+            this.tpVersion.PerformLayout();
+            this.tpgExtandsProperties.ResumeLayout(false);
+            this.tpgExtandsProperties.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExptendProperties)).EndInit();
+            this.tspExtands.ResumeLayout(false);
+            this.tspExtands.PerformLayout();
             this.tpFile.ResumeLayout(false);
             this.tpFile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tvFileList)).EndInit();
             this.tsp.ResumeLayout(false);
             this.tsp.PerformLayout();
-            this.tabCad.ResumeLayout(false);
-            this.tabCad.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.treeGridCad)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.tpVersion.ResumeLayout(false);
-            this.tpVersion.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tsToolbar.ResumeLayout(false);
+            this.tsToolbar.PerformLayout();
             this.cmPhysical.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1347,7 +1392,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.ToolStrip tsToolbar;
         private System.Windows.Forms.ToolStripSeparator toolStripSplitButton1;
         private System.Windows.Forms.ToolStripButton btnDocAdd;
@@ -1358,7 +1402,6 @@
         private AdvancedDataGridView.TreeGridColumn Column4;
         private AdvancedDataGridView.TreeGridColumn Column5;
         private AdvancedDataGridView.TreeGridColumn Column6;
-        private AdvancedDataGridView.TreeGridView tvFileList;
         private System.Windows.Forms.ImageList imageStrip;
         private System.Windows.Forms.ContextMenuStrip cmPhysical;
         private System.Windows.Forms.ToolStripMenuItem btnCheckIN;
@@ -1375,23 +1418,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCreateUser;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cobDocType;
-        private System.Windows.Forms.TextBox txtStatus;
-        private System.Windows.Forms.TextBox txtCreateDate;
-        private System.Windows.Forms.TextBox txtUpdateDate;
-        private System.Windows.Forms.TextBox txtUpdateUser;
-        private System.Windows.Forms.TextBox txtDocNo;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private AdvancedDataGridView.TreeGridColumn DFL_FILE_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePathName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
@@ -1400,6 +1426,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
         private System.Windows.Forms.DataGridViewTextBoxColumn DFL_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_CAD_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CadPathName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 版本;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_ID_CAD;
         private System.Windows.Forms.TabControl tbcContent;
         private System.Windows.Forms.TabPage tpRemark;
         private System.Windows.Forms.TextBox txtRemark;
@@ -1453,7 +1487,6 @@
         private System.Windows.Forms.ToolStripButton tspDownLoad;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.TabPage tabCad;
-        private AdvancedDataGridView.TreeGridView treeGridCad;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton tspRegPhysicCad;
@@ -1462,15 +1495,32 @@
         private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.TabPage tpVersion;
         private System.Windows.Forms.TextBox txtVer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_CAD_NAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CadPathName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 版本;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DFL_ID_CAD;
+        private System.Windows.Forms.TabPage tpgExtandsProperties;
+        private BaseControl.DataGridViewExt dgvExptendProperties;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PARAMS_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TARGET_COLNAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
+        private System.Windows.Forms.ToolStrip tspExtands;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripButton btnAddProperties;
-        private System.Windows.Forms.ToolStripButton tspBtnQuery;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtCreateUser;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.TextBox txtCreateDate;
+        private System.Windows.Forms.TextBox txtUpdateDate;
+        private System.Windows.Forms.TextBox txtUpdateUser;
+        private System.Windows.Forms.TextBox txtDocNo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cobDocType;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private AdvancedDataGridView.TreeGridView tvFileList;
     }
 }

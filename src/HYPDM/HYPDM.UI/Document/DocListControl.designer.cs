@@ -36,6 +36,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.cmDocAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.cmDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.RegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegStardardFlow = new System.Windows.Forms.ToolStripMenuItem();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -76,8 +78,7 @@
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEL_FLAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
-            this.RegToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RegStardardFlow = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspRefresh = new System.Windows.Forms.ToolStripButton();
             this.cmDocument.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocList)).BeginInit();
@@ -117,6 +118,21 @@
             this.RegToolStripMenuItem});
             this.cmDocument.Name = "cmGroup";
             this.cmDocument.Size = new System.Drawing.Size(142, 82);
+            // 
+            // RegToolStripMenuItem
+            // 
+            this.RegToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.RegStardardFlow});
+            this.RegToolStripMenuItem.Name = "RegToolStripMenuItem";
+            this.RegToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.RegToolStripMenuItem.Text = "注册流程";
+            // 
+            // RegStardardFlow
+            // 
+            this.RegStardardFlow.Name = "RegStardardFlow";
+            this.RegStardardFlow.Size = new System.Drawing.Size(148, 22);
+            this.RegStardardFlow.Text = "标准流程注册";
+            this.RegStardardFlow.Click += new System.EventHandler(this.RegStardardFlow_Click);
             // 
             // columnHeader6
             // 
@@ -160,7 +176,8 @@
             this.btnDocProperty,
             this.btnDocDelete,
             this.toolStripSeparator1,
-            this.btnSearch});
+            this.btnSearch,
+            this.tspRefresh});
             this.tsToolbar.Location = new System.Drawing.Point(0, 0);
             this.tsToolbar.Name = "tsToolbar";
             this.tsToolbar.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -447,20 +464,15 @@
             this.ucPaging1.TabIndex = 4;
             this.ucPaging1.Load += new System.EventHandler(this.ucPaging1_Load);
             // 
-            // RegToolStripMenuItem
+            // tspRefresh
             // 
-            this.RegToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RegStardardFlow});
-            this.RegToolStripMenuItem.Name = "RegToolStripMenuItem";
-            this.RegToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.RegToolStripMenuItem.Text = "注册流程";
-            // 
-            // RegStardardFlow
-            // 
-            this.RegStardardFlow.Name = "RegStardardFlow";
-            this.RegStardardFlow.Size = new System.Drawing.Size(152, 22);
-            this.RegStardardFlow.Text = "标准流程注册";
-            this.RegStardardFlow.Click += new System.EventHandler(this.RegStardardFlow_Click);
+            this.tspRefresh.ForeColor = System.Drawing.Color.White;
+            this.tspRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tspRefresh.Image")));
+            this.tspRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tspRefresh.Name = "tspRefresh";
+            this.tspRefresh.Size = new System.Drawing.Size(52, 22);
+            this.tspRefresh.Text = "刷新";
+            this.tspRefresh.Click += new System.EventHandler(this.tspRefresh_Click);
             // 
             // DocListControl
             // 
@@ -529,6 +541,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DEL_FLAG;
         private System.Windows.Forms.ToolStripMenuItem RegToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RegStardardFlow;
+        private System.Windows.Forms.ToolStripButton tspRefresh;
 
     }
 }
