@@ -17,6 +17,7 @@ namespace HYPDM.WinUI.WorkFlow
         {
             get { return loginInfo; }
             set { loginInfo = value; }
+           
         }
         private static CommonFuns newInstance = null;
 
@@ -39,6 +40,7 @@ namespace HYPDM.WinUI.WorkFlow
            cobbox.DisplayMember = "COMBTEXT";
            cobbox.ValueMember = "COMBVALUE";
            cobbox.SelectedIndex = selectedIndex;
+          
        }
        /// <summary>
        /// 给定列名，where条件,及表明返回datatable
@@ -54,6 +56,7 @@ namespace HYPDM.WinUI.WorkFlow
            stb.Append("SELECT " + fields + " FROM " + tableName + " " + where);
            tb = EAS.Services.ServiceContainer.GetService<DocFileListService>().getDataTableBySql(stb.ToString());
            return tb;
+           
        }
 
     }

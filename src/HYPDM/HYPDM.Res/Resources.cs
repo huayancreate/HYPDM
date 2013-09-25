@@ -13,7 +13,7 @@ namespace HYPDM.Res
         public System.Drawing.Icon GetMainIcon()
         {
             return null;
-            //return Properties.Resources.Drugbasket;
+           // return Properties.Resources.Drugbasket;
         }
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace HYPDM.Res
         {
             get
             {
-                return false;
+                return true;
             }
         }
     }

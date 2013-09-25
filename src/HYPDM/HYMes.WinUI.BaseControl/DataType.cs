@@ -61,7 +61,11 @@ namespace HYPDM
             /// <summary>
             /// 物料
             /// </summary>
-            Material
+            Material,
+            /// <summary>
+            /// 不区分
+            /// </summary>
+            ALL
         }
         /// <summary>
         /// 工作流模板状态
@@ -141,5 +145,7 @@ namespace HYPDM
             /// </summary>
             DateTime
         }
+
+       
     }
 }
