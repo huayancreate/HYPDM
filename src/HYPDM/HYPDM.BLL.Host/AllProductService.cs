@@ -99,7 +99,46 @@ namespace HYPDM.BLL
             return dt;
         }
 
-
+        public DataTable GetProductList(PDM_ALL_PRODUCT c, String p_partSql)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Select A.* from  PDM_ALL_PRODUCT A Left join PDM_Params_DETAIL on  PK_VALUE =PRODUCTID where    PRODUCTLEVEL=1  AND DEL_FLAG ='N'    ");
+            if (!string.IsNullOrEmpty(c.PRODUCTNO))
+            {
+                sb.Append(" AND PRODUCTNO LIKE '%").Append(c.PRODUCTNO).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.PRODUCTTYPE))
+            {
+                sb.Append(" AND PRODUCTTYPE LIKE '%").Append(c.PRODUCTTYPE).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MODELTYPE))
+            {
+                sb.Append(" AND MODELTYPE LIKE '%").Append(c.MODELTYPE).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.VERSION))
+            {
+                sb.Append(" AND VERSION LIKE '%").Append(c.VERSION).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.STATUS))
+            {
+                sb.Append(" AND STATUS LIKE '%").Append(c.STATUS).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MODIFIER))
+            {
+                sb.Append(" AND MODIFIER LIKE '%").Append(c.MODIFIER).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.CREATETIME))
+            {
+                sb.Append(" AND CREATETIME LIKE '%").Append(c.CREATETIME).Append("%' ");
+            }
+            if (!string.IsNullOrEmpty(c.MODIFYTIME))
+            {
+                sb.Append(" AND MODIFYTIME LIKE '%").Append(c.MODIFYTIME).Append("%'  ");
+            }
+            sb.Append(p_partSql);
+            System.Data.DataTable dt = this.DataAccessor.QueryDataTable(sb.ToString());
+            return dt;
+        }
         public PDM_ALL_PRODUCT GetById(String p_id)
         {
             PDM_ALL_PRODUCT t_product = new PDM_ALL_PRODUCT();

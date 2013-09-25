@@ -91,6 +91,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         private void allinit()
         {
             baseInfo_Init();
+            Init_ExtProperties();
             docInfo_Init();
         }
 
@@ -230,7 +231,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
 
                 this.tabControl.TabPages.Add(tab_Doc);
                 this.tabControl.TabPages.Add(tab_Drawing);
-
+                this.tabControl.TabPages.Add(tab_ExtPro);
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
                 this.opStatus = false;
             }
@@ -267,17 +268,14 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             //2.移除（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab 页面
             this.tabControl.TabPages.Remove(tab_Doc);
             this.tabControl.TabPages.Remove(tab_Drawing);
-
+            this.tabControl.TabPages.Remove(tab_ExtPro);
             //3.改变显示属性（产品清空状态 ，产品配置状态）
             this.opStatus = true;
         }
 
-        private void toolBaseAddPro_Click(object sender, EventArgs e)
-        {
-            AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("PDM_MATERAIL", this.m_product.MATERIALID, "MATERIALID");
-            parms.ShowDialog();
-        }
+   
         #endregion
+
         #region 文档操作
         private void docInfo_Init() {
             this.dgvDoc.DataSource = m_MaterailService.GetAssoDoc(this.m_product.MATERIALID,this.m_product.VERSION);
@@ -336,7 +334,20 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         }
          #endregion
 
-        
+        #region 扩展属性操作
+        private void Init_ExtProperties()
+        {
+            this.dgvExptendProperties.DataSource = AddObjectParams.ObjectParams.NewInstance.GetExtendsProperties("PDM_MATERAIL", this.m_product.MATERIALID, "MATERIALID");
+        }
+
+         private void toolBaseAddPro_Click(object sender, EventArgs e)
+        {
+            AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("PDM_MATERAIL", this.m_product.MATERIALID, "MATERIALID");
+            parms.ShowDialog();
+            Init_ExtProperties();
+        }
+
+        #endregion
 
     }
 }

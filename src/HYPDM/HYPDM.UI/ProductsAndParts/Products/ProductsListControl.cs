@@ -209,7 +209,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         //查询一个产品记录
         private void queryProduct()
         {
-            QueryProductsForm o = new QueryProductsForm();
+            //QueryProductsForm o = new QueryProductsForm();
+            AdvanceProductQuery o = new AdvanceProductQuery();
             o.StartPosition = FormStartPosition.CenterParent;
             if (o.ShowDialog() == DialogResult.OK)
             {

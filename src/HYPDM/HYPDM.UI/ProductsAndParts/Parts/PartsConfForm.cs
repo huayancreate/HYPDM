@@ -83,6 +83,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         {
             baseInfo_Init();
             dgv_docList_Init();
+            Init_ExtProperties();
             //tabProRecord_Init();
             //dgv_Change_init(t);
             tabStruct_Init();
@@ -225,6 +226,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
                 this.tabControl.TabPages.Add(tab_productStruct);
                 //this.tabControl.TabPages.Add(tab_TelTask);
                 this.tabControl.TabPages.Add(tab_Version);
+                this.tabControl.TabPages.Add(tab_Extpro);
 
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
                 this.opStatus = false;
@@ -266,7 +268,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             this.tabControl.TabPages.Remove(tab_productStruct);
             //this.tabControl.TabPages.Remove(tab_TelTask);
             this.tabControl.TabPages.Remove(tab_Version);
-
+            this.tabControl.TabPages.Remove(tab_Extpro);
             //3.改变显示属性（产品清空状态 ，产品配置状态）
             this.opStatus = true;
         }
@@ -333,7 +335,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
                 this.tabControl.TabPages.Add(tab_productStruct);
                 //this.tabControl.TabPages.Add(tab_TelTask);
                 this.tabControl.TabPages.Add(tab_Version);
-
+                this.tabControl.TabPages.Add(tab_Extpro);
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
                 this.opStatus = false;
             }
@@ -1001,7 +1003,21 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         }
         #endregion
 
-     
+        #region 扩展属性
+
+        private void toolExt_Add_Click(object sender, EventArgs e)
+        {
+            AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("PDM_ALL_PRODUCT", this.m_product.PRODUCTID, "PRODUCTID");
+            parms.ShowDialog();
+            Init_ExtProperties();
+        }
+
+        private void Init_ExtProperties()
+        {
+            this.dgvExptendProperties.DataSource = AddObjectParams.ObjectParams.NewInstance.GetExtendsProperties("PDM_ALL_PRODUCT", this.m_product.PRODUCTID, "PRODUCTID");
+        }
+
+        #endregion
 
     }
 }

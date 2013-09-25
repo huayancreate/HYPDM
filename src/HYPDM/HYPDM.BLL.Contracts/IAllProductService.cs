@@ -35,8 +35,9 @@ namespace HYPDM.BLL
         DataTable  GetProductList();
         IList<PDM_ALL_PRODUCT> GetProductList2(Condition c);
         PDM_ALL_PRODUCT GetById(String p_id);
-        DataTable GetProductList(PDM_ALL_PRODUCT c);
 
+        DataTable GetProductList(PDM_ALL_PRODUCT c);
+        DataTable GetProductList(PDM_ALL_PRODUCT c, String p_partSql);
         /// <summary>
         /// 根据产品编号获取所有该产品的版本(模糊查询)
         /// </summary>

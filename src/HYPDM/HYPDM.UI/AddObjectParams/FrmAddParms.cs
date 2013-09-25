@@ -62,14 +62,13 @@ namespace HYPDM.WinUI.AddObjectParams
         /// 
         /// </summary>
         /// <param name="ctl">容器</param>
-        protected void CreateParams(Control ctl)
+        protected void CreateParams1(Control ctl)
         {
 
             ctl.Controls.Clear();
             textBoxList.Clear();
             labelList.Clear();
             DataTable dtTemp = GetProperties();
-
             maxcolumns = dtTemp.Rows.Count;
             DataTable dtTempValue = ObjectParams.getDataTableBySql(
                 " * ",
@@ -106,7 +105,12 @@ namespace HYPDM.WinUI.AddObjectParams
                         txt.Size = new System.Drawing.Size(250, 21);
                         txt.Tag = dr["TARGET_COLNAME"].ToString(); //存放该列名称对应的detail表中的列名
                         textBoxList.Add(txt);
+                        String str=txt.Tag.ToString();
+                        int temMax = Convert.ToInt32(str.Substring(1, str.Length));
 
+                        if (maxcolumns < temMax) {
+                            maxcolumns = temMax;
+                        }
                         //if (y == 10)
                         //{
                         //    txtFocus = txt;
@@ -153,6 +157,14 @@ namespace HYPDM.WinUI.AddObjectParams
                         txt.Tag = dr["TARGET_COLNAME"].ToString(); //存放该列名称对应的detail表中的列名
                         txt.Text = dtTempValue.Rows[0][dr["TARGET_COLNAME"].ToString()].ToString();
                         textBoxList.Add(txt);
+
+                        String str = txt.Tag.ToString().Substring(1, txt.Tag.ToString().Length-1);
+                        int temMax = Convert.ToInt32(str);
+
+                        if (maxcolumns < temMax)
+                        {
+                            maxcolumns = temMax;
+                        }
                         //if (y == 10)
                         //{
                         //    txtFocus = txt;
@@ -177,6 +189,94 @@ namespace HYPDM.WinUI.AddObjectParams
                 
                 }          
             }
+        }
+
+
+        protected void CreateParams(Control ctl) {
+            ctl.Controls.Clear();
+            textBoxList.Clear();
+            labelList.Clear();
+            DataTable dtTemp = GetProperties();
+            maxcolumns = dtTemp.Rows.Count;
+            DataTable dtTempValue = ObjectParams.getDataTableBySql(
+                " * ",
+                "WHERE MASTER_TABLE_NAME ='" + tableName + "'  AND  PK_COL_NAME ='" + pkColName + "'  AND  PK_VALUE = '" + pkValue + "'  ",
+                "PDM_Params_DETAIL");
+
+            if (dtTemp == null || dtTemp.Rows.Count == 0)
+            {
+                return;  //没有记录的时候返回
+            }
+            else
+            {
+                int x = 10;
+                int y = 10;
+                if (dtTempValue == null || dtTempValue.Rows.Count == 0)
+                {
+                    isHaveValue = false ;
+                    foreach (DataRow dr in dtTemp.Rows)
+                    {
+                        ctl.Controls.Add(CreatePanel(dr, x, y, ""));
+                        y += 25 + 5;
+                    }
+                }
+                else {
+                    isHaveValue = true;
+                    foreach (DataRow dr in dtTemp.Rows)
+                    {
+                        ctl.Controls.Add(CreatePanel(dr, x, y, dtTempValue.Rows[0][dr["TARGET_COLNAME"].ToString()].ToString()));
+                        y += 25 + 5;
+                    }
+                }
+            }
+        
+        }
+        private void GetMaxColNum(DataRow p_dr)
+        {
+            String colnum = p_dr["TARGET_COLNAME"].ToString();
+            String str = colnum.Substring(1, colnum.Length - 1);
+            int temMax = Convert.ToInt32(str);
+            if (maxcolumns < temMax)
+            {
+                maxcolumns = temMax;
+            }
+        }
+        private Label CreateLabel(DataRow p_dr, int x, int y)
+        {
+            Label lbl = new Label();
+            lbl.AutoSize = true;
+            lbl.Location = new System.Drawing.Point(3, 5);
+            lbl.Name = "lbl" + p_dr["PARAMS_NAME"].ToString();
+            lbl.Size = new System.Drawing.Size(35, 12);
+            lbl.TabIndex = 2;
+            lbl.Text = p_dr["PARAMS_NAME"].ToString() + ":";
+            labelList.Add(lbl);
+            return lbl;
+        }
+        private TextBox CreateText(DataRow p_dr, int x, int y,String p_value)
+        {
+            TextBox txt = new TextBox();
+            txt.Location = new System.Drawing.Point(85, 1);
+            txt.Name = "txt" + p_dr["PARAMS_NAME"].ToString();
+            txt.Size = new System.Drawing.Size(250, 21);
+            txt.Tag = p_dr["TARGET_COLNAME"].ToString(); //存放该列名称对应的detail表中的列名
+            txt.Text = p_value;
+            textBoxList.Add(txt);
+            return txt;
+        }
+        private Panel CreatePanel(DataRow p_dr, int x, int y,String p_value)
+        {
+            System.Windows.Forms.Panel pnl = new Panel();
+            pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            //  pnl.Location = new System.Drawing.Point(10, 10);
+            pnl.Location = new System.Drawing.Point(x, y);
+            pnl.Name = "pnl" + p_dr["PARAMS_NAME"].ToString();
+            pnl.Size = new System.Drawing.Size(338, 25);
+
+            GetMaxColNum(p_dr);
+            pnl.Controls.Add(CreateLabel(p_dr,x,y));
+            pnl.Controls.Add(CreateText(p_dr, x, y, p_value));
+            return pnl;
         }
         private void SaveColumnAndValue(PDM_Params p_params,String p_ProValue){
             try {
@@ -213,22 +313,23 @@ namespace HYPDM.WinUI.AddObjectParams
         //添加新属性按钮
         private void btnAddNewParams_Click(object sender, EventArgs e)
         {
-            if (GetMaxCountForProperties() >= 30)
+            if (this.maxcolumns >= 30)
             {
                 MessageBox.Show("最多只能添加30个属性");
                 return;
             }
-     
-            FrmAddNewParams frmNew = new FrmAddNewParams(tableName);
+
+            FrmAddNewParams frmNew = new FrmAddNewParams(tableName, labelList);
             if (frmNew.ShowDialog() == DialogResult.OK)
             {
                 PDM_Params t_params= frmNew.M_PDM_Params;
 
-                foreach (Label t in labelList)
-                {
-                    if (t.Text.ToString().Equals(t_params.PARAMS_NAME+ ":")) { MessageBox.Show("属性已经存在，不能添加"); return; }
+                maxcolumns = GetMaxCountForProperties();
+                if (maxcolumns >= 30) {
+                    MessageBox.Show("最多只能添加30个属性");
+                    return;
                 }
-                t_params.TARGET_COLNAME = "C" + (GetMaxCountForProperties() + 1);
+                t_params.TARGET_COLNAME = "C" + (maxcolumns + 1);
                 SaveColumnAndValue(t_params,frmNew.M_ProValue);
 
                 CreateParams(pnlIsHasParams);
@@ -321,7 +422,7 @@ namespace HYPDM.WinUI.AddObjectParams
         private int  GetMaxCountForProperties()
         {
             DataTable dt= ObjectParams.getDataTableBySql(
-                           "COUNT(*) ROWCNT",
+                           "MAX(convert(int,substring(TARGET_COLNAME,2,len(TARGET_COLNAME)-1)))  as ROWCNT  ",
                            "WHERE   MASTER_TABLE_NAME ='ALL' OR  MASTER_TABLE_NAME ='" + tableName + "' ",
                            "PDM_Params");
             if (dt == null || dt.Rows.Count == 0)

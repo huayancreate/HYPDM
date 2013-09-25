@@ -227,7 +227,7 @@
             this.ClientSize = new System.Drawing.Size(536, 168);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "AdvanceQuery";
-            this.Text = "AdvanceQuery";
+            this.Text = "高级查询";
             this.pnl.ResumeLayout(false);
             this.pnl.PerformLayout();
             this.splitmain.Panel1.ResumeLayout(false);

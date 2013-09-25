@@ -75,6 +75,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 this.toolStruct.Enabled = false;
             }
         }
+
         #region 属性基本数据
         
         private int m_type;     //类型（半成品，成品）
@@ -113,6 +114,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             //dgv_Change_init(t);
             tabStruct_Init();
             tabVersion_Init();
+            Init_ExtProperties();
         }
 
         /// <summary>
@@ -251,7 +253,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 this.tabControl.TabPages.Add(tab_productStruct);
                 //this.tabControl.TabPages.Add(tab_TelTask);
                 this.tabControl.TabPages.Add(tab_Version);
-
+                this.tabControl.TabPages.Add(tab_ExtPro);
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
                 this.opStatus = false;
             }
@@ -290,7 +292,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             this.tabControl.TabPages.Remove(tab_productStruct);
             //this.tabControl.TabPages.Remove(tab_TelTask);
             this.tabControl.TabPages.Remove(tab_Version);
-
+            this.tabControl.TabPages.Remove(tab_ExtPro);
             //3.改变显示属性（产品清空状态 ，产品配置状态）
             this.opStatus = true;
         }
@@ -357,7 +359,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 this.tabControl.TabPages.Add(tab_productStruct);
                 //this.tabControl.TabPages.Add(tab_TelTask);
                 this.tabControl.TabPages.Add(tab_Version);
-
+                this.tabControl.TabPages.Add(tab_ExtPro);
                 //b.改变显示属性（产品清空状态 ，产品配置状态）
                 this.opStatus = false;
             }
@@ -1028,5 +1030,20 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         }
         #endregion
 
+        #region 扩展属性
+
+        private void toolExt_Add_Click(object sender, EventArgs e)
+        {
+            AddObjectParams.FrmAddParms parms = new AddObjectParams.FrmAddParms("PDM_ALL_PRODUCT", this.m_product.PRODUCTID, "PRODUCTID");
+            parms.ShowDialog();
+            Init_ExtProperties();
+        }
+
+        private void Init_ExtProperties()
+        {
+            this.dgvExptendProperties.DataSource = AddObjectParams.ObjectParams.NewInstance.GetExtendsProperties("PDM_ALL_PRODUCT", this.m_product.PRODUCTID, "PRODUCTID");
+        }
+
+        #endregion
     }
 }
