@@ -49,5 +49,12 @@ namespace HYPDM.BLL
         IList<DOC_FILE_LIST> GetDocFileListByDCID(string dcid);
 
         void SaveParamValue(String sql);
+        /// <summary>
+        /// 获取指定documentid的指定文件类型的数据
+        /// </summary>
+        /// <param name="dcid"></param>
+        /// <param name="fileType"></param>
+        /// <returns></returns>
+        DataTable GetDocFileDataTableByDCID(string dcid, string fileType);
     }
 }

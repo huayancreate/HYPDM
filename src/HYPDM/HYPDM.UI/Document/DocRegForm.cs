@@ -21,7 +21,7 @@ using EAS.Data.Linq;
 using HYDocumentMS;
 using HYPDM;
 namespace HYPDM.WinUI.Document
-{  
+{
 
     public partial class DocRegForm : Form
     {
@@ -86,7 +86,7 @@ namespace HYPDM.WinUI.Document
                 this.document = value;
                 if (value != null)
 
-                   // isAddedTab = true;
+                    // isAddedTab = true;
                     this.InitDocumentInfo();
             }
         }
@@ -111,7 +111,7 @@ namespace HYPDM.WinUI.Document
                 document.DOCSTATUS = "已创建";
                 document.DESCRIPTION = txtDescription.Text;
                 document.REMARK = txtRemark.Text;
-                document.VERSION = new  FileHelper().getNewVer("V");
+                document.VERSION = new FileHelper().getNewVer("V");
                 document.DOCTYPE = cobDocType.SelectedValue.ToString();
                 document.DEL_FLAG = "N";
             }
@@ -210,16 +210,76 @@ namespace HYPDM.WinUI.Document
                 this.cobDocType.SelectedValue = this.Document.DOCTYPE;
                 this.txtCreateUser.Text = this.Document.CREATEUSER;
                 this.txtVer.Text = this.Document.VERSION;
-                //this.BindData();
+                // this.BindData();
+
                 BindTreeData();
                 InitialObjectRelation();
             }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void BindTreeData()
+        {
+            BindProcessFileTreeData(this.tvFileList, DataType.FileType.ProcessFile); //绑定工艺文件
+            BindProcessFileTreeData(this.tvCad, DataType.FileType.Drawing); //绑定图纸文档
+        }
         //private DataTable dt;
 
+        /// <summary>
+        /// 查看文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnView_Click(object sender, EventArgs e)
+        {
 
+            ViewFile(this.tvFileList, DataType.FileType.ProcessFile);
+        }
+        /// <summary>
+        /// 工艺文件注册
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegPhysicalFile_Click(object sender, EventArgs e)
+        {
+            //注册工艺文件
+            RegFile(DataType.FileType.ProcessFile);
+        }
+        /// <summary>
+        /// 删除文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            delFile(this.tvFileList, DataType.FileType.ProcessFile);
+        }
+        /// <summary>
+        /// 检入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCheckIN_Click(object sender, EventArgs e)
+        {
+            CheckInFile(this.tvFileList, DataType.FileType.ProcessFile);
+        }
+        /// <summary>
+        /// 检出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            CheckOut(this.tvFileList, DataType.FileType.ProcessFile);
+        }
+        /// <summary>
+        /// 物理文件注册
+        /// </summary>
+        /// <param name="fileType"></param>
+        private void RegFile(DataType.FileType fileType)
         {
             string savePath = "";
             string savePathID = "";//保存的目标路径的id
@@ -282,12 +342,13 @@ namespace HYPDM.WinUI.Document
                         file.CHECKINFLG = "Y";
                         // query.Save(file);
                         //query.Insert(file);
+                        file.FILE_TYPE = file.ToString();
                         file.Save();
-                        MessageBox.Show("文件注册成功,文件目录" + savePath,"提示",MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("文件注册成功,文件目录" + savePath, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("文件注册失败【注册到数据库失败】,"+ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("文件注册失败【注册到数据库失败】," + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                         return;
                     }
 
@@ -295,157 +356,15 @@ namespace HYPDM.WinUI.Document
                 }
             }
         }
-        //遍历文件列表进行存储
-        //}
-        // OpenFileDialog ofdFile = new OpenFileDialog();
-        //if (ofdFile.ShowDialog() == DialogResult.OK)
-        //{
-        //var path = ofdFile.FileName;
-        //IDocFileListService _fileService = ServiceContainer.GetService<DocFileListService>();
-        //try
-        //{
-
-        //    FileSockClient.UpLoadFileSocketClient sock = new FileSockClient.UpLoadFileSocketClient(path, @"E:\\PDM文件服务器根目录");
-        //    // MessageBox.Show("文件添加成功==文件目录" + @"E:\\PDM文件服务器根目录");
-        //    DataEntityQuery<DOC_FILE_LIST> query = DataEntityQuery<DOC_FILE_LIST>.Create();
-        //    DOC_FILE_LIST file = new DOC_FILE_LIST();
-        //    file.DFL_ID = Guid.NewGuid().ToString();
-
-        //    file.DFL_FILE_NAME = path.Substring(path.LastIndexOf(@"\") + 1);
-        //    file.DFL_FILE_EXTEND = path.Substring(path.LastIndexOf(@".") + 1);
-        //    file.DFL_FILE_CHILD_PATH = "00001";
-        //    file.DEL_FLAG = "N";
-        //    file.DFL_VER_LATEST = "V1.0";
-        //    file.DOCID = Document.DOCID; //与文档表关联主键
-        //    file.CREATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-        //    file.CREATEUSER = LoginInfo.LoginID;
-        //    file.LASTUPDATEDATE = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-        //    file.LASTUPDATEUSER = LoginInfo.LoginID;
-        //    // query.Save(file);
-        //    query.Insert(file);
-
-
-        //}
-        //catch (Exception ex)
-        //{
-        //    MessageBox.Show("文件添加失败==文件目录" + @"E:\\PDM文件服务器根目录" + "===" + ex.Message.ToString());
-        //}
-        //finally
-        //{
-
-        //}
-
-        #region
-        //var file = ConfigurationManager.AppSettings["file"].ToString();
-        //Util.FTPDownUp ftp = Util.Common.FtpInfo();
-        //FileInfo fi = new FileInfo(path);
-        //var info = "";
-        //var result = ftp.FTPUpload(file, "", fi, out info);
-        //if (result)
-        //{
-        //    var extension = Path.GetExtension(path);
-        //    HYPDM.WinUI.Util.Common u = new HYPDM.WinUI.Util.Common();
-        //    var type = u.GetExtensionToType(extension);
-        //    #region 物理文件
-        //    var dto = _physicalService.GetPhysicalFile("", type);
-        //    PDM_PHYSICAL_FILE physicalfileType = new PDM_PHYSICAL_FILE();
-        //    if (dto == null)
-        //    {
-        //        physicalfileType.PHYSICALID = _physicalService.GetMaxID().ToString();
-        //        physicalfileType.PAPERS = type;
-        //        physicalfileType.FILENAME = "";
-        //        physicalfileType.OPERATEUSER = LoginInfo.LoginID;
-        //        if (tvFileList.Rows.Count > 0)
-        //            physicalfileType.PARENT = (string)tvFileList.Rows[0].Cells["PHYSICALID"].Value;
-        //        else
-        //            physicalfileType.PARENT = "0";
-        //        physicalfileType.FILEID = document.DOCID;
-        //        physicalfileType.Save();
-        //    }
-
-        //    PDM_PHYSICAL_FILE physicalfile = new PDM_PHYSICAL_FILE();
-        //    physicalfile.PHYSICALID = _physicalService.GetMaxID().ToString();
-        //    physicalfile.FILENAME = ofdFile.SafeFileName;
-        //    physicalfile.FILETYPE = type;
-        //    physicalfile.FILEVERSION = "0";
-        //    physicalfile.DESCRIPTION = "";
-        //    physicalfile.FILEPATH = "ftp://" + ftp.ServerAddr + ":" + ftp.ServerPort + "/" + file + ofdFile.SafeFileName;
-        //    physicalfile.OPERATEUSER = LoginInfo.LoginID;
-        //    if (dto != null)
-        //        physicalfile.PARENT = dto.PHYSICALID;
-        //    else
-        //        physicalfile.PARENT = physicalfileType.PHYSICALID;
-        //    physicalfile.FILEID = document.DOCID;
-        //    physicalfile.Save();
-        //    #endregion
-
-        //    MessageBox.Show("文件上传成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //}
-        //else
-        //{
-        //    MessageBox.Show("文件上传失败,具体原因为" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //}
-        #endregion
-        //    }
-        //}
-
-        //public void BindData()
-        //{
-        //    IPhysicalFileService service = ServiceContainer.GetService<IPhysicalFileService>();
-        //    dt = service.GetDataTable(document.DOCID);
-        //    BindTreeListView(new TreeGridNode(), "0");
-        //}
-        //public void BindTreeListView(TreeGridNode node, string parentId)
-        //{
-        //    Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
-        //    DataView dv = new DataView(dt);
-        //    dv.RowFilter = "[PARENT]=" + parentId;
-        //    foreach (DataRowView dr in dv)
-        //    {
-        //        if (parentId == "0")
-        //        {
-        //            node = tvFileList.Nodes.Add((string)dr["PAPERS"], "", "", "", "", "", (string)dr["PHYSICALID"]);
-        //            node.DefaultCellStyle.Font = boldFont;
-        //            BindChildNode(node, (string)dr["PHYSICALID"]);
-        //        }
-        //    }
-        //}
-        //public void BindChildNode(TreeGridNode node, string parentId)
-        //{
-        //    if (parentId != "")
-        //    {
-        //        DataView dv = new DataView(dt);
-        //        dv.RowFilter = "[PARENT]=" + parentId;
-        //        for (int i = 0; i < dv.Count; i++)
-        //        {
-        //            var fileName = (string)dv[i]["FILENAME"];
-        //            var papers = (string)dv[i]["PAPERS"];
-        //            if (fileName == "")
-        //                fileName = papers;
-        //            if (i == 0)
-        //                node = node.Nodes.Add(fileName, (string)dv[i]["FILENAME"],
-        //                    (string)dv[i]["DESCRIPTION"], (string)dv[i]["FILEVERSION"],
-        //                    dv[i]["CHECKIN"].ToString(), (string)dv[i]["CHECKOUT"].ToString(),
-        //                    (string)dv[i]["PHYSICALID"]);
-        //            else
-        //                node = node.Parent.Nodes.Add(fileName, (string)dv[i]["FILENAME"],
-        //                    (string)dv[i]["DESCRIPTION"], (string)dv[i]["FILEVERSION"],
-        //                    dv[i]["CHECKIN"].ToString(), dv[i]["CHECKOUT"].ToString(),
-        //                    (string)dv[i]["PHYSICALID"]);
-        //            BindChildNode(node, (string)dv[i]["PHYSICALID"]);
-        //        }
-        //    }
-        //}
 
         /// <summary>
         /// 查看文件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnView_Click(object sender, EventArgs e)
+        /// <param name="tgv"></param>
+        /// <param name="fileType"></param>
+        private void ViewFile(TreeGridView tgv, DataType.FileType fileType)
         {
-
-            int rowIndex = tvFileList.CurrentCell.RowIndex;
+            int rowIndex = tgv.CurrentCell.RowIndex;
 
 
             if (rowIndex <= 0)
@@ -458,65 +377,36 @@ namespace HYPDM.WinUI.Document
 
 
                 //  dr["DFL_FILE_NAME"].ToString()
-                DataGridViewRow row = tvFileList.Rows[rowIndex];
+                DataGridViewRow row = tgv.Rows[rowIndex];
                 //   string ff = row.Cells[0].Value.ToString();
 
-                 HYDocumentMS.IFileHelper file = new  FileHelper();
-                Boolean bl = file.isHasAuth( DataType.AuthParmsType.View, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+                HYDocumentMS.IFileHelper file = new FileHelper();
+                Boolean bl = file.isHasAuth(DataType.AuthParmsType.View, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
                 if (bl == false)
                 {
                     MessageBox.Show("你没有权限查看此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-
-
-
                 String fileName = Path.ChangeExtension(row.Cells["DFL_FILE_NAME"].Value.ToString(), "swf");
                 string viewPath = System.Configuration.ConfigurationManager.AppSettings["viewFilePath"].ToString();
-                //if (viewPath.Substring(viewPath.Length - 1) != @"\")
-                //{
-                //    if (viewPath.Substring(viewPath.Length - 1) != @"/")
-                //    {
-                //        viewPath = viewPath + @"\";
-                //    }
-                //}
-                 ViewFileFrm fileView = new  ViewFileFrm();
+                ViewFileFrm fileView = new ViewFileFrm();
                 fileView.FileName = fileName;
                 //fileView.ViewFilePathAndName = @"D:\swf\Java网络编程精解.swf";
                 fileView.ViewFilePath = viewPath;
                 fileView.ShowDialog();
             }
-
-            //int rowIndex = tvFileList.CurrentCell.RowIndex;
-
-            //if (rowIndex < 0)
-            //    return;
-            //DataGridViewRow row = tvFileList.Rows[rowIndex];
-            //var fileName = row.Cells["FileName"].Value.ToString();
-            //var temp = System.Environment.GetEnvironmentVariable("TEMP");
-            //Util.FTPHelper helper = Util.Common.FtpHepler();
-            //var info = "";
-            //var tempFilePath = temp + "\\" + fileName;
-            //var result = helper.DownloadFile(temp, fileName, out info);
-            //if (result)
-            //{
-            //    System.Diagnostics.Process.Start(tempFilePath);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("文件查看失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
 
+
         /// <summary>
-        /// 检出
+        /// 检出文件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCheckOut_Click(object sender, EventArgs e)
+        /// <param name="tgv"></param>
+        /// <param name="fileType"></param>
+        private void CheckOut(TreeGridView tgv, DataType.FileType fileType)
         {
-            int rowIndex = tvFileList.CurrentCell.RowIndex;
+            int rowIndex = tgv.CurrentCell.RowIndex;
 
 
             if (rowIndex <= 0)
@@ -526,9 +416,9 @@ namespace HYPDM.WinUI.Document
             }
 
 
-            DataGridViewRow row = tvFileList.Rows[rowIndex];
-             HYDocumentMS.IFileHelper file = new  FileHelper();
-            Boolean bl = file.isHasAuth( DataType.AuthParmsType.CheckOut, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+            DataGridViewRow row = tgv.Rows[rowIndex];
+            HYDocumentMS.IFileHelper file = new FileHelper();
+            Boolean bl = file.isHasAuth(DataType.AuthParmsType.CheckOut, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
             if (bl == false)
             {
                 MessageBox.Show("你没有权限检出此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -573,25 +463,25 @@ namespace HYPDM.WinUI.Document
         }
 
         /// <summary>
-        /// 检入
+        /// checkin文件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCheckIN_Click(object sender, EventArgs e)
+        /// <param name="tgv"></param>
+        /// <param name="fileType"></param>
+        private void CheckInFile(TreeGridView tgv, DataType.FileType fileType)
         {
-            int rowIndex = tvFileList.CurrentCell.RowIndex;
+            int rowIndex = tgv.CurrentCell.RowIndex;
 
             if (rowIndex <= 0)
             {
                 MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            DataGridViewRow row = tvFileList.Rows[rowIndex];
+            DataGridViewRow row = tgv.Rows[rowIndex];
             String Id = row.Cells["DFL_ID"].Value.ToString();
             DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
             // HYPDM.Entities.PDM_PHYSICAL_FILE physicalfile = _physicalService.GetPhysicalFile(Id, "");
-             HYDocumentMS.IFileHelper file = new  FileHelper();
-            Boolean bl = file.isHasAuth( DataType.AuthParmsType.CheckIn, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
+            HYDocumentMS.IFileHelper file = new FileHelper();
+            Boolean bl = file.isHasAuth(DataType.AuthParmsType.CheckIn, LoginInfo.LoginID, row.Cells["DFL_ID"].Value.ToString());
             if (bl == false)
             {
                 MessageBox.Show("你没有权限检入此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -626,12 +516,10 @@ namespace HYPDM.WinUI.Document
         /// <summary>
         /// 删除文件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnDel_Click(object sender, EventArgs e)
+        private void delFile(TreeGridView tgv,DataType.FileType fileType)
         {
 
-            int rowIndex = tvFileList.CurrentCell.RowIndex;
+            int rowIndex = tgv.CurrentCell.RowIndex;
 
 
             if (rowIndex <= 0)
@@ -639,8 +527,8 @@ namespace HYPDM.WinUI.Document
                 MessageBox.Show("请选择文件", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-             HYDocumentMS.IFileHelper file = new  FileHelper();
-            Boolean bl = file.isHasAuth( DataType.AuthParmsType.Delete, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
+            HYDocumentMS.IFileHelper file = new FileHelper();
+            Boolean bl = file.isHasAuth(DataType.AuthParmsType.Delete, LoginInfo.LoginID, tgv.CurrentRow.Cells["DFL_ID"].Value.ToString());
             if (bl == false)
             {
                 MessageBox.Show("你没有权限删除此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -649,7 +537,7 @@ namespace HYPDM.WinUI.Document
 
             if (MessageBox.Show("所选择的文件将被删除，是否确定？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                DataGridViewRow row = tvFileList.Rows[rowIndex];
+                DataGridViewRow row = tgv.Rows[rowIndex];
                 string dflID = row.Cells["DFL_ID"].Value.ToString();
                 //var file = _physicalService.GetPhysicalFile(Id, "");
                 // IDocFileListService serv = new DocFileListService();
@@ -721,7 +609,7 @@ namespace HYPDM.WinUI.Document
                     foreach (ObjectRelation objRelation in listObjectRelation)
                     {
                         objRelation.MASTEROBJECTID = this.Document.DOCID;
-                        objRelation.MASTEROBJECTTYPE =  DataType.RelationObjectType.Document.ToString();
+                        objRelation.MASTEROBJECTTYPE = DataType.RelationObjectType.Document.ToString();
                         objRelation.MASTEROBJECTVERSION = this.Document.VERSION;
                         objRelation.Save();
                     }
@@ -752,7 +640,7 @@ namespace HYPDM.WinUI.Document
             {
                 if (this.dGVProduct.CurrentRow == null)
                 {
-                    MessageBox.Show("当前没有选中任何可以删除的对象，请确认!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("当前没有选中任何可以删除的对象，请确认!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     return;
                 }
                 else
@@ -760,7 +648,7 @@ namespace HYPDM.WinUI.Document
                     ObjectRelation or = new ObjectRelation();
 
                     IObjectRelationService _orDocProd = ServiceContainer.GetService<ObjectRelationService>();
-                    or=_orDocProd.getDocProdObjectRelation(this.Document.DOCID,this.dGVProduct.CurrentRow.Cells["PRODUCTID"].Value.ToString());
+                    or = _orDocProd.getDocProdObjectRelation(this.Document.DOCID, this.dGVProduct.CurrentRow.Cells["PRODUCTID"].Value.ToString());
                     if (or != null)
                     {
                         or.DEL_FALG = "Y";
@@ -822,14 +710,15 @@ namespace HYPDM.WinUI.Document
         //20130819
         TreeGridNode node = null;
         DataTable dtDocFile = null;
-        private void BindTreeData()
+        private void BindProcessFileTreeData(TreeGridView tgv, DataType.FileType fileType)
         {
-
-            this.tvFileList.Nodes.Clear();
+            //this.tvFileList.Nodes.Clear();
+            tgv.Nodes.Clear();
             IDocFileListService service = ServiceContainer.GetService<IDocFileListService>();
-            dtDocFile = service.GetDocFileDataTableByDCID(Document.DOCID);
+            dtDocFile = service.GetDocFileDataTableByDCID(Document.DOCID, fileType.ToString());
 
-            Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
+            //  Font boldFont = new Font(tvFileList.DefaultCellStyle.Font, FontStyle.Bold);
+            Font boldFont = new Font(tgv.DefaultCellStyle.Font, FontStyle.Bold);
             //    DataView dv = new DataView(dt);
             node = new TreeGridNode();
             // dv.RowFilter = "[PARENT]=" + parentId;
@@ -837,11 +726,12 @@ namespace HYPDM.WinUI.Document
             //{
             //    if (parentId == "0")
             //    {
-            node = tvFileList.Nodes.Add(Document.DOCNO, "", "", "", "", "", "", "");
+            // node = tvFileList.Nodes.Add(Document.DOCNO, "", "", "", "", "", "", "");
+            node = tgv.Nodes.Add(Document.DOCNO, "", "", "", "", "", "", "");
             node.DefaultCellStyle.Font = boldFont;
 
             // BindChildNode(node, (string)dr["PHYSICALID"]);
-             HYDocumentMS.IFileHelper file = new  FileHelper();
+            HYDocumentMS.IFileHelper file = new FileHelper();
             foreach (DataRow dr in dtDocFile.Rows)
             {
                 node.Nodes.Add(dr["DFL_FILE_NAME"].ToString(), file.getDocumentAllPathByPathID(dr["DFL_FILE_CHILD_PATH"].ToString()),
@@ -850,10 +740,6 @@ namespace HYPDM.WinUI.Document
                                           dr["CHECKOUTDATE"].ToString(), dr["DFL_ID"].ToString());
                 node.Expand();
             }
-
-
-            //    }
-            //}
         }
 
         /// <summary>
@@ -863,23 +749,25 @@ namespace HYPDM.WinUI.Document
         /// <param name="e"></param>
         private void tspDownLoad_Click(object sender, EventArgs e)
         {
-            downLoadFile();
+            //downLoadFile();
         }
 
         private void btnFileDown_Click(object sender, EventArgs e)
         {
-            downLoadFile();
+            ///工艺文件下载
+            downLoadFile(this.tvFileList, DataType.FileType.ProcessFile);
         }
 
         /// <summary>
         /// 文件下载
         /// </summary>
-        private void downLoadFile()
+        private void downLoadFile(TreeGridView tgv, DataType.FileType fileType)
         {
             TreeGridNode node = null;//当前选择的节点
             String serverpath = "";
             node = new TreeGridNode();
-            node = this.tvFileList.CurrentNode;
+            //node = this.tvFileList.CurrentNode;
+            node = tgv.CurrentNode;
             int index = node.RowIndex;
 
             if (index <= 0)
@@ -887,15 +775,15 @@ namespace HYPDM.WinUI.Document
                 MessageBox.Show("请选择需要下载的文件" + "(" + index + ")", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (tvFileList.CurrentRow == null)
+            if (tgv.CurrentRow == null)
             {
                 MessageBox.Show("请选择需要下载的文件", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
 
-                 HYDocumentMS.IFileHelper file = new  FileHelper();
-                Boolean bl = file.isHasAuth( DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, tvFileList.CurrentRow.Cells["DFL_ID"].Value.ToString());
+                HYDocumentMS.IFileHelper file = new FileHelper();
+                Boolean bl = file.isHasAuth(DataType.AuthParmsType.DownLoad, LoginInfo.LoginID, tgv.CurrentRow.Cells["DFL_ID"].Value.ToString());
                 if (bl == false)
                 {
                     MessageBox.Show("你没有权限下载此文件!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -936,7 +824,18 @@ namespace HYPDM.WinUI.Document
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            int rowIndex = tvFileList.CurrentCell.RowIndex;
+            CheckOutCancel(this.tvFileList, DataType.FileType.ProcessFile);
+
+        }
+
+        /// <summary>
+        /// 取消检出
+        /// </summary>
+        /// <param name="tgv"></param>
+        /// <param name="fileType"></param>
+        private void CheckOutCancel(TreeGridView tgv, DataType.FileType fileType)
+        {
+            int rowIndex = tgv.CurrentCell.RowIndex;
 
 
             if (rowIndex <= 0)
@@ -945,7 +844,7 @@ namespace HYPDM.WinUI.Document
                 return;
             }
 
-            DataGridViewRow row = tvFileList.Rows[rowIndex];
+            DataGridViewRow row = tgv.Rows[rowIndex];
             String Id = row.Cells["DFL_ID"].Value.ToString();
             DOC_FILE_LIST docFileEntity = _docFileListService.GetDocFileEntityByDCID(Id);
             if (docFileEntity.CREATEUSER.ToString() != LoginInfo.LoginID.ToString())
@@ -976,9 +875,7 @@ namespace HYPDM.WinUI.Document
             {
 
             }
-
         }
-
         private void DocRegForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -1006,8 +903,8 @@ namespace HYPDM.WinUI.Document
         {
             if (this.Document != null)
             {
-                this.dGVProduct.DataSource = new  FileHelper().getDataTableBySql("*", "WHERE PRODUCTID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Product' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
-                this.dgvMaterial.DataSource = new  FileHelper().getDataTableBySql("*", "WHERE MATERIALID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Material' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
+                this.dGVProduct.DataSource = new FileHelper().getDataTableBySql("*", "WHERE PRODUCTID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Product' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.dgvMaterial.DataSource = new FileHelper().getDataTableBySql("*", "WHERE MATERIALID IN (SELECT RELATIONOBJECTID FROM ObjectRelation WHERE MASTEROBJECTTYPE='Document' AND RELATIONOBJECTTYPE='Material' AND DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
             }
         }
 
@@ -1020,7 +917,7 @@ namespace HYPDM.WinUI.Document
 
         private void tspBtnQuery_Click(object sender, EventArgs e)
         {
-           // AddObjectParams.FrmAdvanceQuery query = new AddObjectParams.FrmAdvanceQuery();
+            // AddObjectParams.FrmAdvanceQuery query = new AddObjectParams.FrmAdvanceQuery();
             AddObjectParams.FrmTest query = new AddObjectParams.FrmTest();
             query.MasterTableName = "PDM_DOCUMENT";
             query.ShowDialog();
@@ -1028,8 +925,57 @@ namespace HYPDM.WinUI.Document
 
         private void UpdateExtProperties()
         {
-         this.dgvExptendProperties.DataSource=AddObjectParams.ObjectParams.NewInstance.GetExtendsProperties("PDM_DOCUMENT", document.DOCID, "DOCID");
+            this.dgvExptendProperties.DataSource = AddObjectParams.ObjectParams.NewInstance.GetExtendsProperties("PDM_DOCUMENT", document.DOCID, "DOCID");
         }
+
+        private void tspCadDownLoad_Click(object sender, EventArgs e)
+        {
+            ///图纸文件下载
+            downLoadFile(this.tvCad, DataType.FileType.Drawing);
+        }
+
+        private void tspRegPhysicCad_Click(object sender, EventArgs e)
+        {
+            ///注册图纸文件
+            RegFile(DataType.FileType.Drawing);
+        }
+
+        private void menuCadView_Click(object sender, EventArgs e)
+        {
+            //图纸文件查看
+            ViewFile(this.tvCad, DataType.FileType.Drawing);
+        }
+
+        private void menuCadDownLoad_Click(object sender, EventArgs e)
+        {
+            ///图纸文件下载
+            downLoadFile(this.tvCad, DataType.FileType.Drawing);
+        }
+
+        private void menuCadCheckIn_Click(object sender, EventArgs e)
+        {
+            //图纸文件的checkin
+            CheckInFile(this.tvCad, DataType.FileType.Drawing);
+        }
+
+        private void menuCadCheckOut_Click(object sender, EventArgs e)
+        {
+            ///图纸文件的checkout
+            CheckOut(this.tvCad, DataType.FileType.Drawing);
+        }
+
+        private void menuCadCancelCheckOut_Click(object sender, EventArgs e)
+        {
+            ///图纸文件的取消检出动作
+            CheckOutCancel(this.tvCad, DataType.FileType.Drawing);
+        }
+
+        private void menuCadFileDelete_Click(object sender, EventArgs e)
+        {  
+            ///图纸文件的删除
+            delFile(this.tvCad, DataType.FileType.Drawing); 
+        }
+
 
     }
 }

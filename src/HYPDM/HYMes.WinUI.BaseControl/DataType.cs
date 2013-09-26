@@ -115,23 +115,12 @@ namespace HYPDM
             public DataType.AuthObjectType ObjectType;
             public string Value;
         }
-        //区分文件的大分类，工艺文件 工程文件(图纸)
-        public enum FileType
-        {   
-            /// <summary>
-            /// 工艺文件
-            /// </summary>
-            ProcessFile,
-            /// <summary>
-            /// 图纸文件
-            /// </summary>
-            Drawing
-        }
+
         /// <summary>
         /// 扩展栏位的列数据类型
         /// </summary>
         public enum DataColumnType
-        {   
+        {
             /// <summary>
             /// 文本
             /// </summary>
@@ -146,6 +135,33 @@ namespace HYPDM
             DateTime
         }
 
-       
+        ///// <summary>
+        ///// 文件类型
+        ///// </summary>
+        //public enum FileType
+        //{
+
+        //    /// <summary>
+        //    /// 工艺文件
+        //    /// </summary>
+        //    A=1,
+        //    /// <summary>
+        //    /// 图纸文件
+        //    /// </summary>
+        //    B
+
+        //}
+        //区分文件的大分类，工艺文件 工程文件(图纸)
+        public enum FileType
+        {
+            /// <summary>
+            /// 工艺文件
+            /// </summary>
+            ProcessFile,
+            /// <summary>
+            /// 图纸文件
+            /// </summary>
+            Drawing
+        }
     }
 }
