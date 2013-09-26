@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocRegForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocRegForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbcContent = new System.Windows.Forms.TabControl();
             this.tpRemark = new System.Windows.Forms.TabPage();
@@ -174,7 +175,22 @@
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_ProRecord = new System.Windows.Forms.TabPage();
+            this.toolProRecord = new System.Windows.Forms.ToolStrip();
+            this.toolProRecordEdit = new System.Windows.Forms.ToolStripButton();
+            this.toolProRecordAdd = new System.Windows.Forms.ToolStripButton();
+            this.dgv_ProRecord = new HYPDM.BaseControl.DataGridViewExt();
+            this.WFA_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBJECTKEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WFT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBJECT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             this.menuCadObject = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuCadView = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadDownLoad = new System.Windows.Forms.ToolStripMenuItem();
@@ -183,7 +199,9 @@
             this.menuCadCheckOut = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadCancelCheckOut = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+
             this.menuCadFileDelete = new System.Windows.Forms.ToolStripMenuItem();
+
             this.panel1.SuspendLayout();
             this.tbcContent.SuspendLayout();
             this.tpRemark.SuspendLayout();
@@ -207,8 +225,13 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tsToolbar.SuspendLayout();
+
             this.cmPhysical.SuspendLayout();
+            this.tab_ProRecord.SuspendLayout();
+            this.toolProRecord.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ProRecord)).BeginInit();
             this.menuCadObject.SuspendLayout();
+
             this.SuspendLayout();
             // 
             // panel1
@@ -225,6 +248,7 @@
             // tbcContent
             // 
             this.tbcContent.Controls.Add(this.tpRemark);
+            this.tbcContent.Controls.Add(this.tab_ProRecord);
             this.tbcContent.Controls.Add(this.tpParts);
             this.tbcContent.Controls.Add(this.tabCad);
             this.tbcContent.Controls.Add(this.tpVersion);
@@ -314,14 +338,14 @@
             this.MEMO_ZH1,
             this.MEMO_EN1,
             this.MEMO});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVProduct.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVProduct.DefaultCellStyle = dataGridViewCellStyle2;
             this.dGVProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGVProduct.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dGVProduct.Location = new System.Drawing.Point(3, 3);
@@ -451,14 +475,14 @@
             this.MODIFYTIME,
             this.MEMO_ZH,
             this.MEMO_EN});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMaterial.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvMaterial.Location = new System.Drawing.Point(3, 3);
@@ -811,14 +835,14 @@
             this.PARAMS_NAME,
             this.TARGET_COLNAME,
             this.colValue});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvExptendProperties.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvExptendProperties.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvExptendProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvExptendProperties.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvExptendProperties.Location = new System.Drawing.Point(3, 28);
@@ -832,8 +856,8 @@
             // PARAMS_NAME
             // 
             this.PARAMS_NAME.DataPropertyName = "PARAMS_NAME";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PARAMS_NAME.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PARAMS_NAME.DefaultCellStyle = dataGridViewCellStyle4;
             this.PARAMS_NAME.HeaderText = "属性值";
             this.PARAMS_NAME.Name = "PARAMS_NAME";
             this.PARAMS_NAME.Width = 280;
@@ -848,8 +872,8 @@
             // colValue
             // 
             this.colValue.DataPropertyName = "colValue";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colValue.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colValue.DefaultCellStyle = dataGridViewCellStyle5;
             this.colValue.HeaderText = "属性值";
             this.colValue.Name = "colValue";
             this.colValue.Width = 280;
@@ -1447,6 +1471,197 @@
             this.Column16.Name = "Column16";
             this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // tab_ProRecord
+            // 
+            this.tab_ProRecord.Controls.Add(this.toolProRecord);
+            this.tab_ProRecord.Controls.Add(this.dgv_ProRecord);
+            this.tab_ProRecord.Location = new System.Drawing.Point(4, 22);
+            this.tab_ProRecord.Name = "tab_ProRecord";
+            this.tab_ProRecord.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_ProRecord.Size = new System.Drawing.Size(618, 368);
+            this.tab_ProRecord.TabIndex = 6;
+            this.tab_ProRecord.Text = "变更申请";
+            this.tab_ProRecord.UseVisualStyleBackColor = true;
+            // 
+            // toolProRecord
+            // 
+            this.toolProRecord.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolProRecordEdit,
+            this.toolProRecordAdd});
+            this.toolProRecord.Location = new System.Drawing.Point(3, 3);
+            this.toolProRecord.Name = "toolProRecord";
+            this.toolProRecord.Size = new System.Drawing.Size(612, 25);
+            this.toolProRecord.TabIndex = 5;
+            this.toolProRecord.Text = "toolStrip7";
+            // 
+            // toolProRecordEdit
+            // 
+            this.toolProRecordEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolProRecordEdit.Image")));
+            this.toolProRecordEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolProRecordEdit.Name = "toolProRecordEdit";
+            this.toolProRecordEdit.Size = new System.Drawing.Size(52, 22);
+            this.toolProRecordEdit.Text = "重启";
+            this.toolProRecordEdit.Click += new System.EventHandler(this.toolProRecordEdit_Click);
+            // 
+            // toolProRecordAdd
+            // 
+            this.toolProRecordAdd.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
+            this.toolProRecordAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolProRecordAdd.Name = "toolProRecordAdd";
+            this.toolProRecordAdd.Size = new System.Drawing.Size(52, 22);
+            this.toolProRecordAdd.Text = "添加";
+            this.toolProRecordAdd.Visible = false;
+            // 
+            // dgv_ProRecord
+            // 
+            this.dgv_ProRecord.AllowUserToAddRows = false;
+            this.dgv_ProRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_ProRecord.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgv_ProRecord.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_ProRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ProRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.WFA_ID,
+            this.OBJECTKEY,
+            this.WFT_NAME,
+            this.SUBJECT,
+            this.dataGridViewTextBoxColumn1,
+            this.CREATEUSER});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_ProRecord.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_ProRecord.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgv_ProRecord.Location = new System.Drawing.Point(3, 31);
+            this.dgv_ProRecord.MultiSelect = false;
+            this.dgv_ProRecord.Name = "dgv_ProRecord";
+            this.dgv_ProRecord.ReadOnly = true;
+            this.dgv_ProRecord.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgv_ProRecord.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgv_ProRecord.RowTemplate.Height = 23;
+            this.dgv_ProRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_ProRecord.Size = new System.Drawing.Size(609, 334);
+            this.dgv_ProRecord.TabIndex = 4;
+            // 
+            // WFA_ID
+            // 
+            this.WFA_ID.DataPropertyName = "WFA_ID";
+            this.WFA_ID.HeaderText = "流程ID";
+            this.WFA_ID.Name = "WFA_ID";
+            this.WFA_ID.ReadOnly = true;
+            this.WFA_ID.Visible = false;
+            // 
+            // OBJECTKEY
+            // 
+            this.OBJECTKEY.DataPropertyName = "OBJECTKEY";
+            this.OBJECTKEY.HeaderText = "材料ID";
+            this.OBJECTKEY.Name = "OBJECTKEY";
+            this.OBJECTKEY.ReadOnly = true;
+            this.OBJECTKEY.Visible = false;
+            // 
+            // WFT_NAME
+            // 
+            this.WFT_NAME.DataPropertyName = "WFT_NAME";
+            this.WFT_NAME.HeaderText = "模板名称";
+            this.WFT_NAME.Name = "WFT_NAME";
+            this.WFT_NAME.ReadOnly = true;
+            this.WFT_NAME.Width = 120;
+            // 
+            // SUBJECT
+            // 
+            this.SUBJECT.DataPropertyName = "SUBJECT";
+            this.SUBJECT.HeaderText = "实例名称";
+            this.SUBJECT.Name = "SUBJECT";
+            this.SUBJECT.ReadOnly = true;
+            this.SUBJECT.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "STATUS";
+            this.dataGridViewTextBoxColumn1.HeaderText = "状态";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // CREATEUSER
+            // 
+            this.CREATEUSER.DataPropertyName = "CREATEUSER";
+            this.CREATEUSER.HeaderText = "创建人";
+            this.CREATEUSER.Name = "CREATEUSER";
+            this.CREATEUSER.ReadOnly = true;
+            // menuCadObject
+            // 
+            this.menuCadObject.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuCadView,
+            this.menuCadDownLoad,
+            this.toolStripSeparator9,
+            this.menuCadCheckIn,
+            this.menuCadCheckOut,
+            this.menuCadCancelCheckOut,
+            this.toolStripSeparator10,
+            this.menuCadFileDelete});
+            this.menuCadObject.Name = "contextMenuStrip1";
+            this.menuCadObject.Size = new System.Drawing.Size(153, 170);
+            // 
+            // menuCadView
+            // 
+            this.menuCadView.Image = global::HYPDM.WinUI.Properties.Resources.view;
+            this.menuCadView.Name = "menuCadView";
+            this.menuCadView.Size = new System.Drawing.Size(152, 22);
+            this.menuCadView.Text = "查看";
+            this.menuCadView.Click += new System.EventHandler(this.menuCadView_Click);
+            // 
+            // menuCadDownLoad
+            // 
+            this.menuCadDownLoad.Image = global::HYPDM.WinUI.Properties.Resources.download;
+            this.menuCadDownLoad.Name = "menuCadDownLoad";
+            this.menuCadDownLoad.Size = new System.Drawing.Size(152, 22);
+            this.menuCadDownLoad.Text = "文件下载";
+            this.menuCadDownLoad.Click += new System.EventHandler(this.menuCadDownLoad_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(149, 6);
+            // 
+            // menuCadCheckIn
+            // 
+            this.menuCadCheckIn.Name = "menuCadCheckIn";
+            this.menuCadCheckIn.Size = new System.Drawing.Size(152, 22);
+            this.menuCadCheckIn.Text = "检入";
+            this.menuCadCheckIn.Click += new System.EventHandler(this.menuCadCheckIn_Click);
+            // 
+            // menuCadCheckOut
+            // 
+            this.menuCadCheckOut.Name = "menuCadCheckOut";
+            this.menuCadCheckOut.Size = new System.Drawing.Size(152, 22);
+            this.menuCadCheckOut.Text = "检出";
+            this.menuCadCheckOut.Click += new System.EventHandler(this.menuCadCheckOut_Click);
+            // 
+            // menuCadCancelCheckOut
+            // 
+            this.menuCadCancelCheckOut.Name = "menuCadCancelCheckOut";
+            this.menuCadCancelCheckOut.Size = new System.Drawing.Size(152, 22);
+            this.menuCadCancelCheckOut.Text = "取消检出";
+            this.menuCadCancelCheckOut.Click += new System.EventHandler(this.menuCadCancelCheckOut_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(149, 6);
+            // 
+            // menuCadFileDelete
+            // 
+            this.menuCadFileDelete.Image = global::HYPDM.WinUI.Properties.Resources.delete;
+            this.menuCadFileDelete.Name = "menuCadFileDelete";
+            this.menuCadFileDelete.Size = new System.Drawing.Size(152, 22);
+            this.menuCadFileDelete.Text = "删除文件";
+            this.menuCadFileDelete.Click += new System.EventHandler(this.menuCadFileDelete_Click);
+            // 
             // menuCadObject
             // 
             this.menuCadObject.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1565,8 +1780,15 @@
             this.tabPage1.PerformLayout();
             this.tsToolbar.ResumeLayout(false);
             this.tsToolbar.PerformLayout();
+
             this.cmPhysical.ResumeLayout(false);
+            this.tab_ProRecord.ResumeLayout(false);
+            this.tab_ProRecord.PerformLayout();
+            this.toolProRecord.ResumeLayout(false);
+            this.toolProRecord.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ProRecord)).EndInit();
             this.menuCadObject.ResumeLayout(false);
+
             this.ResumeLayout(false);
 
         }
@@ -1697,7 +1919,20 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+
         private AdvancedDataGridView.TreeGridView tvFileList;
+        private System.Windows.Forms.TabPage tab_ProRecord;
+        private System.Windows.Forms.ToolStrip toolProRecord;
+        private System.Windows.Forms.ToolStripButton toolProRecordEdit;
+        private System.Windows.Forms.ToolStripButton toolProRecordAdd;
+        private BaseControl.DataGridViewExt dgv_ProRecord;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WFA_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OBJECTKEY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WFT_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
+
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton tspRegPhysicCad;
@@ -1722,5 +1957,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuCadCancelCheckOut;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem menuCadFileDelete;
+
     }
 }

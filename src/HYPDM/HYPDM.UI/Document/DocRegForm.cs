@@ -38,6 +38,7 @@ namespace HYPDM.WinUI.Document
         {
             InitializeComponent();
             tbcContent.TabPages.Remove(tpFile);
+            tbcContent.TabPages.Remove(tab_ProRecord);
             tbcContent.TabPages.Remove(tpVersion);
             tbcContent.TabPages.Remove(tpParts);
             tbcContent.TabPages.Remove(tabCad);
@@ -49,6 +50,7 @@ namespace HYPDM.WinUI.Document
         {
             InitializeComponent();
             tbcContent.TabPages.Remove(tpFile);
+            tbcContent.TabPages.Remove(tab_ProRecord);
             tbcContent.TabPages.Remove(tpVersion);
             tbcContent.TabPages.Remove(tpParts);
             tbcContent.TabPages.Remove(tabCad);
@@ -193,6 +195,7 @@ namespace HYPDM.WinUI.Document
                 if (!isAddedTab)
                 {
                     tbcContent.TabPages.Add(tpParts);
+                    tbcContent.TabPages.Add(tab_ProRecord);
                     tbcContent.TabPages.Add(tpFile);
                     tbcContent.TabPages.Add(tabCad);
                     tbcContent.TabPages.Add(tpVersion);
@@ -214,6 +217,7 @@ namespace HYPDM.WinUI.Document
 
                 BindTreeData();
                 InitialObjectRelation();
+                tabProRecord_Init();
             }
         }
 
@@ -932,12 +936,49 @@ namespace HYPDM.WinUI.Document
         {
             ///图纸文件下载
             downLoadFile(this.tvCad, DataType.FileType.Drawing);
+
         }
 
         private void tspRegPhysicCad_Click(object sender, EventArgs e)
         {
             ///注册图纸文件
             RegFile(DataType.FileType.Drawing);
+        }
+        //变更申请Tab页面
+        private void tabProRecord_Init()
+        {
+            this.dgv_ProRecord.DataSource = HYPDM.WinUI.WorkFlow.WorkFlow.NewInstance.GetObjectWFList(this.document.DOCID, LoginInfo.LoginID, DataType.RelationObjectType.Document.ToString());
+        }
+        private void toolProRecordEdit_Click(object sender, EventArgs e)
+        {
+            if (dgv_ProRecord.RowCount <= 0)
+            {
+                MessageBox.Show("请选择一条记录"); return;
+            }
+
+            int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
+            if (rowIndex < 0) 
+            {
+                MessageBox.Show("请选择一条记录"); return;
+            }
+            string status = dgv_ProRecord.CurrentRow.Cells["STATUS"].Value.ToString();
+            if (!status.Equals(DataType.WFDetailSTATUS.Return.ToString()))
+            {
+                MessageBox.Show("该流程已经启动", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
+            }
+            WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
+            t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
+
+            try
+            {
+                t_wfapp.Update();
+                MessageBox.Show("流程重启成功");
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show("更新状态失败");
+            }
+            tabProRecord_Init();
         }
 
         private void menuCadView_Click(object sender, EventArgs e)
@@ -975,7 +1016,5 @@ namespace HYPDM.WinUI.Document
             ///图纸文件的删除
             delFile(this.tvCad, DataType.FileType.Drawing); 
         }
-
-
     }
 }
