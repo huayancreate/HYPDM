@@ -124,7 +124,7 @@
             // dgvExt
             // 
             this.dgvExt.AllowUserToAddRows = false;
-            this.dgvExt.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgvExt.BackgroundColor = System.Drawing.Color.White;
             this.dgvExt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvExt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -144,14 +144,14 @@
             this.dgvExt.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvExt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvExt.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgvExt.Location = new System.Drawing.Point(443, 0);
+            this.dgvExt.Location = new System.Drawing.Point(312, 0);
             this.dgvExt.Name = "dgvExt";
             this.dgvExt.ReadOnly = true;
             this.dgvExt.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.dgvExt.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgvExt.RowTemplate.Height = 23;
             this.dgvExt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvExt.Size = new System.Drawing.Size(474, 203);
+            this.dgvExt.Size = new System.Drawing.Size(605, 203);
             this.dgvExt.TabIndex = 3;
             this.dgvExt.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExt_CellDoubleClick_1);
             // 
@@ -210,9 +210,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(443, 203);
+            this.statusStrip1.Location = new System.Drawing.Point(312, 203);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(474, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(605, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -223,7 +223,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(443, 225);
+            this.panel2.Size = new System.Drawing.Size(312, 225);
             this.panel2.TabIndex = 0;
             // 
             // panel4
@@ -238,14 +238,14 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txtText);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 83);
+            this.panel4.Location = new System.Drawing.Point(0, 93);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(443, 142);
+            this.panel4.Size = new System.Drawing.Size(312, 132);
             this.panel4.TabIndex = 1;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(204, 74);
+            this.btnClear.Location = new System.Drawing.Point(249, 102);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(59, 25);
             this.btnClear.TabIndex = 41;
@@ -254,7 +254,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(138, 74);
+            this.btnSubmit.Location = new System.Drawing.Point(188, 102);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(59, 25);
             this.btnSubmit.TabIndex = 40;
@@ -266,7 +266,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(252, 18);
+            this.label6.Location = new System.Drawing.Point(79, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(173, 12);
             this.label6.TabIndex = 39;
@@ -276,7 +276,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(252, 50);
+            this.label5.Location = new System.Drawing.Point(78, 56);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 12);
             this.label5.TabIndex = 38;
@@ -286,7 +286,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 52);
+            this.label4.Location = new System.Drawing.Point(26, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 37;
@@ -295,7 +295,7 @@
             // 
             // txtValue
             // 
-            this.txtValue.Location = new System.Drawing.Point(80, 47);
+            this.txtValue.Location = new System.Drawing.Point(80, 71);
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(169, 21);
             this.txtValue.TabIndex = 36;
@@ -304,7 +304,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 19);
+            this.label2.Location = new System.Drawing.Point(18, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 35;
@@ -312,7 +312,7 @@
             // 
             // txtText
             // 
-            this.txtText.Location = new System.Drawing.Point(80, 15);
+            this.txtText.Location = new System.Drawing.Point(80, 30);
             this.txtText.Name = "txtText";
             this.txtText.Size = new System.Drawing.Size(169, 21);
             this.txtText.TabIndex = 34;
@@ -328,14 +328,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(443, 83);
+            this.panel3.Size = new System.Drawing.Size(312, 93);
             this.panel3.TabIndex = 0;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(252, 27);
+            this.label7.Location = new System.Drawing.Point(77, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(173, 12);
             this.label7.TabIndex = 34;
@@ -345,7 +345,7 @@
             // 
             this.combType.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.combType.FormattingEnabled = true;
-            this.combType.Location = new System.Drawing.Point(80, 25);
+            this.combType.Location = new System.Drawing.Point(80, 33);
             this.combType.Name = "combType";
             this.combType.Size = new System.Drawing.Size(168, 22);
             this.combType.TabIndex = 29;
@@ -354,7 +354,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 58);
+            this.label3.Location = new System.Drawing.Point(40, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 27;
@@ -363,7 +363,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 28);
+            this.label1.Location = new System.Drawing.Point(39, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 25;
@@ -371,7 +371,7 @@
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(80, 53);
+            this.txtDesc.Location = new System.Drawing.Point(80, 62);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(169, 21);
             this.txtDesc.TabIndex = 24;

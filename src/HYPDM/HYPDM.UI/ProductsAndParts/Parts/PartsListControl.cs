@@ -62,8 +62,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         {
             queryProduct();
         }
-        #endregion 
-        
+        #endregion
+
         #region 右键菜单操作
         /************************************************************************
          ***************         ContextMenuStrip菜单操作     *******************
@@ -106,7 +106,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             this.dgv_ProductList.DataSource = m_AllPartsService.GetProductList();
             this.ucPaging1.SourceDataGridView = this.dgv_ProductList;
         }
-        
+
         //鼠标右键单击操作 
         private void dgv_ProductList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -142,12 +142,13 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         /************************************************************************
          ********************         自定义函数        *************************
          ************************************************************************/
-        
+
         //添加一个产品记录
-        private void addProduct() {
+        private void addProduct()
+        {
             PartsConfForm o = new PartsConfForm(2);//1 表示半成品
             o.StartPosition = FormStartPosition.CenterParent;
-            o.ShowDialog() ;
+            o.ShowDialog();
             InitGridList();
         }
 
@@ -180,7 +181,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         }
 
         //删除一个产品记录
-        private void  delProduct()
+        private void delProduct()
         {
             if (this.dgv_ProductList.RowCount <= 0) return;
 
@@ -201,7 +202,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         //查询一个产品记录
         private void queryProduct()
         {
-           // QueryPartsForm o = new QueryPartsForm();
+            // QueryPartsForm o = new QueryPartsForm();
             AdvancePartsQuery o = new AdvancePartsQuery();
             o.StartPosition = FormStartPosition.CenterParent;
             if (o.ShowDialog() == DialogResult.OK)
@@ -210,7 +211,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
                 this.ucPaging1.SourceDataGridView = this.dgv_ProductList;
             }
         }
-    #endregion
+        #endregion
 
         private void regStardardFlow_Click(object sender, EventArgs e)
         {

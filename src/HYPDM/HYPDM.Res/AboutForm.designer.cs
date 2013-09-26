@@ -144,7 +144,7 @@ namespace HYPDM.Res
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(167, 63);
+            this.label3.Location = new System.Drawing.Point(169, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(289, 20);
             this.label3.TabIndex = 2;
@@ -156,7 +156,7 @@ namespace HYPDM.Res
             this.label2.BackColor = System.Drawing.Color.Silver;
             this.label2.Font = new System.Drawing.Font("宋体", 29F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.LemonChiffon;
-            this.label2.Location = new System.Drawing.Point(157, 10);
+            this.label2.Location = new System.Drawing.Point(155, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(311, 39);
             this.label2.TabIndex = 1;

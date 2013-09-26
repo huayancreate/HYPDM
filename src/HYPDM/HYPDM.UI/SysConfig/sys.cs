@@ -67,7 +67,7 @@ namespace HYPDM.WinUI.SysConfig
         /// </summary>
         /// <param name="RelationObjectType"> DataType.RelationObjectTyp</param>
         /// <returns></returns>
-        protected  string GetTableName(DataType.RelationObjectType RelationObjectType)
+        public  string GetTableName(DataType.RelationObjectType RelationObjectType)
         {
             string tableName = "";
             switch (RelationObjectType)

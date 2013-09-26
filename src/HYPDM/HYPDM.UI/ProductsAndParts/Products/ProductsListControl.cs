@@ -17,7 +17,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
     [Module("BC7555A2-2FBE-43BE-9D4A-894ED11D9890", "产品", "产品管理")]
     public partial class ProductsListControl : UserControl
     {
-       
+
         public ProductsListControl()
         {
             InitializeComponent();
@@ -63,8 +63,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         {
             queryProduct();
         }
-        #endregion 
-        
+        #endregion
+
         #region 右键菜单操作
         /************************************************************************
          ***************         ContextMenuStrip菜单操作     *******************
@@ -107,7 +107,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             this.dgv_ProductList.DataSource = m_AllProductService.GetProductList();
             this.ucPaging1.SourceDataGridView = this.dgv_ProductList;
         }
-       
+
 
         //鼠标右键单击操作 
         private void dgv_ProductList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -144,12 +144,13 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         /************************************************************************
          ********************         自定义函数        *************************
          ************************************************************************/
-        
+
         //添加一个产品记录
-        private void addProduct() {
+        private void addProduct()
+        {
             ProductsConfForm o = new ProductsConfForm(1);//1 表示产品
             o.StartPosition = FormStartPosition.CenterParent;
-            o.ShowDialog() ;
+            o.ShowDialog();
             InitGridList();
         }
 
@@ -175,14 +176,14 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 MessageBox.Show("请选择一条记录"); return;
             }
 
-            ProductsConfForm o = new ProductsConfForm(t_id,1);
+            ProductsConfForm o = new ProductsConfForm(t_id, 1);
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
             InitGridList();
         }
 
         //删除一个产品记录
-        private void  delProduct()
+        private void delProduct()
         {
             if (this.dgv_ProductList.RowCount <= 0) return;
             int rowIndex = dgv_ProductList.CurrentCell.RowIndex;
@@ -218,7 +219,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 this.ucPaging1.SourceDataGridView = this.dgv_ProductList;
             }
         }
-#endregion
+        #endregion
 
         private void tsmStanderFlow_Click(object sender, EventArgs e)
         {
