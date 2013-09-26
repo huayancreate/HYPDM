@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsConfForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer2 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer2 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -79,14 +80,6 @@
             this.toolProRecord = new System.Windows.Forms.ToolStrip();
             this.toolProRecordAdd = new System.Windows.Forms.ToolStripButton();
             this.toolProRecordEdit = new System.Windows.Forms.ToolStripButton();
-            this.dgv_ProRecord = new System.Windows.Forms.DataGridView();
-            this.checkedDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.pRORECORDIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTARTTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eNDTIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pRODUCTNUMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wORKSHOPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wORKSHOPDIRECTORDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bs_Data_ProRecord = new System.Windows.Forms.BindingSource(this.components);
             this.tab_Change = new System.Windows.Forms.TabPage();
             this.dgv_Change = new System.Windows.Forms.DataGridView();
@@ -160,6 +153,13 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_ExtPro = new System.Windows.Forms.TabPage();
+            this.dgvExptendProperties = new HYPDM.BaseControl.DataGridViewExt();
+            this.PARAMS_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TARGET_COLNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolExt_Add = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.新建ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.产品1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -181,13 +181,14 @@
             this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eRP集成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tab_ExtPro = new System.Windows.Forms.TabPage();
-            this.dgvExptendProperties = new HYPDM.BaseControl.DataGridViewExt();
-            this.PARAMS_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TARGET_COLNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolExt_Add = new System.Windows.Forms.ToolStripButton();
+            this.dgv_ProRecord = new HYPDM.BaseControl.DataGridViewExt();
+            this.checkedDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.WFA_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBJECTKEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WFT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBJECT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -198,7 +199,6 @@
             this.tab_Memo.SuspendLayout();
             this.tab_ProRecord.SuspendLayout();
             this.toolProRecord.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ProRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_Data_ProRecord)).BeginInit();
             this.tab_Change.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Change)).BeginInit();
@@ -218,10 +218,11 @@
             this.tab_Version.SuspendLayout();
             this.toolVersion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Product)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.tab_ExtPro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExptendProperties)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ProRecord)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -597,14 +598,14 @@
             this.tab_ProRecord.Padding = new System.Windows.Forms.Padding(3);
             this.tab_ProRecord.Size = new System.Drawing.Size(527, 358);
             this.tab_ProRecord.TabIndex = 1;
-            this.tab_ProRecord.Text = "派生历史纪录";
+            this.tab_ProRecord.Text = "变更申请";
             this.tab_ProRecord.UseVisualStyleBackColor = true;
             // 
             // toolProRecord
             // 
             this.toolProRecord.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolProRecordAdd,
-            this.toolProRecordEdit});
+            this.toolProRecordEdit,
+            this.toolProRecordAdd});
             this.toolProRecord.Location = new System.Drawing.Point(3, 3);
             this.toolProRecord.Name = "toolProRecord";
             this.toolProRecord.Size = new System.Drawing.Size(521, 25);
@@ -618,6 +619,7 @@
             this.toolProRecordAdd.Name = "toolProRecordAdd";
             this.toolProRecordAdd.Size = new System.Drawing.Size(52, 22);
             this.toolProRecordAdd.Text = "添加";
+            this.toolProRecordAdd.Visible = false;
             this.toolProRecordAdd.Click += new System.EventHandler(this.toolProRecordAdd_Click);
             // 
             // toolProRecordEdit
@@ -626,79 +628,8 @@
             this.toolProRecordEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolProRecordEdit.Name = "toolProRecordEdit";
             this.toolProRecordEdit.Size = new System.Drawing.Size(52, 22);
-            this.toolProRecordEdit.Text = "修改";
+            this.toolProRecordEdit.Text = "重启";
             this.toolProRecordEdit.Click += new System.EventHandler(this.toolProRecordEdit_Click);
-            // 
-            // dgv_ProRecord
-            // 
-            this.dgv_ProRecord.AutoGenerateColumns = false;
-            this.dgv_ProRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ProRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.checkedDataGridViewCheckBoxColumn1,
-            this.pRORECORDIDDataGridViewTextBoxColumn,
-            this.sTARTTIMEDataGridViewTextBoxColumn,
-            this.eNDTIMEDataGridViewTextBoxColumn,
-            this.pRODUCTNUMDataGridViewTextBoxColumn,
-            this.wORKSHOPDataGridViewTextBoxColumn,
-            this.wORKSHOPDIRECTORDataGridViewTextBoxColumn});
-            this.dgv_ProRecord.DataSource = this.bs_Data_ProRecord;
-            this.dgv_ProRecord.Location = new System.Drawing.Point(3, 29);
-            this.dgv_ProRecord.MultiSelect = false;
-            this.dgv_ProRecord.Name = "dgv_ProRecord";
-            this.dgv_ProRecord.ReadOnly = true;
-            this.dgv_ProRecord.RowTemplate.Height = 23;
-            this.dgv_ProRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ProRecord.Size = new System.Drawing.Size(521, 327);
-            this.dgv_ProRecord.TabIndex = 0;
-            // 
-            // checkedDataGridViewCheckBoxColumn1
-            // 
-            this.checkedDataGridViewCheckBoxColumn1.DataPropertyName = "Checked";
-            this.checkedDataGridViewCheckBoxColumn1.HeaderText = "选择";
-            this.checkedDataGridViewCheckBoxColumn1.Name = "checkedDataGridViewCheckBoxColumn1";
-            this.checkedDataGridViewCheckBoxColumn1.ReadOnly = true;
-            // 
-            // pRORECORDIDDataGridViewTextBoxColumn
-            // 
-            this.pRORECORDIDDataGridViewTextBoxColumn.DataPropertyName = "PRORECORDID";
-            this.pRORECORDIDDataGridViewTextBoxColumn.HeaderText = "生产编号";
-            this.pRORECORDIDDataGridViewTextBoxColumn.Name = "pRORECORDIDDataGridViewTextBoxColumn";
-            this.pRORECORDIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sTARTTIMEDataGridViewTextBoxColumn
-            // 
-            this.sTARTTIMEDataGridViewTextBoxColumn.DataPropertyName = "STARTTIME";
-            this.sTARTTIMEDataGridViewTextBoxColumn.HeaderText = "开始时间";
-            this.sTARTTIMEDataGridViewTextBoxColumn.Name = "sTARTTIMEDataGridViewTextBoxColumn";
-            this.sTARTTIMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // eNDTIMEDataGridViewTextBoxColumn
-            // 
-            this.eNDTIMEDataGridViewTextBoxColumn.DataPropertyName = "ENDTIME";
-            this.eNDTIMEDataGridViewTextBoxColumn.HeaderText = "结束时间";
-            this.eNDTIMEDataGridViewTextBoxColumn.Name = "eNDTIMEDataGridViewTextBoxColumn";
-            this.eNDTIMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pRODUCTNUMDataGridViewTextBoxColumn
-            // 
-            this.pRODUCTNUMDataGridViewTextBoxColumn.DataPropertyName = "PRODUCTNUM";
-            this.pRODUCTNUMDataGridViewTextBoxColumn.HeaderText = "生产数量";
-            this.pRODUCTNUMDataGridViewTextBoxColumn.Name = "pRODUCTNUMDataGridViewTextBoxColumn";
-            this.pRODUCTNUMDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // wORKSHOPDataGridViewTextBoxColumn
-            // 
-            this.wORKSHOPDataGridViewTextBoxColumn.DataPropertyName = "WORKSHOP";
-            this.wORKSHOPDataGridViewTextBoxColumn.HeaderText = "生产车间";
-            this.wORKSHOPDataGridViewTextBoxColumn.Name = "wORKSHOPDataGridViewTextBoxColumn";
-            this.wORKSHOPDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // wORKSHOPDIRECTORDataGridViewTextBoxColumn
-            // 
-            this.wORKSHOPDIRECTORDataGridViewTextBoxColumn.DataPropertyName = "WORKSHOPDIRECTOR";
-            this.wORKSHOPDIRECTORDataGridViewTextBoxColumn.HeaderText = "车间主任";
-            this.wORKSHOPDIRECTORDataGridViewTextBoxColumn.Name = "wORKSHOPDIRECTORDataGridViewTextBoxColumn";
-            this.wORKSHOPDIRECTORDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bs_Data_ProRecord
             // 
@@ -790,14 +721,14 @@
             this.DOCVERSION,
             this.DOCSTATUS,
             this.DOCCREATEUSER});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_DocList.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_DocList.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_DocList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_DocList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgv_DocList.Location = new System.Drawing.Point(3, 28);
@@ -911,14 +842,14 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewExt1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewExt1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewExt1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewExt1.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dataGridViewExt1.Location = new System.Drawing.Point(3, 28);
@@ -1369,6 +1300,90 @@
             this.Column10.ReadOnly = true;
             this.Column10.Width = 150;
             // 
+            // tab_ExtPro
+            // 
+            this.tab_ExtPro.Controls.Add(this.dgvExptendProperties);
+            this.tab_ExtPro.Controls.Add(this.toolStrip1);
+            this.tab_ExtPro.Location = new System.Drawing.Point(4, 22);
+            this.tab_ExtPro.Name = "tab_ExtPro";
+            this.tab_ExtPro.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_ExtPro.Size = new System.Drawing.Size(527, 358);
+            this.tab_ExtPro.TabIndex = 8;
+            this.tab_ExtPro.Text = "扩展属性";
+            this.tab_ExtPro.UseVisualStyleBackColor = true;
+            // 
+            // dgvExptendProperties
+            // 
+            this.dgvExptendProperties.AllowUserToAddRows = false;
+            this.dgvExptendProperties.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgvExptendProperties.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvExptendProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExptendProperties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PARAMS_NAME,
+            this.TARGET_COLNAME,
+            this.colValue});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvExptendProperties.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgvExptendProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvExptendProperties.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgvExptendProperties.Location = new System.Drawing.Point(3, 28);
+            this.dgvExptendProperties.Name = "dgvExptendProperties";
+            this.dgvExptendProperties.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvExptendProperties.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgvExptendProperties.RowTemplate.Height = 23;
+            this.dgvExptendProperties.Size = new System.Drawing.Size(521, 327);
+            this.dgvExptendProperties.TabIndex = 27;
+            // 
+            // PARAMS_NAME
+            // 
+            this.PARAMS_NAME.DataPropertyName = "PARAMS_NAME";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PARAMS_NAME.DefaultCellStyle = dataGridViewCellStyle10;
+            this.PARAMS_NAME.HeaderText = "属性值";
+            this.PARAMS_NAME.Name = "PARAMS_NAME";
+            this.PARAMS_NAME.Width = 280;
+            // 
+            // TARGET_COLNAME
+            // 
+            this.TARGET_COLNAME.DataPropertyName = "TARGET_COLNAME";
+            this.TARGET_COLNAME.HeaderText = "TARGET_COLNAME";
+            this.TARGET_COLNAME.Name = "TARGET_COLNAME";
+            this.TARGET_COLNAME.Visible = false;
+            // 
+            // colValue
+            // 
+            this.colValue.DataPropertyName = "colValue";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colValue.DefaultCellStyle = dataGridViewCellStyle11;
+            this.colValue.HeaderText = "属性值";
+            this.colValue.Name = "colValue";
+            this.colValue.Width = 280;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolExt_Add});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(521, 25);
+            this.toolStrip1.TabIndex = 26;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolExt_Add
+            // 
+            this.toolExt_Add.Image = ((System.Drawing.Image)(resources.GetObject("toolExt_Add.Image")));
+            this.toolExt_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolExt_Add.Name = "toolExt_Add";
+            this.toolExt_Add.Size = new System.Drawing.Size(76, 22);
+            this.toolExt_Add.Text = "添加属性";
+            this.toolExt_Add.Click += new System.EventHandler(this.toolExt_Add_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1515,89 +1530,99 @@
             this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.工艺权限ToolStripMenuItem.Text = "工艺权限";
             // 
-            // tab_ExtPro
+            // dgv_ProRecord
             // 
-            this.tab_ExtPro.Controls.Add(this.dgvExptendProperties);
-            this.tab_ExtPro.Controls.Add(this.toolStrip1);
-            this.tab_ExtPro.Location = new System.Drawing.Point(4, 22);
-            this.tab_ExtPro.Name = "tab_ExtPro";
-            this.tab_ExtPro.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ExtPro.Size = new System.Drawing.Size(527, 358);
-            this.tab_ExtPro.TabIndex = 8;
-            this.tab_ExtPro.Text = "扩展属性";
-            this.tab_ExtPro.UseVisualStyleBackColor = true;
+            this.dgv_ProRecord.AllowUserToAddRows = false;
+            this.dgv_ProRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_ProRecord.AutoGenerateColumns = false;
+            this.dgv_ProRecord.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgv_ProRecord.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_ProRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ProRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkedDataGridViewCheckBoxColumn1,
+            this.WFA_ID,
+            this.OBJECTKEY,
+            this.WFT_NAME,
+            this.SUBJECT,
+            this.STATUS,
+            this.CREATEUSER});
+            this.dgv_ProRecord.DataSource = this.bs_Data_ProRecord;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_ProRecord.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_ProRecord.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgv_ProRecord.Location = new System.Drawing.Point(3, 29);
+            this.dgv_ProRecord.MultiSelect = false;
+            this.dgv_ProRecord.Name = "dgv_ProRecord";
+            this.dgv_ProRecord.ReadOnly = true;
+            this.dgv_ProRecord.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgv_ProRecord.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgv_ProRecord.RowTemplate.Height = 23;
+            this.dgv_ProRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_ProRecord.Size = new System.Drawing.Size(521, 327);
+            this.dgv_ProRecord.TabIndex = 0;
             // 
-            // dgvExptendProperties
+            // checkedDataGridViewCheckBoxColumn1
             // 
-            this.dgvExptendProperties.AllowUserToAddRows = false;
-            this.dgvExptendProperties.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dgvExptendProperties.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvExptendProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExptendProperties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PARAMS_NAME,
-            this.TARGET_COLNAME,
-            this.colValue});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvExptendProperties.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvExptendProperties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvExptendProperties.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgvExptendProperties.Location = new System.Drawing.Point(3, 28);
-            this.dgvExptendProperties.Name = "dgvExptendProperties";
-            this.dgvExptendProperties.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dgvExptendProperties.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dgvExptendProperties.RowTemplate.Height = 23;
-            this.dgvExptendProperties.Size = new System.Drawing.Size(521, 327);
-            this.dgvExptendProperties.TabIndex = 27;
+            this.checkedDataGridViewCheckBoxColumn1.DataPropertyName = "Checked";
+            this.checkedDataGridViewCheckBoxColumn1.HeaderText = "选择";
+            this.checkedDataGridViewCheckBoxColumn1.Name = "checkedDataGridViewCheckBoxColumn1";
+            this.checkedDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.checkedDataGridViewCheckBoxColumn1.Visible = false;
+            this.checkedDataGridViewCheckBoxColumn1.Width = 50;
             // 
-            // PARAMS_NAME
+            // WFA_ID
             // 
-            this.PARAMS_NAME.DataPropertyName = "PARAMS_NAME";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PARAMS_NAME.DefaultCellStyle = dataGridViewCellStyle6;
-            this.PARAMS_NAME.HeaderText = "属性值";
-            this.PARAMS_NAME.Name = "PARAMS_NAME";
-            this.PARAMS_NAME.Width = 280;
+            this.WFA_ID.DataPropertyName = "WFA_ID";
+            this.WFA_ID.HeaderText = "流程ID";
+            this.WFA_ID.Name = "WFA_ID";
+            this.WFA_ID.ReadOnly = true;
+            this.WFA_ID.Visible = false;
             // 
-            // TARGET_COLNAME
+            // OBJECTKEY
             // 
-            this.TARGET_COLNAME.DataPropertyName = "TARGET_COLNAME";
-            this.TARGET_COLNAME.HeaderText = "TARGET_COLNAME";
-            this.TARGET_COLNAME.Name = "TARGET_COLNAME";
-            this.TARGET_COLNAME.Visible = false;
+            this.OBJECTKEY.DataPropertyName = "OBJECTKEY";
+            this.OBJECTKEY.HeaderText = "产品ID";
+            this.OBJECTKEY.Name = "OBJECTKEY";
+            this.OBJECTKEY.ReadOnly = true;
+            this.OBJECTKEY.Visible = false;
             // 
-            // colValue
+            // WFT_NAME
             // 
-            this.colValue.DataPropertyName = "colValue";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colValue.DefaultCellStyle = dataGridViewCellStyle7;
-            this.colValue.HeaderText = "属性值";
-            this.colValue.Name = "colValue";
-            this.colValue.Width = 280;
+            this.WFT_NAME.DataPropertyName = "WFT_NAME";
+            this.WFT_NAME.HeaderText = "模板名称";
+            this.WFT_NAME.Name = "WFT_NAME";
+            this.WFT_NAME.ReadOnly = true;
+            this.WFT_NAME.Width = 120;
             // 
-            // toolStrip1
+            // SUBJECT
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolExt_Add});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(521, 25);
-            this.toolStrip1.TabIndex = 26;
-            this.toolStrip1.Text = "toolStrip1";
+            this.SUBJECT.DataPropertyName = "SUBJECT";
+            this.SUBJECT.HeaderText = "流程名称";
+            this.SUBJECT.Name = "SUBJECT";
+            this.SUBJECT.ReadOnly = true;
+            this.SUBJECT.Width = 120;
             // 
-            // toolExt_Add
+            // STATUS
             // 
-            this.toolExt_Add.Image = ((System.Drawing.Image)(resources.GetObject("toolExt_Add.Image")));
-            this.toolExt_Add.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolExt_Add.Name = "toolExt_Add";
-            this.toolExt_Add.Size = new System.Drawing.Size(76, 22);
-            this.toolExt_Add.Text = "添加属性";
-            this.toolExt_Add.Click += new System.EventHandler(this.toolExt_Add_Click);
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "状态";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            // 
+            // CREATEUSER
+            // 
+            this.CREATEUSER.DataPropertyName = "CREATEUSER";
+            this.CREATEUSER.HeaderText = "创建人";
+            this.CREATEUSER.Name = "CREATEUSER";
+            this.CREATEUSER.ReadOnly = true;
             // 
             // ProductsConfForm
             // 
@@ -1624,7 +1649,6 @@
             this.tab_ProRecord.PerformLayout();
             this.toolProRecord.ResumeLayout(false);
             this.toolProRecord.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_ProRecord)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bs_Data_ProRecord)).EndInit();
             this.tab_Change.ResumeLayout(false);
             this.tab_Change.PerformLayout();
@@ -1656,12 +1680,13 @@
             this.toolVersion.ResumeLayout(false);
             this.toolVersion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Product)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.tab_ExtPro.ResumeLayout(false);
             this.tab_ExtPro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExptendProperties)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ProRecord)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1734,7 +1759,6 @@
         private System.Windows.Forms.ToolStripMenuItem 工艺权限ToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgv_Product;
         private System.Windows.Forms.ToolStrip toolStrip4;
-        private System.Windows.Forms.DataGridView dgv_ProRecord;
         private System.Windows.Forms.ToolStrip toolStrip5;
         private System.Windows.Forms.ToolStrip toolStrip6;
         private System.Windows.Forms.ToolStripLabel toolStripLabel48;
@@ -1755,13 +1779,6 @@
         private System.Windows.Forms.ToolStripButton toolProRecordAdd;
         private System.Windows.Forms.ToolStripButton toolProRecordEdit;
         private System.Windows.Forms.BindingSource bs_Data_ProRecord;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pRORECORDIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTARTTIMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eNDTIMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pRODUCTNUMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wORKSHOPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wORKSHOPDIRECTORDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStrip toolChange;
         private System.Windows.Forms.DataGridView dgv_Change;
         private System.Windows.Forms.ToolStripButton toolChangeAdd;
@@ -1829,5 +1846,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolExt_Add;
+        private BaseControl.DataGridViewExt dgv_ProRecord;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WFA_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OBJECTKEY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WFT_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
     }
 }

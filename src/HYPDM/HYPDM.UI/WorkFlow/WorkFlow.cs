@@ -542,5 +542,25 @@ namespace HYPDM.WinUI.WorkFlow
                 return detail;
             }
         }
+
+
+        //获取对象关联的流程实例
+        public DataTable GetObjectWFList(string p_ObjectId,string p_user,string p_ObjectType) {
+            StringBuilder selectWhere = new StringBuilder();
+            String selectColunm=" A.WFA_ID,A.OBJECTKEY,B.WFT_NAME,A.SUBJECT,A.STATUS, A.CREATEUSER ";
+            String selectTable ="WF_APP A,WF_TEMPLATES B  ";
+
+            selectWhere.Append("WHERE   A.WFT_ID= B.WFT_ID AND OBJECTKEY='").Append(p_ObjectId)
+                 .Append("'  AND RELATIONOBJECTTYPE  ='").Append(p_ObjectType)
+                 .Append("'  AND A.CREATEUSER='").Append(p_user).Append("' ");
+
+            DataTable dt = CommonFuns.getDataTableBySql(selectColunm, selectWhere.ToString(), selectTable);
+            return dt;
+        }
+        //更新流程的状态
+        public void UpdataWFStatus() { 
+        
+        }
+
     }
 }

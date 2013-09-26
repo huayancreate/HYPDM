@@ -20,7 +20,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             InitializeComponent();
             this.tabControl.TabPages.Remove(tab_Change);
             this.tabControl.TabPages.Remove(tab_TelTask);
-            this.tabControl.TabPages.Remove(tab_ProRecord);
         }
 
         public PartsConfForm(int p_type)
@@ -28,7 +27,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             InitializeComponent();
             this.tabControl.TabPages.Remove(tab_Change);
             this.tabControl.TabPages.Remove(tab_TelTask);
-            this.tabControl.TabPages.Remove(tab_ProRecord);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -40,7 +38,6 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             InitializeComponent();
             this.tabControl.TabPages.Remove(tab_Change);
             this.tabControl.TabPages.Remove(tab_TelTask);
-            this.tabControl.TabPages.Remove(tab_ProRecord);
             this.m_type = p_type;
             this.opStatus = false;
             service_Init();
@@ -84,7 +81,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             baseInfo_Init();
             dgv_docList_Init();
             Init_ExtProperties();
-            //tabProRecord_Init();
+            tabProRecord_Init();
             //dgv_Change_init(t);
             tabStruct_Init();
             tabVersion_Init();
@@ -219,7 +216,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             if (this.opStatus)
             {
                 //a.显示（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面
-                //this.tabControl.TabPages.Add(tab_ProRecord);
+                this.tabControl.TabPages.Add(tab_ProRecord);
                 //this.tabControl.TabPages.Add(tab_Change);
                 this.tabControl.TabPages.Add(tab_Doc);
                 this.tabControl.TabPages.Add(tab_Drawing);
@@ -261,7 +258,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             this.rtbMemo.Text = "";
 
             //2.移除（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab 页面
-            //this.tabControl.TabPages.Remove(tab_ProRecord);
+            this.tabControl.TabPages.Remove(tab_ProRecord);
             //this.tabControl.TabPages.Remove(tab_Change);
             this.tabControl.TabPages.Remove(tab_Doc);
             this.tabControl.TabPages.Remove(tab_Drawing);
@@ -328,7 +325,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             if (this.opStatus)
             {
                 //a.显示（派生历史记录,ERC,文档,图纸,技术任务单,产品结构,版本）等tab页面
-                // this.tabControl.TabPages.Add(tab_ProRecord);
+                this.tabControl.TabPages.Add(tab_ProRecord);
                 //  this.tabControl.TabPages.Add(tab_Change);
                 this.tabControl.TabPages.Add(tab_Doc);
                 this.tabControl.TabPages.Add(tab_Drawing);
@@ -344,21 +341,19 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             allinit();
         }
         #endregion
-
-        #region 半成品生产记录tab页面操作
-        /************************************************************************
-        *******************     产品生产记录tab页面操作     *********************
-        ************************************************************************/
+        
+        #region 变更申请tab页面操作
+        /***********************************************************************
+        *******************         变更申请tab页面操作tab页面操作         *********************
+        ************************** *********************************************/
 
         /// <summary>
-        /// 生产记录页面初始化
+        /// 变更申请tab页面操作
         /// </summary>
         /// <param name="t"></param>
         private void tabProRecord_Init()
         {
-            Condition condition = PDM_PRODUCT_PRORECORD.Create().CreateCondition();
-            condition.AddElement("PRUDUCTID", this.m_product.PRODUCTID, ElementType.MatchPrefix);
-            this.dgv_ProRecord.DataSource= m_proRecordService.GetProductList(condition);
+            this.dgv_ProRecord.DataSource = HYPDM.WinUI.WorkFlow.WorkFlow.NewInstance.GetObjectWFList(this.m_product.PRODUCTID,LoginInfo.LoginID,DataType.RelationObjectType.SemiProduct.ToString());
         }
 
         ///
@@ -377,32 +372,36 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             //}
         }
 
-        //产品生产记录修改按钮操作
+        //重启操作
         private void toolProRecordEdit_Click(object sender, EventArgs e)
         {
-            //int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
+            if (dgv_ProRecord.RowCount <= 0)
+            {
+                MessageBox.Show("请选择一条记录"); return;
+            }
 
-            //if (rowIndex < 0)
-            //    return;
+            int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
+            if (rowIndex < 0)  {
+                MessageBox.Show("请选择一条记录"); return;
+            }
+            string status = dgv_ProRecord.CurrentRow.Cells["STATUS"].Value.ToString();
+            if (!status.Equals(DataType.WFDetailSTATUS.Return.ToString()))
+            {
+                MessageBox.Show("该流程已经启动", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
+            }
+            WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
+            t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
 
-            //DataGridViewRow row = dgv_ProRecord.Rows[rowIndex];
-
-            //HYPDM.Entities.PDM_PRODUCT_PRORECORD record = row.DataBoundItem as HYPDM.Entities.PDM_PRODUCT_PRORECORD;
-
-            //if (record == null)
-            //{
-            //    MessageBox.Show("请选择一条记录"); return;
-            //}
-
-            //ProductsProRecordAddForm o = new ProductsProRecordAddForm();
-            //o.StartPosition = FormStartPosition.CenterParent;
-            //o._ProductId = this.m_product.PRODUCTID;
-            //o.Record = record;
-
-            //if (o.ShowDialog() == DialogResult.OK)
-            //{
-            //    MessageBox.Show("更新记录");
-            //}
+            try
+            {
+                t_wfapp.Update();
+                MessageBox.Show("流程重启成功");
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show("更新状态失败");
+            }
+            tabProRecord_Init();
         }
         #endregion
 

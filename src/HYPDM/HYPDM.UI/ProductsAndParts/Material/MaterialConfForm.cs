@@ -91,6 +91,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         private void allinit()
         {
             baseInfo_Init();
+            tabProRecord_Init();
             Init_ExtProperties();
             docInfo_Init();
         }
@@ -349,5 +350,50 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
 
         #endregion
 
+         #region 材料变更记录tab页
+
+         private void tabProRecord_Init()
+         {
+             this.dgv_ProRecord.DataSource = HYPDM.WinUI.WorkFlow.WorkFlow.NewInstance.GetObjectWFList(this.m_product.MATERIALID, LoginInfo.LoginID, DataType.RelationObjectType.Material.ToString());
+         }
+
+         private void toolProRecordAdd_Click(object sender, EventArgs e)
+         {
+
+         }
+
+         private void toolProRecordEdit_Click(object sender, EventArgs e)
+         {
+             if (dgv_ProRecord.RowCount <= 0)
+             {
+                 MessageBox.Show("请选择一条记录"); return;
+             }
+
+             int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
+             if (rowIndex < 0) {
+                 MessageBox.Show("请选择一条记录"); return;
+             }
+             string status = dgv_ProRecord.CurrentRow.Cells["STATUS"].Value.ToString();
+             if (!status.Equals(DataType.WFDetailSTATUS.Return.ToString()))
+             {
+                 MessageBox.Show("该流程已经启动", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
+             }
+             WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
+             t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
+
+             try
+             {
+                 t_wfapp.Update();
+                 MessageBox.Show("流程重启成功");
+             }
+             catch (Exception e1)
+             {
+                 MessageBox.Show("更新状态失败");
+             }
+             tabProRecord_Init();
+         }
+#endregion
+
+       
     }
 }
