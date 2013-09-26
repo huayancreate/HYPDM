@@ -91,6 +91,19 @@ namespace HYPDM.BLL
             dt = this.DataAccessor.QueryDataTable(stb.ToString());
             return dt;
         }
+
+        public DataTable GetDocFileDataTableByDCID(string dcid,string  fileType)
+        {
+            DataTable dt = null;
+
+
+            StringBuilder stb = new StringBuilder();
+            stb.Append("SELECT DFL_ID,DFL_FILE_NAME,DFL_FILE_EXTEND,DFL_FILE_CHILD_PATH,DFL_VER_LATEST");
+            stb.Append(" ,DEL_FLAG ,CREATEDATE,CREATEUSER,LASTUPDATEUSER,LASTUPDATEDATE,DOCID,CHECKINFLG,CHECKOUTFLG,CHECKINDATE,CHECKOUTDATE FROM DOC_FILE_LIST");
+            stb.Append(" WHERE  DEL_FLAG='N' AND DOCID='" + dcid.Trim() + "' AND FILE_TYPE='" + fileType + "'");
+            dt = this.DataAccessor.QueryDataTable(stb.ToString());
+            return dt;
+        }
         public IList<DOC_FILE_LIST> GetDocFileListByDCID(string dcid)
         {
            // DataTable dt = null;

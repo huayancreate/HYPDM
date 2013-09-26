@@ -82,6 +82,15 @@
             this.btnAddRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.tabCad = new System.Windows.Forms.TabPage();
+            this.tvCad = new AdvancedDataGridView.TreeGridView();
+            this.DFL_FILE_NAME1 = new AdvancedDataGridView.TreeGridColumn();
+            this.FilePathName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkinflg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkindate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkoutflg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkoutdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteflag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tspRegPhysicCad = new System.Windows.Forms.ToolStripButton();
@@ -166,6 +175,15 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuCadObject = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuCadView = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadDownLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuCadCheckIn = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadCheckOut = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCadCancelCheckOut = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuCadFileDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tbcContent.SuspendLayout();
             this.tpRemark.SuspendLayout();
@@ -177,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tabCad.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tvCad)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tpVersion.SuspendLayout();
             this.tpgExtandsProperties.SuspendLayout();
@@ -189,6 +208,7 @@
             this.tabPage1.SuspendLayout();
             this.tsToolbar.SuspendLayout();
             this.cmPhysical.SuspendLayout();
+            this.menuCadObject.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -575,6 +595,7 @@
             this.btnHalfProduct.Size = new System.Drawing.Size(112, 22);
             this.btnHalfProduct.Tag = "半成品";
             this.btnHalfProduct.Text = "半成品";
+            this.btnHalfProduct.Click += new System.EventHandler(this.btnHalfProduct_Click);
             // 
             // btnMaterial
             // 
@@ -582,27 +603,32 @@
             this.btnMaterial.Size = new System.Drawing.Size(112, 22);
             this.btnMaterial.Tag = "原材料";
             this.btnMaterial.Text = "原材料";
+            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
             // btnProduct
             // 
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(112, 22);
             this.btnProduct.Text = "产品";
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnAddRelation
             // 
             this.btnAddRelation.Name = "btnAddRelation";
             this.btnAddRelation.Size = new System.Drawing.Size(68, 21);
             this.btnAddRelation.Text = "新增关联";
+            this.btnAddRelation.Click += new System.EventHandler(this.btnAddRelation_Click);
             // 
             // btnDelRelation
             // 
             this.btnDelRelation.Name = "btnDelRelation";
             this.btnDelRelation.Size = new System.Drawing.Size(68, 21);
             this.btnDelRelation.Text = "删除关联";
+            this.btnDelRelation.Click += new System.EventHandler(this.btnDelRelation_Click);
             // 
             // tabCad
             // 
+            this.tabCad.Controls.Add(this.tvCad);
             this.tabCad.Controls.Add(this.toolStrip1);
             this.tabCad.Location = new System.Drawing.Point(4, 22);
             this.tabCad.Name = "tabCad";
@@ -610,6 +636,87 @@
             this.tabCad.TabIndex = 4;
             this.tabCad.Text = "图纸";
             this.tabCad.UseVisualStyleBackColor = true;
+            // 
+            // tvCad
+            // 
+            this.tvCad.AllowUserToAddRows = false;
+            this.tvCad.AllowUserToDeleteRows = false;
+            this.tvCad.AllowUserToOrderColumns = true;
+            this.tvCad.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tvCad.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.tvCad.ColumnHeadersHeight = 20;
+            this.tvCad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DFL_FILE_NAME1,
+            this.FilePathName1,
+            this.Colver,
+            this.checkinflg,
+            this.checkindate,
+            this.checkoutflg,
+            this.checkoutdate,
+            this.deleteflag});
+            this.tvCad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvCad.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.tvCad.ImageList = null;
+            this.tvCad.Location = new System.Drawing.Point(0, 25);
+            this.tvCad.Name = "tvCad";
+            this.tvCad.RowHeadersVisible = false;
+            this.tvCad.RowHeadersWidth = 20;
+            this.tvCad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tvCad.Size = new System.Drawing.Size(618, 343);
+            this.tvCad.TabIndex = 10;
+            // 
+            // DFL_FILE_NAME1
+            // 
+            this.DFL_FILE_NAME1.DefaultNodeImage = null;
+            this.DFL_FILE_NAME1.HeaderText = "文件名称";
+            this.DFL_FILE_NAME1.Name = "DFL_FILE_NAME1";
+            this.DFL_FILE_NAME1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DFL_FILE_NAME1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DFL_FILE_NAME1.Width = 230;
+            // 
+            // FilePathName1
+            // 
+            this.FilePathName1.HeaderText = "文件路径";
+            this.FilePathName1.Name = "FilePathName1";
+            this.FilePathName1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FilePathName1.Width = 240;
+            // 
+            // Colver
+            // 
+            this.Colver.HeaderText = "版本";
+            this.Colver.Name = "Colver";
+            this.Colver.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Colver.Width = 50;
+            // 
+            // checkinflg
+            // 
+            this.checkinflg.HeaderText = "检入标识";
+            this.checkinflg.Name = "checkinflg";
+            this.checkinflg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // checkindate
+            // 
+            this.checkindate.HeaderText = "检入日期";
+            this.checkindate.Name = "checkindate";
+            this.checkindate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // checkoutflg
+            // 
+            this.checkoutflg.HeaderText = "检出标识";
+            this.checkoutflg.Name = "checkoutflg";
+            this.checkoutflg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // checkoutdate
+            // 
+            this.checkoutdate.HeaderText = "检出日期";
+            this.checkoutdate.Name = "checkoutdate";
+            this.checkoutdate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // deleteflag
+            // 
+            this.deleteflag.HeaderText = "删除标识";
+            this.deleteflag.Name = "deleteflag";
+            this.deleteflag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // toolStrip1
             // 
@@ -637,6 +744,7 @@
             this.tspRegPhysicCad.Size = new System.Drawing.Size(76, 22);
             this.tspRegPhysicCad.Text = "文件注册";
             this.tspRegPhysicCad.ToolTipText = "管理文档的物理文件。";
+            this.tspRegPhysicCad.Click += new System.EventHandler(this.tspRegPhysicCad_Click);
             // 
             // toolStripSeparator7
             // 
@@ -650,6 +758,7 @@
             this.tspCadDownLoad.Name = "tspCadDownLoad";
             this.tspCadDownLoad.Size = new System.Drawing.Size(76, 22);
             this.tspCadDownLoad.Text = "文件下载";
+            this.tspCadDownLoad.Click += new System.EventHandler(this.tspCadDownLoad_Click);
             // 
             // toolStripButton4
             // 
@@ -891,6 +1000,7 @@
             this.btnRegPhysicalFile.Size = new System.Drawing.Size(76, 22);
             this.btnRegPhysicalFile.Text = "文件注册";
             this.btnRegPhysicalFile.ToolTipText = "管理文档的物理文件。";
+            this.btnRegPhysicalFile.Click += new System.EventHandler(this.btnRegPhysicalFile_Click);
             // 
             // toolStripSeparator3
             // 
@@ -904,6 +1014,7 @@
             this.tspDownLoad.Name = "tspDownLoad";
             this.tspDownLoad.Size = new System.Drawing.Size(76, 22);
             this.tspDownLoad.Text = "文件下载";
+            this.tspDownLoad.Click += new System.EventHandler(this.btnFileDown_Click);
             // 
             // toolStripButton3
             // 
@@ -1336,6 +1447,75 @@
             this.Column16.Name = "Column16";
             this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // menuCadObject
+            // 
+            this.menuCadObject.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuCadView,
+            this.menuCadDownLoad,
+            this.toolStripSeparator9,
+            this.menuCadCheckIn,
+            this.menuCadCheckOut,
+            this.menuCadCancelCheckOut,
+            this.toolStripSeparator10,
+            this.menuCadFileDelete});
+            this.menuCadObject.Name = "contextMenuStrip1";
+            this.menuCadObject.Size = new System.Drawing.Size(153, 170);
+            // 
+            // menuCadView
+            // 
+            this.menuCadView.Image = global::HYPDM.WinUI.Properties.Resources.view;
+            this.menuCadView.Name = "menuCadView";
+            this.menuCadView.Size = new System.Drawing.Size(152, 22);
+            this.menuCadView.Text = "查看";
+            this.menuCadView.Click += new System.EventHandler(this.menuCadView_Click);
+            // 
+            // menuCadDownLoad
+            // 
+            this.menuCadDownLoad.Image = global::HYPDM.WinUI.Properties.Resources.download;
+            this.menuCadDownLoad.Name = "menuCadDownLoad";
+            this.menuCadDownLoad.Size = new System.Drawing.Size(152, 22);
+            this.menuCadDownLoad.Text = "文件下载";
+            this.menuCadDownLoad.Click += new System.EventHandler(this.menuCadDownLoad_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(149, 6);
+            // 
+            // menuCadCheckIn
+            // 
+            this.menuCadCheckIn.Name = "menuCadCheckIn";
+            this.menuCadCheckIn.Size = new System.Drawing.Size(152, 22);
+            this.menuCadCheckIn.Text = "检入";
+            this.menuCadCheckIn.Click += new System.EventHandler(this.menuCadCheckIn_Click);
+            // 
+            // menuCadCheckOut
+            // 
+            this.menuCadCheckOut.Name = "menuCadCheckOut";
+            this.menuCadCheckOut.Size = new System.Drawing.Size(152, 22);
+            this.menuCadCheckOut.Text = "检出";
+            this.menuCadCheckOut.Click += new System.EventHandler(this.menuCadCheckOut_Click);
+            // 
+            // menuCadCancelCheckOut
+            // 
+            this.menuCadCancelCheckOut.Name = "menuCadCancelCheckOut";
+            this.menuCadCancelCheckOut.Size = new System.Drawing.Size(152, 22);
+            this.menuCadCancelCheckOut.Text = "取消检出";
+            this.menuCadCancelCheckOut.Click += new System.EventHandler(this.menuCadCancelCheckOut_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(149, 6);
+            // 
+            // menuCadFileDelete
+            // 
+            this.menuCadFileDelete.Image = global::HYPDM.WinUI.Properties.Resources.delete;
+            this.menuCadFileDelete.Name = "menuCadFileDelete";
+            this.menuCadFileDelete.Size = new System.Drawing.Size(152, 22);
+            this.menuCadFileDelete.Text = "删除文件";
+            this.menuCadFileDelete.Click += new System.EventHandler(this.menuCadFileDelete_Click);
+            // 
             // DocRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1365,6 +1545,7 @@
             this.menuStrip1.PerformLayout();
             this.tabCad.ResumeLayout(false);
             this.tabCad.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tvCad)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tpVersion.ResumeLayout(false);
@@ -1385,6 +1566,7 @@
             this.tsToolbar.ResumeLayout(false);
             this.tsToolbar.PerformLayout();
             this.cmPhysical.ResumeLayout(false);
+            this.menuCadObject.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1487,12 +1669,6 @@
         private System.Windows.Forms.ToolStripButton tspDownLoad;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.TabPage tabCad;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripButton tspRegPhysicCad;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton tspCadDownLoad;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
         private System.Windows.Forms.TabPage tpVersion;
         private System.Windows.Forms.TextBox txtVer;
         private System.Windows.Forms.TabPage tpgExtandsProperties;
@@ -1522,5 +1698,29 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private AdvancedDataGridView.TreeGridView tvFileList;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton tspRegPhysicCad;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton tspCadDownLoad;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private AdvancedDataGridView.TreeGridView tvCad;
+        private AdvancedDataGridView.TreeGridColumn DFL_FILE_NAME1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FilePathName1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Colver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkinflg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkindate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkoutflg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkoutdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deleteflag;
+        private System.Windows.Forms.ContextMenuStrip menuCadObject;
+        private System.Windows.Forms.ToolStripMenuItem menuCadView;
+        private System.Windows.Forms.ToolStripMenuItem menuCadDownLoad;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem menuCadCheckIn;
+        private System.Windows.Forms.ToolStripMenuItem menuCadCheckOut;
+        private System.Windows.Forms.ToolStripMenuItem menuCadCancelCheckOut;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripMenuItem menuCadFileDelete;
     }
 }

@@ -185,6 +185,19 @@ namespace HYPDM.Entities
            get;
            set;
        }
+
+         /// <summary>
+       /// 文件类型区分，工艺文件、装配文件
+       /// </summary>
+       [Column("FILE_TYPE", "FILE_TYPE"), DataSize(50)]
+       [DisplayName("FILE_TYPE")]
+       public string FILE_TYPE
+       {
+           get;
+           set;
+       }
+
+       
        #endregion
    }
 }
