@@ -24,10 +24,7 @@ namespace HYPDM.WinUI.SysConfig
             get { return this.m_PDM_Params; }
         }
 
-        //private String m_proValue;
-        //public String M_ProValue {
-        //    get { return this.m_proValue; }
-        //}
+        private bool isEditModel = false;
 
         public FrmAddNewProperties(String p_TableName)
         {
@@ -35,16 +32,48 @@ namespace HYPDM.WinUI.SysConfig
             this.CenterToParent();
             m_PDM_Params.MASTER_TABLE_NAME = p_TableName.Trim().ToUpper();
         }
-        
+
+        public FrmAddNewProperties(PDM_Params p_PDM_Params)
+        {
+            InitializeComponent();
+            this.CenterToParent();
+            isEditModel = true;
+            InitControl(p_PDM_Params);
+        }
+        private void InitControl(PDM_Params p_PDM_Params)
+        {
+            this.txtParamsColName.Text = p_PDM_Params.PARAMS_NAME;
+            if (p_PDM_Params.PARAMS_DATA_TYPE.Equals(DataType.DataColumnType.Text.ToString())) { this.btnTxtValue.Checked = true; this.btnNumberValue.Enabled = false; this.btnDateTime.Enabled = false; }
+            if (p_PDM_Params.PARAMS_DATA_TYPE.Equals(DataType.DataColumnType.Number.ToString())) { this.btnNumberValue.Checked = true; this.btnDateTime.Enabled = false; }
+            if (p_PDM_Params.PARAMS_DATA_TYPE.Equals(DataType.DataColumnType.DateTime.ToString())) { this.btnDateTime.Checked = true; this.btnNumberValue.Enabled = false; }
+        }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (isEditModel)
+            {
+                UpdateValue();
+            }
+            else {
+                SaveValue();
+            }
+            
+        }
+        private void  UpdateValue() {
             m_PDM_Params.PARAMS_NAME = this.txtParamsColName.Text;
-           // m_proValue = this.txtParamsValue.Text;
 
             if (this.btnTxtValue.Checked) m_PDM_Params.PARAMS_DATA_TYPE = DataType.DataColumnType.Text.ToString();
             if (this.btnNumberValue.Checked) m_PDM_Params.PARAMS_DATA_TYPE = DataType.DataColumnType.Number.ToString();
             if (this.btnDateTime.Checked) m_PDM_Params.PARAMS_DATA_TYPE = DataType.DataColumnType.DateTime.ToString();
-           // 
+
+            this.DialogResult = DialogResult.OK;
+        }
+        private void  SaveValue(){
+            m_PDM_Params.PARAMS_NAME = this.txtParamsColName.Text;
+
+            if (this.btnTxtValue.Checked) m_PDM_Params.PARAMS_DATA_TYPE = DataType.DataColumnType.Text.ToString();
+            if (this.btnNumberValue.Checked) m_PDM_Params.PARAMS_DATA_TYPE = DataType.DataColumnType.Number.ToString();
+            if (this.btnDateTime.Checked) m_PDM_Params.PARAMS_DATA_TYPE = DataType.DataColumnType.DateTime.ToString();
+            // 
             int maxcolumns = GetMaxCountForProperties(m_PDM_Params.MASTER_TABLE_NAME);
             if (maxcolumns >= 30)
             {
@@ -65,7 +94,6 @@ namespace HYPDM.WinUI.SysConfig
                 return;
             }
         }
-
         private int GetMaxCountForProperties(string tableName)
         {
             DataTable dt = WinUI.AddObjectParams.ObjectParams.getDataTableBySql(
@@ -82,12 +110,5 @@ namespace HYPDM.WinUI.SysConfig
             }
         }
 
-    }
-   public class WriteValue {
-        public String proName;
-        public String proValue;
-        public String proType;
-        public String proTable;
-        public String proColumn;
     }
 }

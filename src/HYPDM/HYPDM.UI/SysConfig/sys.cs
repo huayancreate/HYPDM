@@ -62,6 +62,15 @@ namespace HYPDM.WinUI.SysConfig
             return dtTemp;
 
         }
+
+        public void UpdateExtPro(HYPDM.Entities.PDM_Params p_oldValue, HYPDM.Entities.PDM_Params p_newValue)
+        {
+            StringBuilder stb = new StringBuilder();
+            stb.Append("UPDATE  PDM_Params set PARAMS_NAME ='").Append(p_newValue.PARAMS_NAME).Append("', PARAMS_DATA_TYPE='").Append(p_newValue.PARAMS_DATA_TYPE).Append("'  ");
+            stb.Append("WHERE PARAMS_NAME ='").Append(p_oldValue.PARAMS_NAME).Append("' AND PARAMS_DATA_TYPE='").Append(p_oldValue.PARAMS_DATA_TYPE).Append("' AND MASTER_TABLE_NAME='").Append(p_oldValue.MASTER_TABLE_NAME).Append("'");
+            EAS.Services.ServiceContainer.GetService<DocFileListService>().DataAccessor.Execute(stb.ToString());
+        }
+
         /// <summary>
         /// 根据RelationObjectType类型获取对应的主表名称及form
         /// </summary>

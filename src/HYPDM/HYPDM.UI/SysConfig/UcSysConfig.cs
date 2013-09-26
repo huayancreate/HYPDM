@@ -15,7 +15,7 @@ using HYPDM.BLL;
 using EAS.Data;
 using EAS.Explorer;
 using HYPDM.BaseControl;
-
+using HYPDM.Entities;
 namespace HYPDM.WinUI.SysConfig
 {
     [Module("48543BE9-3365-48F6-8425-8DE3432CF939", "系统配置", "系统配置")]
@@ -91,6 +91,28 @@ namespace HYPDM.WinUI.SysConfig
             }
         }
 
+        private void BtnEditCommonPro_Click(object sender, EventArgs e)
+        {
+            bool isSelectRecord = true;
+            if (this.dGVCommonProperties.RowCount <= 0) { isSelectRecord = false; }
+            int rowIndex = this.dGVCommonProperties.CurrentRow.Index;
+            if (rowIndex < 0) { isSelectRecord = false; }
+            if (!isSelectRecord) { MessageBox.Show("请选择一条记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+
+            PDM_Params temp = new PDM_Params();
+            temp.MASTER_TABLE_NAME = "ALL";
+            temp.PARAMS_DATA_TYPE = this.dGVCommonProperties.CurrentRow.Cells["PARAMS_DATA_TYPE"].Value.ToString();
+            temp.PARAMS_NAME = this.dGVCommonProperties.CurrentRow.Cells["PARAMS_NAME"].Value.ToString();
+            
+            
+            FrmAddNewProperties addpro = new FrmAddNewProperties(temp);
+            if (addpro.ShowDialog() == DialogResult.OK)
+            {
+                sys.NewInstance.UpdateExtPro(temp,addpro.M_PDM_Params);
+                this.dGVCommonProperties.DataSource = sys.NewInstance.GetDataTableForParams(DataType.RelationObjectType.ALL);
+            }
+        }
+
         private void BtnAddObjectPro_Click(object sender, EventArgs e)
         {
             if (this.tSCombPObject.Text.Trim() != "")
@@ -119,6 +141,34 @@ namespace HYPDM.WinUI.SysConfig
         {
             tSCombPObject_TextChanged(sender, e);
         }
+
+        private void BtnEditObjectPro_Click(object sender, EventArgs e)
+        {
+            if (this.tSCombPObject.Text.Trim() != "")
+            {
+                bool isSelectRecord = true;
+                if (this.dGVObjectProperties.RowCount <= 0) { isSelectRecord = false; }
+                int rowIndex = this.dGVObjectProperties.CurrentCell.RowIndex;
+                if (rowIndex < 0) { isSelectRecord = false; }
+                if (!isSelectRecord) { MessageBox.Show("请选择一条记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
+
+                PDM_Params temp = new PDM_Params();
+
+                DataType.RelationObjectType obj = GetRelationType(this.tSCombPObject.Text.Trim());              
+                temp.MASTER_TABLE_NAME = sys.NewInstance.GetTableName(obj);
+                temp.PARAMS_DATA_TYPE = this.dGVObjectProperties.CurrentRow.Cells["PARAMS_DATA_TYPE1"].Value.ToString();
+                temp.PARAMS_NAME = this.dGVObjectProperties.CurrentRow.Cells["PARAMS_NAME1"].Value.ToString();
+
+
+                FrmAddNewProperties addpro = new FrmAddNewProperties(temp);
+                if (addpro.ShowDialog() == DialogResult.OK)
+                {
+                    sys.NewInstance.UpdateExtPro(temp, addpro.M_PDM_Params);
+                    this.dGVObjectProperties.DataSource = sys.NewInstance.GetDataTableForParams(GetRelationType(this.tSCombPObject.Text.Trim()));
+                }
+            }
+        }
+
 
     }
 }

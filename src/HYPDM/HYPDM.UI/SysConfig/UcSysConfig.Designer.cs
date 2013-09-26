@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl = new System.Windows.Forms.Panel();
             this.gpObjectProperties = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,6 +51,8 @@
             this.BtnAddCommonPro = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+            this.BtnEditObjectPro = new System.Windows.Forms.ToolStripButton();
+            this.BtnEditCommonPro = new System.Windows.Forms.ToolStripButton();
             this.pnl.SuspendLayout();
             this.gpObjectProperties.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,14 +108,14 @@
             this.PARAMS_NAME1,
             this.MASTER_TABLE_NAME1,
             this.PARAMS_DATA_TYPE1});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVObjectProperties.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVObjectProperties.DefaultCellStyle = dataGridViewCellStyle6;
             this.dGVObjectProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGVObjectProperties.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dGVObjectProperties.Location = new System.Drawing.Point(3, 42);
@@ -155,7 +157,8 @@
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tSCombPObject,
             this.toolStripSeparator1,
-            this.BtnAddObjectPro});
+            this.BtnAddObjectPro,
+            this.BtnEditObjectPro});
             this.toolStrip2.Location = new System.Drawing.Point(3, 17);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(444, 25);
@@ -206,14 +209,14 @@
             this.PARAMS_NAME,
             this.MASTER_TABLE_NAME,
             this.PARAMS_DATA_TYPE});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVCommonProperties.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVCommonProperties.DefaultCellStyle = dataGridViewCellStyle5;
             this.dGVCommonProperties.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dGVCommonProperties.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dGVCommonProperties.Location = new System.Drawing.Point(3, 42);
@@ -254,7 +257,8 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator2,
-            this.BtnAddCommonPro});
+            this.BtnAddCommonPro,
+            this.BtnEditCommonPro});
             this.toolStrip1.Location = new System.Drawing.Point(3, 17);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(444, 25);
@@ -293,6 +297,24 @@
             this.toolStrip3.Size = new System.Drawing.Size(450, 34);
             this.toolStrip3.TabIndex = 1;
             this.toolStrip3.Text = "toolStrip3";
+            // 
+            // BtnEditObjectPro
+            // 
+            this.BtnEditObjectPro.Image = global::HYPDM.WinUI.Properties.Resources.pagination_load;
+            this.BtnEditObjectPro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnEditObjectPro.Name = "BtnEditObjectPro";
+            this.BtnEditObjectPro.Size = new System.Drawing.Size(76, 22);
+            this.BtnEditObjectPro.Text = "属性修改";
+            this.BtnEditObjectPro.Click += new System.EventHandler(this.BtnEditObjectPro_Click);
+            // 
+            // BtnEditCommonPro
+            // 
+            this.BtnEditCommonPro.Image = global::HYPDM.WinUI.Properties.Resources.pagination_load;
+            this.BtnEditCommonPro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnEditCommonPro.Name = "BtnEditCommonPro";
+            this.BtnEditCommonPro.Size = new System.Drawing.Size(76, 22);
+            this.BtnEditCommonPro.Text = "属性修改";
+            this.BtnEditCommonPro.Click += new System.EventHandler(this.BtnEditCommonPro_Click);
             // 
             // UcSysConfig
             // 
@@ -342,5 +364,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PARAMS_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn MASTER_TABLE_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn PARAMS_DATA_TYPE;
+        private System.Windows.Forms.ToolStripButton BtnEditObjectPro;
+        private System.Windows.Forms.ToolStripButton BtnEditCommonPro;
     }
 }
