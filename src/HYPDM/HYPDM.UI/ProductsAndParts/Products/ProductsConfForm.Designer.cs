@@ -179,11 +179,11 @@
             this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eRP集成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWVERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWCREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -871,15 +871,18 @@
             // 
             this.dgv_DrawList.AllowUserToAddRows = false;
             this.dgv_DrawList.AllowUserToDeleteRows = false;
+            this.dgv_DrawList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_DrawList.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dgv_DrawList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_DrawList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DrawList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.Column6});
+            this.DRAWID,
+            this.DRAWNO,
+            this.DRAWVERSION,
+            this.DRAWSTATUS,
+            this.DRAWCREATEUSER});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.GhostWhite;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -888,14 +891,13 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_DrawList.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgv_DrawList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_DrawList.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dgv_DrawList.Location = new System.Drawing.Point(3, 28);
             this.dgv_DrawList.Name = "dgv_DrawList";
             this.dgv_DrawList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
             this.dgv_DrawList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgv_DrawList.RowTemplate.Height = 23;
-            this.dgv_DrawList.Size = new System.Drawing.Size(521, 327);
+            this.dgv_DrawList.Size = new System.Drawing.Size(521, 299);
             this.dgv_DrawList.TabIndex = 2;
             // 
             // toolDraw
@@ -1551,31 +1553,36 @@
             this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.工艺权限ToolStripMenuItem.Text = "工艺权限";
             // 
-            // dataGridViewTextBoxColumn1
+            // DRAWID
             // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "图纸ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.DRAWID.DataPropertyName = "DOCID";
+            this.DRAWID.HeaderText = "图纸ID";
+            this.DRAWID.Name = "DRAWID";
+            this.DRAWID.Visible = false;
             // 
-            // dataGridViewTextBoxColumn2
+            // DRAWNO
             // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "图纸编号";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.DRAWNO.DataPropertyName = "DOCNO";
+            this.DRAWNO.HeaderText = "图纸编号";
+            this.DRAWNO.Name = "DRAWNO";
             // 
-            // dataGridViewTextBoxColumn3
+            // DRAWVERSION
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "图纸版本";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.DRAWVERSION.DataPropertyName = "VERSION";
+            this.DRAWVERSION.HeaderText = "图纸版本";
+            this.DRAWVERSION.Name = "DRAWVERSION";
             // 
-            // dataGridViewTextBoxColumn4
+            // DRAWSTATUS
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "状态";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.DRAWSTATUS.DataPropertyName = "DOCSTATUS";
+            this.DRAWSTATUS.HeaderText = "状态";
+            this.DRAWSTATUS.Name = "DRAWSTATUS";
             // 
-            // Column6
+            // DRAWCREATEUSER
             // 
-            this.Column6.HeaderText = "创建人";
-            this.Column6.Name = "Column6";
+            this.DRAWCREATEUSER.DataPropertyName = "CREATEUSER";
+            this.DRAWCREATEUSER.HeaderText = "创建人";
+            this.DRAWCREATEUSER.Name = "DRAWCREATEUSER";
             // 
             // ProductsConfForm
             // 
@@ -1803,10 +1810,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECT;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DRAWID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DRAWNO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DRAWVERSION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DRAWSTATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DRAWCREATEUSER;
     }
 }

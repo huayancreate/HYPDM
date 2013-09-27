@@ -1022,7 +1022,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         #region 图纸tab页面操作
         private void dgv_DrawList_Init()
         {
-            //this.dgv_DrawList.DataSource = this.m_AllPartsService.GetAssoDoc(this.m_product.PRODUCTID, this.m_product.VERSION);
+            this.dgv_DrawList.DataSource = this.m_AllPartsService.GetAssoDraw(this.m_product.PRODUCTID, this.m_product.VERSION);
             this.ucPagingDraw.SourceDataGridView = this.dgv_DrawList;
         }
 
@@ -1047,14 +1047,14 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
 
             if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                this.m_AllPartsService.DelAssoDoc(row.Cells["DOCID"].Value.ToString(), row.Cells["DOCVERSION"].Value.ToString(), this.m_product.PRODUCTID, this.m_product.VERSION);
+                this.m_AllPartsService.DelAssoDraw(row.Cells["DRAWID"].Value.ToString(), row.Cells["DRAWVERSION"].Value.ToString(), this.m_product.PRODUCTID, this.m_product.VERSION);
                 dgv_DrawList_Init();
             }
         }
 
         private void toolDrawLook_Click(object sender, EventArgs e)
         {
-            Document.DocRegForm o = new Document.DocRegForm(true);
+            DrawingDocument.DrawRegForm o = new DrawingDocument.DrawRegForm(true);
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
         }

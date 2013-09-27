@@ -323,12 +323,12 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
 
         private void drawInfo_Init()
         {
-            this.dgv_DrawList.DataSource = m_MaterailService.GetAssoDoc(this.m_product.MATERIALID, this.m_product.VERSION);
+            this.dgv_DrawList.DataSource = m_MaterailService.GetAssoDraw(this.m_product.MATERIALID, this.m_product.VERSION);
             this.ucPageDraw.SourceDataGridView = this.dgv_DrawList;
         }
         private void toolDrawAdd_Click(object sender, EventArgs e)
         {
-            DocAddForm o = new DocAddForm(this.m_product.MATERIALID);
+            DrawAddForm o = new DrawAddForm(this.m_product.MATERIALID);
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
             drawInfo_Init();
@@ -336,25 +336,25 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
 
         private void toolDrawDel_Click(object sender, EventArgs e)
         {
-            if (this.dgvDoc.RowCount <= 0) return;
+            if (this.dgv_DrawList.RowCount <= 0) return;
 
-            int rowIndex = this.dgvDoc.CurrentCell.RowIndex;
+            int rowIndex = this.dgv_DrawList.CurrentCell.RowIndex;
 
             if (rowIndex < 0)
                 return;
 
-            DataGridViewRow row = dgvDoc.Rows[rowIndex];
+            DataGridViewRow row = dgv_DrawList.Rows[rowIndex];
 
             if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                this.m_MaterailService.DelAssoDoc(row.Cells["DOCID"].Value.ToString(), row.Cells["DOCVERSION"].Value.ToString(), this.m_product.MATERIALID, this.m_product.VERSION);
+                this.m_MaterailService.DelAssoDraw(row.Cells["DRAWID"].Value.ToString(), row.Cells["DRAWVERSION"].Value.ToString(), this.m_product.MATERIALID, this.m_product.VERSION);
                 drawInfo_Init();
             }
         }
 
         private void toolDrawLook_Click(object sender, EventArgs e)
         {
-            Document.DocRegForm o = new Document.DocRegForm(true);
+            DrawingDocument.DrawRegForm o = new DrawingDocument.DrawRegForm(true);
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
         }

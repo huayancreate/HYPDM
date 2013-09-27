@@ -25,7 +25,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private IAllProductService m_AllProductService;      //材料服务类
         private PDM_ALL_PRODUCT m_Product= new PDM_ALL_PRODUCT();
         private void DocList_Init() {
-            this.dgv_DocList.DataSource = m_AllProductService.GetDocList(m_Product.PRODUCTID, m_Product.VERSION, 0, null);
+            this.dgv_DocList.DataSource = m_AllProductService.GetDrawList(m_Product.PRODUCTID, m_Product.VERSION, 0, null);
             this.ucPaging1.SourceDataGridView = this.dgv_DocList;
         }
 
@@ -43,7 +43,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
 
                 objrl.ORID=Guid.NewGuid().ToString();
                 objrl.MASTEROBJECTID = row.Cells["DOCID"].Value.ToString();
-                objrl.MASTEROBJECTTYPE="Document";
+                objrl.MASTEROBJECTTYPE = "Drawing";
                 objrl.MASTEROBJECTVERSION = row.Cells["DOCVERSION"].Value.ToString();
                 objrl.RELATIONOBJECTID = this.m_Product.PRODUCTID;
                 objrl.RELATIONOBJECTTYPE = "Product";
@@ -63,11 +63,11 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         private void tsb_query_Click(object sender, EventArgs e)
         {
             if (this.tsb_type.Text.Equals("编号")) {
-                this.dgv_DocList.DataSource = m_AllProductService.GetDocList(m_Product.PRODUCTID, m_Product.VERSION, 1, this.tsb_value.Text); 
+                this.dgv_DocList.DataSource = m_AllProductService.GetDrawList(m_Product.PRODUCTID, m_Product.VERSION, 1, this.tsb_value.Text); 
             }
             if (this.tsb_type.Text.Equals("描述"))
             {
-                this.dgv_DocList.DataSource = m_AllProductService.GetDocList(m_Product.PRODUCTID, m_Product.VERSION, 2, this.tsb_value.Text); 
+                this.dgv_DocList.DataSource = m_AllProductService.GetDrawList(m_Product.PRODUCTID, m_Product.VERSION, 2, this.tsb_value.Text); 
             }
             //DocList_Init();
         }

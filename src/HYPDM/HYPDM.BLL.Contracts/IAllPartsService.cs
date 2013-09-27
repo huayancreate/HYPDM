@@ -76,7 +76,16 @@ namespace HYPDM.BLL
         DataTable GetAssoDoc(String p_ProductId, String p_version);
         DataTable GetDocList(String p_ProductId, String p_version, int p_type, String p_value);
        void DelAssoDoc(String p_DocId, String p_DocVersion, String p_ProductId, String p_MaterailVersion);
-       
+
+
+       /********************************************************/
+       /****************      材料关联图纸操作       *******************/
+       /********************************************************/
+
+       DataTable GetAssoDraw(String p_MaterailId, String p_version);
+       void DelAssoDraw(String p_DocId, String p_DocVersion, String p_MaterailId, String p_MaterailVersion);
+       DataTable GetDrawList(String p_MaterailId, String p_version, int p_type, String p_value);
+
         /********************************************************/
        /****************     复制产品结构操作       *******************/
        /********************************************************/

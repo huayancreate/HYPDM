@@ -221,7 +221,7 @@ namespace HYPDM.BLL
         {
             string sqlText = " select b.DOCID, b.DOCNO,b.VERSION,b.DOCSTATUS,b.CREATEUSER "
                                  + " from ObjectRelation a, PDM_DOCUMENT b "
-                                 + " where a.MASTEROBJECTID=b.DOCID and a.DEL_FALG='N' and b.DEL_FLAG = 'N' and a.RELATIONOBJECTTYPE='Parts' "
+                                 + " where a.MASTEROBJECTTYPE='Document' and   a.MASTEROBJECTID=b.DOCID and a.DEL_FALG='N' and b.DEL_FLAG = 'N' and a.RELATIONOBJECTTYPE='Parts' "
                                  + " and a.RELATIONOBJECTID='" + p_ProductId + "' "
                                  + " and a.RELATIONOBJECTVERSION='" + p_version + "' ";
             return this.DataAccessor.QueryDataTable(sqlText);
@@ -230,7 +230,7 @@ namespace HYPDM.BLL
         public void DelAssoDoc(String p_DocId, String p_DocVersion, String p_ProductId, String p_MaterailVersion)
         {
             string sqlText = " update ObjectRelation set DEL_FALG ='Y'  "
-                                + " where MASTEROBJECTID = '" + p_DocId + "' "
+                                + " where  MASTEROBJECTTYPE='Document' and  MASTEROBJECTID = '" + p_DocId + "' "
                                 + " and MASTEROBJECTVERSION='" + p_DocVersion + "' "
                                 + " and RELATIONOBJECTID ='" + p_ProductId + "' "
                                 + " and RELATIONOBJECTVERSION = '" + p_MaterailVersion + "' ";
@@ -243,7 +243,7 @@ namespace HYPDM.BLL
                                 + " from PDM_DOCUMENT b  "
                                 + " where b.DEL_FLAG = 'N'  "
                                 + " and b.DOCID not in("
-                                + " select a.MASTEROBJECTID from ObjectRelation a where a.DEL_FALG ='N'   and a.RELATIONOBJECTTYPE='Parts'  "
+                                + " select a.MASTEROBJECTID from ObjectRelation a where  a.MASTEROBJECTTYPE='Document' and  a.DEL_FALG ='N'   and a.RELATIONOBJECTTYPE='Parts'  "
                                 + " and a.RELATIONOBJECTID ='" + p_ProductId + "'  "
                                 + " and a.RELATIONOBJECTVERSION ='" + p_version + "'  "
                                  + " )  ";
@@ -259,6 +259,50 @@ namespace HYPDM.BLL
         }
 
 
+        /********************************************************/
+        /****************      材料关联图纸文档操作       *******************/
+        /********************************************************/
+
+        public DataTable GetAssoDraw(String p_ProductId, String p_version)
+        {
+            string sqlText = " select b.DOCID, b.DOCNO,b.VERSION,b.DOCSTATUS,b.CREATEUSER "
+                                 + " from ObjectRelation a, PDM_DRAWING b "
+                                 + " where a.MASTEROBJECTID=b.DOCID and a.MASTEROBJECTTYPE='Drawing' and a.DEL_FALG='N' and b.DEL_FLAG = 'N' and a.RELATIONOBJECTTYPE='Parts' "
+                                 + " and a.RELATIONOBJECTID='" + p_ProductId + "' "
+                                 + " and a.RELATIONOBJECTVERSION='" + p_version + "' ";
+            return this.DataAccessor.QueryDataTable(sqlText);
+        }
+
+        public void DelAssoDraw(String p_DocId, String p_DocVersion, String p_ProductId, String p_MaterailVersion)
+        {
+            string sqlText = " update ObjectRelation set DEL_FALG ='Y'  "
+                                + " where MASTEROBJECTTYPE='Drawing' and MASTEROBJECTID = '" + p_DocId + "' "
+                                + " and MASTEROBJECTVERSION='" + p_DocVersion + "' "
+                                + " and RELATIONOBJECTID ='" + p_ProductId + "' "
+                                + " and RELATIONOBJECTVERSION = '" + p_MaterailVersion + "' ";
+            this.DataAccessor.Execute(sqlText);
+        }
+
+        public DataTable GetDrawList(String p_ProductId, String p_version, int p_type, String p_value)
+        {
+            string sqlText = " select b.DOCID,b.DOCNO,b.VERSION,b.CREATEUSER,b.DESCRIPTION "
+                                + " from PDM_DRAWING b  "
+                                + " where b.DEL_FLAG = 'N'  "
+                                + " and b.DOCID not in("
+                                + " select a.MASTEROBJECTID from ObjectRelation a where a.MASTEROBJECTTYPE='Drawing' and  a.DEL_FALG ='N'   and a.RELATIONOBJECTTYPE='Parts'  "
+                                + " and a.RELATIONOBJECTID ='" + p_ProductId + "'  "
+                                + " and a.RELATIONOBJECTVERSION ='" + p_version + "'  "
+                                 + " )  ";
+            if (p_type == 1)
+            {
+                sqlText += " and  b.DOCNO LIKE '%" + p_value + "%'  ";
+            }
+            if (p_type == 2)
+            {
+                sqlText += "  and b.DESCRIPTION LIKE '%" + p_value + "%'";
+            }
+            return this.DataAccessor.QueryDataTable(sqlText);
+        }
         /********************************************************/
         /****************     复制产品结构操作       *******************/
         /********************************************************/
