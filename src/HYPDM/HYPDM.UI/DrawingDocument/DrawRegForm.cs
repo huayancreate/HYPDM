@@ -440,16 +440,26 @@ namespace HYPDM.WinUI.DrawingDocument
 
             if (form.ShowDialog() == DialogResult.OK)
             {
-                docFileEntity.CHECKOUTFLG = "Y";
-                docFileEntity.CHECKINFLG = "N";
-                docFileEntity.CHECKOUTDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                docFileEntity.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                docFileEntity.LASTUPDATEUSER = LoginInfo.LoginID;
-                docFileEntity.Save();
 
+                if (form.FileServerAckResult)
+                {
+                    docFileEntity.CHECKOUTFLG = "Y";
+                    docFileEntity.CHECKINFLG = "N";
+                    docFileEntity.CHECKOUTDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    docFileEntity.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    docFileEntity.LASTUPDATEUSER = LoginInfo.LoginID;
+                    docFileEntity.Save();
+                }
+                else
+                {
+                    MessageBox.Show("文件检出失败", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
                 try
                 {
                     VersionSave("0", docFileEntity);
+                    MessageBox.Show("文件检出成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -457,7 +467,7 @@ namespace HYPDM.WinUI.DrawingDocument
                 }
                 finally
                 {
-                    MessageBox.Show("文件检出成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   // MessageBox.Show("文件检出成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

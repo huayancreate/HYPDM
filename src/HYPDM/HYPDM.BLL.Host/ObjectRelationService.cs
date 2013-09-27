@@ -38,6 +38,30 @@ namespace HYPDM.BLL
             }
             return oo;
         }
+
+        public ObjectRelation getObjectRelation(string masterObjectType, string masterObjectId, string relationObjectType, string relationObjectId)
+        {
+            ObjectRelation oo = null;
+            DataEntityQuery<ObjectRelation> query = DataEntityQuery<ObjectRelation>.Create();
+
+            var p = (from item in query
+                     where (item.DEL_FALG == "N" && item.MASTEROBJECTID == masterObjectId && item.MASTEROBJECTTYPE == masterObjectType && item.RELATIONOBJECTTYPE == relationObjectType && item.RELATIONOBJECTID == relationObjectId)
+                     select item
+                );
+            IList<ObjectRelation> list = p.ToList();
+            if (list.Count == 0)
+            {
+                oo = null;
+            }
+            else
+            {
+                oo = list[0];
+            }
+            return oo;
+        }
+
+
+
         public ObjectRelation getDocMaterialObjectRelation(string documentID, string materialID)
         {
             ObjectRelation oo = null;

@@ -17,8 +17,20 @@ namespace HYPDM.WinUI.Document
     public partial class ConnectForm : BaseForm
     {
 
-        PDM_DOCUMENT document = new PDM_DOCUMENT();
+        /// <summary>
+        /// 文档
+        /// </summary>
+        PDM_DOCUMENT document = null;
+        /// <summary>
+        /// 图纸
+        /// </summary>
+        PDM_DRAWING documentDrawing = null;
 
+        public PDM_DRAWING DocumentDrawing
+        {
+            get { return documentDrawing; }
+            set { documentDrawing = value; }
+        }
         public PDM_DOCUMENT Document
         {
             get { return document; }
@@ -39,9 +51,18 @@ namespace HYPDM.WinUI.Document
         //产品
         private void InitList()
         {
+            //文档
             if (this.Document != null)
             {
-                this.dGVProduct.DataSource = new  HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='" + DataType.RelationObjectType.Document.ToString() + "' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.ucPaging1.SourceDataGridView = this.dGVProduct;
+                this.dgvMaterial.Visible = false;
+                this.dGVProduct.Visible = true;
+            }
+            //图纸
+            if (this.DocumentDrawing != null)
+            {
+                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='" + DataType.RelationObjectType.Drawing + "' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.DocumentDrawing.DOCID + "')", "PDM_ALL_PRODUCT");
                 this.ucPaging1.SourceDataGridView = this.dGVProduct;
                 this.dgvMaterial.Visible = false;
                 this.dGVProduct.Visible = true;
@@ -52,11 +73,20 @@ namespace HYPDM.WinUI.Document
         {
             if (this.Document != null)
             {
-                this.dgvMaterial.DataSource = new  HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
+                this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_MATERAIL");
                 this.ucPaging1.SourceDataGridView = this.dgvMaterial;
                 this.dGVProduct.Visible = false;
                 this.dgvMaterial.Visible = true;
             }
+            //图纸
+            if (this.DocumentDrawing != null)
+            {
+                this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='" + DataType.RelationObjectType.Drawing + "' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.DocumentDrawing.DOCID + "')", "PDM_MATERAIL");
+                this.ucPaging1.SourceDataGridView = this.dGVProduct;
+                this.dGVProduct.Visible = false;
+                this.dgvMaterial.Visible = true;
+            }
+
         }
         //半成品
         private void InitList2()
@@ -95,7 +125,7 @@ namespace HYPDM.WinUI.Document
                                 string productid = row.Cells["PRODUCTID"].Value.ToString();
                                 for (int i = 0; i < listObjectRelation.Count; i++)
                                 {
-                                    if (listObjectRelation[i].RELATIONOBJECTID == productid && listObjectRelation[i].RELATIONOBJECTTYPE ==  DataType.RelationObjectType.Material.ToString())
+                                    if (listObjectRelation[i].RELATIONOBJECTID == productid && listObjectRelation[i].RELATIONOBJECTTYPE == DataType.RelationObjectType.Material.ToString())
                                     {
                                         IsExist = true;
                                         return;
@@ -106,7 +136,7 @@ namespace HYPDM.WinUI.Document
                                     or = new ObjectRelation();
                                     or.ORID = Guid.NewGuid().ToString();
                                     or.RELATIONOBJECTID = productid;
-                                    or.RELATIONOBJECTTYPE =  DataType.RelationObjectType.Product.ToString();
+                                    or.RELATIONOBJECTTYPE = DataType.RelationObjectType.Product.ToString();
                                     or.RELATIONOBJECTVERSION = row.Cells["VERSION1"].Value.ToString();
                                     or.DEL_FALG = "N";
                                     ListObjectRelation.Add(or);
@@ -130,7 +160,7 @@ namespace HYPDM.WinUI.Document
                                 string materid = row.Cells["MATERIALID"].Value.ToString();
                                 for (int i = 0; i < listObjectRelation.Count; i++)
                                 {
-                                    if (listObjectRelation[i].RELATIONOBJECTID == materid && listObjectRelation[i].RELATIONOBJECTTYPE ==  DataType.RelationObjectType.Material.ToString())
+                                    if (listObjectRelation[i].RELATIONOBJECTID == materid && listObjectRelation[i].RELATIONOBJECTTYPE == DataType.RelationObjectType.Material.ToString())
                                     {
                                         IsExist = true;
                                         return;
@@ -141,11 +171,12 @@ namespace HYPDM.WinUI.Document
                                     or = new ObjectRelation();
                                     or.ORID = Guid.NewGuid().ToString();
                                     or.RELATIONOBJECTID = materid;
-                                    or.RELATIONOBJECTTYPE =  DataType.RelationObjectType.Material.ToString();
+                                    or.RELATIONOBJECTTYPE = DataType.RelationObjectType.Material.ToString();
                                     or.RELATIONOBJECTVERSION = row.Cells["VERSION"].Value.ToString();
                                     or.DEL_FALG = "N";
                                     ListObjectRelation.Add(or);
                                 }
+
                             }
                         }
                         MessageBox.Show("选择成功!!", "讯息", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -179,7 +210,7 @@ namespace HYPDM.WinUI.Document
                 }
                 iDList = "(" + iDList.Substring(0, iDList.Length - 1) + ")";
             }
-            DataTable dtTemp = new  HYDocumentMS.FileHelper().getDataTableBySql("*", "  WHERE A.ID IN" + iDList, "(SELECT  PRODUCTID as ID ,PRODUCTNO as NO ,[VERSION]  ,'产品' as Type FROM PDM_ALL_PRODUCT UNION ALL SELECT MATERIALID as id  ,MATERIALNO as NO,[VERSION] ,'材料' type FROM PDM_MATERAIL) A");
+            DataTable dtTemp = new HYDocumentMS.FileHelper().getDataTableBySql("*", "  WHERE A.ID IN" + iDList, "(SELECT  PRODUCTID as ID ,PRODUCTNO as NO ,[VERSION]  ,'产品' as Type FROM PDM_ALL_PRODUCT UNION ALL SELECT MATERIALID as id  ,MATERIALNO as NO,[VERSION] ,'材料' type FROM PDM_MATERAIL) A");
             FrmShowSelectedObject FrmSelView = new FrmShowSelectedObject();
             FrmSelView.DtDataList = dtTemp;
             FrmSelView.ShowDialog();
@@ -253,11 +284,11 @@ namespace HYPDM.WinUI.Document
                     //dt = (DataTable)this.dGVProduct.DataSource;
                     //this.dGVProduct.DataSource = dt.Select("PRODUCTNO='{0}'",this.txtValue.Text.ToString());
 
-                    this.dGVProduct.DataSource = new  HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND PRODUCTNO LIKE '%" + this.txtValue.Text.ToString().Trim() + "%'", "PDM_ALL_PRODUCT");
+                    this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND PRODUCTNO LIKE '%" + this.txtValue.Text.ToString().Trim() + "%'", "PDM_ALL_PRODUCT");
                 }
                 else if (this.combQueryType.Text == "材料")
                 {
-                    this.dgvMaterial.DataSource = new   HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND MATERIALNO LIKE '%" + this.txtValue.Text.ToString().Trim() + "%'", "PDM_MATERAIL");
+                    this.dgvMaterial.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "WHERE MATERIALID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Material' AND MASTEROBJECTTYPE='Document' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "') AND MATERIALNO LIKE '%" + this.txtValue.Text.ToString().Trim() + "%'", "PDM_MATERAIL");
                 }
                 else if (this.combQueryType.Text == "半产品")
                 {

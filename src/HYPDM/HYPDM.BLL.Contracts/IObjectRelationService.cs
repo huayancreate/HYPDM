@@ -10,5 +10,7 @@ namespace HYPDM.BLL
        //ObjectRelation findRelation(String masterObjID, String relationObjID);
        ObjectRelation getDocProdObjectRelation(string documentID, string productID);
        ObjectRelation getDocMaterialObjectRelation(string documentID, string materialID);
+
+       ObjectRelation getObjectRelation(string masterObjectType, string masterObjectId, string relationObjectType, string relationObjectId);
     }
 }

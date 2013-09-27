@@ -356,12 +356,6 @@ namespace HYPDM.WinUI.WorkFlow
             IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
             return _wfService.GetWfDetailList(wfaID);
         }
-        public IList<WF_APP_HANDLE> GetAllHandleList(string wfaID)
-        {
-            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
-            return _wfService.GetAllHandleList(wfaID);
-        }
-
 
         public WF_DETAIL GetWfAppLastDetailByWfaID(string wfaID)
         {
@@ -516,45 +510,49 @@ namespace HYPDM.WinUI.WorkFlow
             return FrmDetail;
         }
 
-<<<<<<< HEAD
-=======
-        public IList<WF_DETAIL> GetWfDetailList(string wfaID)
-        {
-            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
-            return _wfService.GetWfDetailList(wfaID);
-        }
+        //public IList<WF_DETAIL> GetWfDetailList(string wfaID)
+        //{
+        //    IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+        //    return _wfService.GetWfDetailList(wfaID);
+        //}
         public IList<WF_APP_HANDLE> GetAllHandleList(string wfaID)
         {
             IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
             return _wfService.GetAllHandleList(wfaID);
         }
+        //public IList<WF_APP_HANDLE> GetAllHandleList(string wfaID)
+        //{
+        //    IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+        //    return _wfService.GetAllHandleList(wfaID);
+        //}
 
 
-        public WF_DETAIL GetWfAppLastDetailByWfaID(string wfaID)
-        {
-            WF_DETAIL detail = null;
-            StringBuilder stb = new StringBuilder();
-            stb.Append("   WHERE 1=1 AND WFA_ID='" + wfaID + "'");
-            stb.Append(" AND RECIVEDATE IN (SELECT MAX(RECIVEDATE) FROM WF_DETAIL WHERE  WFA_ID='"+wfaID+"') ");
-            DataTable dt = CommonFuns.getDataTableBySql("*", stb.ToString(), "WF_DETAIL");
-            if (dt == null || dt.Rows.Count == 0)
-            {
-                return null;
-            }
-            else
-            {
-                detail = new WF_DETAIL();
-                DataRow dr = dt.Rows[0];
-                detail.WFA_ID = dt.Rows[0]["WFA_ID"].ToString();
-                detail.WFD_ID = dt.Rows[0]["WFD_ID"].ToString();
-                detail.WFT_STEP_ID = dt.Rows[0]["WFT_STEP_ID"].ToString();
-                detail.RECIVEDATE = dt.Rows[0]["RECIVEDATE"].ToString();
-                detail.MSG = dt.Rows[0]["MSG"].ToString();
-                detail.IS_Through = dt.Rows[0]["IS_Through"].ToString();
-                detail.Current_STEP_ID = dt.Rows[0]["Current_STEP_ID"].ToString();
-                return detail;
-            }
-        }
+
+        //public WF_DETAIL GetWfAppLastDetailByWfaID(string wfaID)
+        //{
+        //    WF_DETAIL detail = null;
+        //    StringBuilder stb = new StringBuilder();
+        //    stb.Append("   WHERE 1=1 AND WFA_ID='" + wfaID + "'");
+        //    stb.Append(" AND RECIVEDATE IN (SELECT MAX(RECIVEDATE) FROM WF_DETAIL WHERE  WFA_ID='"+wfaID+"') ");
+        //    DataTable dt = CommonFuns.getDataTableBySql("*", stb.ToString(), "WF_DETAIL");
+        //    if (dt == null || dt.Rows.Count == 0)
+        //    {
+        //        return null;
+        //    }
+        //    else
+        //    {
+        //        detail = new WF_DETAIL();
+        //        DataRow dr = dt.Rows[0];
+        //        detail.WFA_ID = dt.Rows[0]["WFA_ID"].ToString();
+        //        detail.WFD_ID = dt.Rows[0]["WFD_ID"].ToString();
+        //        detail.WFT_STEP_ID = dt.Rows[0]["WFT_STEP_ID"].ToString();
+        //        detail.RECIVEDATE = dt.Rows[0]["RECIVEDATE"].ToString();
+        //        detail.MSG = dt.Rows[0]["MSG"].ToString();
+        //        detail.IS_Through = dt.Rows[0]["IS_Through"].ToString();
+        //        detail.Current_STEP_ID = dt.Rows[0]["Current_STEP_ID"].ToString();
+        //        return detail;
+        //    }
+        //}
 
 
         //获取对象关联的流程实例
@@ -570,11 +568,5 @@ namespace HYPDM.WinUI.WorkFlow
             DataTable dt = CommonFuns.getDataTableBySql(selectColunm, selectWhere.ToString(), selectTable);
             return dt;
         }
-        //更新流程的状态
-        public void UpdataWFStatus() { 
-        
-        }
-
->>>>>>> 4424ed5a1f80a126bbed9bdaf51de9f22b3df9dd
     }
 }
