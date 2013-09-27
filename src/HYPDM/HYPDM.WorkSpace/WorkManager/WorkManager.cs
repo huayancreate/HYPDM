@@ -89,8 +89,25 @@ namespace HYPDM.WorkSpace.WorkManager
 
             this.dgv_list.DataSource = m_dt;
             this.ucPaging1.SourceDataGridView = this.dgv_list;
+            //changeGridRowColor();
         }
+        private void changeGridRowColor() {
+            foreach (DataGridViewRow row in dgv_list.Rows)
+            {
+                string RowType = row.Cells["STATUS"].Value.ToString();
+                if (RowType == HYPDM.DataType.WFDetailSTATUS.Return.ToString())
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
+                else if (RowType == HYPDM.DataType.WFDetailSTATUS.Complete.ToString())
+                {
+                    row.DefaultCellStyle.BackColor = Color.Yellow;
+                    row.DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
 
+        }
         private void dgv_list_DoubleClick(object sender, EventArgs e)
         {
             if (this.dgv_list.RowCount <= 0) return;
@@ -174,6 +191,11 @@ namespace HYPDM.WorkSpace.WorkManager
             o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
             this.ucPaging1.SourceDataGridView = this.dgv_list;
+        }
+
+        private void dgv_list_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+             changeGridRowColor();
         }
     }
 }

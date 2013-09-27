@@ -80,6 +80,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
         {
             baseInfo_Init();
             dgv_docList_Init();
+            dgv_DrawList_Init();
             Init_ExtProperties();
             tabProRecord_Init();
             //dgv_Change_init(t);
@@ -1018,5 +1019,45 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
 
         #endregion
 
+        #region 图纸tab页面操作
+        private void dgv_DrawList_Init()
+        {
+            this.dgv_DrawList.DataSource = this.m_AllPartsService.GetAssoDraw(this.m_product.PRODUCTID, this.m_product.VERSION);
+            this.ucPagingDraw.SourceDataGridView = this.dgv_DrawList;
+        }
+
+        private void toolDrawAdd_Click(object sender, EventArgs e)
+        {
+            DrawAddForm o = new DrawAddForm(this.m_product.PRODUCTID);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+            dgv_DrawList_Init();
+        }
+
+        private void toolDrawDel_Click(object sender, EventArgs e)
+        {
+            if (this.dgv_DrawList.RowCount <= 0) return;
+
+            int rowIndex = this.dgv_DrawList.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+
+            DataGridViewRow row = dgv_DrawList.Rows[rowIndex];
+
+            if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.m_AllPartsService.DelAssoDraw(row.Cells["DRAWID"].Value.ToString(), row.Cells["DRAWVERSION"].Value.ToString(), this.m_product.PRODUCTID, this.m_product.VERSION);
+                dgv_DrawList_Init();
+            }
+        }
+
+        private void toolDrawLook_Click(object sender, EventArgs e)
+        {
+            DrawingDocument.DrawRegForm o = new DrawingDocument.DrawRegForm(true);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+        }
+#endregion
     }
 }

@@ -107,6 +107,7 @@
             this.dgv_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgv_list.Size = new System.Drawing.Size(803, 387);
             this.dgv_list.TabIndex = 4;
+            this.dgv_list.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_list_DataBindingComplete);
             this.dgv_list.DoubleClick += new System.EventHandler(this.dgv_list_DoubleClick);
             // 
             // WFA_ID
