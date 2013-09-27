@@ -43,129 +43,63 @@ namespace HYPDM.Entities
        public PDM_DRAWING()
        {
        }
-       
+
        protected PDM_DRAWING(SerializationInfo info, StreamingContext context)
            : base(info, context)
        {
        }
-       
+
        #region O/R映射成员
 
        /// <summary>
-       /// 图纸ID 。
+       /// DOCID 。
        /// </summary>
-       [Column("DRAWINGID","图纸ID"),DataSize(128),PrimaryKey]
-       [DisplayName("图纸ID")]
-       public string DRAWINGID
+       [Column("DOCID", "DOCID"), DataSize(128), PrimaryKey]
+       [DisplayName("DOCID")]
+       public string DOCID
        {
            get;
            set;
        }
 
        /// <summary>
-       /// 图纸类型ID 。
+       /// DOCNAME 。
        /// </summary>
-       [Column("DRAWINGTYPE","图纸类型ID"),DataSize(64)]
-       [DisplayName("图纸类型ID")]
-       public string DRAWINGTYPE
+       [Column("DOCNAME", "DOCNAME"), DataSize(128)]
+       [DisplayName("DOCNAME")]
+       public string DOCNAME
        {
            get;
            set;
        }
 
        /// <summary>
-       /// 工作号 。
+       /// DOCTYPE 。
        /// </summary>
-       [Column("WORKNO","工作号"),DataSize(128)]
-       [DisplayName("工作号")]
-       public string WORKNO
+       [Column("DOCTYPE", "DOCTYPE"), DataSize(128)]
+       [DisplayName("DOCTYPE")]
+       public string DOCTYPE
        {
            get;
            set;
        }
 
        /// <summary>
-       /// 图纸 。
+       /// DOCSTATUS 。
        /// </summary>
-       [Column("DRAWINGNAME","图纸"),DataSize(128)]
-       [DisplayName("图纸")]
-       public string DRAWINGNAME
+       [Column("DOCSTATUS", "DOCSTATUS"), DataSize(128)]
+       [DisplayName("DOCSTATUS")]
+       public string DOCSTATUS
        {
            get;
            set;
        }
 
        /// <summary>
-       /// 描述 。
+       /// LASTUPDATEUSER 。
        /// </summary>
-       [Column("DESCRIPTION","描述"),DataSize(128)]
-       [DisplayName("描述")]
-       public string DESCRIPTION
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 来源 。
-       /// </summary>
-       [Column("SOURCE","来源"),DataSize(128)]
-       [DisplayName("来源")]
-       public string SOURCE
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 客户名称 。
-       /// </summary>
-       [Column("CUSTOMER","客户名称"),DataSize(128)]
-       [DisplayName("客户名称")]
-       public string CUSTOMER
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 客户项目号 。
-       /// </summary>
-       [Column("CUSTUMERPRONO","客户项目号"),DataSize(128)]
-       [DisplayName("客户项目号")]
-       public string CUSTUMERPRONO
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 图幅 。
-       /// </summary>
-       [Column("DRAWINGSIZE","图幅"),DataSize(64)]
-       [DisplayName("图幅")]
-       public string DRAWINGSIZE
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 状态 。
-       /// </summary>
-       [Column("STATUS","状态"),DataSize(128)]
-       [DisplayName("状态")]
-       public string STATUS
-       {
-           get;
-           set;
-       }
-
-       /// <summary>
-       /// 修改者 。
-       /// </summary>
-       [Column("LASTUPDATEUSER","修改者"),DataSize(128)]
-       [DisplayName("修改者")]
+       [Column("LASTUPDATEUSER", "LASTUPDATEUSER"), DataSize(128)]
+       [DisplayName("LASTUPDATEUSER")]
        public string LASTUPDATEUSER
        {
            get;
@@ -173,10 +107,10 @@ namespace HYPDM.Entities
        }
 
        /// <summary>
-       /// 创建时间 。
+       /// CREATEDATE 。
        /// </summary>
-       [Column("CREATEDATE","创建时间"),DataSize(128)]
-       [DisplayName("创建时间")]
+       [Column("CREATEDATE", "CREATEDATE"), DataSize(128)]
+       [DisplayName("CREATEDATE")]
        public string CREATEDATE
        {
            get;
@@ -184,10 +118,21 @@ namespace HYPDM.Entities
        }
 
        /// <summary>
-       /// 备注 。
+       /// LASTUPDATEDATE 。
        /// </summary>
-       [Column("REMARK","备注"),DataSize(128)]
-       [DisplayName("备注")]
+       [Column("LASTUPDATEDATE", "LASTUPDATEDATE"), DataSize(128)]
+       [DisplayName("LASTUPDATEDATE")]
+       public string LASTUPDATEDATE
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// REMARK 。
+       /// </summary>
+       [Column("REMARK", "REMARK"), DataSize(128)]
+       [DisplayName("REMARK")]
        public string REMARK
        {
            get;
@@ -195,38 +140,60 @@ namespace HYPDM.Entities
        }
 
        /// <summary>
-       /// 物理文件 。
+       /// VERSION 。
        /// </summary>
-       [Column("PHYSICALFILE","物理文件"),DataSize(128)]
-       [DisplayName("物理文件")]
-       public string PHYSICALFILE
+       [Column("VERSION", "VERSION"), DataSize(128)]
+       [DisplayName("VERSION")]
+       public string VERSION
        {
            get;
            set;
        }
 
        /// <summary>
-       /// 版本 。
+       /// DOCNO 。
        /// </summary>
-       [Column("VERSION","版本"),DataSize(53)]
-       [DisplayName("版本")]
-       public float VERSION
+       [Column("DOCNO", "DOCNO"), DataSize(128)]
+       [DisplayName("DOCNO")]
+       public string DOCNO
        {
            get;
            set;
        }
 
        /// <summary>
-       /// 修改日期 。
+       /// DESCRIPTION 。
        /// </summary>
-       [Column("LASTUPDATEDATE","修改日期"),DataSize(128)]
-       [DisplayName("修改日期")]
-       public string LASTUPDATEDATE
+       [Column("DESCRIPTION", "DESCRIPTION"), DataSize(128)]
+       [DisplayName("DESCRIPTION")]
+       public string DESCRIPTION
        {
            get;
            set;
        }
-       
+
+       /// <summary>
+       /// CREATEUSER 。
+       /// </summary>
+       [Column("CREATEUSER", "CREATEUSER"), DataSize(128)]
+       [DisplayName("CREATEUSER")]
+       public string CREATEUSER
+       {
+           get;
+           set;
+       }
+
+       /// <summary>
+       /// DEL_FLAG 。
+       /// </summary>
+       [Column("DEL_FLAG", "DEL_FLAG"), DataSize(1)]
+       [DisplayName("DEL_FLAG")]
+       public string DEL_FLAG
+       {
+           get;
+           set;
+       }
+
        #endregion
    }
 }
