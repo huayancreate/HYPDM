@@ -176,93 +176,8 @@ namespace HYPDM.WinUI.WorkFlow
         }
 
 
-        /// <summary>
-        /// 根据RelationObjectType类型获取对应的主表名称及form
-        /// </summary>
-        /// <param name="RelationObjectType"> DataType.RelationObjectTyp</param>
-        /// <returns></returns>
-        public static string GetTableName(DataType.RelationObjectType RelationObjectType)
-        {
-            string tableName = "";
-            switch (RelationObjectType)
-            {
-                case DataType.RelationObjectType.Document:
-                    {
-                        tableName = "PDM_DOCUMENT";
-                        break;
-                    }
-                case DataType.RelationObjectType.File:
-                    {
-                        tableName = "DOC_FILE_LIST";
-                        break;
-                    }
-                case DataType.RelationObjectType.Material:
-                    {
-                        tableName = "PDM_MATERAIL";
-                        break;
-                    }
-                case DataType.RelationObjectType.Product:
-                    {
-                        tableName = "PDM_ALL_PRODUCT";  //PRODUCTLEVEL为1的时候表示是产品
-                        break;
-                    }
-                case DataType.RelationObjectType.SemiProduct:
-                    {
-                        tableName = "PDM_ALL_PRODUCT"; //PRODUCTLEVEL为2的时候表示是半产品
-                        break;
-                    }
-                default:
-                    {
-                        tableName = "";
-                        break;
-                    }
-            }
-            return tableName;
-        }
-        /// <summary>
-        /// 获取设定流程对象的title名称
-        /// </summary>
-        /// <param name="relationObjectType">RelationObjectType</param>
-        /// <returns></returns>
-        public static string GetObjectTitle(DataType.RelationObjectType relationObjectType)
-        {
-            string tableName = GetTableName(relationObjectType);
-            string objectTitle = "";
-            switch (relationObjectType)
-            {
-                case DataType.RelationObjectType.Document:
-                    {
-                        objectTitle = "【文档编号:" + CommonFuns.getDataTableBySql("DOCNO", "", tableName).Rows[0][0].ToString() + "】";
-                        break;
-                    }
-                case DataType.RelationObjectType.File:
-                    {
-                        objectTitle = "【文件名称:" + CommonFuns.getDataTableBySql("DFL_FILE_NAME", "", tableName).Rows[0][0].ToString() + "】";
-                        break;
-                    }
-                case DataType.RelationObjectType.Material:
-                    {
-                        objectTitle = "【物料NO:" + CommonFuns.getDataTableBySql("MATERIALNO", "", tableName).Rows[0][0].ToString() + "】";
-                        break;
-                    }
-                case DataType.RelationObjectType.Product:
-                    {
-                        objectTitle = "【产品NO:" + CommonFuns.getDataTableBySql("PRODUCTNO", "WHERE PRODUCTLEVEL=1", tableName).Rows[0][0].ToString() + "】"; //PRODUCTLEVEL为1的时候表示是产品
-                        break;
-                    }
-                case DataType.RelationObjectType.SemiProduct:
-                    {
-                        objectTitle = "【半成品NO:" + CommonFuns.getDataTableBySql("PRODUCTNO", "WHERE PRODUCTLEVEL=2", tableName).Rows[0][0].ToString() + "】"; //PRODUCTLEVEL为2的时候表示是半产品
-                        break;
-                    }
-                default:
-                    {
-                        tableName = "";
-                        break;
-                    }
-            }
-            return objectTitle;
-        }
+
+
 
         public IList<WF_APP_HANDLE> GetWFAppStepHandle(string wfappID, string wftStepID)
         {
@@ -435,6 +350,93 @@ namespace HYPDM.WinUI.WorkFlow
             return _wfService.GetWfTemplatesObject(objectValue);
         }
 
+
+        public IList<WF_DETAIL> GetWfDetailList(string wfaID)
+        {
+            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+            return _wfService.GetWfDetailList(wfaID);
+        }
+        public IList<WF_APP_HANDLE> GetAllHandleList(string wfaID)
+        {
+            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+            return _wfService.GetAllHandleList(wfaID);
+        }
+
+
+        public WF_DETAIL GetWfAppLastDetailByWfaID(string wfaID)
+        {
+            WF_DETAIL detail = null;
+            StringBuilder stb = new StringBuilder();
+            stb.Append("   WHERE 1=1 AND WFA_ID='" + wfaID + "'");
+            stb.Append(" AND RECIVEDATE IN (SELECT MAX(RECIVEDATE) FROM WF_DETAIL WHERE  WFA_ID='" + wfaID + "') ");
+            DataTable dt = CommonFuns.getDataTableBySql("*", stb.ToString(), "WF_DETAIL");
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                detail = new WF_DETAIL();
+                DataRow dr = dt.Rows[0];
+                detail.WFA_ID = dt.Rows[0]["WFA_ID"].ToString();
+                detail.WFD_ID = dt.Rows[0]["WFD_ID"].ToString();
+                detail.WFT_STEP_ID = dt.Rows[0]["WFT_STEP_ID"].ToString();
+                detail.RECIVEDATE = dt.Rows[0]["RECIVEDATE"].ToString();
+                detail.MSG = dt.Rows[0]["MSG"].ToString();
+                detail.IS_Through = dt.Rows[0]["IS_Through"].ToString();
+                detail.Current_STEP_ID = dt.Rows[0]["Current_STEP_ID"].ToString();
+                return detail;
+            }
+        }
+        /// <summary>
+        /// 获取设定流程对象的title名称
+        /// </summary>
+        /// <param name="relationObjectType">RelationObjectType</param>
+        /// <returns></returns>
+        public static string GetObjectTitle(DataType.RelationObjectType relationObjectType)
+        {
+            string tableName = DataType.GetTableName(relationObjectType);
+            string objectTitle = "";
+            switch (relationObjectType)
+            {
+                case DataType.RelationObjectType.Document:
+                    {
+                        objectTitle = "【文档编号:" + CommonFuns.getDataTableBySql("DOCNO", "", tableName).Rows[0][0].ToString() + "】";
+                        break;
+                    }
+                case DataType.RelationObjectType.File:
+                    {
+                        objectTitle = "【文件名称:" + CommonFuns.getDataTableBySql("DFL_FILE_NAME", "", tableName).Rows[0][0].ToString() + "】";
+                        break;
+                    }
+                case DataType.RelationObjectType.Material:
+                    {
+                        objectTitle = "【物料NO:" + CommonFuns.getDataTableBySql("MATERIALNO", "", tableName).Rows[0][0].ToString() + "】";
+                        break;
+                    }
+                case DataType.RelationObjectType.Product:
+                    {
+                        objectTitle = "【产品NO:" + CommonFuns.getDataTableBySql("PRODUCTNO", "WHERE PRODUCTLEVEL=1", tableName).Rows[0][0].ToString() + "】"; //PRODUCTLEVEL为1的时候表示是产品
+                        break;
+                    }
+                case DataType.RelationObjectType.SemiProduct:
+                    {
+                        objectTitle = "【半成品NO:" + CommonFuns.getDataTableBySql("PRODUCTNO", "WHERE PRODUCTLEVEL=2", tableName).Rows[0][0].ToString() + "】"; //PRODUCTLEVEL为2的时候表示是半产品
+                        break;
+                    }
+                case DataType.RelationObjectType.Drawing:
+                    {
+                        objectTitle = "【图纸NO:" + CommonFuns.getDataTableBySql("DOCNO", "", tableName).Rows[0][0].ToString() + "】";
+                        break;
+                    }
+                default:
+                    {
+                        tableName = "";
+                        break;
+                    }
+            }
+            return objectTitle;
+        }
         /// <summary>
         /// 获取form
         /// </summary>
@@ -443,13 +445,13 @@ namespace HYPDM.WinUI.WorkFlow
         /// <returns></returns>
         public static Form GetDetaiFrm(DataType.RelationObjectType RelationObjectType, string objectID)
         {
-            Form  FrmDetail = null;
-            string tableName = GetTableName(RelationObjectType);
+            Form FrmDetail = null;
+            string tableName = DataType.GetTableName(RelationObjectType);
             switch (RelationObjectType)
             {
                 case DataType.RelationObjectType.Document:
                     {
-                      IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
+                        IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
                         HYPDM.WinUI.Document.DocRegForm frm = new Document.DocRegForm(true);
                         frm.Document = _docService.GetDocListByID(objectID)[0];
                         frm.StartPosition = FormStartPosition.CenterParent;
@@ -458,7 +460,7 @@ namespace HYPDM.WinUI.WorkFlow
                     }
                 case DataType.RelationObjectType.File:
                     {
-                       //tableName = "DOC_FILE_LIST";
+                        //tableName = "DOC_FILE_LIST";
                         break;
                     }
                 case DataType.RelationObjectType.Material:
@@ -474,37 +476,48 @@ namespace HYPDM.WinUI.WorkFlow
                     }
                 case DataType.RelationObjectType.Product:
                     {
-                       // tableName = "PDM_ALL_PRODUCT";  //PRODUCTLEVEL为1的时候表示是产品
-                        HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID, 1,true);  //2为半成品  1为成品
-                         //IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
-                         //IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
-                         FrmDetail = frm;
-                         frm.StartPosition = FormStartPosition.CenterParent;
-                       
+                        // tableName = "PDM_ALL_PRODUCT";  //PRODUCTLEVEL为1的时候表示是产品
+                        HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID, 1, true);  //2为半成品  1为成品
+                        //IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
+                        //IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
+                        FrmDetail = frm;
+                        frm.StartPosition = FormStartPosition.CenterParent;
+
                         break;
                     }
                 case DataType.RelationObjectType.SemiProduct:
                     {
                         //tableName = "PDM_ALL_PRODUCT"; //PRODUCTLEVEL为2的时候表示是半产品
-                        HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID,2,true);  //2为半成品  1为成品
+                        HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm frm = new ProductsAndParts.Products.ProductsConfForm(objectID, 2, true);  //2为半成品  1为成品
                         //IDocumentService _docService = ServiceContainer.GetService<DocumentService>();
                         //IAllProductService m_AllProductService = EAS.Services.ServiceContainer.GetService<IAllProductService>();
 
                         //frm.Product = m_AllProductService.GetById(objectID);
-                       
+
+                        frm.StartPosition = FormStartPosition.CenterParent;
+                        FrmDetail = frm;
+                        break;
+                    }
+                case DataType.RelationObjectType.Drawing:
+                    {
+                        IDRAWINGService _docService = ServiceContainer.GetService<DRAWINGService>();
+                        HYPDM.WinUI.DrawingDocument.DrawRegForm frm = new DrawingDocument.DrawRegForm(true);
+                        frm.Document = _docService.GetDrawObjectDCID(objectID);
                         frm.StartPosition = FormStartPosition.CenterParent;
                         FrmDetail = frm;
                         break;
                     }
                 default:
                     {
-                       // tableName = "";
+                        // tableName = "";
                         break;
                     }
             }
             return FrmDetail;
         }
 
+<<<<<<< HEAD
+=======
         public IList<WF_DETAIL> GetWfDetailList(string wfaID)
         {
             IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
@@ -562,5 +575,6 @@ namespace HYPDM.WinUI.WorkFlow
         
         }
 
+>>>>>>> 4424ed5a1f80a126bbed9bdaf51de9f22b3df9dd
     }
 }
