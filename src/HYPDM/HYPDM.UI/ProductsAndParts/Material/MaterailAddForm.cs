@@ -68,6 +68,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             temp_materail.MEMO_EN = this.tb_memoEn.Text;
             temp_materail.MEMO = this.rtb_Memo.Text;
             temp_materail.Save();
+
             this.m_materail = temp_materail;
             this.DialogResult = DialogResult.OK;
         }

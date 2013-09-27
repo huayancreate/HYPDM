@@ -63,9 +63,7 @@
             this.tb_productNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel10 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel11 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel12 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolBase = new System.Windows.Forms.ToolStrip();
             this.toolBaseReg = new System.Windows.Forms.ToolStripButton();
@@ -81,7 +79,6 @@
             this.toolProRecordEdit = new System.Windows.Forms.ToolStripButton();
             this.toolProRecordAdd = new System.Windows.Forms.ToolStripButton();
             this.dgv_ProRecord = new HYPDM.BaseControl.DataGridViewExt();
-            this.checkedDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.bs_Data_ProRecord = new System.Windows.Forms.BindingSource(this.components);
             this.tab_Change = new System.Windows.Forms.TabPage();
             this.dgv_Change = new System.Windows.Forms.DataGridView();
@@ -103,6 +100,11 @@
             this.tab_Drawing = new System.Windows.Forms.TabPage();
             this.ucPagingDraw = new HYPDM.BaseControl.UcPaging();
             this.dgv_DrawList = new HYPDM.BaseControl.DataGridViewExt();
+            this.DRAWID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWVERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWDOCSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DRAWCREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.toolDrawAdd = new System.Windows.Forms.ToolStripButton();
             this.toolDrawDel = new System.Windows.Forms.ToolStripButton();
@@ -179,11 +181,13 @@
             this.对象比较ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eRP集成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DRAWID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DRAWNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DRAWVERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DRAWDOCSTATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DRAWCREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkedDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.WFA_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBJECTKEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WFT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBJECT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -269,7 +273,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(293, 359);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "产品信息";
+            this.tabPage1.Text = "半成品信息";
             // 
             // label11
             // 
@@ -458,32 +462,18 @@
             this.toolStrip2.BackColor = System.Drawing.Color.Gainsboro;
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel10,
-            this.toolStripLabel11,
-            this.toolStripLabel12});
+            this.toolStripLabel11});
             this.toolStrip2.Location = new System.Drawing.Point(3, 3);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(287, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolStripLabel10
-            // 
-            this.toolStripLabel10.Image = global::HYPDM.WinUI.Properties.Resources.file;
-            this.toolStripLabel10.Name = "toolStripLabel10";
-            this.toolStripLabel10.Size = new System.Drawing.Size(16, 22);
-            // 
             // toolStripLabel11
             // 
             this.toolStripLabel11.Name = "toolStripLabel11";
             this.toolStripLabel11.Size = new System.Drawing.Size(16, 22);
             this.toolStripLabel11.Text = "  ";
-            // 
-            // toolStripLabel12
-            // 
-            this.toolStripLabel12.Name = "toolStripLabel12";
-            this.toolStripLabel12.Size = new System.Drawing.Size(44, 22);
-            this.toolStripLabel12.Text = "汇总表";
             // 
             // toolStripLabel2
             // 
@@ -637,7 +627,13 @@
             this.dgv_ProRecord.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_ProRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ProRecord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.checkedDataGridViewCheckBoxColumn1});
+            this.checkedDataGridViewCheckBoxColumn1,
+            this.WFA_ID,
+            this.OBJECTKEY,
+            this.WFT_NAME,
+            this.SUBJECT,
+            this.STATUS,
+            this.CREATEUSER});
             this.dgv_ProRecord.DataSource = this.bs_Data_ProRecord;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
@@ -648,7 +644,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_ProRecord.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_ProRecord.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgv_ProRecord.Location = new System.Drawing.Point(3, 29);
+            this.dgv_ProRecord.Location = new System.Drawing.Point(3, 31);
             this.dgv_ProRecord.MultiSelect = false;
             this.dgv_ProRecord.Name = "dgv_ProRecord";
             this.dgv_ProRecord.ReadOnly = true;
@@ -656,17 +652,8 @@
             this.dgv_ProRecord.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgv_ProRecord.RowTemplate.Height = 23;
             this.dgv_ProRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_ProRecord.Size = new System.Drawing.Size(521, 327);
+            this.dgv_ProRecord.Size = new System.Drawing.Size(521, 325);
             this.dgv_ProRecord.TabIndex = 0;
-            // 
-            // checkedDataGridViewCheckBoxColumn1
-            // 
-            this.checkedDataGridViewCheckBoxColumn1.DataPropertyName = "Checked";
-            this.checkedDataGridViewCheckBoxColumn1.HeaderText = "选择";
-            this.checkedDataGridViewCheckBoxColumn1.Name = "checkedDataGridViewCheckBoxColumn1";
-            this.checkedDataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.checkedDataGridViewCheckBoxColumn1.Visible = false;
-            this.checkedDataGridViewCheckBoxColumn1.Width = 50;
             // 
             // bs_Data_ProRecord
             // 
@@ -897,6 +884,37 @@
             this.dgv_DrawList.RowTemplate.Height = 23;
             this.dgv_DrawList.Size = new System.Drawing.Size(521, 299);
             this.dgv_DrawList.TabIndex = 1;
+            // 
+            // DRAWID
+            // 
+            this.DRAWID.DataPropertyName = "DOCID";
+            this.DRAWID.HeaderText = "图纸ID";
+            this.DRAWID.Name = "DRAWID";
+            this.DRAWID.Visible = false;
+            // 
+            // DRAWNO
+            // 
+            this.DRAWNO.DataPropertyName = "DOCNO";
+            this.DRAWNO.HeaderText = "图纸编号";
+            this.DRAWNO.Name = "DRAWNO";
+            // 
+            // DRAWVERSION
+            // 
+            this.DRAWVERSION.DataPropertyName = "VERSION";
+            this.DRAWVERSION.HeaderText = "图纸版本";
+            this.DRAWVERSION.Name = "DRAWVERSION";
+            // 
+            // DRAWDOCSTATUS
+            // 
+            this.DRAWDOCSTATUS.DataPropertyName = "DOCSTATUS";
+            this.DRAWDOCSTATUS.HeaderText = "状态";
+            this.DRAWDOCSTATUS.Name = "DRAWDOCSTATUS";
+            // 
+            // DRAWCREATEUSER
+            // 
+            this.DRAWCREATEUSER.DataPropertyName = "CREATEUSER";
+            this.DRAWCREATEUSER.HeaderText = "创建人";
+            this.DRAWCREATEUSER.Name = "DRAWCREATEUSER";
             // 
             // toolStrip5
             // 
@@ -1554,36 +1572,58 @@
             this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.工艺权限ToolStripMenuItem.Text = "工艺权限";
             // 
-            // DRAWID
+            // checkedDataGridViewCheckBoxColumn1
             // 
-            this.DRAWID.DataPropertyName = "DOCID";
-            this.DRAWID.HeaderText = "图纸ID";
-            this.DRAWID.Name = "DRAWID";
-            this.DRAWID.Visible = false;
+            this.checkedDataGridViewCheckBoxColumn1.DataPropertyName = "Checked";
+            this.checkedDataGridViewCheckBoxColumn1.HeaderText = "选择";
+            this.checkedDataGridViewCheckBoxColumn1.Name = "checkedDataGridViewCheckBoxColumn1";
+            this.checkedDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.checkedDataGridViewCheckBoxColumn1.Visible = false;
+            this.checkedDataGridViewCheckBoxColumn1.Width = 50;
             // 
-            // DRAWNO
+            // WFA_ID
             // 
-            this.DRAWNO.DataPropertyName = "DOCNO";
-            this.DRAWNO.HeaderText = "图纸编号";
-            this.DRAWNO.Name = "DRAWNO";
+            this.WFA_ID.DataPropertyName = "WFA_ID";
+            this.WFA_ID.HeaderText = "流程ID";
+            this.WFA_ID.Name = "WFA_ID";
+            this.WFA_ID.ReadOnly = true;
+            this.WFA_ID.Visible = false;
             // 
-            // DRAWVERSION
+            // OBJECTKEY
             // 
-            this.DRAWVERSION.DataPropertyName = "VERSION";
-            this.DRAWVERSION.HeaderText = "图纸版本";
-            this.DRAWVERSION.Name = "DRAWVERSION";
+            this.OBJECTKEY.DataPropertyName = "OBJECTKEY";
+            this.OBJECTKEY.HeaderText = "半成品ID";
+            this.OBJECTKEY.Name = "OBJECTKEY";
+            this.OBJECTKEY.ReadOnly = true;
+            this.OBJECTKEY.Visible = false;
             // 
-            // DRAWDOCSTATUS
+            // WFT_NAME
             // 
-            this.DRAWDOCSTATUS.DataPropertyName = "DOCSTATUS";
-            this.DRAWDOCSTATUS.HeaderText = "状态";
-            this.DRAWDOCSTATUS.Name = "DRAWDOCSTATUS";
+            this.WFT_NAME.DataPropertyName = "WFT_NAME";
+            this.WFT_NAME.HeaderText = "模板名称";
+            this.WFT_NAME.Name = "WFT_NAME";
+            this.WFT_NAME.ReadOnly = true;
             // 
-            // DRAWCREATEUSER
+            // SUBJECT
             // 
-            this.DRAWCREATEUSER.DataPropertyName = "CREATEUSER";
-            this.DRAWCREATEUSER.HeaderText = "创建人";
-            this.DRAWCREATEUSER.Name = "DRAWCREATEUSER";
+            this.SUBJECT.DataPropertyName = "SUBJECT";
+            this.SUBJECT.HeaderText = "实例名称";
+            this.SUBJECT.Name = "SUBJECT";
+            this.SUBJECT.ReadOnly = true;
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "状态";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            // 
+            // CREATEUSER
+            // 
+            this.CREATEUSER.DataPropertyName = "CREATEUSER";
+            this.CREATEUSER.HeaderText = "创建人";
+            this.CREATEUSER.Name = "CREATEUSER";
+            this.CREATEUSER.ReadOnly = true;
             // 
             // PartsConfForm
             // 
@@ -1660,9 +1700,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel10;
         private System.Windows.Forms.ToolStripLabel toolStripLabel11;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel12;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_productNo;
         private System.Windows.Forms.TextBox tb_modelType;
@@ -1805,17 +1843,17 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolExt_Add;
         private BaseControl.DataGridViewExt dgv_ProRecord;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WFA_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OBJECTKEY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn eNDTIMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWVERSION;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWDOCSTATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWCREATEUSER;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WFA_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OBJECTKEY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WFT_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SUBJECT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREATEUSER;
     }
 }

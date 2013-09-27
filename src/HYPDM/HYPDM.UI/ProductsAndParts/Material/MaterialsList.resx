@@ -124,16 +124,16 @@
   <data name="query_Materail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIKSURBVDhPrZJNTBNRFIVfrLQLjBoXmmJw4U8kuFBJaOLC
-        hRI0GPEvNnWjceeKHd1Zu9GEYIOExIQyExxZSIlTQ4jazlAGK5U2tVjaArKoVBBqFIqixVJLPN6RnRSq
-        xpec5OS9d757b95j7H+u2w0NNV0OR7/c61ns9XiyTqczwnH2a39Uo8nWWCcpA9+jiY+Y/5rB58UljE6l
-        IHmDEIR23mg0atYEWSyW6h7Z++N5Iof4AjCXAVKkBPnBGeDxQAQmk7F+TQDHtXnF0Czkt8BLCozOAmOk
-        UBLomwScIzncabk7TYBNeSGdYneaC2bx8DXgjgPPCKRKekNh2uOHgXuiDL1eX5EX8EDs/iYMZWF/BdyP
-        AI6RFXWQbxuicJT8IwklJduP5AXYW1v9rlgKXeNULbwSUqX6zjHqJL6MpuaWeQrvyAs4V1t7tsetwE8z
-        K+8AF7X+lNQ3BQQ+0Fi+MKqOVdnWfc6ak9U33YoP4ek0onP4peFkBk/6AxBdEpqv17tj2zQn1oUcKCu7
-        YjabQ3a+Pc0LHUtWq3XCYDDcsJ06LsyEGrEgH11WSjebCn0sjU6n26PVasvp4lb18gXGdo9f3vgeAQO+
-        DJ7JiaXFBSGriuxl7HDsojYJfyU++U7n+P1brhbqZNX5TsYOBs8XTeJFJcS68om/BqiBXYxV3DpU5NpX
-        vOHSPwF+D/0ENKJBYnQcJsgAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIJSURBVDhPrZJdSJNRGMcPTbcLo8KLYoZd9EFiF5LgIOhG
+        RGOQJdFYFxHddeWdu4q5Gy/EhlZ0MbdZb0I46V1fVHvfuc2v5ZbN5ubnxXJpuijdUJzONenf8+ZdTlfS
+        gT/8Oef8f8/zcA5j/3PdaW5Wd9tsvc4e11qPy5W22+0hi6X91l/VaDW21AvugR/h6HckVlNYXtvAxFwc
+        Yv8wOO6hVaPRyHYE6fX66pdi38+BaAaRFWApBcRJUfJDC8DrwRC0Wk3DjgCz2dzPBxbh/Ax8oMDEIjBJ
+        CsQA9yxgH8+g7f6DeQLszwrp4p8nLcNpPJ0ChAjQRyBJ4icK0551FHjEO6FUKsuzAp7wL9a5kTTaPwKP
+        Q4BtfEud5M0jFA6TfyaiqOjwuawAk8nkc4zF0T1N1YJbIUmS75qkTiKbaG27l6DwkayAutray68ED3w0
+        s+cL4KDW35Lcc4D/G43lDaKqssq463OqL1Q3CR4vgvNJhJfwW6OxFN70+sE7RNy93SCMFcpqdoWcKSm5
+        odPpAiZLR9LKdW4YDIYZlUrVaFRXcguBFiw7z296ig9oc30smUKhOCGXy0vp4iHp8hXGjk9fz/sKvwor
+        Q5cyfHFBTsi2IicZOxu+mh+DrwIJ78WM9fTBm7k62XZ+lLGy93V5s3hXAb6+dOafAVLgGGPlTWX5jlMF
+        +67tCfBn6Bf5QEFC12AUtQAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="MATERIALID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

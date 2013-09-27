@@ -38,14 +38,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.query_Materail = new System.Windows.Forms.ToolStripButton();
             this.dgv_MaterailList = new HYPDM.BaseControl.DataGridViewExt();
-            this.cms_Memu_Materail = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.add_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
-            this.conf_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.del_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
-            this.REgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.regStardardFlow = new System.Windows.Forms.ToolStripMenuItem();
-            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.MATERIALID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +52,14 @@
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cms_Memu_Materail = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.add_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
+            this.conf_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.del_materail_memu = new System.Windows.Forms.ToolStripMenuItem();
+            this.REgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regStardardFlow = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
             this.ts_tool_Materail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MaterailList)).BeginInit();
             this.cms_Memu_Materail.SuspendLayout();
@@ -154,7 +154,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_MaterailList.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_MaterailList.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgv_MaterailList.Location = new System.Drawing.Point(3, 28);
+            this.dgv_MaterailList.Location = new System.Drawing.Point(0, 28);
             this.dgv_MaterailList.MultiSelect = false;
             this.dgv_MaterailList.Name = "dgv_MaterailList";
             this.dgv_MaterailList.ReadOnly = true;
@@ -162,75 +162,10 @@
             this.dgv_MaterailList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
             this.dgv_MaterailList.RowTemplate.Height = 23;
             this.dgv_MaterailList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_MaterailList.Size = new System.Drawing.Size(832, 366);
+            this.dgv_MaterailList.Size = new System.Drawing.Size(835, 366);
             this.dgv_MaterailList.TabIndex = 1;
             this.dgv_MaterailList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_MaterailList_CellDoubleClick);
             this.dgv_MaterailList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_MaterailList_CellMouseDown);
-            // 
-            // cms_Memu_Materail
-            // 
-            this.cms_Memu_Materail.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.add_materail_memu,
-            this.conf_materail_memu,
-            this.toolStripSeparator3,
-            this.del_materail_memu,
-            this.REgToolStripMenuItem});
-            this.cms_Memu_Materail.Name = "cms_Memu_Materail";
-            this.cms_Memu_Materail.Size = new System.Drawing.Size(125, 98);
-            // 
-            // add_materail_memu
-            // 
-            this.add_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
-            this.add_materail_memu.Name = "add_materail_memu";
-            this.add_materail_memu.Size = new System.Drawing.Size(124, 22);
-            this.add_materail_memu.Text = "增加";
-            this.add_materail_memu.Click += new System.EventHandler(this.add_materail_memu_Click);
-            // 
-            // conf_materail_memu
-            // 
-            this.conf_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.pagination_load;
-            this.conf_materail_memu.Name = "conf_materail_memu";
-            this.conf_materail_memu.Size = new System.Drawing.Size(124, 22);
-            this.conf_materail_memu.Text = "配置";
-            this.conf_materail_memu.Click += new System.EventHandler(this.conf_materail_memu_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(121, 6);
-            // 
-            // del_materail_memu
-            // 
-            this.del_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
-            this.del_materail_memu.Name = "del_materail_memu";
-            this.del_materail_memu.Size = new System.Drawing.Size(124, 22);
-            this.del_materail_memu.Text = "删除";
-            this.del_materail_memu.Click += new System.EventHandler(this.del_materail_memu_Click);
-            // 
-            // REgToolStripMenuItem
-            // 
-            this.REgToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.regStardardFlow});
-            this.REgToolStripMenuItem.Name = "REgToolStripMenuItem";
-            this.REgToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.REgToolStripMenuItem.Text = "注册流程";
-            // 
-            // regStardardFlow
-            // 
-            this.regStardardFlow.Name = "regStardardFlow";
-            this.regStardardFlow.Size = new System.Drawing.Size(148, 22);
-            this.regStardardFlow.Text = "注册标准流程";
-            this.regStardardFlow.Click += new System.EventHandler(this.regStardardFlow_Click);
-            // 
-            // ucPaging1
-            // 
-            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucPaging1.ExportIsVisiable = true;
-            this.ucPaging1.Location = new System.Drawing.Point(0, 394);
-            this.ucPaging1.Name = "ucPaging1";
-            this.ucPaging1.PageSize = 20;
-            this.ucPaging1.Size = new System.Drawing.Size(835, 25);
-            this.ucPaging1.TabIndex = 2;
             // 
             // MATERIALID
             // 
@@ -334,6 +269,71 @@
             this.Column14.HeaderText = "备注";
             this.Column14.Name = "Column14";
             this.Column14.ReadOnly = true;
+            // 
+            // cms_Memu_Materail
+            // 
+            this.cms_Memu_Materail.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.add_materail_memu,
+            this.conf_materail_memu,
+            this.toolStripSeparator3,
+            this.del_materail_memu,
+            this.REgToolStripMenuItem});
+            this.cms_Memu_Materail.Name = "cms_Memu_Materail";
+            this.cms_Memu_Materail.Size = new System.Drawing.Size(125, 98);
+            // 
+            // add_materail_memu
+            // 
+            this.add_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.edit_add;
+            this.add_materail_memu.Name = "add_materail_memu";
+            this.add_materail_memu.Size = new System.Drawing.Size(124, 22);
+            this.add_materail_memu.Text = "增加";
+            this.add_materail_memu.Click += new System.EventHandler(this.add_materail_memu_Click);
+            // 
+            // conf_materail_memu
+            // 
+            this.conf_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.pagination_load;
+            this.conf_materail_memu.Name = "conf_materail_memu";
+            this.conf_materail_memu.Size = new System.Drawing.Size(124, 22);
+            this.conf_materail_memu.Text = "配置";
+            this.conf_materail_memu.Click += new System.EventHandler(this.conf_materail_memu_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(121, 6);
+            // 
+            // del_materail_memu
+            // 
+            this.del_materail_memu.Image = global::HYPDM.WinUI.Properties.Resources.edit_remove;
+            this.del_materail_memu.Name = "del_materail_memu";
+            this.del_materail_memu.Size = new System.Drawing.Size(124, 22);
+            this.del_materail_memu.Text = "删除";
+            this.del_materail_memu.Click += new System.EventHandler(this.del_materail_memu_Click);
+            // 
+            // REgToolStripMenuItem
+            // 
+            this.REgToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.regStardardFlow});
+            this.REgToolStripMenuItem.Name = "REgToolStripMenuItem";
+            this.REgToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.REgToolStripMenuItem.Text = "注册流程";
+            // 
+            // regStardardFlow
+            // 
+            this.regStardardFlow.Name = "regStardardFlow";
+            this.regStardardFlow.Size = new System.Drawing.Size(148, 22);
+            this.regStardardFlow.Text = "注册标准流程";
+            this.regStardardFlow.Click += new System.EventHandler(this.regStardardFlow_Click);
+            // 
+            // ucPaging1
+            // 
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = true;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 394);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 20;
+            this.ucPaging1.Size = new System.Drawing.Size(835, 25);
+            this.ucPaging1.TabIndex = 2;
             // 
             // MaterialsList
             // 
