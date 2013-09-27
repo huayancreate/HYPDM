@@ -66,7 +66,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
                 this.toolProRecord.Enabled = false;
                 this.toolChange.Enabled = false;
                 this.toolStrip4.Enabled = false;
-                this.toolStrip5.Enabled = false;
+                this.toolDraw.Enabled = false;
                 this.toolStrip6.Enabled = false;
                 this.toolStruct.Enabled = false;
             }
@@ -106,6 +106,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         {
             baseInfo_Init();
             dgv_docList_Init();
+            dgv_DrawList_Init();
             tabProRecord_Init();
             //dgv_Change_init(t);
             tabStruct_Init();
@@ -1043,6 +1044,50 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
             this.dgvExptendProperties.DataSource = AddObjectParams.ObjectParams.NewInstance.GetExtendsProperties("PDM_ALL_PRODUCT", this.m_product.PRODUCTID, "PRODUCTID");
         }
 
+        #endregion
+
+        #region 图纸tab页面操作
+        private void dgv_DrawList_Init()
+        {
+            this.dgv_DrawList.DataSource = this.m_AllProductService.GetAssoDoc(this.m_product.PRODUCTID, this.m_product.VERSION);
+            this.ucPagingDraw.SourceDataGridView = this.dgv_DrawList;
+        }
+        private void toolDrawAdd_Click(object sender, EventArgs e)
+        {
+            DrawAddForm o = new DrawAddForm(this.m_product.PRODUCTID);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+            dgv_DrawList_Init();
+        }
+
+        private void toolDrawDel_Click(object sender, EventArgs e)
+        {
+            if (this.dgv_DocList.RowCount <= 0)
+            {
+                MessageBox.Show("请选择一条记录"); return;
+            }
+
+            int rowIndex = this.dgv_DocList.CurrentCell.RowIndex;
+            if (rowIndex < 0)
+            {
+                MessageBox.Show("请选择一条记录"); return;
+            }
+
+            DataGridViewRow row = dgv_DocList.Rows[rowIndex];
+
+            if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.m_AllProductService.DelAssoDoc(row.Cells["DOCID"].Value.ToString(), row.Cells["DOCVERSION"].Value.ToString(), this.m_product.PRODUCTID, this.m_product.VERSION);
+                dgv_DrawList_Init();
+            }
+        }
+
+        private void toolDrawLook_Click(object sender, EventArgs e)
+        {
+            Document.DocRegForm o = new Document.DocRegForm(true);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+        }
         #endregion
     }
 }

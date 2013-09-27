@@ -55,8 +55,8 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
                 this.toolBase.Enabled = false;
                 this.tsb_DocAdd.Enabled = false;
                 this.tsb_DocDel.Enabled = false;
-                this.toolStripLabel45.Enabled = false;
-                this.toolStripLabel46.Enabled = false;
+                this.toolDrawAdd.Enabled = false;
+                this.toolDrawDel.Enabled = false;
             }
         }
 
@@ -94,6 +94,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
             tabProRecord_Init();
             Init_ExtProperties();
             docInfo_Init();
+            drawInfo_Init();
         }
 
         /// <summary>
@@ -319,21 +320,45 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
         #endregion
 
         #region 图纸操作
-        private void toolStripLabel45_Click(object sender, EventArgs e)
-        {
 
+        private void drawInfo_Init()
+        {
+            this.dgv_DrawList.DataSource = m_MaterailService.GetAssoDoc(this.m_product.MATERIALID, this.m_product.VERSION);
+            this.ucPageDraw.SourceDataGridView = this.dgv_DrawList;
+        }
+        private void toolDrawAdd_Click(object sender, EventArgs e)
+        {
+            DocAddForm o = new DocAddForm(this.m_product.MATERIALID);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
+            drawInfo_Init();
         }
 
-        private void toolStripLabel46_Click(object sender, EventArgs e)
+        private void toolDrawDel_Click(object sender, EventArgs e)
         {
+            if (this.dgvDoc.RowCount <= 0) return;
 
+            int rowIndex = this.dgvDoc.CurrentCell.RowIndex;
+
+            if (rowIndex < 0)
+                return;
+
+            DataGridViewRow row = dgvDoc.Rows[rowIndex];
+
+            if (MessageBox.Show("您确认要删除所选择的关联文档?", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.m_MaterailService.DelAssoDoc(row.Cells["DOCID"].Value.ToString(), row.Cells["DOCVERSION"].Value.ToString(), this.m_product.MATERIALID, this.m_product.VERSION);
+                drawInfo_Init();
+            }
         }
 
-        private void toolStripLabel47_Click(object sender, EventArgs e)
+        private void toolDrawLook_Click(object sender, EventArgs e)
         {
-
+            Document.DocRegForm o = new Document.DocRegForm(true);
+            o.StartPosition = FormStartPosition.CenterParent;
+            o.ShowDialog();
         }
-         #endregion
+        #endregion
 
         #region 扩展属性操作
         private void Init_ExtProperties()
@@ -393,6 +418,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Material
              tabProRecord_Init();
          }
 #endregion
+
 
        
     }
