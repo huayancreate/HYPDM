@@ -16,6 +16,14 @@ namespace HYPDM.WinUI.Document
         {
             InitializeComponent();
         }
+
+        private Boolean fileServerAckResult = true;
+
+        public Boolean FileServerAckResult
+        {
+            get { return fileServerAckResult; }
+            set { fileServerAckResult = value; }
+        }
         private HYPDM.Entities.DOC_FILE_LIST docFileEntity;
 
         public HYPDM.Entities.DOC_FILE_LIST DocFileEntity
@@ -71,14 +79,8 @@ namespace HYPDM.WinUI.Document
                 string srvFilePath=fileHelper.getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH)+this.txtFileName.Text.ToString();
                 FileSockClient.DownLoadFileSocketClient down = new FileSockClient.DownLoadFileSocketClient(srvFilePath, this.txtFilePath.Text.ToString() +@"\"+ this.txtFileName.Text.ToString());
 
-                if (true)
-                {
-                    MessageBox.Show("文件检出成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("文件检出失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                FileServerAckResult = down.AckStatus;
+              
                 this.DialogResult = DialogResult.OK;
             }
         }

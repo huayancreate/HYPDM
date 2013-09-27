@@ -63,9 +63,61 @@ namespace HYPDM
             /// </summary>
             Material,
             /// <summary>
-            /// 不区分
+            /// 不区分,公用
             /// </summary>
-            ALL
+            ALL,
+            /// <summary>
+            /// 图纸
+            /// </summary>
+            Drawing
+        }
+        /// <summary>
+        /// 根据RelationObjectType类型获取对应的主表名称及form
+        /// </summary>
+        /// <param name="RelationObjectType"> DataType.RelationObjectTyp</param>
+        /// <returns></returns>
+        public static string GetTableName(DataType.RelationObjectType RelationObjectType)
+        {
+            string tableName = "";
+            switch (RelationObjectType)
+            {
+                case DataType.RelationObjectType.Document:
+                    {
+                        tableName = "PDM_DOCUMENT";
+                        break;
+                    }
+                case DataType.RelationObjectType.File:
+                    {
+                        tableName = "DOC_FILE_LIST";
+                        break;
+                    }
+                case DataType.RelationObjectType.Material:
+                    {
+                        tableName = "PDM_MATERAIL";
+                        break;
+                    }
+                case DataType.RelationObjectType.Product:
+                    {
+                        tableName = "PDM_ALL_PRODUCT";  //PRODUCTLEVEL为1的时候表示是产品
+                        break;
+                    }
+                case DataType.RelationObjectType.SemiProduct:
+                    {
+                        tableName = "PDM_ALL_PRODUCT"; //PRODUCTLEVEL为2的时候表示是半产品
+                        break;
+                    }
+                case DataType.RelationObjectType.Drawing:
+                    {
+                        tableName = "PDM_DRAWING"; //图纸对象
+                        break;
+                    }
+                default:
+                    {
+                        tableName = "";
+                        break;
+                    }
+            }
+            return tableName;
         }
         /// <summary>
         /// 工作流模板状态
@@ -163,5 +215,6 @@ namespace HYPDM
             /// </summary>
             Drawing
         }
+
     }
 }

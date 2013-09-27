@@ -128,7 +128,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
         string flowName = ""; //工作流名称
         protected void loadIni()
         {
-            string tableName = WorkFlow.GetTableName(this.RelationObjectType);
+            string tableName = DataType.GetTableName(this.RelationObjectType);
             if (tableName == "")
             {
                 MessageBox.Show("指定参数错误【RelationObjectType】", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);

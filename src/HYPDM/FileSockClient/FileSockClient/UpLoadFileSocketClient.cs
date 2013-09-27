@@ -150,7 +150,7 @@ namespace FileSockClient
                     byte[] byteArrrayFileSavePath = Encoding.UTF8.GetBytes(serverSavePath);
                     //传输文件需要在服务器上保存的路径
                     //scoketSendFileSeverSavePath(host, portFileSavePath, byteArrrayFileSavePath);
-                    if(scoketSend(host, portFileSavePath, byteArrrayFileSavePath))
+                    if (!scoketSend(host, portFileSavePath, byteArrrayFileSavePath))
                     {
                         AckStatus = false;
                         return;
@@ -214,6 +214,8 @@ namespace FileSockClient
                 {
 
                     c.Connect(ipe);
+                    c.Send(bs, bs.Length, 0);
+                    c.Close();
                 }
                 catch (Exception ex)
                 {
@@ -222,19 +224,6 @@ namespace FileSockClient
                     MessageBox.Show("连接文件服务器失败:\n" + ex.Message.ToString(), "错误提示-上传异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return bl;
                 }
-                finally
-                {
-                    if (FrmWait != null)
-                    {
-                        FrmWait.Close();
-                    }
-                    if (c != null)
-                    { 
-                        c.Close();
-                    }
-                }
-                c.Send(bs, bs.Length, 0);
-                c.Close();
             }
             catch (Exception ex)
             {
@@ -245,10 +234,10 @@ namespace FileSockClient
             }
             finally
             {
-                if (FrmWait != null)
-                {
-                    FrmWait.Close();
-                }
+                //if (FrmWait != null)
+                //{
+                //    FrmWait.Close();
+                //}
                 if (c != null)
                 {
                     c.Close();
@@ -285,18 +274,6 @@ namespace FileSockClient
                     MessageBox.Show("连接文件服务器失败:\n" + ex.Message.ToString(), "错误提示-上传异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return "";
                 }
-                finally
-                {
-                    if (FrmWait != null)
-                    {
-                        FrmWait.Close();
-                    }
-                    if (c != null)
-                    {
-                        c.Close();
-                    }
-                }
-                
                 byte[] startBytes = new byte[SIZEBUFFER];
                 int bytess;
                 bytess = c.Receive(startBytes, startBytes.Length, 0);
@@ -308,6 +285,13 @@ namespace FileSockClient
                 AckStatus = false;
                 MessageBox.Show("文件上传失败:\n" + ex.Message.ToString(), "错误提示-上传异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return "";
+            }
+            finally
+            {
+                if (c != null)
+                {
+                    c.Close();
+                }
             }
             return startStr;
         }
@@ -343,10 +327,6 @@ namespace FileSockClient
             }
             finally
             {
-                if (FrmWait != null)
-                {
-                    FrmWait.Close();
-                }
                 if (c != null)
                 {
                     c.Close();
@@ -380,36 +360,20 @@ namespace FileSockClient
                     MessageBox.Show("连接服务器失败:\n" + ex.Message.ToString(), "错误提示-上传异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                finally
-                {
-                    if (frmWait != null)
-                    {
-                        frmWait.Close();
-                    }
-                    if (c != null)
-                    {
-                        c.Close();
-                    }
-                }
                 string Str = str;
                 byte[] bxc = Encoding.ASCII.GetBytes(Str);
                 c.Send(bxc, bxc.Length, 0);
-                //c.Close();
+
             }
             catch (Exception ex)
             {
                 AckStatus = false;
+
                 MessageBox.Show("文件上传失败:\n" + ex.Message.ToString(), "错误提示-上传异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             finally
             {
-                // c.Close();
-               // c.Dispose();
-                if (frmWait != null)
-                {
-                    frmWait.Close();
-                }
                 if (c != null)
                 {
                     c.Close();
@@ -510,14 +474,10 @@ namespace FileSockClient
                 bl = false;
                 MessageBox.Show("文件上传失败:\n" + ex.Message.ToString(), "错误提示-上传异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return bl;
-               // MessageBox.Show(ex.Message.ToString(), "错误提示-上传异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // MessageBox.Show(ex.Message.ToString(), "错误提示-上传异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
-                if (frmWait != null)
-                {
-                    frmWait.Close();
-                }
                 if (c != null)
                 {
                     c.Close();

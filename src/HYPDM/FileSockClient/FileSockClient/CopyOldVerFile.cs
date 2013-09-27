@@ -164,17 +164,6 @@ namespace FileSockClient
                     MessageBox.Show("连接文件服务器失败" + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return bl;
                 }
-                finally
-                {
-                    if (FrmWait != null)
-                    {
-                        FrmWait.Close();
-                    }
-                    if (c != null)
-                    {
-                        c.Close();
-                    }
-                }
                 c.Send(bs, bs.Length, 0);
                 c.Close();
             }
@@ -186,10 +175,6 @@ namespace FileSockClient
             }
             finally
             {
-                if (FrmWait != null)
-                {
-                    FrmWait.Close();
-                }
                 if (c != null)
                 {
                     c.Close();

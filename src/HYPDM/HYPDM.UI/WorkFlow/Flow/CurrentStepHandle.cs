@@ -162,7 +162,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
         protected void loadIni()
         {
             DataType.RelationObjectType item = (DataType.RelationObjectType)Enum.Parse(typeof(DataType.RelationObjectType), APP.RELATIONOBJECTTYPE, false);
-            string tableName = WorkFlow.GetTableName(item);
+            string tableName = DataType.GetTableName(item);
             if (tableName == "")
             {
                 MessageBox.Show("指定参数错误【RelationObjectType】", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);

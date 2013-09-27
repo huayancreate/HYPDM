@@ -102,19 +102,6 @@ namespace FileSockClient
                 }
                 finally
                 {
-                    if (file != null)
-                    {
-                        file.Flush();
-                        file.Close();
-                    }
-                    if (sock != null)
-                    {
-                        sock.Close();
-                    }
-                    if (frmWait != null)
-                    {
-                        frmWait.Close();
-                    }
                 }
                 sock.Send(filePathByteArray, filePathByteArray.Length, 0);
 
@@ -154,22 +141,7 @@ namespace FileSockClient
                         MessageBox.Show("接收服务器内容异常:\n"+ex.Message.ToString(), "错误提示-下载异常", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                    finally
-                    {
-                        if (file != null)
-                        {
-                            file.Flush();
-                            file.Close();
-                        }
-                        if (sock != null)
-                        {
-                            sock.Close();
-                        }
-                        if (frmWait != null)
-                        {
-                            frmWait.Close();
-                        }
-                    }
+                    //MessageBox.Show("下载成功:\n", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

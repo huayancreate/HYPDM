@@ -17,6 +17,13 @@ namespace HYPDM.WinUI.Document
 
         }
 
+        private Boolean FileServerAckReult = true;
+
+        public Boolean FileServerAckReult1
+        {
+            get { return FileServerAckReult; }
+            set { FileServerAckReult = value; }
+        }
         private HYPDM.Entities.DOC_FILE_LIST docFileEntity;
 
         public HYPDM.Entities.DOC_FILE_LIST DocFileEntity
@@ -62,9 +69,9 @@ namespace HYPDM.WinUI.Document
             }
             else
             {
-                Boolean result = true;
+                //Boolean result = true;
                 //Util.FTPHelper helper = Util.Common.FtpHepler();
-                var info = "";
+                //var info = "";
                 //var result = helper.UploadFile(txtFilePath.Text, out info);
 
                 try
@@ -86,32 +93,38 @@ namespace HYPDM.WinUI.Document
                     FileSockClient.CopyOldVerFile hh = new FileSockClient.CopyOldVerFile(serPathAndFileName, tempNewFileName); //复制旧版本数据到Vers目录下
                     if (!hh.AckStatus)
                     {
+                        FileServerAckReult = hh.AckStatus;
+                        this.DialogResult = DialogResult.OK;
                         return;
                     }
                     //上传更新文件覆盖旧文件
                     FileSockClient.UpLoadFileSocketClient upload = new FileSockClient.UpLoadFileSocketClient(filePath, new FileHelper().getDocumentAllPathByPathID(DocFileEntity.DFL_FILE_CHILD_PATH), true);
                     if (!upload.AckStatus)
                     {
+                        FileServerAckReult = upload.AckStatus;
+                        this.DialogResult = DialogResult.OK;
                         return;
                     }
+
+
                 }
                 catch (Exception ex)
                 {
-                    result = false;
+                    FileServerAckReult = false;
                     this.DialogResult = DialogResult.No;
                     MessageBox.Show(ex.Message.ToString());
                 }
 
-                if (result)
-                {
-                    MessageBox.Show("文件检入成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    this.DialogResult = DialogResult.No;
-                    MessageBox.Show("文件检入失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //if (result)
+                //{
+                //    MessageBox.Show("文件检入成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //else
+                //{
+                //    this.DialogResult = DialogResult.No;
+                //    MessageBox.Show("文件检入失败,具体原因为：" + info, "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                }
+                //}
 
             }
         }
