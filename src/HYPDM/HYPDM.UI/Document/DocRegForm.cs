@@ -947,37 +947,43 @@ namespace HYPDM.WinUI.Document
         //变更申请Tab页面
         private void tabProRecord_Init()
         {
-            this.dgv_ProRecord.DataSource = HYPDM.WinUI.WorkFlow.WorkFlow.NewInstance.GetObjectWFList(this.document.DOCID, LoginInfo.LoginID, DataType.RelationObjectType.Document.ToString());
+            this.dgv_ProRecord.DataSource = HYPDM.WinUI.WorkFlow.WorkFlow.NewInstance.GetObjectWFList(this.document.DOCID,DataType.RelationObjectType.Document.ToString());
         }
         private void toolProRecordEdit_Click(object sender, EventArgs e)
         {
-            if (dgv_ProRecord.RowCount <= 0)
-            {
-                MessageBox.Show("请选择一条记录"); return;
-            }
+            #region
+            //if (dgv_ProRecord.RowCount <= 0)
+            //{
+            //    MessageBox.Show("请选择一条记录"); return;
+            //}
 
-            int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
-            if (rowIndex < 0) 
-            {
-                MessageBox.Show("请选择一条记录"); return;
-            }
-            string status = dgv_ProRecord.CurrentRow.Cells["STATUS"].Value.ToString();
-            if (!status.Equals(DataType.WFDetailSTATUS.Return.ToString()))
-            {
-                MessageBox.Show("该流程已经启动", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
-            }
-            WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
-            t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
+            //int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
+            //if (rowIndex < 0) 
+            //{
+            //    MessageBox.Show("请选择一条记录"); return;
+            //}
+            //string status = dgv_ProRecord.CurrentRow.Cells["STATUS"].Value.ToString();
+            //if (!status.Equals(DataType.WFDetailSTATUS.Return.ToString()))
+            //{
+            //    MessageBox.Show("该流程已经启动", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
+            //}
+            //WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
+            //t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
 
-            try
-            {
-                t_wfapp.Update();
-                MessageBox.Show("流程重启成功");
-            }
-            catch (Exception e1)
-            {
-                MessageBox.Show("更新状态失败");
-            }
+            //try
+            //{
+            //    t_wfapp.Update();
+            //    MessageBox.Show("流程重启成功");
+            //}
+            //catch (Exception e1)
+            //{
+            //    MessageBox.Show("更新状态失败");
+            //}
+            #endregion
+
+            //HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new WorkFlow.Flow.StandardFlow(this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString(), dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
+            //flow.ShowDialog();
+            WorkFlow.WorkFlow.NewInstance.RestartWorkFlow(this.dgv_ProRecord, dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString(), LoginInfo.LoginID, this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString());
             tabProRecord_Init();
         }
 

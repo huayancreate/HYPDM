@@ -44,9 +44,10 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             get { return wfAppID; }
             set { wfAppID = value; }
         }
-        public CurrentStepHandle()
+        public CurrentStepHandle(string wflowAppID)
         {
             InitializeComponent();
+            this.WfAppID = wflowAppID;
             this.CenterToParent();
         }
 
@@ -72,7 +73,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
 
             this.txtSubject.Text = APP.SUBJECT;
             this.txtUserPM.Text = APP.CREATEUSER;
-           
+
             try
             {
 
@@ -83,11 +84,11 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     this.btnHandle.Enabled = false;
                 }
                 else
-                {  
-                     //if(wipWFAppDetai.c
+                {
+                    //if(wipWFAppDetai.c
                     // this.txtHandleUser.Text = CommonFuns.NewInstance.LoginInfo.LoginID;
                     //IList<WF_APP_HANDLE> list = WorkFlow.NewInstance.GetWFAppStepHandle(WfAppID, wipWFAppDetai.Current_STEP_ID);
-                    WF_APP_HANDLE handItem=WorkFlow.NewInstance.GetWfAppHandleItem(wfAppID, wipWFAppDetai.Current_STEP_ID, loginID);
+                    WF_APP_HANDLE handItem = WorkFlow.NewInstance.GetWfAppHandleItem(wfAppID, wipWFAppDetai.Current_STEP_ID, loginID);
                     this.txtHandleUser.Text = handItem.OBJECTVALUE;
                     if (handItem != null && (handItem.IS_THROUGH == null || handItem.IS_THROUGH.Trim() == ""))
                     {
@@ -97,7 +98,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     {
                         this.btnHandle.Enabled = false;
                     }
-                   
+
                 }
             }
             catch (Exception ex)
@@ -267,29 +268,30 @@ namespace HYPDM.WinUI.WorkFlow.Flow
 
         private string getCurrentStepHandle(string wfappID, string wftStepID)
         {
-            if (APP.STATUS == DataType.WFDetailSTATUS.Return.ToString())
+            stbUser = new StringBuilder();
+            //if (APP.STATUS == DataType.WFDetailSTATUS.Return.ToString())
+            //{
+            //    stbUser = new StringBuilder();
+            //}
+            //else
+            //{
+            IList<WF_APP_USER> list = WorkFlow.NewInstance.GetWFAppStepUser(wfappID, wftStepID);
+            if (list != null && list.Count > 0)
             {
-                stbUser = new StringBuilder();
+                stbUser = new StringBuilder("\n");
             }
-            else
+            foreach (WF_APP_USER handle in list)
             {
-                IList<WF_APP_HANDLE> list = WorkFlow.NewInstance.GetWFAppStepHandle(wfappID, wftStepID);
-                if (list != null && list.Count > 0)
+                if (handle.OBJECTTYPE == DataType.AuthObjectType.SingleUser.ToString())
                 {
-                    stbUser = new StringBuilder("\n");
+                    stbUser.Append("用户:【" + handle.OBJECTVALUE + "】" + "\n");
                 }
-                foreach (WF_APP_HANDLE handle in list)
+                else
                 {
-                    if (handle.OBJECTTYPE == DataType.AuthObjectType.SingleUser.ToString())
-                    {
-                        stbUser.Append("用户:【" + handle.OBJECTVALUE + "】" + "\n");
-                    }
-                    else
-                    {
-                        stbUser.Append("群组:【" + handle.OBJECTVALUE + "】" + "\n");
-                    }
+                    stbUser.Append("群组:【" + handle.OBJECTVALUE + "】" + "\n");
                 }
             }
+            //}
             return stbUser.ToString();
         }
         string contentMsg = "";
@@ -305,7 +307,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 DataStore();
             }
 
-         //   this.Close();
+            //   this.Close();
             CurrentStepHandle_Load(sender, e);
 
         }
@@ -405,7 +407,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     //如果不是跟节点，且目前节点已经审批完成，需要添加下节点信息,WIP信息
 
                     // if (isThrough) //如果本用户签批通过，在detail信息表中新增wip信息
-                    if (blAllThrough ||isThrough)
+                    if (blAllThrough || isThrough)
                     {
                         ///新增WF_DETAIL记录，指向下一工作流信息
                         // wfah.Current_STEP_ID = WorkFlow.NewInstance.GetWFStepInfoByStepID(wftStepID).WFT_CURRENT_STEP_ID;
@@ -446,6 +448,24 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     handle.LASTUPDATEUSER = loginID;
                     handle.DEL_FLAG = "Y";
                     handle.Update();
+                }
+                IList<WF_APP_USER> users = WorkFlow.NewInstance.GetAllUserList(wipWFAppDetai.WFA_ID);
+                foreach (WF_APP_USER user in users)
+                {
+                    WF_APP_HANDLE wfah = new HYPDM.Entities.WF_APP_HANDLE();
+                    wfah.WFAH_ID = Guid.NewGuid().ToString();
+                    wfah.LASTUPDATEDATE = "";
+                    wfah.LASTUPDATEUSER = "";
+                    wfah.CREATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    wfah.CREATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
+                    wfah.DEL_FLAG = "N";
+                    wfah.WFA_ID = user.WFA_ID;
+                    wfah.Current_STEP_ID = WorkFlow.NewInstance.GetWFStepInfoByStepID(user.WFT_STEP_ID).WFT_CURRENT_STEP_ID;
+                    wfah.OBJECTTYPE = user.OBJECTTYPE.ToString();
+                    wfah.OBJECTVALUE = user.OBJECTVALUE.ToString() ;
+                    wfah.WFT_STEP_ID = user.WFT_STEP_ID;
+                    wfah.IS_THROUGH = "";
+                    wfah.Save();
                 }
                 //C.将WF_DETAIL表中对应的信息del_falg设为Y
                 IList<WF_DETAIL> detailList = WorkFlow.NewInstance.GetWfDetailList(wipWFAppDetai.WFA_ID);

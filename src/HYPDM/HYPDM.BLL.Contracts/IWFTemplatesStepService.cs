@@ -80,5 +80,17 @@ namespace HYPDM.BLL
         /// <param name="wfaID"></param>
         /// <returns></returns>
         IList<WF_APP_HANDLE> GetAllHandleList(string wfaID);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wfappID"></param>
+        /// <param name="wftStepID"></param>
+        IList<WF_APP_USER> GetWFAppStepUser(string wfappID, string wftStepID);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wfaID"></param>
+        /// <returns></returns>
+        IList<WF_APP_USER> GetAllUserList(string wfaID);
     }
 }

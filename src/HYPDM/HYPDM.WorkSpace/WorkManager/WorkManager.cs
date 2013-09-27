@@ -111,9 +111,9 @@ namespace HYPDM.WorkSpace.WorkManager
                 MessageBox.Show("请选择一条记录"); return;
             }
 
-            HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle o = new HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle();
-            o.WfAppID=t_id;
-            o.StartPosition = FormStartPosition.CenterParent;
+            HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle o = new HYPDM.WinUI.WorkFlow.Flow.CurrentStepHandle(t_id);
+           // o.WfAppID=t_id;
+           // o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
             init();
         }

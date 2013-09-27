@@ -81,20 +81,51 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             set { relationObjectType = value; }
         }
 
-
-
         /// <summary>
-        /// 
+        /// 标识是否为重启状态
         /// </summary>
-        public StandardFlow()
-        {
+        private Boolean isRestart = false;
 
-            InitializeComponent();
-            this.CenterToParent();
+        public Boolean IsRestart
+        {
+            get { return isRestart; }
+            set { isRestart = value; }
         }
 
         /// <summary>
-        /// 传参构造方法
+        /// 重启工作流的时候需要
+        /// </summary>
+        public StandardFlow(string templatesID, string wflowappID)
+        {
+
+            InitializeComponent();
+            isRestart = true;
+            this.WfTemplatesID = templatesID;
+            this.WfAppID = wflowappID;
+            this.CenterToParent();
+            reloadFlow();
+        }
+
+        private void reloadFlow()
+        {
+            this.txtSubject.Enabled = true;
+            this.tsphandle.Enabled = false;
+            this.tspStart.Enabled = true;
+            this.btnModify.Enabled = true;
+            this.btnSubmit.Enabled = false;
+
+            WF_APP app = WorkFlow.NewInstance.GetWFappByWFID(this.WfAppID);
+            this.txtSubject.Text = app.SUBJECT;
+            this.txtStatus.Text = app.STATUS;
+            this.txtFlowName.Text = WorkFlow.NewInstance.GetWFTemplatesInfoByWFID(this.WfTemplatesID).WFT_NAME.ToString();
+
+
+            CreateFlowGraphicByWFTID();
+
+        }
+
+        /// <summary>
+        /// 传参构造方法,创建工作流实例的时候使用
         /// </summary>
         /// <param name="objectKey">对象主键</param>
         /// <param name="relationObjectType">关联类型</param>
@@ -102,14 +133,15 @@ namespace HYPDM.WinUI.WorkFlow.Flow
         public StandardFlow(string objectKey, DataType.RelationObjectType relationObjectType, string wfTemplates)
         {
             InitializeComponent();
+            this.CenterToParent();
+
             this.ObjectKey = objectKey;
             this.RelationObjectType = relationObjectType;
             this.WfTemplatesID = wfTemplates;
-            this.CenterToParent();
-        }
 
-        private void StandardFlow_Load(object sender, EventArgs e)
-        {
+
+
+
             this.gpFlowDetail.Visible = false;
             if (this.ObjectKey == "")
             {
@@ -120,6 +152,14 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             this.txtStatus.Text = "未激活";
             this.txtSubject.SelectAll();
             loadIni();
+            // CreateFlowGraphicByWFTID();//绘流程图
+            // loadIni();
+
+        }
+
+        private void StandardFlow_Load(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>
@@ -199,17 +239,18 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     btnStep.Name = step.WFT_STEP_ID;
                     // btnStep.Size = new System.Drawing.Size(200, 50);
                     // btnStep.TabIndex = 0;
+                    string strUser = getCurrentStepHandle(WfAppID, step.WFT_STEP_ID);
                     if (step.IS_START_STEP == "Y")
                     {
                         btnStep.Text = "(Start)" + _wfService.GetWFStep(step.WFT_CURRENT_STEP_ID).COMBTEXT + "\n" + "发起人:【" + CommonFuns.NewInstance.LoginInfo.LoginID + "】";
                     }
                     else if (step.IS_END_STEP == "Y")
                     {
-                        btnStep.Text = "(END)" + _wfService.GetWFStep(step.WFT_CURRENT_STEP_ID).COMBTEXT;
+                        btnStep.Text = "(END)" + _wfService.GetWFStep(step.WFT_CURRENT_STEP_ID).COMBTEXT + strUser;
                     }
                     else
                     {
-                        btnStep.Text = "当前步骤:" + _wfService.GetWFStep(step.WFT_CURRENT_STEP_ID).COMBTEXT;
+                        btnStep.Text = "当前步骤:" + _wfService.GetWFStep(step.WFT_CURRENT_STEP_ID).COMBTEXT + strUser;
                     }
                     btnStep.TextAlign = ContentAlignment.MiddleLeft;
                     pnl = new Panel();
@@ -226,6 +267,35 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 }
                 ctl.Controls.Remove(pnl);
             }
+        }
+        StringBuilder stbUser = null;//存放当前选中的用户、用户群组
+        private string getCurrentStepHandle(string wfappID, string wftStepID)
+        {
+            stbUser = new StringBuilder();
+            //if (APP.STATUS == DataType.WFDetailSTATUS.Return.ToString())
+            //{
+            //    stbUser = new StringBuilder();
+            //}
+            //else
+            //{
+            IList<WF_APP_USER> list = WorkFlow.NewInstance.GetWFAppStepUser(wfappID, wftStepID);
+            if (list != null && list.Count > 0)
+            {
+                stbUser = new StringBuilder("\n");
+            }
+            foreach (WF_APP_USER handle in list)
+            {
+                if (handle.OBJECTTYPE == DataType.AuthObjectType.SingleUser.ToString())
+                {
+                    stbUser.Append("用户:【" + handle.OBJECTVALUE + "】" + "\n");
+                }
+                else
+                {
+                    stbUser.Append("群组:【" + handle.OBJECTVALUE + "】" + "\n");
+                }
+            }
+            //}
+            return stbUser.ToString();
         }
         private void CreateButtonClickEvent(System.Windows.Forms.Control controls)
         {
@@ -265,7 +335,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
         //    UserAndUserRoleForm frm = new UserAndUserRoleForm();
         //    frm.ShowDialog();
         //}
-        StringBuilder stbUser = null;//存放当前选中的用户、用户群组
+        //  
         private void StandardFlow_Click(Object sender, EventArgs e)
         {
             WF_TEMPLATES_STEP step = (WF_TEMPLATES_STEP)((Button)sender).Tag;
@@ -296,15 +366,16 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             selUser(((Button)sender).Name.ToString());
             ((Button)sender).Text = "当前步骤:" + WorkFlow.NewInstance.GetWFStep(step.WFT_CURRENT_STEP_ID).COMBTEXT;
             //_wfService.GetWFStep(step.WFT_CURRENT_STEP_ID).COMBTEXT;
-            if (stbUser != null)
-            {
+            //if (stbUser != null)
+            //{
 
-            }
-            else
-            {
-                stbUser = new StringBuilder();
-            }
-            ((Button)sender).Text += stbUser.ToString();
+            //}
+            //else
+            //{
+            //    stbUser = new StringBuilder();
+            //}
+            string strUser = getCurrentStepHandle(WfAppID, step.WFT_STEP_ID);
+            ((Button)sender).Text += strUser.ToString();
 
         }
 
@@ -400,9 +471,22 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                         wfah.OBJECTVALUE = sel.Value.ToString();
                         wfah.WFT_STEP_ID = wftStepID;
                         wfah.IS_THROUGH = "";
+
+                        WF_APP_USER wfuser = new WF_APP_USER();
+                        wfuser.WFAU_ID = Guid.NewGuid().ToString();
+                        wfuser.CREATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                        wfuser.CREATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
+                        wfuser.DEL_FLAG = "N";
+                        wfuser.WFA_ID = this.wfAppID;
+                        wfuser.Current_STEP_ID = WorkFlow.NewInstance.GetWFStepInfoByStepID(wftStepID).WFT_CURRENT_STEP_ID;
+                        wfuser.OBJECTTYPE = sel.ObjectType.ToString();
+                        wfuser.OBJECTVALUE = sel.Value.ToString();
+                        wfuser.WFT_STEP_ID = wftStepID;
+
                         try
                         {
                             wfah.Save();
+                            wfuser.Save();
                             if (wfah.OBJECTTYPE == DataType.AuthObjectType.SingleUser.ToString())
                             {
                                 stbUser.Append("用户:【" + wfah.OBJECTVALUE + "】" + "\n");
@@ -474,8 +558,21 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     wfah.WFT_STEP_ID = WorkFlow.NewInstance.GetWFStartStepByWFID(this.WfTemplatesID).WFT_STEP_ID;
                     wfah.Current_STEP_ID = WorkFlow.NewInstance.GetWFStepInfoByStepID(wfah.WFT_STEP_ID).WFT_CURRENT_STEP_ID;
 
-                    // wfah.WFT_STEP_ID = wftStepID;
 
+                    WF_APP_USER user = new HYPDM.Entities.WF_APP_USER();
+
+                    user.WFAU_ID = Guid.NewGuid().ToString();
+                    user.CREATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    user.CREATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
+                    user.DEL_FLAG = "N";
+                    user.OBJECTTYPE = DataType.AuthObjectType.SingleUser.ToString();
+                    user.OBJECTVALUE = CommonFuns.NewInstance.LoginInfo.LoginID;
+                    user.WFA_ID = this.wfAppID;
+                    user.WFT_STEP_ID = WorkFlow.NewInstance.GetWFStartStepByWFID(this.WfTemplatesID).WFT_STEP_ID;
+                    user.Current_STEP_ID = WorkFlow.NewInstance.GetWFStepInfoByStepID(wfah.WFT_STEP_ID).WFT_CURRENT_STEP_ID;
+
+                    // wfah.WFT_STEP_ID = wftStepID;
+                    user.Save();
                     wfah.Save();
                     this.tspDelete.Enabled = true;
 
@@ -493,13 +590,12 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             ///判定每个节点是否选择了签批用户
             ///步骤:1.找到该工作流实例对应工作模板中的所有节点，在handle表中判定是否有对应签批用户信息，有的话进行下一步check，否则提示直接返回
 
-
             StringBuilder stbMain = new StringBuilder();
             stbMain.Append(" ComboBoxValue  WHERE COMBVALUE IN( ");
             stbMain.Append(" SELECT WFT_CURRENT_STEP_ID  FROM WF_TEMPLATES_STEP ");
-            stbMain.AppendFormat(" WHERE  WFT_ID='{0}' ",this.WfTemplatesID);
+            stbMain.AppendFormat(" WHERE  WFT_ID='{0}' ", this.WfTemplatesID);
             stbMain.Append(" AND DEL_FLAG='N' AND  WFT_CURRENT_STEP_ID NOT  IN  (SELECT Current_STEP_ID  FROM WF_APP_HANDLE ");
-            stbMain.AppendFormat(" WHERE  WFA_ID='{0}'))",this.WfAppID);
+            stbMain.AppendFormat(" WHERE  WFA_ID='{0}'))", this.WfAppID);
 
             DataTable dt = CommonFuns.getDataTableBySql(" COMBID,COMBTEXT", "", stbMain.ToString());
 
@@ -512,7 +608,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 StringBuilder stb = new StringBuilder("以下步骤:");
                 foreach (DataRow dr in dt.Rows)
                 {
-                    stb.Append("【"+dr["COMBTEXT"].ToString()+"】");
+                    stb.Append("【" + dr["COMBTEXT"].ToString() + "】");
                 }
                 stb.Append(",没有设定签批人员，请设定完毕后再进行工作流的启用动作!");
                 MessageBox.Show(stb.ToString(), "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
@@ -589,8 +685,6 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                                 detailNew.Save();
 
 
-
-
                                 ///更新表WF_APP_HANDLE
                                 WF_APP_HANDLE item = WorkFlow.NewInstance.GetWfAppHandleItem(detail.WFA_ID, detail.Current_STEP_ID, loginID);
                                 item.DEL_FLAG = "N";
@@ -599,9 +693,6 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                                 item.IS_THROUGH = "Y";
                                 item.MSG = contentMsg;
                                 item.Update();
-
-
-
                             }
                             catch (Exception ex)
                             {
@@ -624,14 +715,8 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     }
                 }
             }
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CurrentStepHandle han = new CurrentStepHandle();
-            han.ShowDialog();
-        }
 
         private void tspDelete_Click(object sender, EventArgs e)
         {
@@ -652,6 +737,25 @@ namespace HYPDM.WinUI.WorkFlow.Flow
 
 
             // this.WfAppID
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            WF_APP app = WorkFlow.NewInstance.GetWFappByWFID(this.WfAppID);
+            app.SUBJECT = this.txtSubject.Text.ToString();
+            app.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            app.LASTUPDATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
+            try
+            {
+                app.Save();
+                MessageBox.Show("更新工作流成功,错误信息如下:", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("更新工作流失败,错误信息如下:" + "\n" + ex.Message.ToString(), "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+
         }
 
     }

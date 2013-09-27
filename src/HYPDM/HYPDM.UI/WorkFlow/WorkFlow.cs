@@ -2,13 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
+using EAS.Data.ORM;
 using HYPDM.Entities;
-using EAS.Explorer;
 using EAS.Services;
 using HYPDM.BLL;
-using System.Windows.Forms;
+using HYPDM.WinUI.BaseUI;
+using EAS.Explorer;
+using AdvancedDataGridView;
+using System.IO;
+using System.Configuration;
+using System.Collections;
+using EAS.Data.Linq;
+using HYDocumentMS;
+using HYPDM;
 namespace HYPDM.WinUI.WorkFlow
 {
     public class WorkFlow
@@ -176,7 +184,13 @@ namespace HYPDM.WinUI.WorkFlow
         }
 
 
-
+        public IList<WF_APP_USER> GetWFAppStepUser(string wfappID, string wftStepID)
+        {
+            DataEntityQuery<WF_APP_USER> query = DataEntityQuery<WF_APP_USER>.Create();
+            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+            IList<WF_APP_USER> list = _wfService.GetWFAppStepUser(wfappID, wftStepID);
+            return list;
+        }
 
 
         public IList<WF_APP_HANDLE> GetWFAppStepHandle(string wfappID, string wftStepID)
@@ -510,23 +524,24 @@ namespace HYPDM.WinUI.WorkFlow
             return FrmDetail;
         }
 
-        //public IList<WF_DETAIL> GetWfDetailList(string wfaID)
-        //{
-        //    IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
-        //    return _wfService.GetWfDetailList(wfaID);
-        //}
+
         public IList<WF_APP_HANDLE> GetAllHandleList(string wfaID)
         {
             IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
             return _wfService.GetAllHandleList(wfaID);
         }
+        #region
         //public IList<WF_APP_HANDLE> GetAllHandleList(string wfaID)
         //{
         //    IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
         //    return _wfService.GetAllHandleList(wfaID);
         //}
 
-
+        //public IList<WF_DETAIL> GetWfDetailList(string wfaID)
+        //{
+        //    IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+        //    return _wfService.GetWfDetailList(wfaID);
+        //}
 
         //public WF_DETAIL GetWfAppLastDetailByWfaID(string wfaID)
         //{
@@ -553,20 +568,155 @@ namespace HYPDM.WinUI.WorkFlow
         //        return detail;
         //    }
         //}
-
+        #endregion
 
         //获取对象关联的流程实例
-        public DataTable GetObjectWFList(string p_ObjectId,string p_user,string p_ObjectType) {
+        public DataTable GetObjectWFList(string p_ObjectId, string p_user, string p_ObjectType)
+        {
+            {
+                StringBuilder selectWhere = new StringBuilder();
+                String selectColunm = " A.WFA_ID,A.OBJECTKEY,B.WFT_NAME,A.SUBJECT,A.STATUS, A.CREATEUSER,A.WFT_ID ";
+                String selectTable = "WF_APP A,WF_TEMPLATES B  ";
+
+                selectWhere.Append("WHERE   A.WFT_ID= B.WFT_ID AND OBJECTKEY='").Append(p_ObjectId)
+                     .Append("'  AND RELATIONOBJECTTYPE  ='").Append(p_ObjectType)
+                     .Append("'  AND A.CREATEUSER='").Append(p_user).Append("' ");
+
+                DataTable dt = CommonFuns.getDataTableBySql(selectColunm, selectWhere.ToString(), selectTable);
+                return dt;
+            }
+        }
+        public IList<WF_APP_USER> GetAllUserList(string wfaID)
+        {
+            IWFTemplatesStepService _wfService = ServiceContainer.GetService<WFTemplatesStepService>();
+            return _wfService.GetAllUserList(wfaID);
+
+        }
+        /// <summary>
+        /// 获取对象的工作流实例
+        /// </summary>
+        /// <param name="p_ObjectId">对象主键</param>
+        /// <param name="p_ObjectType">对象类型</param>
+        /// <returns></returns>
+        public DataTable GetObjectWFList(string p_ObjectId, string p_ObjectType)
+        {
             StringBuilder selectWhere = new StringBuilder();
-            String selectColunm=" A.WFA_ID,A.OBJECTKEY,B.WFT_NAME,A.SUBJECT,A.STATUS, A.CREATEUSER ";
-            String selectTable ="WF_APP A,WF_TEMPLATES B  ";
+            String selectColunm = " A.WFA_ID,A.OBJECTKEY,B.WFT_NAME,A.SUBJECT,A.STATUS, A.CREATEUSER ,A.WFT_ID";
+            String selectTable = "WF_APP A,WF_TEMPLATES B  ";
 
             selectWhere.Append("WHERE   A.WFT_ID= B.WFT_ID AND OBJECTKEY='").Append(p_ObjectId)
                  .Append("'  AND RELATIONOBJECTTYPE  ='").Append(p_ObjectType)
-                 .Append("'  AND A.CREATEUSER='").Append(p_user).Append("' ");
-
+                 .Append("'");
             DataTable dt = CommonFuns.getDataTableBySql(selectColunm, selectWhere.ToString(), selectTable);
             return dt;
+        }
+
+        /// <summary>
+        /// 重启工作流
+        /// </summary>
+        /// <param name="dgv">存放数据信息的gridview</param>
+        /// <param name="wfaID">工作流实例主键ID</param>
+        /// <param name="loginID">登录账号</param>
+        public void RestartWorkFlow(DataGridView dgv, string wfaID, string loginID,string wftID)
+        {
+            if (dgv.RowCount <= 0)
+            {
+                // MessageBox.Show("请选择一条记录");
+                MessageBox.Show("请选择一条记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int rowIndex = dgv.CurrentCell.RowIndex;
+            if (rowIndex < 0)
+            {
+                MessageBox.Show("请选择一条记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information); return;
+            }
+            // string status = dgv.CurrentRow.Cells["STATUS"].Value.ToString();
+            //if (!status.Equals(DataType.WFDetailSTATUS.Return.ToString()))
+            //{
+            //    MessageBox.Show("该流程已经启动", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
+            //}
+            //WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(dgv.CurrentRow.Cells["WFA_ID"].Value.ToString());
+            WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(wfaID);
+            if (wfaID != null)
+            {
+                if (!t_wfapp.STATUS.Equals(DataType.WFDetailSTATUS.Return.ToString()))
+                {
+                    MessageBox.Show("该流程状态不为Return,不能重新发起,目前状态为:" + "\n" + t_wfapp.STATUS.ToString(), "确认", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
+                }
+                if (loginID == t_wfapp.CREATEUSER)
+                {
+                   // t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("工作流只有发起人才可以重新启动!,本工作流的发起人为:" + "\n" + t_wfapp.CREATEUSER, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("获取工作流实例信息失败", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+               // t_wfapp.Update();
+                //t_wfapp.Update();
+                HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new Flow.StandardFlow(wftID, wfaID);
+                // new StandardFlow(this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString(), dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
+                flow.ShowDialog();
+              //  MessageBox.Show("工作流重启成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("更新状态失败,异常信息:" + "\n" + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+        /// <summary>
+        /// 重启工作流,不需要传gridview控件
+        /// </summary>
+        /// <param name="wfaID">工作流实例主键ID</param>
+        /// <param name="loginID">登录账号</param>
+        ///<param name="wftID">工作流模板ID</param>
+        public void RestartWorkFlow(string wfaID, string loginID,string wftID)
+        {
+            WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(wfaID);
+            if (wfaID != null)
+            {
+                if (!t_wfapp.STATUS.Equals(DataType.WFDetailSTATUS.Return.ToString()))
+                {
+                    MessageBox.Show("该流程状态不为Return,不能重新发起,目前状态为:" + "\n" + t_wfapp.STATUS.ToString(), "确认", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
+                }
+                if (loginID == t_wfapp.CREATEUSER)
+                {
+                    //t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("工作流只有发起人才可以重新启动!,本工作流的发起人为:" + "\n" + t_wfapp.CREATEUSER, "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("获取工作流实例信息失败", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                //t_wfapp.Update();
+                HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new Flow.StandardFlow(wftID, wfaID);
+               // new StandardFlow(this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString(), dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
+                flow.ShowDialog();
+                //MessageBox.Show("工作流重启成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("更新状态失败,异常信息:" + "\n" + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
     }
 }

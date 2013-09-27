@@ -54,9 +54,9 @@ namespace HYPDM.Entities
        /// <summary>
        /// WFAH_ID 。
        /// </summary>
-       [Column("WFAH_ID","WFAH_ID"),DataSize(50),PrimaryKey]
-       [DisplayName("WFAH_ID")]
-       public string WFAH_ID
+       [Column("WFAU_ID", "WFAU_ID"), DataSize(50), PrimaryKey]
+       [DisplayName("WFAU_ID")]
+       public string WFAU_ID
        {
            get;
            set;

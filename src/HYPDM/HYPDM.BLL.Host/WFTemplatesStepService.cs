@@ -171,7 +171,16 @@ namespace HYPDM.BLL
                 );
             return p.ToList();
         }
+        public IList<WF_APP_USER> GetWFAppStepUser(string wfappID, string wftStepID)
+        {
+            DataEntityQuery<WF_APP_USER> query = DataEntityQuery<WF_APP_USER>.Create();
 
+            var p = (from item in query
+                     where (item.DEL_FLAG == "N" && item.WFA_ID == wfappID && item.WFT_STEP_ID == wftStepID)
+                     select item
+                );
+            return p.ToList();
+        }
         /// <summary>
         /// 根据工作流实例APPID与目前工作节点、用户ID获取WF_APP_HANDLE信息
         /// </summary>
@@ -279,6 +288,17 @@ namespace HYPDM.BLL
             var p = (from item in query
                      orderby item.LASTUPDATEDATE descending
                      where (item.WFA_ID == wfaID && item.DEL_FLAG=="N")
+                     select item
+                    );
+            return p.ToList();
+        }
+
+
+        public IList<WF_APP_USER> GetAllUserList(string wfaID)
+        {
+            DataEntityQuery<WF_APP_USER> query = DataEntityQuery<WF_APP_USER>.Create();
+            var p = (from item in query
+                     where (item.WFA_ID == wfaID && item.DEL_FLAG == "N")
                      select item
                     );
             return p.ToList();
