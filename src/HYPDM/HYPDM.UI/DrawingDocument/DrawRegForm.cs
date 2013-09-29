@@ -344,11 +344,11 @@ namespace HYPDM.WinUI.DrawingDocument
                         //query.Insert(file);
                         file.FILE_TYPE = fileType.ToString();
                         file.Save();
-                        MessageBox.Show("文件注册成功,文件目录" + savePath, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("图纸注册成功,文件目录" + savePath, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("文件注册失败【注册到数据库失败】," + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        MessageBox.Show("图纸注册失败【注册到数据库失败】," + ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                         return;
                     }
 
@@ -718,12 +718,12 @@ namespace HYPDM.WinUI.DrawingDocument
             {
                 this.txtDocNo.Enabled = false;  //如果为修改界面，则将文档编号设置为不可用状态
                 //this.txtRemark.ReadOnly = true;  //remark标记为只读
-                this.Text = "文档对象-编辑";
+                this.Text = "图纸对象-编辑";
 
             }
             else
             {
-                this.Text = "文档对象-注册";
+                this.Text = "图纸对象-注册";
                 this.txtDocNo.Text = System.DateTime.Now.ToString("yyyyMMddHHmmss");
             }
         }

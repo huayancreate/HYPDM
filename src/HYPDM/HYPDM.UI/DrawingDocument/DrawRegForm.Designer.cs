@@ -1322,7 +1322,7 @@
             this.MinimizeBox = false;
             this.Name = "DrawRegForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "文档 注册";
+            this.Text = "图纸 注册";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DocRegForm_FormClosing);
             this.Load += new System.EventHandler(this.DocRegForm_Load);
             this.panel1.ResumeLayout(false);

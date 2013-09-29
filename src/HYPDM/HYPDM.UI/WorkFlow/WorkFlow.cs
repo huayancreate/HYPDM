@@ -611,14 +611,20 @@ namespace HYPDM.WinUI.WorkFlow
             return dt;
         }
 
-        /// <summary>
-        /// 重启工作流
-        /// </summary>
-        /// <param name="dgv">存放数据信息的gridview</param>
-        /// <param name="wfaID">工作流实例主键ID</param>
-        /// <param name="loginID">登录账号</param>
-        public void RestartWorkFlow(DataGridView dgv, string wfaID, string loginID,string wftID)
+       /// <summary>
+        /// 重启工作流，直接传如grid，wfappid为dgv.CurrentRow.Cells["WFA_ID"].Value.ToString()
+       /// </summary>
+       /// <param name="dgv"></param>
+        public void RestartWorkFlow(DataGridView dgv)
         {
+
+            //dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString(), LoginInfo.LoginID
+
+            if (dgv.CurrentRow == null)
+            {
+                MessageBox.Show("请选择一条记录", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (dgv.RowCount <= 0)
             {
                 // MessageBox.Show("请选择一条记录");
@@ -637,7 +643,9 @@ namespace HYPDM.WinUI.WorkFlow
             //    MessageBox.Show("该流程已经启动", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
             //}
             //WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(dgv.CurrentRow.Cells["WFA_ID"].Value.ToString());
-            WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(wfaID);
+            string wfaID = dgv.CurrentRow.Cells["WFA_ID"].Value.ToString();
+            string loginID = CommonFuns.NewInstance.LoginInfo.LoginID; //登录账号
+            WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(wfaID);//工作流实例ID
             if (wfaID != null)
             {
                 if (!t_wfapp.STATUS.Equals(DataType.WFDetailSTATUS.Return.ToString()))
@@ -646,7 +654,7 @@ namespace HYPDM.WinUI.WorkFlow
                 }
                 if (loginID == t_wfapp.CREATEUSER)
                 {
-                   // t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
+                    // t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
                 }
                 else
                 {
@@ -661,12 +669,13 @@ namespace HYPDM.WinUI.WorkFlow
             }
             try
             {
-               // t_wfapp.Update();
+                // t_wfapp.Update();
                 //t_wfapp.Update();
+                 string wftID= dgv.CurrentRow.Cells["WFT_ID"].Value.ToString();  //模板ID
                 HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new Flow.StandardFlow(wftID, wfaID);
                 // new StandardFlow(this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString(), dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
                 flow.ShowDialog();
-              //  MessageBox.Show("工作流重启成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //  MessageBox.Show("工作流重启成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -680,8 +689,10 @@ namespace HYPDM.WinUI.WorkFlow
         /// <param name="wfaID">工作流实例主键ID</param>
         /// <param name="loginID">登录账号</param>
         ///<param name="wftID">工作流模板ID</param>
-        public void RestartWorkFlow(string wfaID, string loginID,string wftID)
+        public void RestartWorkFlow(string wfaID, string loginID, string wftID)
         {
+
+         //   string loginID = CommonFuns.NewInstance.LoginInfo.LoginID; //登录账号
             WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(wfaID);
             if (wfaID != null)
             {
@@ -708,7 +719,7 @@ namespace HYPDM.WinUI.WorkFlow
             {
                 //t_wfapp.Update();
                 HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new Flow.StandardFlow(wftID, wfaID);
-               // new StandardFlow(this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString(), dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
+                // new StandardFlow(this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString(), dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
                 flow.ShowDialog();
                 //MessageBox.Show("工作流重启成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

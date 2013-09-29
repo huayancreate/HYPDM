@@ -983,8 +983,8 @@ namespace HYPDM.WinUI.Document
 
             //HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new WorkFlow.Flow.StandardFlow(this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString(), dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
             //flow.ShowDialog();
-            WorkFlow.WorkFlow.NewInstance.RestartWorkFlow(this.dgv_ProRecord, dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString(), LoginInfo.LoginID, this.dgv_ProRecord.CurrentRow.Cells["WFT_ID"].Value.ToString());
-            tabProRecord_Init();
+            WorkFlow.WorkFlow.NewInstance.RestartWorkFlow(this.dgv_ProRecord);
+            tabProRecord_Init(); //刷新
         }
 
         private void menuCadView_Click(object sender, EventArgs e)

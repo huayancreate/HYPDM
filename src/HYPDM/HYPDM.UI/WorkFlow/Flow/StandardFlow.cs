@@ -458,6 +458,8 @@ namespace HYPDM.WinUI.WorkFlow.Flow
 
                         //添加
                         //防呆  判定改用户是否已经存在了，存在了就不需要再一次更新
+
+
                         WF_APP_HANDLE wfah = new HYPDM.Entities.WF_APP_HANDLE();
                         wfah.WFAH_ID = Guid.NewGuid().ToString();
                         wfah.LASTUPDATEDATE = "";
@@ -748,7 +750,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             try
             {
                 app.Save();
-                MessageBox.Show("更新工作流成功,错误信息如下:", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("更新工作流成功", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
             catch (Exception ex)
             {
