@@ -412,6 +412,9 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             //判定当前节点已经设定的签批用户
 
             IList<WF_APP_HANDLE> list = WorkFlow.NewInstance.GetWFAppStepHandle(this.WfAppID, wftStepID);
+            IList<WF_APP_USER> UserList = WorkFlow.NewInstance.GetWFAppStepUser(this.wfAppID,wftStepID);
+
+
             if (list == null)
             {
 
@@ -443,7 +446,10 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 {
                     l.Delete();
                 }
-
+                foreach (WF_APP_USER user in UserList)
+                {
+                    user.Delete();
+                }
                 selectedUserOrGroupList = frm.SelectedUserOrGroupList;
                 if (selectedUserOrGroupList == null || selectedUserOrGroupList.Count == 0)
                 {
@@ -458,8 +464,6 @@ namespace HYPDM.WinUI.WorkFlow.Flow
 
                         //添加
                         //防呆  判定改用户是否已经存在了，存在了就不需要再一次更新
-
-
                         WF_APP_HANDLE wfah = new HYPDM.Entities.WF_APP_HANDLE();
                         wfah.WFAH_ID = Guid.NewGuid().ToString();
                         wfah.LASTUPDATEDATE = "";
@@ -597,7 +601,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             stbMain.Append(" SELECT WFT_CURRENT_STEP_ID  FROM WF_TEMPLATES_STEP ");
             stbMain.AppendFormat(" WHERE  WFT_ID='{0}' ", this.WfTemplatesID);
             stbMain.Append(" AND DEL_FLAG='N' AND  WFT_CURRENT_STEP_ID NOT  IN  (SELECT Current_STEP_ID  FROM WF_APP_HANDLE ");
-            stbMain.AppendFormat(" WHERE  WFA_ID='{0}'))", this.WfAppID);
+            stbMain.AppendFormat(" WHERE  WFA_ID='{0}' AND DEL_FLAG='N'))", this.WfAppID);
 
             DataTable dt = CommonFuns.getDataTableBySql(" COMBID,COMBTEXT", "", stbMain.ToString());
 

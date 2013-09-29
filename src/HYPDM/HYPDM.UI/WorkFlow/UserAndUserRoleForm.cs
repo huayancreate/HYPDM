@@ -139,8 +139,8 @@ namespace HYPDM.WinUI.WorkFlow
 
         private void reloadAccountList(IList<EasAccountEntity> accountsList, ListView lv)
         {
-            if (this.accountsUnSelectedList.Count != 0)
-            {
+            //if (this.accountsUnSelectedList.Count != 0)
+            //{
                 EasAccountEntity account = null;
 
                 // 添加数据项 
@@ -171,7 +171,7 @@ namespace HYPDM.WinUI.WorkFlow
                     lv.Items.Add(lvi);
                 }
                 lv.EndUpdate();
-            }
+            //}
         }
 
         private void reloadListView(ListView lv)
