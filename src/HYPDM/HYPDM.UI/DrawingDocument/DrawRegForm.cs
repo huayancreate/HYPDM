@@ -39,6 +39,7 @@ namespace HYPDM.WinUI.DrawingDocument
             InitializeComponent();
 
             tbcContent.TabPages.Remove(tpVersion);
+            tbcContent.TabPages.Remove(tab_ProRecord);
             tbcContent.TabPages.Remove(tpParts);
             tbcContent.TabPages.Remove(tabCad);
 
@@ -50,6 +51,7 @@ namespace HYPDM.WinUI.DrawingDocument
             InitializeComponent();
             //tbcContent.TabPages.Remove(tpFile);
             tbcContent.TabPages.Remove(tpVersion);
+            tbcContent.TabPages.Remove(tab_ProRecord);
             tbcContent.TabPages.Remove(tpParts);
             tbcContent.TabPages.Remove(tabCad);
             tbcContent.TabPages.Remove(tpgExtandsProperties);
@@ -193,6 +195,7 @@ namespace HYPDM.WinUI.DrawingDocument
                 if (!isAddedTab)
                 {
                     tbcContent.TabPages.Add(tpParts);
+                    tbcContent.TabPages.Add(tab_ProRecord);
                     // tbcContent.TabPages.Add(tpFile);
                     tbcContent.TabPages.Add(tabCad);
                     tbcContent.TabPages.Add(tpVersion);
@@ -214,6 +217,7 @@ namespace HYPDM.WinUI.DrawingDocument
 
                 BindTreeData();
                 InitialObjectRelation();
+                tabProRecord_Init();
             }
         }
 
@@ -1003,6 +1007,18 @@ namespace HYPDM.WinUI.DrawingDocument
             delFile(this.tvCad, DataType.FileType.Drawing);
         }
 
+        #region
+        //变更申请Tab页面
+        private void tabProRecord_Init()
+        {
+            this.dgv_ProRecord.DataSource = HYPDM.WinUI.WorkFlow.WorkFlow.NewInstance.GetObjectWFList(this.document.DOCID, DataType.RelationObjectType.Drawing.ToString());
+        }
+        private void toolProRecordEdit_Click(object sender, EventArgs e)
+        {
+            WorkFlow.WorkFlow.NewInstance.RestartWorkFlow(this.dgv_ProRecord);
+            tabProRecord_Init(); //刷新
+        }
+        #endregion
 
     }
 }

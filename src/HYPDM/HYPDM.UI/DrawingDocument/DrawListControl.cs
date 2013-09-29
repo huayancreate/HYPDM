@@ -253,7 +253,7 @@ namespace HYPDM.WinUI.DrawingDocument
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //SearchForm form = new SearchForm();
-            HYPDM.WinUI.Document.FrmDocumentQuery form = new HYPDM.WinUI.Document.FrmDocumentQuery();
+            HYPDM.WinUI.Document.FrmDocumentQuery form = new HYPDM.WinUI.Document.FrmDocumentQuery("PDM_DRAWING");
             if (form.ShowDialog() == DialogResult.OK)
             {
                 _docList = form._docList;

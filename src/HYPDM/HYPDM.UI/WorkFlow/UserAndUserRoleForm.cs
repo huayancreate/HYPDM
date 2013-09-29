@@ -46,6 +46,7 @@ namespace HYPDM.WinUI.WorkFlow
         private void UserAndUserRoleForm_Load(object sender, EventArgs e)
         {
             InitAccountsList();
+            
         }
 
         StringBuilder stbOldSelected = null;
@@ -119,7 +120,7 @@ namespace HYPDM.WinUI.WorkFlow
                 reloadAccountList(this.accountsUnSelectedList, lvNotSelect);
                 reloadAccountList(this.accountsOldSelectedList, lvSelected);
             }
-
+            newSelectItemList();
             ///用户群组信息，暂时去掉
             // DataTable dtUserGroup = CommonFuns.getDataTableBySql("NAME,DESCRIPTION", " WHERE NAME NOT IN ('Administrators','Guests','平台演示')", "EAS_ROLES");
 
@@ -180,11 +181,52 @@ namespace HYPDM.WinUI.WorkFlow
         }
 
         #region
+        private ListView m_unSelcetList=new ListView();
         private void btnQuery_Click(object sender, EventArgs e)
         {
+            this.lvNotSelect.Items.Clear();
+            string[] t =new string[4];
+            ListViewItem sourceLvi = null;
+            ListViewItem targetLvi = null;
+            String str = this.txtName.Text;
+            for (int i = 0; i < m_unSelcetList.Items.Count; i++)     // 此处lvSelected.SelectedItems.Count每循环一次减1,因此无须 i++
+            {
+                sourceLvi = m_unSelcetList.Items[i];
 
+                String temp = sourceLvi.SubItems[0].Text;
+                if (temp.Contains(str)) {
+                    targetLvi = new ListViewItem(sourceLvi.SubItems[0].Text, i);
+                    targetLvi.SubItems.Add(sourceLvi.SubItems[1].Text);
+                    targetLvi.SubItems.Add(sourceLvi.SubItems[2].Text);
+                    if ((DataType.AuthObjectType)sourceLvi.Tag == DataType.AuthObjectType.UserRole)
+                    {
+                        targetLvi.ForeColor = Color.Red;
+                    }
+                    targetLvi.Tag = sourceLvi.Tag;
+                    lvNotSelect.Items.Add(targetLvi);
+                }
+            }
+            
         }
 
+        private void newSelectItemList() {
+            ListViewItem sourceLvi = null;
+            ListViewItem targetLvi = null;
+            m_unSelcetList.Items.Clear();
+            for (int i = 0; i < lvNotSelect.Items.Count; i++)     // 此处lvSelected.SelectedItems.Count每循环一次减1,因此无须 i++
+            {
+                sourceLvi = lvNotSelect.Items[i];
+                targetLvi = new ListViewItem(sourceLvi.SubItems[0].Text, i);
+                targetLvi.SubItems.Add(sourceLvi.SubItems[1].Text);
+                targetLvi.SubItems.Add(sourceLvi.SubItems[2].Text);
+                if ((DataType.AuthObjectType)sourceLvi.Tag == DataType.AuthObjectType.UserRole)
+                {
+                    targetLvi.ForeColor = Color.Red;
+                }
+                targetLvi.Tag = sourceLvi.Tag;
+                m_unSelcetList.Items.Add(targetLvi);
+            }
+        }
         // 删除ListView中被选中的Item
         public void delListViewItems(ListView listView)
         {
@@ -228,6 +270,7 @@ namespace HYPDM.WinUI.WorkFlow
             //delListViewItems(lvNotSelect);
 
             lvNotSelect.EndUpdate();
+            newSelectItemList();
         }
 
 
@@ -245,6 +288,7 @@ namespace HYPDM.WinUI.WorkFlow
                 lvSelected.Items.RemoveAt(lvSelected.SelectedItems[i].Index);
             }
             lvSelected.EndUpdate();
+            newSelectItemList();
         }
 
         private void btnAddAll_Click(object sender, EventArgs e)
@@ -263,6 +307,7 @@ namespace HYPDM.WinUI.WorkFlow
 
             }
             lvSelected.EndUpdate();
+            newSelectItemList();
         }
 
         private void btnDelAll_Click(object sender, EventArgs e)
@@ -281,7 +326,7 @@ namespace HYPDM.WinUI.WorkFlow
                 lvNotSelect.Items.Add(item);
             }
             lvSelected.EndUpdate();
-
+            newSelectItemList();
 
             //lvNotSelect.BeginUpdate();
             //for (int i = 0; i < lvNotSelect.Items.Count; )

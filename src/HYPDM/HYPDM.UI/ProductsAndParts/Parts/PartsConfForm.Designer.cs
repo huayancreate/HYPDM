@@ -1842,12 +1842,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colValue;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolExt_Add;
-        private BaseControl.DataGridViewExt dgv_ProRecord;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWID;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWNO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWVERSION;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWDOCSTATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DRAWCREATEUSER;
+
+        private BaseControl.DataGridViewExt dgv_ProRecord;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkedDataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn WFA_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn OBJECTKEY;

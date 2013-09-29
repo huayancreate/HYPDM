@@ -18,10 +18,10 @@ namespace HYPDM.WinUI.Document
         IDocumentService _docService = EAS.Services.ServiceContainer.GetService<IDocumentService>();
        // public IList<PDM_DOCUMENT> _docList;
         public DataTable  _docList;
-        public FrmDocumentQuery()
-            : base("PDM_DOCUMENT")
+        public FrmDocumentQuery(String P_MasterTableName)
         {
             InitializeComponent();
+            this.MasterTableName = P_MasterTableName;
             //MessageBox.Show(this.MasterTableName.ToString());
         }
 

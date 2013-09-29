@@ -245,7 +245,7 @@ namespace HYPDM.WinUI.Document
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //SearchForm form = new SearchForm();
-            FrmDocumentQuery form = new FrmDocumentQuery();
+            FrmDocumentQuery form = new FrmDocumentQuery("PDM_DOCUMENT");
             if (form.ShowDialog() == DialogResult.OK)
             {
                 _docList = form._docList;

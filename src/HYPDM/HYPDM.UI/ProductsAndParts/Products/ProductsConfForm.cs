@@ -400,28 +400,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Products
         //产品生产记录修改按钮操作
         private void toolProRecordEdit_Click(object sender, EventArgs e)
         {
-            if (dgv_ProRecord.RowCount <= 0)
-            {
-                MessageBox.Show("请选择一条记录"); return;
-            }
-
-            int rowIndex = dgv_ProRecord.CurrentCell.RowIndex;
-            if (rowIndex < 0) {
-                MessageBox.Show("请选择一条记录"); return;
-            }
-            string status = dgv_ProRecord.CurrentRow.Cells["STATUS"].Value.ToString();
-            if (!status.Equals(DataType.WFDetailSTATUS.Return.ToString())) {
-                MessageBox.Show("该流程已经启动", "确认", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
-            }
-            WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(dgv_ProRecord.CurrentRow.Cells["WFA_ID"].Value.ToString());
-            t_wfapp.STATUS = DataType.WFDetailSTATUS.Activated.ToString();
-
-            try {
-                t_wfapp.Update();
-                MessageBox.Show("流程重启成功");
-            }catch(Exception e1){
-                MessageBox.Show("更新状态失败");
-            }
+            WorkFlow.WorkFlow.NewInstance.RestartWorkFlow(this.dgv_ProRecord);
             tabProRecord_Init();
         }
         #endregion
