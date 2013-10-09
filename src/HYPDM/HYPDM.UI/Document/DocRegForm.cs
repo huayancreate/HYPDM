@@ -346,7 +346,7 @@ namespace HYPDM.WinUI.Document
                         file.CHECKINFLG = "Y";
                         // query.Save(file);
                         //query.Insert(file);
-                        file.FILE_TYPE = file.ToString();
+                        file.FILE_TYPE = fileType.ToString();
                         file.Save();
                         MessageBox.Show("文件注册成功,文件目录" + savePath, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
