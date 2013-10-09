@@ -133,6 +133,14 @@
             <param name="dcid"></param>
             <returns>Ilist</returns>
         </member>
+        <member name="M:HYPDM.BLL.IDocFileListService.GetDocFileDataTableByDCID(System.String,System.String)">
+            <summary>
+            获取指定documentid的指定文件类型的数据
+            </summary>
+            <param name="dcid"></param>
+            <param name="fileType"></param>
+            <returns></returns>
+        </member>
         <member name="M:HYPDM.BLL.IDocumentDirService.addDocumentDir(HYPDM.Entities.DOC_FILE_DIR)">
             <summary>
             添加文件夹
@@ -357,6 +365,20 @@
         <member name="M:HYPDM.BLL.IWFTemplatesStepService.GetAllHandleList(System.String)">
             <summary>
             获取所有handle信息
+            </summary>
+            <param name="wfaID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IWFTemplatesStepService.GetWFAppStepUser(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="wfappID"></param>
+            <param name="wftStepID"></param>
+        </member>
+        <member name="M:HYPDM.BLL.IWFTemplatesStepService.GetAllUserList(System.String)">
+            <summary>
+            
             </summary>
             <param name="wfaID"></param>
             <returns></returns>

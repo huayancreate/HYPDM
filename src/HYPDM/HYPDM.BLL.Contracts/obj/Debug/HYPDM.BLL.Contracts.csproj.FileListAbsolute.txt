@@ -41,3 +41,4 @@ F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.csprojResolveAssemblyReference.cache
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb
+C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.XML
