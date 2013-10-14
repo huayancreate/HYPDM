@@ -453,7 +453,8 @@
             this.combQueryType.FormattingEnabled = true;
             this.combQueryType.Items.AddRange(new object[] {
             "产品",
-            "材料"});
+            "材料",
+            "半产品"});
             this.combQueryType.Location = new System.Drawing.Point(103, 15);
             this.combQueryType.Name = "combQueryType";
             this.combQueryType.Size = new System.Drawing.Size(181, 23);

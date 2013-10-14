@@ -210,6 +210,20 @@
       <DependentUpon>FrmShowSelectedObject.cs</DependentUpon>
     </Compile>
     <Compile Include="Document\ToolsHelper.cs" />
+    <Compile Include="DrawingDocument\Drawing.cs" />
+    <Compile Include="DrawingDocument\DrawListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DrawingDocument\DrawListControl.designer.cs">
+      <DependentUpon>DrawListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawingDocument\DrawQuery.cs" />
+    <Compile Include="DrawingDocument\DrawRegForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrawingDocument\DrawRegForm.Designer.cs">
+      <DependentUpon>DrawRegForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Graph\GraphRegForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -239,6 +253,12 @@
     </Compile>
     <Compile Include="ProductsAndParts\Material\DocAddForm.Designer.cs">
       <DependentUpon>DocAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Material\DrawAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Material\DrawAddForm.Designer.cs">
+      <DependentUpon>DrawAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsAndParts\Material\MaterailAddForm.cs">
       <SubType>Form</SubType>
@@ -287,6 +307,12 @@
     </Compile>
     <Compile Include="ProductsAndParts\Parts\DocAddForm.Designer.cs">
       <DependentUpon>DocAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\DrawAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Parts\DrawAddForm.Designer.cs">
+      <DependentUpon>DrawAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsAndParts\Parts\PartsAddForm.cs">
       <SubType>Form</SubType>
@@ -359,6 +385,12 @@
     </Compile>
     <Compile Include="ProductsAndParts\Products\DocAddForm.Designer.cs">
       <DependentUpon>DocAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\DrawAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsAndParts\Products\DrawAddForm.Designer.cs">
+      <DependentUpon>DrawAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductsAndParts\Products\LookViewForm.cs">
       <SubType>Form</SubType>
@@ -568,6 +600,12 @@
     <EmbeddedResource Include="Document\FrmShowSelectedObject.resx">
       <DependentUpon>FrmShowSelectedObject.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DrawingDocument\DrawListControl.resx">
+      <DependentUpon>DrawListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawingDocument\DrawRegForm.resx">
+      <DependentUpon>DrawRegForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Graph\GraphRegForm.resx">
       <DependentUpon>GraphRegForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -582,6 +620,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Material\DocAddForm.resx">
       <DependentUpon>DocAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Material\DrawAddForm.resx">
+      <DependentUpon>DrawAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Material\MaterailAddForm.resx">
       <DependentUpon>MaterailAddForm.cs</DependentUpon>
@@ -607,6 +648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Parts\DocAddForm.resx">
       <DependentUpon>DocAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Parts\DrawAddForm.resx">
+      <DependentUpon>DrawAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Parts\PartsAddForm.resx">
       <DependentUpon>PartsAddForm.cs</DependentUpon>
@@ -643,6 +687,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\DocAddForm.resx">
       <DependentUpon>DocAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsAndParts\Products\DrawAddForm.resx">
+      <DependentUpon>DrawAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductsAndParts\Products\LookViewForm.resx">
       <DependentUpon>LookViewForm.cs</DependentUpon>

@@ -41,7 +41,7 @@ namespace HYPDM.WinUI.Document
             tbcContent.TabPages.Remove(tab_ProRecord);
             tbcContent.TabPages.Remove(tpVersion);
             tbcContent.TabPages.Remove(tpParts);
-            tbcContent.TabPages.Remove(tabCad);
+          //  tbcContent.TabPages.Remove(tabCad);
 
             tbcContent.TabPages.Remove(tpgExtandsProperties);
             new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
@@ -53,7 +53,7 @@ namespace HYPDM.WinUI.Document
             tbcContent.TabPages.Remove(tab_ProRecord);
             tbcContent.TabPages.Remove(tpVersion);
             tbcContent.TabPages.Remove(tpParts);
-            tbcContent.TabPages.Remove(tabCad);
+            //bcContent.TabPages.Remove(tabCad);
             tbcContent.TabPages.Remove(tpgExtandsProperties);
             new HYDocumentMS.FileHelper().SetComboBoxValue(cobDocType, "DocType", -1);
             IsWFViewDetail = isWFViewDetail;
@@ -62,7 +62,7 @@ namespace HYPDM.WinUI.Document
                 this.tsToolbar.Enabled = false;
                 this.tsp.Enabled = false;
                 this.menuStrip1.Enabled = false;
-                this.toolStrip1.Enabled = false;
+               // this.toolStrip1.Enabled = false;
                 this.tspExtands.Enabled = false;
             }
         }
@@ -197,7 +197,7 @@ namespace HYPDM.WinUI.Document
                     tbcContent.TabPages.Add(tpParts);
                     tbcContent.TabPages.Add(tab_ProRecord);
                     tbcContent.TabPages.Add(tpFile);
-                    tbcContent.TabPages.Add(tabCad);
+                   // tbcContent.TabPages.Add(tabCad);
                     tbcContent.TabPages.Add(tpVersion);
                     tbcContent.TabPages.Add(tpgExtandsProperties);
                     isAddedTab = true;

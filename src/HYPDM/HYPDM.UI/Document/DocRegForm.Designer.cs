@@ -45,6 +45,13 @@
             this.toolProRecordEdit = new System.Windows.Forms.ToolStripButton();
             this.toolProRecordAdd = new System.Windows.Forms.ToolStripButton();
             this.dgv_ProRecord = new HYPDM.BaseControl.DataGridViewExt();
+            this.WFA_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBJECTKEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WFT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBJECT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WFT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpParts = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabProduct = new System.Windows.Forms.TabPage();
@@ -87,7 +94,6 @@
             this.btnProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelRelation = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabCad = new System.Windows.Forms.TabPage();
             this.tvCad = new AdvancedDataGridView.TreeGridView();
             this.DFL_FILE_NAME1 = new AdvancedDataGridView.TreeGridColumn();
             this.FilePathName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,12 +103,6 @@
             this.checkoutflg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.checkoutdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteflag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.tspRegPhysicCad = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.tspCadDownLoad = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.tpVersion = new System.Windows.Forms.TabPage();
             this.txtVer = new System.Windows.Forms.TextBox();
             this.tpgExtandsProperties = new System.Windows.Forms.TabPage();
@@ -190,13 +190,6 @@
             this.menuCadCancelCheckOut = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.menuCadFileDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.WFA_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBJECTKEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WFT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUBJECT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WFT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tbcContent.SuspendLayout();
             this.tpRemark.SuspendLayout();
@@ -210,9 +203,7 @@
             this.tabMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.tabCad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tvCad)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.tpVersion.SuspendLayout();
             this.tpgExtandsProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExptendProperties)).BeginInit();
@@ -243,7 +234,6 @@
             this.tbcContent.Controls.Add(this.tpRemark);
             this.tbcContent.Controls.Add(this.tab_ProRecord);
             this.tbcContent.Controls.Add(this.tpParts);
-            this.tbcContent.Controls.Add(this.tabCad);
             this.tbcContent.Controls.Add(this.tpVersion);
             this.tbcContent.Controls.Add(this.tpgExtandsProperties);
             this.tbcContent.Controls.Add(this.tpFile);
@@ -354,6 +344,62 @@
             this.dgv_ProRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ProRecord.Size = new System.Drawing.Size(609, 334);
             this.dgv_ProRecord.TabIndex = 4;
+            // 
+            // WFA_ID
+            // 
+            this.WFA_ID.DataPropertyName = "WFA_ID";
+            this.WFA_ID.HeaderText = "流程ID";
+            this.WFA_ID.Name = "WFA_ID";
+            this.WFA_ID.ReadOnly = true;
+            this.WFA_ID.Visible = false;
+            // 
+            // OBJECTKEY
+            // 
+            this.OBJECTKEY.DataPropertyName = "OBJECTKEY";
+            this.OBJECTKEY.HeaderText = "材料ID";
+            this.OBJECTKEY.Name = "OBJECTKEY";
+            this.OBJECTKEY.ReadOnly = true;
+            this.OBJECTKEY.Visible = false;
+            // 
+            // WFT_NAME
+            // 
+            this.WFT_NAME.DataPropertyName = "WFT_NAME";
+            this.WFT_NAME.HeaderText = "模板名称";
+            this.WFT_NAME.Name = "WFT_NAME";
+            this.WFT_NAME.ReadOnly = true;
+            this.WFT_NAME.Width = 160;
+            // 
+            // SUBJECT
+            // 
+            this.SUBJECT.DataPropertyName = "SUBJECT";
+            this.SUBJECT.HeaderText = "实例主题";
+            this.SUBJECT.Name = "SUBJECT";
+            this.SUBJECT.ReadOnly = true;
+            this.SUBJECT.Width = 180;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "STATUS";
+            this.dataGridViewTextBoxColumn1.HeaderText = "状态";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 110;
+            // 
+            // CREATEUSER
+            // 
+            this.CREATEUSER.DataPropertyName = "CREATEUSER";
+            this.CREATEUSER.HeaderText = "创建人";
+            this.CREATEUSER.Name = "CREATEUSER";
+            this.CREATEUSER.ReadOnly = true;
+            this.CREATEUSER.Width = 110;
+            // 
+            // WFT_ID
+            // 
+            this.WFT_ID.DataPropertyName = "WFT_ID";
+            this.WFT_ID.HeaderText = "WFT_ID";
+            this.WFT_ID.Name = "WFT_ID";
+            this.WFT_ID.ReadOnly = true;
+            this.WFT_ID.Visible = false;
             // 
             // tpParts
             // 
@@ -721,17 +767,6 @@
             this.btnDelRelation.Text = "删除关联";
             this.btnDelRelation.Click += new System.EventHandler(this.btnDelRelation_Click);
             // 
-            // tabCad
-            // 
-            this.tabCad.Controls.Add(this.tvCad);
-            this.tabCad.Controls.Add(this.toolStrip1);
-            this.tabCad.Location = new System.Drawing.Point(4, 22);
-            this.tabCad.Name = "tabCad";
-            this.tabCad.Size = new System.Drawing.Size(618, 368);
-            this.tabCad.TabIndex = 4;
-            this.tabCad.Text = "图纸";
-            this.tabCad.UseVisualStyleBackColor = true;
-            // 
             // tvCad
             // 
             this.tvCad.AllowUserToAddRows = false;
@@ -812,56 +847,6 @@
             this.deleteflag.HeaderText = "删除标识";
             this.deleteflag.Name = "deleteflag";
             this.deleteflag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator6,
-            this.tspRegPhysicCad,
-            this.toolStripSeparator7,
-            this.tspCadDownLoad,
-            this.toolStripButton4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(618, 25);
-            this.toolStrip1.TabIndex = 6;
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tspRegPhysicCad
-            // 
-            this.tspRegPhysicCad.Image = ((System.Drawing.Image)(resources.GetObject("tspRegPhysicCad.Image")));
-            this.tspRegPhysicCad.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tspRegPhysicCad.Name = "tspRegPhysicCad";
-            this.tspRegPhysicCad.Size = new System.Drawing.Size(76, 22);
-            this.tspRegPhysicCad.Text = "文件注册";
-            this.tspRegPhysicCad.ToolTipText = "管理文档的物理文件。";
-            this.tspRegPhysicCad.Click += new System.EventHandler(this.tspRegPhysicCad_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tspCadDownLoad
-            // 
-            this.tspCadDownLoad.Image = ((System.Drawing.Image)(resources.GetObject("tspCadDownLoad.Image")));
-            this.tspCadDownLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tspCadDownLoad.Name = "tspCadDownLoad";
-            this.tspCadDownLoad.Size = new System.Drawing.Size(76, 22);
-            this.tspCadDownLoad.Text = "文件下载";
-            this.tspCadDownLoad.Click += new System.EventHandler(this.tspCadDownLoad_Click);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton3";
             // 
             // tpVersion
             // 
@@ -1611,62 +1596,6 @@
             this.menuCadFileDelete.Text = "删除文件";
             this.menuCadFileDelete.Click += new System.EventHandler(this.menuCadFileDelete_Click);
             // 
-            // WFA_ID
-            // 
-            this.WFA_ID.DataPropertyName = "WFA_ID";
-            this.WFA_ID.HeaderText = "流程ID";
-            this.WFA_ID.Name = "WFA_ID";
-            this.WFA_ID.ReadOnly = true;
-            this.WFA_ID.Visible = false;
-            // 
-            // OBJECTKEY
-            // 
-            this.OBJECTKEY.DataPropertyName = "OBJECTKEY";
-            this.OBJECTKEY.HeaderText = "材料ID";
-            this.OBJECTKEY.Name = "OBJECTKEY";
-            this.OBJECTKEY.ReadOnly = true;
-            this.OBJECTKEY.Visible = false;
-            // 
-            // WFT_NAME
-            // 
-            this.WFT_NAME.DataPropertyName = "WFT_NAME";
-            this.WFT_NAME.HeaderText = "模板名称";
-            this.WFT_NAME.Name = "WFT_NAME";
-            this.WFT_NAME.ReadOnly = true;
-            this.WFT_NAME.Width = 160;
-            // 
-            // SUBJECT
-            // 
-            this.SUBJECT.DataPropertyName = "SUBJECT";
-            this.SUBJECT.HeaderText = "实例主题";
-            this.SUBJECT.Name = "SUBJECT";
-            this.SUBJECT.ReadOnly = true;
-            this.SUBJECT.Width = 180;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "STATUS";
-            this.dataGridViewTextBoxColumn1.HeaderText = "状态";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 110;
-            // 
-            // CREATEUSER
-            // 
-            this.CREATEUSER.DataPropertyName = "CREATEUSER";
-            this.CREATEUSER.HeaderText = "创建人";
-            this.CREATEUSER.Name = "CREATEUSER";
-            this.CREATEUSER.ReadOnly = true;
-            this.CREATEUSER.Width = 110;
-            // 
-            // WFT_ID
-            // 
-            this.WFT_ID.DataPropertyName = "WFT_ID";
-            this.WFT_ID.HeaderText = "WFT_ID";
-            this.WFT_ID.Name = "WFT_ID";
-            this.WFT_ID.ReadOnly = true;
-            this.WFT_ID.Visible = false;
-            // 
             // DocRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1699,11 +1628,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabCad.ResumeLayout(false);
-            this.tabCad.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tvCad)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.tpVersion.ResumeLayout(false);
             this.tpVersion.PerformLayout();
             this.tpgExtandsProperties.ResumeLayout(false);
@@ -1824,7 +1749,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton tspDownLoad;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.TabPage tabCad;
         private System.Windows.Forms.TabPage tpVersion;
         private System.Windows.Forms.TextBox txtVer;
         private System.Windows.Forms.TabPage tpgExtandsProperties;
@@ -1860,13 +1784,6 @@
         private System.Windows.Forms.ToolStripButton toolProRecordEdit;
         private System.Windows.Forms.ToolStripButton toolProRecordAdd;
         private BaseControl.DataGridViewExt dgv_ProRecord;
-
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripButton tspRegPhysicCad;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton tspCadDownLoad;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
         private AdvancedDataGridView.TreeGridView tvCad;
         private AdvancedDataGridView.TreeGridColumn DFL_FILE_NAME1;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePathName1;

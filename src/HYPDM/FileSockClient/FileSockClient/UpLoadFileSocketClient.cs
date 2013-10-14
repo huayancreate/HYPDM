@@ -23,9 +23,9 @@ namespace FileSockClient
         private int port3 = 0;
         private int portFileSavePath = 2010;
         private bool IsXuChuan = false;
-        private bool IsFuGai = false;
+        private bool IsFuGai = true;
         // private int BackDay = 0;
-        private int SIZEBUFFER = 0;
+        private int SIZEBUFFER = 5242880;
         private string filePath = ""; //要上传的文件路径
         private string serverSavePath = "";//文件需要保存在服务器上的路径
         /// <summary>
@@ -114,6 +114,72 @@ namespace FileSockClient
             IsXuChuan = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsXuChuan"].ToString());
             IsFuGai = blIsFuGai;
             // IsFuGai = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsFuGai"].ToString());
+            //    BackDay = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["BackDay"].ToString());
+            SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
+           // downFileServerPort = int.Parse(System.Configuration.ConfigurationManager.AppSettings["downFileServerPort"].ToString());
+           // portFileSavePath = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["portFileSavePath"].ToString());
+            //socketUpLoadFile sock = new socketUpLoadFile();
+            filePath = filePathName;
+            frmWait.Show();
+
+            //Thread th = new Thread(new ThreadStart(startListen)); //启动新线程来运行start
+            //th.IsBackground = true;
+            //th.Start();
+            startListen();
+        }
+        /// <summary>
+        /// 文件上传
+        /// </summary>
+        /// <param name="filePathName">保存的文件名称</param>
+        /// <param name="srvSavePath">服务器上的保存路径</param>
+        /// <param name="desServerIp">接收文件的Socket服务器IP</param>
+        /// <param name="portID1">文件内容字节流</param>
+        /// <param name="portID2">文件在服务器的保存路径</param>
+        /// <param name="portID3">一些标识，是否续传</param>
+        public UpLoadFileSocketClient(string filePathName, string srvSavePath, string desServerIp, int portID1, int portID2, int portID3)
+        {
+            TextBox.CheckForIllegalCrossThreadCalls = false;
+            this.serverSavePath = srvSavePath; //在服务器上的保存路径
+            //  path = System.Configuration.ConfigurationManager.AppSettings["APPEmailXML"].ToString();
+            //strBaseDir = System.Configuration.ConfigurationManager.AppSettings["strBaseDir"].ToString();
+            host = desServerIp;
+            port1 = portID1;
+            port2 = portID2;
+            port3 = portID3;
+           // IsXuChuan = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsXuChuan"].ToString());
+           // IsFuGai = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsFuGai"].ToString());
+        
+           // SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
+           // downFileServerPort = int.Parse(System.Configuration.ConfigurationManager.AppSettings["downFileServerPort"].ToString());
+            //portFileSavePath = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["portFileSavePath"].ToString());
+           
+            filePath = filePathName;
+            frmWait.Show();
+
+            //Thread th = new Thread(new ThreadStart(startListen)); //启动新线程来运行start
+            //th.IsBackground = true;
+            //th.Start();
+            startListen();
+        }
+
+        /// <summary>
+        /// 文件上传
+        /// </summary>
+        /// <param name="filePathName">保存的文件名称</param>
+        /// <param name="srvSavePath">服务器上的保存路径</param>
+        /// <param name="desServerIp">接收文件的Socket服务器IP</param>
+        public UpLoadFileSocketClient(string filePathName, string srvSavePath, string desServerIp)
+        {
+            TextBox.CheckForIllegalCrossThreadCalls = false;
+            this.serverSavePath = srvSavePath; //在服务器上的保存路径
+            //  path = System.Configuration.ConfigurationManager.AppSettings["APPEmailXML"].ToString();
+            //strBaseDir = System.Configuration.ConfigurationManager.AppSettings["strBaseDir"].ToString();
+            host = desServerIp;
+            port1 = 2005;
+            port2 = 2006;
+            port3 = 2007;
+            IsXuChuan = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsXuChuan"].ToString());
+            IsFuGai = Convert.ToBoolean(System.Configuration.ConfigurationManager.AppSettings["IsFuGai"].ToString());
             //    BackDay = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["BackDay"].ToString());
             SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
             downFileServerPort = int.Parse(System.Configuration.ConfigurationManager.AppSettings["downFileServerPort"].ToString());
