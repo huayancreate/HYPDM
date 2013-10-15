@@ -139,6 +139,8 @@ namespace HYDocumentMS.BRM
                 cbv.Save();
                 MessageBox.Show(msg, "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 // this.OperModifyStatus = false;
+                
+                btnClear_Click(sender, e);
                 iniEvent();
             }
         }
@@ -160,22 +162,23 @@ namespace HYDocumentMS.BRM
             }
         }
 
-        private void tspModify_Click(object sender, EventArgs e)
+        private void tspModify_Click(object sender, EventArgs e)     
         {
-            //if (this.dgvExt.CurrentRow == null)
-            //{
-            //    MessageBox.Show("请选择需要修改的记录!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            //    return;
-            //}
-            //else
-            //{  
-            //   //// this.OperModifyStatus = true;
-            //   // DataGridViewRow dr = this.dgvExt.CurrentRow;
-            //   // this.combType.SelectedValue = dr.Cells["COMBTYPE"].Value.ToString();
-            //   // this.txtText.Text = dr.Cells["COMBTEXT"].Value.ToString();
-            //   // this.txtValue.Text = dr.Cells["COMBVALUE"].Value.ToString();
-            //   // this.txtDesc.Text = dr.Cells["COMBDESC"].Value.ToString();
-            //}
+            if (this.dgvExt.CurrentRow == null)
+            {
+                MessageBox.Show("请选择需要修改的记录!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                return;
+            }
+            else
+            {
+                FrmEditComboValue frmedit = new FrmEditComboValue();
+                frmedit.SelectedComboBoxItem = _comboValue.GetComboBoxItemByComboID(this.dgvExt.CurrentRow.Cells["COMBID"].Value.ToString());
+                frmedit.ShowDialog();
+                if (frmedit.DialogResult == DialogResult.OK)
+                {
+                    this.dgvExt.DataSource = helper.getDataTableBySql("*", "", "ComboBoxValue");
+                }
+            }
         }
 
         private void dgvExt_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -200,6 +203,14 @@ namespace HYDocumentMS.BRM
                     this.dgvExt.DataSource = helper.getDataTableBySql("*", "", "ComboBoxValue");
                 }
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.combType.SelectedIndex = -1;
+            this.txtDesc.Text = "";
+            this.txtValue.Text = "";
+            this.txtText.Text = "";
         }
     }
 }

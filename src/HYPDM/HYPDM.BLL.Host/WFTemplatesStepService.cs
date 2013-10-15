@@ -148,7 +148,8 @@ namespace HYPDM.BLL
             DataEntityQuery<WF_APP> query = DataEntityQuery<WF_APP>.Create();
 
             var p = (from item in query
-                     where (item.DEL_FLAG == "N" && item.WFA_ID == wfappID)
+                     //where (item.DEL_FLAG == "N" && item.WFA_ID == wfappID)
+                     where (item.WFA_ID == wfappID)
                      select item
                 );
             IList<WF_APP> list = p.ToList();
@@ -193,7 +194,8 @@ namespace HYPDM.BLL
             DataEntityQuery<WF_APP_HANDLE> query = DataEntityQuery<WF_APP_HANDLE>.Create();
 
             var p = (from item in query
-                     orderby item.CREATEDATE ascending
+                     orderby item.CREATEDATE descending
+                     //where (item.DEL_FLAG == "N" && item.WFA_ID == wfaID && item.Current_STEP_ID == CurrentStepID
                      where (item.DEL_FLAG == "N" && item.WFA_ID == wfaID && item.Current_STEP_ID == CurrentStepID
                      && item.OBJECTTYPE == "SingleUser" && item.OBJECTVALUE == userID)
                      select item

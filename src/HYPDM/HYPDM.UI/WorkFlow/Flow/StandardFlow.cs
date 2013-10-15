@@ -118,7 +118,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             this.txtSubject.Text = app.SUBJECT;
             this.txtStatus.Text = app.STATUS;
             this.txtFlowName.Text = WorkFlow.NewInstance.GetWFTemplatesInfoByWFID(this.WfTemplatesID).WFT_NAME.ToString();
-
+            this.txtUserPM.Text = app.CREATEUSER;
 
             CreateFlowGraphicByWFTID();
 
@@ -177,7 +177,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             else
             {
                 flowName = WorkFlow.NewInstance.GetWFTemplatesInfoByWFID(this.WfTemplatesID).WFT_NAME.ToString();
-                this.Text = "【" + flowName + "】" + WorkFlow.GetObjectTitle(this.RelationObjectType);
+                this.Text = "【" + flowName + "】" + WorkFlow.GetObjectTitle(this.RelationObjectType,this.ObjectKey);
                 this.txtFlowName.Text = flowName;
             }
             CreateFlowGraphicByWFTID();
@@ -545,7 +545,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     wf.Save();
                     this.gpFlowDetail.Visible = true;
                     WfAppID = wf.WFA_ID;
-                    this.txtSubject.ReadOnly = true;
+                  //  this.txtSubject.ReadOnly = true;  //modify by cs 20131015 
                     this.btnSubmit.Enabled = false;
                     ///新增拟制人员(发起人)的WF_APP_HANDLE表信息
                     WF_APP_HANDLE wfah = new HYPDM.Entities.WF_APP_HANDLE();
@@ -709,6 +709,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                             MessageBox.Show("当前工作流启用成功!", "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                             this.tspStart.Enabled = false;
                             this.btnModify.Enabled = false;
+                            this.txtSubject.ReadOnly = true;
                             this.btnSubmit.Enabled = false;
                             this.gpFlowDetail.Enabled = false;
                             this.tspDelete.Enabled = false;
@@ -733,12 +734,25 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 app.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 app.LASTUPDATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
                 app.DEL_FLAG = "Y";
-                app.Update();
-                this.txtSubject.ReadOnly = false;
-                this.txtSubject.Text = "";
-                this.btnSubmit.Enabled = true;
-                this.txtSubject.Focus();
-                this.gpDetail.Controls.Clear();
+                try
+                {
+                    app.Update();
+                    this.txtSubject.ReadOnly = false;
+                    this.txtSubject.Text = "";
+                    this.btnSubmit.Enabled = true;
+                    this.btnModify.Enabled = true;
+                    this.txtSubject.Focus();
+                    this.txtSubject.Focus();
+                    this.gpFlowDetail.Controls.Clear();
+                    this.tspDelete.Enabled = false;
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("删除失败:" + "\n" + ex.Message.ToString(), "工作流实例建立向导提示您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+           
             }
 
 
@@ -762,6 +776,14 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                 return;
             }
 
+        }
+
+        private void txtSubject_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                btnSubmit_Click(sender, e);
+            }
         }
 
     }

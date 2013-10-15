@@ -26,6 +26,8 @@ namespace HYPDM.WinUI.WorkFlow
         {
             InitializeComponent();
         }
+        private string currentClickstepID = "";//存放目前单击的节点
+        Boolean isModify = false;  //记录目前是修改还是新建状态
         /// <summary>
         /// 当前操作的工作流ID
         /// </summary>
@@ -78,7 +80,7 @@ namespace HYPDM.WinUI.WorkFlow
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-
+           
             if (this.txtWFName.Text == "")
             {
                 this.txtWFName.Focus();
@@ -99,11 +101,21 @@ namespace HYPDM.WinUI.WorkFlow
                 else
                 {
 
+                    isModify = false;
+                    this.btnNextStepAdd.Text = "保存并添加下一节点";
+                  //  this.btnNextStepAdd.Visible = true;
                     this.pnlModify.Visible = false;
                     this.pnlMain.Enabled = true;
+                    this.gpTotalPanel.Enabled = true;
                     this.txtDefineUser.Text = CommonFuns.NewInstance.LoginInfo.LoginID;
                     this.txtUsers.Focus();
                     this.radioBtnYes.Checked = true;  //第一次创建的第一个步骤默认为起始节点
+
+
+                    this.combCurrentStep.SelectedIndex = -1;
+                    this.combThroughNext.Text ="";
+                    this.txtComment.Text = "";
+
 
                     //保存
                     WF_TEMPLATES tempate = new WF_TEMPLATES();
@@ -150,7 +162,7 @@ namespace HYPDM.WinUI.WorkFlow
             combThroughNext.ValueMember = "COMBVALUE";
             combThroughNext.SelectedIndex = -1;
 
-            this.combCurrentStep.DataSource = CommonFuns.getDataTableBySql("COMBTEXT,COMBVALUE", "WHERE  COMBTYPE ='WorkFlowStep' AND  COMBID  NOT IN (SELECT WFT_CURRENT_STEP_ID FROM WF_TEMPLATES_STEP WHERE DEL_FLAG='N' AND WFT_ID IN (SELECT  WFT_ID FROM WF_TEMPLATES WHERE WFT_NAME='" + this.txtWFName.Text.ToString() + "' AND DEL_FLAG='N'))", "ComboBoxValue");
+            this.combCurrentStep.DataSource = CommonFuns.getDataTableBySql("COMBTEXT,COMBVALUE", "WHERE  COMBTYPE ='WorkFlowStep' AND  COMBID NOT IN (SELECT WFT_CURRENT_STEP_ID FROM WF_TEMPLATES_STEP WHERE DEL_FLAG='N' AND WFT_ID IN (SELECT  WFT_ID FROM WF_TEMPLATES WHERE WFT_NAME='" + this.txtWFName.Text.ToString() + "' AND DEL_FLAG='N'))", "ComboBoxValue");
             combCurrentStep.DisplayMember = "COMBTEXT";
             combCurrentStep.ValueMember = "COMBVALUE";
             combCurrentStep.SelectedValue = currentWFStep;
@@ -175,7 +187,7 @@ namespace HYPDM.WinUI.WorkFlow
             //判定数据库中是否存在此工作流，如果不存在的话，需要首先创建一个初始步骤的节点，否则下一步骤，不能为起始节点了。
             ///1.判定此工作流是否已经为完成状态 
             /////check
-            # region 
+            # region
             if (this.currentWFTemplateID == "")
             {
                 MessageBox.Show("没有指定工作流对象!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -186,7 +198,7 @@ namespace HYPDM.WinUI.WorkFlow
                 WF_TEMPLATES wf = WorkFlow.NewInstance.GetWFTemplatesInfoByWFID(this.currentWFTemplateID);
                 if (wf == null)
                 {
-                    MessageBox.Show("没有查询到当期那工作流信息", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    MessageBox.Show("没有查询到当前工作流信息", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                     return;
                 }
                 else if (wf.STATUS == DataType.WFTEMPLATESSTATUS.Complete.ToString())
@@ -196,107 +208,154 @@ namespace HYPDM.WinUI.WorkFlow
                 }
             }
             #endregion
-            if (this.combCurrentStep.SelectedIndex == -1 || this.combThroughNext.SelectedIndex == -1)
+
+            WF_TEMPLATES_STEP stepTemp = WorkFlow.NewInstance.GetWFEndStepByWFID(this.currentWFTemplateID);
+            if (stepTemp != null)
             {
-                MessageBox.Show("当前步骤与下一步流向不能为空", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                this.combThroughNext.Focus();
+                MessageBox.Show("已存在终节点，" + "】不允许再添加新节点", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
                 return;
             }
-            if (this.combCurrentStep.SelectedValue.ToString() == this.combThroughNext.SelectedValue.ToString())
-            {
 
-                MessageBox.Show("当前步骤与下一步流向不能相同!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                this.combThroughNext.Focus();
-                return;
-            }
-            //判定是否为第一个节点
-            if (IsWFFirstStep())
+            if (!isModify)
             {
-
-                if (this.radioBtnYes.Checked == false)
+                if (this.combCurrentStep.SelectedIndex == -1 || this.combThroughNext.SelectedIndex == -1)
                 {
-                    if (MessageBox.Show("工作流的第一个步骤需要设置为起始步骤,是否自动设为起始步骤?", "工作流提示助手提醒您:", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        this.radioBtnYes.Checked = true;
-                    }
+                    MessageBox.Show("当前步骤与下一步流向不能为空", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    this.combThroughNext.Focus();
+                    return;
                 }
-                else
+                if (this.combCurrentStep.SelectedValue.ToString() == this.combThroughNext.SelectedValue.ToString())
                 {
-                    if (this.radioEndY.Checked == true && this.radioBtnYes.Checked == true)
+
+                    MessageBox.Show("当前步骤与下一步流向不能相同!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    this.combThroughNext.Focus();
+                    return;
+                }
+                //判定是否为第一个节点
+                if (IsWFFirstStep())
+                {
+
+                    if (this.radioBtnYes.Checked == false)
                     {
-                        if (MessageBox.Show("同时设置该节点为起始节点与最后节点?", "工作流提示助手提醒您:", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+                        if (MessageBox.Show("工作流的第一个步骤需要设置为起始步骤,是否自动设为起始步骤?", "工作流提示助手提醒您:", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
                         {
                             return;
                         }
+                        else
+                        {
+                            this.radioBtnYes.Checked = true;
+                        }
+                    }
+                    else
+                    {
+                        if (this.radioEndY.Checked == true && this.radioBtnYes.Checked == true)
+                        {
+                            if (MessageBox.Show("同时设置该节点为起始节点与最后节点?", "工作流提示助手提醒您:", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+                            {
+                                return;
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (this.radioBtnYes.Checked == true)
+                    {
+                        MessageBox.Show("已经存在起始节点!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        return;
                     }
                 }
 
-            }
-            else
-            {
-                if (this.radioBtnYes.Checked == true)
+                //保存节点
+                WF_TEMPLATES_STEP step = new WF_TEMPLATES_STEP();
+                step.IS_END_STEP = radioEndY.Checked == true ? "Y" : "N";
+
+                if (step.IS_END_STEP == "Y")
                 {
-                    MessageBox.Show("已经存在起始节点!", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                    return;
+                    if (MessageBox.Show("该步骤为此工作流的最后一步，请确认后提交?", "工作流提示助手提醒您:", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                }
+
+
+                step.WFT_STEP_ID = Guid.NewGuid().ToString();
+                step.WFT_ID = this.currentWFTemplateID;
+                step.WFT_STEP_DESC = this.txtComment.Text.ToString().Trim();
+                step.WFT_CURRENT_STEP_ID = this.combCurrentStep.SelectedValue.ToString();
+                step.WFT_NEXT_STEP_ID = this.combThroughNext.SelectedValue.ToString();
+                step.WFT_CURRENT_STEP_USERTYPE = "";
+                step.WFT_CURRENT_STEP_USERID = "";
+                step.CREATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                step.CREATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
+                step.DEL_FLAG = "N";
+                step.IS_ALLOW_DELETE = this.chkDelWF.Checked == true ? "Y" : "N";
+                step.IS_ALLOW_EDIT = this.chkMdyContent.Checked == true ? "Y" : "N";
+                step.IS_NOTE_STARTUSER = this.chkStartUserNote.Checked == true ? "Y" : "N";
+                step.IS_START_STEP = radioBtnYes.Checked == true ? "Y" : "N";
+
+                try
+                {
+
+                    currentWFStep = this.combThroughNext.SelectedValue.ToString();  //记录下一节点的去向
+                    this.combCurrentStep.Enabled = false;
+                    step.Save();
+                    if (step.IS_END_STEP == "Y")
+                    {
+
+                        //this.combCurrentStep.Enabled = false;
+                        //this.combThroughNext.Enabled = false;
+                        //this.groupBox2.Enabled = false;
+                        //this.groupBox3.Enabled = false;
+                        //this.txtComment.ReadOnly = true;
+                        gpTotalPanel.Enabled = false;
+                    }
+                    else
+                    {
+                        txtComment.Text = "";
+                        RefreshNextStepNode();
+                    }
+
+                    //  this.combThroughNext.Items.Remove(this.combCurrentStep.SelectedItem);
+                    this.gpWFG.Controls.Clear();
+                    WorkFlow.NewInstance.CreateWF(this.currentWFTemplateID, this.gpWFG); //绘制出工作流走向
+                }
+                catch (Exception ex)
+                {
+
+
+                }
+                finally
+                {
+
+                }
+                if (step.IS_END_STEP == "Y")
+                {
+                    this.txtWFName.Enabled = true;
                 }
             }
-
-            //保存节点
-            WF_TEMPLATES_STEP step = new WF_TEMPLATES_STEP();
-            step.IS_END_STEP = radioEndY.Checked == true ? "Y" : "N";
-
-            if (step.IS_END_STEP == "Y")
+            else  //修改情况
             {
-                if (MessageBox.Show("该步骤为此工作流的最后一步，请确认后提交?", "工作流提示助手提醒您:", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+                IList<WF_TEMPLATES_STEP> list = WorkFlow.NewInstance.GetWFStepListByWFID(this.currentWFTemplateID);
+                if (list.Count > 0)
                 {
-                    return;
+                    string stepID = list[list.Count - 1].WFT_NEXT_STEP_ID;
+                    currentWFStep = WorkFlow.NewInstance.GetWFStep(stepID).COMBVALUE.ToString();
+                    gpTotalPanel.Enabled = true;
+                    pnlBtnTools.Visible = true;
+                    //this.pnlMain.Visible = true;
+                    this.pnlMain.Enabled = true;
+                    // btnNextStepAdd_Click(sender, e);
+                    RefreshNextStepNode();
+                    txtComment.Text = "";
+                    combCurrentStep.Enabled = false;
+                    combThroughNext.SelectedIndex = -1;
+                    this.btnNextStepAdd.Text = "保存并添加下一节点";
+                    isModify = false;
+                  
                 }
             }
-
-
-            step.WFT_STEP_ID = Guid.NewGuid().ToString();
-            step.WFT_ID = this.currentWFTemplateID;
-            step.WFT_STEP_DESC = this.txtComment.Text.ToString().Trim();
-            step.WFT_CURRENT_STEP_ID = this.combCurrentStep.SelectedValue.ToString();
-            step.WFT_NEXT_STEP_ID = this.combThroughNext.SelectedValue.ToString();
-            step.WFT_CURRENT_STEP_USERTYPE = "";
-            step.WFT_CURRENT_STEP_USERID = "";
-            step.CREATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            step.CREATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
-            step.DEL_FLAG = "N";
-            step.IS_ALLOW_DELETE = this.chkDelWF.Checked == true ? "Y" : "N";
-            step.IS_ALLOW_EDIT = this.chkMdyContent.Checked == true ? "Y" : "N";
-            step.IS_NOTE_STARTUSER = this.chkStartUserNote.Checked == true ? "Y" : "N";
-            step.IS_START_STEP = radioBtnYes.Checked == true ? "Y" : "N";
-
-            try
-            {
-                currentWFStep = this.combThroughNext.SelectedValue.ToString();  //记录下一节点的去向
-                this.combCurrentStep.Enabled = false;
-                step.Save();
-                RefreshNextStepNode();
-                this.gpWFG.Controls.Clear();
-                //  this.combThroughNext.Items.Remove(this.combCurrentStep.SelectedItem);
-                WorkFlow.NewInstance.CreateWF(this.currentWFTemplateID, this.gpWFG); //绘制出工作流走向
-            }
-            catch (Exception ex)
-            {
-
-
-            }
-            finally
-            {
-
-            }
-            if (step.IS_END_STEP == "Y")
-            {
-                this.txtWFName.Enabled = true;
-            }
-
 
         }
 
@@ -371,6 +430,14 @@ namespace HYPDM.WinUI.WorkFlow
                 }
                 else
                 {
+                    this.combCurrentStep.SelectedIndex = -1;
+                    this.combThroughNext.Text = "";
+                    this.txtComment.Text = "";
+
+                    isModify = true;
+                    this.btnNextStepAdd.Text = "添加下一节点";
+                   // btnNextStepAdd.Visible=false;
+
                     this.currentWFTemplateID = dt.Rows[0]["WFT_ID"].ToString();
                     WorkFlow.NewInstance.CreateWF(this.currentWFTemplateID, this.gpWFG);
                     this.txtWFName.Enabled = false;
@@ -394,12 +461,12 @@ namespace HYPDM.WinUI.WorkFlow
         private void WorkFlowDesign_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(((Button)sender).Name.ToString());
-            string stepID = ((Button)sender).Name.ToString();
-            if (stepID == "")
+           currentClickstepID = ((Button)sender).Name.ToString();
+           if (currentClickstepID == "")
             {
                 return;
             }
-            WF_TEMPLATES_STEP step = WorkFlow.NewInstance.GetWFStepInfoByStepID(stepID);
+            WF_TEMPLATES_STEP step = WorkFlow.NewInstance.GetWFStepInfoByStepID(currentClickstepID);
 
             this.combCurrentStep.SelectedValue = step.WFT_CURRENT_STEP_ID;
 
@@ -407,6 +474,26 @@ namespace HYPDM.WinUI.WorkFlow
             this.currentWFTemplateID = step.WFT_ID; //可以不要，前面已经赋值
             this.combThroughNext.SelectedValue = step.WFT_NEXT_STEP_ID;
             this.radioBtnYes.Checked = step.IS_START_STEP == "Y" ? true : false;
+            
+            this.radioEndY.Checked = step.IS_END_STEP == "Y" ? true : false;
+            if (this.radioBtnYes.Checked)
+            {
+                this.radioBtnNo.Checked = false;
+            }
+            else
+            {
+                this.radioBtnNo.Checked = true;
+            }
+            if (this.radioEndY.Checked)
+            {
+                this.radioEndN.Checked = false;
+            }
+            else
+            {
+                this.radioEndN.Checked = true;
+            }
+
+
             if (this.radioBtnYes.Checked == false)
             {
                 this.radioBtnNo.Checked = true;
@@ -456,6 +543,7 @@ namespace HYPDM.WinUI.WorkFlow
         private void btnWorkFlowModify_Click(object sender, EventArgs e)
         {
             initialEvent(true, false);
+            gpTotalPanel.Enabled = true;
             this.txtWFName.Enabled = true;
             this.btnModify.Location = new System.Drawing.Point(301, 17);
             this.btnModify.Visible = true;
@@ -479,8 +567,26 @@ namespace HYPDM.WinUI.WorkFlow
             else
             {
 
+                WF_TEMPLATES_STEP step = WorkFlow.NewInstance.GetWFStepInfoByStepID(this.currentClickstepID);
+                step.WFT_STEP_DESC = this.txtComment.Text.Trim();
+                step.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                step.LASTUPDATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
+                step.IS_END_STEP = radioEndY.Checked == true ? "Y" : "N";
+                step.IS_START_STEP = radioBtnYes.Checked == true ? "Y" : "N";
+                try
+                {
+                    step.Update();
+                    this.btnStepModify.Text = "修改";
+                    this.pnlMain.Enabled = false;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("保存失败:!" + "\n" + ex.Message.ToString(), "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+
                 ///修改
-                this.btnStepModify.Text = "修改";
             }
 
         }
@@ -505,7 +611,7 @@ namespace HYPDM.WinUI.WorkFlow
                     if (ss.IS_END_STEP == "Y")
                     {
                         hasEndStep = true;
-                        return;
+                        break;
                     }
                 }
             }
@@ -545,14 +651,25 @@ namespace HYPDM.WinUI.WorkFlow
         private void wfModify(WF_TEMPLATES_STEP step)
         {
             //删除
-            step.DEL_FLAG = "Y";
-            step.LASTUPDATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
-            step.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            //step.DEL_FLAG = "Y";
+            //step.LASTUPDATEUSER = CommonFuns.NewInstance.LoginInfo.LoginID;
+            //step.LASTUPDATEDATE = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             try
             {
-                step.Save();
+               // step.Save();
+                step.Delete();
                 this.gpWFG.Controls.Clear();
                 WorkFlow.NewInstance.CreateWF(this.currentWFTemplateID, this.gpWFG);
+                foreach (Control ctl in gpWFG.Controls)
+                {
+                    if (ctl.GetType().Name == "Button")
+                    {
+                        ((Button)ctl).Click += new EventHandler(WorkFlowDesign_Click); //添加代理方法
+                    }
+                }
+                this.pnlModify.Visible = false;
+                this.pnlMain.Visible = false;
+                this.pnlMain.Enabled = false;
 
             }
             catch (Exception ex)
@@ -680,6 +797,23 @@ namespace HYPDM.WinUI.WorkFlow
                         MessageBox.Show("工作流：" + wf.WFT_NAME + ",已经提交成功.", "工作流提示助手提醒您:", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     }
                 }
+            }
+
+
+        }
+
+        private void btnAddNewNode_Click(object sender, EventArgs e)
+        {
+            IList<WF_TEMPLATES_STEP> list = WorkFlow.NewInstance.GetWFStepListByWFID(this.currentWFTemplateID);
+            if(list.Count>0)
+            {
+            currentWFStep = list[list.Count - 1].WFT_CURRENT_STEP_ID;
+            RefreshNextStepNode();
+            gpTotalPanel.Enabled = true;
+            pnlBtnTools.Visible = true;
+            //this.pnlMain.Visible = true;
+            this.pnlMain.Enabled = true;
+            btnNextStepAdd_Click(sender, e);
             }
 
 

@@ -89,10 +89,11 @@ namespace HYPDM.WinUI.WorkFlow.Flow
                     // this.txtHandleUser.Text = CommonFuns.NewInstance.LoginInfo.LoginID;
                     //IList<WF_APP_HANDLE> list = WorkFlow.NewInstance.GetWFAppStepHandle(WfAppID, wipWFAppDetai.Current_STEP_ID);
                     WF_APP_HANDLE handItem = WorkFlow.NewInstance.GetWfAppHandleItem(wfAppID, wipWFAppDetai.Current_STEP_ID, loginID);
-                    this.txtHandleUser.Text = handItem.OBJECTVALUE;
+                    
                     if (handItem != null && (handItem.IS_THROUGH == null || handItem.IS_THROUGH.Trim() == ""))
                     {
                         this.btnHandle.Enabled = true;
+                        this.txtHandleUser.Text = handItem.OBJECTVALUE;
                     }
                     else
                     {
@@ -172,7 +173,7 @@ namespace HYPDM.WinUI.WorkFlow.Flow
             else
             {
                 flowName = WorkFlow.NewInstance.GetWFTemplatesInfoByWFID(APP.WFT_ID).WFT_NAME.ToString();
-                this.Text = "【" + flowName + "】" + WorkFlow.GetObjectTitle(item);
+                this.Text = "【" + flowName + "】" + WorkFlow.GetObjectTitle(item, APP.OBJECTKEY);
                 this.txtFlowName.Text = flowName;
 
             }

@@ -596,6 +596,7 @@
             this.trvFolderDir.Name = "trvFolderDir";
             this.trvFolderDir.Size = new System.Drawing.Size(469, 235);
             this.trvFolderDir.TabIndex = 1;
+            this.trvFolderDir.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvFolderDir_AfterSelect);
             this.trvFolderDir.Click += new System.EventHandler(this.trvFolderDir_Click);
             // 
             // UserFileAuthFrm

@@ -1023,5 +1023,10 @@ namespace HYPDM.WinUI.Document
             ///图纸文件的删除
             delFile(this.tvCad, DataType.FileType.Drawing); 
         }
+
+        private void dgv_ProRecord_DoubleClick(object sender, EventArgs e)
+        {
+            toolProRecordEdit_Click(sender, e);
+        }
     }
 }

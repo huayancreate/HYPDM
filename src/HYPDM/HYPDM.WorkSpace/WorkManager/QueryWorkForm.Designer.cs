@@ -32,12 +32,14 @@
             this.tb_modelName = new System.Windows.Forms.TextBox();
             this.bt_query = new System.Windows.Forms.Button();
             this.dtp_createTime = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 47);
+            this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -45,16 +47,16 @@
             // 
             // tb_modelName
             // 
-            this.tb_modelName.Location = new System.Drawing.Point(112, 44);
+            this.tb_modelName.Location = new System.Drawing.Point(73, 18);
             this.tb_modelName.Name = "tb_modelName";
-            this.tb_modelName.Size = new System.Drawing.Size(140, 21);
+            this.tb_modelName.Size = new System.Drawing.Size(177, 21);
             this.tb_modelName.TabIndex = 1;
             // 
             // bt_query
             // 
-            this.bt_query.Location = new System.Drawing.Point(167, 129);
+            this.bt_query.Location = new System.Drawing.Point(184, 87);
             this.bt_query.Name = "bt_query";
-            this.bt_query.Size = new System.Drawing.Size(75, 23);
+            this.bt_query.Size = new System.Drawing.Size(66, 23);
             this.bt_query.TabIndex = 2;
             this.bt_query.Text = "查询";
             this.bt_query.UseVisualStyleBackColor = true;
@@ -64,22 +66,43 @@
             // 
             this.dtp_createTime.CustomFormat = "yyyy-MM-dd HH:mm:dd";
             this.dtp_createTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_createTime.Location = new System.Drawing.Point(112, 81);
+            this.dtp_createTime.Location = new System.Drawing.Point(73, 55);
             this.dtp_createTime.Name = "dtp_createTime";
-            this.dtp_createTime.Size = new System.Drawing.Size(140, 21);
+            this.dtp_createTime.Size = new System.Drawing.Size(177, 21);
             this.dtp_createTime.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "起始日期";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(13, 2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "支持模糊查询";
             // 
             // QueryWorkForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 164);
+            this.ClientSize = new System.Drawing.Size(263, 119);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dtp_createTime);
             this.Controls.Add(this.bt_query);
             this.Controls.Add(this.tb_modelName);
             this.Controls.Add(this.label1);
             this.Name = "QueryWorkForm";
-            this.Text = "QueryWorkForm";
+            this.Text = "查询";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +114,7 @@
         private System.Windows.Forms.TextBox tb_modelName;
         private System.Windows.Forms.Button bt_query;
         private System.Windows.Forms.DateTimePicker dtp_createTime;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

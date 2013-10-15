@@ -181,6 +181,7 @@
             this.txtSubject.Name = "txtSubject";
             this.txtSubject.Size = new System.Drawing.Size(717, 21);
             this.txtSubject.TabIndex = 1;
+            this.txtSubject.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubject_KeyPress);
             // 
             // label1
             // 

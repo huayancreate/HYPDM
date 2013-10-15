@@ -1034,5 +1034,10 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
             o.ShowDialog();
         }
 #endregion
+
+        private void dgv_ProRecord_DoubleClick(object sender, EventArgs e)
+        {
+            toolProRecordEdit_Click(sender, e);
+        }
     }
 }

@@ -472,8 +472,6 @@ namespace HYDocumentMS.FileAuth
                             //{
                             //    auth.Update();
                             //}
-                            MessageBox.Show("插入成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                            this.Close();
                         }
                         catch (Exception ex)
                         {
@@ -481,6 +479,8 @@ namespace HYDocumentMS.FileAuth
                             return;
                         }
                     }
+                    MessageBox.Show("插入成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    this.Close();
                 }
             }
         }
@@ -569,6 +569,11 @@ namespace HYDocumentMS.FileAuth
                     this.chkFolderEdit.Checked = false;
                 }
             }
+        }
+
+        private void trvFolderDir_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

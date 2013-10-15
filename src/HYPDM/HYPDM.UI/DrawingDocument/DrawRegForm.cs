@@ -617,40 +617,40 @@ namespace HYPDM.WinUI.DrawingDocument
         /// <param name="e"></param>
         private void btnAddRelation_Click(object sender, EventArgs e)
         {
-            //    List<PDM_ALL_PRODUCT> pdmAllSelectedProduct = null;
-            //    List<PDM_MATERAIL> pdmSelectedMaterial = null;
-            //     DataType.RelationObjectType relationObjectType;
-            ObjectRelation or = new ObjectRelation();
-            IObjectRelationService orS = ServiceContainer.GetService<ObjectRelationService>();
-            IList<ObjectRelation> listObjectRelation = new List<ObjectRelation>();
-            HYPDM.WinUI.Document.ConnectForm frmConnect = new HYPDM.WinUI.Document.ConnectForm();
-            frmConnect.DocumentDrawing = this.Document;
-            if (frmConnect.ShowDialog() == DialogResult.OK)
-            {
-                listObjectRelation = frmConnect.ListObjectRelation;
+            ////    List<PDM_ALL_PRODUCT> pdmAllSelectedProduct = null;
+            ////    List<PDM_MATERAIL> pdmSelectedMaterial = null;
+            ////     DataType.RelationObjectType relationObjectType;
+            //ObjectRelation or = new ObjectRelation();
+            //IObjectRelationService orS = ServiceContainer.GetService<ObjectRelationService>();
+            //IList<ObjectRelation> listObjectRelation = new List<ObjectRelation>();
+            //HYPDM.WinUI.Document.ConnectForm frmConnect = new HYPDM.WinUI.Document.ConnectForm();
+            //frmConnect.DocumentDrawing = this.Document;
+            //if (frmConnect.ShowDialog() == DialogResult.OK)
+            //{
+            //    listObjectRelation = frmConnect.ListObjectRelation;
 
-                try
-                {
-                    foreach (ObjectRelation objRelation in listObjectRelation)
-                    {
-                        objRelation.MASTEROBJECTID = this.Document.DOCID;
-                        objRelation.MASTEROBJECTTYPE = DataType.RelationObjectType.Drawing.ToString();
-                        objRelation.MASTEROBJECTVERSION = this.Document.VERSION;
-                        objRelation.Save();
-                    }
+            //    try
+            //    {
+            //        foreach (ObjectRelation objRelation in listObjectRelation)
+            //        {
+            //            objRelation.MASTEROBJECTID = this.Document.DOCID;
+            //            objRelation.MASTEROBJECTTYPE = DataType.RelationObjectType.Drawing.ToString();
+            //            objRelation.MASTEROBJECTVERSION = this.Document.VERSION;
+            //            objRelation.Save();
+            //        }
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                    return;
-                }
-                finally
-                {
-                    InitialObjectRelation();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            //        return;
+            //    }
+            //    finally
+            //    {
+            //        InitialObjectRelation();
 
-                }
-            }
+            //    }
+            //}
         }
         /// <summary>
         /// 删除关联
@@ -1019,6 +1019,11 @@ namespace HYPDM.WinUI.DrawingDocument
             tabProRecord_Init(); //刷新
         }
         #endregion
+
+        private void dgv_ProRecord_DoubleClick(object sender, EventArgs e)
+        {
+            toolProRecordEdit_Click(sender, e);
+        }
 
     }
 }

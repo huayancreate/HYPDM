@@ -132,7 +132,7 @@ namespace HYPDM.WorkSpace.WorkManager
            // o.WfAppID=t_id;
            // o.StartPosition = FormStartPosition.CenterParent;
             o.ShowDialog();
-            init();
+           // init();  //查看后保留在当前页码中
         }
 
         private void tsl_delete_Click(object sender, EventArgs e)

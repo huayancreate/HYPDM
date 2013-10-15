@@ -401,7 +401,7 @@ namespace HYPDM.WinUI.WorkFlow
         /// </summary>
         /// <param name="relationObjectType">RelationObjectType</param>
         /// <returns></returns>
-        public static string GetObjectTitle(DataType.RelationObjectType relationObjectType)
+        public static string GetObjectTitle(DataType.RelationObjectType relationObjectType,string objectKey)
         {
             string tableName = DataType.GetTableName(relationObjectType);
             string objectTitle = "";
@@ -409,32 +409,32 @@ namespace HYPDM.WinUI.WorkFlow
             {
                 case DataType.RelationObjectType.Document:
                     {
-                        objectTitle = "【文档编号:" + CommonFuns.getDataTableBySql("DOCNO", "", tableName).Rows[0][0].ToString() + "】";
+                        objectTitle = "【文档编号:" + CommonFuns.getDataTableBySql("DOCNO", "WHERE DOCID='" + objectKey+ "'", tableName).Rows[0][0].ToString() + "】";
                         break;
                     }
                 case DataType.RelationObjectType.File:
                     {
-                        objectTitle = "【文件名称:" + CommonFuns.getDataTableBySql("DFL_FILE_NAME", "", tableName).Rows[0][0].ToString() + "】";
+                        objectTitle = "【文件名称:" + CommonFuns.getDataTableBySql("DFL_FILE_NAME", " WHERE DFL_ID='" + objectKey + "'", tableName).Rows[0][0].ToString() + "】";
                         break;
                     }
                 case DataType.RelationObjectType.Material:
                     {
-                        objectTitle = "【物料NO:" + CommonFuns.getDataTableBySql("MATERIALNO", "", tableName).Rows[0][0].ToString() + "】";
+                        objectTitle = "【物料NO:" + CommonFuns.getDataTableBySql("MATERIALNO", " WHERE MATERIALID='" + objectKey + "'", tableName).Rows[0][0].ToString() + "】";
                         break;
                     }
                 case DataType.RelationObjectType.Product:
                     {
-                        objectTitle = "【产品NO:" + CommonFuns.getDataTableBySql("PRODUCTNO", "WHERE PRODUCTLEVEL=1", tableName).Rows[0][0].ToString() + "】"; //PRODUCTLEVEL为1的时候表示是产品
+                        objectTitle = "【产品NO:" + CommonFuns.getDataTableBySql("PRODUCTNO", "WHERE PRODUCTLEVEL=1 AND PRODUCTID='" + objectKey + "'", tableName).Rows[0][0].ToString() + "】"; //PRODUCTLEVEL为1的时候表示是产品
                         break;
                     }
                 case DataType.RelationObjectType.SemiProduct:
                     {
-                        objectTitle = "【半成品NO:" + CommonFuns.getDataTableBySql("PRODUCTNO", "WHERE PRODUCTLEVEL=2", tableName).Rows[0][0].ToString() + "】"; //PRODUCTLEVEL为2的时候表示是半产品
+                        objectTitle = "【半成品NO:" + CommonFuns.getDataTableBySql("PRODUCTNO", "WHERE PRODUCTLEVEL=2 AND PRODUCTID='" + objectKey + "'", tableName).Rows[0][0].ToString() + "】"; //PRODUCTLEVEL为2的时候表示是半产品
                         break;
                     }
                 case DataType.RelationObjectType.Drawing:
                     {
-                        objectTitle = "【图纸NO:" + CommonFuns.getDataTableBySql("DOCNO", "", tableName).Rows[0][0].ToString() + "】";
+                        objectTitle = "【图纸NO:" + CommonFuns.getDataTableBySql("DOCNO", "WHERE DOCID='" + objectKey + "'", tableName).Rows[0][0].ToString() + "】";
                         break;
                     }
                 default:
@@ -579,8 +579,8 @@ namespace HYPDM.WinUI.WorkFlow
                 String selectTable = "WF_APP A,WF_TEMPLATES B  ";
 
                 selectWhere.Append("WHERE   A.WFT_ID= B.WFT_ID AND OBJECTKEY='").Append(p_ObjectId)
-                     .Append("'  AND RELATIONOBJECTTYPE  ='").Append(p_ObjectType)
-                     .Append("'  AND A.CREATEUSER='").Append(p_user).Append("' ");
+                     .Append("'  AND RELATIONOBJECTTYPE  ='").Append(p_ObjectType).Append("'");
+                   //  .Append("'  AND A.CREATEUSER='").Append(p_user).Append("' ");  //显示指定用户发起的工作流
 
                 DataTable dt = CommonFuns.getDataTableBySql(selectColunm, selectWhere.ToString(), selectTable);
                 return dt;
@@ -648,9 +648,9 @@ namespace HYPDM.WinUI.WorkFlow
             WF_APP t_wfapp = EAS.Services.ServiceContainer.GetService<WFTemplatesStepService>().GetWFappByWFID(wfaID);//工作流实例ID
             if (wfaID != null)
             {
-                if (!t_wfapp.STATUS.Equals(DataType.WFDetailSTATUS.Return.ToString()))
+                if (!t_wfapp.STATUS.Equals(DataType.WFDetailSTATUS.Return.ToString()) && !t_wfapp.STATUS.Equals(DataType.WFDetailSTATUS.UNActivate.ToString()))
                 {
-                    MessageBox.Show("该流程状态不为Return,不能重新发起,目前状态为:" + "\n" + t_wfapp.STATUS.ToString(), "确认", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
+                    MessageBox.Show("该流程状态不为Return/UNActivate,不能重新发起,目前状态为:" + "\n" + t_wfapp.STATUS.ToString(), "确认", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2); return;
                 }
                 if (loginID == t_wfapp.CREATEUSER)
                 {

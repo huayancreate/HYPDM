@@ -33,10 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbcContent = new System.Windows.Forms.TabControl();
             this.tpRemark = new System.Windows.Forms.TabPage();
@@ -86,6 +86,22 @@
             this.MODIFYTIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MEMO_ZH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MEMO_EN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabSemiProd = new System.Windows.Forms.TabPage();
+            this.dGVSemiProduct = new HYPDM.BaseControl.DataGridViewExt();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.新建关联对象ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.产品零部件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,15 +111,6 @@
             this.btnProduct = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddRelation = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDelRelation = new System.Windows.Forms.ToolStripMenuItem();
-            this.tvCad = new AdvancedDataGridView.TreeGridView();
-            this.DFL_FILE_NAME1 = new AdvancedDataGridView.TreeGridColumn();
-            this.FilePathName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Colver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkinflg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkindate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkoutflg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkoutdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deleteflag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpVersion = new System.Windows.Forms.TabPage();
             this.txtVer = new System.Windows.Forms.TextBox();
             this.tpgExtandsProperties = new System.Windows.Forms.TabPage();
@@ -152,6 +159,15 @@
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDocAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tvCad = new AdvancedDataGridView.TreeGridView();
+            this.DFL_FILE_NAME1 = new AdvancedDataGridView.TreeGridColumn();
+            this.FilePathName1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkinflg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkindate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkoutflg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkoutdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteflag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DFL_CAD_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CadPathName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.版本 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -191,22 +207,6 @@
             this.menuCadCancelCheckOut = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.menuCadFileDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabSemiProd = new System.Windows.Forms.TabPage();
-            this.dGVSemiProduct = new HYPDM.BaseControl.DataGridViewExt();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tbcContent.SuspendLayout();
             this.tpRemark.SuspendLayout();
@@ -219,8 +219,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dGVProduct)).BeginInit();
             this.tabMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).BeginInit();
+            this.tabSemiProd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVSemiProduct)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tvCad)).BeginInit();
             this.tpVersion.SuspendLayout();
             this.tpgExtandsProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExptendProperties)).BeginInit();
@@ -231,10 +232,9 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tsToolbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tvCad)).BeginInit();
             this.cmPhysical.SuspendLayout();
             this.menuCadObject.SuspendLayout();
-            this.tabSemiProd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVSemiProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -363,6 +363,7 @@
             this.dgv_ProRecord.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ProRecord.Size = new System.Drawing.Size(609, 334);
             this.dgv_ProRecord.TabIndex = 4;
+            this.dgv_ProRecord.DoubleClick += new System.EventHandler(this.dgv_ProRecord_DoubleClick);
             // 
             // WFA_ID
             // 
@@ -712,6 +713,144 @@
             this.MEMO_EN.HeaderText = "MEMO_EN";
             this.MEMO_EN.Name = "MEMO_EN";
             // 
+            // tabSemiProd
+            // 
+            this.tabSemiProd.Controls.Add(this.dGVSemiProduct);
+            this.tabSemiProd.Location = new System.Drawing.Point(4, 22);
+            this.tabSemiProd.Name = "tabSemiProd";
+            this.tabSemiProd.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSemiProd.Size = new System.Drawing.Size(610, 317);
+            this.tabSemiProd.TabIndex = 2;
+            this.tabSemiProd.Text = "半成品";
+            this.tabSemiProd.UseVisualStyleBackColor = true;
+            // 
+            // dGVSemiProduct
+            // 
+            this.dGVSemiProduct.AllowUserToAddRows = false;
+            this.dGVSemiProduct.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dGVSemiProduct.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dGVSemiProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVSemiProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVSemiProduct.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dGVSemiProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dGVSemiProduct.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dGVSemiProduct.Location = new System.Drawing.Point(3, 3);
+            this.dGVSemiProduct.Name = "dGVSemiProduct";
+            this.dGVSemiProduct.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dGVSemiProduct.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dGVSemiProduct.RowTemplate.Height = 23;
+            this.dGVSemiProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dGVSemiProduct.Size = new System.Drawing.Size(604, 311);
+            this.dGVSemiProduct.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "PRODUCTID";
+            this.dataGridViewTextBoxColumn2.Frozen = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "PRODUCTID";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "PRODUCTNO";
+            this.dataGridViewTextBoxColumn3.Frozen = true;
+            this.dataGridViewTextBoxColumn3.HeaderText = "产品NO";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "MODELTYPE";
+            this.dataGridViewTextBoxColumn4.HeaderText = "MODELTYPE";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "PRODUCTTYPE";
+            this.dataGridViewTextBoxColumn5.HeaderText = "PRODUCTTYPE";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "PRODUCTLEVEL";
+            this.dataGridViewTextBoxColumn6.HeaderText = "PRODUCTLEVEL";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "VERSION";
+            this.dataGridViewTextBoxColumn7.HeaderText = "版本";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "STATUS";
+            this.dataGridViewTextBoxColumn8.HeaderText = "STATUS";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "CREATER";
+            this.dataGridViewTextBoxColumn9.HeaderText = "CREATER";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "MODIFIER";
+            this.dataGridViewTextBoxColumn10.HeaderText = "MODIFIER";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "CREATETIME";
+            this.dataGridViewTextBoxColumn11.HeaderText = "创建时间";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "MODIFYTIME";
+            this.dataGridViewTextBoxColumn12.HeaderText = "修改时间";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "MEMO_ZH";
+            this.dataGridViewTextBoxColumn13.HeaderText = "MEMO_ZH";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "MEMO_EN";
+            this.dataGridViewTextBoxColumn14.HeaderText = "MEMO_EN";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "MEMO";
+            this.dataGridViewTextBoxColumn15.HeaderText = "MEMO";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -786,87 +925,6 @@
             this.btnDelRelation.Size = new System.Drawing.Size(68, 21);
             this.btnDelRelation.Text = "删除关联";
             this.btnDelRelation.Click += new System.EventHandler(this.btnDelRelation_Click);
-            // 
-            // tvCad
-            // 
-            this.tvCad.AllowUserToAddRows = false;
-            this.tvCad.AllowUserToDeleteRows = false;
-            this.tvCad.AllowUserToOrderColumns = true;
-            this.tvCad.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tvCad.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.tvCad.ColumnHeadersHeight = 20;
-            this.tvCad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DFL_FILE_NAME1,
-            this.FilePathName1,
-            this.Colver,
-            this.checkinflg,
-            this.checkindate,
-            this.checkoutflg,
-            this.checkoutdate,
-            this.deleteflag});
-            this.tvCad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvCad.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.tvCad.ImageList = null;
-            this.tvCad.Location = new System.Drawing.Point(0, 25);
-            this.tvCad.Name = "tvCad";
-            this.tvCad.RowHeadersVisible = false;
-            this.tvCad.RowHeadersWidth = 20;
-            this.tvCad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tvCad.Size = new System.Drawing.Size(618, 343);
-            this.tvCad.TabIndex = 10;
-            // 
-            // DFL_FILE_NAME1
-            // 
-            this.DFL_FILE_NAME1.DefaultNodeImage = null;
-            this.DFL_FILE_NAME1.HeaderText = "文件名称";
-            this.DFL_FILE_NAME1.Name = "DFL_FILE_NAME1";
-            this.DFL_FILE_NAME1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DFL_FILE_NAME1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.DFL_FILE_NAME1.Width = 230;
-            // 
-            // FilePathName1
-            // 
-            this.FilePathName1.HeaderText = "文件路径";
-            this.FilePathName1.Name = "FilePathName1";
-            this.FilePathName1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.FilePathName1.Width = 240;
-            // 
-            // Colver
-            // 
-            this.Colver.HeaderText = "版本";
-            this.Colver.Name = "Colver";
-            this.Colver.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Colver.Width = 50;
-            // 
-            // checkinflg
-            // 
-            this.checkinflg.HeaderText = "检入标识";
-            this.checkinflg.Name = "checkinflg";
-            this.checkinflg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // checkindate
-            // 
-            this.checkindate.HeaderText = "检入日期";
-            this.checkindate.Name = "checkindate";
-            this.checkindate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // checkoutflg
-            // 
-            this.checkoutflg.HeaderText = "检出标识";
-            this.checkoutflg.Name = "checkoutflg";
-            this.checkoutflg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // checkoutdate
-            // 
-            this.checkoutdate.HeaderText = "检出日期";
-            this.checkoutdate.Name = "checkoutdate";
-            this.checkoutdate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // deleteflag
-            // 
-            this.deleteflag.HeaderText = "删除标识";
-            this.deleteflag.Name = "deleteflag";
-            this.deleteflag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // tpVersion
             // 
@@ -1340,6 +1398,87 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // tvCad
+            // 
+            this.tvCad.AllowUserToAddRows = false;
+            this.tvCad.AllowUserToDeleteRows = false;
+            this.tvCad.AllowUserToOrderColumns = true;
+            this.tvCad.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.tvCad.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.tvCad.ColumnHeadersHeight = 20;
+            this.tvCad.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DFL_FILE_NAME1,
+            this.FilePathName1,
+            this.Colver,
+            this.checkinflg,
+            this.checkindate,
+            this.checkoutflg,
+            this.checkoutdate,
+            this.deleteflag});
+            this.tvCad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvCad.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.tvCad.ImageList = null;
+            this.tvCad.Location = new System.Drawing.Point(0, 25);
+            this.tvCad.Name = "tvCad";
+            this.tvCad.RowHeadersVisible = false;
+            this.tvCad.RowHeadersWidth = 20;
+            this.tvCad.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tvCad.Size = new System.Drawing.Size(618, 343);
+            this.tvCad.TabIndex = 10;
+            // 
+            // DFL_FILE_NAME1
+            // 
+            this.DFL_FILE_NAME1.DefaultNodeImage = null;
+            this.DFL_FILE_NAME1.HeaderText = "文件名称";
+            this.DFL_FILE_NAME1.Name = "DFL_FILE_NAME1";
+            this.DFL_FILE_NAME1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DFL_FILE_NAME1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DFL_FILE_NAME1.Width = 230;
+            // 
+            // FilePathName1
+            // 
+            this.FilePathName1.HeaderText = "文件路径";
+            this.FilePathName1.Name = "FilePathName1";
+            this.FilePathName1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FilePathName1.Width = 240;
+            // 
+            // Colver
+            // 
+            this.Colver.HeaderText = "版本";
+            this.Colver.Name = "Colver";
+            this.Colver.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Colver.Width = 50;
+            // 
+            // checkinflg
+            // 
+            this.checkinflg.HeaderText = "检入标识";
+            this.checkinflg.Name = "checkinflg";
+            this.checkinflg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // checkindate
+            // 
+            this.checkindate.HeaderText = "检入日期";
+            this.checkindate.Name = "checkindate";
+            this.checkindate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // checkoutflg
+            // 
+            this.checkoutflg.HeaderText = "检出标识";
+            this.checkoutflg.Name = "checkoutflg";
+            this.checkoutflg.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // checkoutdate
+            // 
+            this.checkoutdate.HeaderText = "检出日期";
+            this.checkoutdate.Name = "checkoutdate";
+            this.checkoutdate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // deleteflag
+            // 
+            this.deleteflag.HeaderText = "删除标识";
+            this.deleteflag.Name = "deleteflag";
+            this.deleteflag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // DFL_CAD_NAME
             // 
             this.DFL_CAD_NAME.HeaderText = "文件名称";
@@ -1616,144 +1755,6 @@
             this.menuCadFileDelete.Text = "删除文件";
             this.menuCadFileDelete.Click += new System.EventHandler(this.menuCadFileDelete_Click);
             // 
-            // tabSemiProd
-            // 
-            this.tabSemiProd.Controls.Add(this.dGVSemiProduct);
-            this.tabSemiProd.Location = new System.Drawing.Point(4, 22);
-            this.tabSemiProd.Name = "tabSemiProd";
-            this.tabSemiProd.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSemiProd.Size = new System.Drawing.Size(610, 317);
-            this.tabSemiProd.TabIndex = 2;
-            this.tabSemiProd.Text = "半成品";
-            this.tabSemiProd.UseVisualStyleBackColor = true;
-            // 
-            // dGVSemiProduct
-            // 
-            this.dGVSemiProduct.AllowUserToAddRows = false;
-            this.dGVSemiProduct.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dGVSemiProduct.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dGVSemiProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVSemiProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dGVSemiProduct.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dGVSemiProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dGVSemiProduct.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dGVSemiProduct.Location = new System.Drawing.Point(3, 3);
-            this.dGVSemiProduct.Name = "dGVSemiProduct";
-            this.dGVSemiProduct.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dGVSemiProduct.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dGVSemiProduct.RowTemplate.Height = 23;
-            this.dGVSemiProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dGVSemiProduct.Size = new System.Drawing.Size(604, 311);
-            this.dGVSemiProduct.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PRODUCTID";
-            this.dataGridViewTextBoxColumn2.Frozen = true;
-            this.dataGridViewTextBoxColumn2.HeaderText = "PRODUCTID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "PRODUCTNO";
-            this.dataGridViewTextBoxColumn3.Frozen = true;
-            this.dataGridViewTextBoxColumn3.HeaderText = "产品NO";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "MODELTYPE";
-            this.dataGridViewTextBoxColumn4.HeaderText = "MODELTYPE";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "PRODUCTTYPE";
-            this.dataGridViewTextBoxColumn5.HeaderText = "PRODUCTTYPE";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "PRODUCTLEVEL";
-            this.dataGridViewTextBoxColumn6.HeaderText = "PRODUCTLEVEL";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "VERSION";
-            this.dataGridViewTextBoxColumn7.HeaderText = "版本";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "STATUS";
-            this.dataGridViewTextBoxColumn8.HeaderText = "STATUS";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "CREATER";
-            this.dataGridViewTextBoxColumn9.HeaderText = "CREATER";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "MODIFIER";
-            this.dataGridViewTextBoxColumn10.HeaderText = "MODIFIER";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "CREATETIME";
-            this.dataGridViewTextBoxColumn11.HeaderText = "创建时间";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "MODIFYTIME";
-            this.dataGridViewTextBoxColumn12.HeaderText = "修改时间";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "MEMO_ZH";
-            this.dataGridViewTextBoxColumn13.HeaderText = "MEMO_ZH";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "MEMO_EN";
-            this.dataGridViewTextBoxColumn14.HeaderText = "MEMO_EN";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "MEMO";
-            this.dataGridViewTextBoxColumn15.HeaderText = "MEMO";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            // 
             // DocRegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1784,9 +1785,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dGVProduct)).EndInit();
             this.tabMaterial.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterial)).EndInit();
+            this.tabSemiProd.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dGVSemiProduct)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tvCad)).EndInit();
             this.tpVersion.ResumeLayout(false);
             this.tpVersion.PerformLayout();
             this.tpgExtandsProperties.ResumeLayout(false);
@@ -1804,10 +1806,9 @@
             this.tabPage1.PerformLayout();
             this.tsToolbar.ResumeLayout(false);
             this.tsToolbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tvCad)).EndInit();
             this.cmPhysical.ResumeLayout(false);
             this.menuCadObject.ResumeLayout(false);
-            this.tabSemiProd.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dGVSemiProduct)).EndInit();
             this.ResumeLayout(false);
 
         }

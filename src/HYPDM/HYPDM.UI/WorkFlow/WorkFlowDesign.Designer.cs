@@ -43,8 +43,11 @@
             this.txtWFName = new System.Windows.Forms.TextBox();
             this.lblWFName = new System.Windows.Forms.Label();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gpTotalPanel = new System.Windows.Forms.GroupBox();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.txtUsers = new System.Windows.Forms.TextBox();
+            this.btnUserSelect = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioEndN = new System.Windows.Forms.RadioButton();
             this.radioEndY = new System.Windows.Forms.RadioButton();
@@ -60,9 +63,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.combThroughNext = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtUsers = new System.Windows.Forms.TextBox();
-            this.btnUserSelect = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.combCurrentStep = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -86,7 +86,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gpTotalPanel.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -177,7 +177,7 @@
             this.btnNextStepAdd.Name = "btnNextStepAdd";
             this.btnNextStepAdd.Size = new System.Drawing.Size(130, 27);
             this.btnNextStepAdd.TabIndex = 10;
-            this.btnNextStepAdd.Text = "添加下一节点";
+            this.btnNextStepAdd.Text = "保存并添加下一节点";
             this.btnNextStepAdd.UseVisualStyleBackColor = true;
             this.btnNextStepAdd.Click += new System.EventHandler(this.btnNextStepAdd_Click);
             // 
@@ -251,7 +251,7 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer2.Panel1.Controls.Add(this.gpTotalPanel);
             this.splitContainer2.Panel1.Controls.Add(this.panel3);
             // 
             // splitContainer2.Panel2
@@ -262,21 +262,24 @@
             this.splitContainer2.SplitterDistance = 496;
             this.splitContainer2.TabIndex = 0;
             // 
-            // groupBox1
+            // gpTotalPanel
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Controls.Add(this.pnlMain);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(483, 450);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "工作流设计";
+            this.gpTotalPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.gpTotalPanel.Controls.Add(this.pnlMain);
+            this.gpTotalPanel.Controls.Add(this.panel4);
+            this.gpTotalPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gpTotalPanel.Location = new System.Drawing.Point(0, 0);
+            this.gpTotalPanel.Name = "gpTotalPanel";
+            this.gpTotalPanel.Size = new System.Drawing.Size(483, 450);
+            this.gpTotalPanel.TabIndex = 8;
+            this.gpTotalPanel.TabStop = false;
+            this.gpTotalPanel.Text = "工作流设计";
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.txtUsers);
+            this.pnlMain.Controls.Add(this.btnUserSelect);
+            this.pnlMain.Controls.Add(this.label3);
             this.pnlMain.Controls.Add(this.groupBox3);
             this.pnlMain.Controls.Add(this.groupBox2);
             this.pnlMain.Controls.Add(this.label9);
@@ -288,9 +291,6 @@
             this.pnlMain.Controls.Add(this.label6);
             this.pnlMain.Controls.Add(this.combThroughNext);
             this.pnlMain.Controls.Add(this.label4);
-            this.pnlMain.Controls.Add(this.txtUsers);
-            this.pnlMain.Controls.Add(this.btnUserSelect);
-            this.pnlMain.Controls.Add(this.label3);
             this.pnlMain.Controls.Add(this.combCurrentStep);
             this.pnlMain.Controls.Add(this.label2);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -299,11 +299,43 @@
             this.pnlMain.Size = new System.Drawing.Size(477, 380);
             this.pnlMain.TabIndex = 11;
             // 
+            // txtUsers
+            // 
+            this.txtUsers.Enabled = false;
+            this.txtUsers.Location = new System.Drawing.Point(108, 309);
+            this.txtUsers.Multiline = true;
+            this.txtUsers.Name = "txtUsers";
+            this.txtUsers.Size = new System.Drawing.Size(364, 48);
+            this.txtUsers.TabIndex = 27;
+            this.txtUsers.Visible = false;
+            // 
+            // btnUserSelect
+            // 
+            this.btnUserSelect.Enabled = false;
+            this.btnUserSelect.Location = new System.Drawing.Point(65, 309);
+            this.btnUserSelect.Name = "btnUserSelect";
+            this.btnUserSelect.Size = new System.Drawing.Size(38, 23);
+            this.btnUserSelect.TabIndex = 26;
+            this.btnUserSelect.Text = "选择";
+            this.btnUserSelect.UseVisualStyleBackColor = true;
+            this.btnUserSelect.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Enabled = false;
+            this.label3.Location = new System.Drawing.Point(-3, 314);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 12);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "当前处理人:";
+            this.label3.Visible = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.radioEndN);
             this.groupBox3.Controls.Add(this.radioEndY);
-            this.groupBox3.Location = new System.Drawing.Point(4, 191);
+            this.groupBox3.Location = new System.Drawing.Point(4, 126);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(470, 44);
             this.groupBox3.TabIndex = 24;
@@ -336,7 +368,7 @@
             // 
             this.groupBox2.Controls.Add(this.radioBtnNo);
             this.groupBox2.Controls.Add(this.radioBtnYes);
-            this.groupBox2.Location = new System.Drawing.Point(4, 141);
+            this.groupBox2.Location = new System.Drawing.Point(4, 76);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(470, 44);
             this.groupBox2.TabIndex = 23;
@@ -368,7 +400,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(40, 319);
+            this.label9.Location = new System.Drawing.Point(42, 181);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(35, 12);
             this.label9.TabIndex = 17;
@@ -376,7 +408,7 @@
             // 
             // txtComment
             // 
-            this.txtComment.Location = new System.Drawing.Point(111, 314);
+            this.txtComment.Location = new System.Drawing.Point(113, 176);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
             this.txtComment.Size = new System.Drawing.Size(364, 48);
@@ -385,93 +417,77 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Enabled = false;
             this.label8.Location = new System.Drawing.Point(10, 312);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(11, 12);
             this.label8.TabIndex = 15;
             this.label8.Text = ":";
+            this.label8.Visible = false;
             // 
             // chkStartUserNote
             // 
             this.chkStartUserNote.AutoSize = true;
+            this.chkStartUserNote.Enabled = false;
             this.chkStartUserNote.Location = new System.Drawing.Point(114, 292);
             this.chkStartUserNote.Name = "chkStartUserNote";
             this.chkStartUserNote.Size = new System.Drawing.Size(84, 16);
             this.chkStartUserNote.TabIndex = 14;
             this.chkStartUserNote.Text = "通知拟制人";
             this.chkStartUserNote.UseVisualStyleBackColor = true;
+            this.chkStartUserNote.Visible = false;
             // 
             // chkDelWF
             // 
             this.chkDelWF.AutoSize = true;
+            this.chkDelWF.Enabled = false;
             this.chkDelWF.Location = new System.Drawing.Point(115, 266);
             this.chkDelWF.Name = "chkDelWF";
             this.chkDelWF.Size = new System.Drawing.Size(84, 16);
             this.chkDelWF.TabIndex = 13;
             this.chkDelWF.Text = "可删除流程";
             this.chkDelWF.UseVisualStyleBackColor = true;
+            this.chkDelWF.Visible = false;
             // 
             // chkMdyContent
             // 
             this.chkMdyContent.AutoSize = true;
+            this.chkMdyContent.Enabled = false;
             this.chkMdyContent.Location = new System.Drawing.Point(115, 238);
             this.chkMdyContent.Name = "chkMdyContent";
             this.chkMdyContent.Size = new System.Drawing.Size(84, 16);
             this.chkMdyContent.TabIndex = 12;
             this.chkMdyContent.Text = "可修改内容";
             this.chkMdyContent.UseVisualStyleBackColor = true;
+            this.chkMdyContent.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Enabled = false;
             this.label6.Location = new System.Drawing.Point(2, 239);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 12);
             this.label6.TabIndex = 11;
             this.label6.Text = "当前步骤属性:";
+            this.label6.Visible = false;
             // 
             // combThroughNext
             // 
             this.combThroughNext.FormattingEnabled = true;
-            this.combThroughNext.Location = new System.Drawing.Point(121, 115);
+            this.combThroughNext.Location = new System.Drawing.Point(121, 50);
             this.combThroughNext.Name = "combThroughNext";
-            this.combThroughNext.Size = new System.Drawing.Size(364, 20);
+            this.combThroughNext.Size = new System.Drawing.Size(356, 20);
             this.combThroughNext.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 118);
+            this.label4.Location = new System.Drawing.Point(10, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "通过时流向:";
-            // 
-            // txtUsers
-            // 
-            this.txtUsers.Location = new System.Drawing.Point(121, 53);
-            this.txtUsers.Multiline = true;
-            this.txtUsers.Name = "txtUsers";
-            this.txtUsers.Size = new System.Drawing.Size(364, 48);
-            this.txtUsers.TabIndex = 5;
-            // 
-            // btnUserSelect
-            // 
-            this.btnUserSelect.Location = new System.Drawing.Point(78, 53);
-            this.btnUserSelect.Name = "btnUserSelect";
-            this.btnUserSelect.Size = new System.Drawing.Size(38, 23);
-            this.btnUserSelect.TabIndex = 4;
-            this.btnUserSelect.Text = "选择";
-            this.btnUserSelect.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 12);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "当前处理人:";
             // 
             // combCurrentStep
             // 
@@ -503,9 +519,9 @@
             // 
             this.pnlModify.Controls.Add(this.btnStepModify);
             this.pnlModify.Controls.Add(this.btnStepDel);
-            this.pnlModify.Location = new System.Drawing.Point(299, 2);
+            this.pnlModify.Location = new System.Drawing.Point(294, 2);
             this.pnlModify.Name = "pnlModify";
-            this.pnlModify.Size = new System.Drawing.Size(173, 46);
+            this.pnlModify.Size = new System.Drawing.Size(178, 46);
             this.pnlModify.TabIndex = 30;
             // 
             // btnStepModify
@@ -605,7 +621,7 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.gpTotalPanel.ResumeLayout(false);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -636,7 +652,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpTotalPanel;
         private System.Windows.Forms.GroupBox gpWFG;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Panel pnlMain;
@@ -655,9 +671,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox combThroughNext;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtUsers;
-        private System.Windows.Forms.Button btnUserSelect;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox combCurrentStep;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
@@ -668,6 +681,9 @@
         private System.Windows.Forms.Button btnWFHold;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnNextStepAdd;
+        private System.Windows.Forms.TextBox txtUsers;
+        private System.Windows.Forms.Button btnUserSelect;
+        private System.Windows.Forms.Label label3;
     }
 }
 

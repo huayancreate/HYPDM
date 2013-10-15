@@ -235,7 +235,7 @@ namespace HYPDM.WinUI.ProductsAndParts.Parts
 
             }
 
-            ///objectValue工作流模板
+            //objectValue工作流模板
             string objectValue = WorkFlow.WorkFlow.NewInstance.GetWfTemplatesObject(DataType.RelationObjectType.SemiProduct.ToString()).WFT_ID;
             HYPDM.WinUI.WorkFlow.Flow.StandardFlow flow = new HYPDM.WinUI.WorkFlow.Flow.StandardFlow(partProduct_id, DataType.RelationObjectType.SemiProduct, objectValue);
             flow.ShowDialog();

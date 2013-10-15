@@ -55,6 +55,7 @@
     <Compile Include="IDocFileListService.cs" />
     <Compile Include="IDocumentDirService.cs" />
     <Compile Include="IDocumentService.cs" />
+    <Compile Include="IDRAWINGService.cs" />
     <Compile Include="IFileAuthService.cs" />
     <Compile Include="IFilterService.cs" />
     <Compile Include="IMaterailService.cs" />
