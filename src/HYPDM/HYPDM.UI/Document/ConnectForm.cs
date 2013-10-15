@@ -94,7 +94,7 @@ namespace HYPDM.WinUI.Document
             //文档
             if (this.Document != null)
             {
-                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE DEL_FLAG='N'  AND PRODUCTLEVEL=2  AND PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='" + DataType.RelationObjectType.Document.ToString() + "' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE DEL_FLAG='N'  AND PRODUCTLEVEL=2  AND PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='SemiProduct' AND MASTEROBJECTTYPE='" + DataType.RelationObjectType.Document.ToString() + "' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.Document.DOCID + "')", "PDM_ALL_PRODUCT");
                 this.ucPaging1.SourceDataGridView = this.dGVProduct;
                 this.dgvMaterial.Visible = false;
                 this.dGVProduct.Visible = true;
@@ -102,7 +102,7 @@ namespace HYPDM.WinUI.Document
             //图纸
             if (this.DocumentDrawing != null)
             {
-                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE DEL_FLAG='N'  AND PRODUCTLEVEL=2  AND PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='Product' AND MASTEROBJECTTYPE='" + DataType.RelationObjectType.Drawing + "' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.DocumentDrawing.DOCID + "')", "PDM_ALL_PRODUCT");
+                this.dGVProduct.DataSource = new HYDocumentMS.FileHelper().getDataTableBySql("*,'false' as 'chk'", "  WHERE DEL_FLAG='N'  AND PRODUCTLEVEL=2  AND PRODUCTID NOT IN (SELECT   RELATIONOBJECTID  FROM ObjectRelation WHERE RELATIONOBJECTTYPE='SemiProduct' AND MASTEROBJECTTYPE='" + DataType.RelationObjectType.Drawing + "' AND  DEL_FALG='N' AND MASTEROBJECTID='" + this.DocumentDrawing.DOCID + "')", "PDM_ALL_PRODUCT");
                 this.ucPaging1.SourceDataGridView = this.dGVProduct;
                 this.dgvMaterial.Visible = false;
                 this.dGVProduct.Visible = true;
