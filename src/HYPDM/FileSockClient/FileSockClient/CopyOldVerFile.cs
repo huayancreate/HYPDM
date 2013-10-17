@@ -56,7 +56,7 @@ namespace FileSockClient
             set { ackStatus = value; }
         }
         // private int BackDay = 0;
-        private int SIZEBUFFER = 0;
+        private int SIZEBUFFER = 5242880;
         private string filePath = ""; //要上传的文件路径
         private string newFileName = "";
         /// <summary>
@@ -99,6 +99,24 @@ namespace FileSockClient
             host = System.Configuration.ConfigurationManager.AppSettings["ServerIP"].ToString();
             SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
             portCopyNewFileName = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["portCopyNewFileName"].ToString());
+            frmWait.Show();
+
+            //Thread th = new Thread(new ThreadStart(startListen)); //启动新线程来运行start
+            //th.IsBackground = true;
+            //th.Start();
+            startListen();
+        }
+
+        public CopyOldVerFile(string srvSavePath, string newFileName, string SrvIP, int portNewFileName, int portOldVerFile)
+        {
+            TextBox.CheckForIllegalCrossThreadCalls = false;
+            this.serverSavePath = srvSavePath; //在服务器上的保存路径;
+            //   MessageBox.Show(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
+            portCopyOldVerFile = portOldVerFile;
+            this.newFileName = newFileName;
+            host = SrvIP;
+           // SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
+            portCopyNewFileName = portNewFileName;
             frmWait.Show();
 
             //Thread th = new Thread(new ThreadStart(startListen)); //启动新线程来运行start

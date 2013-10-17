@@ -60,6 +60,7 @@
     <Compile Include="DocFileListService.cs" />
     <Compile Include="DocumentDirService.cs" />
     <Compile Include="DocumentService.cs" />
+    <Compile Include="DRAWINGService.cs" />
     <Compile Include="FileAuthService.cs" />
     <Compile Include="FilterService.cs" />
     <Compile Include="MaterailService.cs" />

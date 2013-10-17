@@ -47,7 +47,7 @@ namespace FileSockClient
         //    get { return saveFilePath; }
         //    set { saveFilePath = value; }
         //}
-        private int SIZEBUFFER;
+        private int SIZEBUFFER = 5242880;
         //public string DownFilePath
         //{
         //    get { return downFilePath; }
@@ -66,6 +66,28 @@ namespace FileSockClient
             downFileServerPort = int.Parse(System.Configuration.ConfigurationManager.AppSettings["downFileServerPort"].ToString());
             serverIP = System.Configuration.ConfigurationManager.AppSettings["ServerIP"].ToString();
             SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
+            frmWait.Show();
+            //Thread th = new Thread(new ThreadStart(startListener));
+            //th.IsBackground = true;
+            //th.Start();
+            startListener();
+        }
+
+        /// <summary>
+        /// 供CAD Client使用
+        /// </summary>
+        /// <param name="filepathname"></param>
+        /// <param name="saveFileToClienPath"></param>
+        /// <param name="downLoadServerPort"></param>
+        /// <param name="downLoadServerIP"></param>
+        public DownLoadFileSocketClient(string filepathname, string saveFileToClienPath, int downLoadServerPort, string downLoadServerIP)
+        {
+            this.downFilePath = filepathname;
+            this.saveFilePath = saveFileToClienPath;
+            TextBox.CheckForIllegalCrossThreadCalls = false;
+            downFileServerPort = downLoadServerPort;
+            serverIP = downLoadServerIP;
+            //SIZEBUFFER = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SIZEBUFFER"].ToString());
             frmWait.Show();
             //Thread th = new Thread(new ThreadStart(startListener));
             //th.IsBackground = true;

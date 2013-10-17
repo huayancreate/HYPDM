@@ -796,8 +796,16 @@ namespace HYPDM.WinUI.Document
 
                 SaveFileDialog saveDialog = new SaveFileDialog();
                 saveDialog.FileName = node.Cells[0].Value.ToString();
-                saveDialog.Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                //saveDialog.Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                string suffix = node.Cells[0].Value.ToString().Substring(node.Cells[0].Value.ToString().LastIndexOf(@".") + 1);
+                saveDialog.Filter = @"文件 (*." + suffix + ")|*." + suffix;
                 DialogResult res = saveDialog.ShowDialog();
+
+
+                //SaveFileDialog saveDialog = new SaveFileDialog();
+                //saveDialog.FileName = node.Cells[0].Value.ToString();
+                //saveDialog.Filter = @"Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                //DialogResult res = saveDialog.ShowDialog();
                 if (DialogResult.OK == res)
                 {
                     string clientSaveFileAndPath = saveDialog.FileName.ToString();
