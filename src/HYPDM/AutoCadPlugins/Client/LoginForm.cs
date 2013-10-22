@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoCAD;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -10,6 +11,12 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using System.Windows.Forms;
+using Autodesk.AutoCAD.EditorInput;
+using Autodesk.AutoCAD.Runtime;
+using Autodesk.AutoCAD.DatabaseServices;
+using AutoCAD;
+using services = Autodesk.AutoCAD.ApplicationServices;
+using Autodesk.AutoCAD.Windows;
 
 namespace AutoCadPlugins.Client
 {
@@ -18,20 +25,38 @@ namespace AutoCadPlugins.Client
         public LoginForm()
         {
             InitializeComponent();
+            //MessageBox.Show(Common.Util.GetValueForKey("port"));
         }
 
+        WcfClient.pdmService.IPDMService client = null;
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //定义绑定与服务地址 
-            Common.Util util = new Common.Util();
-            PDMService.IPDMService s = util.proxy("http://192.168.0.8:8000/");
-            //调用SayHello方法并关闭连接 
-            PDMService.ResultObject obj = s.Login("PDM", "PDM");
+
+            //client = WcfClient.CommonUntils.proxy("192.168.0.8", "8000");
+            client = Common.Util.Service;
+            WcfClient.pdmService.ResultObject obj = client.Login(txtUserName.Text.Trim(), txtPassWord.Text.Trim());
             if (obj.AckResult)
             {
-                MessageBox.Show("OK");
+                Common.Util.UserName = txtUserName.Text.Trim();
+                //COM方式获取AutoCAD应用程序对象 
+                AcadApplication acadApp = (AcadApplication)services.Application.AcadApplication;
+                var menuCount = acadApp.MenuGroups.Item(0).Menus.Item(0).Count;
+                for (int i = 0; i < menuCount; i++)
+                {
+                    acadApp.MenuGroups.Item(0).Menus.Item(0).Item(i).Enable = true;
+                }
+                this.Visible = false;
             }
-            ((IChannel)s).Close();
+        }
+
+        /// <summary>
+        /// 取消
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
