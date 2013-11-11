@@ -81,6 +81,7 @@
             // 
             // panel3
             // 
+            this.panel3.Location = new System.Drawing.Point(0, 142);
             this.panel3.Size = new System.Drawing.Size(549, 26);
             // 
             // modifyDate_Product
@@ -229,6 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 168);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "AdvanceProductQuery";
             this.Text = "高级查询";

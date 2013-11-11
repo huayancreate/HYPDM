@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StandardFlow));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gpDetail = new System.Windows.Forms.GroupBox();
             this.btnModify = new System.Windows.Forms.Button();
@@ -311,6 +312,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 459);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StandardFlow";
             this.Text = "标准审批流程";
             this.Load += new System.EventHandler(this.StandardFlow_Load);

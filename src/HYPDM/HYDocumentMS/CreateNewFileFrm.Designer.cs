@@ -154,6 +154,7 @@
             this.Controls.Add(this.panel_ADD);
             this.Controls.Add(this.panel_Title);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateNewFileFrm";
             this.Text = "CreateNewFileFrm";
             this.Load += new System.EventHandler(this.CreateNewFileFrm_Load);

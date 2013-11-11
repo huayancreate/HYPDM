@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlowStepHandle));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
@@ -87,11 +88,11 @@
             // 
             this.txtMsg.BackColor = System.Drawing.Color.Snow;
             this.txtMsg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMsg.Font = new System.Drawing.Font("华文仿宋", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtMsg.Location = new System.Drawing.Point(0, 0);
             this.txtMsg.Name = "txtMsg";
             this.txtMsg.ReadOnly = true;
-            this.txtMsg.Size = new System.Drawing.Size(629, 32);
+            this.txtMsg.Size = new System.Drawing.Size(629, 29);
             this.txtMsg.TabIndex = 0;
             this.txtMsg.Text = "请输入通知信息(将附加在默认消息之后)";
             // 
@@ -122,6 +123,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FlowStepHandle";
             this.Text = "节点处理";
             this.Load += new System.EventHandler(this.FlowStepHandle_Load);

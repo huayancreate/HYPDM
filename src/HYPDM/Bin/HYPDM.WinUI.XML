@@ -29,7 +29,7 @@
             <param name="Value">表的主键值</param>
             <param name="ColName">表的主键栏位名称</param>
         </member>
-        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAddParms.CreateParams(System.Windows.Forms.Control)">
+        <member name="M:HYPDM.WinUI.AddObjectParams.FrmAddParms.CreateParams1(System.Windows.Forms.Control)">
             <summary>
             
             </summary>
@@ -482,6 +482,15 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
+        <member name="M:HYPDM.WinUI.Document.DocQuery.getDataTableBySql(System.String,System.String,System.String)">
+            <summary>
+            给定列名，where条件,及表明返回datatable
+            </summary>
+            <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
+            <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
+            <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+            <returns></returns>
+        </member>
         <member name="M:HYPDM.WinUI.Document.DocRegForm.SaveDocment">
             <summary>
             保存文档基本属性
@@ -492,6 +501,11 @@
             保存前的输入check
             </summary>
         </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.BindTreeData">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:HYPDM.WinUI.Document.DocRegForm.btnView_Click(System.Object,System.EventArgs)">
             <summary>
             查看文件
@@ -499,9 +513,16 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnCheckOut_Click(System.Object,System.EventArgs)">
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnRegPhysicalFile_Click(System.Object,System.EventArgs)">
             <summary>
-            检出
+            工艺文件注册
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnDel_Click(System.Object,System.EventArgs)">
+            <summary>
+            删除文件
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -513,12 +534,44 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnDel_Click(System.Object,System.EventArgs)">
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.btnCheckOut_Click(System.Object,System.EventArgs)">
             <summary>
-            删除文件
+            检出
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.RegFile(HYPDM.DataType.FileType)">
+            <summary>
+            物理文件注册
+            </summary>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.ViewFile(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            查看文件
+            </summary>
+            <param name="tgv"></param>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.CheckOut(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            检出文件
+            </summary>
+            <param name="tgv"></param>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.CheckInFile(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            checkin文件
+            </summary>
+            <param name="tgv"></param>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.delFile(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            删除文件
+            </summary>
         </member>
         <member name="M:HYPDM.WinUI.Document.DocRegForm.VersionSave(System.String,HYPDM.Entities.DOC_FILE_LIST)">
             <summary>
@@ -547,13 +600,6 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:HYPDM.WinUI.Document.DocRegForm.tvFileList_CellClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
-            <summary>
-            测试
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
         <member name="M:HYPDM.WinUI.Document.DocRegForm.tspDownLoad_Click(System.Object,System.EventArgs)">
             <summary>
             文件下载
@@ -561,10 +607,17 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="M:HYPDM.WinUI.Document.DocRegForm.downLoadFile">
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.downLoadFile(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
             <summary>
             文件下载
             </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.Document.DocRegForm.CheckOutCancel(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            取消检出
+            </summary>
+            <param name="tgv"></param>
+            <param name="fileType"></param>
         </member>
         <member name="M:HYPDM.WinUI.Document.DocRegForm.InitialObjectRelation">
             <summary>
@@ -622,30 +675,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="M:HYPDM.WinUI.Document.SearchForm.btnSearch_Click(System.Object,System.EventArgs)">
-            <summary>
-            查询
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="F:HYPDM.WinUI.Document.SearchForm.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:HYPDM.WinUI.Document.SearchForm.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:HYPDM.WinUI.Document.SearchForm.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
         <member name="M:HYPDM.WinUI.Document.ToolsHelper.CreatTree(System.Windows.Forms.TreeNodeCollection,System.String,System.Data.DataTable)">
             <summary>
             
@@ -660,6 +689,185 @@
             </summary>
             <param name="tv"></param>
             <param name="dtDocList"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.Drawing.getDataTableBySql(System.String,System.String,System.String)">
+            <summary>
+            给定列名，where条件,及表明返回datatable
+            </summary>
+            <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
+            <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
+            <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.Drawing.GetDrawingListForDatatable(System.Boolean)">
+            <summary>
+            获取记录
+            </summary>
+            <param name="bl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DocListControl.InitList(System.Data.DataTable)">
+            <summary>
+            将指定的数据源中的记录绑定到列表。
+            </summary>
+        </member>
+        <!-- 对于成员“M:HYPDM.WinUI.DrawingDocument.DocListControl.DocAdd”忽略有格式错误的 XML 注释 -->
+        <member name="M:HYPDM.WinUI.DrawingDocument.DocListControl.OnExited(System.EventArgs)">
+            <summary>
+            触发 Exited 事件。
+            </summary>
+            <param name="e">事件参数。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DocListControl.DocDelete">
+            <summary>
+            记录删除
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DocListControl.DocProperty">
+            <summary>
+            记录属性。
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.DrawingDocument.DocListControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DocListControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DocListControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DocQuery.getDataTableBySql(System.String,System.String,System.String)">
+            <summary>
+            给定列名，where条件,及表明返回datatable
+            </summary>
+            <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
+            <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
+            <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.SaveDocment">
+            <summary>
+            保存文档基本属性
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.SaveCheck">
+            <summary>
+            保存前的输入check
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.BindTreeData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.RegFile(HYPDM.DataType.FileType)">
+            <summary>
+            物理文件注册
+            </summary>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.ViewFile(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            查看文件
+            </summary>
+            <param name="tgv"></param>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.CheckOut(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            检出文件
+            </summary>
+            <param name="tgv"></param>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.CheckInFile(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            checkin文件
+            </summary>
+            <param name="tgv"></param>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.delFile(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            删除文件
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.VersionSave(System.String,HYPDM.Entities.DOC_FILE_LIST)">
+            <summary>
+            版本历史记录保存
+            </summary>
+            <param name="type">0：检出，1：检入</param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.btnHalfProduct_Click(System.Object,System.EventArgs)">
+            <summary>
+            半成品、原材料、工艺装备
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.btnAddRelation_Click(System.Object,System.EventArgs)">
+            <summary>
+            新建关联
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.btnDelRelation_Click(System.Object,System.EventArgs)">
+            <summary>
+            删除关联
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.tspDownLoad_Click(System.Object,System.EventArgs)">
+            <summary>
+            文件下载
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.downLoadFile(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            文件下载
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.CheckOutCancel(AdvancedDataGridView.TreeGridView,HYPDM.DataType.FileType)">
+            <summary>
+            取消检出
+            </summary>
+            <param name="tgv"></param>
+            <param name="fileType"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.InitialObjectRelation">
+            <summary>
+            初始化文档关联的对象信息
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.DrawingDocument.DrawRegForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.DrawingDocument.DrawRegForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
         <member name="F:HYPDM.WinUI.graph.GraphRegForm.components">
             <summary>
@@ -712,6 +920,23 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Material.AdvanceQuery.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.AdvanceQuery.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.AdvanceQuery.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="F:HYPDM.WinUI.ProductsAndParts.Material.DocAddForm.components">
             <summary>
             Required designer variable.
@@ -724,6 +949,23 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:HYPDM.WinUI.ProductsAndParts.Material.DocAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Material.DrawAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.DrawAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Material.DrawAddForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -833,6 +1075,16 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="F:HYPDM.WinUI.Document.ConnectForm.document">
+            <summary>
+            文档
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.Document.ConnectForm.documentDrawing">
+            <summary>
+            图纸
+            </summary>
+        </member>
         <member name="F:HYPDM.WinUI.Document.ConnectForm.listObjectRelation">
             <summary>
             存放选中的信息
@@ -850,6 +1102,23 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:HYPDM.WinUI.Document.ConnectForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.AdvancePartsQuery.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.AdvancePartsQuery.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.AdvancePartsQuery.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -889,6 +1158,23 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.DocAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Parts.DrawAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.DrawAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.DrawAddForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -997,7 +1283,7 @@
         </member>
         <member name="M:HYPDM.WinUI.ProductsAndParts.Parts.PartsConfForm.tabProRecord_Init">
             <summary>
-            生产记录页面初始化
+            变更申请tab页面操作
             </summary>
             <param name="t"></param>
         </member>
@@ -1272,6 +1558,23 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.AdvanceProductQuery.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.AdvanceProductQuery.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.AdvanceProductQuery.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="F:HYPDM.WinUI.ProductsAndParts.Products.DocAddForm.components">
             <summary>
             Required designer variable.
@@ -1284,6 +1587,23 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:HYPDM.WinUI.ProductsAndParts.Products.DocAddForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:HYPDM.WinUI.ProductsAndParts.Products.DrawAddForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.DrawAddForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.ProductsAndParts.Products.DrawAddForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -1434,7 +1754,7 @@
         </member>
         <member name="M:HYPDM.WinUI.ProductsAndParts.Products.ProductsConfForm.tabProRecord_Init">
             <summary>
-            生产记录页面初始化
+            变更记录页面初始化
             </summary>
             <param name="t"></param>
         </member>
@@ -1748,6 +2068,63 @@
             应用程序的主入口点。
             </summary>
         </member>
+        <member name="F:HYPDM.WinUI.SysConfig.FrmAddNewProperties.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.SysConfig.FrmAddNewProperties.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.WinUI.SysConfig.FrmAddNewProperties.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.SysConfig.sys.getDataTableBySql(System.String,System.String,System.String)">
+            <summary>
+            给定列名，where条件,及表明返回datatable
+            </summary>
+            <param name="fields">需要查询出来的字段,sample:fields1,field2,field3</param>
+            <param name="where">查询条件,sample:  where 1=1 and a1='jjj' order by CreateDate asc</param>
+            <param name="tableName">查询的表名,sample:DOC_FILE_LIST</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.SysConfig.sys.GetDataTableForParams(HYPDM.DataType.RelationObjectType)">
+            <summary>
+            获取指定对象的属性栏位列表
+            </summary>
+            <param name="RelationObjectType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.SysConfig.sys.GetTableName(HYPDM.DataType.RelationObjectType)">
+            <summary>
+            根据RelationObjectType类型获取对应的主表名称及form
+            </summary>
+            <param name="RelationObjectType"> DataType.RelationObjectTyp</param>
+            <returns></returns>
+        </member>
+        <member name="F:HYPDM.WinUI.SysConfig.UcSysConfig.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.SysConfig.UcSysConfig.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.WinUI.SysConfig.UcSysConfig.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
         <member name="T:HYPDM.WinUI.Util.FTPDownUp">
             <summary>
             文件的FTP上传与FTP下载
@@ -2050,14 +2427,19 @@
             工作流模板主键
             </summary>
         </member>
-        <member name="M:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.#ctor">
+        <member name="F:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.isRestart">
             <summary>
-            
+            标识是否为重启状态
+            </summary>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.#ctor(System.String,System.String)">
+            <summary>
+            重启工作流的时候需要
             </summary>
         </member>
         <member name="M:HYPDM.WinUI.WorkFlow.Flow.StandardFlow.#ctor(System.String,HYPDM.DataType.RelationObjectType,System.String)">
             <summary>
-            传参构造方法
+            传参构造方法,创建工作流实例的时候使用
             </summary>
             <param name="objectKey">对象主键</param>
             <param name="relationObjectType">关联类型</param>
@@ -2212,20 +2594,6 @@
             <param name="wftID"></param>
             <returns></returns>
         </member>
-        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetTableName(HYPDM.DataType.RelationObjectType)">
-            <summary>
-            根据RelationObjectType类型获取对应的主表名称及form
-            </summary>
-            <param name="RelationObjectType"> DataType.RelationObjectTyp</param>
-            <returns></returns>
-        </member>
-        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetObjectTitle(HYPDM.DataType.RelationObjectType)">
-            <summary>
-            获取设定流程对象的title名称
-            </summary>
-            <param name="relationObjectType">RelationObjectType</param>
-            <returns></returns>
-        </member>
         <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GETCurrentStepHandleUser(System.String)">
             <summary>
             获取当前处理人集合
@@ -2272,6 +2640,13 @@
             <param name="wftCurrentStepID"></param>
             <returns></returns>
         </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetObjectTitle(HYPDM.DataType.RelationObjectType,System.String)">
+            <summary>
+            获取设定流程对象的title名称
+            </summary>
+            <param name="relationObjectType">RelationObjectType</param>
+            <returns></returns>
+        </member>
         <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetDetaiFrm(HYPDM.DataType.RelationObjectType,System.String)">
             <summary>
             获取form
@@ -2279,6 +2654,28 @@
             <param name="RelationObjectType"></param>
             <param name="objectID"></param>
             <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.GetObjectWFList(System.String,System.String)">
+            <summary>
+            获取对象的工作流实例
+            </summary>
+            <param name="p_ObjectId">对象主键</param>
+            <param name="p_ObjectType">对象类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.RestartWorkFlow(System.Windows.Forms.DataGridView)">
+            <summary>
+            重启工作流，直接传如grid，wfappid为dgv.CurrentRow.Cells["WFA_ID"].Value.ToString()
+            </summary>
+            <param name="dgv"></param>
+        </member>
+        <member name="M:HYPDM.WinUI.WorkFlow.WorkFlow.RestartWorkFlow(System.String,System.String,System.String)">
+             <summary>
+             重启工作流,不需要传gridview控件
+             </summary>
+             <param name="wfaID">工作流实例主键ID</param>
+             <param name="loginID">登录账号</param>
+            <param name="wftID">工作流模板ID</param>
         </member>
         <member name="P:HYPDM.WinUI.WorkFlow.WorkFlow.NewInstance">
             <summary>

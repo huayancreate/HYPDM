@@ -1,0 +1,17 @@
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\Bin\HYPDM.WorkSpace.dll.config
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\Bin\HYPDM.WorkSpace.XML
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\Bin\HYPDM.WorkSpace.dll
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\Bin\HYPDM.WorkSpace.pdb
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.csprojResolveAssemblyReference.cache
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.ProjcetManger.ProjectModule.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.Properties.Resources.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.WorkManager.MyFloderManager.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.WorkManager.NewFloderAddForm.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.WorkManager.NewNodeAddForm.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.WorkManager.QueryWorkForm.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.WorkManager.RecentWorkManager.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.WorkManager.WorkManager.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.WorkSapce.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.csproj.GenerateResource.Cache
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.dll
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.WorkSpace\obj\Debug\HYPDM.WorkSpace.pdb

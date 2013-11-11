@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsProRecordAddForm));
             this.label1 = new System.Windows.Forms.Label();
             this.ProRecordId = new System.Windows.Forms.TextBox();
             this.startTime = new System.Windows.Forms.DateTimePicker();
@@ -221,6 +222,7 @@
             this.Controls.Add(this.startTime);
             this.Controls.Add(this.ProRecordId);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductsProRecordAddForm";
             this.Text = "生产记录";
             this.ResumeLayout(false);

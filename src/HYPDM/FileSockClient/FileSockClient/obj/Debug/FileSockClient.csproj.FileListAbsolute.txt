@@ -38,3 +38,14 @@ F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.dll.config
 F:\HYFrameWork\HYPDM\src\HYPDM\Bin\FileSockClient.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.csprojResolveAssemblyReference.cache
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\Bin\FileSockClient.dll.config
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\Bin\FileSockClient.XML
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\Bin\FileSockClient.dll
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\Bin\FileSockClient.pdb
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.FrmSocketClient.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.FrmWait.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.Properties.Resources.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.csproj.GenerateResource.Cache
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.dll
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.pdb
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\FileSockClient\FileSockClient\obj\Debug\FileSockClient.csprojResolveAssemblyReference.cache

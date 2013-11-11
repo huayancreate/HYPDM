@@ -80,6 +80,14 @@
             this.toolProRecordEdit = new System.Windows.Forms.ToolStripButton();
             this.toolProRecordAdd = new System.Windows.Forms.ToolStripButton();
             this.dgv_ProRecord = new HYPDM.BaseControl.DataGridViewExt();
+            this.checkedDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.WFA_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OBJECTKEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WFT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SUBJECT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WFT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bs_Data_ProRecord = new System.Windows.Forms.BindingSource(this.components);
             this.tab_Doc = new System.Windows.Forms.TabPage();
             this.ucPageDoc = new HYPDM.BaseControl.UcPaging();
@@ -135,14 +143,6 @@
             this.eRP集成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工艺权限ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.checkedDataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.WFA_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBJECTKEY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WFT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SUBJECT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CREATEUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WFT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -612,6 +612,68 @@
             this.dgv_ProRecord.Size = new System.Drawing.Size(521, 359);
             this.dgv_ProRecord.TabIndex = 2;
             this.dgv_ProRecord.DoubleClick += new System.EventHandler(this.dgv_ProRecord_DoubleClick);
+            // 
+            // checkedDataGridViewCheckBoxColumn1
+            // 
+            this.checkedDataGridViewCheckBoxColumn1.DataPropertyName = "Checked";
+            this.checkedDataGridViewCheckBoxColumn1.HeaderText = "选择";
+            this.checkedDataGridViewCheckBoxColumn1.Name = "checkedDataGridViewCheckBoxColumn1";
+            this.checkedDataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.checkedDataGridViewCheckBoxColumn1.Visible = false;
+            this.checkedDataGridViewCheckBoxColumn1.Width = 50;
+            // 
+            // WFA_ID
+            // 
+            this.WFA_ID.DataPropertyName = "WFA_ID";
+            this.WFA_ID.HeaderText = "流程ID";
+            this.WFA_ID.Name = "WFA_ID";
+            this.WFA_ID.ReadOnly = true;
+            this.WFA_ID.Visible = false;
+            // 
+            // OBJECTKEY
+            // 
+            this.OBJECTKEY.DataPropertyName = "OBJECTKEY";
+            this.OBJECTKEY.HeaderText = "材料ID";
+            this.OBJECTKEY.Name = "OBJECTKEY";
+            this.OBJECTKEY.ReadOnly = true;
+            this.OBJECTKEY.Visible = false;
+            // 
+            // WFT_NAME
+            // 
+            this.WFT_NAME.DataPropertyName = "WFT_NAME";
+            this.WFT_NAME.HeaderText = "模板名称";
+            this.WFT_NAME.Name = "WFT_NAME";
+            this.WFT_NAME.ReadOnly = true;
+            this.WFT_NAME.Width = 120;
+            // 
+            // SUBJECT
+            // 
+            this.SUBJECT.DataPropertyName = "SUBJECT";
+            this.SUBJECT.HeaderText = "实例名称";
+            this.SUBJECT.Name = "SUBJECT";
+            this.SUBJECT.ReadOnly = true;
+            this.SUBJECT.Width = 120;
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "状态";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            // 
+            // CREATEUSER
+            // 
+            this.CREATEUSER.DataPropertyName = "CREATEUSER";
+            this.CREATEUSER.HeaderText = "创建人";
+            this.CREATEUSER.Name = "CREATEUSER";
+            this.CREATEUSER.ReadOnly = true;
+            // 
+            // WFT_ID
+            // 
+            this.WFT_ID.DataPropertyName = "WFT_ID";
+            this.WFT_ID.HeaderText = "WFT_ID";
+            this.WFT_ID.Name = "WFT_ID";
+            this.WFT_ID.ReadOnly = true;
             // 
             // bs_Data_ProRecord
             // 
@@ -1115,68 +1177,6 @@
             this.工艺权限ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.工艺权限ToolStripMenuItem.Text = "工艺权限";
             // 
-            // checkedDataGridViewCheckBoxColumn1
-            // 
-            this.checkedDataGridViewCheckBoxColumn1.DataPropertyName = "Checked";
-            this.checkedDataGridViewCheckBoxColumn1.HeaderText = "选择";
-            this.checkedDataGridViewCheckBoxColumn1.Name = "checkedDataGridViewCheckBoxColumn1";
-            this.checkedDataGridViewCheckBoxColumn1.ReadOnly = true;
-            this.checkedDataGridViewCheckBoxColumn1.Visible = false;
-            this.checkedDataGridViewCheckBoxColumn1.Width = 50;
-            // 
-            // WFA_ID
-            // 
-            this.WFA_ID.DataPropertyName = "WFA_ID";
-            this.WFA_ID.HeaderText = "流程ID";
-            this.WFA_ID.Name = "WFA_ID";
-            this.WFA_ID.ReadOnly = true;
-            this.WFA_ID.Visible = false;
-            // 
-            // OBJECTKEY
-            // 
-            this.OBJECTKEY.DataPropertyName = "OBJECTKEY";
-            this.OBJECTKEY.HeaderText = "材料ID";
-            this.OBJECTKEY.Name = "OBJECTKEY";
-            this.OBJECTKEY.ReadOnly = true;
-            this.OBJECTKEY.Visible = false;
-            // 
-            // WFT_NAME
-            // 
-            this.WFT_NAME.DataPropertyName = "WFT_NAME";
-            this.WFT_NAME.HeaderText = "模板名称";
-            this.WFT_NAME.Name = "WFT_NAME";
-            this.WFT_NAME.ReadOnly = true;
-            this.WFT_NAME.Width = 120;
-            // 
-            // SUBJECT
-            // 
-            this.SUBJECT.DataPropertyName = "SUBJECT";
-            this.SUBJECT.HeaderText = "实例名称";
-            this.SUBJECT.Name = "SUBJECT";
-            this.SUBJECT.ReadOnly = true;
-            this.SUBJECT.Width = 120;
-            // 
-            // STATUS
-            // 
-            this.STATUS.DataPropertyName = "STATUS";
-            this.STATUS.HeaderText = "状态";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.ReadOnly = true;
-            // 
-            // CREATEUSER
-            // 
-            this.CREATEUSER.DataPropertyName = "CREATEUSER";
-            this.CREATEUSER.HeaderText = "创建人";
-            this.CREATEUSER.Name = "CREATEUSER";
-            this.CREATEUSER.ReadOnly = true;
-            // 
-            // WFT_ID
-            // 
-            this.WFT_ID.DataPropertyName = "WFT_ID";
-            this.WFT_ID.HeaderText = "WFT_ID";
-            this.WFT_ID.Name = "WFT_ID";
-            this.WFT_ID.ReadOnly = true;
-            // 
             // MaterialConfForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1185,6 +1185,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.toolBase);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MaterialConfForm";
             this.Text = "材料";
             this.groupBox1.ResumeLayout(false);

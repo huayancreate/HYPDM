@@ -512,6 +512,7 @@
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConnectForm";
             this.Text = "关联关系";
             this.Load += new System.EventHandler(this.ConnectForm_Load);

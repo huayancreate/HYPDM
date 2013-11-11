@@ -84,7 +84,7 @@ namespace HYPDM.WinUI.DrawingDocument
         public DataTable  GetQueryResultForDataTable(string queryStr)
         {
 
-            DataTable dtTemp = getDataTableBySql("PDM_DRAWING.* ", "WHERE DEL_FLAG='N' AND " + c, " PDM_DRAWING left join PDM_Params_DETAIL" + " ON PDM_Params_DETAIL.MASTER_TABLE_NAME='PDM_DRAWING' AND DOCID=PK_VALUE ");
+            DataTable dtTemp = getDataTableBySql("PDM_DRAWING.* ", "WHERE DEL_FLAG='N' AND " + queryStr, " PDM_DRAWING left join PDM_Params_DETAIL" + " ON PDM_Params_DETAIL.MASTER_TABLE_NAME='PDM_DRAWING' AND DOCID=PK_VALUE ");
 
             if (dtTemp == null || dtTemp.Rows.Count == 0)
             {

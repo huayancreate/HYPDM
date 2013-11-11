@@ -42,3 +42,10 @@ E:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.Start.pdb
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.exe
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.pdb
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.csprojResolveAssemblyReference.cache
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.exe.config
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.XML
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.exe
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Start.pdb
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.exe
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.pdb
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Start\obj\Debug\HYPDM.Start.csprojResolveAssemblyReference.cache

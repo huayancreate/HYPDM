@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDocumentQuery));
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dtpUpdateDate = new System.Windows.Forms.DateTimePicker();
@@ -82,6 +83,7 @@
             // 
             // panel3
             // 
+            this.panel3.Location = new System.Drawing.Point(0, 142);
             this.panel3.Size = new System.Drawing.Size(785, 26);
             // 
             // btnClear
@@ -244,6 +246,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 168);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "FrmDocumentQuery";
             this.Text = "文档查询";

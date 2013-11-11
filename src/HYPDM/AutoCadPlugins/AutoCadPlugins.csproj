@@ -94,6 +94,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client\InitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,14 +117,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="cadSetting.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Client\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Client\InitForm.resx">
       <DependentUpon>InitForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +136,7 @@
     <Content Include="dll\AcCui.dll" />
     <Content Include="dll\acdbmgd.dll" />
     <Content Include="dll\acmgd.dll" />
+    <Content Include="dll\FileSockClient.dll" />
     <Content Include="dll\Interop.AutoCAD.dll" />
     <Content Include="dll\WcfClient.dll" />
   </ItemGroup>

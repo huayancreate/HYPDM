@@ -12,8 +12,7 @@ namespace HYPDM.Res
         /// <returns></returns>
         public System.Drawing.Icon GetMainIcon()
         {
-            return null;
-           // return Properties.Resources.Drugbasket;
+            return Properties.Resources.logo;
         }
 
         /// <summary>
@@ -64,8 +63,8 @@ namespace HYPDM.Res
         /// <returns></returns>
         public object GetAboutForm()
         {
-          //  return null;
-          return new AboutForm();
+            //  return null;
+            return new AboutForm();
         }
 
         /// <summary>
@@ -83,8 +82,8 @@ namespace HYPDM.Res
         /// <returns></returns>
         public object GetBannerControl()
         {
-           return new Banner();
-          //  return null;
+            return new Banner();
+            //  return null;
         }
 
         /// <summary>

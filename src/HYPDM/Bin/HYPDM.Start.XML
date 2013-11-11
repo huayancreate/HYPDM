@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HYPDM.Start</name>
+    </assembly>
+    <members>
+        <member name="M:HYPDM.Start.AppStart.Main">
+            <summary>
+            AgileEAS.NET平台的启动入口。
+            </summary>
+            <remarks>如果操作系统是 Windows XP 或者 Windows 2003，则系统将使用 系统 视觉样式。</remarks>
+        </member>
+    </members>
+</doc>

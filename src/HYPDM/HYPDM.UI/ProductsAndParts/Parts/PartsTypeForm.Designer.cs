@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsTypeForm));
             this.chkNormal = new System.Windows.Forms.CheckBox();
             this.chkStandard = new System.Windows.Forms.CheckBox();
             this.chkUniversal = new System.Windows.Forms.CheckBox();
@@ -105,6 +106,7 @@
             this.Controls.Add(this.chkUniversal);
             this.Controls.Add(this.chkStandard);
             this.Controls.Add(this.chkNormal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PartsTypeForm";
             this.Text = "BOM";
             this.ResumeLayout(false);

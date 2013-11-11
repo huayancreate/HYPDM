@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConnectionFilterForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
@@ -565,19 +566,19 @@
             this.cmSelect,
             this.cmDelete});
             this.cmFilter.Name = "cmFilter";
-            this.cmFilter.Size = new System.Drawing.Size(153, 70);
+            this.cmFilter.Size = new System.Drawing.Size(101, 48);
             // 
             // cmSelect
             // 
             this.cmSelect.Name = "cmSelect";
-            this.cmSelect.Size = new System.Drawing.Size(152, 22);
+            this.cmSelect.Size = new System.Drawing.Size(100, 22);
             this.cmSelect.Text = "选择";
             this.cmSelect.Click += new System.EventHandler(this.cmSelect_Click);
             // 
             // cmDelete
             // 
             this.cmDelete.Name = "cmDelete";
-            this.cmDelete.Size = new System.Drawing.Size(152, 22);
+            this.cmDelete.Size = new System.Drawing.Size(100, 22);
             this.cmDelete.Text = "删除";
             this.cmDelete.Click += new System.EventHandler(this.cmDelete_Click);
             // 
@@ -588,6 +589,7 @@
             this.ClientSize = new System.Drawing.Size(659, 435);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConnectionFilterForm";
             this.Text = "连接过滤器";
             this.panel1.ResumeLayout(false);

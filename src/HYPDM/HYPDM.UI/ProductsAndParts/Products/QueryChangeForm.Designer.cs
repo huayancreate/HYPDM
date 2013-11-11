@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryChangeForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.changeNo = new System.Windows.Forms.TextBox();
@@ -151,7 +152,7 @@
             this.changeTime.TabIndex = 13;
             this.changeTime.ValueX = null;
             // 
-            // ChangeQueryForm
+            // QueryChangeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -168,7 +169,8 @@
             this.Controls.Add(this.changeNo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ChangeQueryForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "QueryChangeForm";
             this.Text = "工程变更详细查询";
             this.ResumeLayout(false);
             this.PerformLayout();

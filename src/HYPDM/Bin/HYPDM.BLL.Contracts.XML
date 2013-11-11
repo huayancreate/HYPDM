@@ -211,6 +211,26 @@
             <param name="bl"></param>
             <returns></returns>
         </member>
+        <member name="M:HYPDM.BLL.IDRAWINGService.GetDrawObjectDCID(System.String)">
+            <summary>
+            获取图纸对象
+            </summary>
+            <param name="objId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.BLL.IDRAWINGService.DocDel(System.Collections.Generic.IList{HYPDM.Entities.PDM_DRAWING},System.Collections.Generic.IList{HYPDM.Entities.DOC_FILE_LIST})">
+            <summary>
+            删除图纸对象及关联文件
+            </summary>
+            <param name="documentList"></param>
+            <param name="docFileList"></param>
+        </member>
+        <member name="M:HYPDM.BLL.IDRAWINGService.DocSave(System.Collections.Generic.IList{HYPDM.Entities.PDM_DRAWING})">
+            <summary>
+            保存图纸文档
+            </summary>
+            <param name="documentList"></param>
+        </member>
         <member name="M:HYPDM.BLL.IFilterService.getFilterList(System.String,System.String)">
             <summary>
             获取产品私有过滤器或者公共过滤器

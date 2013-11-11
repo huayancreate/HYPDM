@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewFileFrm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.WBFileView = new System.Windows.Forms.WebBrowser();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -47,16 +48,6 @@
             this.panel1.Size = new System.Drawing.Size(946, 489);
             this.panel1.TabIndex = 0;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(946, 35);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "功能区";
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.WBFileView);
@@ -69,14 +60,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "文件预览区";
             // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 433);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(940, 18);
-            this.panel2.TabIndex = 0;
-            // 
             // WBFileView
             // 
             this.WBFileView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,12 +69,31 @@
             this.WBFileView.Size = new System.Drawing.Size(940, 416);
             this.WBFileView.TabIndex = 1;
             // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(3, 433);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(940, 18);
+            this.panel2.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(946, 35);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "功能区";
+            // 
             // ViewFileFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 489);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewFileFrm";
             this.Text = "ViewFileFrm";
             this.Load += new System.EventHandler(this.ViewFileFrm_Load);

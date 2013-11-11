@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserAndUserRoleForm));
             this.pnlNotSelect = new System.Windows.Forms.Panel();
             this.lvNotSelect = new System.Windows.Forms.ListView();
             this.colUsername = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -216,6 +217,7 @@
             this.Controls.Add(this.btnQuery);
             this.Controls.Add(this.pnlNotSelect);
             this.Controls.Add(this.txtName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "UserAndUserRoleForm";
             this.Text = "签批人员选择";

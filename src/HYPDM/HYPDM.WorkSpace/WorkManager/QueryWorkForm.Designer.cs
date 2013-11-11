@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryWorkForm));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_modelName = new System.Windows.Forms.TextBox();
             this.bt_query = new System.Windows.Forms.Button();
@@ -101,6 +102,7 @@
             this.Controls.Add(this.bt_query);
             this.Controls.Add(this.tb_modelName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QueryWorkForm";
             this.Text = "查询";
             this.ResumeLayout(false);

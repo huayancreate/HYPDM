@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocAddForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DrawAddForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
-            this.dgv_DocList = new HYPDM.BaseControl.DataGridViewExt();
             this.tsb_type = new System.Windows.Forms.ToolStripComboBox();
             this.tsb_value = new System.Windows.Forms.ToolStripTextBox();
             this.tsb_query = new System.Windows.Forms.ToolStripButton();
             this.tsb_select = new System.Windows.Forms.ToolStripButton();
+            this.ucPaging1 = new HYPDM.BaseControl.UcPaging();
+            this.dgv_DocList = new HYPDM.BaseControl.DataGridViewExt();
             this.DOCID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOCVERSION = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,46 +58,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(614, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // ucPaging1
-            // 
-            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ucPaging1.ExportIsVisiable = false;
-            this.ucPaging1.Location = new System.Drawing.Point(0, 378);
-            this.ucPaging1.Name = "ucPaging1";
-            this.ucPaging1.PageSize = 20;
-            this.ucPaging1.Size = new System.Drawing.Size(614, 26);
-            this.ucPaging1.TabIndex = 1;
-            // 
-            // dgv_DocList
-            // 
-            this.dgv_DocList.AllowUserToAddRows = false;
-            this.dgv_DocList.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.dgv_DocList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgv_DocList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_DocList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DOCID,
-            this.DOCNO,
-            this.DOCVERSION,
-            this.DOCCREATEUSER,
-            this.Column5});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.GhostWhite;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_DocList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_DocList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_DocList.GridColor = System.Drawing.Color.DarkSeaGreen;
-            this.dgv_DocList.Location = new System.Drawing.Point(0, 25);
-            this.dgv_DocList.Name = "dgv_DocList";
-            this.dgv_DocList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
-            this.dgv_DocList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
-            this.dgv_DocList.RowTemplate.Height = 23;
-            this.dgv_DocList.Size = new System.Drawing.Size(614, 353);
-            this.dgv_DocList.TabIndex = 2;
             // 
             // tsb_type
             // 
@@ -131,6 +91,46 @@
             this.tsb_select.Size = new System.Drawing.Size(52, 22);
             this.tsb_select.Text = "选择";
             this.tsb_select.Click += new System.EventHandler(this.tsb_select_Click);
+            // 
+            // ucPaging1
+            // 
+            this.ucPaging1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ucPaging1.ExportIsVisiable = false;
+            this.ucPaging1.Location = new System.Drawing.Point(0, 378);
+            this.ucPaging1.Name = "ucPaging1";
+            this.ucPaging1.PageSize = 20;
+            this.ucPaging1.Size = new System.Drawing.Size(614, 26);
+            this.ucPaging1.TabIndex = 1;
+            // 
+            // dgv_DocList
+            // 
+            this.dgv_DocList.AllowUserToAddRows = false;
+            this.dgv_DocList.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.dgv_DocList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_DocList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_DocList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DOCID,
+            this.DOCNO,
+            this.DOCVERSION,
+            this.DOCCREATEUSER,
+            this.Column5});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_DocList.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_DocList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_DocList.GridColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgv_DocList.Location = new System.Drawing.Point(0, 25);
+            this.dgv_DocList.Name = "dgv_DocList";
+            this.dgv_DocList.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgv_DocList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Red;
+            this.dgv_DocList.RowTemplate.Height = 23;
+            this.dgv_DocList.Size = new System.Drawing.Size(614, 353);
+            this.dgv_DocList.TabIndex = 2;
             // 
             // DOCID
             // 
@@ -166,7 +166,7 @@
             this.Column5.Name = "Column5";
             this.Column5.Width = 200;
             // 
-            // DocAddForm
+            // DrawAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -174,7 +174,8 @@
             this.Controls.Add(this.dgv_DocList);
             this.Controls.Add(this.ucPaging1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "DocAddForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "DrawAddForm";
             this.Text = "添加文档";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

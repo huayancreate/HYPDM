@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer3 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsCompForm));
             System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer1 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsCompForm));
+            System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer treeListViewItemCollectionComparer2 = new System.Windows.Forms.TreeListViewItemCollection.TreeListViewItemCollectionComparer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -367,9 +367,9 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
-            treeListViewItemCollectionComparer3.Column = 0;
-            treeListViewItemCollectionComparer3.SortOrder = System.Windows.Forms.SortOrder.Ascending;
-            this.tlv_treeFirst.Comparer = treeListViewItemCollectionComparer3;
+            treeListViewItemCollectionComparer1.Column = 0;
+            treeListViewItemCollectionComparer1.SortOrder = System.Windows.Forms.SortOrder.Ascending;
+            this.tlv_treeFirst.Comparer = treeListViewItemCollectionComparer1;
             this.tlv_treeFirst.GridLines = true;
             this.tlv_treeFirst.Location = new System.Drawing.Point(0, 161);
             this.tlv_treeFirst.Name = "tlv_treeFirst";
@@ -427,9 +427,9 @@
             this.columnHeader10,
             this.columnHeader11,
             this.columnHeader12});
-            treeListViewItemCollectionComparer1.Column = 0;
-            treeListViewItemCollectionComparer1.SortOrder = System.Windows.Forms.SortOrder.Ascending;
-            this.tlv_treeSecond.Comparer = treeListViewItemCollectionComparer1;
+            treeListViewItemCollectionComparer2.Column = 0;
+            treeListViewItemCollectionComparer2.SortOrder = System.Windows.Forms.SortOrder.Ascending;
+            this.tlv_treeSecond.Comparer = treeListViewItemCollectionComparer2;
             this.tlv_treeSecond.GridLines = true;
             this.tlv_treeSecond.Location = new System.Drawing.Point(478, 161);
             this.tlv_treeSecond.Name = "tlv_treeSecond";
@@ -468,7 +468,7 @@
             this.columnHeader12.Text = "数量";
             this.columnHeader12.Width = 37;
             // 
-            // ProductsCompForm
+            // PartsCompForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -480,7 +480,8 @@
             this.Controls.Add(this.bt_comp);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "ProductsCompForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "PartsCompForm";
             this.Text = "产品比较界面";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

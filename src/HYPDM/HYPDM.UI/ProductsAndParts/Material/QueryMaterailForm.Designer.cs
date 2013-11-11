@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueryMaterailForm));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_materailNo = new System.Windows.Forms.TextBox();
             this.tb_rawMaterail = new System.Windows.Forms.TextBox();
@@ -207,6 +208,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_materailNo);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QueryMaterailForm";
             this.Text = "零件详细查询";
             this.ResumeLayout(false);

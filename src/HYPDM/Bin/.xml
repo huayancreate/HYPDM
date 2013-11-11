@@ -37,6 +37,13 @@
             使用代码编辑器修改此方法的内容。
             </summary>
         </member>
+        <member name="M:HYPDM.DataType.GetTableName(HYPDM.DataType.RelationObjectType)">
+            <summary>
+            根据RelationObjectType类型获取对应的主表名称及form
+            </summary>
+            <param name="RelationObjectType"> DataType.RelationObjectTyp</param>
+            <returns></returns>
+        </member>
         <member name="T:HYPDM.DataType.AuthObjectType">
             <summary>
             文件权限设定时候的对象,SingleUser标识对单用户进行设定,UserRole以用户角色为设定对象,Folder以文件夹为对象
@@ -80,6 +87,16 @@
         <member name="F:HYPDM.DataType.RelationObjectType.Material">
             <summary>
             物料
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.RelationObjectType.ALL">
+            <summary>
+            不区分,公用
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.RelationObjectType.Drawing">
+            <summary>
+            图纸
             </summary>
         </member>
         <member name="T:HYPDM.DataType.WFTEMPLATESSTATUS">
@@ -132,16 +149,6 @@
             类型
             </summary>
         </member>
-        <member name="F:HYPDM.DataType.FileType.ProcessFile">
-            <summary>
-            工艺文件
-            </summary>
-        </member>
-        <member name="F:HYPDM.DataType.FileType.Drawing">
-            <summary>
-            图纸文件
-            </summary>
-        </member>
         <member name="T:HYPDM.DataType.DataColumnType">
             <summary>
             扩展栏位的列数据类型
@@ -160,6 +167,16 @@
         <member name="F:HYPDM.DataType.DataColumnType.DateTime">
             <summary>
             日期
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.FileType.ProcessFile">
+            <summary>
+            工艺文件
+            </summary>
+        </member>
+        <member name="F:HYPDM.DataType.FileType.Drawing">
+            <summary>
+            图纸文件
             </summary>
         </member>
         <member name="T:HYPDM.BaseControl.ExportToExcelProvider">

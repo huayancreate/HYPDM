@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseCheckInForm));
             this.btnSelectPath = new System.Windows.Forms.Button();
             this.chkUpload = new System.Windows.Forms.CheckBox();
             this.btnClose = new System.Windows.Forms.Button();
@@ -110,7 +111,7 @@
             this.txtFileName.Size = new System.Drawing.Size(318, 21);
             this.txtFileName.TabIndex = 1;
             // 
-            // CheckInForm
+            // BaseCheckInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +124,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.txtFileName);
-            this.Name = "CheckInForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "BaseCheckInForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "检入";
             this.ResumeLayout(false);

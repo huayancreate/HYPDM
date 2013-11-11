@@ -14,7 +14,6 @@ using System.Windows.Forms;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.DatabaseServices;
-using AutoCAD;
 using services = Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.Windows;
 
@@ -37,15 +36,22 @@ namespace AutoCadPlugins.Client
             WcfClient.pdmService.ResultObject obj = client.Login(txtUserName.Text.Trim(), txtPassWord.Text.Trim());
             if (obj.AckResult)
             {
-                Common.Util.UserName = txtUserName.Text.Trim();
-                //COM方式获取AutoCAD应用程序对象 
-                AcadApplication acadApp = (AcadApplication)services.Application.AcadApplication;
-                var menuCount = acadApp.MenuGroups.Item(0).Menus.Item(0).Count;
-                for (int i = 0; i < menuCount; i++)
+                if (DialogResult.OK == MessageBox.Show("用户登录成功!", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information))
                 {
-                    acadApp.MenuGroups.Item(0).Menus.Item(0).Item(i).Enable = true;
+                    Common.Util.UserName = txtUserName.Text.Trim();
+                    //COM方式获取AutoCAD应用程序对象
+                    AcadApplication acadApp = (AcadApplication)services.Application.AcadApplication;
+                    var menuCount = acadApp.MenuGroups.Item(0).Menus.Item(0).Count;
+                    for (int i = 0; i < menuCount; i++)
+                    {
+                        acadApp.MenuGroups.Item(0).Menus.Item(0).Item(i).Enable = true;
+                    }
+                    this.Visible = false;
                 }
-                this.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show(obj.ErrMessage);
             }
         }
 

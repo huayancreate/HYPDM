@@ -189,7 +189,7 @@
             this.query_Product.UseVisualStyleBackColor = true;
             this.query_Product.Click += new System.EventHandler(this.query_Product_Click);
             // 
-            // ProductsQueryForm
+            // QueryProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -211,9 +211,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.no_Product);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ProductsQueryForm";
+            this.Name = "QueryProductsForm";
             this.Text = "产品查询";
             this.ResumeLayout(false);
             this.PerformLayout();

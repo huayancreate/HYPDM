@@ -92,6 +92,7 @@ namespace AutoCadPlugins.Client
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(103, 34);
 			this.panel4.TabIndex = 19;
+			this.panel4.Visible = false;
 			// 
 			// label4
 			// 
@@ -101,6 +102,7 @@ namespace AutoCadPlugins.Client
 			this.label4.Size = new System.Drawing.Size(41, 12);
 			this.label4.TabIndex = 1;
 			this.label4.Text = "label4";
+			this.label4.Visible = false;
 			// 
 			// label2
 			// 
@@ -109,6 +111,7 @@ namespace AutoCadPlugins.Client
 			this.label2.Size = new System.Drawing.Size(59, 34);
 			this.label2.TabIndex = 18;
 			this.label2.Text = "主关联零部件：";
+			this.label2.Visible = false;
 			// 
 			// btnPartFind
 			// 
@@ -170,6 +173,7 @@ namespace AutoCadPlugins.Client
 			this.checkBox1.TabIndex = 2;
 			this.checkBox1.Text = "导入模板";
 			this.checkBox1.UseVisualStyleBackColor = true;
+			this.checkBox1.Visible = false;
 			// 
 			// radioButton2
 			// 
@@ -191,6 +195,7 @@ namespace AutoCadPlugins.Client
 			this.radioButton1.TabStop = true;
 			this.radioButton1.Text = "使用模板";
 			this.radioButton1.UseVisualStyleBackColor = true;
+			this.radioButton1.Visible = false;
 			// 
 			// lstPartsType
 			// 
@@ -236,9 +241,8 @@ namespace AutoCadPlugins.Client
 			this.lblDrawCode.AutoSize = true;
 			this.lblDrawCode.Location = new System.Drawing.Point(8, 7);
 			this.lblDrawCode.Name = "lblDrawCode";
-			this.lblDrawCode.Size = new System.Drawing.Size(41, 12);
+			this.lblDrawCode.Size = new System.Drawing.Size(0, 12);
 			this.lblDrawCode.TabIndex = 0;
-			this.lblDrawCode.Text = "label3";
 			// 
 			// label1
 			// 

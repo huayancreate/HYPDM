@@ -40,9 +40,9 @@
             this.IFASSO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolDedtailQuery = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolQueryNo = new System.Windows.Forms.ToolStripTextBox();
-            this.toolDedtailQuery = new System.Windows.Forms.ToolStripButton();
             this.toolQuery = new System.Windows.Forms.ToolStripButton();
             this.toolClose = new System.Windows.Forms.ToolStripButton();
             this.toolSelect = new System.Windows.Forms.ToolStripButton();
@@ -159,6 +159,15 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolDedtailQuery
+            // 
+            this.toolDedtailQuery.Image = global::HYPDM.WinUI.Properties.Resources.view;
+            this.toolDedtailQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolDedtailQuery.Name = "toolDedtailQuery";
+            this.toolDedtailQuery.Size = new System.Drawing.Size(76, 22);
+            this.toolDedtailQuery.Text = "详细查询";
+            this.toolDedtailQuery.Click += new System.EventHandler(this.toolDedtailQuery_Click);
+            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
@@ -171,15 +180,6 @@
             this.toolQueryNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolQueryNo.Name = "toolQueryNo";
             this.toolQueryNo.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolDedtailQuery
-            // 
-            this.toolDedtailQuery.Image = global::HYPDM.WinUI.Properties.Resources.view;
-            this.toolDedtailQuery.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolDedtailQuery.Name = "toolDedtailQuery";
-            this.toolDedtailQuery.Size = new System.Drawing.Size(76, 22);
-            this.toolDedtailQuery.Text = "详细查询";
-            this.toolDedtailQuery.Click += new System.EventHandler(this.toolDedtailQuery_Click);
             // 
             // toolQuery
             // 
@@ -226,6 +226,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 429);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProductsAssChangeListForm";
             this.Text = "关联工程变更记录";
             this.panel1.ResumeLayout(false);

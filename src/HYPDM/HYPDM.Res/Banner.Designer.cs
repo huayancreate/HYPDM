@@ -40,6 +40,7 @@
             this.lbPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbPassword.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPassword.ForeColor = System.Drawing.Color.Blue;
+            this.lbPassword.LinkColor = System.Drawing.Color.Blue;
             this.lbPassword.Location = new System.Drawing.Point(920, 21);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(53, 12);

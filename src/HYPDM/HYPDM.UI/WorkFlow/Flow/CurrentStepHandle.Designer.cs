@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CurrentStepHandle));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gpDetail = new System.Windows.Forms.GroupBox();
             this.btnHandle = new System.Windows.Forms.Button();
@@ -240,6 +241,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 471);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CurrentStepHandle";
             this.Text = "当前处理人";
             this.Load += new System.EventHandler(this.CurrentStepHandle_Load);

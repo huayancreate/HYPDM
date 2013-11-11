@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HYPDM.Res</name>
+    </assembly>
+    <members>
+        <member name="F:HYPDM.Res.AboutForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.AboutForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.AboutForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
+        <member name="F:HYPDM.Res.Banner.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.Banner.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.Res.Banner.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:HYPDM.Res.BottomControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.BottomControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.Res.BottomControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:HYPDM.Res.LoginForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.LoginForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.LoginForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.LoginForm.Passed">
+            <summary>
+            获取或者设置一个值，该值只是用户是否通过验证。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.LoginForm.LoginID">
+            <summary>
+            获取正在登录的用户的登录ID。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.LoginForm.Password">
+            <summary>
+            获取正在登录的用户的登录密码。
+            </summary>
+        </member>
+        <member name="F:HYPDM.Res.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.Res.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.NavigationControl.LoadModule(System.String,System.String,System.String)">
+            <summary>
+            加载模块。
+            </summary>
+            <param name="name"></param>
+            <param name="assemmby"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.NavigationControl.#ctor">
+            <summary>
+            初始化 Navigation 类实例。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.NavigationControl.InitializeNavigation">
+            <summary>
+            初始化导航控件导航栏目。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.NavigationControl.InitializeNavigationGuest(System.Windows.Forms.TreeNode)">
+            <summary>
+            Guest用户初始化导航。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.NavigationControl.InitializeNavigationPublic(System.Windows.Forms.TreeNode,EAS.Explorer.INavigateGroup)">
+            <summary>
+            普通用户导航初始化。
+            </summary>
+        </member>
+        <member name="F:HYPDM.Res.NavigationControl.components">
+            <summary> 
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.NavigationControl.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:HYPDM.Res.NavigationControl.InitializeComponent">
+            <summary> 
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.NavigationProxy.GetGroupList">
+            <summary>
+            查一级分组。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.NavigationProxy.GetGroupList(System.String)">
+            <summary>
+            查下载分组。
+            </summary>
+            <param name="parentID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.NavigationProxy.GeModuleList(System.String)">
+            <summary>
+            查询导航模块。
+            </summary>
+            <param name="groupID"></param>
+            <returns></returns>
+        </member>
+        <member name="P:HYPDM.Res.NavigationProxy.GroupList">
+            <summary>
+            导航信息。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.NavigationProxy.ModuleList">
+            <summary>
+            模块信息。
+            </summary>
+        </member>
+        <member name="T:HYPDM.Res.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.bj">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.left">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.login">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.logo">
+            <summary>
+              查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.ok">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.password">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.pwd">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.right">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.user">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.users">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Properties.Resources.华研标志">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetMainIcon">
+            <summary>
+            主界面图标。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetModuleIcon">
+            <summary>
+            Tab页图标
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetDesktopImage">
+            <summary>
+            桌面背景。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetApplicationName">
+            <summary>
+            应用程序名称。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetApplicationTitle">
+            <summary>
+            应用程序标题。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetAboutForm">
+            <summary>
+            关于窗口。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetBottomControl">
+            <summary>
+            Bottom通知。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetBannerControl">
+            <summary>
+            Top条幅。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetNavigationControl">
+            <summary>
+            导航工具条。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetLoginForm">
+            <summary>
+            登录窗口。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HYPDM.Res.Resources.GetStartModule">
+            <summary>
+            起始页。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HYPDM.Res.Resources.DisplayMainMenu">
+            <summary>
+            显示菜单。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.Resources.DisplayNavigationTool">
+            <summary>
+            显示导航工具条。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.Welcome.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.Welcome.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要使用代码编辑器修改
+            此方法的内容。
+            </summary>
+        </member>
+    </members>
+</doc>

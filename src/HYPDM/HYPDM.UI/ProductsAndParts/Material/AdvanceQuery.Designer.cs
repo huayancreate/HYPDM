@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdvanceQuery));
             this.bt_query = new System.Windows.Forms.Button();
             this.tb_memoEn = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -80,6 +81,7 @@
             // 
             // panel3
             // 
+            this.panel3.Location = new System.Drawing.Point(0, 142);
             this.panel3.Size = new System.Drawing.Size(536, 26);
             // 
             // bt_query
@@ -225,6 +227,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 168);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "AdvanceQuery";
             this.Text = "高级查询";

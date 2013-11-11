@@ -42,3 +42,9 @@ F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb
 C:\Users\wliu\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.XML
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.XML
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.dll
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Contracts.pdb
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.csprojResolveAssemblyReference.cache
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.dll
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Contracts\obj\Debug\HYPDM.BLL.Contracts.pdb

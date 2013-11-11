@@ -67,3 +67,6 @@ D:\My Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\obj\Debug\HYPDM.parts.PartsInfoContr
 D:\My Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\obj\Debug\HYPDM.parts.ProductInfoControl.resources
 D:\My Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\obj\Debug\HYPDM.parts.ProductRegControl.resources
 D:\My Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\obj\Debug\HYPDM.parts.UseMsgControl.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\bin\Debug\HYPDM.exe.config
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\obj\Debug\HYPDM.exe
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\ui\HYPDM\HYPDM\obj\Debug\HYPDM.pdb

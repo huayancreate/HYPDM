@@ -174,6 +174,7 @@
             this.Controls.Add(this.dgv_DocList);
             this.Controls.Add(this.ucPaging1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DrawAddForm";
             this.Text = "添加图纸文档";
             this.toolStrip1.ResumeLayout(false);

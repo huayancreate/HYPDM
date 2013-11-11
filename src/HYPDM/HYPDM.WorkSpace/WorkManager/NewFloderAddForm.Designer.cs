@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewFloderAddForm));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_FloderName = new System.Windows.Forms.TextBox();
             this.bt_save = new System.Windows.Forms.Button();
@@ -79,6 +80,7 @@
             this.Controls.Add(this.bt_save);
             this.Controls.Add(this.tb_FloderName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewFloderAddForm";
             this.Text = "输入";
             this.ResumeLayout(false);

@@ -1256,5 +1256,73 @@
       <Package />
       <LMTime>2013-09-12T09:41:25.067</LMTime>
     </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>1C8D03AD-476F-4BB0-9416-2C111A5FCB7A</Guid>
+      <Name>图纸对象</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.DrawingDocument.DocListControl</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>图纸对象</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-26T14:19:10.823</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>48543BE9-3365-48F6-8425-8DE3432CF939</Guid>
+      <Name>系统配置</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.SysConfig.UcSysConfig</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>系统配置</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-25T15:36:07.4</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>978817E0-30B3-4027-8CEA-D102A0294AA6</Guid>
+      <Name>ddd</Name>
+      <Assembly>EAS.Report.Controls</Assembly>
+      <Type>EAS.Report.Controls.DynamicReport</Type>
+      <Method />
+      <Version>1.0.0.1</Version>
+      <Developer>agilelab.cn</Developer>
+      <Description />
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>256</Attributes>
+      <Package>00000000-0000-0000-0000-000000000000</Package>
+      <LMTime>2013-09-30T14:14:20.673</LMTime>
+    </Module>
+    <Module>
+      <Used>false</Used>
+      <WorkFlowAddIn>false</WorkFlowAddIn>
+      <Guid>D0EF19B9-A38B-4965-A7C1-783CDDB82DDD</Guid>
+      <Name>测试报表</Name>
+      <Assembly>HYPDM.WinUI</Assembly>
+      <Type>HYPDM.WinUI.ProductsAndParts.ReportText</Type>
+      <Method />
+      <Version>1.0.0.0</Version>
+      <Developer />
+      <Description>测试报表</Description>
+      <Url />
+      <SortCode>0</SortCode>
+      <Attributes>1</Attributes>
+      <Package />
+      <LMTime>2013-09-30T15:31:17.843</LMTime>
+    </Module>
   </Items>
 </root>

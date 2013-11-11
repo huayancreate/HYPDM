@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddParms));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pnl = new System.Windows.Forms.Panel();
             this.pnlIsHasParams = new System.Windows.Forms.Panel();
@@ -129,6 +130,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(362, 472);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAddParms";
             this.Text = "属性添加";
             this.Load += new System.EventHandler(this.FrmAddParms_Load);

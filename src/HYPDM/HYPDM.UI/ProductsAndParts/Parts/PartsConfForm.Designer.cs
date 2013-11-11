@@ -1634,6 +1634,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.toolBase);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PartsConfForm";
             this.Tag = "";
             this.Text = "半成品";

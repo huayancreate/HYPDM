@@ -62,7 +62,7 @@
             this.tsBtnSave.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSave.Image")));
             this.tsBtnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnSave.Name = "tsBtnSave";
-            this.tsBtnSave.Size = new System.Drawing.Size(49, 22);
+            this.tsBtnSave.Size = new System.Drawing.Size(52, 22);
             this.tsBtnSave.Text = "保存";
             this.tsBtnSave.Click += new System.EventHandler(this.tsBtnSave_Click);
             // 
@@ -93,10 +93,10 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 21);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(284, 140);
+            this.tabPage1.Size = new System.Drawing.Size(284, 139);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "使用信息";
             // 
@@ -157,6 +157,7 @@
             this.ClientSize = new System.Drawing.Size(284, 159);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UseMsgForm";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

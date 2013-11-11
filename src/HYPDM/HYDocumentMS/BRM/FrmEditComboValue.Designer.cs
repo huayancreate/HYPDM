@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditComboValue));
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -203,6 +204,7 @@
             this.ClientSize = new System.Drawing.Size(452, 191);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEditComboValue";
             this.Text = "数据编辑";
             this.Load += new System.EventHandler(this.FrmEditComboValue_Load);

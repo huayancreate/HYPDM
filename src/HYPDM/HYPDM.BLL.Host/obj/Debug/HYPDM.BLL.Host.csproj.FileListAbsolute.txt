@@ -41,3 +41,9 @@ E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojRes
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.XML
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.XML
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.dll
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.BLL.Host.pdb
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.csprojResolveAssemblyReference.cache
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.dll
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.BLL.Host\obj\Debug\HYPDM.BLL.Host.pdb
