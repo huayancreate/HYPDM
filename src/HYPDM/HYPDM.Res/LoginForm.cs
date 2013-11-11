@@ -25,6 +25,14 @@ namespace HYPDM.Res
 
             this.txtPassword.Text = string.Empty;
 
+            this.pictureBox4.SendToBack();
+            this.panel1.BackColor = Color.Transparent;
+            this.panel1.Parent = this.pictureBox4;
+            this.panel1.BringToFront();
+            //this.panel1.BackColor = Color.Transparent;
+            //this.pictureBox1.BackColor = Color.Transparent;
+            //this.Opacity = 0.61;
+
             //this.Width = 475;
             //this.Height = 310;
         }

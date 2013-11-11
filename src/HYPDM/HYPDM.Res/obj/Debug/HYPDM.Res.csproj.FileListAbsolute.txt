@@ -38,6 +38,7 @@ E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csproj.GenerateReso
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.dll
 E:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.pdb
 F:\HYFrameWork\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.MainForm.resources
+C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Res.XML
 C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Res.dll
 C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Res.pdb
 C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csprojResolveAssemblyReference.cache
@@ -52,4 +53,3 @@ C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.R
 C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.csproj.GenerateResource.Cache
 C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.dll
 C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\HYPDM.Res\obj\Debug\HYPDM.Res.pdb
-C:\Users\liuweiisme\Documents\GitHub\HYPDM\src\HYPDM\bin\HYPDM.Res.XML

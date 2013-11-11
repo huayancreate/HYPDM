@@ -86,12 +86,21 @@ namespace HYPDM.Res
             //}
             //else
             //{
-            this.InitializeNavigationPublic(root, null);
-            //}
+            
+            IAccount LoginInfo = EAS.Application.Instance.Session.Client as IAccount;
+            if (string.Compare(LoginInfo.LoginID, "Guest", true) == 0)
+            {
+                this.InitializeNavigationGuest(root);
+            }
+            else
+            {
+                this.InitializeNavigationPublic(root, null);
+            }
+
 
             this.Tree.Nodes.Add(root);
 
-            
+
             this.Tree.SelectedNode = root;
             root.Expand();
         }
@@ -108,12 +117,25 @@ namespace HYPDM.Res
             itemNode.Tag = TModule;
             node.Nodes.Add(itemNode);
 
-            //TModule = typeof(AboutForm);
-            //itemNode = new TreeNode("关于", 2, 2);
+            TModule = typeof(AboutForm);
+            itemNode = new TreeNode("关于", 2, 2);
+            itemNode.Tag = TModule;
+            node.Nodes.Add(itemNode);
+
+            root.Nodes.Add(node);
+            //TreeNode node = new TreeNode("相关连接", 0, 1);
+
+            //Type TModule = typeof(LoginForm);
+            //TreeNode itemNode = new TreeNode("登录", 2, 2);
             //itemNode.Tag = TModule;
             //node.Nodes.Add(itemNode);
 
-            root.Nodes.Add(node);
+            ////TModule = typeof(AboutForm);
+            ////itemNode = new TreeNode("关于", 2, 2);
+            ////itemNode.Tag = TModule;
+            ////node.Nodes.Add(itemNode);
+
+            //root.Nodes.Add(node);
         }
 
         /// <summary>
