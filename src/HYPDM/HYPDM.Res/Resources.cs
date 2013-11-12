@@ -101,7 +101,8 @@ namespace HYPDM.Res
         /// <returns></returns>
         public ILoginForm GetLoginForm()
         {
-            return new LoginForm();
+            //return new LoginForm();
+            return new LoginForm2();
         }
 
         /// <summary>

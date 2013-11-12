@@ -85,6 +85,38 @@
             获取正在登录的用户的登录密码。
             </summary>
         </member>
+        <member name="F:HYPDM.Res.LoginForm2.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:HYPDM.Res.LoginForm2.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:HYPDM.Res.LoginForm2.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.LoginForm2.Passed">
+            <summary>
+            获取或者设置一个值，该值只是用户是否通过验证。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.LoginForm2.LoginID">
+            <summary>
+            获取正在登录的用户的登录ID。
+            </summary>
+        </member>
+        <member name="P:HYPDM.Res.LoginForm2.Password">
+            <summary>
+            获取正在登录的用户的登录密码。
+            </summary>
+        </member>
         <member name="F:HYPDM.Res.MainForm.components">
             <summary>
             Required designer variable.
