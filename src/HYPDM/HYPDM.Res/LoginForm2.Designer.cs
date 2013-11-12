@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.gbLogin = new System.Windows.Forms.GroupBox();
@@ -175,6 +176,7 @@
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.gbLogin);
             this.Name = "LoginForm2";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.panelHeader.ResumeLayout(false);
